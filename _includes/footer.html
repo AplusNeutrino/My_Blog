@@ -8,7 +8,7 @@
   "
 >
   <p>
-    {{- '©' }}
+    &copy;
     <time>{{ 'now' | date: '%Y' }}</time>
 
     {% if site.social.links %}
@@ -29,22 +29,56 @@
   </p>
 
   <p class="site-runtime">
-    本站已运行 <span id="site-runtime-days">...</span> 天
+    &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days">...</span> &#22825;
+    <span aria-hidden="true">&middot;</span>
+    &#24635;&#27983;&#35272; <span id="site-total-views">...</span> &#27425;
   </p>
 </footer>
 
 <script>
   (() => {
-    const target = document.getElementById('site-runtime-days');
-    if (!target) {
+    const runtimeTarget = document.getElementById('site-runtime-days');
+    const viewsTarget = document.getElementById('site-total-views');
+
+    if (!runtimeTarget) {
       return;
     }
 
+    const statsEndpoint = 'https://neutriverse-stats.feiyuzou-me.workers.dev';
     const start = new Date('{{ site.site_start_date | default: "2026-04-29" }}T00:00:00+08:00');
     const now = new Date();
     const dayMs = 24 * 60 * 60 * 1000;
     const days = Math.max(1, Math.floor((now - start) / dayMs) + 1);
 
-    target.textContent = days.toLocaleString('zh-CN');
+    runtimeTarget.textContent = days.toLocaleString('zh-CN');
+
+    if (!viewsTarget) {
+      return;
+    }
+
+    const today = now.toISOString().slice(0, 10);
+    const storageKey = `neutriverse-view-counted-${today}`;
+    const shouldCount = localStorage.getItem(storageKey) !== '1';
+    const path = shouldCount ? '/hit' : '/stats';
+    const method = shouldCount ? 'POST' : 'GET';
+
+    fetch(`${statsEndpoint}${path}`, { method })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Stats request failed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const total = Number(data.totalViews || 0);
+        viewsTarget.textContent = total.toLocaleString('zh-CN');
+
+        if (shouldCount) {
+          localStorage.setItem(storageKey, '1');
+        }
+      })
+      .catch(() => {
+        viewsTarget.textContent = '--';
+      });
   })();
 </script>

@@ -375,8 +375,16 @@ site_start_date: "2026-04-29"
 页脚会在浏览器中根据这个日期自动计算：
 
 ```text
-本站已运行 123 天
+本站已运行 123 天 · 总浏览 1,024 次
 ```
+
+总浏览量来自 Cloudflare Worker：
+
+```text
+https://neutriverse-stats.feiyuzou-me.workers.dev
+```
+
+页脚脚本每天每个浏览器只向 `/hit` 发送一次 `POST`，避免刷新页面时重复增加太多浏览量。当天再次打开页面会改为读取 `/stats`。
 
 原来的主题署名已经移动到关于页：
 
@@ -654,11 +662,23 @@ analytics:
 
 | 方案 | 说明 |
 | --- | --- |
-| Cloudflare Worker | Worker 保存 API token，网页只请求 Worker 返回的公开数字 |
+| Cloudflare Worker | 当前采用此方案，Worker + KV 保存公开浏览量数字 |
 | GitHub Actions 定时更新 JSON | Action 用 API token 拉取数据，生成静态 `assets/data/stats.json` |
 | 第三方公开计数器 | 例如 GoatCounter 或不蒜子，接入更简单，但不是 Cloudflare Web Analytics |
 
 不要把 Cloudflare API token 直接写进网页 JavaScript。那会把 token 暴露给所有访问者。
+
+当前 Worker 地址写在：
+
+```text
+_includes/footer.html
+```
+
+如果以后 Worker 地址变化，修改：
+
+```js
+const statsEndpoint = 'https://neutriverse-stats.feiyuzou-me.workers.dev';
+```
 
 ## 10. 如何把 Cloudflare 域名连接到博客
 
