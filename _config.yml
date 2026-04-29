@@ -16,10 +16,10 @@ timezone: Asia/Shanghai
 
 title: Neutriverse # the main title
 
-tagline: -Quantum Pandemonia- # it will display as the subtitle
+tagline: Quantum Pandemonia # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  用于堆放笔记的个人站点。
+  用于堆放笔记、文字和长期想法的个人站点。
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -95,7 +95,7 @@ theme_mode: dark # [light | dark]
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-cdn: "https://chirpy-img.netlify.app"
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/NeutriverseTitle.png"
