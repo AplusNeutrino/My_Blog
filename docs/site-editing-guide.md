@@ -355,13 +355,34 @@ social:
   name: 你的名字
 ```
 
-### 2.13 页脚“本站采用 Jekyll 主题 Chirpy”
+### 2.13 页脚网站运行天数
 
-截图位置：底部右侧。
+截图位置：底部右侧，原来显示 `本站采用 Jekyll 主题 Chirpy` 的地方。
 
-来源：Chirpy 主题模板。
+来源：
 
-如果想保留主题署名，不需要改。若想修改或隐藏，需要覆盖主题的 footer 模板，这属于进阶自定义。
+```text
+_includes/footer.html
+```
+
+开始日期来源：
+
+```yaml
+# _config.yml
+site_start_date: "2026-04-29"
+```
+
+页脚会在浏览器中根据这个日期自动计算：
+
+```text
+本站已运行 123 天
+```
+
+原来的主题署名已经移动到关于页：
+
+```text
+_tabs/about.md
+```
 
 ### 2.14 浏览器标签页图标 favicon
 
@@ -604,6 +625,41 @@ giscus:
 
 建议以后确定要评论区时再配置，因为 Giscus 需要 GitHub Discussions 和对应 ID。
 
+## 9.1 Cloudflare Web Analytics 与总浏览量
+
+Chirpy 已经支持 Cloudflare Web Analytics 的前端统计脚本。配置位置：
+
+```yaml
+# _config.yml
+analytics:
+  cloudflare:
+    id:
+```
+
+Cloudflare 后台创建 Web Analytics site 后，会给出一段类似这样的代码：
+
+```html
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "这里是TOKEN"}'></script>
+```
+
+把 `token` 的值填到 `_config.yml`：
+
+```yaml
+analytics:
+  cloudflare:
+    id: "这里是TOKEN"
+```
+
+注意：Cloudflare Web Analytics 的 beacon 脚本只负责采集访问数据，它不会在网页前端公开提供“总浏览量数字”。如果要在网页上直接显示总浏览量，需要额外做一层安全读取：
+
+| 方案 | 说明 |
+| --- | --- |
+| Cloudflare Worker | Worker 保存 API token，网页只请求 Worker 返回的公开数字 |
+| GitHub Actions 定时更新 JSON | Action 用 API token 拉取数据，生成静态 `assets/data/stats.json` |
+| 第三方公开计数器 | 例如 GoatCounter 或不蒜子，接入更简单，但不是 Cloudflare Web Analytics |
+
+不要把 Cloudflare API token 直接写进网页 JavaScript。那会把 token 暴露给所有访问者。
+
 ## 10. 如何把 Cloudflare 域名连接到博客
 
 你购买的域名是：
@@ -837,6 +893,8 @@ _includes/head/custom-head.html
 | --- | --- |
 | 网站名 `Neutriverse` | `_config.yml` 的 `title` |
 | 副标题 `Quantum Pandemonia` | `_config.yml` 的 `tagline` |
+| 网站运行天数起始日 | `_config.yml` 的 `site_start_date` |
+| 页脚运行天数显示 | `_includes/footer.html` |
 | 头像 | `NeutriverseTitle.png` 和 `_config.yml` 的 `avatar` |
 | 首页文章 | `_posts/` 下的 Markdown 文件 |
 | 文章标题 | 文章 front matter 的 `title` |

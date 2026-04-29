@@ -1,0 +1,50 @@
+<!-- The Footer -->
+
+<footer
+  aria-label="Site Info"
+  class="
+    d-flex flex-column justify-content-center text-muted
+    flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3
+  "
+>
+  <p>
+    {{- '©' }}
+    <time>{{ 'now' | date: '%Y' }}</time>
+
+    {% if site.social.links %}
+      <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+    {% else %}
+      <em class="fst-normal">{{ site.social.name }}</em>.
+    {% endif %}
+
+    {% if site.data.locales[include.lang].copyright.brief %}
+      <span
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="{{ site.data.locales[include.lang].copyright.verbose }}"
+      >
+        {{- site.data.locales[include.lang].copyright.brief -}}
+      </span>
+    {% endif %}
+  </p>
+
+  <p class="site-runtime">
+    本站已运行 <span id="site-runtime-days">...</span> 天
+  </p>
+</footer>
+
+<script>
+  (() => {
+    const target = document.getElementById('site-runtime-days');
+    if (!target) {
+      return;
+    }
+
+    const start = new Date('{{ site.site_start_date | default: "2026-04-29" }}T00:00:00+08:00');
+    const now = new Date();
+    const dayMs = 24 * 60 * 60 * 1000;
+    const days = Math.max(1, Math.floor((now - start) / dayMs) + 1);
+
+    target.textContent = days.toLocaleString('zh-CN');
+  })();
+</script>
