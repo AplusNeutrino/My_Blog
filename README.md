@@ -5,7 +5,7 @@
 线上地址：
 
 ```text
-https://aplusneutrino.github.io/My_Blog/
+https://neutriverse.uk/
 ```
 
 ## 写新文章
@@ -40,3 +40,19 @@ tags: [Note]
 ## 部署设置
 
 仓库的 Pages source 应设置为 `GitHub Actions`。之后每次推送到 `main` 都会触发部署。
+
+自定义域名：
+
+```text
+neutriverse.uk
+```
+
+Cloudflare DNS 中建议设置：
+
+- `A` / `@` -> `185.199.108.153`
+- `A` / `@` -> `185.199.109.153`
+- `A` / `@` -> `185.199.110.153`
+- `A` / `@` -> `185.199.111.153`
+- `CNAME` / `www` -> `AplusNeutrino.github.io`
+
+Proxy status 建议先设为 `DNS only`，等 GitHub Pages 验证和 HTTPS 证书签发完成后再考虑是否开启代理。
