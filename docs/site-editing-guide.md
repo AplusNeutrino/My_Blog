@@ -932,7 +932,28 @@ https://neutriverse.uk/
 
 建议以后统一使用 UTF-8 保存 Markdown 文件。用 VS Code 时可以在右下角确认编码是 `UTF-8`。
 
-### 12.2 自定义域名配置
+### 12.2 页面缓存与刷新
+
+为了减少浏览器看到旧页面的概率，当前仓库做了这些处理：
+
+```yaml
+# _config.yml
+pwa:
+  enabled: false
+  cache:
+    enabled: false
+```
+
+并在 `_includes/metadata-hook.html` 中：
+
+- 添加了 no-cache meta。
+- 给 `assets/css/neutriverse.css` 增加构建版本参数。
+- 注销旧的 Service Worker。
+- 清理旧的 Cache Storage。
+
+如果未来重新启用 PWA，浏览器可能再次缓存页面和资源，部署后看到旧内容的概率会变高。
+
+### 12.3 自定义域名配置
 
 当前自定义域名文件：
 
@@ -955,7 +976,7 @@ baseurl: ""
 
 DNS 需要在 Cloudflare 后台设置。裸域 `neutriverse.uk` 指向 GitHub Pages 的 A/AAAA 记录，`www.neutriverse.uk` 可以 CNAME 到 `AplusNeutrino.github.io`。
 
-### 12.3 不建议直接改主题源码
+### 12.4 不建议直接改主题源码
 
 Chirpy 的大部分模板来自 Ruby gem，不在仓库中。早期建议优先改：
 
