@@ -31,6 +31,9 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 头像 / 社交预览图 | `NeutriverseTitle.png` |
 | 浏览器标签页图标 | `favicon.ico` 和 `_includes/head/custom-head.html` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
+| 首页右侧状态模块 | `_includes/neutriverse-status.html` |
+| 标签星图页 | `_layouts/tags.html` |
+| 自定义深色配色 | `assets/css/neutriverse.css` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
 
@@ -599,6 +602,66 @@ platforms:
 
 如果想启用 Weibo、LinkedIn、Reddit 等，文件里已经有注释模板，取消注释即可。
 
+## 8.1 如何修改 Neutriverse 视觉模块
+
+当前站点新增了几处自定义视觉：
+
+| 功能 | 文件 |
+| --- | --- |
+| 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
+| 标签星图页 | `_layouts/tags.html` |
+| 深色仪表盘配色 | `assets/css/neutriverse.css` |
+| 加载自定义 CSS | `_includes/head/custom-head.html` |
+| 文章封面图 | 文章 front matter 的 `image` |
+
+### 首页右侧状态模块
+
+状态模块显示运行天数、文章数量、标签数量、总字数、最近更新和总访问。模块位置由 `_layouts/default.html` 控制，只在首页右侧栏顶部显示。
+
+### 标签星图页
+
+标签页文件：
+
+```text
+_layouts/tags.html
+```
+
+每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/neutriverse.css` 中的 `.node-*` 类控制。
+
+### 自定义深色配色
+
+文件：
+
+```text
+assets/css/neutriverse.css
+```
+
+这里覆盖了 Chirpy 默认暗色主题的一些变量和组件样式，包括背景、侧边栏、卡片、状态模块、标签星图。
+
+### 文章封面图
+
+首页卡片支持文章 front matter 的 `image` 字段。当前 `Zodiac` 已添加：
+
+```yaml
+image:
+  path: /NeutriverseTitle.png
+  alt: Neutriverse cover image
+```
+
+给其他文章添加封面时，把图片放到仓库中，例如：
+
+```text
+assets/img/covers/my-cover.png
+```
+
+然后在文章开头写：
+
+```yaml
+image:
+  path: /assets/img/covers/my-cover.png
+  alt: Cover image description
+```
+
 ## 9. 如何修改评论系统
 
 文件：
@@ -928,4 +991,8 @@ _includes/head/custom-head.html
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 深色/浅色 | `_config.yml` 的 `theme_mode` |
+| 首页状态模块 | `_includes/neutriverse-status.html` |
+| 标签星图 | `_layouts/tags.html` 和 `assets/css/neutriverse.css` |
+| 深色仪表盘配色 | `assets/css/neutriverse.css` |
+| 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |

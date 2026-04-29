@@ -1,0 +1,49 @@
+{% assign post_count = site.posts | size %}
+{% assign tag_count = site.tags | size %}
+{% assign total_words = 0 %}
+{% assign latest_update = site.time %}
+
+{% for post in site.posts %}
+  {% assign plain_content = post.content | strip_html | strip_newlines %}
+  {% assign words = plain_content | number_of_words: 'auto' %}
+  {% assign total_words = total_words | plus: words %}
+
+  {% assign post_update = post.last_modified_at | default: post.date %}
+  {% if forloop.first %}
+    {% assign latest_update = post_update %}
+  {% endif %}
+{% endfor %}
+
+<section class="neutriverse-status" aria-labelledby="neutriverse-status-title">
+  <div class="status-heading">
+    <span class="status-kicker">Neutriverse Status</span>
+    <h2 id="neutriverse-status-title">站点状态</h2>
+  </div>
+
+  <div class="status-grid">
+    <div class="status-item">
+      <span class="status-label">运行天数</span>
+      <strong><span data-runtime-days>...</span></strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">文章数量</span>
+      <strong>{{ post_count }}</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">标签数量</span>
+      <strong>{{ tag_count }}</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">总字数</span>
+      <strong>{{ total_words }}</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">最近更新</span>
+      <strong>{{ latest_update | date: '%Y-%m-%d' }}</strong>
+    </div>
+    <div class="status-item">
+      <span class="status-label">总访问</span>
+      <strong><span data-total-views>...</span></strong>
+    </div>
+  </div>
+</section>

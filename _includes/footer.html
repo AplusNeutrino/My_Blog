@@ -29,18 +29,18 @@
   </p>
 
   <p class="site-runtime">
-    &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days">...</span> &#22825;
+    &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days" data-runtime-days>...</span> &#22825;
     <span aria-hidden="true">&middot;</span>
-    &#24635;&#27983;&#35272; <span id="site-total-views">...</span> &#27425;
+    &#24635;&#27983;&#35272; <span id="site-total-views" data-total-views>...</span> &#27425;
   </p>
 </footer>
 
 <script>
   (() => {
-    const runtimeTarget = document.getElementById('site-runtime-days');
-    const viewsTarget = document.getElementById('site-total-views');
+    const runtimeTargets = document.querySelectorAll('[data-runtime-days]');
+    const viewsTargets = document.querySelectorAll('[data-total-views]');
 
-    if (!runtimeTarget) {
+    if (runtimeTargets.length === 0) {
       return;
     }
 
@@ -50,9 +50,11 @@
     const dayMs = 24 * 60 * 60 * 1000;
     const days = Math.max(1, Math.floor((now - start) / dayMs) + 1);
 
-    runtimeTarget.textContent = days.toLocaleString('zh-CN');
+    runtimeTargets.forEach((target) => {
+      target.textContent = days.toLocaleString('zh-CN');
+    });
 
-    if (!viewsTarget) {
+    if (viewsTargets.length === 0) {
       return;
     }
 
@@ -71,14 +73,18 @@
       })
       .then((data) => {
         const total = Number(data.totalViews || 0);
-        viewsTarget.textContent = total.toLocaleString('zh-CN');
+        viewsTargets.forEach((target) => {
+          target.textContent = total.toLocaleString('zh-CN');
+        });
 
         if (shouldCount) {
           localStorage.setItem(storageKey, '1');
         }
       })
       .catch(() => {
-        viewsTarget.textContent = '--';
+        viewsTargets.forEach((target) => {
+          target.textContent = '--';
+        });
       });
   })();
 </script>

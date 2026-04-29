@@ -1,0 +1,41 @@
+---
+layout: page
+# All the Tags of posts.
+---
+
+{% assign tags = '' | split: '' %}
+{% for t in site.tags %}
+  {% assign tags = tags | push: t[0] %}
+{% endfor %}
+
+{% assign sorted_tags = tags | sort_natural %}
+
+<div class="tag-galaxy" aria-label="Tag galaxy">
+  <div class="galaxy-core">
+    <span>Neutriverse</span>
+    <small>{{ sorted_tags.size }} tags</small>
+  </div>
+
+  {% for t in sorted_tags %}
+    {% assign node_class = forloop.index0 | modulo: 12 | prepend: 'node-' %}
+    <a
+      class="tag-node {{ node_class }}"
+      href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}"
+      style="--tag-size: {{ site.tags[t].size }};"
+    >
+      <span class="tag-name">{{ t }}</span>
+      <span class="tag-count">{{ site.tags[t].size }}</span>
+    </a>
+  {% endfor %}
+</div>
+
+<div id="tags" class="tag-index-list d-flex flex-wrap mx-xl-2">
+  {% for t in sorted_tags %}
+    <div>
+      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+        {{ t -}}
+        <span class="text-muted">{{ site.tags[t].size }}</span>
+      </a>
+    </div>
+  {% endfor %}
+</div>
