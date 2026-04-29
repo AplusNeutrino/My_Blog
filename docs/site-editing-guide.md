@@ -29,7 +29,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 左下角社交图标 | `_data/contact.yml` |
 | 文章分享按钮 | `_data/share.yml` |
 | 头像 / 社交预览图 | `NeutriverseTitle.png` |
-| 浏览器标签页图标 | `favicon.ico` 和 `_includes/head/custom-head.html` |
+| 浏览器标签页图标 | `favicon.ico` 和 `_includes/metadata-hook.html` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
@@ -611,7 +611,7 @@ platforms:
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
 | 深色仪表盘配色 | `assets/css/neutriverse.css` |
-| 加载自定义 CSS | `_includes/head/custom-head.html` |
+| 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 文章封面图 | 文章 front matter 的 `image` |
 
 ### 首页右侧状态模块
