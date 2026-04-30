@@ -113,7 +113,7 @@ tagline: Quantum Pandemonia
 tagline: 你的副标题
 ```
 
-### 2.4 左侧导航栏：主页、分类、标签、归档、关于
+### 2.4 左侧导航栏
 
 截图位置：左侧中部导航菜单。
 
@@ -121,11 +121,12 @@ tagline: 你的副标题
 
 | 导航文字 | 文件 | 作用 |
 | --- | --- | --- |
-| 首页 | `index.html` | 首页入口，使用 `layout: home` |
-| 分类 | `_tabs/categories.md` | 分类页 |
-| 标签 | `_tabs/tags.md` | 标签页 |
-| 归档 | `_tabs/archives.md` | 归档页 |
-| 关于 | `_tabs/about.md` | 关于页 |
+| 中间层首页 | `index.html` | 首页入口，使用 `layout: home` |
+| 中间文章索引 | `_tabs/categories.md` | 分类页 |
+| 中间文章标签集 | `_tabs/tags.md` | 标签页 |
+| 中间思维片段 | `_tabs/thoughts.md` | 即时短句页 |
+| 中间层时间线 | `_tabs/archives.md` | 归档页 |
+| 中间层漫游指南 | `_tabs/about.md` | 关于页 |
 
 这些文件开头都有 front matter，例如：
 
@@ -142,6 +143,7 @@ order: 1
 | 字段 | 含义 |
 | --- | --- |
 | `layout` | 使用主题里的哪种页面布局 |
+| `title` | 页面标题、导航文字和页面顶端显示名 |
 | `icon` | 导航图标，来自 Font Awesome |
 | `order` | 在导航栏中的排序，数字越小越靠上 |
 
@@ -416,7 +418,41 @@ https://neutriverse-stats.feiyuzou-me.workers.dev
 _tabs/about.md
 ```
 
-### 2.14 浏览器标签页图标 favicon
+### 2.14 中间思维片段
+
+页面文件：
+
+```text
+_tabs/thoughts.md
+```
+
+这个文件同时负责页面入口和短句数据。以后只需要在 front matter 的 `fragments` 列表里继续追加：
+
+```yaml
+fragments:
+  - text: "短句正文"
+    date: 2026-04-30
+    tags: [标签一, 标签二]
+```
+
+字段含义：
+
+| 字段 | 作用 |
+| --- | --- |
+| `text` | 短句正文，会显示在方块主体里 |
+| `date` | 方块底部显示的日期 |
+| `tags` | 方块底部显示的标签，可写多个；没有标签时写 `tags: []` |
+
+页面样式来自：
+
+```text
+_layouts/thoughts.html
+assets/css/ChirpyDefault.css
+```
+
+这个页面不是 `_posts` 文章，因此不会计入首页状态模块的文章数量和总字数。
+
+### 2.15 浏览器标签页图标 favicon
 
 来源：
 
@@ -612,6 +648,7 @@ docs/april-fools-color-scheme.md
 | 左下角订阅图标 | `_data/contact.yml` |
 | 文章分享图标 | `_data/share.yml` |
 | 文章点赞图标 | `_includes/post-like.html` |
+| 中间思维片段图标 | `_tabs/thoughts.md` 的 `icon` 字段 |
 | 文章卡片日期/分类图标 | Chirpy 主题内置 |
 
 修改示例：
@@ -1103,6 +1140,7 @@ _includes/head/custom-head.html
 | 首页文章 | `_posts/` 下的 Markdown 文件 |
 | 文章标题 | 文章 front matter 的 `title` |
 | 文章摘要 | 文章 front matter 的 `description` |
+| 中间思维片段 | `_tabs/thoughts.md` 的 `fragments` |
 | 文章公开发布时间 | 文章 front matter 的 `display_date` |
 | 文章公开更新时间 | 文章 front matter 的 `display_updated_at` |
 | 分类 | 文章 front matter 的 `categories` |
@@ -1121,6 +1159,7 @@ _includes/head/custom-head.html
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 右侧中间记忆短句 | `_data/middle_memory.yml` |
 | 标签页列表 | `_layouts/tags.html` |
+| 导航文字统一替换 | `_includes/neutriverse-labels.html` |
 | 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |

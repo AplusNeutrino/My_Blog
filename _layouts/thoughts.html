@@ -1,0 +1,46 @@
+---
+layout: page
+---
+
+{% include lang.html %}
+
+{% assign fragments = page.fragments %}
+{% unless fragments %}
+  {% assign fragments = '' | split: '' %}
+{% endunless %}
+
+<div class="thought-fragments" aria-label="中间思维片段">
+  {% if fragments.size > 0 %}
+    {% for fragment in fragments %}
+      {% assign fragment_text = fragment.text | default: '' | strip %}
+      {% if fragment_text != '' %}
+        {% capture fragment_key %}{{ page.url | relative_url }}fragment-{{ forloop.index }}{% endcapture %}
+        <article class="thought-fragment-card">
+          <p class="thought-fragment-text">{{ fragment_text }}</p>
+
+          <div class="thought-fragment-meta">
+            {% include post-like.html like_key=fragment_key %}
+
+            {% if fragment.tags and fragment.tags.size > 0 %}
+              <div class="thought-fragment-tags">
+                <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
+                {% for tag in fragment.tags %}
+                  <span class="thought-fragment-tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if fragment.date %}
+              <time class="thought-fragment-date" datetime="{{ fragment.date | date_to_xmlschema }}">
+                <i class="far fa-calendar fa-fw" aria-hidden="true"></i>
+                {% include datetime.html date=fragment.date lang=lang %}
+              </time>
+            {% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p class="text-muted">还没有思维片段。</p>
+  {% endif %}
+</div>

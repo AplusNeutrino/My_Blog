@@ -1,0 +1,87 @@
+<script>
+  (() => {
+    const labels = new Map([
+      ['/', '中间层首页'],
+      ['/categories/', '中间文章索引'],
+      ['/tags/', '中间文章标签集'],
+      ['/thoughts/', '中间思维片段'],
+      ['/archives/', '中间层时间线'],
+      ['/about/', '中间层漫游指南']
+    ]);
+
+    const legacyLabels = new Map([
+      ['首页', '中间层首页'],
+      ['分类', '中间文章索引'],
+      ['标签', '中间文章标签集'],
+      ['归档', '中间层时间线'],
+      ['关于', '中间层漫游指南']
+    ]);
+
+    const normalizePath = (href) => {
+      try {
+        const url = new URL(href, window.location.origin);
+        let path = url.pathname;
+
+        if (!path.endsWith('/')) {
+          path += '/';
+        }
+
+        return path;
+      } catch {
+        return '';
+      }
+    };
+
+    const renameLinks = () => {
+      document
+        .querySelectorAll('#sidebar .nav-link[href], #topbar-wrapper a[href], .breadcrumb a[href]')
+        .forEach((link) => {
+        const label = labels.get(normalizePath(link.href));
+
+        if (!label) {
+          return;
+        }
+
+        const textTarget = link.querySelector('span') || link;
+
+        if (textTarget.textContent.trim() !== label) {
+          textTarget.textContent = label;
+        }
+      });
+    };
+
+    const replaceTextNodes = (root) => {
+      if (!root) {
+        return;
+      }
+
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+
+      nodes.forEach((node) => {
+        const text = node.nodeValue.trim();
+        const label = legacyLabels.get(text);
+
+        if (label) {
+          node.nodeValue = node.nodeValue.replace(text, label);
+        }
+      });
+    };
+
+    const renamePageChrome = () => {
+      renameLinks();
+      replaceTextNodes(document.getElementById('topbar-wrapper'));
+      replaceTextNodes(document.querySelector('main > h1'));
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renamePageChrome);
+    } else {
+      renamePageChrome();
+    }
+  })();
+</script>

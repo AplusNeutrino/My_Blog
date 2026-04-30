@@ -2,11 +2,12 @@
 {% assign like_endpoint = likes_config.endpoint | default: site.data.neutriverse.stats.endpoint %}
 {% assign like_count_path = likes_config.count_path | default: '/likes' %}
 {% assign like_hit_path = likes_config.hit_path | default: '/like' %}
+{% assign like_key = include.like_key | default: page.url %}
 
 <div
   class="post-like d-flex align-items-center"
   data-post-like
-  data-like-key="{{ page.url | relative_url }}"
+  data-like-key="{{ like_key | strip }}"
   data-like-endpoint="{{ like_endpoint }}"
   data-like-count-path="{{ like_count_path }}"
   data-like-hit-path="{{ like_hit_path }}"
@@ -19,11 +20,11 @@
 
 <script>
   (() => {
-    const roots = document.querySelectorAll('[data-post-like]');
-
-    if (roots.length === 0) {
+    if (window.__neutriverseLikesReady) {
       return;
     }
+
+    window.__neutriverseLikesReady = true;
 
     const parseLikeCount = async (response) => {
       const data = await response.json();
@@ -31,7 +32,14 @@
       return Number.isFinite(Number(value)) ? Number(value) : 0;
     };
 
-    roots.forEach((root) => {
+    const initLikes = () => {
+      const roots = document.querySelectorAll('[data-post-like]');
+
+      if (roots.length === 0) {
+        return;
+      }
+
+      roots.forEach((root) => {
       const button = root.querySelector('.post-like-button');
       const countTarget = root.querySelector('[data-like-count]');
       const key = root.dataset.likeKey || window.location.pathname;
@@ -115,6 +123,13 @@
 
       button.addEventListener('click', submitLike);
       loadCount();
-    });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLikes);
+    } else {
+      initLikes();
+    }
   })();
 </script>
