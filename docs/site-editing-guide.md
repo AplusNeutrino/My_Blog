@@ -371,6 +371,20 @@ copyright:
 
 如果以后想换成其他协议或自定义说明，只改这几个字段即可。`link` 留空时，协议文字会变成不可点击文本，但仍保留鼠标悬停说明。
 
+版权行下面还有一行框架与主题来源：
+
+```text
+Powered by Jekyll · Theme by Chirpy.
+```
+
+这行文字来自：
+
+```text
+_includes/footer.html
+```
+
+其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
+
 ### 2.13 页脚网站运行天数
 
 截图位置：底部右侧，原来显示 `本站采用 Jekyll 主题 Chirpy` 的地方。
@@ -716,14 +730,20 @@ _includes/read-time.html
 _config.yml
 ```
 
-当前评论关闭：
+当前评论已启用 Utterances：
 
 ```yaml
 comments:
-  provider:
+  provider: utterances
+
+utterances:
+  repo: AplusNeutrino/My_Blog
+  issue_term: pathname
 ```
 
-可以选择：
+Utterances 使用 GitHub Issues 保存评论，每篇文章会按页面路径匹配一个 issue。仓库目前是公开仓库并已启用 Issues。
+
+如果以后想改用 Giscus，可以改成：
 
 ```yaml
 comments:
@@ -1058,6 +1078,7 @@ _includes/head/custom-head.html
 | 左下角社交图标 | `_data/contact.yml` |
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
+| 评论系统 | `_config.yml` 的 `comments`，当前为 Utterances |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |

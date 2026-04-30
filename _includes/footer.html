@@ -19,38 +19,48 @@
     flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3
   "
 >
-  <p>
-    &copy;<time>{{ copyright_year }}</time>
+  <div class="footer-credit d-flex flex-column">
+    <p>
+      &copy;<time>{{ copyright_year }}</time>
 
-    {% if site.social.links %}
-      <a href="{{ site.social.links[0] }}">{{ copyright_owner }}</a>.
-    {% else %}
-      <em class="fst-normal">{{ copyright_owner }}</em>.
-    {% endif %}
-
-    {% if copyright_label %}
-      {% if copyright_link %}
-        <a
-          href="{{ copyright_link }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="{{ copyright_tooltip }}"
-        >
-          {{- copyright_label -}}
-        </a>
+      {% if site.social.links %}
+        <a href="{{ site.social.links[0] }}">{{ copyright_owner }}</a>.
       {% else %}
-        <span
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="{{ copyright_tooltip }}"
-        >
-          {{- copyright_label -}}
-        </span>
+        <em class="fst-normal">{{ copyright_owner }}</em>.
       {% endif %}
-    {% endif %}
-  </p>
+
+      {% if copyright_label %}
+        {% if copyright_link %}
+          <a
+            href="{{ copyright_link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="{{ copyright_tooltip }}"
+          >
+            {{- copyright_label -}}
+          </a>
+        {% else %}
+          <span
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="{{ copyright_tooltip }}"
+          >
+            {{- copyright_label -}}
+          </span>
+        {% endif %}
+      {% endif %}
+    </p>
+
+    <p class="site-powered">
+      Powered by
+      <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a>
+      <span aria-hidden="true">&middot;</span>
+      Theme by
+      <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener noreferrer">Chirpy</a>.
+    </p>
+  </div>
 
   <p class="site-runtime">
     &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days" data-runtime-days>...</span> &#22825;
