@@ -6,8 +6,9 @@ order: 5
 
 ## 关于 Neutriverse
 
-这里是 AplusNeutrino 的个人文字站。它会用来保存学习笔记、技术记录、随想和一些慢慢成形的长期想法。
+这里是 Neutrino 的个人文字站。
+主要内容有笔记，读后感，记忆碎片。
 
-这个站点基于 GitHub Pages、Jekyll 和 Chirpy。内容以 Markdown 文件保存在仓库里，所以每一次修改都会留下清楚的版本历史。
+欢迎所有的你们。
 
-本站采用 [Jekyll](https://jekyllrb.com/) 主题 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)。
+
