@@ -350,10 +350,10 @@ copyright:
 本文由作者按照 CC BY-NC 4.0. 进行授权
 ```
 
-页脚在宽屏时显示为一行，顺序为版权、框架与主题来源、站点运行信息：
+页脚在宽屏时显示为一行，顺序为版权、框架与主题来源、站点运行信息。三块内容会自动分散占满一行：版权靠左，框架与主题来源居中，站点运行信息靠右。
 
 ```text
-©2026 Neutrino. CC BY-NC 4.0. · Powered by Jekyll · Theme by Chirpy. · 本站已运行 304 天 · 总浏览 8,771 次
+©2026 Neutrino. CC BY-NC 4.0.           Powered by Jekyll · Theme by Chirpy.           本站已运行 304 天 · 总浏览 8,771 次
 ```
 
 窄屏时自动拆成三行并居中显示。
