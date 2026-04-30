@@ -214,54 +214,86 @@ a:hover {
   object-fit: cover;
 }
 
-.neutriverse-status,
-.status-item {
-  border-color: var(--neutriverse-surface) !important;
+.neutriverse-status {
+  margin-bottom: 2.2rem;
+  padding: 1rem;
+  border: 1px solid var(--neutriverse-surface) !important;
+  border-radius: 0.65rem;
   background: var(--neutriverse-surface) !important;
   color: var(--neutriverse-primary) !important;
 }
 
-.status-kicker,
-.status-heading h2,
-.status-label {
+.status-kicker {
+  display: block;
+  color: var(--neutriverse-primary) !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-heading h2 {
+  margin: 0.15rem 0 0.85rem;
+  color: var(--neutriverse-primary) !important;
+  font-size: 1rem;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.status-item {
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--neutriverse-primary) !important;
+  border-radius: 0.45rem;
+  background: var(--neutriverse-surface) !important;
   color: var(--neutriverse-primary) !important;
 }
 
-.status-item strong {
-  color: var(--neutriverse-accent) !important;
+.status-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--neutriverse-primary) !important;
+  font-size: 0.72rem;
 }
 
-#panel-wrapper .access > section,
-#access-lastmod {
-  border-color: transparent !important;
-  background: var(--neutriverse-card-alt) !important;
-  color: var(--neutriverse-bg) !important;
+.status-item strong {
+  display: block;
+  color: var(--neutriverse-accent) !important;
+  font-size: 0.94rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+#access-lastmod,
+#access-tags {
+  border-color: var(--neutriverse-bg) !important;
+  background: var(--neutriverse-bg) !important;
+  color: var(--neutriverse-primary) !important;
 }
 
 #access-lastmod .panel-heading,
 #access-lastmod a,
-#panel-wrapper .access > section .panel-heading,
-#panel-wrapper .access > section a {
-  color: var(--neutriverse-bg) !important;
+#access-lastmod li,
+#access-tags .panel-heading,
+#access-tags a,
+#access-tags .post-tag {
+  color: var(--neutriverse-primary) !important;
 }
 
-#access-tags,
+#access-tags .post-tag {
+  border-color: var(--neutriverse-primary) !important;
+  background: transparent !important;
+}
+
 .post-tags .post-tag,
 .categories {
   border-color: var(--neutriverse-primary) !important;
   background: var(--neutriverse-bg) !important;
   color: var(--neutriverse-primary) !important;
-}
-
-#access-tags .panel-heading {
-  color: var(--neutriverse-primary) !important;
-}
-
-#access-tags .post-tag,
-#access-tags a {
-  border-color: var(--neutriverse-primary) !important;
-  color: var(--neutriverse-primary) !important;
-  background: transparent !important;
 }
 
 #tail-wrapper,
