@@ -1,0 +1,120 @@
+{% assign likes_config = site.data.neutriverse.likes %}
+{% assign like_endpoint = likes_config.endpoint | default: site.data.neutriverse.stats.endpoint %}
+{% assign like_count_path = likes_config.count_path | default: '/likes' %}
+{% assign like_hit_path = likes_config.hit_path | default: '/like' %}
+
+<div
+  class="post-like d-flex align-items-center"
+  data-post-like
+  data-like-key="{{ page.url | relative_url }}"
+  data-like-endpoint="{{ like_endpoint }}"
+  data-like-count-path="{{ like_count_path }}"
+  data-like-hit-path="{{ like_hit_path }}"
+>
+  <button class="post-like-button" type="button" aria-label="点赞" aria-pressed="false">
+    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+  </button>
+  <span class="post-like-count" data-like-count>...</span>
+</div>
+
+<script>
+  (() => {
+    const roots = document.querySelectorAll('[data-post-like]');
+
+    if (roots.length === 0) {
+      return;
+    }
+
+    const parseLikeCount = async (response) => {
+      const data = await response.json();
+      const value = data.likes ?? data.count ?? data.total ?? 0;
+      return Number.isFinite(Number(value)) ? Number(value) : 0;
+    };
+
+    roots.forEach((root) => {
+      const button = root.querySelector('.post-like-button');
+      const countTarget = root.querySelector('[data-like-count]');
+      const key = root.dataset.likeKey || window.location.pathname;
+      const endpoint = (root.dataset.likeEndpoint || '').replace(/\/$/, '');
+      const countPath = root.dataset.likeCountPath || '/likes';
+      const hitPath = root.dataset.likeHitPath || '/like';
+      const likedKey = `neutriverse-liked-${key}`;
+      const localCountKey = `neutriverse-like-count-${key}`;
+
+      const setCount = (value) => {
+        const count = Math.max(0, Number(value) || 0);
+        countTarget.textContent = count.toLocaleString('zh-CN');
+        localStorage.setItem(localCountKey, String(count));
+      };
+
+      const setLiked = () => {
+        button.setAttribute('aria-pressed', 'true');
+        button.classList.add('is-liked');
+      };
+
+      const getLocalCount = () => Number(localStorage.getItem(localCountKey) || 0);
+
+      if (localStorage.getItem(likedKey) === '1') {
+        setLiked();
+      }
+
+      const loadCount = async () => {
+        if (!endpoint) {
+          setCount(getLocalCount());
+          return;
+        }
+
+        try {
+          const url = `${endpoint}${countPath}?path=${encodeURIComponent(key)}`;
+          const response = await fetch(url, { method: 'GET' });
+
+          if (!response.ok) {
+            throw new Error('Like count request failed.');
+          }
+
+          setCount(await parseLikeCount(response));
+        } catch {
+          setCount(getLocalCount());
+        }
+      };
+
+      const submitLike = async () => {
+        if (localStorage.getItem(likedKey) === '1') {
+          return;
+        }
+
+        button.disabled = true;
+
+        try {
+          let nextCount = getLocalCount() + 1;
+
+          if (endpoint) {
+            const response = await fetch(`${endpoint}${hitPath}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ path: key })
+            });
+
+            if (response.ok) {
+              nextCount = await parseLikeCount(response);
+            }
+          }
+
+          localStorage.setItem(likedKey, '1');
+          setLiked();
+          setCount(nextCount);
+        } catch {
+          const nextCount = getLocalCount() + 1;
+          localStorage.setItem(likedKey, '1');
+          setLiked();
+          setCount(nextCount);
+        } finally {
+          button.disabled = false;
+        }
+      };
+
+      button.addEventListener('click', submitLike);
+      loadCount();
+    });
+  })();
+</script>

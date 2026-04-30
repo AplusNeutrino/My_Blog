@@ -30,10 +30,18 @@ script_includes:
       </span>
 
       <!-- lastmod date -->
-      {% if page.last_modified_at and page.last_modified_at != page.date %}
+      {% assign visible_page_updated_at = page.display_updated_at | default: page.last_modified_at %}
+      {% assign show_page_updated_at = false %}
+      {% if page.display_updated_at %}
+        {% assign show_page_updated_at = true %}
+      {% elsif page.last_modified_at and page.last_modified_at != page.date %}
+        {% assign show_page_updated_at = true %}
+      {% endif %}
+
+      {% if show_page_updated_at and visible_page_updated_at %}
         <span>
           {{ site.data.locales[lang].post.updated }}
-          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+          {% include datetime.html date=visible_page_updated_at tooltip=true lang=lang %}
         </span>
       {% endif %}
 
@@ -173,7 +181,10 @@ script_includes:
         {% endif %}
       </div>
 
-      {% include post-sharing.html lang=lang %}
+      <div class="post-actions d-flex align-items-center">
+        {% include post-like.html %}
+        {% include post-sharing.html lang=lang %}
+      </div>
     </div>
     <!-- .post-tail-bottom -->
   </div>

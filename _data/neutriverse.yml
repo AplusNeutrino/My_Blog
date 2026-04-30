@@ -7,7 +7,19 @@ stats:
 posts:
   # In a post's front matter, use `display_date: YYYY-MM-DD` to change the
   # public date shown on the home page and post page without changing sorting.
+  # Use `display_updated_at: YYYY-MM-DD` to change the public updated date on
+  # the post page without changing the real Git last-modified value.
   display_date_field: display_date
+  display_updated_at_field: display_updated_at
+
+likes:
+  # Front-end endpoint contract:
+  # GET  {endpoint}{count_path}?path=/posts/example/ -> {"likes": 0}
+  # POST {endpoint}{hit_path} with {"path": "/posts/example/"} -> {"likes": 1}
+  # If the endpoint is unavailable, the page falls back to local browser counts.
+  endpoint: "https://neutriverse-stats.feiyuzou-me.workers.dev"
+  count_path: "/likes"
+  hit_path: "/like"
 
 copyright:
   year: 2026

@@ -297,19 +297,32 @@ _plugins/posts-lastmod-hook.rb
 | 改文章显示名 | 修改文章 front matter 的 `title` |
 | 改文章日期 | 修改文章 front matter 的 `date` |
 
-### 2.11 右侧栏：热门标签
+### 2.11 右侧栏：中间记忆
 
-截图位置：右侧 `热门标签` 区块。
+截图位置：右侧原 `热门标签` 区块，现在标题为 `中间记忆`。
 
-来源：所有文章 front matter 的 `tags` 汇总。
+来源：
 
-示例：
-
-```markdown
-tags: [Python, Note]
+```text
+_data/middle_memory.yml
+_includes/trending-tags.html
 ```
 
-如果希望标签更规整，建议统一使用英文或统一使用中文，不要混用多个含义接近的标签，例如 `Python`、`python`、`Py`。
+`_data/middle_memory.yml` 中每一条 `sentences` 都是一句候选短句：
+
+```yaml
+sentences:
+  - "第一句短句"
+  - "第二句短句"
+```
+
+页面会按本地日期每天 24 点自动切换到当天对应的一句。如果 `sentences` 为空，或全部是空白内容，则显示：
+
+```text
+正在加载中...
+```
+
+如果以后想恢复 Chirpy 默认热门标签，需要删除仓库里的 `_includes/trending-tags.html` 覆盖文件，主题就会重新使用 gem 内置版本。
 
 ### 2.12 页脚版权文字
 
@@ -506,8 +519,9 @@ _tabs/about.md
 ```markdown
 ---
 # the default layout is 'page'
+title: 中间层漫游指南
 icon: fas fa-info-circle
-order: 4
+order: 5
 ---
 ```
 
@@ -517,6 +531,12 @@ order: 4
 ## 关于 Neutriverse
 
 这里写你的介绍。
+```
+
+关于页中的十五年倒计时也在这个文件里。起点是 `2024-09-15 20:00:00 +08:00`，目标时间是十五年后的 `2039-09-15 20:00:00 +08:00`，页面会每秒刷新显示：
+
+```text
+倒计时：剩余xx年xx月xx日xx时xx分xx秒
 ```
 
 ## 6. 如何修改颜色、字体、卡片样式
@@ -589,6 +609,7 @@ docs/april-fools-color-scheme.md
 | 左侧导航图标 | `_tabs/*.md` 的 `icon` 字段 |
 | 左下角订阅图标 | `_data/contact.yml` |
 | 文章分享图标 | `_data/share.yml` |
+| 文章点赞图标 | `_includes/post-like.html` |
 | 文章卡片日期/分类图标 | Chirpy 主题内置 |
 
 修改示例：
@@ -607,6 +628,33 @@ icon: fas fa-book
 ```
 
 如果换了图标但页面没显示，通常是类名写错，或当前主题版本没有加载对应 Font Awesome 图标。
+
+### 7.1 文章底部点赞
+
+文章底部分享按钮左侧的点赞功能来自：
+
+```text
+_includes/post-like.html
+```
+
+点赞接口配置在：
+
+```yaml
+# _data/neutriverse.yml
+likes:
+  endpoint: "https://neutriverse-stats.feiyuzou-me.workers.dev"
+  count_path: "/likes"
+  hit_path: "/like"
+```
+
+前端期望接口格式为：
+
+```text
+GET  {endpoint}{count_path}?path=/posts/example/ -> {"likes": 0}
+POST {endpoint}{hit_path} with {"path": "/posts/example/"} -> {"likes": 1}
+```
+
+如果接口暂时不可用，页面会退回到浏览器本地计数，避免按钮空白或报错。
 
 ## 8. 如何修改分享按钮
 
@@ -1034,6 +1082,7 @@ _posts/
 _tabs/
 _data/contact.yml
 _data/share.yml
+_data/middle_memory.yml
 _includes/head/custom-head.html
 ```
 
@@ -1052,6 +1101,8 @@ _includes/head/custom-head.html
 | 首页文章 | `_posts/` 下的 Markdown 文件 |
 | 文章标题 | 文章 front matter 的 `title` |
 | 文章摘要 | 文章 front matter 的 `description` |
+| 文章公开发布时间 | 文章 front matter 的 `display_date` |
+| 文章公开更新时间 | 文章 front matter 的 `display_updated_at` |
 | 分类 | 文章 front matter 的 `categories` |
 | 标签 | 文章 front matter 的 `tags` |
 | 关于页 | `_tabs/about.md` |
@@ -1060,11 +1111,13 @@ _includes/head/custom-head.html
 | 左下角 RSS 图标 | `_data/contact.yml` |
 | GitHub/X/邮箱基础信息 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
+| 点赞按钮 | `_includes/post-like.html` 和 `_data/neutriverse.yml` 的 `likes` |
 | 评论系统 | `_config.yml` 的 `comments`，当前为 Utterances |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
+| 右侧中间记忆短句 | `_data/middle_memory.yml` |
 | 标签星图 | `_layouts/tags.html` 和 `assets/css/ChirpyDefault.css` |
 | 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 文章封面 | 文章 front matter 的 `image` |
@@ -1120,10 +1173,11 @@ stats:
 date: 2025-07-01
 ```
 
-如果只是想调整页面上显示的发布日期，但不想改变文章排序、归档逻辑或原始发布日期，可以在文章 front matter 里添加：
+如果只是想调整页面上显示的发布日期或更新时间，但不想改变文章排序、归档逻辑或真实 Git 修改时间，可以在文章 front matter 里添加：
 
 ```yaml
 display_date: 2026-04-30
+display_updated_at: 2026-05-01
 ```
 
 示例：
@@ -1133,6 +1187,7 @@ display_date: 2026-04-30
 title: "Zodiac"
 date: 2025-07-01
 display_date: 2026-04-30
+display_updated_at: 2026-05-01
 categories: [Blog]
 tags: [FirstPost]
 ---
@@ -1144,5 +1199,7 @@ tags: [FirstPost]
 | --- | --- |
 | `date` | Jekyll/Chirpy 的真实发布日期，用于排序、归档、URL 等主题逻辑 |
 | `display_date` | 首页文章卡片和文章详情页公开显示的发布日期 |
+| `last_modified_at` | Chirpy/Git 识别到的真实更新时间 |
+| `display_updated_at` | 文章详情页公开显示的更新时间 |
 
-如果删除 `display_date`，页面会自动恢复显示 `date`。
+如果删除 `display_date`，页面会自动恢复显示 `date`。如果删除 `display_updated_at`，页面会自动恢复显示默认的 `last_modified_at`。

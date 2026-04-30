@@ -1,0 +1,65 @@
+{% assign middle_memory = site.data.middle_memory.sentences %}
+{% unless middle_memory %}
+  {% assign middle_memory = '' | split: '' %}
+{% endunless %}
+
+<section id="access-tags" class="middle-memory-panel">
+  <h2 class="panel-heading">中间记忆</h2>
+  <p id="middle-memory-text" class="middle-memory-text">正在加载中...</p>
+  <script type="application/json" id="middle-memory-source">
+    {{ middle_memory | jsonify }}
+  </script>
+</section>
+
+<script>
+  (() => {
+    const target = document.getElementById('middle-memory-text');
+    const source = document.getElementById('middle-memory-source');
+
+    if (!target || !source) {
+      return;
+    }
+
+    const fallback = '正在加载中...';
+
+    const loadSentences = () => {
+      try {
+        const parsed = JSON.parse(source.textContent || '[]');
+        return parsed
+          .map((item) => String(item || '').trim())
+          .filter(Boolean);
+      } catch {
+        return [];
+      }
+    };
+
+    const renderMemory = () => {
+      const sentences = loadSentences();
+
+      if (sentences.length === 0) {
+        target.textContent = fallback;
+        return;
+      }
+
+      const now = new Date();
+      const anchor = new Date('2024-09-15T00:00:00+08:00');
+      const dayMs = 24 * 60 * 60 * 1000;
+      const dayIndex = Math.floor((now - anchor) / dayMs);
+      const index = ((dayIndex % sentences.length) + sentences.length) % sentences.length;
+      target.textContent = sentences[index];
+    };
+
+    const scheduleMidnightRefresh = () => {
+      const now = new Date();
+      const nextMidnight = new Date(now);
+      nextMidnight.setHours(24, 0, 0, 0);
+      window.setTimeout(() => {
+        renderMemory();
+        scheduleMidnightRefresh();
+      }, nextMidnight - now + 1000);
+    };
+
+    renderMemory();
+    scheduleMidnightRefresh();
+  })();
+</script>
