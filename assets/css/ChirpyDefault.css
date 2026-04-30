@@ -8,6 +8,10 @@
   order: -1;
 }
 
+#sidebar .site-subtitle {
+  font-style: normal;
+}
+
 .post-preview img {
   height: 100%;
   min-height: 12rem;
