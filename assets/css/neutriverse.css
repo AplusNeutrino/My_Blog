@@ -89,6 +89,60 @@ html[data-mode='dark'] {
   --neutriverse-shadow: {{ dark.shadow }};
 }
 
+html[data-mode='dark'],
+html[data-mode='dark'] body,
+html[data-mode='dark'] #main-wrapper,
+html[data-mode='dark'] #main-wrapper > .container,
+html[data-mode='dark'] main,
+html[data-mode='dark'] #post-list,
+html[data-mode='dark'] #panel-wrapper,
+html[data-mode='dark'] #tail-wrapper {
+  background: var(--neutriverse-bg) !important;
+  color: var(--neutriverse-text);
+}
+
+html[data-mode='dark'] .card-wrapper.card,
+html[data-mode='dark'] .post-preview,
+html[data-mode='dark'] .post-preview .card-body,
+html[data-mode='dark'] #panel-wrapper .access > section,
+html[data-mode='dark'] #access-lastmod,
+html[data-mode='dark'] #access-tags,
+html[data-mode='dark'] #tail-wrapper footer {
+  border-color: var(--neutriverse-border) !important;
+  background: var(--neutriverse-card) !important;
+  color: var(--neutriverse-text) !important;
+}
+
+html[data-mode='dark'] .post-preview .card-title,
+html[data-mode='dark'] #panel-wrapper .panel-heading,
+html[data-mode='dark'] #access-lastmod a,
+html[data-mode='dark'] #access-tags a {
+  color: var(--neutriverse-heading) !important;
+}
+
+html[data-mode='dark'] .post-preview .card-text,
+html[data-mode='dark'] .post-preview .post-meta,
+html[data-mode='dark'] .post-preview .post-meta span,
+html[data-mode='dark'] .post-preview .post-meta i,
+html[data-mode='dark'] #panel-wrapper,
+html[data-mode='dark'] #panel-wrapper .content,
+html[data-mode='dark'] #tail-wrapper,
+html[data-mode='dark'] #tail-wrapper footer {
+  color: var(--neutriverse-muted) !important;
+}
+
+html[data-mode='dark'] .post-preview .categories,
+html[data-mode='dark'] #access-tags .post-tag,
+html[data-mode='dark'] #access-tags a {
+  border-color: var(--neutriverse-border) !important;
+  background: var(--neutriverse-surface) !important;
+}
+
+html[data-mode='dark'] .post-preview:hover {
+  border-color: var(--neutriverse-primary) !important;
+  box-shadow: 0 0.75rem 2rem var(--neutriverse-shadow) !important;
+}
+
 body,
 #main-wrapper,
 #tail-wrapper {
