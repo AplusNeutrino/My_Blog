@@ -115,6 +115,7 @@ a:hover {
 
 #mode-toggle {
   order: -2;
+  display: none !important;
 }
 
 #sidebar .sidebar-bottom .icon-border {
@@ -225,7 +226,7 @@ a:hover {
 
 .status-kicker {
   display: block;
-  color: var(--neutriverse-primary) !important;
+  color: var(--neutriverse-accent) !important;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -279,7 +280,9 @@ a:hover {
 #access-lastmod a,
 #access-lastmod li,
 #access-tags .panel-heading,
+#access-tags .panel-heading *,
 #access-tags a,
+#access-tags span,
 #access-tags .post-tag {
   color: var(--neutriverse-primary) !important;
 }
@@ -300,12 +303,42 @@ a:hover {
 #tail-wrapper footer,
 .site-runtime {
   background: var(--neutriverse-bg) !important;
-  color: var(--neutriverse-accent) !important;
+  color: var(--neutriverse-primary) !important;
 }
 
 #tail-wrapper a,
 #tail-wrapper strong {
-  color: var(--neutriverse-accent) !important;
+  color: var(--neutriverse-primary) !important;
+}
+
+.post-tail-wrapper,
+.post-tail-bottom,
+.license-wrapper,
+.post-navigation,
+.post-nav,
+.post-navigation .btn,
+.post-nav .btn,
+.post-navigation .card,
+.post-nav .card,
+.post-navigation .post-nav-item,
+.post-nav .post-nav-item {
+  background: var(--neutriverse-bg) !important;
+  color: var(--neutriverse-primary) !important;
+}
+
+.post-tail-wrapper a,
+.post-tail-wrapper i,
+.post-tail-wrapper span,
+.post-tail-wrapper .text-muted,
+.post-tail-bottom,
+.license-wrapper,
+.post-navigation a,
+.post-nav a,
+.post-navigation .post-title,
+.post-nav .post-title,
+.post-navigation h4,
+.post-nav h4 {
+  color: var(--neutriverse-primary) !important;
 }
 
 .btn,
