@@ -1,7 +1,7 @@
 stats:
   # Added to the live Cloudflare Worker total before display.
   # Examples: 100, -100, 0
-  display_offset: 0
+  display_offset: 8753
   endpoint: "https://neutriverse-stats.feiyuzou-me.workers.dev"
 
 posts:

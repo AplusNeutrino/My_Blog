@@ -1,0 +1,18 @@
+<!-- Neutriverse favicons. Overrides Chirpy's default ant icons. -->
+{% assign favicon_version = site.github.build_revision %}
+{% unless favicon_version %}
+  {% assign favicon_version = site.time | date: '%Y%m%d%H%M%S' %}
+{% endunless %}
+{% assign favicon_path = '/assets/img/favicons' | relative_url %}
+
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v={{ favicon_version }}" sizes="any">
+<link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}?v={{ favicon_version }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ favicon_path }}/favicon-16x16.png?v={{ favicon_version }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ favicon_path }}/favicon-32x32.png?v={{ favicon_version }}">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ favicon_path }}/favicon-48x48.png?v={{ favicon_version }}">
+<link rel="icon" type="image/png" sizes="256x256" href="{{ '/assets/img/favicon.png' | relative_url }}?v={{ favicon_version }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ favicon_path }}/apple-touch-icon.png?v={{ favicon_version }}">
+<link rel="manifest" href="{{ favicon_path }}/site.webmanifest?v={{ favicon_version }}">
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+<meta name="application-name" content="{{ site.title }}">
+<meta name="theme-color" content="#05070f">

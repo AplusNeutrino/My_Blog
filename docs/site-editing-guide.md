@@ -29,7 +29,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 左下角社交图标 | `_data/contact.yml` |
 | 文章分享按钮 | `_data/share.yml` |
 | 头像 / 社交预览图 | `NeutriverseTitle.png` |
-| 浏览器标签页图标 | `favicon.ico` 和 `_includes/metadata-hook.html` |
+| 浏览器标签页图标 | `favicon.ico`、`_includes/favicons.html` 和 `assets/img/favicons/` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
@@ -401,23 +401,31 @@ _tabs/about.md
 
 ```text
 favicon.ico
-_includes/head/custom-head.html
+_includes/favicons.html
+assets/img/favicons/
 ```
 
-当前 `custom-head.html`：
+Chirpy 主题默认会通过 `_includes/favicons.html` 声明一组图标路径，例如：
+
+```text
+assets/img/favicons/favicon-16x16.png
+assets/img/favicons/favicon-32x32.png
+assets/img/favicons/favicon.ico
+```
+
+如果仓库里不覆盖这个 include 和这些资源，浏览器可能会加载到主题包自带的默认图标。当前仓库已经新增本地覆盖文件：
+
+```text
+_includes/favicons.html
+```
+
+所有 favicon 声明都集中在这个文件中，并且带有构建版本参数：
 
 ```html
-<!-- Custom favicon -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ favicon_path }}/favicon-32x32.png?v={{ favicon_version }}">
 ```
 
-当前写法：
-
-```html
-<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
-```
-
-这样无论以后使用自定义域名还是 GitHub Pages 项目路径，图标路径都更可靠。
+这样无论以后使用自定义域名还是 GitHub Pages 项目路径，图标路径都更可靠，也能降低浏览器继续显示旧图标的概率。
 
 ## 3. 如何新增一篇文章
 
@@ -612,6 +620,7 @@ platforms:
 | 标签星图页 | `_layouts/tags.html` |
 | 深色仪表盘配色 | `assets/css/neutriverse.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
+| 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
 
 ### 首页右侧状态模块
@@ -1000,6 +1009,7 @@ _includes/head/custom-head.html
 | 网站运行天数起始日 | `_config.yml` 的 `site_start_date` |
 | 页脚运行天数显示 | `_includes/footer.html` |
 | 头像 | `NeutriverseTitle.png` 和 `_config.yml` 的 `avatar` |
+| 浏览器标签页图标 | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 首页文章 | `_posts/` 下的 Markdown 文件 |
 | 文章标题 | 文章 front matter 的 `title` |
 | 文章摘要 | 文章 front matter 的 `description` |
