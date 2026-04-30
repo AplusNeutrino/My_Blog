@@ -122,8 +122,8 @@ tagline: 你的副标题
 | 导航文字 | 文件 | 作用 |
 | --- | --- | --- |
 | 中间层首页 | `index.html` | 首页入口，使用 `layout: home` |
-| 中间文章索引 | `_tabs/categories.md` | 分类页 |
-| 中间文章标签集 | `_tabs/tags.md` | 标签页 |
+| 中间文段索引 | `_tabs/categories.md` | 分类页 |
+| 中间文段标签 | `_tabs/tags.md` | 标签页 |
 | 中间思维片段 | `_tabs/thoughts.md` | 即时短句页 |
 | 中间层时间线 | `_tabs/archives.md` | 归档页 |
 | 中间层漫游指南 | `_tabs/about.md` | 关于页 |
@@ -279,15 +279,16 @@ description: "这是一段会显示在首页卡片中的摘要。"
 
 你通常只需要改文章的 `date` 和 `categories`，图标本身会自动显示。
 
-### 2.10 右侧栏：最近更新
+### 2.10 右侧栏：兴趣之中
 
-截图位置：右侧 `最近更新` 区块。
+截图位置：右侧 `兴趣之中` 区块。
 
-来源：Chirpy 主题根据文章自动生成。
+来源：仓库覆盖的右侧栏模板会根据文章自动生成。
 
 排序主要依据文章日期和最后修改时间。相关逻辑包含：
 
 ```text
+_includes/update-list.html
 _plugins/posts-lastmod-hook.rb
 ```
 
@@ -295,13 +296,13 @@ _plugins/posts-lastmod-hook.rb
 
 | 目标 | 做法 |
 | --- | --- |
-| 让文章出现在最近更新 | 修改或新增文章后推送 |
+| 让文章出现在兴趣之中 | 修改或新增文章后推送 |
 | 改文章显示名 | 修改文章 front matter 的 `title` |
 | 改文章日期 | 修改文章 front matter 的 `date` |
 
-### 2.11 右侧栏：中间记忆
+### 2.11 右侧栏：碎片之中
 
-截图位置：右侧原 `热门标签` 区块，现在标题为 `中间记忆`。
+截图位置：右侧原 `热门标签` 区块，现在标题为 `碎片之中`。
 
 来源：
 
@@ -518,7 +519,7 @@ description: "这是一篇测试首页摘要的文章。"
 
 写作建议：
 
-- `title` 用来显示在首页卡片、文章页标题和最近更新里。
+- `title` 用来显示在首页卡片、文章页标题和兴趣之中列表里。
 - `date` 会影响首页排序和归档。
 - `categories` 建议 1 到 2 个，例如 `[学习笔记]`、`[Blog]`。
 - `tags` 可以多个，例如 `[Python, Jekyll, Note]`。
@@ -722,14 +723,14 @@ platforms:
 
 | 功能 | 文件 |
 | --- | --- |
-| 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
+| 首页右侧 `中间层监测面板` | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
 | 当前默认配色兼容样式 | `assets/css/ChirpyDefault.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
 
-### 首页右侧状态模块
+### 首页右侧中间层监测面板
 
 状态模块显示运行天数、文章数量、标签数量、总字数、最近更新和总访问。模块位置由 `_layouts/default.html` 控制，只在首页右侧栏顶部显示。
 
@@ -751,7 +752,7 @@ _layouts/tags.html
 assets/css/ChirpyDefault.css
 ```
 
-这里不覆盖 Chirpy 的默认配色，只保留状态模块、中间记忆、点赞按钮、文章封面等新增模块的结构样式。
+这里不覆盖 Chirpy 的默认配色，只保留状态模块、碎片之中、点赞按钮、文章封面等新增模块的结构样式。
 
 ### 文章封面图
 
@@ -1157,7 +1158,7 @@ _includes/head/custom-head.html
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
-| 右侧中间记忆短句 | `_data/middle_memory.yml` |
+| 右侧碎片之中短句 | `_data/middle_memory.yml` |
 | 标签页列表 | `_layouts/tags.html` |
 | 导航文字统一替换 | `_includes/neutriverse-labels.html` |
 | 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |

@@ -1,0 +1,22 @@
+{% assign MAX_SIZE = 5 %}
+{% assign all_list = '' | split: '' %}
+
+{% for post in site.posts %}
+  {% assign update_time = post.last_modified_at | default: post.date %}
+  {% capture elem %}{{ update_time | date: '%Y%m%d%H%M%S' }}::{{ post.url }}::{{ post.title }}{% endcapture %}
+  {% assign all_list = all_list | push: elem %}
+{% endfor %}
+
+{% assign all_list = all_list | sort | reverse %}
+
+<section id="access-lastmod">
+  <h2 class="panel-heading">兴趣之中</h2>
+  <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
+    {% for item in all_list limit: MAX_SIZE %}
+      {% assign post_meta = item | split: '::' %}
+      <li class="text-truncate lh-lg">
+        <a href="{{ post_meta[1] | relative_url }}">{{ post_meta[2] }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
