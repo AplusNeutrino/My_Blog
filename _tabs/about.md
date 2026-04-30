@@ -33,7 +33,7 @@ order: 5
 <br>
 <br>
 <br>
-<p id="middle-layer-countdown">倒计时：剩余--年--月--日--时--分--秒</p>
+<p id="middle-layer-countdown">剩余--年--月--日--时--分--秒</p>
 
 <script>
   (() => {
