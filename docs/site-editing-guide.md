@@ -33,7 +33,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 当前自定义配色方案 | `assets/css/ExTSNight.css` |
+| 当前自定义配色方案 | `assets/css/ChirpyDefault.css` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
 
@@ -549,67 +549,32 @@ theme_mode:
 颜色接口文件：
 
 ```text
-assets/css/ExTSNight.css
+assets/css/ChirpyDefault.css
 ```
 
-当前 `ExTSNight.css` 是基于 `TSNight.css` 的实验夜晚模式方案，白天模式和黑夜模式都会套用同一组基础色：
+当前 `ChirpyDefault.css` 用于恢复 Chirpy 默认配色，同时保留 Neutriverse 新增模块的布局样式。
 
-```css
-:root,
-html[data-mode='light'],
-html[data-mode='dark'] {
-  --ts-night-yellow: #ffff00;
-  --ts-night-deep-blue: #1a1c4f;
-  --ts-night-blue: #1691b0;
-  --ts-night-black: #000000;
-}
-```
-
-实际 CSS 里还有更多可调变量：
+它不重新定义 Chirpy 的全局颜色变量，只使用主题已有变量：
 
 | 字段 | 作用 |
 | --- | --- |
-| `--neutriverse-bg` | 页面整体背景 |
-| `--neutriverse-surface` | 搜索框、顶部栏、普通面板底色 |
-| `--neutriverse-surface-alt` | 辅助面板或悬停底色 |
-| `--neutriverse-card` | 文章卡片、状态模块、标签块底色 |
-| `--neutriverse-border` | 边框、分隔线 |
-| `--neutriverse-primary` | 主色，链接、激活态、重点按钮 |
-| `--neutriverse-accent` | 强调色，头像边框、分隔点等 |
-| `--neutriverse-text` | 正文文字 |
-| `--neutriverse-muted` | 次级文字 |
-| `--neutriverse-heading` | 标题文字 |
-| `--neutriverse-sidebar-bg` | 左侧栏背景 |
-| `--neutriverse-sidebar-text` | 左侧栏主文字 |
-| `--neutriverse-sidebar-muted` | 左侧栏副文字 |
-| `--neutriverse-sidebar-button-bg` | 左下角按钮背景 |
-| `--neutriverse-sidebar-button-text` | 左下角按钮图标颜色 |
-| `--neutriverse-sidebar-hover-bg` | 左侧导航和按钮悬停背景 |
-| `--neutriverse-topbar-bg` | 顶部栏背景 |
-| `--neutriverse-link` | 链接颜色 |
-| `--neutriverse-link-hover` | 链接悬停颜色 |
-| `--neutriverse-code-bg` | 行内代码和代码块背景 |
-| `--neutriverse-shadow` | 卡片悬停阴影 |
+| `--main-bg` | Chirpy 默认页面背景 |
+| `--card-bg` | Chirpy 默认卡片背景 |
+| `--main-border-color` | Chirpy 默认边框颜色 |
+| `--text-color` | Chirpy 默认正文颜色 |
+| `--text-muted-color` | Chirpy 默认次级文字颜色 |
+| `--heading-color` | Chirpy 默认标题颜色 |
 
-其中三种主色的用途是：
-
-| 色码 | 用途 |
-| --- | --- |
-| `#1A1C4F` | 当前有框元素的描边、头像外环、分隔边界 |
-| `#1691B0` | 所有普通文字、链接、导航、页脚、正文页底部文字 |
-| `#FFFF00` | 站点标题、搜索强调、状态模块英文标题、状态数字 |
-
-`ExTSNight.css` 会把大部分填充色改成黑色或透明效果，在原来有填充的框上保留深蓝色描边；所有普通文字统一浅蓝，原本亮黄色的强调文字继续保持亮黄色。上一版 `TSNight.css` 会保留在仓库里，方便回退或对比。
-
-这些变量会继续映射到 Chirpy 主题变量，例如：
+例如：
 
 ```css
---main-bg: var(--neutriverse-bg);
---card-bg: var(--neutriverse-card);
---link-color: var(--neutriverse-link);
+.neutriverse-status {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+}
 ```
 
-注意：`_data/neutriverse.yml` 现在不再保存配色。修改 `assets/css/ExTSNight.css` 后需要重新提交并部署，线上颜色才会更新。
+注意：`_data/neutriverse.yml` 现在不再保存配色。当前默认观感主要由 Chirpy 主题自己控制；`ChirpyDefault.css` 只维护新增模块的布局和少量尺寸样式。
 
 旧的高饱和测试配色保留在 `assets/css/neutriverse.css`，完整留档见：
 
@@ -675,7 +640,7 @@ platforms:
 | --- | --- |
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 当前夜晚配色方案 | `assets/css/ExTSNight.css` |
+| 当前默认配色兼容样式 | `assets/css/ChirpyDefault.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -692,17 +657,17 @@ platforms:
 _layouts/tags.html
 ```
 
-每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/ExTSNight.css` 中的 `.node-*` 类控制。
+每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/ChirpyDefault.css` 中的 `.node-*` 类控制。
 
 ### 自定义白天/黑夜配色
 
 文件：
 
 ```text
-assets/css/ExTSNight.css
+assets/css/ChirpyDefault.css
 ```
 
-这里覆盖了 Chirpy 默认暗色主题的一些变量和组件样式，包括背景、侧边栏、卡片、状态模块、标签星图。
+这里不覆盖 Chirpy 的默认配色，只保留状态模块、标签星图、关系图和文章封面等新增模块的结构样式。
 
 ### 文章封面图
 
@@ -1013,7 +978,7 @@ pwa:
 并在 `_includes/metadata-hook.html` 中：
 
 - 添加了 no-cache meta。
-- 给 `assets/css/ExTSNight.css` 增加构建版本参数。
+- 给 `assets/css/ChirpyDefault.css` 增加构建版本参数。
 - 注销旧的 Service Worker。
 - 清理旧的 Cache Storage。
 
@@ -1079,10 +1044,10 @@ _includes/head/custom-head.html
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
-| 白天/黑夜颜色 | `assets/css/ExTSNight.css` 的 `--neutriverse-*` 变量 |
+| 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
-| 标签星图 | `_layouts/tags.html` 和 `assets/css/ExTSNight.css` |
-| 白天/黑夜仪表盘配色 | `assets/css/ExTSNight.css` |
+| 标签星图 | `_layouts/tags.html` 和 `assets/css/ChirpyDefault.css` |
+| 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 
