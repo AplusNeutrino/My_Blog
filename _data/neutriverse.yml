@@ -1,0 +1,10 @@
+stats:
+  # Added to the live Cloudflare Worker total before display.
+  # Examples: 100, -100, 0
+  display_offset: 0
+  endpoint: "https://neutriverse-stats.feiyuzou-me.workers.dev"
+
+posts:
+  # In a post's front matter, use `display_date: YYYY-MM-DD` to change the
+  # public date shown on the home page and post page without changing sorting.
+  display_date_field: display_date

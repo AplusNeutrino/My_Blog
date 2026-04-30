@@ -1017,3 +1017,80 @@ _includes/head/custom-head.html
 | 深色仪表盘配色 | `assets/css/neutriverse.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
+
+## 14. 自定义显示数据接口
+
+### 14.1 自定义总浏览量显示偏移
+
+文件：
+
+```text
+_data/neutriverse.yml
+```
+
+配置：
+
+```yaml
+stats:
+  display_offset: 0
+```
+
+这个值不会替代 Cloudflare Worker 里的真实浏览量，而是在真实浏览量基础上做显示层加减：
+
+| 想要效果 | 写法 |
+| --- | --- |
+| 显示真实浏览量 | `display_offset: 0` |
+| 显示真实浏览量 + 100 | `display_offset: 100` |
+| 显示真实浏览量 - 100 | `display_offset: -100` |
+
+页面显示逻辑：
+
+```text
+页面显示浏览量 = Worker 返回的真实 totalViews + display_offset
+```
+
+如果相减后小于 0，页面会显示为 0，避免出现负浏览量。
+
+Worker 地址也放在同一个文件里：
+
+```yaml
+stats:
+  endpoint: "https://neutriverse-stats.feiyuzou-me.workers.dev"
+```
+
+一般不需要修改，除非以后更换 Cloudflare Worker。
+
+### 14.2 自定义文章发布日期显示
+
+默认情况下，文章发布日期来自文章 front matter 的 `date`：
+
+```yaml
+date: 2025-07-01
+```
+
+如果只是想调整页面上显示的发布日期，但不想改变文章排序、归档逻辑或原始发布日期，可以在文章 front matter 里添加：
+
+```yaml
+display_date: 2026-04-30
+```
+
+示例：
+
+```yaml
+---
+title: "Zodiac"
+date: 2025-07-01
+display_date: 2026-04-30
+categories: [Blog]
+tags: [FirstPost]
+---
+```
+
+效果：
+
+| 字段 | 作用 |
+| --- | --- |
+| `date` | Jekyll/Chirpy 的真实发布日期，用于排序、归档、URL 等主题逻辑 |
+| `display_date` | 首页文章卡片和文章详情页公开显示的发布日期 |
+
+如果删除 `display_date`，页面会自动恢复显示 `date`。

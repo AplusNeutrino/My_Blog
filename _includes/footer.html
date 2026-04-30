@@ -1,5 +1,8 @@
 <!-- The Footer -->
 
+{% assign neutriverse_stats = site.data.neutriverse.stats %}
+{% assign views_display_offset = neutriverse_stats.display_offset | default: 0 %}
+
 <footer
   aria-label="Site Info"
   class="
@@ -31,7 +34,13 @@
   <p class="site-runtime">
     &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days" data-runtime-days>...</span> &#22825;
     <span aria-hidden="true">&middot;</span>
-    &#24635;&#27983;&#35272; <span id="site-total-views" data-total-views>...</span> &#27425;
+    &#24635;&#27983;&#35272;
+    <span
+      id="site-total-views"
+      data-total-views
+      data-views-display-offset="{{ views_display_offset }}"
+    >...</span>
+    &#27425;
   </p>
 </footer>
 
@@ -44,7 +53,7 @@
       return;
     }
 
-    const statsEndpoint = 'https://neutriverse-stats.feiyuzou-me.workers.dev';
+    const statsEndpoint = '{{ neutriverse_stats.endpoint | default: "https://neutriverse-stats.feiyuzou-me.workers.dev" }}';
     const start = new Date('{{ site.site_start_date | default: "2026-04-29" }}T00:00:00+08:00');
     const now = new Date();
     const dayMs = 24 * 60 * 60 * 1000;
@@ -72,9 +81,13 @@
         return response.json();
       })
       .then((data) => {
-        const total = Number(data.totalViews || 0);
+        const rawTotal = Number(data.totalViews || 0);
+        const offsetSource = document.querySelector('[data-views-display-offset]');
+        const offset = Number(offsetSource ? offsetSource.dataset.viewsDisplayOffset : 0);
+        const total = rawTotal + (Number.isFinite(offset) ? offset : 0);
+
         viewsTargets.forEach((target) => {
-          target.textContent = total.toLocaleString('zh-CN');
+          target.textContent = Math.max(0, total).toLocaleString('zh-CN');
         });
 
         if (shouldCount) {
