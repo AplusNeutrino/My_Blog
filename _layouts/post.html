@@ -161,14 +161,15 @@ script_includes:
       "
     >
       <div class="license-wrapper">
-        {% if site.data.locales[lang].copyright.license.template %}
-          {% capture _replacement %}
-        <a href="{{ site.data.locales[lang].copyright.license.link }}">
-          {{ site.data.locales[lang].copyright.license.name }}
-        </a>
-        {% endcapture %}
-
-          {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
+        {% assign post_license = site.data.neutriverse.copyright %}
+        {% if post_license.label %}
+          本文由作者按照
+          {% if post_license.link %}
+            <a href="{{ post_license.link }}" target="_blank" rel="noopener noreferrer">{{ post_license.label }}</a>
+          {% else %}
+            {{ post_license.label }}
+          {% endif %}
+          进行授权
         {% endif %}
       </div>
 

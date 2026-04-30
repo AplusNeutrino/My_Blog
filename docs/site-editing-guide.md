@@ -26,7 +26,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 首页入口 | `index.html` |
 | 文章目录 | `_posts/` |
 | 左侧导航页签 | `_tabs/` |
-| 左下角社交图标 | `_data/contact.yml` |
+| 左下角 RSS 图标 | `_data/contact.yml` |
 | 文章分享按钮 | `_data/share.yml` |
 | 头像 / 社交预览图 | `NeutriverseTitle.png` |
 | 浏览器标签页图标 | `favicon.ico`、`_includes/favicons.html` 和 `assets/img/favicons/` |
@@ -171,54 +171,27 @@ order: 2
 
 如果想临时隐藏某个导航页，可以把对应文件移出 `_tabs/`，或改名为不被 Jekyll 识别的文件名，例如 `about.md.bak`。
 
-### 2.5 左下角社交图标
+### 2.5 左下角订阅图标
 
-截图位置：左下角 GitHub、X、邮件、RSS 等圆形图标。
+截图位置：左下角圆形图标。
 
 来源：
 
 ```yaml
 # _data/contact.yml
-- type: github
-  icon: "fab fa-github"
-
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
-
-- type: email
-  icon: "fas fa-envelope"
-  noblank: true
-
 - type: rss
   icon: "fas fa-rss"
   noblank: true
 ```
 
-具体用户名来自 `_config.yml`：
-
-```yaml
-github:
-  username: AplusNeutrino
-
-twitter:
-  username: Neutrino_X
-
-social:
-  name: Neutrino
-  email: Latencyvladimir@gmail.com
-  links:
-    - https://twitter.com/Neutrino_X
-    - https://github.com/AplusNeutrino
-```
+当前只保留 RSS 订阅图标。GitHub、X、邮箱等图标已从 `_data/contact.yml` 中移除，因此不会在左下角显示。
 
 常见修改：
 
 | 目标 | 修改位置 |
 | --- | --- |
-| 改 GitHub 链接 | `_config.yml` 的 `github.username` |
-| 改 X/Twitter 链接 | `_config.yml` 的 `twitter.username` 和 `social.links` |
-| 改邮箱 | `_config.yml` 的 `social.email` |
-| 隐藏某个图标 | 在 `_data/contact.yml` 中删除或注释对应条目 |
+| 隐藏 RSS 图标 | 删除或注释 `_data/contact.yml` 中的 `rss` 条目 |
+| 恢复 GitHub/X/邮箱等图标 | 按 `_data/contact.yml` 下方注释模板重新添加对应条目，并确认 `_config.yml` 中有对应用户名或链接 |
 | 增加 LinkedIn 等 | 参考 `_data/contact.yml` 下方注释模板 |
 
 ### 2.6 顶部面包屑“首页”
@@ -371,13 +344,21 @@ copyright:
 
 如果以后想换成其他协议或自定义说明，只改这几个字段即可。`link` 留空时，协议文字会变成不可点击文本，但仍保留鼠标悬停说明。
 
-页脚第一行左侧显示版权，右侧显示框架与主题来源：
+这组配置同时用于文章页底部的授权说明。正文页会显示：
 
 ```text
-Powered by Jekyll · Theme by Chirpy.
+本文由作者按照 CC BY-NC 4.0. 进行授权
 ```
 
-这两部分都来自：
+页脚在宽屏时显示为一行，顺序为版权、框架与主题来源、站点运行信息：
+
+```text
+©2026 Neutrino. CC BY-NC 4.0. · Powered by Jekyll · Theme by Chirpy. · 本站已运行 304 天 · 总浏览 8,771 次
+```
+
+窄屏时自动拆成三行并居中显示。
+
+这些内容来自：
 
 ```text
 _includes/footer.html
@@ -385,11 +366,9 @@ _includes/footer.html
 
 其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
 
-页脚第二行居中显示站点运行时间和总浏览量。
-
 ### 2.13 页脚网站运行天数
 
-截图位置：页脚第二行居中显示。
+截图位置：页脚中的 `本站已运行 ... 天 · 总浏览 ... 次`。
 
 来源：
 
@@ -608,7 +587,7 @@ docs/april-fools-color-scheme.md
 | 位置 | 文件 |
 | --- | --- |
 | 左侧导航图标 | `_tabs/*.md` 的 `icon` 字段 |
-| 左下角社交图标 | `_data/contact.yml` |
+| 左下角订阅图标 | `_data/contact.yml` |
 | 文章分享图标 | `_data/share.yml` |
 | 文章卡片日期/分类图标 | Chirpy 主题内置 |
 
@@ -616,8 +595,9 @@ docs/april-fools-color-scheme.md
 
 ```yaml
 # _data/contact.yml
-- type: github
-  icon: "fab fa-github"
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
 ```
 
 ```markdown
@@ -1077,8 +1057,8 @@ _includes/head/custom-head.html
 | 关于页 | `_tabs/about.md` |
 | 导航图标 | `_tabs/*.md` 的 `icon` |
 | 导航顺序 | `_tabs/*.md` 的 `order` |
-| 左下角社交图标 | `_data/contact.yml` |
-| GitHub/X/邮箱 | `_config.yml` |
+| 左下角 RSS 图标 | `_data/contact.yml` |
+| GitHub/X/邮箱基础信息 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 评论系统 | `_config.yml` 的 `comments`，当前为 Utterances |
 | 阅读时间文案 | `_includes/read-time.html` |

@@ -16,7 +16,7 @@
   aria-label="Site Info"
   class="d-flex flex-column justify-content-center text-muted pb-lg-3"
 >
-  <div class="footer-topline d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center w-100">
+  <div class="footer-line d-flex flex-column flex-lg-row justify-content-lg-center align-items-lg-center w-100">
     <p class="footer-credit">
       &copy;<time>{{ copyright_year }}</time>
 
@@ -50,6 +50,8 @@
       {% endif %}
     </p>
 
+    <span class="footer-separator d-none d-lg-inline" aria-hidden="true">&middot;</span>
+
     <p class="site-powered">
       Powered by
       <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a>
@@ -57,9 +59,10 @@
       Theme by
       <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener noreferrer">Chirpy</a>.
     </p>
-  </div>
 
-  <p class="site-runtime text-center w-100">
+    <span class="footer-separator d-none d-lg-inline" aria-hidden="true">&middot;</span>
+
+    <p class="site-runtime">
     &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days" data-runtime-days>...</span> &#22825;
     <span aria-hidden="true">&middot;</span>
     &#24635;&#27983;&#35272;
@@ -69,7 +72,8 @@
       data-views-display-offset="{{ views_display_offset }}"
     >...</span>
     &#27425;
-  </p>
+    </p>
+  </div>
 </footer>
 
 <script>
