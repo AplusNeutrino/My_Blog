@@ -33,7 +33,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 当前自定义配色方案 | `assets/css/TSNight.css` |
+| 当前自定义配色方案 | `assets/css/ExTSNight.css` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
 
@@ -549,10 +549,10 @@ theme_mode:
 颜色接口文件：
 
 ```text
-assets/css/TSNight.css
+assets/css/ExTSNight.css
 ```
 
-当前 `TSNight.css` 是夜晚模式方案，白天模式和黑夜模式都会套用同一组基础色：
+当前 `ExTSNight.css` 是基于 `TSNight.css` 的实验夜晚模式方案，白天模式和黑夜模式都会套用同一组基础色：
 
 ```css
 :root,
@@ -595,11 +595,11 @@ html[data-mode='dark'] {
 
 | 色码 | 用途 |
 | --- | --- |
-| `#1A1C4F` | 左侧栏、顶部栏、深色文章卡片、状态模块和状态小格子 |
-| `#1691B0` | 浅蓝文章卡片、导航文字、状态模块普通文字、最近更新/热门标签文字、页脚文字、正文页底部文字 |
+| `#1A1C4F` | 当前有框元素的描边、头像外环、分隔边界 |
+| `#1691B0` | 所有普通文字、链接、导航、页脚、正文页底部文字 |
 | `#FFFF00` | 站点标题、搜索强调、状态模块英文标题、状态数字 |
 
-状态模块保持原来的卡片式结构，只替换配色：外层和六个小格子都是深蓝，标签文字是浅蓝，数字是黄色。右侧 `最近更新` 和 `热门标签` 两个栏位使用黑色底、浅蓝色文字。
+`ExTSNight.css` 会把大部分填充色改成黑色或透明效果，在原来有填充的框上保留深蓝色描边；所有普通文字统一浅蓝，原本亮黄色的强调文字继续保持亮黄色。上一版 `TSNight.css` 会保留在仓库里，方便回退或对比。
 
 这些变量会继续映射到 Chirpy 主题变量，例如：
 
@@ -609,7 +609,7 @@ html[data-mode='dark'] {
 --link-color: var(--neutriverse-link);
 ```
 
-注意：`_data/neutriverse.yml` 现在不再保存配色。修改 `assets/css/TSNight.css` 后需要重新提交并部署，线上颜色才会更新。
+注意：`_data/neutriverse.yml` 现在不再保存配色。修改 `assets/css/ExTSNight.css` 后需要重新提交并部署，线上颜色才会更新。
 
 旧的高饱和测试配色保留在 `assets/css/neutriverse.css`，完整留档见：
 
@@ -675,7 +675,7 @@ platforms:
 | --- | --- |
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 当前夜晚配色方案 | `assets/css/TSNight.css` |
+| 当前夜晚配色方案 | `assets/css/ExTSNight.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -692,14 +692,14 @@ platforms:
 _layouts/tags.html
 ```
 
-每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/TSNight.css` 中的 `.node-*` 类控制。
+每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/ExTSNight.css` 中的 `.node-*` 类控制。
 
 ### 自定义白天/黑夜配色
 
 文件：
 
 ```text
-assets/css/TSNight.css
+assets/css/ExTSNight.css
 ```
 
 这里覆盖了 Chirpy 默认暗色主题的一些变量和组件样式，包括背景、侧边栏、卡片、状态模块、标签星图。
@@ -1013,7 +1013,7 @@ pwa:
 并在 `_includes/metadata-hook.html` 中：
 
 - 添加了 no-cache meta。
-- 给 `assets/css/TSNight.css` 增加构建版本参数。
+- 给 `assets/css/ExTSNight.css` 增加构建版本参数。
 - 注销旧的 Service Worker。
 - 清理旧的 Cache Storage。
 
@@ -1079,10 +1079,10 @@ _includes/head/custom-head.html
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
-| 白天/黑夜颜色 | `assets/css/TSNight.css` 的 `--neutriverse-*` 变量 |
+| 白天/黑夜颜色 | `assets/css/ExTSNight.css` 的 `--neutriverse-*` 变量 |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
-| 标签星图 | `_layouts/tags.html` 和 `assets/css/TSNight.css` |
-| 白天/黑夜仪表盘配色 | `assets/css/TSNight.css` |
+| 标签星图 | `_layouts/tags.html` 和 `assets/css/ExTSNight.css` |
+| 白天/黑夜仪表盘配色 | `assets/css/ExTSNight.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 
