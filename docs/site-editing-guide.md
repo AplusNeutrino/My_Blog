@@ -621,6 +621,12 @@ html[data-mode='dark'] { ... }
 
 注意：修改 `_data/neutriverse.yml` 后需要重新提交并部署，线上颜色才会更新。
 
+当前白天模式使用的是一套高饱和测试配色，方便辨识每个颜色字段对应的页面元素。完整留档见：
+
+```text
+docs/april-fools-color-scheme.md
+```
+
 ## 7. 如何修改图标
 
 站内图标主要来自 Font Awesome。
