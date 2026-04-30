@@ -1,6 +1,6 @@
 ---
 title: "Python笔记 01 杂项"
-date: 2025-07-01
+date: 2025-09-30
 categories: [学习笔记, Python笔记]
 tags: [Python]
 description: "数据类型，数字类型，字典，运算符，循环，转义符号"
