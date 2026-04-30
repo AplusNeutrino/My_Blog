@@ -1,7 +1,7 @@
 ---
-title: "Python复健笔记01"
+title: "Python笔记 01 杂项"
 date: 2025-07-01
-categories: [学习笔记]
+categories: [学习笔记, Python笔记]
 tags: [Python]
 ---
 # Python 复健笔记 01
