@@ -1,3 +1,191 @@
+---
+---
+
+{% assign theme_colors = site.data.neutriverse.theme_colors %}
+{% assign light = theme_colors.light %}
+{% assign dark = theme_colors.dark %}
+
+:root,
+html[data-mode='light'] {
+  --neutriverse-bg: {{ light.background }};
+  --neutriverse-surface: {{ light.surface }};
+  --neutriverse-surface-alt: {{ light.surface_alt }};
+  --neutriverse-card: {{ light.card }};
+  --neutriverse-border: {{ light.border }};
+  --neutriverse-primary: {{ light.primary }};
+  --neutriverse-accent: {{ light.accent }};
+  --neutriverse-text: {{ light.text }};
+  --neutriverse-muted: {{ light.muted }};
+  --neutriverse-heading: {{ light.heading }};
+  --neutriverse-sidebar-bg: {{ light.sidebar_bg }};
+  --neutriverse-sidebar-text: {{ light.sidebar_text }};
+  --neutriverse-sidebar-muted: {{ light.sidebar_muted }};
+  --neutriverse-sidebar-button-bg: {{ light.sidebar_button_bg }};
+  --neutriverse-sidebar-button-text: {{ light.sidebar_button_text }};
+  --neutriverse-sidebar-hover-bg: {{ light.sidebar_hover_bg }};
+  --neutriverse-topbar-bg: {{ light.topbar_bg }};
+  --neutriverse-link: {{ light.link }};
+  --neutriverse-link-hover: {{ light.link_hover }};
+  --neutriverse-code-bg: {{ light.code_bg }};
+  --neutriverse-shadow: {{ light.shadow }};
+
+  --main-bg: var(--neutriverse-bg);
+  --mask-bg: var(--neutriverse-bg);
+  --main-border-color: var(--neutriverse-border);
+  --main-wrapper-bg: var(--neutriverse-bg);
+  --text-color: var(--neutriverse-text);
+  --text-muted-color: var(--neutriverse-muted);
+  --heading-color: var(--neutriverse-heading);
+  --link-color: var(--neutriverse-link);
+  --link-underline-color: var(--neutriverse-accent);
+  --button-bg: var(--neutriverse-primary);
+  --btn-border-color: var(--neutriverse-border);
+  --card-bg: var(--neutriverse-card);
+  --topbar-bg: var(--neutriverse-topbar-bg);
+  --search-wrapper-bg: var(--neutriverse-surface);
+  --search-icon-color: var(--neutriverse-muted);
+  --input-focus-border-color: var(--neutriverse-primary);
+  --site-title-color: var(--neutriverse-sidebar-text);
+  --site-subtitle-color: var(--neutriverse-sidebar-muted);
+  --sidebar-bg: var(--neutriverse-sidebar-bg);
+  --sidebar-border-color: var(--neutriverse-border);
+  --sidebar-muted-color: var(--neutriverse-sidebar-muted);
+  --sidebar-active-color: var(--neutriverse-primary);
+  --sidebar-hover-bg: var(--neutriverse-sidebar-hover-bg);
+  --sidebar-btn-bg: var(--neutriverse-sidebar-button-bg);
+  --sidebar-btn-color: var(--neutriverse-sidebar-button-text);
+  --avatar-border-color: var(--neutriverse-accent);
+  --blockquote-border-color: var(--neutriverse-primary);
+  --blockquote-text-color: var(--neutriverse-text);
+  --code-header-text-color: var(--neutriverse-muted);
+  --code-header-muted-color: var(--neutriverse-muted);
+  --code-header-icon-color: var(--neutriverse-primary);
+  --clipboard-checked-color: var(--neutriverse-primary);
+  --filepath-text-color: var(--neutriverse-muted);
+  --highlight-bg-color: var(--neutriverse-code-bg);
+}
+
+html[data-mode='dark'] {
+  --neutriverse-bg: {{ dark.background }};
+  --neutriverse-surface: {{ dark.surface }};
+  --neutriverse-surface-alt: {{ dark.surface_alt }};
+  --neutriverse-card: {{ dark.card }};
+  --neutriverse-border: {{ dark.border }};
+  --neutriverse-primary: {{ dark.primary }};
+  --neutriverse-accent: {{ dark.accent }};
+  --neutriverse-text: {{ dark.text }};
+  --neutriverse-muted: {{ dark.muted }};
+  --neutriverse-heading: {{ dark.heading }};
+  --neutriverse-sidebar-bg: {{ dark.sidebar_bg }};
+  --neutriverse-sidebar-text: {{ dark.sidebar_text }};
+  --neutriverse-sidebar-muted: {{ dark.sidebar_muted }};
+  --neutriverse-sidebar-button-bg: {{ dark.sidebar_button_bg }};
+  --neutriverse-sidebar-button-text: {{ dark.sidebar_button_text }};
+  --neutriverse-sidebar-hover-bg: {{ dark.sidebar_hover_bg }};
+  --neutriverse-topbar-bg: {{ dark.topbar_bg }};
+  --neutriverse-link: {{ dark.link }};
+  --neutriverse-link-hover: {{ dark.link_hover }};
+  --neutriverse-code-bg: {{ dark.code_bg }};
+  --neutriverse-shadow: {{ dark.shadow }};
+}
+
+body,
+#main-wrapper,
+#tail-wrapper {
+  background: var(--neutriverse-bg);
+  color: var(--neutriverse-text);
+}
+
+a {
+  color: var(--neutriverse-link);
+}
+
+a:hover {
+  color: var(--neutriverse-link-hover);
+}
+
+#topbar-wrapper,
+#search-result-wrapper,
+.search-wrapper,
+#search-cancel {
+  background: var(--neutriverse-topbar-bg);
+  color: var(--neutriverse-text);
+}
+
+#sidebar .nav-link,
+#sidebar .sidebar-bottom a,
+#sidebar #mode-toggle {
+  color: var(--neutriverse-sidebar-button-text);
+}
+
+#sidebar .nav-link span,
+#sidebar .site-title {
+  color: var(--neutriverse-sidebar-text);
+}
+
+#sidebar .nav-item.active .nav-link,
+#sidebar .nav-link:hover,
+#sidebar .sidebar-bottom a:hover,
+#sidebar #mode-toggle:hover {
+  color: var(--neutriverse-primary);
+}
+
+#sidebar .sidebar-bottom .icon-border {
+  background-color: var(--neutriverse-accent);
+}
+
+#mode-toggle {
+  order: -2;
+}
+
+#sidebar .sidebar-bottom .icon-border {
+  order: -1;
+}
+
+.card,
+.post-preview,
+.post-tail-wrapper,
+#access-lastmod,
+#access-tags,
+.categories,
+.post-tags .post-tag,
+.pagination .page-link,
+.modal-content {
+  border-color: var(--neutriverse-border);
+  background-color: var(--neutriverse-card);
+  color: var(--neutriverse-text);
+}
+
+.post-preview:hover,
+.post-tags .post-tag:hover,
+.pagination .page-link:hover {
+  border-color: var(--neutriverse-primary);
+  box-shadow: 0 0.5rem 1.8rem var(--neutriverse-shadow);
+}
+
+.btn,
+.btn.btn-outline-secondary {
+  border-color: var(--neutriverse-border);
+  color: var(--neutriverse-text);
+}
+
+.btn:hover,
+.btn.btn-outline-secondary:hover {
+  border-color: var(--neutriverse-primary);
+  color: var(--neutriverse-primary);
+}
+
+.content blockquote {
+  border-left-color: var(--neutriverse-primary);
+}
+
+.highlight,
+div[class^='language-'],
+pre,
+code {
+  background-color: var(--neutriverse-code-bg);
+}
+
 html[data-mode='dark'] .post-preview img {
   height: 100%;
   min-height: 12rem;

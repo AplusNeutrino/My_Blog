@@ -33,7 +33,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 自定义深色配色 | `assets/css/neutriverse.css` |
+| 自定义白天/黑夜配色 | `_data/neutriverse.yml` 和 `assets/css/neutriverse.css` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
 
@@ -525,52 +525,101 @@ order: 4
 
 ## 6. 如何修改颜色、字体、卡片样式
 
-当前仓库没有自定义主题 CSS，大部分视觉样式来自 Chirpy 主题包。
+当前仓库使用 Chirpy 主题包提供基础布局，再通过自定义 CSS 覆盖 Neutriverse 的浅色/深色配色。
 
-如果只是想改深色/浅色模式：
+### 6.1 白天/黑夜模式切换按钮
 
 ```yaml
 # _config.yml
-theme_mode: dark
+theme_mode:
 ```
 
-可选值：
+`theme_mode` 留空时，Chirpy 会显示左下角模式切换按钮。这个按钮位于左下角社交按钮组最左端，可以在白天模式和黑夜模式之间点击切换。
+
+如果以后想强制固定某一种模式，可以改成：
 
 ```yaml
 theme_mode: light
 theme_mode: dark
-theme_mode:
 ```
 
-留空时，网站会跟随系统设置，并显示主题切换按钮。
+但固定后切换按钮会隐藏。当前为了保留点击切换按钮，应该继续保持为空。
 
-如果想进一步修改颜色、卡片圆角、边框、字体，需要新增自定义样式文件并让页面加载它。推荐做法：
+### 6.2 白天/黑夜颜色接口
 
-1. 新建文件：
+颜色接口文件：
 
 ```text
-assets/css/custom.css
+_data/neutriverse.yml
 ```
 
-2. 在 `_includes/head/custom-head.html` 里加入：
+当前默认配色：
 
-```html
-<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+```yaml
+theme_colors:
+  note: "Alea iacta est (vladimirlenin@qq.com), 2026-04-29"
+  light:
+    background: "#F8FAFC"
+    primary: "#2563EB"
+    accent: "#FACC15"
+    text: "#111827"
+  dark:
+    background: "#020617"
+    primary: "#10B981"
+    accent: "#94A3B8"
+    text: "#E5E7EB"
 ```
 
-3. 在 `custom.css` 里覆盖样式，例如：
+实际配置里还有更多可调字段：
+
+| 字段 | 作用 |
+| --- | --- |
+| `background` | 页面整体背景 |
+| `surface` | 搜索框、顶部栏、普通面板底色 |
+| `surface_alt` | 辅助面板或悬停底色 |
+| `card` | 文章卡片、状态模块、标签块底色 |
+| `border` | 边框、分隔线 |
+| `primary` | 主色，链接、激活态、重点按钮 |
+| `accent` | 强调色，头像边框、分隔点等 |
+| `text` | 正文文字 |
+| `muted` | 次级文字 |
+| `heading` | 标题文字 |
+| `sidebar_bg` | 左侧栏背景 |
+| `sidebar_text` | 左侧栏主文字 |
+| `sidebar_muted` | 左侧栏副文字 |
+| `sidebar_button_bg` | 左下角按钮背景 |
+| `sidebar_button_text` | 左下角按钮图标颜色 |
+| `sidebar_hover_bg` | 左侧导航和按钮悬停背景 |
+| `topbar_bg` | 顶部栏背景 |
+| `link` | 链接颜色 |
+| `link_hover` | 链接悬停颜色 |
+| `code_bg` | 行内代码和代码块背景 |
+| `shadow` | 卡片悬停阴影 |
+
+白天和黑夜各有一套字段：
+
+```yaml
+theme_colors:
+  light:
+    background: "#F8FAFC"
+  dark:
+    background: "#020617"
+```
+
+CSS 入口：
+
+```text
+assets/css/neutriverse.css
+```
+
+这个文件会读取 `_data/neutriverse.yml` 里的颜色配置，并生成对应的 CSS 变量：
 
 ```css
-:root {
-  --sidebar-bg: #151515;
-}
-
-#sidebar {
-  background: #151515;
-}
+html[data-mode='light'] { ... }
+html[data-mode='dark'] { ... }
 ```
 
-注意：Chirpy 的内部 CSS 变量和选择器需要边调试边确认。建议每次只改一个小目标，部署后看效果。
+注意：修改 `_data/neutriverse.yml` 后需要重新提交并部署，线上颜色才会更新。
 
 ## 7. 如何修改图标
 
@@ -630,7 +679,7 @@ platforms:
 | --- | --- |
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 深色仪表盘配色 | `assets/css/neutriverse.css` |
+| 白天/黑夜仪表盘配色 | `_data/neutriverse.yml` 和 `assets/css/neutriverse.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -649,7 +698,7 @@ _layouts/tags.html
 
 每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/neutriverse.css` 中的 `.node-*` 类控制。
 
-### 自定义深色配色
+### 自定义白天/黑夜配色
 
 文件：
 
@@ -1033,10 +1082,11 @@ _includes/head/custom-head.html
 | 左下角社交图标 | `_data/contact.yml` |
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
-| 深色/浅色 | `_config.yml` 的 `theme_mode` |
+| 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，保持为空 |
+| 白天/黑夜颜色 | `_data/neutriverse.yml` 的 `theme_colors` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图 | `_layouts/tags.html` 和 `assets/css/neutriverse.css` |
-| 深色仪表盘配色 | `assets/css/neutriverse.css` |
+| 白天/黑夜仪表盘配色 | `_data/neutriverse.yml` 和 `assets/css/neutriverse.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 
