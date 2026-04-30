@@ -34,6 +34,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
 | 当前自定义配色方案 | `assets/css/ChirpyDefault.css` |
+| 阅读时间文案 | `_includes/read-time.html` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
 
@@ -667,15 +668,15 @@ _layouts/tags.html
 assets/css/ChirpyDefault.css
 ```
 
-这里不覆盖 Chirpy 的默认配色，只保留状态模块、标签星图、关系图和文章封面等新增模块的结构样式。
+这里不覆盖 Chirpy 的默认配色，只保留状态模块、标签星图和文章封面等新增模块的结构样式。
 
 ### 文章封面图
 
-首页卡片支持文章 front matter 的 `image` 字段。当前 `Zodiac` 已添加：
+首页卡片支持文章 front matter 的 `image` 字段。当前第一篇文章 `Zodiac` 已移除封面图；如果以后想给文章添加封面，可以写：
 
 ```yaml
 image:
-  path: /NeutriverseTitle.png
+  path: /assets/img/covers/my-cover.png
   alt: Neutriverse cover image
 ```
 
@@ -691,6 +692,20 @@ assets/img/covers/my-cover.png
 image:
   path: /assets/img/covers/my-cover.png
   alt: Cover image description
+```
+
+### 文章阅读时间
+
+文章页标题下方的阅读时间文案由这个文件控制：
+
+```text
+_includes/read-time.html
+```
+
+当前格式为：
+
+```text
+全文阅读预计需要 xx 分钟
 ```
 
 ## 9. 如何修改评论系统
@@ -1043,6 +1058,7 @@ _includes/head/custom-head.html
 | 左下角社交图标 | `_data/contact.yml` |
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
+| 阅读时间文案 | `_includes/read-time.html` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |

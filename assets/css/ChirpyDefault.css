@@ -70,8 +70,7 @@
   letter-spacing: 0;
 }
 
-.tag-galaxy,
-.graph-map {
+.tag-galaxy {
   position: relative;
   min-height: 24rem;
   margin: 0.5rem 0 2rem;
@@ -80,8 +79,7 @@
   background: var(--card-bg);
 }
 
-.tag-galaxy::before,
-.graph-map::before {
+.tag-galaxy::before {
   content: '';
   position: absolute;
   inset: 2rem;
@@ -90,8 +88,7 @@
   opacity: 0.55;
 }
 
-.tag-galaxy::after,
-.graph-map::after {
+.tag-galaxy::after {
   content: '';
   position: absolute;
   inset: 5.2rem 7.2rem;
@@ -100,8 +97,7 @@
   opacity: 0.32;
 }
 
-.galaxy-core,
-.graph-core {
+.galaxy-core {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -120,18 +116,15 @@
   text-align: center;
 }
 
-.galaxy-core span,
-.graph-core span {
+.galaxy-core span {
   font-weight: 700;
 }
 
-.galaxy-core small,
-.graph-core small {
+.galaxy-core small {
   color: var(--text-muted-color);
 }
 
-.tag-node,
-.graph-node {
+.tag-node {
   position: absolute;
   z-index: 3;
   display: inline-flex;
@@ -146,23 +139,19 @@
   text-decoration: none;
 }
 
-.tag-node:hover,
-.graph-node:hover {
+.tag-node:hover {
   border-color: var(--text-muted-color);
   color: var(--heading-color);
   text-decoration: none;
 }
 
-.tag-name,
-.graph-name {
+.tag-name {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.tag-count,
-.graph-count,
-.graph-kind {
+.tag-count {
   min-width: 1.35rem;
   color: var(--text-muted-color);
   font-size: 0.78rem;
@@ -182,77 +171,23 @@
 .node-10 { top: 36%; left: 12%; }
 .node-11 { top: 76%; left: 52%; }
 
-.tag-index-list,
-.graph-list {
+.tag-index-list {
   margin-top: 1.5rem;
 }
 
-.graph-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.graph-lines line {
-  stroke: var(--main-border-color);
-  stroke-width: 1;
-  opacity: 0.75;
-}
-
-.graph-node.post-node {
-  border-style: solid;
-}
-
-.graph-node.tag-node-lite {
-  border-style: dashed;
-}
-
-.graph-node.category-node {
-  border-style: dotted;
-}
-
-.graph-list h2 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.graph-list-item {
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--main-border-color);
-}
-
-.graph-list-item a {
-  font-weight: 600;
-}
-
-.graph-list-meta {
-  display: block;
-  margin-top: 0.25rem;
-  color: var(--text-muted-color);
-  font-size: 0.88rem;
-}
-
 @media (max-width: 767.98px) {
-  .tag-galaxy,
-  .graph-map {
+  .tag-galaxy {
     min-height: auto;
     padding: 1rem;
   }
 
   .tag-galaxy::before,
   .tag-galaxy::after,
-  .graph-map::before,
-  .graph-map::after,
-  .galaxy-core,
-  .graph-core,
-  .graph-lines {
+  .galaxy-core {
     display: none;
   }
 
-  .tag-node,
-  .graph-node {
+  .tag-node {
     position: static;
     margin: 0.3rem;
   }

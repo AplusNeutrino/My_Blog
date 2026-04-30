@@ -1,0 +1,13 @@
+{% assign words = include.content | strip_html | number_of_words: 'auto' %}
+{% assign minutes = words | divided_by: 180 %}
+{% assign remainder = words | modulo: 180 %}
+
+{% if remainder > 0 %}
+  {% assign minutes = minutes | plus: 1 %}
+{% endif %}
+
+{% if minutes < 1 %}
+  {% assign minutes = 1 %}
+{% endif %}
+
+<span class="readtime">全文阅读预计需要 {{ minutes }} 分钟</span>
