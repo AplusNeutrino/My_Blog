@@ -8,8 +8,10 @@
   order: -1;
 }
 
-#sidebar .site-subtitle {
-  font-style: normal;
+#sidebar .site-subtitle,
+#sidebar .site-subtitle *,
+#sidebar .site-subtitle.fst-italic {
+  font-style: normal !important;
 }
 
 .post-preview img {
