@@ -7,14 +7,14 @@ This file records the deliberately vivid light-mode test palette for future reus
 Configured in:
 
 ```text
-_data/neutriverse.yml
+assets/css/neutriverse.css
 ```
 
 Path:
 
-```yaml
-theme_colors:
-  light:
+```css
+:root,
+html[data-mode='light']
 ```
 
 ## Palette
@@ -43,29 +43,28 @@ theme_colors:
 | `code_bg` | `#E0EAFF` | Inline code and code block background |
 | `shadow` | `rgba(255, 0, 128, 0.55)` | Card hover shadow |
 
-## Current YAML
+## Current CSS Variables
 
-```yaml
-light:
-  background: "#FF1744"
-  surface: "#FF9100"
-  surface_alt: "#FFD600"
-  card: "#76FF03"
-  border: "#00E676"
-  primary: "#00E5FF"
-  accent: "#2979FF"
-  text: "#111827"
-  muted: "#64748B"
-  heading: "#0F172A"
-  sidebar_bg: "#FF00FF"
-  sidebar_text: "#00FF00"
-  sidebar_muted: "#00FFFF"
-  sidebar_button_bg: "#FFFF00"
-  sidebar_button_text: "#0000FF"
-  sidebar_hover_bg: "#FF0000"
-  topbar_bg: "#651FFF"
-  link: "#D500F9"
-  link_hover: "#1D4ED8"
-  code_bg: "#E0EAFF"
-  shadow: "rgba(255, 0, 128, 0.55)"
+```css
+--neutriverse-bg: #ff1744;
+--neutriverse-surface: #ff9100;
+--neutriverse-surface-alt: #ffd600;
+--neutriverse-card: #76ff03;
+--neutriverse-border: #00e676;
+--neutriverse-primary: #00e5ff;
+--neutriverse-accent: #2979ff;
+--neutriverse-text: #111827;
+--neutriverse-muted: #64748b;
+--neutriverse-heading: #0f172a;
+--neutriverse-sidebar-bg: #ff00ff;
+--neutriverse-sidebar-text: #00ff00;
+--neutriverse-sidebar-muted: #00ffff;
+--neutriverse-sidebar-button-bg: #ffff00;
+--neutriverse-sidebar-button-text: #0000ff;
+--neutriverse-sidebar-hover-bg: #ff0000;
+--neutriverse-topbar-bg: #651fff;
+--neutriverse-link: #d500f9;
+--neutriverse-link-hover: #1d4ed8;
+--neutriverse-code-bg: #e0eaff;
+--neutriverse-shadow: rgba(255, 0, 128, 0.55);
 ```

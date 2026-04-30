@@ -550,76 +550,75 @@ theme_mode: dark
 颜色接口文件：
 
 ```text
-_data/neutriverse.yml
-```
-
-当前默认配色：
-
-```yaml
-theme_colors:
-  note: "Alea iacta est (vladimirlenin@qq.com), 2026-04-29"
-  light:
-    background: "#F8FAFC"
-    primary: "#2563EB"
-    accent: "#FACC15"
-    text: "#111827"
-  dark:
-    background: "#020617"
-    primary: "#10B981"
-    accent: "#94A3B8"
-    text: "#E5E7EB"
-```
-
-实际配置里还有更多可调字段：
-
-| 字段 | 作用 |
-| --- | --- |
-| `background` | 页面整体背景 |
-| `surface` | 搜索框、顶部栏、普通面板底色 |
-| `surface_alt` | 辅助面板或悬停底色 |
-| `card` | 文章卡片、状态模块、标签块底色 |
-| `border` | 边框、分隔线 |
-| `primary` | 主色，链接、激活态、重点按钮 |
-| `accent` | 强调色，头像边框、分隔点等 |
-| `text` | 正文文字 |
-| `muted` | 次级文字 |
-| `heading` | 标题文字 |
-| `sidebar_bg` | 左侧栏背景 |
-| `sidebar_text` | 左侧栏主文字 |
-| `sidebar_muted` | 左侧栏副文字 |
-| `sidebar_button_bg` | 左下角按钮背景 |
-| `sidebar_button_text` | 左下角按钮图标颜色 |
-| `sidebar_hover_bg` | 左侧导航和按钮悬停背景 |
-| `topbar_bg` | 顶部栏背景 |
-| `link` | 链接颜色 |
-| `link_hover` | 链接悬停颜色 |
-| `code_bg` | 行内代码和代码块背景 |
-| `shadow` | 卡片悬停阴影 |
-
-白天和黑夜各有一套字段：
-
-```yaml
-theme_colors:
-  light:
-    background: "#F8FAFC"
-  dark:
-    background: "#020617"
-```
-
-CSS 入口：
-
-```text
 assets/css/neutriverse.css
 ```
 
-这个文件会读取 `_data/neutriverse.yml` 里的颜色配置，并生成对应的 CSS 变量：
+白天模式和黑夜模式分别由两组 CSS 变量控制：
 
 ```css
-html[data-mode='light'] { ... }
-html[data-mode='dark'] { ... }
+:root,
+html[data-mode='light'] {
+  --neutriverse-bg: #ff1744;
+  --neutriverse-primary: #00e5ff;
+  --neutriverse-accent: #2979ff;
+  --neutriverse-text: #111827;
+}
+
+html[data-mode='dark'] {
+  --neutriverse-bg: #020617;
+  --neutriverse-primary: #10b981;
+  --neutriverse-accent: #94a3b8;
+  --neutriverse-text: #e5e7eb;
+}
 ```
 
-注意：修改 `_data/neutriverse.yml` 后需要重新提交并部署，线上颜色才会更新。
+实际 CSS 里还有更多可调变量：
+
+| 字段 | 作用 |
+| --- | --- |
+| `--neutriverse-bg` | 页面整体背景 |
+| `--neutriverse-surface` | 搜索框、顶部栏、普通面板底色 |
+| `--neutriverse-surface-alt` | 辅助面板或悬停底色 |
+| `--neutriverse-card` | 文章卡片、状态模块、标签块底色 |
+| `--neutriverse-border` | 边框、分隔线 |
+| `--neutriverse-primary` | 主色，链接、激活态、重点按钮 |
+| `--neutriverse-accent` | 强调色，头像边框、分隔点等 |
+| `--neutriverse-text` | 正文文字 |
+| `--neutriverse-muted` | 次级文字 |
+| `--neutriverse-heading` | 标题文字 |
+| `--neutriverse-sidebar-bg` | 左侧栏背景 |
+| `--neutriverse-sidebar-text` | 左侧栏主文字 |
+| `--neutriverse-sidebar-muted` | 左侧栏副文字 |
+| `--neutriverse-sidebar-button-bg` | 左下角按钮背景 |
+| `--neutriverse-sidebar-button-text` | 左下角按钮图标颜色 |
+| `--neutriverse-sidebar-hover-bg` | 左侧导航和按钮悬停背景 |
+| `--neutriverse-topbar-bg` | 顶部栏背景 |
+| `--neutriverse-link` | 链接颜色 |
+| `--neutriverse-link-hover` | 链接悬停颜色 |
+| `--neutriverse-code-bg` | 行内代码和代码块背景 |
+| `--neutriverse-shadow` | 卡片悬停阴影 |
+
+白天和黑夜各有一套变量。修改时只需要在对应选择器里改变量值：
+
+```css
+html[data-mode='light'] {
+  --neutriverse-bg: #f8fafc;
+}
+
+html[data-mode='dark'] {
+  --neutriverse-bg: #020617;
+}
+```
+
+这些变量会继续映射到 Chirpy 主题变量，例如：
+
+```css
+--main-bg: var(--neutriverse-bg);
+--card-bg: var(--neutriverse-card);
+--link-color: var(--neutriverse-link);
+```
+
+注意：`_data/neutriverse.yml` 现在不再保存配色。修改 `assets/css/neutriverse.css` 后需要重新提交并部署，线上颜色才会更新。
 
 当前白天模式使用的是一套高饱和测试配色，方便辨识每个颜色字段对应的页面元素。完整留档见：
 
@@ -685,7 +684,7 @@ platforms:
 | --- | --- |
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
 | 标签星图页 | `_layouts/tags.html` |
-| 白天/黑夜仪表盘配色 | `_data/neutriverse.yml` 和 `assets/css/neutriverse.css` |
+| 白天/黑夜仪表盘配色 | `assets/css/neutriverse.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -1089,10 +1088,10 @@ _includes/head/custom-head.html
 | GitHub/X/邮箱 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，保持为空 |
-| 白天/黑夜颜色 | `_data/neutriverse.yml` 的 `theme_colors` |
+| 白天/黑夜颜色 | `assets/css/neutriverse.css` 的 `--neutriverse-*` 变量 |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 标签星图 | `_layouts/tags.html` 和 `assets/css/neutriverse.css` |
-| 白天/黑夜仪表盘配色 | `_data/neutriverse.yml` 和 `assets/css/neutriverse.css` |
+| 白天/黑夜仪表盘配色 | `assets/css/neutriverse.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 
