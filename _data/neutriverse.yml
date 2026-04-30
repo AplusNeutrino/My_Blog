@@ -8,3 +8,10 @@ posts:
   # In a post's front matter, use `display_date: YYYY-MM-DD` to change the
   # public date shown on the home page and post page without changing sorting.
   display_date_field: display_date
+
+copyright:
+  year: 2026
+  owner: Neutrino
+  label: "CC BY-NC 4.0."
+  tooltip: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+  link: "https://creativecommons.org/licenses/by-nc/4.0/"

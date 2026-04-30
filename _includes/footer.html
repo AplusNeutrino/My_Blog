@@ -2,6 +2,15 @@
 
 {% assign neutriverse_stats = site.data.neutriverse.stats %}
 {% assign views_display_offset = neutriverse_stats.display_offset | default: 0 %}
+{% assign neutriverse_copyright = site.data.neutriverse.copyright %}
+{% assign copyright_year = neutriverse_copyright.year | default: nil %}
+{% unless copyright_year %}
+  {% assign copyright_year = 'now' | date: '%Y' %}
+{% endunless %}
+{% assign copyright_owner = neutriverse_copyright.owner | default: site.social.name %}
+{% assign copyright_label = neutriverse_copyright.label | default: site.data.locales[include.lang].copyright.brief %}
+{% assign copyright_tooltip = neutriverse_copyright.tooltip | default: site.data.locales[include.lang].copyright.verbose %}
+{% assign copyright_link = neutriverse_copyright.link %}
 
 <footer
   aria-label="Site Info"
@@ -11,23 +20,35 @@
   "
 >
   <p>
-    &copy;
-    <time>{{ 'now' | date: '%Y' }}</time>
+    &copy;<time>{{ copyright_year }}</time>
 
     {% if site.social.links %}
-      <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+      <a href="{{ site.social.links[0] }}">{{ copyright_owner }}</a>.
     {% else %}
-      <em class="fst-normal">{{ site.social.name }}</em>.
+      <em class="fst-normal">{{ copyright_owner }}</em>.
     {% endif %}
 
-    {% if site.data.locales[include.lang].copyright.brief %}
-      <span
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="{{ site.data.locales[include.lang].copyright.verbose }}"
-      >
-        {{- site.data.locales[include.lang].copyright.brief -}}
-      </span>
+    {% if copyright_label %}
+      {% if copyright_link %}
+        <a
+          href="{{ copyright_link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{{ copyright_tooltip }}"
+        >
+          {{- copyright_label -}}
+        </a>
+      {% else %}
+        <span
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{{ copyright_tooltip }}"
+        >
+          {{- copyright_label -}}
+        </span>
+      {% endif %}
     {% endif %}
   </p>
 

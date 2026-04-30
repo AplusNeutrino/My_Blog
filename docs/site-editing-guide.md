@@ -339,24 +339,36 @@ tags: [Python, Note]
 
 ### 2.12 页脚版权文字
 
-截图位置：底部 `© 2026 Neutrino. 保留部分权利。`
+截图位置：底部 `©2026 Neutrino. CC BY-NC 4.0.`
 
 来源：
 
-```yaml
-# _config.yml
-social:
-  name: Neutrino
+```text
+_data/neutriverse.yml
 ```
 
-年份由主题自动生成。
-
-修改版权姓名：
+当前配置：
 
 ```yaml
-social:
-  name: 你的名字
+copyright:
+  year: 2026
+  owner: Neutrino
+  label: "CC BY-NC 4.0."
+  tooltip: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+  link: "https://creativecommons.org/licenses/by-nc/4.0/"
 ```
+
+字段含义：
+
+| 字段 | 作用 |
+| --- | --- |
+| `year` | 页脚版权年份 |
+| `owner` | 页脚版权姓名 |
+| `label` | 显示在姓名后面的协议文字 |
+| `tooltip` | 鼠标移动到协议文字上时显示的说明 |
+| `link` | 协议文字点击后打开的链接 |
+
+如果以后想换成其他协议或自定义说明，只改这几个字段即可。`link` 留空时，协议文字会变成不可点击文本，但仍保留鼠标悬停说明。
 
 ### 2.13 页脚网站运行天数
 
