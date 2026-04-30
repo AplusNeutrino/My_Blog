@@ -32,7 +32,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 浏览器标签页图标 | `favicon.ico`、`_includes/favicons.html` 和 `assets/img/favicons/` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | 首页右侧状态模块 | `_includes/neutriverse-status.html` |
-| 标签星图页 | `_layouts/tags.html` |
+| 标签页列表 | `_layouts/tags.html` |
 | 当前自定义配色方案 | `assets/css/ChirpyDefault.css` |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
@@ -528,12 +528,14 @@ order: 5
 下面才是正文，可以自由改：
 
 ```markdown
-## 关于 Neutriverse
+这里是 Neutrino 的个人文字站。
 
-这里写你的介绍。
+这里面有笔记、读后感和记忆碎片。
+
+欢迎所有的你。
 ```
 
-关于页中的十五年倒计时也在这个文件里。起点是 `2024-09-15 20:00:00 +08:00`，目标时间是十五年后的 `2039-09-15 20:00:00 +08:00`，页面会每秒刷新显示：
+关于页中的十五年倒计时也在这个文件里。正文和倒计时之间保留了 20 行 `<br>` 空行。倒计时起点是 `2024-09-15 20:00:00 +08:00`，目标时间是十五年后的 `2039-09-15 20:00:00 +08:00`，页面会每秒刷新显示：
 
 ```text
 倒计时：剩余xx年xx月xx日xx时xx分xx秒
@@ -684,7 +686,7 @@ platforms:
 | 功能 | 文件 |
 | --- | --- |
 | 首页右侧 `Neutriverse Status` | `_includes/neutriverse-status.html` |
-| 标签星图页 | `_layouts/tags.html` |
+| 标签页列表 | `_layouts/tags.html` |
 | 当前默认配色兼容样式 | `assets/css/ChirpyDefault.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
@@ -694,7 +696,7 @@ platforms:
 
 状态模块显示运行天数、文章数量、标签数量、总字数、最近更新和总访问。模块位置由 `_layouts/default.html` 控制，只在首页右侧栏顶部显示。
 
-### 标签星图页
+### 标签页列表
 
 标签页文件：
 
@@ -702,7 +704,7 @@ platforms:
 _layouts/tags.html
 ```
 
-每个标签会生成一个可点击节点，链接仍然指向原来的标签归档页。节点位置主要由 `assets/css/ChirpyDefault.css` 中的 `.node-*` 类控制。
+当前标签页已移除上方星图，只保留下方 tag 表。每个标签仍然链接到原来的标签归档页。
 
 ### 自定义白天/黑夜配色
 
@@ -712,7 +714,7 @@ _layouts/tags.html
 assets/css/ChirpyDefault.css
 ```
 
-这里不覆盖 Chirpy 的默认配色，只保留状态模块、标签星图和文章封面等新增模块的结构样式。
+这里不覆盖 Chirpy 的默认配色，只保留状态模块、中间记忆、点赞按钮、文章封面等新增模块的结构样式。
 
 ### 文章封面图
 
@@ -1118,7 +1120,7 @@ _includes/head/custom-head.html
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 右侧中间记忆短句 | `_data/middle_memory.yml` |
-| 标签星图 | `_layouts/tags.html` 和 `assets/css/ChirpyDefault.css` |
+| 标签页列表 | `_layouts/tags.html` |
 | 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |

@@ -77,10 +77,6 @@
     const runtimeTargets = document.querySelectorAll('[data-runtime-days]');
     const viewsTargets = document.querySelectorAll('[data-total-views]');
 
-    if (runtimeTargets.length === 0) {
-      return;
-    }
-
     const statsEndpoint = '{{ neutriverse_stats.endpoint | default: "https://neutriverse-stats.feiyuzou-me.workers.dev" }}';
     const start = new Date('{{ site.site_start_date | default: "2026-04-29" }}T00:00:00+08:00');
     const now = new Date();
@@ -95,9 +91,42 @@
       return;
     }
 
+    const offsetSource = document.querySelector('[data-views-display-offset]');
+    const offset = Number(offsetSource ? offsetSource.dataset.viewsDisplayOffset : 0);
+    const displayOffset = Number.isFinite(offset) ? offset : 0;
+    const totalCacheKey = 'neutriverse-total-views-display';
+
+    const safeStorage = {
+      get(key) {
+        try {
+          return localStorage.getItem(key);
+        } catch {
+          return null;
+        }
+      },
+      set(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch {
+          /* Ignore storage failures in private or restricted browsers. */
+        }
+      }
+    };
+
+    const renderTotal = (value) => {
+      const total = Math.max(0, Number(value) || 0);
+
+      viewsTargets.forEach((target) => {
+        target.textContent = total.toLocaleString('zh-CN');
+      });
+    };
+
+    const cachedTotal = Number(safeStorage.get(totalCacheKey));
+    renderTotal(Number.isFinite(cachedTotal) && cachedTotal > 0 ? cachedTotal : displayOffset);
+
     const today = now.toISOString().slice(0, 10);
     const storageKey = `neutriverse-view-counted-${today}`;
-    const shouldCount = localStorage.getItem(storageKey) !== '1';
+    const shouldCount = safeStorage.get(storageKey) !== '1';
     const path = shouldCount ? '/hit' : '/stats';
     const method = shouldCount ? 'POST' : 'GET';
 
@@ -110,22 +139,22 @@
       })
       .then((data) => {
         const rawTotal = Number(data.totalViews || 0);
-        const offsetSource = document.querySelector('[data-views-display-offset]');
-        const offset = Number(offsetSource ? offsetSource.dataset.viewsDisplayOffset : 0);
-        const total = rawTotal + (Number.isFinite(offset) ? offset : 0);
+        const total = rawTotal + displayOffset;
+        const displayTotal = Math.max(0, total);
 
-        viewsTargets.forEach((target) => {
-          target.textContent = Math.max(0, total).toLocaleString('zh-CN');
-        });
+        renderTotal(displayTotal);
+        safeStorage.set(totalCacheKey, String(displayTotal));
 
         if (shouldCount) {
-          localStorage.setItem(storageKey, '1');
+          safeStorage.set(storageKey, '1');
         }
       })
       .catch(() => {
-        viewsTargets.forEach((target) => {
-          target.textContent = '--';
-        });
+        const fallbackTotal = Number(safeStorage.get(totalCacheKey));
+
+        if (Number.isFinite(fallbackTotal) && fallbackTotal > 0) {
+          renderTotal(fallbackTotal);
+        }
       });
   })();
 </script>
