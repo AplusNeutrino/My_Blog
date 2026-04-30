@@ -371,13 +371,13 @@ copyright:
 
 如果以后想换成其他协议或自定义说明，只改这几个字段即可。`link` 留空时，协议文字会变成不可点击文本，但仍保留鼠标悬停说明。
 
-版权行下面还有一行框架与主题来源：
+页脚第一行左侧显示版权，右侧显示框架与主题来源：
 
 ```text
 Powered by Jekyll · Theme by Chirpy.
 ```
 
-这行文字来自：
+这两部分都来自：
 
 ```text
 _includes/footer.html
@@ -385,9 +385,11 @@ _includes/footer.html
 
 其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
 
+页脚第二行居中显示站点运行时间和总浏览量。
+
 ### 2.13 页脚网站运行天数
 
-截图位置：底部右侧，原来显示 `本站采用 Jekyll 主题 Chirpy` 的地方。
+截图位置：页脚第二行居中显示。
 
 来源：
 

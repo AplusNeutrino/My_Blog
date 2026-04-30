@@ -14,13 +14,10 @@
 
 <footer
   aria-label="Site Info"
-  class="
-    d-flex flex-column justify-content-center text-muted
-    flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3
-  "
+  class="d-flex flex-column justify-content-center text-muted pb-lg-3"
 >
-  <div class="footer-credit d-flex flex-column">
-    <p>
+  <div class="footer-topline d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center w-100">
+    <p class="footer-credit">
       &copy;<time>{{ copyright_year }}</time>
 
       {% if site.social.links %}
@@ -62,7 +59,7 @@
     </p>
   </div>
 
-  <p class="site-runtime">
+  <p class="site-runtime text-center w-100">
     &#26412;&#31449;&#24050;&#36816;&#34892; <span id="site-runtime-days" data-runtime-days>...</span> &#22825;
     <span aria-hidden="true">&middot;</span>
     &#24635;&#27983;&#35272;

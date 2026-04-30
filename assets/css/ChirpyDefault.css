@@ -66,8 +66,19 @@
   overflow-wrap: anywhere;
 }
 
+.footer-topline,
 .site-runtime {
   letter-spacing: 0;
+}
+
+.site-powered {
+  text-align: right;
+}
+
+@media (max-width: 991.98px) {
+  .site-powered {
+    text-align: left;
+  }
 }
 
 .tag-galaxy {
