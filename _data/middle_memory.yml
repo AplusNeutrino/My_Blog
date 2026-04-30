@@ -1,4 +1,48 @@
 # One sentence per item. Empty items are ignored.
 # The right panel rotates through this list by local date and refreshes at midnight.
-sentences: [来たれ風よ、新芽がために！]
-sentences: [均衡保つは白き法。]
+sentences:
+  - "来たれ風よ、新芽がために！"
+
+  - "均衡保つは白き法。"
+
+  - "By my guiding hand, perfected we stand."
+
+  - "世界を、我が意のままに！世界よ、俺と共鳴する……"
+
+  - "Oh, quel ennui, quel ennui ces gens bien gentils. Qui m'aiment et me lassent. Sans rien qui dépasse."
+
+  - "L'heure qui sonne fait-elle le bonheur?"
+
+  - "Alea jacta est!"
+
+  - "Who am I? Can I conceal myself for evermore? Pretend I'm not the man I was before? And must my name until I die be no more than an alibi?"
+
+  - "Angel of Music! Do not shun me! Come to your strange Angel..."
+
+  - "It's a struggle, it's a war, and there's nothing that anyone's giving, one more day standing about, what is it for?"
+
+  - "But remember this, my brother, see in this some higher plan. You must use this precious silver, to become an honest man!"
+
+  - "There is a castle on a cloud, I like to go there in my sleep. Aren't any floors for me to sweep, not in my castle on a cloud."
+
+  - "生まれた地球にいるはずなのに, 何故か本当は僕だけが違う星から来たみたいなんだ"
+
+  - |-
+    They call this a city
+    But that's not what I see
+    We're locked in a cell with no key
+    They're clouding my vision
+    I'm robbed of decisions
+    With nowhere to go
+
+  - |-
+    Westward lies bleed t'ward the east
+    Wayward daughter, step into the night
+    Restless eyes, blind to the beast
+    Barren waters yield unto the tide
+
+  - |-
+    何の罪も無いはずなのに
+    何らかの罰を受けてる
+    時分で蒔いた種でもないのに
+    咲き乱れた花摘まされる
