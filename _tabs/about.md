@@ -14,41 +14,43 @@ order: 5
     <span class="about-now-updated">更新于 2026-05-01</span>
   </div>
 
-  <p class="about-now-summary">
-    我最近把注意力放在学习、写作、个人网站和长期知识整理上。这里记录的不是最终成果，而是此刻正在发生的路线。
-  </p>
+  <div class="about-now-body">
+    <p class="about-now-summary">
+      我最近把注意力放在学习、写作、个人网站和长期知识整理上。这里记录的不是最终成果，而是此刻正在发生的路线。
+    </p>
 
-  <div class="about-now-grid" aria-label="最近状态">
-    <div class="about-now-item">
-      <span>正在学习</span>
-      <strong>AI 工具链、Jekyll / Chirpy、计算机基础</strong>
-    </div>
-    <div class="about-now-item">
-      <span>正在写</span>
-      <strong>学习笔记、读后感、记忆碎片</strong>
-    </div>
-    <div class="about-now-item">
-      <span>正在做</span>
-      <strong>打磨 Neutriverse 的结构与阅读体验</strong>
-    </div>
-    <div class="about-now-item">
-      <span>当前模式</span>
-      <strong>慢速整理，持续生长</strong>
+    <div class="about-now-grid" aria-label="最近状态">
+      <div class="about-now-item">
+        <span>学</span>
+        <strong>AI 工具链 / 计算机基础</strong>
+      </div>
+      <div class="about-now-item">
+        <span>写</span>
+        <strong>笔记、读后感、记忆碎片</strong>
+      </div>
+      <div class="about-now-item">
+        <span>做</span>
+        <strong>打磨 Neutriverse</strong>
+      </div>
+      <div class="about-now-item">
+        <span>态</span>
+        <strong>慢速整理，持续生长</strong>
+      </div>
     </div>
   </div>
 
   <div class="about-now-roadmap" aria-label="个人路线图">
     <div class="about-now-step is-active">
       <span>现在</span>
-      <strong>整理 About 与 Now 页面</strong>
+      <strong>整理 About / Now</strong>
     </div>
     <div class="about-now-step">
       <span>接下来</span>
-      <strong>完善文章分类、系列导航和站内状态</strong>
+      <strong>完善分类与系列导航</strong>
     </div>
     <div class="about-now-step">
       <span>稍后</span>
-      <strong>把这里变成长期更新的个人路线图</strong>
+      <strong>维护长期路线图</strong>
     </div>
   </div>
 </section>

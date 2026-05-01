@@ -21,34 +21,17 @@
 }
 
 .about-now {
-  position: relative;
-  margin: 0.35rem 0 2.2rem;
-  padding: clamp(1rem, 2.4vw, 1.35rem);
-  border: 1px solid var(--main-border-color);
-  border-radius: 0.65rem;
-  background:
-    linear-gradient(135deg, rgba(60, 142, 175, 0.13), transparent 36%),
-    linear-gradient(315deg, rgba(170, 124, 70, 0.1), transparent 42%),
-    var(--card-bg);
-}
-
-.about-now::before {
-  content: '';
-  position: absolute;
-  top: 0.75rem;
-  bottom: 0.75rem;
-  left: 0;
-  width: 3px;
-  border-radius: 999px;
-  background: linear-gradient(to bottom, #49a0c1, #c2945a);
+  margin: 0.2rem 0 1.45rem;
+  padding: 0 0 1.2rem;
+  border-bottom: 1px solid var(--main-border-color);
 }
 
 .about-now-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
+  gap: 0.9rem;
+  margin-bottom: 0.55rem;
 }
 
 .about-now-kicker,
@@ -61,97 +44,102 @@
 
 .about-now-kicker {
   display: block;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.08rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .about-now h2 {
   margin: 0;
   color: var(--heading-color);
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: 1.2rem;
   line-height: 1.25;
 }
 
 .about-now-updated {
   flex: 0 0 auto;
-  padding-top: 0.18rem;
+  padding-top: 0.12rem;
   white-space: nowrap;
 }
 
+.about-now-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.95fr);
+  gap: 1rem;
+  align-items: start;
+}
+
 .about-now-summary {
-  max-width: 44rem;
-  margin: 0 0 1rem;
+  margin: 0;
   color: var(--text-color);
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .about-now-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.65rem;
-  margin-bottom: 1rem;
+  gap: 0.35rem 0.65rem;
 }
 
 .about-now-item,
 .about-now-step {
   min-width: 0;
-  border: 1px solid var(--main-border-color);
-  background: rgba(255, 255, 255, 0.018);
 }
 
 .about-now-item {
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.45rem;
 }
 
 .about-now-item span,
 .about-now-step span {
   display: block;
-  margin-bottom: 0.22rem;
 }
 
 .about-now-item strong,
 .about-now-step strong {
   display: block;
   color: var(--heading-color);
-  font-size: 0.95rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.4;
   overflow-wrap: anywhere;
 }
 
 .about-now-roadmap {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--main-border-color);
 }
 
 .about-now-step {
   position: relative;
-  padding: 0.78rem 0.85rem 0.78rem 1rem;
-  border-radius: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding-left: 0.72rem;
 }
 
 .about-now-step::before {
   content: '';
   position: absolute;
-  top: 0.95rem;
-  left: 0.55rem;
-  width: 0.42rem;
-  height: 0.42rem;
+  top: 0.62rem;
+  left: 0;
+  width: 0.32rem;
+  height: 0.32rem;
   border: 1px solid var(--text-muted-color);
   border-radius: 50%;
-  background: var(--card-bg);
-}
-
-.about-now-step.is-active {
-  border-color: rgba(73, 160, 193, 0.7);
+  background: transparent;
 }
 
 .about-now-step.is-active::before {
-  border-color: #49a0c1;
-  background: #49a0c1;
+  border-color: var(--link-color);
+  background: var(--link-color);
 }
 
 .neutriverse-status {
@@ -611,9 +599,19 @@
     white-space: normal;
   }
 
+  .about-now-body {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
   .about-now-grid,
   .about-now-roadmap {
     grid-template-columns: 1fr;
+  }
+
+  .about-now-roadmap {
+    display: grid;
+    gap: 0.35rem;
   }
 
   .tag-galaxy {
