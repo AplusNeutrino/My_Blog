@@ -20,100 +20,171 @@
   object-fit: cover;
 }
 
-.about-now {
-  margin: 0.2rem 0 1.45rem;
-  padding: 0 0 1.2rem;
+.about-profile {
+  max-width: 48rem;
+  margin-top: 0.15rem;
+  padding-bottom: 1.2rem;
   border-bottom: 1px solid var(--main-border-color);
 }
 
-.about-now-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.9rem;
-  margin-bottom: 0.55rem;
+.about-info {
+  max-width: 30rem;
+  padding-bottom: 1.05rem;
+  border-bottom: 1px solid var(--main-border-color);
 }
 
-.about-now-kicker,
-.about-now-updated,
-.about-now-item span,
-.about-now-step span {
-  color: var(--text-muted-color);
-  font-size: 0.76rem;
-}
-
-.about-now-kicker {
+.about-section-kicker {
   display: block;
-  margin-bottom: 0.08rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  margin-bottom: 0.65rem;
+  color: var(--text-muted-color);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
-.about-now h2 {
+.about-info-text {
   margin: 0;
-  color: var(--heading-color);
+  color: var(--text-muted-color);
   font-size: 1.2rem;
-  line-height: 1.25;
+  line-height: 1.42;
 }
 
-.about-now-updated {
-  flex: 0 0 auto;
-  padding-top: 0.12rem;
-  white-space: nowrap;
-}
-
-.about-now-body {
+.about-now {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(16rem, 0.95fr);
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.9fr);
+  gap: 1rem 1.35rem;
+  margin-top: 1.05rem;
+  padding-right: 3.8rem;
+}
+
+.about-now-main {
+  min-width: 0;
+}
+
+.about-now h2 {
+  margin: 0 0 0.5rem;
+  color: var(--heading-color);
+  font-size: clamp(1.55rem, 2.8vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.16;
 }
 
 .about-now-summary {
   margin: 0;
-  color: var(--text-color);
-  line-height: 1.7;
+  color: var(--text-muted-color);
+  font-size: 1.16rem;
+  line-height: 1.42;
+}
+
+.about-monitor {
+  position: absolute;
+  top: 0.2rem;
+  right: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 50%;
+  opacity: 0.72;
+}
+
+.about-monitor::before,
+.about-monitor::after,
+.about-monitor span,
+.about-monitor i,
+.about-monitor b {
+  content: '';
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.about-monitor::before {
+  inset: 0.45rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 50%;
+}
+
+.about-monitor::after {
+  top: 50%;
+  left: 50%;
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: var(--text-muted-color);
+  transform: translate(-50%, -50%);
+}
+
+.about-monitor span {
+  top: 50%;
+  left: 50%;
+  width: 1.12rem;
+  height: 1px;
+  background: var(--text-muted-color);
+  transform-origin: left center;
+  animation: about-monitor-sweep 3.8s linear infinite;
+}
+
+.about-monitor i {
+  inset: 0.72rem;
+  border-top: 1px solid var(--main-border-color);
+  border-bottom: 1px solid var(--main-border-color);
+  opacity: 0.75;
+}
+
+.about-monitor b {
+  top: 0.78rem;
+  right: 0.72rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--link-color);
+  opacity: 0.65;
+  animation: about-monitor-pulse 1.8s ease-in-out infinite;
 }
 
 .about-now-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.35rem 0.65rem;
-}
-
-.about-now-item,
-.about-now-step {
-  min-width: 0;
+  gap: 0.48rem 1rem;
+  align-self: end;
+  padding-top: 3.45rem;
 }
 
 .about-now-item {
   display: grid;
-  grid-template-columns: 1.5rem minmax(0, 1fr);
-  align-items: baseline;
-  gap: 0.45rem;
+  grid-template-columns: 1.2rem minmax(0, 1fr);
+  gap: 0.42rem;
+  min-width: 0;
 }
 
 .about-now-item span,
-.about-now-step span {
-  display: block;
+.about-now-step span,
+.about-now-updated {
+  color: var(--text-muted-color);
+  font-size: 0.76rem;
 }
 
-.about-now-item strong,
-.about-now-step strong {
-  display: block;
+.about-now-item strong {
   color: var(--heading-color);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  font-size: 0.92rem;
+  line-height: 1.38;
   overflow-wrap: anywhere;
+}
+
+.about-now-updated {
+  position: absolute;
+  right: 0;
+  bottom: -1.9rem;
 }
 
 .about-now-roadmap {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  margin-top: 0.8rem;
-  padding-top: 0.75rem;
+  gap: 0.45rem 1.35rem;
+  margin-top: 1.2rem;
+  padding-top: 0.9rem;
   border-top: 1px solid var(--main-border-color);
 }
 
@@ -122,13 +193,14 @@
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
+  min-width: 0;
   padding-left: 0.72rem;
 }
 
 .about-now-step::before {
   content: '';
   position: absolute;
-  top: 0.62rem;
+  top: 0.63rem;
   left: 0;
   width: 0.32rem;
   height: 0.32rem;
@@ -140,6 +212,35 @@
 .about-now-step.is-active::before {
   border-color: var(--link-color);
   background: var(--link-color);
+}
+
+.about-now-step strong {
+  color: var(--heading-color);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.about-countdown {
+  margin: 2.15rem 0 0;
+  color: var(--text-muted-color);
+  font-size: 0.84rem;
+}
+
+@keyframes about-monitor-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes about-monitor-pulse {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .neutriverse-status {
@@ -589,29 +690,34 @@
 }
 
 @media (max-width: 767.98px) {
-  .about-now-header {
-    display: block;
+  .about-profile {
+    max-width: none;
   }
 
-  .about-now-updated {
-    display: inline-block;
-    margin-top: 0.35rem;
-    white-space: normal;
+  .about-info-text,
+  .about-now-summary {
+    font-size: 1.05rem;
   }
 
-  .about-now-body {
+  .about-now {
     grid-template-columns: 1fr;
+    padding-right: 3.2rem;
     gap: 0.75rem;
   }
 
-  .about-now-grid,
-  .about-now-roadmap {
-    grid-template-columns: 1fr;
+  .about-monitor {
+    width: 2.35rem;
+    height: 2.35rem;
   }
 
-  .about-now-roadmap {
-    display: grid;
-    gap: 0.35rem;
+  .about-now-grid {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .about-now-updated {
+    position: static;
+    grid-column: 1;
   }
 
   .tag-galaxy {

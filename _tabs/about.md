@@ -5,64 +5,73 @@ icon: fas fa-info-circle
 order: 5
 ---
 
-<section class="about-now" aria-labelledby="about-now-title">
-  <div class="about-now-header">
-    <div>
-      <span class="about-now-kicker">Now / Current Orbit</span>
-      <h2 id="about-now-title">个人状态监控</h2>
-    </div>
-    <span class="about-now-updated">更新于 2026-05-01</span>
+{% comment %}
+============================================================
+ABOUT PAGE TEXT CONFIG
+以后更新 About / Now 页面，只需要改这里的文字。
+
+status_items 和 roadmap_items 的格式：
+标签|内容||标签|内容
+每一组用两个竖线 || 分隔，标签和内容之间用一个竖线 | 分隔。
+============================================================
+{% endcomment %}
+{% assign about_info_kicker = 'NEUTRIVERSE INFO' %}
+{% capture about_info_text %}本站是 Neutrino 的个人文字站。
+主要用于存储笔记、读后感和记忆碎片。
+欢迎所有的你。{% endcapture %}
+
+{% assign about_now_kicker = 'PERSONAL ORBIT' %}
+{% assign about_now_title = 'Neutrino状态监控' %}
+{% capture about_now_summary %}目前的主要任务是迁移整理近五年
+散落在各个软件中的笔记资料。
+本人正在绝赞求职中。{% endcapture %}
+{% assign about_now_updated = '更新于 2026-05-01' %}
+{% assign status_items = '学|AI 工具链 / 计算机基础||写|笔记、读后感、记忆碎片||做|打磨 Neutriverse||态|慢速整理，持续生长' | split: '||' %}
+{% assign roadmap_items = '现在|整理 About / Now||接下来|完善分类与系列导航||稍后|维护长期路线图' | split: '||' %}
+
+<section class="about-profile" aria-labelledby="about-info-title">
+  <div class="about-info">
+    <span class="about-section-kicker">{{ about_info_kicker }}</span>
+    <p id="about-info-title" class="about-info-text">{{ about_info_text | newline_to_br }}</p>
   </div>
 
-  <div class="about-now-body">
-    <p class="about-now-summary">
-      我最近把注意力放在学习、写作、个人网站和长期知识整理上。这里记录的不是最终成果，而是此刻正在发生的路线。
-    </p>
+  <div class="about-now" aria-labelledby="about-now-title">
+    <div class="about-now-main">
+      <span class="about-section-kicker">{{ about_now_kicker }}</span>
+      <h2 id="about-now-title">{{ about_now_title }}</h2>
+      <p class="about-now-summary">{{ about_now_summary | newline_to_br }}</p>
+    </div>
+
+    <div class="about-monitor" aria-hidden="true">
+      <span></span>
+      <i></i>
+      <b></b>
+    </div>
 
     <div class="about-now-grid" aria-label="最近状态">
-      <div class="about-now-item">
-        <span>学</span>
-        <strong>AI 工具链 / 计算机基础</strong>
-      </div>
-      <div class="about-now-item">
-        <span>写</span>
-        <strong>笔记、读后感、记忆碎片</strong>
-      </div>
-      <div class="about-now-item">
-        <span>做</span>
-        <strong>打磨 Neutriverse</strong>
-      </div>
-      <div class="about-now-item">
-        <span>态</span>
-        <strong>慢速整理，持续生长</strong>
-      </div>
+      {% for item in status_items %}
+        {% assign status = item | split: '|' %}
+        <div class="about-now-item">
+          <span>{{ status[0] }}</span>
+          <strong>{{ status[1] }}</strong>
+        </div>
+      {% endfor %}
     </div>
+
+    <span class="about-now-updated">{{ about_now_updated }}</span>
   </div>
 
   <div class="about-now-roadmap" aria-label="个人路线图">
-    <div class="about-now-step is-active">
-      <span>现在</span>
-      <strong>整理 About / Now</strong>
-    </div>
-    <div class="about-now-step">
-      <span>接下来</span>
-      <strong>完善分类与系列导航</strong>
-    </div>
-    <div class="about-now-step">
-      <span>稍后</span>
-      <strong>维护长期路线图</strong>
-    </div>
+    {% for item in roadmap_items %}
+      {% assign step = item | split: '|' %}
+      <div class="about-now-step{% if forloop.first %} is-active{% endif %}">
+        <span>{{ step[0] }}</span>
+        <strong>{{ step[1] }}</strong>
+      </div>
+    {% endfor %}
   </div>
 </section>
 
-这里是 Neutrino 的个人文字站。
-
-主要用于存储笔记、读后感和记忆碎片。
-
-<br>
-
-欢迎所有的你。
-
 <br>
 <br>
 <br>
@@ -83,7 +92,7 @@ order: 5
 <br>
 <br>
 <br>
-<p id="middle-layer-countdown">剩余--年--月--日--时--分--秒</p>
+<p id="middle-layer-countdown" class="about-countdown">剩余--年--月--日--时--分--秒</p>
 
 <script>
   (() => {
