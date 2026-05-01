@@ -10,7 +10,7 @@ order: 5
 ABOUT PAGE TEXT CONFIG
 以后更新 About / Now 页面，只需要改这里的文字。
 
-status_items 和 roadmap_items 的格式：
+status_items、roadmap_items 和 signal_items 的格式：
 标签|内容||标签|内容
 每一组用两个竖线 || 分隔，标签和内容之间用一个竖线 | 分隔。
 ============================================================
@@ -25,6 +25,7 @@ status_items 和 roadmap_items 的格式：
 {% capture about_now_summary %}目前的主要任务是迁移整理近五年散落在各个软件中的笔记资料。
 本人正在绝赞求职中。{% endcapture %}
 {% assign about_now_updated = '更新于 2026-05-01' %}
+{% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-01' | split: '||' %}
 {% assign status_items = '学|CS技能复健||写|修订FF1体验记录||做|中间层管理中||态|羡慕五一出游人士' | split: '||' %}
 {% assign roadmap_items = '现在|中间层漫游指南修订中||接下来|完善分类与系列导航||稍后|维护文章区和更新读后感' | split: '||' %}
 
@@ -41,14 +42,35 @@ status_items 和 roadmap_items 的格式：
       <p class="about-now-summary">{{ about_now_summary | newline_to_br }}</p>
     </div>
 
-    <div class="about-scan" aria-hidden="true">
-      <span></span>
-    </div>
+    <div class="about-instruments" aria-label="当前信号">
+      <div class="about-gauge-row" aria-hidden="true">
+        <div class="about-scan">
+          <span></span>
+        </div>
 
-    <div class="about-monitor" aria-hidden="true">
-      <span></span>
-      <i></i>
-      <b></b>
+        <div class="about-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="about-monitor">
+          <span></span>
+          <i></i>
+          <b></b>
+        </div>
+      </div>
+
+      <div class="about-signal">
+        <span class="about-signal-title">SIGNAL</span>
+        {% for item in signal_items %}
+          {% assign signal = item | split: '|' %}
+          <div class="about-signal-row">
+            <span>{{ signal[0] }}</span>
+            <strong>{{ signal[1] }}</strong>
+          </div>
+        {% endfor %}
+      </div>
     </div>
 
     <div class="about-now-grid" aria-label="最近状态">
