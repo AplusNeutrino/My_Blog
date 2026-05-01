@@ -22,8 +22,7 @@ status_items 和 roadmap_items 的格式：
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino状态监控' %}
-{% capture about_now_summary %}目前的主要任务是迁移整理近五年
-散落在各个软件中的笔记资料。
+{% capture about_now_summary %}目前的主要任务是迁移整理近五年散落在各个软件中的笔记资料。
 本人正在绝赞求职中。{% endcapture %}
 {% assign about_now_updated = '更新于 2026-05-01' %}
 {% assign status_items = '学|CS技能复健||写|修订FF1体验记录||做|中间层管理中||态|羡慕五一出游人士' | split: '||' %}
