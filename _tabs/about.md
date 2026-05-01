@@ -42,6 +42,10 @@ status_items 和 roadmap_items 的格式：
       <p class="about-now-summary">{{ about_now_summary | newline_to_br }}</p>
     </div>
 
+    <div class="about-scan" aria-hidden="true">
+      <span></span>
+    </div>
+
     <div class="about-monitor" aria-hidden="true">
       <span></span>
       <i></i>

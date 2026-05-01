@@ -66,7 +66,7 @@
 .about-now h2 {
   margin: 0 0 0.5rem;
   color: var(--heading-color);
-  font-size: clamp(1.55rem, 2.8vw, 1.95rem);
+  font-size: clamp(1.32rem, 2vw, 1.52rem);
   font-weight: 400;
   line-height: 1.16;
 }
@@ -87,6 +87,56 @@
   border: 1px solid var(--main-border-color);
   border-radius: 50%;
   opacity: 0.72;
+}
+
+.about-scan {
+  position: absolute;
+  top: 0.52rem;
+  right: 3.35rem;
+  width: 4.55rem;
+  height: 1.7rem;
+  overflow: hidden;
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.22rem;
+  opacity: 0.64;
+}
+
+.about-scan::before,
+.about-scan::after,
+.about-scan span {
+  content: '';
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.about-scan::before {
+  inset: 0.28rem 0.36rem;
+  background:
+    linear-gradient(var(--main-border-color), var(--main-border-color)) 0 0 / 100% 1px no-repeat,
+    linear-gradient(var(--main-border-color), var(--main-border-color)) 0 50% / 100% 1px no-repeat,
+    linear-gradient(var(--main-border-color), var(--main-border-color)) 0 100% / 100% 1px no-repeat;
+  opacity: 0.85;
+}
+
+.about-scan::after {
+  top: 0.35rem;
+  right: 0.42rem;
+  width: 0.24rem;
+  height: 0.24rem;
+  border-radius: 50%;
+  background: var(--text-muted-color);
+  opacity: 0.46;
+}
+
+.about-scan span {
+  top: 0.22rem;
+  bottom: 0.22rem;
+  left: 0.38rem;
+  width: 1px;
+  background: var(--text-muted-color);
+  box-shadow: 0 0 0.55rem rgba(255, 255, 255, 0.18);
+  animation: about-scan-line 2.8s ease-in-out infinite alternate;
 }
 
 .about-monitor::before,
@@ -240,6 +290,16 @@
 
   50% {
     opacity: 0.8;
+  }
+}
+
+@keyframes about-scan-line {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(3.65rem);
   }
 }
 
@@ -708,6 +768,10 @@
   .about-monitor {
     width: 2.35rem;
     height: 2.35rem;
+  }
+
+  .about-scan {
+    display: none;
   }
 
   .about-now-grid {
