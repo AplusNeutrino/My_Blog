@@ -5,6 +5,54 @@ icon: fas fa-info-circle
 order: 5
 ---
 
+<section class="about-now" aria-labelledby="about-now-title">
+  <div class="about-now-header">
+    <div>
+      <span class="about-now-kicker">Now / Current Orbit</span>
+      <h2 id="about-now-title">个人状态监控</h2>
+    </div>
+    <span class="about-now-updated">更新于 2026-05-01</span>
+  </div>
+
+  <p class="about-now-summary">
+    我最近把注意力放在学习、写作、个人网站和长期知识整理上。这里记录的不是最终成果，而是此刻正在发生的路线。
+  </p>
+
+  <div class="about-now-grid" aria-label="最近状态">
+    <div class="about-now-item">
+      <span>正在学习</span>
+      <strong>AI 工具链、Jekyll / Chirpy、计算机基础</strong>
+    </div>
+    <div class="about-now-item">
+      <span>正在写</span>
+      <strong>学习笔记、读后感、记忆碎片</strong>
+    </div>
+    <div class="about-now-item">
+      <span>正在做</span>
+      <strong>打磨 Neutriverse 的结构与阅读体验</strong>
+    </div>
+    <div class="about-now-item">
+      <span>当前模式</span>
+      <strong>慢速整理，持续生长</strong>
+    </div>
+  </div>
+
+  <div class="about-now-roadmap" aria-label="个人路线图">
+    <div class="about-now-step is-active">
+      <span>现在</span>
+      <strong>整理 About 与 Now 页面</strong>
+    </div>
+    <div class="about-now-step">
+      <span>接下来</span>
+      <strong>完善文章分类、系列导航和站内状态</strong>
+    </div>
+    <div class="about-now-step">
+      <span>稍后</span>
+      <strong>把这里变成长期更新的个人路线图</strong>
+    </div>
+  </div>
+</section>
+
 这里是 Neutrino 的个人文字站。
 
 主要用于存储笔记、读后感和记忆碎片。
