@@ -1,5 +1,6 @@
 {% if page.categories.size > 0 %}
   {% assign page_root_category = page.categories | first %}
+  {% assign page_leaf_category = page.categories | last %}
 
   <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
     <div class="post-series-header">
@@ -14,8 +15,8 @@
         {% assign first_series_post = true %}
         {% assign series_posts = site.posts | sort: 'date' %}
         {% for post in series_posts %}
-          {% assign post_root_category = post.categories | first %}
-          {% if post_root_category == page_root_category %}
+          {% assign post_leaf_category = post.categories | last %}
+          {% if post_leaf_category == page_leaf_category %}
             {% unless first_series_post %},{% endunless %}
             {
               "title": {{ post.title | jsonify }},
@@ -131,7 +132,6 @@
 
             details.append(summary);
             details.append(renderNode(child, childPath));
-            if (child.posts.length > 0) details.append(renderPostList(child));
             fragment.append(details);
           });
 
