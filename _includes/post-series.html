@@ -1,0 +1,147 @@
+{% if page.categories.size > 0 %}
+  {% assign page_root_category = page.categories | first %}
+
+  <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
+    <div class="post-series-header">
+      <h2 class="panel-heading">同频系列</h2>
+      <span class="post-series-count" data-series-count></span>
+    </div>
+    <div class="post-series-root">{{ page_root_category }}</div>
+    <div class="post-series-tree" data-series-tree></div>
+
+    <script type="application/json" data-series-posts>
+      [
+        {% assign first_series_post = true %}
+        {% assign series_posts = site.posts | sort: 'date' %}
+        {% for post in series_posts %}
+          {% assign post_root_category = post.categories | first %}
+          {% if post_root_category == page_root_category %}
+            {% unless first_series_post %},{% endunless %}
+            {
+              "title": {{ post.title | jsonify }},
+              "url": {{ post.url | relative_url | jsonify }},
+              "date": {{ post.date | date: '%Y-%m-%d' | jsonify }},
+              "categories": {{ post.categories | jsonify }}
+            }
+            {% assign first_series_post = false %}
+          {% endif %}
+        {% endfor %}
+      ]
+    </script>
+
+    <script>
+      (() => {
+        const panel = document.currentScript.closest('#post-series');
+        if (!panel) return;
+
+        const treeRoot = panel.querySelector('[data-series-tree]');
+        const countNode = panel.querySelector('[data-series-count]');
+        const dataNode = panel.querySelector('[data-series-posts]');
+        const currentUrl = panel.dataset.currentUrl;
+        const posts = JSON.parse(dataNode.textContent || '[]');
+
+        if (posts.length <= 1) {
+          panel.hidden = true;
+          return;
+        }
+
+        const rootCategory = posts[0]?.categories?.[0];
+        const currentPost = posts.find((post) => post.url === currentUrl);
+        const currentPath = (currentPost?.categories || []).slice(1);
+        const categoryTree = { name: rootCategory, children: new Map(), posts: [] };
+
+        posts
+          .sort((a, b) => a.date.localeCompare(b.date))
+          .forEach((post) => {
+            const path = post.categories.slice(1);
+            let cursor = categoryTree;
+
+            if (path.length === 0) {
+              cursor.posts.push(post);
+              return;
+            }
+
+            path.forEach((category) => {
+              if (!cursor.children.has(category)) {
+                cursor.children.set(category, { name: category, children: new Map(), posts: [] });
+              }
+              cursor = cursor.children.get(category);
+            });
+
+            cursor.posts.push(post);
+          });
+
+        countNode.textContent = `${posts.findIndex((post) => post.url === currentUrl) + 1}/${posts.length}`;
+
+        const countPosts = (node) => {
+          return node.posts.length + [...node.children.values()].reduce((sum, child) => sum + countPosts(child), 0);
+        };
+
+        const renderPost = (post, index) => {
+          const item = document.createElement('li');
+          item.className = 'post-series-item';
+          if (post.url === currentUrl) item.classList.add('is-current');
+
+          const link = document.createElement('a');
+          link.href = post.url;
+
+          const order = document.createElement('span');
+          order.className = 'post-series-order';
+          order.textContent = String(index + 1).padStart(2, '0');
+
+          const title = document.createElement('span');
+          title.className = 'post-series-title';
+          title.textContent = post.title;
+
+          const date = document.createElement('time');
+          date.className = 'post-series-date';
+          date.dateTime = post.date;
+          date.textContent = post.date.slice(5).replace('-', '/');
+
+          link.append(order, title, date);
+          item.append(link);
+
+          return item;
+        };
+
+        const renderPostList = (node) => {
+          const list = document.createElement('ol');
+          list.className = 'post-series-list';
+          node.posts.forEach((post) => list.append(renderPost(post, posts.indexOf(post))));
+          return list;
+        };
+
+        const renderNode = (node, path = []) => {
+          const fragment = document.createDocumentFragment();
+
+          [...node.children.values()].forEach((child) => {
+            const childPath = [...path, child.name];
+            const details = document.createElement('details');
+            details.className = 'post-series-group';
+            details.open = currentPath.slice(0, childPath.length).join('\u0000') === childPath.join('\u0000');
+
+            const summary = document.createElement('summary');
+            const name = document.createElement('span');
+            name.className = 'post-series-category';
+            name.textContent = child.name;
+            const size = document.createElement('span');
+            size.className = 'post-series-size';
+            size.textContent = countPosts(child);
+            summary.append(name, size);
+
+            details.append(summary);
+            details.append(renderNode(child, childPath));
+            if (child.posts.length > 0) details.append(renderPostList(child));
+            fragment.append(details);
+          });
+
+          if (node.posts.length > 0) fragment.append(renderPostList(node));
+
+          return fragment;
+        };
+
+        treeRoot.append(renderNode(categoryTree));
+      })();
+    </script>
+  </section>
+{% endif %}

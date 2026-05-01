@@ -76,6 +76,126 @@
   margin-bottom: 0.75rem;
 }
 
+#post-series {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.65rem;
+  background: var(--card-bg);
+}
+
+.post-series-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.post-series-header .panel-heading {
+  margin: 0;
+}
+
+.post-series-count,
+.post-series-root,
+.post-series-size,
+.post-series-date {
+  color: var(--text-muted-color);
+  font-size: 0.78rem;
+}
+
+.post-series-root {
+  margin-bottom: 0.8rem;
+}
+
+.post-series-tree {
+  max-height: 28rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.post-series-group {
+  margin-top: 0.3rem;
+}
+
+.post-series-group summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.post-series-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.post-series-category {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-series-size {
+  margin-left: auto;
+}
+
+.post-series-group summary::after {
+  content: '\f105';
+  color: var(--text-muted-color);
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  transition: transform 0.18s ease;
+}
+
+.post-series-group[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+.post-series-list {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0.25rem 0 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+
+.post-series-item a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.15rem;
+  padding: 0.2rem 0.35rem;
+  border-left: 2px solid transparent;
+  border-radius: 0.35rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.post-series-item a:hover,
+.post-series-item.is-current a {
+  border-left-color: var(--link-color);
+  background: var(--main-bg);
+  color: var(--link-color);
+}
+
+.post-series-order {
+  color: var(--text-muted-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.post-series-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .middle-memory-text {
   margin-bottom: 0;
   line-height: 1.75;
