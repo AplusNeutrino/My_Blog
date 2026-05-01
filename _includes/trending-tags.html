@@ -41,25 +41,10 @@
         return;
       }
 
-      const now = new Date();
-      const anchor = new Date('2024-09-15T00:00:00+08:00');
-      const dayMs = 24 * 60 * 60 * 1000;
-      const dayIndex = Math.floor((now - anchor) / dayMs);
-      const index = ((dayIndex % sentences.length) + sentences.length) % sentences.length;
+      const index = Math.floor(Math.random() * sentences.length);
       target.textContent = sentences[index];
     };
 
-    const scheduleMidnightRefresh = () => {
-      const now = new Date();
-      const nextMidnight = new Date(now);
-      nextMidnight.setHours(24, 0, 0, 0);
-      window.setTimeout(() => {
-        renderMemory();
-        scheduleMidnightRefresh();
-      }, nextMidnight - now + 1000);
-    };
-
     renderMemory();
-    scheduleMidnightRefresh();
   })();
 </script>
