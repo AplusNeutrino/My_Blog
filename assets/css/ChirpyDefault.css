@@ -21,7 +21,7 @@
 }
 
 .about-profile {
-  max-width: 48rem;
+  max-width: 55rem;
   margin-top: 0.15rem;
   padding-bottom: 1.2rem;
   border-bottom: 1px solid var(--main-border-color);
@@ -53,10 +53,9 @@
 .about-now {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.9fr);
-  gap: 1rem 1.35rem;
+  grid-template-columns: minmax(0, 0.92fr) minmax(25rem, 1.18fr);
+  gap: 1rem 1.65rem;
   margin-top: 1.05rem;
-  padding-right: 3.8rem;
 }
 
 .about-now-main {
@@ -196,8 +195,8 @@
 
 .about-now-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.48rem 1rem;
+  grid-template-columns: repeat(2, minmax(11.5rem, 1fr));
+  gap: 0.48rem 1.15rem;
   align-self: end;
   padding-top: 3.45rem;
 }
@@ -220,6 +219,7 @@
   color: var(--heading-color);
   font-size: 0.92rem;
   line-height: 1.38;
+  min-width: 10em;
   overflow-wrap: anywhere;
 }
 
