@@ -28,7 +28,6 @@
 }
 
 .about-info {
-  max-width: 30rem;
   padding-bottom: 1.05rem;
   border-bottom: 1px solid var(--main-border-color);
 }
@@ -44,6 +43,7 @@
 }
 
 .about-info-text {
+  max-width: 30rem;
   margin: 0;
   color: var(--text-muted-color);
   font-size: 1.2rem;
@@ -80,21 +80,27 @@
 
 .about-instruments {
   display: grid;
-  grid-template-columns: max-content minmax(8rem, 1fr);
-  gap: 0.65rem 0.9rem;
-  align-items: start;
+  grid-template-columns: 4.95rem minmax(10rem, 1fr);
+  gap: 0 0.82rem;
+  align-items: center;
   justify-self: end;
-  width: min(100%, 25rem);
+  width: min(100%, 17.6rem);
 }
 
 .about-gauge-row {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    'bars monitor'
+    'scan scan';
+  grid-template-columns: 1.7rem 2.8rem;
+  grid-template-rows: 2.8rem 1.7rem;
   gap: 0.45rem;
-  padding-top: 0.05rem;
+  width: 4.95rem;
+  height: 4.95rem;
 }
 
 .about-monitor {
+  grid-area: monitor;
   position: relative;
   width: 2.8rem;
   height: 2.8rem;
@@ -104,8 +110,9 @@
 }
 
 .about-scan {
+  grid-area: scan;
   position: relative;
-  width: 4.55rem;
+  width: 4.95rem;
   height: 1.7rem;
   overflow: hidden;
   border: 1px solid var(--main-border-color);
@@ -114,13 +121,15 @@
 }
 
 .about-bars {
+  grid-area: bars;
   display: grid;
   grid-template-columns: repeat(3, 0.24rem);
   align-items: end;
   justify-content: center;
   gap: 0.18rem;
-  width: 1.45rem;
+  width: 1.7rem;
   height: 1.7rem;
+  align-self: center;
   border: 1px solid var(--main-border-color);
   border-radius: 0.22rem;
   opacity: 0.58;
@@ -378,7 +387,7 @@
   }
 
   to {
-    transform: translateX(3.65rem);
+    transform: translateX(4.05rem);
   }
 }
 
