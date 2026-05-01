@@ -94,7 +94,7 @@ order: 5
 
     const render = () => {
       const parts = diffParts(new Date(), targetDate);
-      target.textContent = `倒计时：剩余${parts.years}年${parts.months}月${parts.days}日${parts.hours}时${parts.minutes}分${parts.seconds}秒`;
+      target.textContent = `剩余${parts.years}年${parts.months}月${parts.days}日${parts.hours}时${parts.minutes}分${parts.seconds}秒`;
     };
 
     render();
