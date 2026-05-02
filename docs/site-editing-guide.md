@@ -173,7 +173,7 @@ order: 2
 
 如果想临时隐藏某个导航页，可以把对应文件移出 `_tabs/`，或改名为不被 Jekyll 识别的文件名，例如 `about.md.bak`。
 
-### 2.5 左下角订阅图标
+### 2.5 左下角外部链接图标
 
 截图位置：左下角圆形图标。
 
@@ -181,17 +181,22 @@ order: 2
 
 ```yaml
 # _data/contact.yml
+- type: bangumi
+  icon: "fas fa-layer-group"
+  url: "https://bangumi.tv/user/neutrino_x"
+
 - type: rss
   icon: "fas fa-rss"
   noblank: true
 ```
 
-当前只保留 RSS 订阅图标。GitHub、X、邮箱等图标已从 `_data/contact.yml` 中移除，因此不会在左下角显示。
+当前左下角保留 Bangumi 主页和 RSS 订阅两个入口。Bangumi 使用 `fas fa-layer-group`，表示多层收藏 / 条目库，放在 RSS 左边。GitHub、X、邮箱等图标已从 `_data/contact.yml` 中移除，因此不会在左下角显示。
 
 常见修改：
 
 | 目标 | 修改位置 |
 | --- | --- |
+| 隐藏 Bangumi 图标 | 删除或注释 `_data/contact.yml` 中的 `bangumi` 条目 |
 | 隐藏 RSS 图标 | 删除或注释 `_data/contact.yml` 中的 `rss` 条目 |
 | 恢复 GitHub/X/邮箱等图标 | 按 `_data/contact.yml` 下方注释模板重新添加对应条目，并确认 `_config.yml` 中有对应用户名或链接 |
 | 增加 LinkedIn 等 | 参考 `_data/contact.yml` 下方注释模板 |
@@ -574,6 +579,277 @@ assets/css/ChirpyDefault.css
 | `nv-wavy` | 波浪下划线 |
 | `nv-dotted` | 点状下划线 |
 
+### 3.2 Markdown 常用写法
+
+正文一般从 `##` 二级标题开始，因为文章页标题已经来自 front matter 的 `title`。
+
+```markdown
+## 二级标题
+
+这是第一段文字。
+
+这是第二段文字。段落之间空一行。
+
+**粗体**、*斜体*、***粗斜体***、~~删除线~~、`行内代码`
+
+[链接文字](https://example.com)
+![图片说明](image.png)
+
+> 这是一段引用。
+
+- 无序列表
+- 无序列表
+
+1. 有序列表
+2. 有序列表
+
+- [x] 已完成
+- [ ] 未完成
+```
+
+如果需要强制换行，可以使用 `<br>`，或者在上一行末尾加两个空格。正文中的分隔线建议上下都空一行，避免和 Jekyll front matter 混淆：
+
+```markdown
+上一段。
+
+---
+
+下一段。
+```
+
+### 3.3 代码块、表格和脚注
+
+代码块尽量写语言标识，这样 Chirpy 会更容易做高亮：
+
+````markdown
+```powershell
+git status
+```
+
+```js
+console.log('hello');
+```
+
+```yaml
+title: 示例
+```
+````
+
+表格写法：
+
+```markdown
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| title | string | 文章标题 |
+| date | date | 发布时间 |
+| tags | array | 标签列表 |
+```
+
+脚注写法：
+
+```markdown
+这里有一个脚注。[^note]
+
+[^note]: 这是脚注内容。
+```
+
+如果要显示 Markdown 符号本身，可以用反斜杠转义：
+
+```markdown
+\*这不会变成斜体\*
+\# 这不会变成标题
+\[这不会变成链接\]
+```
+
+### 3.4 图片与文章资源目录
+
+如果一篇文章有多张图片，建议给文章设置 `media_subpath`，然后正文里直接写图片文件名：
+
+```yaml
+---
+title: 示例文章
+date: 2026-05-01 20:00:00 +0800
+categories: [学习笔记, 示例]
+tags: [note]
+media_subpath: /assets/img/posts/example
+image:
+  path: cover.jpg
+  alt: 封面说明
+---
+```
+
+正文中：
+
+```markdown
+![图片说明](demo.png)
+```
+
+对应文件放在：
+
+```text
+assets/img/posts/example/demo.png
+assets/img/posts/example/cover.jpg
+```
+
+图片一定写 alt 文本，方便搜索、辅助阅读和后续维护。
+
+### 3.5 Chirpy / Jekyll 特有写法
+
+文章顶部的 front matter 常用字段：
+
+```yaml
+---
+title: 文章标题
+date: 2026-05-01 20:00:00 +0800
+description: 首页摘要
+categories: [一级分类, 二级分类]
+tags: [tag-a, tag-b]
+pin: true
+image:
+  path: /assets/img/example.jpg
+  alt: 图片说明
+toc: true
+comments: true
+---
+```
+
+同频系列面板会按当前文章的最小分类，也就是 `categories` 的最后一项来识别系列。例如：
+
+```yaml
+categories: [学习笔记, DBMS]
+```
+
+这里的叶子分类是 `DBMS`，同系列文章会按 `DBMS` 聚合。
+
+Chirpy 常用提示块：
+
+```markdown
+> 修改主题文件前，建议先检查当前 diff。
+{: .prompt-warning }
+
+> 这里是一条提示。
+{: .prompt-tip }
+
+> 这里是一条信息。
+{: .prompt-info }
+
+> 这里是一条危险提醒。
+{: .prompt-danger }
+```
+
+如果需要稳定锚点，可以直接写 HTML 标题：
+
+```html
+<h2 id="stable-anchor">稳定锚点</h2>
+```
+
+然后引用：
+
+```markdown
+[跳转](#stable-anchor)
+```
+
+### 3.6 常用文章模板
+
+普通文章模板：
+
+```markdown
+---
+title: 文章标题
+date: 2026-05-01 20:00:00 +0800
+categories: [分类, 子分类]
+tags: [标签一, 标签二]
+description: 这篇文章的摘要。
+---
+
+## 背景
+
+这里写背景。
+
+## 正文
+
+这里写正文。
+
+## 总结
+
+这里写总结。
+```
+
+学习笔记模板：
+
+````markdown
+---
+title: 学习笔记标题
+date: 2026-05-01 20:00:00 +0800
+categories: [学习笔记, 主题]
+tags: [note]
+---
+
+## 本节目标
+
+- 目标一
+- 目标二
+
+## 核心概念
+
+概念说明。
+
+## 示例
+
+```text
+示例内容
+```
+
+## 易错点
+
+> 这里写易错点。
+{: .prompt-warning }
+
+## 回顾
+
+- 回顾一
+- 回顾二
+````
+
+读后感或作品记录模板：
+
+```markdown
+---
+title: 读后感标题
+date: 2026-05-01 20:00:00 +0800
+categories: [阅览记录, 作品名]
+tags: [reading]
+---
+
+## 读了什么
+
+作品的基本信息。
+
+## 记住了什么
+
+印象深刻的地方。
+
+## 想到了什么
+
+个人想法。
+
+## 留下的问题
+
+- 问题一
+- 问题二
+```
+
+### 3.7 常见写作问题
+
+- 列表前后需要空行，嵌套列表需要缩进。
+- 代码块开头和结尾的反引号数量要一致。
+- 表格源码里的列不必完全对齐，但分隔行 `| --- | --- |` 必须存在。
+- 中英文混排拥挤时，可以手动在中英文之间加空格，例如 `这是 Markdown 指南`。
+- Markdown 不能表达的结构可以少量使用 HTML，例如 `<br>`、自定义 class、稳定锚点和 iframe。
+- 大段 HTML 不建议直接写在文章里，后期维护会变麻烦，必要时再做 include 或布局文件。
+- 标题层级不要跳跃，例如不要从 `##` 直接跳到 `####`。
+- 同一系列文章使用相同的叶子分类。
+
 ## 4. 如何修改已有文章
 
 打开 `_posts/` 下对应文件即可。
@@ -628,6 +904,21 @@ order: 5
 ```text
 剩余xx年xx月xx日xx时xx分xx秒
 ```
+
+关于页的个人监控面板下方还有 `阅读栈` 和 `影像栈` 两列，每列固定显示 8 个槽位。数据也在 `_tabs/about.md` 顶部配置区：
+
+```liquid
+{% assign reading_stack_items = '作品标题|2026/05/02||作品标题|2026/05/02' | split: '||' %}
+{% assign visual_stack_items = '作品标题|2026/05/02||作品标题|2026/05/02' | split: '||' %}
+```
+
+每个条目格式是：
+
+```text
+标题|添加时间
+```
+
+每两个条目之间用 `||` 分隔。页面只显示标题和右下角添加时间，不显示评分、状态、作者或导演。
 
 ## 6. 如何修改颜色、字体、卡片样式
 
@@ -707,6 +998,10 @@ docs/april-fools-color-scheme.md
 
 ```yaml
 # _data/contact.yml
+- type: bangumi
+  icon: "fas fa-layer-group"
+  url: "https://bangumi.tv/user/neutrino_x"
+
 - type: rss
   icon: "fas fa-rss"
   noblank: true

@@ -1,3 +1,7 @@
+- type: bangumi
+  icon: "fas fa-layer-group"
+  url: "https://bangumi.tv/user/neutrino_x"
+
 - type: rss
   icon: "fas fa-rss"
   noblank: true

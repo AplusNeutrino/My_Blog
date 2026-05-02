@@ -28,6 +28,8 @@ status_items、roadmap_items 和 signal_items 的格式：
 {% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-01' | split: '||' %}
 {% assign status_items = '学|CS技能复健||写|修订FF1体验记录||做|中间层管理中||态|羡慕五一出游人士' | split: '||' %}
 {% assign roadmap_items = '现在|中间层漫游指南修订中||接下来|完善分类与系列导航||稍后|维护文章区和更新读后感' | split: '||' %}
+{% assign reading_stack_items = '待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
+{% assign visual_stack_items = '待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 
 <section class="about-profile" aria-labelledby="about-info-title">
   <div class="about-info">
@@ -94,6 +96,44 @@ status_items、roadmap_items 和 signal_items 的格式：
         <strong>{{ step[1] }}</strong>
       </div>
     {% endfor %}
+  </div>
+
+  <div class="about-stacks" aria-label="阅读与影像监控栈">
+    <section class="about-stack-panel" aria-labelledby="reading-stack-title">
+      <div class="about-stack-header">
+        <span class="about-stack-kicker">READING STACK</span>
+        <h3 id="reading-stack-title">阅读栈</h3>
+      </div>
+
+      <ol class="about-stack-list">
+        {% for item in reading_stack_items limit: 8 %}
+          {% assign stack_item = item | split: '|' %}
+          <li class="about-stack-item">
+            <span class="about-stack-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <strong>{{ stack_item[0] }}</strong>
+            <time>{{ stack_item[1] }}</time>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <section class="about-stack-panel" aria-labelledby="visual-stack-title">
+      <div class="about-stack-header">
+        <span class="about-stack-kicker">VISUAL STACK</span>
+        <h3 id="visual-stack-title">影像栈</h3>
+      </div>
+
+      <ol class="about-stack-list">
+        {% for item in visual_stack_items limit: 8 %}
+          {% assign stack_item = item | split: '|' %}
+          <li class="about-stack-item">
+            <span class="about-stack-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <strong>{{ stack_item[0] }}</strong>
+            <time>{{ stack_item[1] }}</time>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
   </div>
 </section>
 
