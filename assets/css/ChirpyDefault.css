@@ -78,6 +78,113 @@
   -webkit-line-clamp: 3;
 }
 
+.content .nv-red {
+  color: #ff7d7d;
+}
+
+.content .nv-orange {
+  color: #ffad66;
+}
+
+.content .nv-gold {
+  color: #d8b76a;
+}
+
+.content .nv-green {
+  color: #82d982;
+}
+
+.content .nv-cyan {
+  color: #74d6d6;
+}
+
+.content .nv-blue {
+  color: #8fb7ff;
+}
+
+.content .nv-purple {
+  color: #c4a6ff;
+}
+
+.content .nv-pink {
+  color: #ff9bc6;
+}
+
+.content .nv-muted {
+  color: var(--text-muted-color);
+}
+
+.content .nv-underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.content .nv-wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.content .nv-dotted {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
+
+.content .nv-mark,
+.content .nv-mark-gold {
+  padding: 0.05em 0.22em;
+  border-radius: 0.18em;
+  background: rgba(216, 183, 106, 0.2);
+  color: var(--heading-color);
+}
+
+.content .nv-mark-red {
+  padding: 0.05em 0.22em;
+  border-radius: 0.18em;
+  background: rgba(255, 125, 125, 0.18);
+  color: var(--heading-color);
+}
+
+.content .nv-mark-blue {
+  padding: 0.05em 0.22em;
+  border-radius: 0.18em;
+  background: rgba(143, 183, 255, 0.18);
+  color: var(--heading-color);
+}
+
+.content .nv-mark-green {
+  padding: 0.05em 0.22em;
+  border-radius: 0.18em;
+  background: rgba(130, 217, 130, 0.16);
+  color: var(--heading-color);
+}
+
+.content .nv-key {
+  padding: 0.02em 0.18em;
+  border-bottom: 2px solid currentColor;
+  color: #d8b76a;
+  font-weight: 600;
+}
+
+.content .nv-spoiler {
+  border-radius: 0.18em;
+  background: currentColor;
+  color: var(--text-color);
+  transition:
+    background 0.16s ease,
+    color 0.16s ease;
+}
+
+.content .nv-spoiler:hover,
+.content .nv-spoiler:focus {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-color);
+}
+
 .about-profile {
   max-width: 55rem;
   margin-top: 0.15rem;

@@ -525,6 +525,55 @@ description: "这是一篇测试首页摘要的文章。"
 - `tags` 可以多个，例如 `[Python, Jekyll, Note]`。
 - `description` 可选，但建议写，方便控制首页摘要。
 
+### 3.1 文章正文强调样式
+
+文章正文里可以直接写 HTML `span`，使用 `nv-` 开头的辅助 class。样式定义在：
+
+```text
+assets/css/ChirpyDefault.css
+```
+
+常用写法：
+
+```markdown
+这是一段普通文字，<span class="nv-gold">这几个字是金色</span>。
+
+<span class="nv-red nv-underline">红色并带下划线</span>
+
+<span class="nv-blue nv-wavy">蓝色波浪线</span>
+
+<span class="nv-mark">普通标记</span>
+<span class="nv-mark-red">红色标记</span>
+<span class="nv-mark-blue">蓝色标记</span>
+<span class="nv-mark-green">绿色标记</span>
+
+<span class="nv-key">关键词</span>
+
+<span class="nv-spoiler">这段文字默认被遮住，鼠标悬停后显示</span>
+```
+
+可用文字颜色：
+
+| class | 效果 |
+| --- | --- |
+| `nv-red` | 红色 |
+| `nv-orange` | 橙色 |
+| `nv-gold` | 金色 |
+| `nv-green` | 绿色 |
+| `nv-cyan` | 青色 |
+| `nv-blue` | 蓝色 |
+| `nv-purple` | 紫色 |
+| `nv-pink` | 粉色 |
+| `nv-muted` | 弱化灰色 |
+
+可用线条：
+
+| class | 效果 |
+| --- | --- |
+| `nv-underline` | 普通下划线 |
+| `nv-wavy` | 波浪下划线 |
+| `nv-dotted` | 点状下划线 |
+
 ## 4. 如何修改已有文章
 
 打开 `_posts/` 下对应文件即可。
