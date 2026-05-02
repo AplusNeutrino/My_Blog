@@ -14,10 +14,63 @@
   font-style: normal !important;
 }
 
-.post-preview img {
+.post-preview.has-preview-image {
+  min-height: 12.2rem;
+}
+
+.post-preview-image {
+  position: relative;
+  padding: 0.9rem 0.9rem 0.9rem 0;
+  overflow: hidden;
+}
+
+.post-preview-image::before,
+.post-preview-image::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.post-preview-image::before {
+  inset: 0.9rem 0.9rem 0.9rem 0;
+  z-index: 1;
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(90deg, var(--card-bg) 0%, rgba(0, 0, 0, 0.26) 32%, rgba(0, 0, 0, 0.46) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+}
+
+.post-preview-image::after {
+  inset: 0.9rem 0.9rem 0.9rem 0;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  box-shadow: inset 0 0 1.5rem rgba(0, 0, 0, 0.28);
+}
+
+.post-preview-image-frame {
   height: 100%;
-  min-height: 12rem;
+  min-height: 10.4rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--main-bg);
+}
+
+.post-preview-image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.post-preview:hover .post-preview-image-frame img {
+  filter: saturate(1.08) brightness(1.03);
+  transform: scale(1.12);
 }
 
 .about-profile {
@@ -851,6 +904,35 @@
 }
 
 @media (max-width: 767.98px) {
+  .post-preview.has-preview-image {
+    min-height: 0;
+  }
+
+  .post-preview-image {
+    padding: 0.85rem 0.85rem 0;
+  }
+
+  .post-preview-image::before,
+  .post-preview-image::after {
+    inset: 0.85rem 0.85rem 0;
+  }
+
+  .post-preview-image::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.54) 100%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  }
+
+  .post-preview-image-frame {
+    min-height: 0;
+  }
+
+  .post-preview-image-frame img {
+    aspect-ratio: 16 / 7;
+    height: auto;
+    max-height: 13rem;
+  }
+
   .about-profile {
     max-width: none;
   }
