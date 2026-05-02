@@ -132,7 +132,7 @@ status_items、roadmap_items 和 signal_items 的格式：
     <section class="about-stack-panel" aria-labelledby="visual-stack-title">
       <div class="about-stack-header">
         <span class="about-stack-kicker">FUTURE VISUAL STACK</span>
-        <h3 id="visual-stack-title">待影像栈</h3>
+        <h3 id="visual-stack-title">待观看栈</h3>
       </div>
 
       <ol class="about-stack-list">

@@ -16,7 +16,14 @@
         {% assign series_posts = site.posts | sort: 'date' %}
         {% for post in series_posts %}
           {% assign post_leaf_category = post.categories | last %}
+          {% assign should_show_series_post = false %}
           {% if post_leaf_category == page_leaf_category %}
+            {% if page.hidden == true or post.hidden != true %}
+              {% assign should_show_series_post = true %}
+            {% endif %}
+          {% endif %}
+
+          {% if should_show_series_post %}
             {% unless first_series_post %},{% endunless %}
             {
               "title": {{ post.title | jsonify }},
