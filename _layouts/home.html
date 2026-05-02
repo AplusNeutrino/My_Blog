@@ -22,7 +22,8 @@ refactor: true
     {% assign pinned_size = all_pinned.size | minus: visible_start %}
   {% endif %}
 
-  {% for i in (visible_start..all_pinned.size) limit: pinned_size %}
+  {% assign pinned_end = visible_start | plus: pinned_size | minus: 1 %}
+  {% for i in (visible_start..pinned_end) %}
     {% assign posts = posts | push: all_pinned[i] %}
   {% endfor %}
 {% else %}
@@ -41,10 +42,16 @@ refactor: true
   {% endif %}
 
   {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
+  {% assign normal_last_index = all_normal.size | minus: 1 %}
+  {% if normal_end > normal_last_index %}
+    {% assign normal_end = normal_last_index %}
+  {% endif %}
 
-  {% for i in (normal_start..normal_end) %}
-    {% assign posts = posts | push: all_normal[i] %}
-  {% endfor %}
+  {% if normal_start <= normal_end %}
+    {% for i in (normal_start..normal_end) %}
+      {% assign posts = posts | push: all_normal[i] %}
+    {% endfor %}
+  {% endif %}
 {% endif %}
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
