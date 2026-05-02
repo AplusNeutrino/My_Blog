@@ -101,17 +101,29 @@ status_items、roadmap_items 和 signal_items 的格式：
   <div class="about-stacks" aria-label="阅读与影像监控栈">
     <section class="about-stack-panel" aria-labelledby="reading-stack-title">
       <div class="about-stack-header">
-        <span class="about-stack-kicker">READING STACK</span>
-        <h3 id="reading-stack-title">阅读栈</h3>
+        <span class="about-stack-kicker">FUTURE READING STACK</span>
+        <h3 id="reading-stack-title">待阅读栈</h3>
       </div>
 
       <ol class="about-stack-list">
-        {% for item in reading_stack_items limit: 8 %}
+        {% assign reading_stack_sorted = '' | split: '' %}
+        {% for item in reading_stack_items %}
+          {% assign stack_item = item | split: '|' %}
+          {% assign stack_title = stack_item[0] | strip %}
+          {% assign stack_date = stack_item[1] | strip %}
+          {% unless stack_title == '' or stack_title == '待记录' or stack_date == '' or stack_date contains '----' %}
+            {% capture sortable_item %}{{ stack_date }}|{{ stack_title }}{% endcapture %}
+            {% assign reading_stack_sorted = reading_stack_sorted | push: sortable_item %}
+          {% endunless %}
+        {% endfor %}
+
+        {% assign reading_stack_sorted = reading_stack_sorted | sort %}
+        {% for item in reading_stack_sorted limit: 8 %}
           {% assign stack_item = item | split: '|' %}
           <li class="about-stack-item">
             <span class="about-stack-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <strong>{{ stack_item[0] }}</strong>
-            <time>{{ stack_item[1] }}</time>
+            <strong>{{ stack_item[1] }}</strong>
+            <time>{{ stack_item[0] }}</time>
           </li>
         {% endfor %}
       </ol>
@@ -119,17 +131,29 @@ status_items、roadmap_items 和 signal_items 的格式：
 
     <section class="about-stack-panel" aria-labelledby="visual-stack-title">
       <div class="about-stack-header">
-        <span class="about-stack-kicker">VISUAL STACK</span>
-        <h3 id="visual-stack-title">影像栈</h3>
+        <span class="about-stack-kicker">FUTURE VISUAL STACK</span>
+        <h3 id="visual-stack-title">待影像栈</h3>
       </div>
 
       <ol class="about-stack-list">
-        {% for item in visual_stack_items limit: 8 %}
+        {% assign visual_stack_sorted = '' | split: '' %}
+        {% for item in visual_stack_items %}
+          {% assign stack_item = item | split: '|' %}
+          {% assign stack_title = stack_item[0] | strip %}
+          {% assign stack_date = stack_item[1] | strip %}
+          {% unless stack_title == '' or stack_title == '待记录' or stack_date == '' or stack_date contains '----' %}
+            {% capture sortable_item %}{{ stack_date }}|{{ stack_title }}{% endcapture %}
+            {% assign visual_stack_sorted = visual_stack_sorted | push: sortable_item %}
+          {% endunless %}
+        {% endfor %}
+
+        {% assign visual_stack_sorted = visual_stack_sorted | sort %}
+        {% for item in visual_stack_sorted limit: 8 %}
           {% assign stack_item = item | split: '|' %}
           <li class="about-stack-item">
             <span class="about-stack-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <strong>{{ stack_item[0] }}</strong>
-            <time>{{ stack_item[1] }}</time>
+            <strong>{{ stack_item[1] }}</strong>
+            <time>{{ stack_item[0] }}</time>
           </li>
         {% endfor %}
       </ol>
