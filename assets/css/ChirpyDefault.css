@@ -71,6 +71,12 @@
   transform: scale(1.12);
 }
 
+.post-preview.has-preview-image .card-text {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: initial;
+}
+
 .post-preview.has-preview-image .card-text p {
   display: -webkit-box;
   overflow: hidden;
