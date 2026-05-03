@@ -23,7 +23,7 @@ status_items、roadmap_items 和 signal_items 的格式：
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino状态监控' %}
-{% capture about_now_summary %}目前在迁移整理近五年散落在各个软件中的笔记资料。
+{% capture about_now_summary %}最近在迁移整理近五年散落在各个软件中的笔记资料。
 本人正在绝赞求职中。{% endcapture %}
 {% assign about_now_updated = '更新于 2026-05-01' %}
 {% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-01' | split: '||' %}
