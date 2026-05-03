@@ -28,7 +28,7 @@ status_items、roadmap_items 和 signal_items 的格式：
 {% assign about_now_updated = '更新于 2026-05-01' %}
 {% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-01' | split: '||' %}
 {% assign status_items = '学|CS技能复健||写|修订FF1体验记录||做|中间层管理中||态|羡慕五一出游人士' | split: '||' %}
-{% assign roadmap_items = '现在|中间层漫游指南修订中||接下来|完善分类与系列导航||稍后|维护文章区和更新读后感' | split: '||' %}
+{% assign roadmap_items = '现在|面经背诵中||接下来|CS专业知识复健||稍后|进行休闲运动' | split: '||' %}
 {% assign reading_stack_items = '《迷雾之子》|2026/05/02||待记录|----/--/--||《阿特拉斯耸耸肩》|2025/11/21||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 {% assign visual_stack_items = '《纽约提喻法》|2025/03/05||《Amadeus》|2025/04/04||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 
