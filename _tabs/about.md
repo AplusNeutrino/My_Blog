@@ -19,7 +19,7 @@ status_items、roadmap_items 和 signal_items 的格式：
 {% assign about_info_kicker = 'NEUTRIVERSE INFO' %}
 {% capture about_info_text %}本站是 Neutrino 的个人文字站。
 主要用于存储笔记、读后感和记忆碎片。
-<span class="nv-red">欢迎所有的你。</span>{% endcapture %}
+<span class="nv-red">**欢迎所有的你。**</span>{% endcapture %}
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino状态监控' %}
