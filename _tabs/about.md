@@ -19,16 +19,16 @@ status_items、roadmap_items 和 signal_items 的格式：
 {% assign about_info_kicker = 'NEUTRIVERSE INFO' %}
 {% capture about_info_text %}本站是 Neutrino 的个人文字站。
 主要用于存储笔记、读后感和记忆碎片。
-欢迎所有的你。{% endcapture %}
+<span class="nv-red">欢迎所有的你。</span>{% endcapture %}
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino状态监控' %}
 {% capture about_now_summary %}最近在迁移整理近五年散落在各个软件中的笔记资料。
 本人正在绝赞求职中。{% endcapture %}
-{% assign about_now_updated = '更新于 2026-05-01' %}
-{% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-01' | split: '||' %}
-{% assign status_items = '学|CS技能复健||写|修订FF1体验记录||做|中间层管理中||态|羡慕五一出游人士' | split: '||' %}
-{% assign roadmap_items = '现在|面经背诵中||接下来|CS专业知识复健||稍后|进行休闲运动' | split: '||' %}
+{% assign about_now_updated = '更新于 2026-05-05' %}
+{% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-05' | split: '||' %}
+{% assign status_items = '学|CS技能复健||写|修订整理笔记||做|中间层持续管理中||态|羡慕五一出游人士' | split: '||' %}
+{% assign roadmap_items = '现在|面经持续背诵中||接下来|CS专业知识复健||稍后|读书《洛丽塔》' | split: '||' %}
 {% assign reading_stack_items = '《迷雾之子》|2026/05/02||《大师与玛格丽特》|2025/12/25||《阿特拉斯耸耸肩》|2025/11/21||《无限近似于青色的蓝》|2025/04/03||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 {% assign visual_stack_items = '《纽约提喻法》|2025/03/05||《Amadeus》|2025/04/04||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 
@@ -162,6 +162,66 @@ status_items、roadmap_items 和 signal_items 的格式：
   </div>
 </section>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
