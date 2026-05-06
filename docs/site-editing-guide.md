@@ -1614,3 +1614,155 @@ tags: [FirstPost]
 | `display_updated_at` | 文章详情页公开显示的更新时间 |
 
 如果删除 `display_date`，页面会自动恢复显示 `date`。如果删除 `display_updated_at`，页面会自动恢复显示默认的 `last_modified_at`。
+
+## 15. 本地构建与发布习惯
+
+### 15.1 本地 Jekyll 构建环境
+
+当前本地可用的 Ruby/Jekyll 环境：
+
+```text
+Ruby: D:\Ruby-Jekyll\Ruby33-x64
+Bundler: 2.6.9
+项目依赖: vendor/bundle
+```
+
+推荐构建命令：
+
+```powershell
+cd "C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo"
+
+$vars = [System.Environment]::GetEnvironmentVariables('Process')
+$base = [string]$vars['Path']
+[Environment]::SetEnvironmentVariable('PATH', $null, 'Process')
+[Environment]::SetEnvironmentVariable('Path', 'D:\Ruby-Jekyll\Ruby33-x64\bin;' + $base, 'Process')
+
+bundle exec jekyll build
+```
+
+如果直接运行 `bundle exec jekyll build` 遇到 `ruby.exe is not recognized`，通常是当前 PowerShell/Codex 进程里同时存在 `PATH` 和 `Path` 两个环境变量，导致 Windows wrapper 找不到 Ruby。使用上面的命令会先清理当前进程的重复 PATH，再把 Ruby 3.3 放到最前面。
+
+本地构建可能出现一个既有 warning：
+
+```text
+Conflict: _site/assets/img/favicons/site.webmanifest is shared by multiple files.
+```
+
+这个 warning 目前不是 fatal，不会阻止构建完成。
+
+注意：`vendor/`、`.bundle/`、`.jekyll-cache/`、`_site/`、`Gemfile.lock` 当前属于本地环境或构建产物，不应主动提交，除非以后明确决定把依赖锁定策略改掉。
+
+### 15.2 Codex 与发布边界
+
+以后默认工作方式：
+
+- Codex 完成改动后，只提供从仓库地址开始的 push 命令。
+- 由站点所有者自己执行 commit 和 push。
+- 除非明确说“帮我 push”“直接推上去”，Codex 不主动推送远端。
+- push 前仍然要先跑 `git diff --check`。
+- 如果需要联网同步，先 `fetch origin main`，再 `rebase origin/main`，最后 `push origin main`。
+- 如果 rebase 冲突，停下来处理冲突，不要强推。
+
+标准发布命令模板：
+
+```powershell
+cd "C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo"
+
+git status --short
+git diff --check
+
+git add <本次修改的文件>
+git commit -m "<提交信息>"
+
+git -c http.version=HTTP/1.1 fetch origin main
+git rebase origin/main
+git push origin main
+```
+
+如果遇到 HTTPS reset，可以原样重试：
+
+```powershell
+git -c http.version=HTTP/1.1 fetch origin main
+```
+
+CRLF warning 通常不影响提交和构建。
+
+## 16. Probe Tracking Module 隐藏入口
+
+当前站点有一个隐藏文章追踪入口，名称是 `Probe Tracking Module`。
+
+触发方式：
+
+```text
+↑ → ↓ ↓ ↓
+```
+
+对应键盘事件：
+
+```text
+ArrowUp, ArrowRight, ArrowDown, ArrowDown, ArrowDown
+```
+
+触发后页面会打开一个悬浮搜索窗：
+
+- 上方是搜索框。
+- 下方是所有 `hidden: true` 文章的链接列表。
+- 搜索框可以按标题、日期、分类、标签、摘要继续筛选隐藏文章。
+- 正在输入搜索框、评论框、普通输入框时，不会触发方向键秘籍。
+- 方向键默认滚动行为不拦截，所以输入指令时页面仍可能正常滚动。
+
+相关文件：
+
+```text
+_includes/probe-tracking-module.html
+assets/css/ChirpyDefault.css
+assets/img/probe-eye-of-the-universe.webp
+```
+
+全站挂载位置：
+
+```text
+_layouts/default.html
+```
+
+隐藏文章数据来自构建期的：
+
+```liquid
+site.posts | where_exp: 'post', 'post.hidden == true'
+```
+
+Probe 模块的主色使用网站 logo 的蓝色。以后如果要微调颜色，优先改 `assets/css/ChirpyDefault.css` 中 `.probe-module` 里的变量：
+
+```css
+--probe-accent: #0a48ff;
+--probe-accent-rgb: 10, 72, 255;
+```
+
+搜索框输入：
+
+```text
+9318054
+```
+
+会触发预留接口，并在结果区域显示宇宙之眼测试图。这个数字来自 Outer Wilds 中追踪模块最终找到宇宙之眼的循环次数。
+
+当前预留的前端接口：
+
+```js
+window.addEventListener('probe-tracking:eye-signal', (event) => {
+  console.log(event.detail.code);
+  console.log(event.detail.module);
+  console.log(event.detail.result);
+  console.log(event.detail.imageSrc);
+});
+```
+
+也可以定义：
+
+```js
+window.onProbeEyeSignal = (detail) => {
+  console.log(detail);
+};
+```
+
+注意：这个模块是网页彩蛋和隐藏入口，不是安全机制。隐藏文章 URL、前端脚本和 JSON 数据仍可能被懂技术的访客从源码中找到，不适合存放真正私密内容。

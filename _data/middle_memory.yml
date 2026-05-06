@@ -1,5 +1,5 @@
-# One sentence per item. Empty items are ignored.
-# The right panel rotates through this list by local date and refreshes at midnight.
+# One sentence or short fragment per item. Empty items are ignored.
+# The right panel rotates through this list randomly on each page load.
 sentences:
   - "来たれ風よ、新芽がために！"
 
@@ -7,37 +7,37 @@ sentences:
 
   - "By my guiding hand, perfected we stand."
 
-  - "世界を、我が意のままに！世界よ、俺と共鳴する……"
+  - "世界を、我が意のままに！ 世界よ、俺と共鳴する……"
 
-  - "Oh, quel ennui, quel ennui ces gens bien gentils. Qui m'aiment et me lassent. Sans rien qui dépasse."
+  - "Oh, quel ennui, quel ennui, ces gens bien gentils, qui m'aiment et me lassent, sans rien qui dépasse."
 
-  - "L'heure qui sonne fait-elle le bonheur?"
+  - "L'heure qui sonne fait-elle le bonheur ?"
 
   - "Alea jacta est!"
 
-  - "Who am I? Can I conceal myself for evermore? Pretend I'm not the man I was before? And must my name until I die be no more than an alibi?"
+  - "Who am I? Can I conceal myself forevermore? Pretend I'm not the man I was before? And must my name, until I die, be no more than an alibi?"
 
-  - "Angel of Music! Do not shun me! Come to your strange Angel..."
+  - "Angel of Music! Do not shun me. Come to your strange Angel..."
 
-  - "It's a struggle, it's a war, and there's nothing that anyone's giving, one more day standing about, what is it for?"
+  - "It's a struggle, it's a war, and there's nothing that anyone's giving. One more day standing about; what is it for?"
 
-  - "But remember this, my brother, see in this some higher plan. You must use this precious silver, to become an honest man!"
+  - "But remember this, my brother: see in this some higher plan. You must use this precious silver to become an honest man!"
 
-  - "Modesty' propriety can lead to notoriety. You could end up as the only one. Gentleness' sobriety are rare in this society. At night a candle's brighter than the sun."
+  - "Modesty and propriety can lead to notoriety. You could end up as the only one. Gentleness and sobriety are rare in this society. At night, a candle's brighter than the sun."
 
-  - "生まれた地球にいるはずなのに, 何故か本当は僕だけが違う星から来たみたいなんだ"
+  - "生まれた地球にいるはずなのに、何故か本当は、僕だけが違う星から来たみたいなんだ。"
 
-  - "I create, manipulate your kind in my image, my chosen ones. For you, the time has come, sun is setting."
+  - "I create and manipulate your kind in my image, my chosen ones. For you, the time has come; the sun is setting."
 
-  - "Here I rise, clean my cries. Every moment, every sacrifice. In Anabaseios I am the truth divine."
+  - "Here I rise; clean my cries. Every moment, every sacrifice. In Anabaseios, I am the truth divine."
 
-  - "いつか天を目掛け昇る金色の魚 龍の様に舞う 俺は迷わないぜ もう後には退けないと紅に誓う"
+  - "いつか天を目掛け昇る金色の魚。龍の様に舞う。俺は迷わないぜ。もう後には退けないと、紅に誓う。"
 
   - "アーモロートの街並みは壮麗で美しく、高い塔のさらに上、遥かな空から日差しと風が注いでいた。"
 
-  - "Горы, солнце, пихты, песни и дожди. И пусть полным-полно набиты мне в дорогу чемоданы: Память, грусть, невозвращённые долги... А я еду, а я еду за туманом"
-  
-  - "И снег, и ветер, И звёзд ночной полёт... Меня моё сердце В тревожную даль зовёт."
+  - "Горы, солнце, пихты, песни и дожди. И пусть полным-полно набиты мне в дорогу чемоданы: память, грусть, невозвращённые долги... А я еду, а я еду за туманом."
+
+  - "И снег, и ветер, и звёзд ночной полёт... Меня моё сердце в тревожную даль зовёт."
 
   - |-
     They call this a city
@@ -48,13 +48,15 @@ sentences:
     With nowhere to go
 
   - |-
-    Westward lies bleed t'ward the east Wayward daughter, step into the night
-    Restless eyes, blind to the beast Barren waters yield unto the tide
+    Westward lies bleed t'ward the east.
+    Wayward daughter, step into the night.
+    Restless eyes, blind to the beast.
+    Barren waters yield unto the tide.
 
   - |-
     何の罪も無いはずなのに
     何らかの罰を受けてる
-    時分で蒔いた種でもないのに
+    自分で蒔いた種でもないのに
     咲き乱れた花摘まされる
 
   - |-
@@ -62,11 +64,20 @@ sentences:
     O Valley of Plenty
     O Valley of Plenty
 
-  - "His smile fair as spring, as towards him he draws you, his tongue sharp and silvery, as he implores you, your wishes he grants, as he swears to adore you, gold, silver, jewels, he lays riches before you, dues need be repaid, and he will come for you, all to reclaim, no smile to console you, he'll snare you with bonds, eyes glowin' afire, to gore and torment you till the stars expire."
+  - |-
+    His smile fair as spring, as towards him he draws you;
+    his tongue sharp and silvery, as he implores you.
+    Your wishes he grants, as he swears to adore you;
+    gold, silver, jewels, he lays riches before you.
+    Dues need be repaid, and he will come for you, all to reclaim;
+    no smile to console you.
+    He will snare you with bonds, eyes glowing afire,
+    to gore and torment you till the stars expire.
+    to gore and torment you till the stars expire.
 
-  - "そらの うえから ビルがたつ。めが みえなくなってきた。"
+  - "そらのうえからビルがたつ。めがみえなくなってきた。"
 
-  - "颯爽と走るトネガワ君 今を生きてるだけ。天才とは違う努力の賜物です。"
+  - "颯爽と走るトネガワ君、今を生きてるだけ。天才とは違う、努力の賜物です。"
 
   - |-
     Forgive me for letting you down
@@ -82,8 +93,8 @@ sentences:
   - "追いかけても追いかけても逃げて行く月のように、指と指の間をすり抜けるバラ色の日々よ。バラ色の日々を君と探しているのさ、たとえ世界が生き場所を見失っても。"
 
   - |-
-    ルルルル... 俺の目が黒いうちは
-    ルルルル... どうぞ 白い目で見守っていておくれ
+    ルルルル……俺の目が黒いうちは
+    ルルルル……どうぞ、白い目で見守っていておくれ
 
   - |-
     負けなきゃいけない
