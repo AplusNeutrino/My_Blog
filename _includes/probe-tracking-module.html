@@ -1,0 +1,217 @@
+{% assign probe_posts = site.posts | where_exp: 'post', 'post.hidden == true' %}
+
+<div id="probe-tracking-module" class="probe-module" hidden>
+  <div class="probe-module-window" role="dialog" aria-modal="false" aria-labelledby="probe-module-title">
+    <div class="probe-module-header">
+      <div>
+        <p class="probe-module-kicker">Stratagem link active</p>
+        <h2 id="probe-module-title">Probe Tracking Module</h2>
+      </div>
+      <button class="probe-module-close" type="button" aria-label="Close Probe Tracking Module">&times;</button>
+    </div>
+
+    <label class="probe-module-search">
+      <span class="visually-hidden">Search hidden posts</span>
+      <input type="search" placeholder="Track hidden signal..." autocomplete="off" spellcheck="false">
+    </label>
+
+    <p class="probe-module-status" aria-live="polite">
+      {{ probe_posts.size }} hidden signal{% unless probe_posts.size == 1 %}s{% endunless %} indexed.
+    </p>
+
+    <div class="probe-module-list" role="list" data-probe-list>
+      <p class="probe-module-empty" hidden>No hidden signals matched.</p>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="probe-tracking-data">
+  [
+    {% for post in probe_posts %}
+      {% assign probe_date = post.display_date | default: post.date | date: '%Y-%m-%d' %}
+      {% assign probe_categories = post.categories | join: ' / ' %}
+      {% assign probe_tags = post.tags | join: ' ' %}
+      {% capture probe_search_text %}
+        {{ post.title }} {{ post.description }} {{ probe_date }} {{ probe_categories }} {{ probe_tags }}
+      {% endcapture %}
+      {
+        "title": {{ post.title | jsonify }},
+        "url": {{ post.url | relative_url | jsonify }},
+        "date": {{ probe_date | jsonify }},
+        "categories": {{ probe_categories | jsonify }},
+        "description": {{ post.description | default: '' | jsonify }},
+        "search": {{ probe_search_text | strip_newlines | downcase | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+</script>
+
+<script>
+  (() => {
+    const sequence = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
+    const eyeSignal = '9318054';
+    const module = document.getElementById('probe-tracking-module');
+    const data = document.getElementById('probe-tracking-data');
+
+    if (!module || !data) {
+      return;
+    }
+
+    const input = module.querySelector('input[type="search"]');
+    const closeButton = module.querySelector('.probe-module-close');
+    const status = module.querySelector('.probe-module-status');
+    const list = module.querySelector('[data-probe-list]');
+    const empty = module.querySelector('.probe-module-empty');
+    const posts = JSON.parse(data.textContent);
+    let items = [];
+    let buffer = [];
+    let eyeSignalActive = false;
+    let rendered = false;
+
+    const isEditableTarget = (target) => {
+      if (!target) {
+        return false;
+      }
+
+      return target.closest('input, textarea, select, [contenteditable="true"]');
+    };
+
+    const updateStatus = (visibleCount) => {
+      if (eyeSignalActive) {
+        status.textContent = 'Eye signal acquired. Awaiting interface assignment.';
+        return;
+      }
+
+      status.textContent = `${visibleCount} hidden signal${visibleCount === 1 ? '' : 's'} tracked.`;
+    };
+
+    const renderItems = () => {
+      if (rendered) {
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      posts.forEach((post) => {
+        const item = document.createElement('a');
+        const title = document.createElement('span');
+        const meta = document.createElement('span');
+        const metaText = post.categories ? `${post.date} / ${post.categories}` : post.date;
+
+        item.className = 'probe-module-item';
+        item.href = post.url;
+        item.dataset.probeItem = '';
+        item.dataset.probeSearch = post.search;
+        item.setAttribute('role', 'listitem');
+
+        title.className = 'probe-module-item-title';
+        title.textContent = post.title;
+
+        meta.className = 'probe-module-item-meta';
+        meta.textContent = metaText;
+
+        item.append(title, meta);
+        fragment.append(item);
+      });
+
+      list.insertBefore(fragment, empty);
+      items = Array.from(module.querySelectorAll('[data-probe-item]'));
+      rendered = true;
+    };
+
+    const triggerEyeSignal = () => {
+      eyeSignalActive = true;
+      module.classList.add('probe-module-eye-signal');
+      updateStatus(items.filter((item) => !item.hidden).length);
+
+      const event = new CustomEvent('probe-tracking:eye-signal', {
+        detail: {
+          code: eyeSignal,
+          module
+        }
+      });
+
+      window.dispatchEvent(event);
+
+      if (typeof window.onProbeEyeSignal === 'function') {
+        window.onProbeEyeSignal(event.detail);
+      }
+    };
+
+    const filterItems = () => {
+      renderItems();
+
+      const query = input.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      if (query !== eyeSignal) {
+        eyeSignalActive = false;
+        module.classList.remove('probe-module-eye-signal');
+      }
+
+      items.forEach((item) => {
+        const matched = query === '' || item.dataset.probeSearch.includes(query);
+        item.hidden = !matched;
+
+        if (matched) {
+          visibleCount += 1;
+        }
+      });
+
+      empty.hidden = visibleCount !== 0;
+      updateStatus(visibleCount);
+
+      if (query === eyeSignal && !eyeSignalActive) {
+        triggerEyeSignal();
+      }
+    };
+
+    const openModule = () => {
+      module.hidden = false;
+      document.documentElement.classList.add('probe-module-open');
+      filterItems();
+      window.setTimeout(() => input.focus({ preventScroll: true }), 0);
+    };
+
+    const closeModule = () => {
+      module.hidden = true;
+      document.documentElement.classList.remove('probe-module-open');
+      buffer = [];
+    };
+
+    closeButton.addEventListener('click', closeModule);
+    input.addEventListener('input', filterItems);
+
+    module.addEventListener('click', (event) => {
+      if (event.target === module) {
+        closeModule();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !module.hidden) {
+        closeModule();
+        return;
+      }
+
+      if (isEditableTarget(event.target) || !sequence.includes(event.key)) {
+        return;
+      }
+
+      buffer.push(event.key);
+      buffer = buffer.slice(-sequence.length);
+
+      if (buffer.join('|') === sequence.join('|')) {
+        openModule();
+        buffer = [];
+      }
+    });
+
+    window.probeTrackingModule = {
+      open: openModule,
+      close: closeModule,
+      filter: filterItems,
+      triggerEyeSignal
+    };
+  })();
+</script>
