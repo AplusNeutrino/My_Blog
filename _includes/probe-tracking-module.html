@@ -21,6 +21,13 @@
 
     <div class="probe-module-list" role="list" data-probe-list>
       <p class="probe-module-empty" hidden>No hidden signals matched.</p>
+      <div class="probe-module-eye-result" role="listitem" hidden>
+        <img
+          src="{{ '/assets/img/probe-eye-of-the-universe.webp' | relative_url }}"
+          alt="Eye of the Universe signal"
+          loading="lazy"
+        >
+      </div>
     </div>
   </div>
 </div>
@@ -62,6 +69,7 @@
     const status = module.querySelector('.probe-module-status');
     const list = module.querySelector('[data-probe-list]');
     const empty = module.querySelector('.probe-module-empty');
+    const eyeResult = module.querySelector('.probe-module-eye-result');
     const posts = JSON.parse(data.textContent);
     let items = [];
     let buffer = [];
@@ -122,12 +130,16 @@
     const triggerEyeSignal = () => {
       eyeSignalActive = true;
       module.classList.add('probe-module-eye-signal');
+      eyeResult.hidden = false;
+      empty.hidden = true;
       updateStatus(items.filter((item) => !item.hidden).length);
 
       const event = new CustomEvent('probe-tracking:eye-signal', {
         detail: {
           code: eyeSignal,
-          module
+          module,
+          result: eyeResult,
+          imageSrc: eyeResult.querySelector('img')?.currentSrc
         }
       });
 
@@ -147,6 +159,7 @@
       if (query !== eyeSignal) {
         eyeSignalActive = false;
         module.classList.remove('probe-module-eye-signal');
+        eyeResult.hidden = true;
       }
 
       items.forEach((item) => {
@@ -158,11 +171,13 @@
         }
       });
 
-      empty.hidden = visibleCount !== 0;
+      empty.hidden = visibleCount !== 0 || query === eyeSignal;
       updateStatus(visibleCount);
 
       if (query === eyeSignal && !eyeSignalActive) {
         triggerEyeSignal();
+      } else if (query === eyeSignal) {
+        eyeResult.hidden = false;
       }
     };
 
