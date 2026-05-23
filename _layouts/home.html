@@ -29,40 +29,70 @@ refactor: true
   {% endunless %}
 {% endunless %}
 
-{% assign manual_rec_urls = '' | split: '' %}
-{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_1 %}
-{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_2 %}
-{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_3 %}
-{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_4 %}
-
-{% assign sub_recs = '' | split: '' %}
 {% assign used_rec_urls = '' | split: '' %}
 {% if main_post %}
   {% assign used_rec_urls = used_rec_urls | push: main_post.url %}
 {% endif %}
 
-{% for rec_url in manual_rec_urls %}
-  {% assign rec_url = rec_url | default: '' %}
-  {% if rec_url == '' %}
-    {% continue %}
-  {% endif %}
+{% assign sub_rec_1_url = recommend_config.sub_rec_1 | default: '' %}
+{% assign sub_rec_2_url = recommend_config.sub_rec_2 | default: '' %}
+{% assign sub_rec_3_url = recommend_config.sub_rec_3 | default: '' %}
+{% assign sub_rec_4_url = recommend_config.sub_rec_4 | default: '' %}
+{% assign sub_rec_1 = nil %}
+{% assign sub_rec_2 = nil %}
+{% assign sub_rec_3 = nil %}
+{% assign sub_rec_4 = nil %}
 
+{% if sub_rec_1_url != '' %}
   {% for post in all_visible_posts %}
-    {% if post.url == rec_url %}
+    {% if post.url == sub_rec_1_url %}
       {% unless used_rec_urls contains post.url %}
-        {% assign sub_recs = sub_recs | push: post %}
+        {% assign sub_rec_1 = post %}
         {% assign used_rec_urls = used_rec_urls | push: post.url %}
         {% break %}
       {% endunless %}
     {% endif %}
   {% endfor %}
-{% endfor %}
+{% endif %}
 
+{% if sub_rec_2_url != '' %}
+  {% for post in all_visible_posts %}
+    {% if post.url == sub_rec_2_url %}
+      {% unless used_rec_urls contains post.url %}
+        {% assign sub_rec_2 = post %}
+        {% assign used_rec_urls = used_rec_urls | push: post.url %}
+        {% break %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if sub_rec_3_url != '' %}
+  {% for post in all_visible_posts %}
+    {% if post.url == sub_rec_3_url %}
+      {% unless used_rec_urls contains post.url %}
+        {% assign sub_rec_3 = post %}
+        {% assign used_rec_urls = used_rec_urls | push: post.url %}
+        {% break %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if sub_rec_4_url != '' %}
+  {% for post in all_visible_posts %}
+    {% if post.url == sub_rec_4_url %}
+      {% unless used_rec_urls contains post.url %}
+        {% assign sub_rec_4 = post %}
+        {% assign used_rec_urls = used_rec_urls | push: post.url %}
+        {% break %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% assign fill_candidates = '' | split: '' %}
 {% for popular_url in popular_config.posts %}
-  {% if sub_recs.size >= 4 %}
-    {% break %}
-  {% endif %}
-
   {% assign popular_url = popular_url | default: '' %}
   {% if popular_url == '' %}
     {% continue %}
@@ -70,17 +100,17 @@ refactor: true
 
   {% for post in all_visible_posts %}
     {% if post.url == popular_url %}
-      {% unless used_rec_urls contains post.url %}
-        {% assign sub_recs = sub_recs | push: post %}
-        {% assign used_rec_urls = used_rec_urls | push: post.url %}
-        {% break %}
-      {% endunless %}
+      {% assign fill_candidates = fill_candidates | push: post %}
+      {% break %}
     {% endif %}
   {% endfor %}
 {% endfor %}
-
 {% for post in all_visible_posts %}
-  {% if sub_recs.size >= 4 %}
+  {% assign fill_candidates = fill_candidates | push: post %}
+{% endfor %}
+
+{% for post in fill_candidates %}
+  {% if sub_rec_1 and sub_rec_2 and sub_rec_3 and sub_rec_4 %}
     {% break %}
   {% endif %}
 
@@ -88,9 +118,35 @@ refactor: true
     {% continue %}
   {% endif %}
 
-  {% assign sub_recs = sub_recs | push: post %}
-  {% assign used_rec_urls = used_rec_urls | push: post.url %}
+  {% unless sub_rec_1 %}
+    {% assign sub_rec_1 = post %}
+    {% assign used_rec_urls = used_rec_urls | push: post.url %}
+    {% continue %}
+  {% endunless %}
+
+  {% unless sub_rec_2 %}
+    {% assign sub_rec_2 = post %}
+    {% assign used_rec_urls = used_rec_urls | push: post.url %}
+    {% continue %}
+  {% endunless %}
+
+  {% unless sub_rec_3 %}
+    {% assign sub_rec_3 = post %}
+    {% assign used_rec_urls = used_rec_urls | push: post.url %}
+    {% continue %}
+  {% endunless %}
+
+  {% unless sub_rec_4 %}
+    {% assign sub_rec_4 = post %}
+    {% assign used_rec_urls = used_rec_urls | push: post.url %}
+  {% endunless %}
 {% endfor %}
+
+{% assign sub_recs = '' | split: '' %}
+{% assign sub_recs = sub_recs | push: sub_rec_1 %}
+{% assign sub_recs = sub_recs | push: sub_rec_2 %}
+{% assign sub_recs = sub_recs | push: sub_rec_3 %}
+{% assign sub_recs = sub_recs | push: sub_rec_4 %}
 
 {% assign primary_categories = '' | split: '' %}
 {% for post in all_visible_posts %}
@@ -163,8 +219,8 @@ refactor: true
 
   <section class="home-dispatch" aria-labelledby="home-dispatch-title">
     <div class="home-dispatch-heading">
-      <p>Dispatch System</p>
-      <h1 id="home-dispatch-title">推送中枢</h1>
+      <p>Control Module</p>
+      <h1 id="home-dispatch-title">本次观测结果</h1>
     </div>
 
     <div class="home-dispatch-grid">
@@ -174,6 +230,7 @@ refactor: true
             <div
               class="home-dispatch-track"
               style="--home-rec-image-count: {{ hero_images.size }};"
+              data-home-dispatch-track
               aria-hidden="true"
             >
               {% for hero_src in hero_images %}
@@ -224,8 +281,8 @@ refactor: true
 
 <section class="home-feed-control" aria-labelledby="home-feed-title">
   <div class="home-feed-control-heading">
-    <p>Record Stream</p>
-    <h2 id="home-feed-title">记录流</h2>
+    <p>Launch Module</p>
+    <h2 id="home-feed-title">历史观测记录</h2>
   </div>
 
   <div class="home-category-filter" aria-label="Filter posts by category">
@@ -378,6 +435,36 @@ refactor: true
         setActiveFilter(filter);
         filterItems(filter);
       });
+    });
+
+    document.querySelectorAll('[data-home-dispatch-track]').forEach((track) => {
+      const slides = Array.from(track.children);
+      if (slides.length <= 1) {
+        return;
+      }
+
+      let index = 0;
+      let timer;
+      const firstHold = 20000;
+      const slideHold = 10000;
+      const transitionDuration = 450;
+
+      const moveTo = (nextIndex) => {
+        track.style.transitionDuration = `${transitionDuration}ms`;
+        track.style.transform = `translateX(-${nextIndex * 100}%)`;
+        index = nextIndex;
+      };
+
+      const scheduleNext = (delay) => {
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => {
+          const nextIndex = index + 1 >= slides.length ? 0 : index + 1;
+          moveTo(nextIndex);
+          scheduleNext(slideHold);
+        }, delay);
+      };
+
+      scheduleNext(firstHold);
     });
   })();
 </script>

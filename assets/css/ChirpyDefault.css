@@ -171,10 +171,13 @@
   z-index: 1;
   display: flex;
   height: 100%;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.32, 0, 0.2, 1);
+  transition-duration: 450ms;
 }
 
 .home-dispatch-media.has-carousel .home-dispatch-track {
-  animation: home-dispatch-pan calc(var(--home-rec-image-count) * 4.2s) ease-in-out infinite alternate;
+  transform: translateX(0);
 }
 
 .home-dispatch-slide {
@@ -357,17 +360,6 @@
 
 .home-feed-item[hidden] {
   display: none;
-}
-
-@keyframes home-dispatch-pan {
-  0%,
-  18% {
-    transform: translateX(0);
-  }
-  82%,
-  100% {
-    transform: translateX(calc(-100% * (var(--home-rec-image-count) - 1)));
-  }
 }
 
 .content .nv-red {

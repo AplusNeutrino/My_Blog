@@ -331,14 +331,21 @@ posts:
 - 优先使用文章 front matter 的 `image`。
 - 如果文章 front matter 写了 `recommend_images`，会继续加入这些图片。
 - 如果没有 `recommend_images`，模板会尝试从正文图片中自动提取。
+- `recommend_images` 可以引用 `media_subpath` 目录里没有在正文使用的图片。
 
 示例：
 
 ```yaml
+media_subpath: /assets/img/posts/2025-08-22-ff1-record
+image:
+  path: FF1-00.jpg
+  alt: FINAL FANTASY 1
 recommend_images:
   - FF1-02.jpg
   - FF1-03.jpg
 ```
+
+控制主推荐图像的代码在 `_layouts/home.html` 中搜索 `recommend_images`、`markdown_image_parts`、`html_image_parts`。
 
 首页下方“记录流”的分类筛选会自动读取所有非隐藏文章的 `categories`：
 
