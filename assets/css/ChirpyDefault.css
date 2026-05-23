@@ -1251,6 +1251,7 @@
 
 .twikoo-comments .tk-submit {
   position: relative;
+  display: block !important;
   padding: 0.95rem;
   border: 1px solid var(--main-border-color);
   border-radius: 0.5rem;
@@ -1259,9 +1260,7 @@
 
 .twikoo-comments .tk-submit .tk-avatar,
 .twikoo-comments .tk-avatar {
-  width: 2.35rem !important;
-  height: 2.35rem !important;
-  margin: 0 0.85rem 0.65rem 0 !important;
+  display: none !important;
 }
 
 .twikoo-comments .tk-avatar img,
@@ -1271,6 +1270,7 @@
 }
 
 .twikoo-comments .tk-submit-content {
+  display: block !important;
   width: 100%;
   min-width: 0;
 }
@@ -1303,6 +1303,7 @@
 .twikoo-comments .el-input-group,
 .twikoo-comments .el-textarea {
   display: block;
+  width: 100% !important;
   max-width: 100%;
   min-width: 0;
 }
@@ -1311,6 +1312,7 @@
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.55rem;
+  margin-bottom: 0.65rem;
 }
 
 .twikoo-comments .tk-input .el-input,
@@ -1322,7 +1324,12 @@
 .twikoo-comments .tk-submit .el-textarea,
 .twikoo-comments .tk-row,
 .twikoo-comments .tk-submit-action {
+  display: block;
   width: 100%;
+}
+
+.twikoo-comments .tk-submit .el-textarea {
+  clear: both;
 }
 
 .twikoo-comments .el-input-group__prepend {
@@ -1367,16 +1374,16 @@
 }
 
 .twikoo-comments .el-button--primary {
-  border-color: rgba(226, 207, 91, 0.62);
-  background: rgba(226, 207, 91, 0.16);
-  color: #eadb74;
+  border-color: rgba(226, 207, 91, 0.62) !important;
+  background: rgba(226, 207, 91, 0.16) !important;
+  color: #eadb74 !important;
 }
 
 .twikoo-comments .el-button--primary:hover,
 .twikoo-comments .el-button--primary:focus {
-  border-color: rgba(226, 207, 91, 0.78);
-  background: rgba(226, 207, 91, 0.24);
-  color: #fff0a0;
+  border-color: rgba(226, 207, 91, 0.78) !important;
+  background: rgba(226, 207, 91, 0.24) !important;
+  color: #fff0a0 !important;
 }
 
 .twikoo-comments .tk-comments-container {
