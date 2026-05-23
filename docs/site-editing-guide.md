@@ -428,7 +428,7 @@ comments:
 
 Twikoo 后端部署在 Vercel，数据库使用 MongoDB Atlas。`MONGODB_URI` 只保存在 Vercel 项目的环境变量中，不要写进仓库。
 
-文章页评论区由 Chirpy 的 `comment` 脚本入口加载 `_includes/comments/twikoo.html` 渲染，评论路径使用当前文章 URL：
+文章页评论区由 `_layouts/post.html` 在文章正文后加载 `_includes/comments/twikoo.html` 渲染，评论路径使用当前文章 URL：
 
 ```js
 path: '{{ page.url | relative_url }}'
@@ -1330,18 +1330,17 @@ _includes/read-time.html
 _config.yml
 ```
 
-当前评论已启用 Utterances：
+当前评论已启用 Twikoo：
 
 ```yaml
 comments:
-  provider: utterances
-
-utterances:
-  repo: AplusNeutrino/My_Blog
-  issue_term: pathname
+  provider: twikoo
+  twikoo:
+    env_id: https://neutriverse-twikoo.vercel.app
+    lang: zh-CN
 ```
 
-Utterances 使用 GitHub Issues 保存评论，每篇文章会按页面路径匹配一个 issue。仓库目前是公开仓库并已启用 Issues。
+Twikoo 使用 Vercel 云函数和 MongoDB Atlas 保存评论，每篇文章会按页面路径匹配评论数据。`MONGODB_URI` 只保存在 Vercel 项目环境变量中，不要写进仓库。
 
 如果以后想改用 Giscus，可以改成：
 
@@ -1683,7 +1682,7 @@ _includes/head/custom-head.html
 | GitHub/X/邮箱基础信息 | `_config.yml` |
 | 分享按钮 | `_data/share.yml` |
 | 点赞按钮 | `_includes/post-like.html` 和 `_data/neutriverse.yml` 的 `likes` |
-| 评论系统 | `_config.yml` 的 `comments`，当前为 Utterances |
+| 评论系统 | `_config.yml` 的 `comments`，当前为 Twikoo |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
 | 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |

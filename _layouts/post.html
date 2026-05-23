@@ -5,8 +5,6 @@ panel_includes:
   - post-panel-stack
 tail_includes:
   - related-posts
-script_includes:
-  - comment
 ---
 
 {% include lang.html %}
@@ -189,3 +187,8 @@ script_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
+
+{% if site.comments.provider and page.comments != false %}
+  {% assign comment_include = 'comments/' | append: site.comments.provider | append: '.html' %}
+  {% include {{ comment_include }} %}
+{% endif %}

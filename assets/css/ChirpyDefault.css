@@ -1194,6 +1194,8 @@
   margin-top: 2.2rem;
   padding-top: 1.15rem;
   border-top: 1px solid var(--main-border-color);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .twikoo-comments-header {
@@ -1238,6 +1240,36 @@
   border-color: var(--main-border-color);
   background: color-mix(in srgb, var(--main-bg) 94%, #08101d);
   color: var(--text-color);
+}
+
+.twikoo-comments #tcomment,
+.twikoo-comments .tk-submit,
+.twikoo-comments .tk-comments-container,
+.twikoo-comments .tk-input,
+.twikoo-comments .el-input,
+.twikoo-comments .el-input-group,
+.twikoo-comments .el-textarea {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.twikoo-comments .tk-input {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.twikoo-comments .tk-input .el-input,
+.twikoo-comments .tk-input .el-input-group {
+  width: 100% !important;
+}
+
+.twikoo-comments .el-input-group__prepend {
+  width: 4.4rem;
+  padding: 0 0.75rem;
+  border-color: var(--main-border-color);
+  background: color-mix(in srgb, var(--main-bg) 90%, #0a1018);
+  color: var(--text-muted-color);
 }
 
 .twikoo-comments .el-input__inner:focus,
@@ -1744,20 +1776,54 @@
 
   .home-category-filter {
     align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0.38rem;
+    margin-right: -0.75rem;
+    padding: 0 0.75rem 0.25rem 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .home-category-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-category-filter > button,
+  .home-category-group {
+    flex: 0 0 auto;
+  }
+
+  .home-category-filter button {
+    white-space: nowrap;
   }
 
   .home-category-group {
-    position: static;
+    position: relative;
   }
 
   .home-category-submenu {
-    position: static;
-    min-width: 100%;
-    flex: 1 0 100%;
-    margin-top: 0.25rem;
-    opacity: 1;
-    transform: none;
-    visibility: visible;
+    right: 0;
+    left: auto;
+    min-width: max-content;
+    max-width: calc(100vw - 2rem);
+  }
+
+  .twikoo-comments {
+    margin-top: 1.8rem;
+  }
+
+  .twikoo-comments-header {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: 0.18rem;
+  }
+
+  .twikoo-comments .tk-input {
+    grid-template-columns: 1fr;
+  }
+
+  .twikoo-comments .el-input-group__prepend {
+    width: 4rem;
   }
 
   .post-preview.has-preview-image {
