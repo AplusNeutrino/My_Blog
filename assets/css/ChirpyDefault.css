@@ -1294,6 +1294,10 @@
   resize: vertical;
 }
 
+.twikoo-comments textarea {
+  width: 100% !important;
+}
+
 .twikoo-comments #tcomment,
 .twikoo-comments .tk-submit,
 .twikoo-comments .tk-submit-content,
@@ -1322,9 +1326,13 @@
 
 .twikoo-comments .tk-submit-content > .el-textarea,
 .twikoo-comments .tk-submit .el-textarea,
+.twikoo-comments .tk-input > .el-textarea,
+.twikoo-comments .tk-input > .tk-row,
+.twikoo-comments .tk-input > .tk-submit-action,
 .twikoo-comments .tk-row,
 .twikoo-comments .tk-submit-action {
   display: block;
+  grid-column: 1 / -1;
   width: 100%;
 }
 
