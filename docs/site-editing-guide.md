@@ -405,7 +405,39 @@ POPULAR_DAYS: "90"
 POPULAR_LIMIT: "32"
 ```
 
-### 2.11 文章卡片底部图标：日历、文件夹
+### 2.11 Twikoo 评论系统
+
+相关文件：
+
+```text
+_config.yml
+_layouts/post.html
+_includes/comments/twikoo.html
+assets/css/ChirpyDefault.css
+```
+
+当前评论系统使用 Twikoo：
+
+```yaml
+comments:
+  provider: twikoo
+  twikoo:
+    env_id: https://neutriverse-twikoo.vercel.app
+    lang: zh-CN
+```
+
+Twikoo 后端部署在 Vercel，数据库使用 MongoDB Atlas。`MONGODB_URI` 只保存在 Vercel 项目的环境变量中，不要写进仓库。
+
+文章页评论区由 Chirpy 的 `comment` 脚本入口加载 `_includes/comments/twikoo.html` 渲染，评论路径使用当前文章 URL：
+
+```js
+path: '{{ page.url | relative_url }}'
+```
+
+如果临时想关闭评论，把 `_config.yml` 中 `comments.provider` 置空。
+如果要回退到 Utterances，把 `comments.provider` 改回 `utterances`。
+
+### 2.12 文章卡片底部图标：日历、文件夹
 
 截图位置：文章卡片底部日期前的小日历、分类前的小文件夹。
 
@@ -413,7 +445,7 @@ POPULAR_LIMIT: "32"
 
 你通常只需要改文章的 `date` 和 `categories`，图标本身会自动显示。
 
-### 2.12 右侧栏：兴趣之中
+### 2.13 右侧栏：兴趣之中
 
 截图位置：右侧 `兴趣之中` 区块。
 
@@ -434,7 +466,7 @@ _plugins/posts-lastmod-hook.rb
 | 改文章显示名 | 修改文章 front matter 的 `title` |
 | 改文章日期 | 修改文章 front matter 的 `date` |
 
-### 2.13 右侧栏：碎片之中
+### 2.14 右侧栏：碎片之中
 
 截图位置：右侧原 `热门标签` 区块，现在标题为 `碎片之中`。
 
@@ -461,7 +493,7 @@ sentences:
 
 如果以后想恢复 Chirpy 默认热门标签，需要删除仓库里的 `_includes/trending-tags.html` 覆盖文件，主题就会重新使用 gem 内置版本。
 
-### 2.14 页脚版权文字
+### 2.15 页脚版权文字
 
 截图位置：底部 `©2026 Neutrino. CC BY-NC 4.0.`
 
@@ -516,7 +548,7 @@ _includes/footer.html
 
 其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
 
-### 2.15 页脚网站运行天数
+### 2.16 页脚网站运行天数
 
 截图位置：页脚中的 `本站已运行 ... 天 · 总浏览 ... 次`。
 
@@ -553,7 +585,7 @@ https://neutriverse-stats.feiyuzou-me.workers.dev
 _tabs/about.md
 ```
 
-### 2.16 中间思维片段
+### 2.17 中间思维片段
 
 页面文件：
 
@@ -587,7 +619,7 @@ assets/css/ChirpyDefault.css
 
 这个页面不是 `_posts` 文章，因此不会计入首页状态模块的文章数量和总字数。
 
-### 2.17 浏览器标签页图标 favicon
+### 2.18 浏览器标签页图标 favicon
 
 来源：
 

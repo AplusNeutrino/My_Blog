@@ -1,0 +1,23 @@
+<section id="twikoo-comments" class="twikoo-comments" aria-label="Comments">
+  <div class="twikoo-comments-header">
+    <p>Signal Feedback</p>
+    <h2>观测回执</h2>
+  </div>
+  <div id="tcomment"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof twikoo === 'undefined') {
+      return;
+    }
+
+    twikoo.init({
+      envId: '{{ site.comments.twikoo.env_id }}',
+      el: '#tcomment',
+      path: '{{ page.url | relative_url }}',
+      lang: '{{ site.comments.twikoo.lang | default: site.lang | default: "zh-CN" }}'
+    });
+  });
+</script>
