@@ -276,7 +276,129 @@ Chirpy 默认会从正文开头自动生成摘要。想控制摘要，可以在 
 description: "这是一段会显示在首页卡片中的摘要。"
 ```
 
-### 2.9 文章卡片底部图标：日历、文件夹
+### 2.9 首页推送系统与分类筛选
+
+相关文件：
+
+```text
+_layouts/home.html
+_data/home_recommend.yml
+_data/home_popular.yml
+assets/css/ChirpyDefault.css
+```
+
+首页顶部是“推送中枢”：
+
+- 左侧主推荐默认使用 `pin: true` 的文章。
+- 右侧有 4 个副推荐位。
+- 推荐不会显示 `hidden: true` 文章。
+- 副推荐位只显示标题、日期和一级分类，不显示摘要。
+
+如需手动指定推荐，修改 `_data/home_recommend.yml`：
+
+```yaml
+main_rec:
+sub_rec_1:
+sub_rec_2:
+sub_rec_3:
+sub_rec_4:
+```
+
+这里填写文章 URL，例如：
+
+```yaml
+main_rec: /posts/example/
+sub_rec_1: /posts/another-example/
+```
+
+留空的位置会自动补齐。自动补齐顺序是：
+
+1. `_data/home_popular.yml` 中的文章 URL。
+2. 最新文章时间流。
+
+`_data/home_popular.yml` 只保存文章 URL，不保存公开浏览量数字：
+
+```yaml
+posts:
+  - /posts/example/
+  - /posts/another-example/
+```
+
+以后如果接入浏览量数据，推荐生成任务应该只更新这个 URL 列表，不要把每篇文章的浏览量写进页面。
+
+主推荐图像：
+
+- 优先使用文章 front matter 的 `image`。
+- 如果文章 front matter 写了 `recommend_images`，会继续加入这些图片。
+- 如果没有 `recommend_images`，模板会尝试从正文图片中自动提取。
+
+示例：
+
+```yaml
+recommend_images:
+  - FF1-02.jpg
+  - FF1-03.jpg
+```
+
+首页下方“记录流”的分类筛选会自动读取所有非隐藏文章的 `categories`：
+
+- `categories[0]` 作为一级筛选。
+- `categories[1]` 作为二级筛选。
+- 新增一级或二级分类后，不需要手动修改首页模板。
+
+### 2.10 私有浏览量基建
+
+相关文件：
+
+```text
+_config.yml
+_includes/head/custom-head.html
+_data/home_popular.yml
+tools/update_home_popular.rb
+.github/workflows/update-home-popular.yml
+```
+
+当前预留了 GoatCounter 作为轻量统计工具。使用方式：
+
+```yaml
+analytics:
+  goatcounter:
+    id: your-goatcounter-code
+
+pageviews:
+  provider:
+```
+
+注意：`pageviews.provider` 要保持空白。这样网站只记录访问，不会在文章页公开显示每篇文章的浏览量。
+
+`_includes/head/custom-head.html` 只会在 production 构建且 `analytics.goatcounter.id` 有值时加载 GoatCounter 统计脚本。
+
+后续如果要把浏览量用于首页推荐，建议由 GitHub Actions 使用 GoatCounter API 读取统计数据，然后只生成 `_data/home_popular.yml` 里的 URL 排序列表。不要把 view count 数字写入仓库页面数据。
+
+当前已配置的 Secret 名称：
+
+```text
+GOATCOUNTER_API_TOKEN
+```
+
+自动推荐任务：
+
+- workflow 文件：`.github/workflows/update-home-popular.yml`
+- 默认每天 UTC 20:17 运行一次，约等于北京时间 04:17。
+- 也可以在 GitHub Actions 页面手动运行 `Update Home Popular`。
+- 读取最近 90 天 GoatCounter path stats。
+- 只保留 `/posts/` 开头的路径。
+- 最多写入 32 条 URL。
+- 如果 `_data/home_popular.yml` 没有变化，就不会产生提交。
+
+如果要调整统计窗口或推荐池大小，修改 workflow 中：
+
+```yaml
+POPULAR_DAYS: "90"
+POPULAR_LIMIT: "32"
+```
+
+### 2.11 文章卡片底部图标：日历、文件夹
 
 截图位置：文章卡片底部日期前的小日历、分类前的小文件夹。
 
@@ -284,7 +406,7 @@ description: "这是一段会显示在首页卡片中的摘要。"
 
 你通常只需要改文章的 `date` 和 `categories`，图标本身会自动显示。
 
-### 2.10 右侧栏：兴趣之中
+### 2.12 右侧栏：兴趣之中
 
 截图位置：右侧 `兴趣之中` 区块。
 
@@ -305,7 +427,7 @@ _plugins/posts-lastmod-hook.rb
 | 改文章显示名 | 修改文章 front matter 的 `title` |
 | 改文章日期 | 修改文章 front matter 的 `date` |
 
-### 2.11 右侧栏：碎片之中
+### 2.13 右侧栏：碎片之中
 
 截图位置：右侧原 `热门标签` 区块，现在标题为 `碎片之中`。
 
@@ -332,7 +454,7 @@ sentences:
 
 如果以后想恢复 Chirpy 默认热门标签，需要删除仓库里的 `_includes/trending-tags.html` 覆盖文件，主题就会重新使用 gem 内置版本。
 
-### 2.12 页脚版权文字
+### 2.14 页脚版权文字
 
 截图位置：底部 `©2026 Neutrino. CC BY-NC 4.0.`
 
@@ -387,7 +509,7 @@ _includes/footer.html
 
 其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
 
-### 2.13 页脚网站运行天数
+### 2.15 页脚网站运行天数
 
 截图位置：页脚中的 `本站已运行 ... 天 · 总浏览 ... 次`。
 
@@ -424,7 +546,7 @@ https://neutriverse-stats.feiyuzou-me.workers.dev
 _tabs/about.md
 ```
 
-### 2.14 中间思维片段
+### 2.16 中间思维片段
 
 页面文件：
 
@@ -458,7 +580,7 @@ assets/css/ChirpyDefault.css
 
 这个页面不是 `_posts` 文章，因此不会计入首页状态模块的文章数量和总字数。
 
-### 2.15 浏览器标签页图标 favicon
+### 2.17 浏览器标签页图标 favicon
 
 来源：
 

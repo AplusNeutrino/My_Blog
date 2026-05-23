@@ -1,0 +1,49 @@
+name: "Update Home Popular"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 20 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "update-home-popular"
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+
+      - name: Generate popular recommendation data
+        run: ruby tools/update_home_popular.rb
+        env:
+          GOATCOUNTER_CODE: neutrinothex
+          GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+          POPULAR_DAYS: "90"
+          POPULAR_LIMIT: "32"
+
+      - name: Commit updated recommendation data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/home_popular.yml
+          if git diff --cached --quiet; then
+            echo "No recommendation data changes."
+            exit 0
+          fi
+          git commit -m "Update home popular recommendations"
+          git pull --rebase
+          git push

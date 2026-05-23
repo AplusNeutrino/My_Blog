@@ -1,2 +1,9 @@
 <!-- Favicon declarations live in _includes/favicons.html. -->
 <link rel="stylesheet" href="{{ '/assets/css/ChirpyDefault.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
+{% if jekyll.environment == 'production' and site.analytics.goatcounter.id %}
+  <script
+    data-goatcounter="https://{{ site.analytics.goatcounter.id }}.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js"
+  ></script>
+{% endif %}

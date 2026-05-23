@@ -1,0 +1,9 @@
+# Home recommendation overrides.
+# Leave a value blank to let the homepage fill that slot automatically.
+# Use the post URL, for example: /posts/example/
+
+main_rec:
+sub_rec_1:
+sub_rec_2:
+sub_rec_3:
+sub_rec_4:

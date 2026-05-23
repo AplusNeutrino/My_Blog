@@ -5,62 +5,280 @@ refactor: true
 
 {% include lang.html %}
 
-{% assign all_pinned = site.posts | where: 'pin', 'true' | where_exp: 'item', 'item.hidden != true' %}
-{% assign all_normal = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+{% assign all_visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
+{% assign all_pinned = all_visible_posts | where: 'pin', 'true' %}
+{% assign recommend_config = site.data.home_recommend %}
+{% assign popular_config = site.data.home_popular %}
 
-{% assign posts = '' | split: '' %}
+{% assign main_post = nil %}
+{% assign main_url = recommend_config.main_rec | default: '' %}
 
-<!-- Get pinned posts on current page -->
-
-{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
-{% assign visible_end = visible_start | plus: paginator.per_page %}
-
-{% if all_pinned.size > visible_start %}
-  {% if all_pinned.size > visible_end %}
-    {% assign pinned_size = paginator.per_page %}
-  {% else %}
-    {% assign pinned_size = all_pinned.size | minus: visible_start %}
-  {% endif %}
-
-  {% assign pinned_end = visible_start | plus: pinned_size | minus: 1 %}
-  {% for i in (visible_start..pinned_end) %}
-    {% assign posts = posts | push: all_pinned[i] %}
+{% if main_url != '' %}
+  {% for post in all_visible_posts %}
+    {% if post.url == main_url %}
+      {% assign main_post = post %}
+      {% break %}
+    {% endif %}
   {% endfor %}
-{% else %}
-  {% assign pinned_size = 0 %}
 {% endif %}
 
-<!-- Get normal posts on current page -->
+{% unless main_post %}
+  {% assign main_post = all_pinned | first %}
+  {% unless main_post %}
+    {% assign main_post = all_visible_posts | first %}
+  {% endunless %}
+{% endunless %}
 
-{% assign normal_size = paginator.per_page | minus: pinned_size %}
+{% assign manual_rec_urls = '' | split: '' %}
+{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_1 %}
+{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_2 %}
+{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_3 %}
+{% assign manual_rec_urls = manual_rec_urls | push: recommend_config.sub_rec_4 %}
 
-{% if normal_size > 0 %}
-  {% if pinned_size > 0 %}
-    {% assign normal_start = 0 %}
+{% assign sub_recs = '' | split: '' %}
+{% assign used_rec_urls = '' | split: '' %}
+{% if main_post %}
+  {% assign used_rec_urls = used_rec_urls | push: main_post.url %}
+{% endif %}
+
+{% for rec_url in manual_rec_urls %}
+  {% assign rec_url = rec_url | default: '' %}
+  {% if rec_url == '' %}
+    {% continue %}
+  {% endif %}
+
+  {% for post in all_visible_posts %}
+    {% if post.url == rec_url %}
+      {% unless used_rec_urls contains post.url %}
+        {% assign sub_recs = sub_recs | push: post %}
+        {% assign used_rec_urls = used_rec_urls | push: post.url %}
+        {% break %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% for popular_url in popular_config.posts %}
+  {% if sub_recs.size >= 4 %}
+    {% break %}
+  {% endif %}
+
+  {% assign popular_url = popular_url | default: '' %}
+  {% if popular_url == '' %}
+    {% continue %}
+  {% endif %}
+
+  {% for post in all_visible_posts %}
+    {% if post.url == popular_url %}
+      {% unless used_rec_urls contains post.url %}
+        {% assign sub_recs = sub_recs | push: post %}
+        {% assign used_rec_urls = used_rec_urls | push: post.url %}
+        {% break %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% for post in all_visible_posts %}
+  {% if sub_recs.size >= 4 %}
+    {% break %}
+  {% endif %}
+
+  {% if used_rec_urls contains post.url %}
+    {% continue %}
+  {% endif %}
+
+  {% assign sub_recs = sub_recs | push: post %}
+  {% assign used_rec_urls = used_rec_urls | push: post.url %}
+{% endfor %}
+
+{% assign primary_categories = '' | split: '' %}
+{% for post in all_visible_posts %}
+  {% assign primary_category = post.categories[0] | default: '' %}
+  {% if primary_category != '' %}
+    {% unless primary_categories contains primary_category %}
+      {% assign primary_categories = primary_categories | push: primary_category %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+{% if main_post %}
+  {% assign hero_images = '' | split: '' %}
+
+  {% if main_post.image %}
+    {% assign hero_src = main_post.image.path | default: main_post.image %}
+    {% unless hero_src contains '//' %}
+      {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+    {% endunless %}
+    {% assign hero_images = hero_images | push: hero_src %}
+  {% endif %}
+
+  {% if main_post.recommend_images %}
+    {% for image_src in main_post.recommend_images limit: 5 %}
+      {% assign hero_src = image_src %}
+      {% unless hero_src contains '//' %}
+        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+      {% endunless %}
+      {% unless hero_images contains hero_src %}
+        {% assign hero_images = hero_images | push: hero_src %}
+      {% endunless %}
+    {% endfor %}
   {% else %}
-    {% assign normal_start = visible_start | minus: all_pinned.size %}
-  {% endif %}
+    {% assign markdown_image_parts = main_post.content | split: '](' %}
+    {% for image_part in markdown_image_parts offset: 1 limit: 5 %}
+      {% assign hero_src = image_part | split: ')' | first | split: ' ' | first %}
+      {% if hero_src == '' %}
+        {% continue %}
+      {% endif %}
 
-  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
-  {% assign normal_last_index = all_normal.size | minus: 1 %}
-  {% if normal_end > normal_last_index %}
-    {% assign normal_end = normal_last_index %}
-  {% endif %}
+      {% unless hero_src contains '//' %}
+        {% unless hero_src contains '/' %}
+          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+        {% endunless %}
+      {% endunless %}
 
-  {% if normal_start <= normal_end %}
-    {% for i in (normal_start..normal_end) %}
-      {% assign posts = posts | push: all_normal[i] %}
+      {% unless hero_images contains hero_src %}
+        {% assign hero_images = hero_images | push: hero_src %}
+      {% endunless %}
+    {% endfor %}
+
+    {% assign html_image_parts = main_post.content | split: 'src="' %}
+    {% for image_part in html_image_parts offset: 1 limit: 5 %}
+      {% assign hero_src = image_part | split: '"' | first %}
+      {% if hero_src == '' %}
+        {% continue %}
+      {% endif %}
+
+      {% unless hero_src contains '//' %}
+        {% unless hero_src contains '/' %}
+          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+        {% endunless %}
+      {% endunless %}
+
+      {% unless hero_images contains hero_src %}
+        {% assign hero_images = hero_images | push: hero_src %}
+      {% endunless %}
     {% endfor %}
   {% endif %}
+
+  <section class="home-dispatch" aria-labelledby="home-dispatch-title">
+    <div class="home-dispatch-heading">
+      <p>Dispatch System</p>
+      <h1 id="home-dispatch-title">推送中枢</h1>
+    </div>
+
+    <div class="home-dispatch-grid">
+      <a href="{{ main_post.url | relative_url }}" class="home-dispatch-main">
+        <div class="home-dispatch-media{% if hero_images.size > 1 %} has-carousel{% endif %}">
+          {% if hero_images.size > 0 %}
+            <div
+              class="home-dispatch-track"
+              style="--home-rec-image-count: {{ hero_images.size }};"
+              aria-hidden="true"
+            >
+              {% for hero_src in hero_images %}
+                <div class="home-dispatch-slide">
+                  <img src="{{ hero_src }}" alt="">
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="home-dispatch-placeholder" aria-hidden="true">
+              <span></span>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="home-dispatch-main-meta">
+          <span class="home-dispatch-kicker">Pinned Signal</span>
+          <h2>{{ main_post.title }}</h2>
+          <p>
+            {% assign visible_post_date = main_post.display_date | default: main_post.date %}
+            {% include datetime.html date=visible_post_date lang=lang %}
+            {% if main_post.categories.size > 0 %}
+              <span aria-hidden="true">/</span>
+              {{ main_post.categories | join: ' / ' }}
+            {% endif %}
+          </p>
+        </div>
+      </a>
+
+      <div class="home-dispatch-sublist" aria-label="Recommended posts">
+        {% for post in sub_recs limit: 4 %}
+          <a href="{{ post.url | relative_url }}" class="home-dispatch-sub">
+            <span class="home-dispatch-index">0{{ forloop.index }}</span>
+            <span class="home-dispatch-sub-title">{{ post.title }}</span>
+            <span class="home-dispatch-sub-meta">
+              {% assign visible_post_date = post.display_date | default: post.date %}
+              {% include datetime.html date=visible_post_date lang=lang %}
+              {% if post.categories.size > 0 %}
+                / {{ post.categories[0] }}
+              {% endif %}
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 {% endif %}
 
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  {% for post in posts %}
+<section class="home-feed-control" aria-labelledby="home-feed-title">
+  <div class="home-feed-control-heading">
+    <p>Record Stream</p>
+    <h2 id="home-feed-title">记录流</h2>
+  </div>
+
+  <div class="home-category-filter" aria-label="Filter posts by category">
+    <button type="button" class="is-active" data-home-filter="all">全部文章</button>
+
+    {% for primary_category in primary_categories %}
+      {% assign secondary_categories = '' | split: '' %}
+      {% for post in all_visible_posts %}
+        {% if post.categories[0] == primary_category %}
+          {% assign secondary_category = post.categories[1] | default: '' %}
+          {% if secondary_category != '' %}
+            {% unless secondary_categories contains secondary_category %}
+              {% assign secondary_categories = secondary_categories | push: secondary_category %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="home-category-group">
+        <button type="button" data-home-filter="primary" data-category="{{ primary_category | escape }}">
+          {{ primary_category }}
+        </button>
+
+        {% if secondary_categories.size > 0 %}
+          <div class="home-category-submenu">
+            {% for secondary_category in secondary_categories %}
+              <button
+                type="button"
+                data-home-filter="secondary"
+                data-category="{{ primary_category | escape }}"
+                data-secondary="{{ secondary_category | escape }}"
+              >
+                {{ secondary_category }}
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div id="post-list" class="flex-grow-1 px-xl-1 home-feed-list" data-home-feed-list>
+  {% for post in all_visible_posts %}
     {% unless post.title and post.url and post.date %}
       {% continue %}
     {% endunless %}
 
-    <article class="card-wrapper card">
+    <article
+      class="card-wrapper card home-feed-item"
+      data-primary-category="{{ post.categories[0] | default: '' | escape }}"
+      data-secondary-category="{{ post.categories[1] | default: '' | escape }}"
+    >
       <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse{% if post.image %} has-preview-image{% endif %}">
         {% assign card_body_col = '12' %}
 
@@ -97,12 +315,10 @@ refactor: true
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
               <div class="me-auto">
-                <!-- posted date -->
                 <i class="far fa-calendar fa-fw me-1"></i>
                 {% assign visible_post_date = post.display_date | default: post.date %}
                 {% include datetime.html date=visible_post_date lang=lang %}
 
-                <!-- categories -->
                 {% if post.categories.size > 0 %}
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
@@ -121,16 +337,47 @@ refactor: true
                 </div>
               {% endif %}
             </div>
-            <!-- .post-meta -->
           </div>
-          <!-- .card-body -->
         </div>
       </a>
     </article>
   {% endfor %}
 </div>
-<!-- #post-list -->
 
-{% if paginator.total_pages > 1 %}
-  {% include post-paginator.html %}
-{% endif %}
+<script>
+  (() => {
+    const filters = Array.from(document.querySelectorAll('[data-home-filter]'));
+    const items = Array.from(document.querySelectorAll('[data-primary-category]'));
+
+    if (filters.length === 0 || items.length === 0) {
+      return;
+    }
+
+    const setActiveFilter = (activeFilter) => {
+      filters.forEach((filter) => filter.classList.toggle('is-active', filter === activeFilter));
+    };
+
+    const filterItems = (filter) => {
+      const mode = filter.dataset.homeFilter;
+      const category = filter.dataset.category || '';
+      const secondary = filter.dataset.secondary || '';
+
+      items.forEach((item) => {
+        const matched = mode === 'all'
+          || (mode === 'primary' && item.dataset.primaryCategory === category)
+          || (mode === 'secondary'
+            && item.dataset.primaryCategory === category
+            && item.dataset.secondaryCategory === secondary);
+
+        item.hidden = !matched;
+      });
+    };
+
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        setActiveFilter(filter);
+        filterItems(filter);
+      });
+    });
+  })();
+</script>
