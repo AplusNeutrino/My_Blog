@@ -5,29 +5,55 @@
 
 <section id="access-tags" class="middle-memory-panel">
   <h2 class="panel-heading">碎片之中</h2>
-  <p id="middle-memory-text" class="middle-memory-text">正在加载中...</p>
-  <script type="application/json" id="middle-memory-source">
+  <div class="middle-memory-entry" aria-live="polite">
+    <p class="middle-memory-text" data-middle-memory-text>正在加载中...</p>
+    <p class="middle-memory-translation" data-middle-memory-translation hidden></p>
+  </div>
+  <script type="application/json" data-middle-memory-source>
     {{ middle_memory | jsonify }}
   </script>
 </section>
 
 <script>
   (() => {
-    const target = document.getElementById('middle-memory-text');
-    const source = document.getElementById('middle-memory-source');
+    const panel = document.currentScript.previousElementSibling;
+    const target = panel?.querySelector('[data-middle-memory-text]');
+    const translationTarget = panel?.querySelector('[data-middle-memory-translation]');
+    const source = panel?.querySelector('[data-middle-memory-source]');
 
-    if (!target || !source) {
+    if (!target || !translationTarget || !source) {
       return;
     }
 
     const fallback = '正在加载中...';
 
+    const normalizeItem = (item) => {
+      if (typeof item === 'string') {
+        return {
+          text: item.trim(),
+          translation: ''
+        };
+      }
+
+      if (!item || typeof item !== 'object') {
+        return {
+          text: '',
+          translation: ''
+        };
+      }
+
+      return {
+        text: String(item.text || item.original || '').trim(),
+        translation: String(item.translation || '').trim()
+      };
+    };
+
     const loadSentences = () => {
       try {
         const parsed = JSON.parse(source.textContent || '[]');
         return parsed
-          .map((item) => String(item || '').trim())
-          .filter(Boolean);
+          .map(normalizeItem)
+          .filter((item) => item.text);
       } catch {
         return [];
       }
@@ -38,11 +64,22 @@
 
       if (sentences.length === 0) {
         target.textContent = fallback;
+        translationTarget.textContent = '';
+        translationTarget.hidden = true;
         return;
       }
 
       const index = Math.floor(Math.random() * sentences.length);
-      target.textContent = sentences[index];
+      const selected = sentences[index];
+      target.textContent = selected.text;
+
+      if (selected.translation) {
+        translationTarget.textContent = selected.translation;
+        translationTarget.hidden = false;
+      } else {
+        translationTarget.textContent = '';
+        translationTarget.hidden = true;
+      }
     };
 
     renderMemory();

@@ -353,6 +353,8 @@ recommend_images:
 - `categories[1]` 作为二级筛选。
 - 新增一级或二级分类后，不需要手动修改首页模板。
 
+首页下方 Launch Module 的文章流由前端 JS 分页，每页显示 12 篇文章。分页按钮同时出现在分类筛选下方和文章列表底部；切换分类会回到第 1 页，翻页不会影响上方 Control Module 推荐区。
+
 ### 2.10 私有浏览量基建
 
 相关文件：
@@ -477,13 +479,22 @@ _data/middle_memory.yml
 _includes/trending-tags.html
 ```
 
-`_data/middle_memory.yml` 中每一条 `sentences` 都是一句候选短句：
+`_data/middle_memory.yml` 中每一条 `sentences` 都是一句候选短句。推荐使用 `text` + `translation` 格式；`translation` 可以留空，留空时右栏只显示原文：
 
 ```yaml
 sentences:
-  - "第一句短句"
-  - "第二句短句"
+  - text: "Alea jacta est!"
+    translation: "骰子已经掷下。"
+
+  - text: |-
+      多行原文第一行
+      多行原文第二行
+    translation: |-
+      多行译文第一行
+      多行译文第二行
 ```
+
+旧的纯字符串格式仍然兼容，但如果要显示译文，需要改成上面的对象格式。译文会以更小、更弱的副文本显示在原文下方；长句会自动换行，过长内容会在右栏内部滚动，避免撑坏侧边栏。
 
 页面会在每次刷新时随机显示其中一句。如果 `sentences` 为空，或全部是空白内容，则显示：
 

@@ -323,6 +323,12 @@ refactor: true
       </div>
     {% endfor %}
   </div>
+
+  <nav class="home-feed-pager" data-home-pager aria-label="Launch Module pages" hidden>
+    <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
+    <span data-home-page-status>01 / 01</span>
+    <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
+  </nav>
 </section>
 
 <div id="post-list" class="flex-grow-1 px-xl-1 home-feed-list" data-home-feed-list>
@@ -401,10 +407,22 @@ refactor: true
   {% endfor %}
 </div>
 
+<nav class="home-feed-pager home-feed-pager-bottom" data-home-pager aria-label="Launch Module pages" hidden>
+  <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
+  <span data-home-page-status>01 / 01</span>
+  <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
+</nav>
+
 <script>
   (() => {
     const filters = Array.from(document.querySelectorAll('[data-home-filter]'));
     const items = Array.from(document.querySelectorAll('[data-primary-category]'));
+    const pagers = Array.from(document.querySelectorAll('[data-home-pager]'));
+    const pageButtons = Array.from(document.querySelectorAll('[data-home-page]'));
+    const pageStatuses = Array.from(document.querySelectorAll('[data-home-page-status]'));
+    const pageSize = 12;
+    let activeFilter = filters.find((filter) => filter.classList.contains('is-active')) || filters[0];
+    let currentPage = 1;
 
     if (filters.length === 0 || items.length === 0) {
       return;
@@ -414,28 +432,66 @@ refactor: true
       filters.forEach((filter) => filter.classList.toggle('is-active', filter === activeFilter));
     };
 
-    const filterItems = (filter) => {
+    const itemMatchesFilter = (item, filter) => {
       const mode = filter.dataset.homeFilter;
       const category = filter.dataset.category || '';
       const secondary = filter.dataset.secondary || '';
 
-      items.forEach((item) => {
-        const matched = mode === 'all'
-          || (mode === 'primary' && item.dataset.primaryCategory === category)
-          || (mode === 'secondary'
-            && item.dataset.primaryCategory === category
-            && item.dataset.secondaryCategory === secondary);
+      return mode === 'all'
+        || (mode === 'primary' && item.dataset.primaryCategory === category)
+        || (mode === 'secondary'
+          && item.dataset.primaryCategory === category
+          && item.dataset.secondaryCategory === secondary);
+    };
 
-        item.hidden = !matched;
+    const renderFeedPage = () => {
+      const matchedItems = items.filter((item) => itemMatchesFilter(item, activeFilter));
+      const totalPages = Math.max(1, Math.ceil(matchedItems.length / pageSize));
+      currentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+      const start = (currentPage - 1) * pageSize;
+      const visibleItems = new Set(matchedItems.slice(start, start + pageSize));
+
+      items.forEach((item) => {
+        item.hidden = !visibleItems.has(item);
+      });
+
+      const pageText = `${String(currentPage).padStart(2, '0')} / ${String(totalPages).padStart(2, '0')}`;
+      const canPage = matchedItems.length > pageSize;
+
+      pagers.forEach((pager) => {
+        pager.hidden = !canPage;
+      });
+
+      pageStatuses.forEach((status) => {
+        status.textContent = pageText;
+      });
+
+      pageButtons.forEach((button) => {
+        const direction = button.dataset.homePage;
+        button.disabled = !canPage
+          || (direction === 'prev' && currentPage === 1)
+          || (direction === 'next' && currentPage === totalPages);
       });
     };
 
     filters.forEach((filter) => {
       filter.addEventListener('click', () => {
+        activeFilter = filter;
+        currentPage = 1;
         setActiveFilter(filter);
-        filterItems(filter);
+        renderFeedPage();
       });
     });
+
+    pageButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        currentPage += button.dataset.homePage === 'prev' ? -1 : 1;
+        renderFeedPage();
+      });
+    });
+
+    renderFeedPage();
 
     document.querySelectorAll('[data-home-dispatch-track]').forEach((track) => {
       const slides = Array.from(track.children);
