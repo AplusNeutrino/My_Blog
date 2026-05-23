@@ -3,8 +3,6 @@ layout: default
 refactor: true
 panel_includes:
   - post-panel-stack
-tail_includes:
-  - related-posts
 ---
 
 {% include lang.html %}
@@ -187,6 +185,8 @@ tail_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
+
+{% include related-posts.html lang=lang %}
 
 {% if site.comments.provider and page.comments != false %}
   {% assign comment_include = 'comments/' | append: site.comments.provider | append: '.html' %}

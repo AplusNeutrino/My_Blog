@@ -1251,9 +1251,6 @@
 
 .twikoo-comments .tk-submit {
   position: relative;
-  display: grid;
-  grid-template-columns: 2.6rem minmax(0, 1fr);
-  gap: 0.85rem;
   padding: 0.95rem;
   border: 1px solid var(--main-border-color);
   border-radius: 0.5rem;
@@ -1264,7 +1261,7 @@
 .twikoo-comments .tk-avatar {
   width: 2.35rem !important;
   height: 2.35rem !important;
-  margin: 0 !important;
+  margin: 0 0.85rem 0.65rem 0 !important;
 }
 
 .twikoo-comments .tk-avatar img,
@@ -1274,8 +1271,6 @@
 }
 
 .twikoo-comments .tk-submit-content {
-  display: grid;
-  gap: 0.65rem;
   width: 100%;
   min-width: 0;
 }
@@ -1293,7 +1288,7 @@
 }
 
 .twikoo-comments .el-textarea__inner {
-  width: 100%;
+  width: 100% !important;
   min-height: 7.2rem !important;
   line-height: 1.55;
   resize: vertical;
@@ -1307,6 +1302,7 @@
 .twikoo-comments .el-input,
 .twikoo-comments .el-input-group,
 .twikoo-comments .el-textarea {
+  display: block;
   max-width: 100%;
   min-width: 0;
 }
@@ -1323,9 +1319,9 @@
 }
 
 .twikoo-comments .tk-submit-content > .el-textarea,
-.twikoo-comments .tk-submit-content > .tk-row,
-.twikoo-comments .tk-submit-content > .tk-submit-action {
-  grid-column: 1 / -1;
+.twikoo-comments .tk-submit .el-textarea,
+.twikoo-comments .tk-row,
+.twikoo-comments .tk-submit-action {
   width: 100%;
 }
 
@@ -1366,19 +1362,21 @@
 
 .twikoo-comments .el-input__inner:focus,
 .twikoo-comments .el-textarea__inner:focus {
-  border-color: rgba(78, 126, 255, 0.55);
-  box-shadow: 0 0 0 2px rgba(78, 126, 255, 0.1);
+  border-color: rgba(226, 207, 91, 0.58);
+  box-shadow: 0 0 0 2px rgba(226, 207, 91, 0.08);
 }
 
 .twikoo-comments .el-button--primary {
-  border-color: rgba(78, 126, 255, 0.62);
-  background: rgba(78, 126, 255, 0.24);
-  color: var(--heading-color);
+  border-color: rgba(226, 207, 91, 0.62);
+  background: rgba(226, 207, 91, 0.16);
+  color: #eadb74;
 }
 
 .twikoo-comments .el-button--primary:hover,
 .twikoo-comments .el-button--primary:focus {
-  background: rgba(78, 126, 255, 0.34);
+  border-color: rgba(226, 207, 91, 0.78);
+  background: rgba(226, 207, 91, 0.24);
+  color: #fff0a0;
 }
 
 .twikoo-comments .tk-comments-container {
@@ -1939,8 +1937,6 @@
   }
 
   .twikoo-comments .tk-submit {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
     padding: 0.78rem;
   }
 
