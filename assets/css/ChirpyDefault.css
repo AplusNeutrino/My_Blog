@@ -1123,13 +1123,23 @@
     radial-gradient(circle at 50% 20%, rgba(var(--probe-accent-rgb), 0.18), transparent 26rem),
     rgba(10, 14, 18, 0.58);
   backdrop-filter: blur(0.35rem);
+  opacity: 0;
+  transition:
+    opacity 160ms ease,
+    backdrop-filter 180ms ease;
 }
 
 .probe-module[hidden] {
   display: none;
 }
 
+.probe-module.is-visible {
+  opacity: 1;
+}
+
 .probe-module-window {
+  position: relative;
+  isolation: isolate;
   width: min(38rem, 100%);
   max-height: min(38rem, calc(100vh - 2rem));
   display: flex;
@@ -1141,9 +1151,41 @@
   box-shadow:
     0 1.2rem 3rem rgba(0, 0, 0, 0.36),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  opacity: 0;
+  transform: translateY(0.6rem) scale(0.985);
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.19, 1, 0.22, 1),
+    border-color 180ms ease,
+    box-shadow 220ms ease;
+}
+
+.probe-module.is-visible .probe-module-window {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.probe-module-window::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, transparent, rgba(var(--probe-accent-rgb), 0.36), transparent),
+    linear-gradient(180deg, rgba(var(--probe-accent-rgb), 0.12), transparent 42%);
+  opacity: 0;
+  transform: translateY(-38%);
+  pointer-events: none;
+}
+
+.probe-module.is-visible .probe-module-window::before {
+  animation: probe-module-scan-in 420ms ease-out both;
 }
 
 .probe-module-header {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -1187,6 +1229,8 @@
 }
 
 .probe-module-search {
+  position: relative;
+  z-index: 1;
   padding: 1rem 1.15rem 0.65rem;
 }
 
@@ -1207,6 +1251,8 @@
 }
 
 .probe-module-status {
+  position: relative;
+  z-index: 1;
   margin: 0;
   padding: 0 1.15rem 0.75rem;
   color: var(--text-muted-color);
@@ -1214,6 +1260,8 @@
 }
 
 .probe-module-list {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 0.45rem;
   overflow: auto;
@@ -1261,6 +1309,7 @@
   box-shadow:
     0 1.2rem 3rem rgba(0, 0, 0, 0.36),
     0 0 1.8rem rgba(var(--probe-accent-rgb), 0.26);
+  animation: probe-module-eye-lock 520ms ease-out both;
 }
 
 .probe-module-eye-result {
@@ -1275,6 +1324,50 @@
   width: 100%;
   max-height: min(24rem, 58vh);
   object-fit: contain;
+}
+
+@keyframes probe-module-scan-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-42%);
+  }
+  34% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(42%);
+  }
+}
+
+@keyframes probe-module-eye-lock {
+  0% {
+    box-shadow:
+      0 1.2rem 3rem rgba(0, 0, 0, 0.36),
+      0 0 0 rgba(var(--probe-accent-rgb), 0);
+  }
+  45% {
+    box-shadow:
+      0 1.2rem 3rem rgba(0, 0, 0, 0.36),
+      0 0 2.4rem rgba(var(--probe-accent-rgb), 0.38);
+  }
+  100% {
+    box-shadow:
+      0 1.2rem 3rem rgba(0, 0, 0, 0.36),
+      0 0 1.8rem rgba(var(--probe-accent-rgb), 0.26);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .probe-module,
+  .probe-module-window {
+    transition: none;
+  }
+
+  .probe-module-window::before,
+  .probe-module-eye-signal .probe-module-window {
+    animation: none;
+  }
 }
 
 @media (max-width: 767.98px) {

@@ -75,6 +75,7 @@
     let buffer = [];
     let eyeSignalActive = false;
     let rendered = false;
+    let closeTimer;
 
     const isEditableTarget = (target) => {
       if (!target) {
@@ -182,16 +183,25 @@
     };
 
     const openModule = () => {
+      window.clearTimeout(closeTimer);
       module.hidden = false;
       document.documentElement.classList.add('probe-module-open');
       filterItems();
-      window.setTimeout(() => input.focus({ preventScroll: true }), 0);
+      window.requestAnimationFrame(() => {
+        module.classList.add('is-visible');
+        input.focus({ preventScroll: true });
+      });
     };
 
     const closeModule = () => {
-      module.hidden = true;
+      window.clearTimeout(closeTimer);
+      module.classList.remove('is-visible');
       document.documentElement.classList.remove('probe-module-open');
       buffer = [];
+
+      closeTimer = window.setTimeout(() => {
+        module.hidden = true;
+      }, 180);
     };
 
     closeButton.addEventListener('click', closeModule);
