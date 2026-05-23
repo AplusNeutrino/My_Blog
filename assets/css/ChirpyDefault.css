@@ -1476,6 +1476,68 @@
   margin-top: 1rem;
 }
 
+.twikoo-comments .tk-comments-container > .tk-comment,
+.twikoo-comments .tk-comments-container .tk-replies .tk-comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.72rem;
+  width: 100%;
+}
+
+.twikoo-comments .tk-comments-container .tk-comment > .tk-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.twikoo-comments .tk-comments-container .tk-comment > .tk-avatar {
+  display: block !important;
+  flex: 0 0 2.35rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  margin-top: 0.05rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-avatar .tk-avatar-img,
+.twikoo-comments .tk-comments-container .tk-avatar img,
+.twikoo-comments .tk-comments-container .tk-avatar svg {
+  display: block;
+  width: 2.35rem !important;
+  height: 2.35rem !important;
+  border: 1px solid color-mix(in srgb, var(--main-border-color) 74%, #e2cf5b);
+  border-radius: 0.34rem !important;
+  background: color-mix(in srgb, var(--main-bg) 88%, #080808);
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.twikoo-comments .tk-comments-container .tk-avatar svg {
+  padding: 0.36rem;
+  fill: color-mix(in srgb, var(--text-muted-color) 82%, #d8d8d8);
+}
+
+.twikoo-comments .tk-comments-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.05rem;
+}
+
+.twikoo-comments .tk-comments-count {
+  color: var(--heading-color);
+  font-size: 1.24rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.twikoo-comments .tk-comments-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-muted-color);
+  font-size: 0.8rem;
+}
+
 .twikoo-comments .tk-comments-container .tk-comment > .tk-main > .tk-row {
   display: flex;
   align-items: flex-start;
@@ -1488,6 +1550,21 @@
   flex: 1 1 auto;
   min-width: 0;
   line-height: 1.45;
+}
+
+.twikoo-comments .tk-comments-container .tk-comment .tk-nick {
+  color: color-mix(in srgb, var(--heading-color) 88%, #d8d8d8);
+  font-size: 0.97rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.twikoo-comments .tk-comments-container .tk-comment .tk-time {
+  margin-left: 0.28rem;
+  color: var(--text-muted-color);
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.72;
 }
 
 .twikoo-comments .tk-comments-container .tk-comment .tk-action {
@@ -1525,9 +1602,146 @@
   height: 0.92rem;
 }
 
+.twikoo-comments .tk-comments-container .tk-content {
+  color: color-mix(in srgb, var(--text-color) 92%, #fff);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
 .twikoo-comments .tk-comments-container .tk-content,
 .twikoo-comments .tk-comments-container .tk-extras {
   margin-top: 0.45rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-content p {
+  margin: 0.15rem 0 0;
+}
+
+.twikoo-comments .tk-comments-container .tk-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem 0.68rem;
+  color: var(--text-muted-color);
+  font-size: 0.74rem;
+  line-height: 1.35;
+  opacity: 0.56;
+}
+
+.twikoo-comments .tk-comments-container .tk-extra {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.twikoo-comments .tk-comments-container .tk-icon {
+  width: 0.72rem;
+  height: 0.72rem;
+  opacity: 0.72;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies {
+  width: auto !important;
+  margin: 0.85rem 0 0 clamp(0.8rem, 3.8vw, 2.4rem);
+  padding: 0.45rem 0 0.1rem 0.82rem;
+  border-left: 1px solid color-mix(in srgb, var(--main-border-color) 72%, #e2cf5b);
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-comment {
+  gap: 0.55rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-comment > .tk-avatar {
+  flex-basis: 1.72rem;
+  width: 1.72rem;
+  height: 1.72rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-avatar .tk-avatar-img,
+.twikoo-comments .tk-comments-container .tk-replies .tk-avatar img,
+.twikoo-comments .tk-comments-container .tk-replies .tk-avatar svg {
+  width: 1.72rem !important;
+  height: 1.72rem !important;
+  border-radius: 0.28rem !important;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-avatar svg {
+  padding: 0.28rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-comment {
+  color: var(--text-muted-color);
+  font-size: 0.9rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-comment > .tk-main > .tk-row {
+  gap: 0.55rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-nick {
+  color: color-mix(in srgb, var(--heading-color) 76%, var(--text-muted-color));
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-time {
+  font-size: 0.72rem;
+  opacity: 0.62;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-content {
+  color: color-mix(in srgb, var(--text-color) 86%, var(--text-muted-color));
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-content > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin-bottom: 0.15rem;
+  color: transparent;
+  font-size: 0;
+  line-height: 1.2;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-content > span:first-child::before {
+  content: 'reply';
+  color: color-mix(in srgb, var(--text-muted-color) 78%, #e2cf5b);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-ruser {
+  color: color-mix(in srgb, var(--link-color) 72%, #e2cf5b) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-content > span:last-child p {
+  margin-top: 0.1rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-extras {
+  margin-top: 0.55rem;
+  font-size: 0.68rem;
+  opacity: 0.46;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-action {
+  gap: 0.15rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-action-link {
+  min-width: 1.08rem;
+  height: 1.25rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-replies .tk-action-icon {
+  width: 0.78rem;
+  height: 0.78rem;
 }
 
 .twikoo-comments .tk-nodata {
