@@ -123,9 +123,8 @@ tagline: Neutriverse
 
 当前左侧栏保持 Chirpy 原始 sidebar 结构，没有覆盖 `_includes/sidebar.html`。桌面端通过 `assets/css/ChirpyDefault.css` 将左侧栏视觉拆成：
 
-- 上方身份悬浮面板：头像、`中间层`、`Neutriverse`、`Quantum Pandemonia`。
-- 中部轻量导航面板：首页、漫游指南、友情链接。
-- 底部胶囊面板：模式切换、Bangumi、RSS 等底部图标。
+- 身份与导航合并面板：头像、`中间层`、`Neutriverse`、`Quantum Pandemonia`，以及首页、漫游指南、友情链接。
+- 底部控制面板：模式切换、Bangumi、RSS 等底部图标。
 
 来源：
 
