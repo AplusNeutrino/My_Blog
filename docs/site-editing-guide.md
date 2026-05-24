@@ -456,6 +456,12 @@ path: '{{ page.url | relative_url }}'
 
 截图位置：右侧 `兴趣之中` 区块。
 
+当前站点已隐藏该区块；`_includes/update-list.html` 仍保留。若以后需要恢复，可在 `_layouts/default.html` 的右侧栏 `.access` 中重新加入：
+
+```liquid
+{% include_cached update-list.html lang=lang %}
+```
+
 来源：仓库覆盖的右侧栏模板会根据文章自动生成。
 
 排序主要依据文章日期和最后修改时间。相关逻辑包含：

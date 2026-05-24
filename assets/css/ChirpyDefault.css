@@ -2478,11 +2478,13 @@
 }
 
 .neutriverse-status.probe-status-panel {
+  position: relative;
   height: 100%;
   margin: 0;
   overflow: hidden;
   border-color: rgba(var(--probe-accent-rgb), 0.3);
   border-radius: 0.5rem;
+  padding: 1.15rem 1rem 1rem;
   background:
     linear-gradient(180deg, rgba(var(--probe-accent-rgb), 0.09), transparent 34%),
     color-mix(in srgb, var(--main-bg) 88%, var(--probe-bg-tint));
@@ -2493,19 +2495,32 @@
 
 .probe-status-panel::before {
   content: '';
-  display: block;
-  height: 0.18rem;
-  margin: -1rem -1rem 0.85rem;
-  background: linear-gradient(90deg, var(--probe-accent), transparent 72%);
-  opacity: 0.74;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.16rem;
+  background:
+    linear-gradient(90deg, transparent, rgba(var(--probe-accent-rgb), 0.95) 14%, rgba(var(--probe-accent-rgb), 0.38) 62%, transparent),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 26%);
+  opacity: 0.86;
+  pointer-events: none;
+}
+
+.probe-status-panel .status-heading {
+  margin-bottom: 0.9rem;
 }
 
 .probe-status-panel .status-kicker {
   color: var(--probe-accent);
+  font-size: 0.68rem;
+  line-height: 1.2;
 }
 
 .probe-status-panel .status-heading h2 {
-  font-size: 0.95rem;
+  margin: 0.22rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.28;
 }
 
 .probe-status-panel .status-grid {
@@ -2513,6 +2528,7 @@
 }
 
 .probe-status-panel .status-item {
+  min-height: 4.5rem;
   border-color: rgba(var(--probe-accent-rgb), 0.18);
   background:
     linear-gradient(135deg, rgba(var(--probe-accent-rgb), 0.08), transparent 62%),
@@ -2521,11 +2537,13 @@
 
 .probe-status-panel .status-label {
   font-size: 0.68rem;
+  line-height: 1.25;
 }
 
 .probe-status-panel .status-item strong {
   color: var(--heading-color);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  line-height: 1.18;
 }
 
 @keyframes probe-module-fly-in {
