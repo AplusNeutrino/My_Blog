@@ -554,13 +554,13 @@ copyright:
 本文由作者按照 CC BY-NC 4.0. 进行授权
 ```
 
-页脚在宽屏时显示为一行，顺序为版权、框架与主题来源、站点运行信息。三块内容会自动分散占满一行：版权靠左，框架与主题来源居中，站点运行信息靠右。
+页脚在宽屏时显示为一行，顺序为版权、框架与主题来源、萌 ICP。三块内容会自动分散占满一行：版权靠左，框架与主题来源居中，萌 ICP 靠右。
 
 ```text
-©2026 Neutrino. CC BY-NC 4.0.           Powered by Jekyll · Theme by Chirpy.           本站已运行 304 天 · 总浏览 8,771 次
+©2026 Neutrino. CC BY-NC 4.0.           Powered by Jekyll · Theme by Chirpy.           萌ICP备20268753号
 ```
 
-窄屏时自动拆成三行并居中显示。
+窄屏时自动拆成多行并居中显示。
 
 这些内容来自：
 
@@ -570,9 +570,15 @@ _includes/footer.html
 
 其中 `Jekyll` 链接到 `https://jekyllrb.com/`，`Chirpy` 链接到 `https://github.com/cotes2020/jekyll-theme-chirpy`，与关于页中的来源链接保持一致。
 
-### 2.16 页脚网站运行天数
+萌 ICP 链接在 `_includes/footer.html` 中维护：
 
-截图位置：页脚中的 `本站已运行 ... 天 · 总浏览 ... 次`。
+```html
+<a href="https://icp.gov.moe/?keyword=20268753" target="_blank" rel="noopener noreferrer">萌ICP备20268753号</a>
+```
+
+### 2.16 站点统计脚本
+
+页脚不显示运行天数或总浏览量。统计脚本仍保留在页脚 include 中，用于更新其他位置的统计数字，例如中间层监测面板。
 
 来源：
 
@@ -587,10 +593,11 @@ _includes/footer.html
 site_start_date: "2026-04-29"
 ```
 
-页脚会在浏览器中根据这个日期自动计算：
+运行天数和总浏览量会在需要的位置通过 `[data-runtime-days]`、`[data-total-views]` 更新，例如中间层监测面板。
 
 ```text
-本站已运行 123 天 · 总浏览 1,024 次
+运行天数 123
+总浏览 1,024
 ```
 
 总浏览量来自 Cloudflare Worker：
@@ -1709,7 +1716,7 @@ _includes/head/custom-head.html
 | 网站名 `Neutriverse` | `_config.yml` 的 `title` |
 | 副标题 `Quantum Pandemonia` | `_config.yml` 的 `tagline` |
 | 网站运行天数起始日 | `_config.yml` 的 `site_start_date` |
-| 页脚运行天数显示 | `_includes/footer.html` |
+| 站点统计脚本 | `_includes/footer.html` |
 | 头像 | `NeutriverseTitle.png` 和 `_config.yml` 的 `avatar` |
 | 浏览器标签页图标 | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 首页文章 | `_posts/` 下的 Markdown 文件 |

@@ -1983,7 +1983,7 @@
 }
 
 .footer-line,
-.site-runtime,
+.site-icp,
 .site-powered {
   letter-spacing: 0;
 }
@@ -2025,7 +2025,7 @@
     justify-self: center;
   }
 
-  .site-runtime {
+  .site-icp {
     justify-self: end;
     text-align: right;
   }
