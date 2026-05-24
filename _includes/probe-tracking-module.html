@@ -1,4 +1,6 @@
 {% assign probe_posts = site.posts | where_exp: 'post', 'post.hidden == true' %}
+{% assign probe_hidden_interface_count = 2 %}
+{% assign probe_signal_count = probe_posts.size | plus: probe_hidden_interface_count %}
 
 <div id="probe-tracking-module" class="probe-module" hidden>
   <div class="probe-module-window" role="dialog" aria-modal="false" aria-labelledby="probe-module-title">
@@ -16,7 +18,7 @@
     </label>
 
     <p class="probe-module-status" aria-live="polite">
-      {{ probe_posts.size }} hidden signal{% unless probe_posts.size == 1 %}s{% endunless %} indexed.
+      {{ probe_signal_count }} hidden signal{% unless probe_signal_count == 1 %}s{% endunless %} indexed.
     </p>
 
     <div class="probe-module-list" role="list" data-probe-list>
@@ -48,8 +50,24 @@
         "categories": {{ probe_categories | jsonify }},
         "description": {{ post.description | default: '' | jsonify }},
         "search": {{ probe_search_text | strip_newlines | downcase | jsonify }}
-      }{% unless forloop.last %},{% endunless %}
+      },
     {% endfor %}
+    {
+      "title": "中间文段标签",
+      "url": {{ '/tags/' | relative_url | jsonify }},
+      "date": "HIDDEN INTERFACE",
+      "categories": "Tag Index",
+      "description": "Hidden tag index interface.",
+      "search": "tags tag 标签 中间文段标签 中间文章标签集 hidden interface"
+    },
+    {
+      "title": "中间层时间线",
+      "url": {{ '/archives/' | relative_url | jsonify }},
+      "date": "HIDDEN INTERFACE",
+      "categories": "Timeline Archive",
+      "description": "Hidden timeline archive interface.",
+      "search": "timeline archives archive 时间线 归档 中间层时间线 hidden interface"
+    }
   ]
 </script>
 

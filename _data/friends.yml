@@ -1,10 +1,10 @@
-# External nodes shown on the About page.
+# External nodes shown on the Links page.
 # avatar is optional. Leave it empty to auto-load the site's favicon.
 friends:
   - name: "重力观测站"
     url: "https://gravity.observer"
     avatar: ""
-    description: "一个神秘的站点"
+    description: "G Free."
     tags: ["人文", "技术", "日常"]
     status: "online"
     added: "2026-05-24"
