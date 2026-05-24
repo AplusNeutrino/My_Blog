@@ -1641,10 +1641,11 @@
 }
 
 .twikoo-comments .tk-comments-container .tk-replies {
+  position: relative;
   width: auto !important;
-  margin: 0.8rem 0 0 clamp(0.35rem, 1.8vw, 1.15rem);
-  padding: 0.42rem 0 0.1rem 0.62rem;
-  border-left: 1px solid color-mix(in srgb, var(--main-border-color) 72%, #e2cf5b);
+  margin: 0.8rem 0 0;
+  padding: 0.42rem 0 0.1rem;
+  border-left: 0;
 }
 
 .twikoo-comments .tk-comments-container .tk-replies .tk-comment {
@@ -1744,6 +1745,50 @@
 .twikoo-comments .tk-comments-container .tk-replies .tk-action-icon {
   width: 0.78rem;
   height: 0.78rem;
+}
+
+.twikoo-comments .tk-comments-container .tk-expand-wrap {
+  position: relative;
+  z-index: 2;
+  height: 4.8rem;
+  margin-top: -4.8rem;
+  pointer-events: none;
+}
+
+.twikoo-comments .tk-comments-container .tk-expand-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 1.45rem;
+  background: linear-gradient(
+    180deg,
+    rgba(25, 25, 25, 0) 0%,
+    rgba(25, 25, 25, 0.58) 52%,
+    rgba(25, 25, 25, 0.88) 100%
+  );
+}
+
+.twikoo-comments .tk-comments-container .tk-expand {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 2.2rem;
+  padding-top: 0.35rem;
+  background: transparent !important;
+  color: color-mix(in srgb, var(--text-muted-color) 86%, #fff);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  pointer-events: auto;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.72);
+}
+
+.twikoo-comments .tk-comments-container .tk-expand:hover,
+.twikoo-comments .tk-comments-container .tk-expand:focus-visible {
+  color: #eadb74;
 }
 
 .twikoo-comments .tk-nodata {
