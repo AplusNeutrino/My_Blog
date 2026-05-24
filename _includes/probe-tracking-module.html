@@ -73,6 +73,7 @@
         "date": {{ probe_date | jsonify }},
         "categories": {{ probe_categories | jsonify }},
         "description": {{ post.description | default: '' | jsonify }},
+        "probeDefault": {{ post.probe_default | default: false | jsonify }},
         "search": {{ probe_search_text | strip_newlines | downcase | jsonify }}
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -82,6 +83,9 @@
 <script>
   (() => {
     const sequence = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowDown', 'ArrowDown'];
+    const touchSequence = ['up', 'up', 'down', 'down', 'down'];
+    const minSwipeDistance = 56;
+    const swipeTimeout = 3200;
     const eyeSignal = '9318054';
     const module = document.getElementById('probe-tracking-module');
     const data = document.getElementById('probe-tracking-data');
@@ -99,6 +103,9 @@
     const posts = JSON.parse(data.textContent);
     let items = [];
     let buffer = [];
+    let touchBuffer = [];
+    let touchStart = null;
+    let touchTimer;
     let eyeSignalActive = false;
     let rendered = false;
     let closeTimer;
@@ -112,9 +119,24 @@
       return target.closest('input, textarea, select, [contenteditable="true"]');
     };
 
-    const updateStatus = (visibleCount) => {
+    const resetTouchBuffer = () => {
+      window.clearTimeout(touchTimer);
+      touchBuffer = [];
+    };
+
+    const updateStatus = (visibleCount, hasQuery = true) => {
       if (eyeSignalActive) {
         status.textContent = 'Eye signal acquired. Awaiting interface assignment.';
+        return;
+      }
+
+      if (!hasQuery) {
+        if (visibleCount > 0) {
+          status.textContent = `${visibleCount} default signal${visibleCount === 1 ? '' : 's'} displayed. ${posts.length} hidden signal${posts.length === 1 ? '' : 's'} indexed.`;
+          return;
+        }
+
+        status.textContent = `${posts.length} hidden signal${posts.length === 1 ? '' : 's'} indexed. Awaiting search input.`;
         return;
       }
 
@@ -138,6 +160,7 @@
         item.href = post.url;
         item.dataset.probeItem = '';
         item.dataset.probeSearch = post.search;
+        item.dataset.probeDefault = post.probeDefault ? 'true' : 'false';
         item.setAttribute('role', 'listitem');
 
         title.className = 'probe-module-item-title';
@@ -182,6 +205,7 @@
       renderItems();
 
       const query = input.value.trim().toLowerCase();
+      const hasQuery = query !== '';
       let visibleCount = 0;
 
       if (query !== eyeSignal) {
@@ -191,7 +215,9 @@
       }
 
       items.forEach((item) => {
-        const matched = query === '' || item.dataset.probeSearch.includes(query);
+        const matched = hasQuery
+          ? item.dataset.probeSearch.includes(query)
+          : item.dataset.probeDefault === 'true';
         item.hidden = !matched;
 
         if (matched) {
@@ -199,8 +225,14 @@
         }
       });
 
+      if (!hasQuery) {
+        empty.textContent = 'Awaiting search signal.';
+      } else {
+        empty.textContent = 'No hidden signals matched.';
+      }
+
       empty.hidden = visibleCount !== 0 || query === eyeSignal;
-      updateStatus(visibleCount);
+      updateStatus(visibleCount, hasQuery);
 
       if (query === eyeSignal && !eyeSignalActive) {
         triggerEyeSignal();
@@ -209,7 +241,7 @@
       }
     };
 
-    const openModule = () => {
+    const openModule = ({ focusSearch = true } = {}) => {
       window.clearTimeout(closeTimer);
       window.clearTimeout(calibrationTimer);
       module.hidden = false;
@@ -217,7 +249,10 @@
       filterItems();
       window.requestAnimationFrame(() => {
         module.classList.add('is-visible');
-        input.focus({ preventScroll: true });
+
+        if (focusSearch) {
+          input.focus({ preventScroll: true });
+        }
 
         calibrationTimer = window.setTimeout(() => {
           module.classList.add('is-calibrated');
@@ -231,6 +266,7 @@
       module.classList.remove('is-visible', 'is-calibrated');
       document.documentElement.classList.remove('probe-module-open');
       buffer = [];
+      resetTouchBuffer();
 
       closeTimer = window.setTimeout(() => {
         module.hidden = true;
@@ -264,6 +300,50 @@
         buffer = [];
       }
     });
+
+    document.addEventListener('touchstart', (event) => {
+      if (!module.hidden || event.touches.length !== 1 || isEditableTarget(event.target)) {
+        touchStart = null;
+        return;
+      }
+
+      const touch = event.touches[0];
+      touchStart = {
+        x: touch.clientX,
+        y: touch.clientY
+      };
+    }, { passive: true });
+
+    document.addEventListener('touchend', (event) => {
+      if (!touchStart || !module.hidden || isEditableTarget(event.target)) {
+        touchStart = null;
+        return;
+      }
+
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStart.x;
+      const deltaY = touch.clientY - touchStart.y;
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+      touchStart = null;
+
+      if (absY < minSwipeDistance || absY < absX * 1.25) {
+        return;
+      }
+
+      const direction = deltaY < 0 ? 'up' : 'down';
+      window.clearTimeout(touchTimer);
+      touchBuffer.push(direction);
+      touchBuffer = touchBuffer.slice(-touchSequence.length);
+
+      if (touchBuffer.join('|') === touchSequence.join('|')) {
+        openModule({ focusSearch: false });
+        resetTouchBuffer();
+        return;
+      }
+
+      touchTimer = window.setTimeout(resetTouchBuffer, swipeTimeout);
+    }, { passive: true });
 
     window.probeTrackingModule = {
       open: openModule,

@@ -2187,6 +2187,34 @@
   max-height: min(38rem, calc(100vh - 2rem));
 }
 
+.probe-module-shell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  height: 0.16rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background:
+    linear-gradient(90deg, rgba(var(--probe-accent-rgb), 0.78), rgba(var(--probe-accent-rgb), 0.96) 32%, rgba(var(--probe-accent-rgb), 0.5) 68%, rgba(var(--probe-accent-rgb), 0.82)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28), transparent 24%, rgba(255, 255, 255, 0.14) 72%, transparent);
+  box-shadow:
+    0 0 0.8rem rgba(var(--probe-accent-rgb), 0.32),
+    0 0.28rem 1.2rem rgba(var(--probe-accent-rgb), 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0.96);
+  transition:
+    opacity 180ms ease 120ms,
+    transform 220ms ease 120ms;
+}
+
+.probe-module.is-calibrated .probe-module-shell::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
 .probe-module-window {
   position: relative;
   isolation: isolate;
@@ -2494,17 +2522,7 @@
 }
 
 .probe-status-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 0.16rem;
-  background:
-    linear-gradient(90deg, transparent, rgba(var(--probe-accent-rgb), 0.95) 14%, rgba(var(--probe-accent-rgb), 0.38) 62%, transparent),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 26%);
-  opacity: 0.86;
-  pointer-events: none;
+  content: none;
 }
 
 .probe-status-panel .status-heading {
@@ -2582,6 +2600,7 @@
 @media (prefers-reduced-motion: reduce) {
   .probe-module,
   .probe-module::before,
+  .probe-module-shell::before,
   .probe-module-window,
   .probe-module-sidecar {
     transition: none;
