@@ -129,7 +129,7 @@ tagline: 你的副标题
 | 中间层漫游指南 | `_tabs/about.md` | 关于页 |
 | 中间层友情链接 | `_tabs/links.md` | 友链页 |
 
-`中间文段标签` 和 `中间层时间线` 页面仍然保留，文章标签链接也仍可访问；左侧导航中通过 `assets/css/ChirpyDefault.css` 隐藏 `/tags/` 与 `/archives/` 入口。隐藏菜单中输入 `tags` 或 `timeline` 可检索进入这两个隐藏界面。
+`中间文段索引`、`中间文段标签`、`中间思维片段` 和 `中间层时间线` 页面仍然保留，文章标签链接也仍可访问；左侧导航中通过 `assets/css/ChirpyDefault.css` 隐藏 `/categories/`、`/tags/`、`/thoughts/` 与 `/archives/` 入口。Probe Tracking Module 顶部提供 `索引`、`标签`、`思维片段`、`更新记录` 四个固定入口按钮，它们不会混入下方隐藏文章搜索结果。
 
 这些文件开头都有 front matter，例如：
 

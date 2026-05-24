@@ -10,6 +10,10 @@
       ['/links/', '中间层友情链接']
     ]);
 
+    const sidebarLabels = new Map([
+      ['/links/', '友情链接']
+    ]);
+
     const legacyLabels = new Map([
       ['首页', '中间层首页'],
       ['分类', '中间文段索引'],
@@ -40,7 +44,10 @@
       document
         .querySelectorAll('#sidebar .nav-link[href], #topbar-wrapper a[href], .breadcrumb a[href]')
         .forEach((link) => {
-        const label = labels.get(normalizePath(link.href));
+        const path = normalizePath(link.href);
+        const label = link.closest('#sidebar') && sidebarLabels.has(path)
+          ? sidebarLabels.get(path)
+          : labels.get(path);
 
         if (!label) {
           return;

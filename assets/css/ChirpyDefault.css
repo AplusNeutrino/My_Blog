@@ -14,7 +14,9 @@
   font-style: normal !important;
 }
 
+#sidebar .nav-item:has(.nav-link[href$="/categories/"]),
 #sidebar .nav-item:has(.nav-link[href$="/tags/"]),
+#sidebar .nav-item:has(.nav-link[href$="/thoughts/"]),
 #sidebar .nav-item:has(.nav-link[href$="/archives/"]) {
   display: none;
 }
@@ -2259,6 +2261,95 @@
   border-color: rgba(var(--probe-accent-rgb), 0.7);
 }
 
+.probe-module-gates {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0.85rem 1.15rem 0;
+}
+
+.probe-module-gates a {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 4rem;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(var(--probe-accent-rgb), 0.24);
+  border-radius: 0.45rem;
+  padding: 0.62rem 0.7rem;
+  background:
+    linear-gradient(135deg, rgba(var(--probe-accent-rgb), 0.1), transparent 54%),
+    color-mix(in srgb, var(--main-bg) 82%, var(--probe-bg-tint));
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.probe-module-gates a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(var(--probe-accent-rgb), 0.34), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 52%);
+  opacity: 0;
+  transform: translateX(-34%);
+  transition: opacity 160ms ease, transform 180ms ease;
+}
+
+.probe-module-gates a::after {
+  content: '';
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.46rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 1px solid rgba(var(--probe-accent-rgb), 0.68);
+  border-bottom: 1px solid rgba(var(--probe-accent-rgb), 0.68);
+  opacity: 0.72;
+}
+
+.probe-module-gates a:hover,
+.probe-module-gates a:focus-visible {
+  color: var(--heading-color);
+  border-color: rgba(var(--probe-accent-rgb), 0.68);
+  box-shadow: 0 0 1rem rgba(var(--probe-accent-rgb), 0.16);
+}
+
+.probe-module-gates a:hover::before,
+.probe-module-gates a:focus-visible::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.probe-module-gates span,
+.probe-module-gates strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.probe-module-gates span {
+  margin-bottom: 0.22rem;
+  color: var(--probe-accent);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.probe-module-gates strong {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
 .probe-module-search {
   position: relative;
   z-index: 1;
@@ -2611,11 +2702,16 @@
   }
 
   .probe-module-header,
+  .probe-module-gates,
   .probe-module-search,
   .probe-module-status,
   .probe-module-list {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
+  }
+
+  .probe-module-gates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .probe-module h2 {

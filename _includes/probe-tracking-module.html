@@ -1,6 +1,5 @@
 {% assign probe_posts = site.posts | where_exp: 'post', 'post.hidden == true' %}
-{% assign probe_hidden_interface_count = 2 %}
-{% assign probe_signal_count = probe_posts.size | plus: probe_hidden_interface_count %}
+{% assign probe_signal_count = probe_posts.size %}
 
 <div id="probe-tracking-module" class="probe-module" hidden>
   <div class="probe-module-window" role="dialog" aria-modal="false" aria-labelledby="probe-module-title">
@@ -11,6 +10,25 @@
       </div>
       <button class="probe-module-close" type="button" aria-label="Close Probe Tracking Module">&times;</button>
     </div>
+
+    <nav class="probe-module-gates" aria-label="Hidden interface gates">
+      <a href="{{ '/categories/' | relative_url }}">
+        <span>INDEX</span>
+        <strong>索引</strong>
+      </a>
+      <a href="{{ '/tags/' | relative_url }}">
+        <span>TAGS</span>
+        <strong>标签</strong>
+      </a>
+      <a href="{{ '/thoughts/' | relative_url }}">
+        <span>THOUGHTS</span>
+        <strong>思维片段</strong>
+      </a>
+      <a href="{{ '/archives/' | relative_url }}">
+        <span>LOG</span>
+        <strong>更新记录</strong>
+      </a>
+    </nav>
 
     <label class="probe-module-search">
       <span class="visually-hidden">Search hidden posts</span>
@@ -50,24 +68,8 @@
         "categories": {{ probe_categories | jsonify }},
         "description": {{ post.description | default: '' | jsonify }},
         "search": {{ probe_search_text | strip_newlines | downcase | jsonify }}
-      },
+      }{% unless forloop.last %},{% endunless %}
     {% endfor %}
-    {
-      "title": "中间文段标签",
-      "url": {{ '/tags/' | relative_url | jsonify }},
-      "date": "HIDDEN INTERFACE",
-      "categories": "Tag Index",
-      "description": "Hidden tag index interface.",
-      "search": "tags tag 标签 中间文段标签 中间文章标签集 hidden interface"
-    },
-    {
-      "title": "中间层时间线",
-      "url": {{ '/archives/' | relative_url | jsonify }},
-      "date": "HIDDEN INTERFACE",
-      "categories": "Timeline Archive",
-      "description": "Hidden timeline archive interface.",
-      "search": "timeline archives archive 时间线 归档 中间层时间线 hidden interface"
-    }
   ]
 </script>
 
