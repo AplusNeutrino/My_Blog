@@ -2177,12 +2177,22 @@
   opacity: 1;
 }
 
+.probe-module-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: min(58rem, 100%);
+  max-height: min(38rem, calc(100vh - 2rem));
+}
+
 .probe-module-window {
   position: relative;
   isolation: isolate;
-  z-index: 1;
+  z-index: 2;
   width: min(38rem, 100%);
-  max-height: min(38rem, calc(100vh - 2rem));
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -2214,6 +2224,25 @@
     0 1.2rem 3rem rgba(0, 0, 0, 0.36),
     0 0 1.1rem rgba(var(--probe-accent-rgb), 0.14),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.probe-module-sidecar {
+  position: relative;
+  z-index: 1;
+  width: min(17rem, 28vw);
+  min-width: 15.2rem;
+  margin-left: 0.55rem;
+  opacity: 0;
+  transform: translateY(2.2rem) translateX(-0.45rem) scale(0.988);
+  transition:
+    opacity 170ms ease 70ms,
+    transform 190ms ease 70ms;
+  will-change: opacity, transform;
+}
+
+.probe-module.is-visible .probe-module-sidecar {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
 }
 
 .probe-module-header {
@@ -2448,6 +2477,57 @@
   object-fit: contain;
 }
 
+.neutriverse-status.probe-status-panel {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-color: rgba(var(--probe-accent-rgb), 0.3);
+  border-radius: 0.5rem;
+  background:
+    linear-gradient(180deg, rgba(var(--probe-accent-rgb), 0.09), transparent 34%),
+    color-mix(in srgb, var(--main-bg) 88%, var(--probe-bg-tint));
+  box-shadow:
+    0 1rem 2.4rem rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.probe-status-panel::before {
+  content: '';
+  display: block;
+  height: 0.18rem;
+  margin: -1rem -1rem 0.85rem;
+  background: linear-gradient(90deg, var(--probe-accent), transparent 72%);
+  opacity: 0.74;
+}
+
+.probe-status-panel .status-kicker {
+  color: var(--probe-accent);
+}
+
+.probe-status-panel .status-heading h2 {
+  font-size: 0.95rem;
+}
+
+.probe-status-panel .status-grid {
+  gap: 0.5rem;
+}
+
+.probe-status-panel .status-item {
+  border-color: rgba(var(--probe-accent-rgb), 0.18);
+  background:
+    linear-gradient(135deg, rgba(var(--probe-accent-rgb), 0.08), transparent 62%),
+    rgba(255, 255, 255, 0.012);
+}
+
+.probe-status-panel .status-label {
+  font-size: 0.68rem;
+}
+
+.probe-status-panel .status-item strong {
+  color: var(--heading-color);
+  font-size: 0.88rem;
+}
+
 @keyframes probe-module-fly-in {
   0% {
     opacity: 0;
@@ -2484,7 +2564,8 @@
 @media (prefers-reduced-motion: reduce) {
   .probe-module,
   .probe-module::before,
-  .probe-module-window {
+  .probe-module-window,
+  .probe-module-sidecar {
     transition: none;
   }
 
@@ -2697,8 +2778,27 @@
     padding: 0.7rem;
   }
 
+  .probe-module-shell {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 1.4rem);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .probe-module-shell::-webkit-scrollbar {
+    display: none;
+  }
+
   .probe-module-window {
-    max-height: min(34rem, calc(100vh - 1.4rem));
+    max-height: none;
+  }
+
+  .probe-module-sidecar {
+    width: 100%;
+    min-width: 0;
+    margin-top: 0.55rem;
+    margin-left: 0;
   }
 
   .probe-module-header,
@@ -2716,5 +2816,9 @@
 
   .probe-module h2 {
     font-size: 1.05rem;
+  }
+
+  .neutriverse-status.probe-status-panel {
+    height: auto;
   }
 }

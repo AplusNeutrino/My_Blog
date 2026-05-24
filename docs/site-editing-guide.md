@@ -31,7 +31,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 头像 / 社交预览图 | `NeutriverseTitle.png` |
 | 浏览器标签页图标 | `favicon.ico`、`_includes/favicons.html` 和 `assets/img/favicons/` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
-| 首页右侧状态模块 | `_includes/neutriverse-status.html` |
+| Probe 状态模块 | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
 | 当前自定义配色方案 | `assets/css/ChirpyDefault.css` |
 | 阅读时间文案 | `_includes/read-time.html` |
@@ -1292,16 +1292,16 @@ platforms:
 
 | 功能 | 文件 |
 | --- | --- |
-| 首页右侧 `中间层监测面板` | `_includes/neutriverse-status.html` |
+| Probe 右侧 `中间层监测面板` | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
 | 当前默认配色兼容样式 | `assets/css/ChirpyDefault.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
 
-### 首页右侧中间层监测面板
+### Probe 右侧中间层监测面板
 
-状态模块显示运行天数、文章数量、标签数量、总字数、最近更新和总访问。模块位置由 `_layouts/default.html` 控制，只在首页右侧栏顶部显示。
+状态模块显示运行天数、文章数量、标签数量、总字数、最近更新和总访问。模块由 `_includes/probe-tracking-module.html` 引入，作为 Probe Tracking Module 主窗口右侧的外挂监测面板显示；具体统计逻辑仍维护在 `_includes/neutriverse-status.html`。
 
 ### 标签页列表
 
@@ -1904,7 +1904,9 @@ ArrowUp, ArrowRight, ArrowDown, ArrowDown, ArrowDown
 
 触发后页面会打开一个悬浮搜索窗：
 
-- 上方是搜索框。
+- 主窗口顶部是 `索引`、`标签`、`思维片段`、`更新记录` 四个隐藏界面入口。
+- 右侧外挂显示 `中间层监测面板`，用于展示运行天数、文章数量、总字数、最近更新和访问统计。
+- 中部是搜索框。
 - 下方是所有 `hidden: true` 文章的链接列表。
 - 搜索框可以按标题、日期、分类、标签、摘要继续筛选隐藏文章。
 - 正在输入搜索框、评论框、普通输入框时，不会触发方向键秘籍。

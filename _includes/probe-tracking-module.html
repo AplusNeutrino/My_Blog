@@ -2,53 +2,59 @@
 {% assign probe_signal_count = probe_posts.size %}
 
 <div id="probe-tracking-module" class="probe-module" hidden>
-  <div class="probe-module-window" role="dialog" aria-modal="false" aria-labelledby="probe-module-title">
-    <div class="probe-module-header">
-      <div>
-        <p class="probe-module-kicker">Stratagem link active</p>
-        <h2 id="probe-module-title">Probe Tracking Module</h2>
+  <div class="probe-module-shell">
+    <div class="probe-module-window" role="dialog" aria-modal="false" aria-labelledby="probe-module-title">
+      <div class="probe-module-header">
+        <div>
+          <p class="probe-module-kicker">Stratagem link active</p>
+          <h2 id="probe-module-title">Probe Tracking Module</h2>
+        </div>
+        <button class="probe-module-close" type="button" aria-label="Close Probe Tracking Module">&times;</button>
       </div>
-      <button class="probe-module-close" type="button" aria-label="Close Probe Tracking Module">&times;</button>
+
+      <nav class="probe-module-gates" aria-label="Hidden interface gates">
+        <a href="{{ '/categories/' | relative_url }}">
+          <span>INDEX</span>
+          <strong>索引</strong>
+        </a>
+        <a href="{{ '/tags/' | relative_url }}">
+          <span>TAGS</span>
+          <strong>标签</strong>
+        </a>
+        <a href="{{ '/thoughts/' | relative_url }}">
+          <span>THOUGHTS</span>
+          <strong>思维片段</strong>
+        </a>
+        <a href="{{ '/archives/' | relative_url }}">
+          <span>LOG</span>
+          <strong>更新记录</strong>
+        </a>
+      </nav>
+
+      <label class="probe-module-search">
+        <span class="visually-hidden">Search hidden posts</span>
+        <input type="search" placeholder="Track hidden signal..." autocomplete="off" spellcheck="false">
+      </label>
+
+      <p class="probe-module-status" aria-live="polite">
+        {{ probe_signal_count }} hidden signal{% unless probe_signal_count == 1 %}s{% endunless %} indexed.
+      </p>
+
+      <div class="probe-module-list" role="list" data-probe-list>
+        <p class="probe-module-empty" hidden>No hidden signals matched.</p>
+        <div class="probe-module-eye-result" role="listitem" hidden>
+          <img
+            src="{{ '/assets/img/probe-eye-of-the-universe.webp' | relative_url }}"
+            alt="Eye of the Universe signal"
+            loading="lazy"
+          >
+        </div>
+      </div>
     </div>
 
-    <nav class="probe-module-gates" aria-label="Hidden interface gates">
-      <a href="{{ '/categories/' | relative_url }}">
-        <span>INDEX</span>
-        <strong>索引</strong>
-      </a>
-      <a href="{{ '/tags/' | relative_url }}">
-        <span>TAGS</span>
-        <strong>标签</strong>
-      </a>
-      <a href="{{ '/thoughts/' | relative_url }}">
-        <span>THOUGHTS</span>
-        <strong>思维片段</strong>
-      </a>
-      <a href="{{ '/archives/' | relative_url }}">
-        <span>LOG</span>
-        <strong>更新记录</strong>
-      </a>
-    </nav>
-
-    <label class="probe-module-search">
-      <span class="visually-hidden">Search hidden posts</span>
-      <input type="search" placeholder="Track hidden signal..." autocomplete="off" spellcheck="false">
-    </label>
-
-    <p class="probe-module-status" aria-live="polite">
-      {{ probe_signal_count }} hidden signal{% unless probe_signal_count == 1 %}s{% endunless %} indexed.
-    </p>
-
-    <div class="probe-module-list" role="list" data-probe-list>
-      <p class="probe-module-empty" hidden>No hidden signals matched.</p>
-      <div class="probe-module-eye-result" role="listitem" hidden>
-        <img
-          src="{{ '/assets/img/probe-eye-of-the-universe.webp' | relative_url }}"
-          alt="Eye of the Universe signal"
-          loading="lazy"
-        >
-      </div>
-    </div>
+    <aside class="probe-module-sidecar" aria-label="Probe telemetry">
+      {% include neutriverse-status.html lang=lang class='probe-status-panel' title_id='probe-neutriverse-status-title' %}
+    </aside>
   </div>
 </div>
 

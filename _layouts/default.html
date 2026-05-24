@@ -35,10 +35,6 @@ layout: compress
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
-              {% if page.url == '/' %}
-                {% include neutriverse-status.html lang=lang %}
-              {% endif %}
-
               {% include_cached update-list.html lang=lang %}
               {% include trending-tags.html lang=lang %}
             </div>
