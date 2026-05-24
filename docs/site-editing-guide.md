@@ -107,7 +107,7 @@ title: 你的新博客名
 tagline: Neutriverse
 ```
 
-`Quantum Pandemonia` 是在 `assets/css/ChirpyDefault.css` 中追加到左侧副标题下方的第二行简介，用于避免影响 SEO、RSS 等使用 `_config.yml description` 的位置。
+`Quantum Pandemonia` 是在 `assets/css/ChirpyDefault.css` 中作为左侧栏视觉副标题追加显示，用于避免影响 SEO、RSS 等使用 `_config.yml description` 的位置。桌面端会隐藏原本的 `Neutriverse` 副标题文字，只保留 `Quantum Pandemonia`。
 
 修改方式：
 
@@ -123,7 +123,7 @@ tagline: Neutriverse
 
 当前左侧栏保持 Chirpy 原始 sidebar 结构，没有覆盖 `_includes/sidebar.html`。桌面端通过 `assets/css/ChirpyDefault.css` 将左侧栏视觉拆成：
 
-- 身份与导航合并面板：头像、`中间层`、`Neutriverse`、`Quantum Pandemonia`，以及首页、漫游指南、友情链接。
+- 身份与导航合并面板：头像、`中间层`、`Quantum Pandemonia`，以及首页、漫游指南、友情链接。
 - 底部控制面板：模式切换、Bangumi、RSS 等底部图标。
 
 来源：
