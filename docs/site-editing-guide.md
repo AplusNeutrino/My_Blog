@@ -96,26 +96,36 @@ title: 你的新博客名
 
 这个标题也会影响浏览器标题、SEO 信息、RSS 等位置。
 
-### 2.3 左侧副标题 Quantum Pandemonia
+### 2.3 左侧副标题与简介
 
-截图位置：站点名称下面的斜体小字。
+截图位置：站点名称下面的小字。
 
-来源：
+主副标题来源：
 
 ```yaml
 # _config.yml
-tagline: Quantum Pandemonia
+tagline: Neutriverse
 ```
+
+`Quantum Pandemonia` 是在 `assets/css/ChirpyDefault.css` 中追加到左侧副标题下方的第二行简介，用于避免影响 SEO、RSS 等使用 `_config.yml description` 的位置。
 
 修改方式：
 
-```yaml
-tagline: 你的副标题
+```css
+#sidebar .site-subtitle::after {
+  content: 'Quantum Pandemonia';
+}
 ```
 
 ### 2.4 左侧导航栏
 
 截图位置：左侧中部导航菜单。
+
+当前左侧栏保持 Chirpy 原始 sidebar 结构，没有覆盖 `_includes/sidebar.html`。桌面端通过 `assets/css/ChirpyDefault.css` 将左侧栏视觉拆成：
+
+- 上方身份悬浮面板：头像、`中间层`、`Neutriverse`、`Quantum Pandemonia`。
+- 中部轻量导航面板：首页、漫游指南、友情链接。
+- 底部胶囊面板：模式切换、Bangumi、RSS 等底部图标。
 
 来源：
 
