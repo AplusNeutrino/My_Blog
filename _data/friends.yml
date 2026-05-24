@@ -1,0 +1,13 @@
+# External nodes shown on the About page.
+# avatar is optional. Leave it empty to auto-load the site's favicon.
+friends: []
+
+# Example:
+# friends:
+#   - name: "站点名"
+#     url: "https://example.com"
+#     avatar: ""
+#     description: "这里填写对方站点的一句话描述。"
+#     tags: ["Blog", "Notes"]
+#     status: "online"
+#     added: "2026-05-24"

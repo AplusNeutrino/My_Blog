@@ -1117,6 +1117,27 @@ order: 5
 
 如果某个条目标题是 `待记录`，或添加时间是 `----/--/--`，页面会自动隐藏它。已有条目会按照添加时间从旧到新排序，日期越早越靠前，所以维护时不需要手动调整顺序。
 
+关于页的阅读/影像栈后方还有 `外部节点` 友链区，数据来自：
+
+```text
+_data/friends.yml
+```
+
+每个友链条目格式如下：
+
+```yaml
+friends:
+  - name: "站点名"
+    url: "https://example.com"
+    avatar: ""
+    description: "一句简短描述"
+    tags: ["Blog", "Notes"]
+    status: "online"
+    added: "2026-05-24"
+```
+
+`avatar` 可以留空。留空时页面会先尝试读取对方站点的 `/favicon.ico`，失败后再尝试 DuckDuckGo 的 favicon 缓存；如果仍失败，则显示站点名首字母占位。若要完全控制头像，可以把图片放进 `assets/img/` 并把相对路径写入 `avatar`，或直接填写外部图片 URL。
+
 ## 6. 如何修改颜色、字体、卡片样式
 
 当前仓库使用 Chirpy 主题包提供基础布局，再通过自定义 CSS 覆盖 Neutriverse 的浅色/深色配色。

@@ -160,6 +160,115 @@ status_items、roadmap_items 和 signal_items 的格式：
       </ol>
     </section>
   </div>
+
+  {% assign friend_nodes = site.data.friends.friends %}
+  {% if friend_nodes and friend_nodes.size > 0 %}
+    <section class="about-friends" aria-labelledby="external-nodes-title">
+      <div class="about-stack-header">
+        <span class="about-stack-kicker">EXTERNAL NODES</span>
+        <h3 id="external-nodes-title">外部节点</h3>
+      </div>
+
+      <div class="about-friend-grid">
+        {% for friend in friend_nodes %}
+          {% assign friend_name = friend.name | default: '' | strip %}
+          {% assign friend_url = friend.url | default: '' | strip %}
+          {% assign friend_description = friend.description | default: '' | strip %}
+          {% unless friend_name == '' or friend_url == '' %}
+            {% assign friend_host = friend_url | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first %}
+            {% assign friend_avatar = friend.avatar | default: '' | strip %}
+            {% assign friend_favicon = 'https://' | append: friend_host | append: '/favicon.ico' %}
+            {% assign friend_avatar_src = friend_avatar %}
+            {% if friend_avatar_src == '' %}
+              {% assign friend_avatar_src = friend_favicon %}
+            {% elsif friend_avatar_src contains '://' %}
+              {% assign friend_avatar_src = friend_avatar_src %}
+            {% else %}
+              {% assign friend_avatar_src = friend_avatar_src | relative_url %}
+            {% endif %}
+            <a class="about-friend-node" href="{{ friend_url }}" target="_blank" rel="noopener noreferrer">
+              <span
+                class="about-friend-avatar"
+                aria-hidden="true"
+                data-friend-avatar
+                data-friend-src="{{ friend_avatar_src | escape }}"
+                data-friend-host="{{ friend_host | escape }}"
+                data-friend-initial="{{ friend_name | slice: 0, 1 | escape }}"
+                {% if friend_avatar != '' %}data-friend-custom-avatar="true"{% endif %}
+              >{{ friend_name | slice: 0, 1 }}</span>
+
+              <span class="about-friend-body">
+                <span class="about-friend-topline">
+                  <strong>{{ friend_name }}</strong>
+                  {% if friend.status %}
+                    <em>{{ friend.status }}</em>
+                  {% endif %}
+                </span>
+
+                {% if friend_description != '' %}
+                  <span class="about-friend-description">{{ friend_description }}</span>
+                {% endif %}
+
+                <span class="about-friend-meta">
+                  <span>{{ friend_host }}</span>
+                  {% if friend.tags %}
+                    <span>
+                      {% for tag in friend.tags limit: 3 %}
+                        {{ tag }}{% unless forloop.last %} / {% endunless %}
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </span>
+              </span>
+            </a>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <script>
+      (() => {
+        document.querySelectorAll('[data-friend-avatar]').forEach((avatar) => {
+          const source = avatar.dataset.friendSrc;
+          const host = avatar.dataset.friendHost;
+          const initial = avatar.dataset.friendInitial || '?';
+          let fallbackTried = avatar.dataset.friendCustomAvatar === 'true';
+
+          const applyImage = (url) => {
+            const probe = new Image();
+            probe.onload = () => {
+              avatar.style.backgroundImage = `url("${url}")`;
+              avatar.classList.add('is-loaded');
+            };
+            probe.onerror = () => {
+              if (!fallbackTried && host) {
+                fallbackTried = true;
+                applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
+                return;
+              }
+
+              avatar.textContent = initial;
+              avatar.classList.add('is-fallback');
+            };
+            probe.src = url;
+          };
+
+          if (source) {
+            applyImage(source);
+          } else {
+            if (!fallbackTried && host) {
+              fallbackTried = true;
+              applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
+              return;
+            }
+
+            avatar.textContent = initial;
+            avatar.classList.add('is-fallback');
+          }
+        });
+      })();
+    </script>
+  {% endif %}
 </section>
 
 <br>
