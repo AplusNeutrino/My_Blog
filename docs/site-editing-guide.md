@@ -28,7 +28,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 左侧导航页签 | `_tabs/` |
 | 左下角 RSS 图标 | `_data/contact.yml` |
 | 文章分享按钮 | `_data/share.yml` |
-| 头像 / 社交预览图 | `NeutriverseTitle.png` |
+| 头像 / 社交预览图 | `assets/img/logo.png` |
 | 浏览器标签页图标 | `favicon.ico`、`_includes/favicons.html` 和 `assets/img/favicons/` |
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | Probe 状态模块 | `_includes/neutriverse-status.html` |
@@ -50,13 +50,13 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 
 ```yaml
 # _config.yml
-avatar: "/NeutriverseTitle.png"
+avatar: "/assets/img/logo.png"
 ```
 
 图片文件：
 
 ```text
-NeutriverseTitle.png
+assets/img/logo.png
 ```
 
 修改方式：
@@ -339,7 +339,7 @@ posts:
 示例：
 
 ```yaml
-media_subpath: /assets/img/posts/2025-08-22-ff1-record
+media_subpath: https://img.neutriverse.uk/posts/2025/ff1-record
 image:
   path: FF1-00.jpg
   alt: FINAL FANTASY 1
@@ -861,7 +861,7 @@ title: 示例文章
 date: 2026-05-01 20:00:00 +0800
 categories: [学习笔记, 示例]
 tags: [note]
-media_subpath: /assets/img/posts/example
+media_subpath: https://img.neutriverse.uk/posts/2026/example
 image:
   path: cover.jpg
   alt: 封面说明
@@ -877,11 +877,22 @@ image:
 对应文件放在：
 
 ```text
-assets/img/posts/example/demo.png
-assets/img/posts/example/cover.jpg
+R2 bucket: neutriverse-media
+R2 public base: https://img.neutriverse.uk
+R2 object examples:
+posts/2026/example/demo.png
+posts/2026/example/cover.jpg
 ```
 
 图片一定写 alt 文本，方便搜索、辅助阅读和后续维护。
+
+图片资产约定：
+
+- `assets/img/logo.png` 和 favicon 系列保留在仓库中。
+- 文章正文图、文章封面图和非品牌 UI 图片优先放到 Cloudflare R2。
+- R2 bucket 名称是 `neutriverse-media`，公开访问域名是 `https://img.neutriverse.uk`。
+- 不要启用 `_config.yml` 的全局 `cdn:`，除非确认头像、favicon、社交预览图等本地资源也要统一迁移。
+- R2 写入凭据只放在本机临时 env 文件或 Cloudflare/GitHub Secrets 中，不能写入仓库。
 
 ### 3.5 Chirpy / Jekyll 特有写法
 
@@ -1717,7 +1728,7 @@ _includes/head/custom-head.html
 | 副标题 `Quantum Pandemonia` | `_config.yml` 的 `tagline` |
 | 网站运行天数起始日 | `_config.yml` 的 `site_start_date` |
 | 站点统计脚本 | `_includes/footer.html` |
-| 头像 | `NeutriverseTitle.png` 和 `_config.yml` 的 `avatar` |
+| 头像 | `assets/img/logo.png` 和 `_config.yml` 的 `avatar` |
 | 浏览器标签页图标 | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 首页文章 | `_posts/` 下的 Markdown 文件 |
 | 文章标题 | 文章 front matter 的 `title` |
@@ -1939,7 +1950,7 @@ ArrowUp, ArrowRight, ArrowDown, ArrowDown, ArrowDown
 ```text
 _includes/probe-tracking-module.html
 assets/css/ChirpyDefault.css
-assets/img/probe-eye-of-the-universe.webp
+R2 object: https://img.neutriverse.uk/ui/probe/probe-eye-of-the-universe.webp
 ```
 
 全站挂载位置：

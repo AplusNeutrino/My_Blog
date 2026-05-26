@@ -164,7 +164,11 @@ refactor: true
   {% if main_post.image %}
     {% assign hero_src = main_post.image.path | default: main_post.image %}
     {% unless hero_src contains '//' %}
-      {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+      {% if main_post.media_subpath contains '://' %}
+        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
+      {% else %}
+        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+      {% endif %}
     {% endunless %}
     {% assign hero_images = hero_images | push: hero_src %}
   {% endif %}
@@ -173,7 +177,11 @@ refactor: true
     {% for image_src in main_post.recommend_images limit: 5 %}
       {% assign hero_src = image_src %}
       {% unless hero_src contains '//' %}
-        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+        {% if main_post.media_subpath contains '://' %}
+          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
+        {% else %}
+          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+        {% endif %}
       {% endunless %}
       {% unless hero_images contains hero_src %}
         {% assign hero_images = hero_images | push: hero_src %}
@@ -189,7 +197,11 @@ refactor: true
 
       {% unless hero_src contains '//' %}
         {% unless hero_src contains '/' %}
-          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+          {% if main_post.media_subpath contains '://' %}
+            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
+          {% else %}
+            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+          {% endif %}
         {% endunless %}
       {% endunless %}
 
@@ -207,7 +219,11 @@ refactor: true
 
       {% unless hero_src contains '//' %}
         {% unless hero_src contains '/' %}
-          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+          {% if main_post.media_subpath contains '://' %}
+            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
+          {% else %}
+            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
+          {% endif %}
         {% endunless %}
       {% endunless %}
 
@@ -348,7 +364,11 @@ refactor: true
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
           {% unless src contains '//' %}
-            {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+            {% if post.media_subpath contains '://' %}
+              {% assign src = post.media_subpath | append: '/' | append: src %}
+            {% else %}
+              {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+            {% endif %}
           {% endunless %}
 
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
