@@ -1,0 +1,32 @@
+# Private navigation nodes rendered by the hidden NAVI page.
+# Keep this file free of passwords, tokens, private invite links, or account-only URLs.
+groups:
+  - name: "Orbit"
+    label: "Personal"
+    nodes:
+      - name: "Neutriverse"
+        url: "https://neutriverse.uk"
+        description: "Site home and public memory layer."
+        tags: ["site", "home"]
+        status: "home"
+
+      - name: "Bangumi"
+        url: "https://bangumi.tv/user/neutrino_x"
+        description: "Personal media shelf and watching trail."
+        tags: ["media", "archive"]
+        status: "profile"
+
+  - name: "Maintenance"
+    label: "Ops"
+    nodes:
+      - name: "GitHub Repo"
+        url: "https://github.com/AplusNeutrino/My_Blog"
+        description: "Source repository for the Jekyll/Chirpy site."
+        tags: ["github", "jekyll"]
+        status: "source"
+
+      - name: "R2 Media"
+        url: "https://img.neutriverse.uk"
+        description: "Public image endpoint backed by Cloudflare R2."
+        tags: ["media", "r2"]
+        status: "cdn"

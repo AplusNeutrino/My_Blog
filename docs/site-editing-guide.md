@@ -96,7 +96,7 @@ title: 你的新博客名
 
 这个标题也会影响浏览器标题、SEO 信息、RSS 等位置。
 
-### 2.3 左侧副标题 Quantum Pandemonia
+### 2.3 左侧副标题 Quatium Pandamonia
 
 截图位置：站点名称下面的斜体小字。
 
@@ -104,7 +104,7 @@ title: 你的新博客名
 
 ```yaml
 # _config.yml
-tagline: Quantum Pandemonia
+tagline: Quatium Pandamonia
 ```
 
 修改方式：
@@ -1725,7 +1725,7 @@ _includes/head/custom-head.html
 | 我想改 | 去哪里改 |
 | --- | --- |
 | 网站名 `Neutriverse` | `_config.yml` 的 `title` |
-| 副标题 `Quantum Pandemonia` | `_config.yml` 的 `tagline` |
+| 副标题 `Quatium Pandamonia` | `_config.yml` 的 `tagline` |
 | 网站运行天数起始日 | `_config.yml` 的 `site_start_date` |
 | 站点统计脚本 | `_includes/footer.html` |
 | 头像 | `assets/img/logo.png` 和 `_config.yml` 的 `avatar` |
@@ -1963,6 +1963,7 @@ _layouts/default.html
 
 ```liquid
 site.posts | where_exp: 'post', 'post.hidden == true'
+site.hidden_pages | where_exp: 'page', 'page.probe != false'
 ```
 
 Probe 模块的主色使用网站 logo 的蓝色。以后如果要微调颜色，优先改 `assets/css/ChirpyDefault.css` 中 `.probe-module` 里的变量：
@@ -1998,5 +1999,19 @@ window.onProbeEyeSignal = (detail) => {
   console.log(detail);
 };
 ```
+
+### 16.1 Private NAVI
+
+`NAVI` is a private bookmark relay hidden behind Probe Tracking Module search.
+
+Files:
+```text
+_hidden_pages/navi.md
+_includes/private-navigation.html
+_data/private_navigation.yml
+assets/css/ChirpyDefault.css
+```
+
+Open Probe Tracking Module and type `navi` to find the page. The page is implemented as a `hidden_pages` collection document, so it does not enter the article library, home feed, Atom feed, category pages, or normal navigation. Add future hidden utility pages under `_hidden_pages/`; they are indexed by Probe Tracking Module unless their front matter sets `probe: false`. Edit `_data/private_navigation.yml` to add, remove, or regroup NAVI bookmark nodes. Do not store passwords, tokens, private invite links, or sensitive account-only URLs here; hidden pages are discoverable from generated front-end data by a technical visitor.
 
 注意：这个模块是网页彩蛋和隐藏入口，不是安全机制。隐藏文章 URL、前端脚本和 JSON 数据仍可能被懂技术的访客从源码中找到，不适合存放真正私密内容。

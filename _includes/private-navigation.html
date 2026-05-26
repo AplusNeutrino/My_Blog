@@ -1,0 +1,126 @@
+{% assign navigation_groups = site.data.private_navigation.groups %}
+
+<section class="private-navi" aria-labelledby="private-navi-title">
+  <header class="private-navi-header">
+    <p>PRIVATE NAVI</p>
+    <h2 id="private-navi-title">Bookmark relay</h2>
+  </header>
+
+  {% if navigation_groups and navigation_groups.size > 0 %}
+    <div class="private-navi-groups">
+      {% for group in navigation_groups %}
+        {% assign group_name = group.name | default: 'Unsorted' | strip %}
+        {% assign group_label = group.label | default: '' | strip %}
+        {% assign nodes = group.nodes %}
+
+        {% if nodes and nodes.size > 0 %}
+          <section class="private-navi-group" aria-labelledby="private-navi-group-{{ forloop.index }}">
+            <div class="private-navi-group-header">
+              <span>{{ group_label | default: 'Node group' }}</span>
+              <h3 id="private-navi-group-{{ forloop.index }}">{{ group_name }}</h3>
+            </div>
+
+            <div class="private-navi-grid">
+              {% for node in nodes %}
+                {% assign node_name = node.name | default: '' | strip %}
+                {% assign node_url = node.url | default: '' | strip %}
+                {% assign node_description = node.description | default: '' | strip %}
+                {% unless node_name == '' or node_url == '' %}
+                  {% assign node_host = node_url | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first %}
+                  {% assign node_avatar = node.avatar | default: '' | strip %}
+                  {% assign node_favicon = 'https://' | append: node_host | append: '/favicon.ico' %}
+                  {% assign node_avatar_src = node_avatar %}
+                  {% if node_avatar_src == '' %}
+                    {% assign node_avatar_src = node_favicon %}
+                  {% elsif node_avatar_src contains '://' %}
+                    {% assign node_avatar_src = node_avatar_src %}
+                  {% else %}
+                    {% assign node_avatar_src = node_avatar_src | relative_url %}
+                  {% endif %}
+
+                  <a class="private-navi-node" href="{{ node_url }}" target="_blank" rel="noopener noreferrer">
+                    <span
+                      class="private-navi-avatar"
+                      aria-hidden="true"
+                      data-private-navi-avatar
+                      data-private-navi-src="{{ node_avatar_src | escape }}"
+                      data-private-navi-host="{{ node_host | escape }}"
+                      data-private-navi-initial="{{ node_name | slice: 0, 1 | escape }}"
+                      {% if node_avatar != '' %}data-private-navi-custom-avatar="true"{% endif %}
+                    >{{ node_name | slice: 0, 1 }}</span>
+
+                    <span class="private-navi-body">
+                      <span class="private-navi-topline">
+                        <strong>{{ node_name }}</strong>
+                        {% if node.status %}
+                          <em>{{ node.status }}</em>
+                        {% endif %}
+                      </span>
+
+                      {% if node_description != '' %}
+                        <span class="private-navi-description">{{ node_description }}</span>
+                      {% endif %}
+
+                      <span class="private-navi-meta">
+                        <span>{{ node_host }}</span>
+                        {% if node.tags %}
+                          <span>
+                            {% for tag in node.tags limit: 3 %}
+                              {{ tag }}{% unless forloop.last %} / {% endunless %}
+                            {% endfor %}
+                          </span>
+                        {% endif %}
+                      </span>
+                    </span>
+                  </a>
+                {% endunless %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="private-navi-empty">No private navigation nodes registered.</p>
+  {% endif %}
+</section>
+
+<script>
+  (() => {
+    document.querySelectorAll('[data-private-navi-avatar]').forEach((avatar) => {
+      const source = avatar.dataset.privateNaviSrc;
+      const host = avatar.dataset.privateNaviHost;
+      const initial = avatar.dataset.privateNaviInitial || '?';
+      let fallbackTried = avatar.dataset.privateNaviCustomAvatar === 'true';
+
+      const applyImage = (url) => {
+        const probe = new Image();
+        probe.onload = () => {
+          avatar.style.backgroundImage = `url("${url}")`;
+          avatar.classList.add('is-loaded');
+        };
+        probe.onerror = () => {
+          if (!fallbackTried && host) {
+            fallbackTried = true;
+            applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
+            return;
+          }
+
+          avatar.textContent = initial;
+          avatar.classList.add('is-fallback');
+        };
+        probe.src = url;
+      };
+
+      if (source) {
+        applyImage(source);
+      } else if (host) {
+        fallbackTried = true;
+        applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
+      } else {
+        avatar.textContent = initial;
+        avatar.classList.add('is-fallback');
+      }
+    });
+  })();
+</script>

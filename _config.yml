@@ -16,7 +16,7 @@ timezone: Asia/Shanghai
 
 title: 中间层 # the main title
 
-tagline: Neutriverse # it will display as the subtitle
+tagline: Quatium Pandamonia # it will display as the subtitle
 
 site_start_date: "2024-10-07"
 
@@ -178,6 +178,8 @@ collections:
   tabs:
     output: true
     sort_by: order
+  hidden_pages:
+    output: true
 
 defaults:
   - scope:
@@ -200,6 +202,12 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: hidden_pages
+    values:
+      layout: page
+      sitemap: false
 
 sass:
   style: compressed

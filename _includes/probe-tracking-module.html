@@ -1,5 +1,7 @@
 {% assign probe_posts = site.posts | where_exp: 'post', 'post.hidden == true' %}
-{% assign probe_signal_count = probe_posts.size %}
+{% assign probe_pages = site.hidden_pages | default: empty | where_exp: 'page', 'page.probe != false' %}
+{% assign probe_items = probe_posts | concat: probe_pages %}
+{% assign probe_signal_count = probe_items.size %}
 
 <div id="probe-tracking-module" class="probe-module" hidden>
   <div class="probe-module-shell">
@@ -60,20 +62,23 @@
 
 <script type="application/json" id="probe-tracking-data">
   [
-    {% for post in probe_posts %}
-      {% assign probe_date = post.display_date | default: post.date | date: '%Y-%m-%d' %}
-      {% assign probe_categories = post.categories | join: ' / ' %}
-      {% assign probe_tags = post.tags | join: ' ' %}
+    {% for item in probe_items %}
+      {% assign probe_date_source = item.display_date | default: item.date | default: site.time %}
+      {% assign probe_date = probe_date_source | date: '%Y-%m-%d' %}
+      {% assign probe_categories = item.categories | join: ' / ' %}
+      {% assign probe_tags = item.tags | join: ' ' %}
+      {% assign probe_terms = item.probe_terms | default: '' %}
+      {% assign probe_kind = item.collection | default: 'posts' %}
       {% capture probe_search_text %}
-        {{ post.title }} {{ post.description }} {{ probe_date }} {{ probe_categories }} {{ probe_tags }}
+        {{ item.title }} {{ item.description }} {{ probe_date }} {{ probe_categories }} {{ probe_tags }} {{ probe_terms }} {{ probe_kind }}
       {% endcapture %}
       {
-        "title": {{ post.title | jsonify }},
-        "url": {{ post.url | relative_url | jsonify }},
+        "title": {{ item.title | jsonify }},
+        "url": {{ item.url | relative_url | jsonify }},
         "date": {{ probe_date | jsonify }},
         "categories": {{ probe_categories | jsonify }},
-        "description": {{ post.description | default: '' | jsonify }},
-        "probeDefault": {{ post.probe_default | default: false | jsonify }},
+        "description": {{ item.description | default: '' | jsonify }},
+        "probeDefault": {{ item.probe_default | default: false | jsonify }},
         "search": {{ probe_search_text | strip_newlines | downcase | jsonify }}
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
