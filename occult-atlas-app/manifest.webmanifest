@@ -1,0 +1,10 @@
+{
+  "name": "Occult Atlas",
+  "short_name": "Occult Atlas",
+  "description": "A PC-first personal knowledge atlas for occult correspondences.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#13201c",
+  "icons": []
+}

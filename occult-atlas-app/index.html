@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111318">
+    <title>Occult Atlas · Live Sky</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css?v=34">
+  </head>
+  <body>
+    <div class="astro-home">
+      <aside class="sky-sidebar" aria-label="星盘信息">
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="true" aria-label="收起左侧星盘菜单">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="sky-brand">
+          <div class="brand-mark">OA</div>
+          <div>
+            <h1>Occult Atlas</h1>
+            <p>Live Sky Workbench</p>
+          </div>
+        </div>
+
+        <div class="chart-control-menu">
+          <button class="control-menu-button" id="chartControlToggle" type="button" aria-expanded="false" aria-controls="chartControlPanel">
+            <span>星盘控制</span>
+            <strong aria-hidden="true">▾</strong>
+          </button>
+          <div class="chart-control-popover" id="chartControlPanel" hidden>
+        <div class="sky-meta">
+          <p class="eyebrow">Current Chart</p>
+          <h2>实时星盘</h2>
+          <p id="astroStatus">等待实时星盘数据...</p>
+          <button class="text-button dark" id="refreshAstroButton" type="button">刷新星盘</button>
+          <button class="text-button dark" id="exportChartButton" type="button">导出星盘</button>
+        </div>
+
+        <section class="sky-panel chart-query-panel">
+          <div class="sky-panel-heading">
+            <h3>历史星盘</h3>
+          </div>
+          <form id="chartQueryForm" class="chart-query-form">
+            <label>
+              <span>时间</span>
+              <input id="chartDateTime" type="datetime-local">
+            </label>
+            <label>
+              <span>地点名</span>
+              <input id="chartLocationLabel" type="text" placeholder="用于历史记录，可留空">
+            </label>
+            <div class="coordinate-grid">
+              <label>
+                <span>纬度</span>
+                <input id="chartLatitude" type="number" step="0.0001" min="-90" max="90" placeholder="31.2304">
+              </label>
+              <label>
+                <span>经度</span>
+                <input id="chartLongitude" type="number" step="0.0001" min="-180" max="180" placeholder="121.4737">
+              </label>
+            </div>
+            <div class="query-actions">
+              <button class="text-button dark" type="submit">查询</button>
+              <button class="text-button dark subtle" id="resetToNowButton" type="button">回到此刻</button>
+            </div>
+          </form>
+          <div id="chartHistoryList" class="chart-history-list"></div>
+        </section>
+
+        <section class="sky-panel display-filter-panel">
+          <div class="sky-panel-heading">
+            <h3>显示菜单</h3>
+            <span>实时/历史共用</span>
+          </div>
+          <div class="display-filter-list" id="aspectDisplayPanel">
+            <label class="filter-toggle filter-toggle-master">
+              <input id="aspectLinesToggle" type="checkbox" checked>
+              <span>显示全部相位线</span>
+            </label>
+            <div class="filter-group">
+              <p>按相位类型</p>
+              <div id="aspectTypeFilterList"></div>
+            </div>
+            <div class="filter-group">
+              <p>星体/虚点显示</p>
+              <div id="bodyVisibilityFilterList"></div>
+            </div>
+            <div class="filter-group">
+              <p>按星体/虚点隐藏连线</p>
+              <div id="aspectBodyFilterList"></div>
+            </div>
+          </div>
+        </section>
+
+          </div>
+        </div>
+
+        <section class="sky-panel">
+          <div class="sky-panel-heading">
+            <h3>行星位置</h3>
+            <span id="planetCount"></span>
+          </div>
+          <div id="astroPlanetTable" class="astro-pick-list"></div>
+        </section>
+
+        <section class="sky-panel">
+          <div class="sky-panel-heading">
+            <h3>主要相位</h3>
+            <span id="aspectCount"></span>
+          </div>
+          <div id="astroAspectList" class="astro-pick-list"></div>
+        </section>
+      </aside>
+
+      <main class="sky-main" aria-label="实时星盘">
+        <div class="sky-topbar">
+          <div>
+            <p class="eyebrow">Swiss Ephemeris</p>
+            <h2 id="chartTitle">本地实时星盘</h2>
+          </div>
+          <div class="sky-hint">悬停左侧条目以高亮星体与相位</div>
+        </div>
+
+        <section class="sky-workbench">
+          <div class="astro-visual" id="astroChart"></div>
+          <aside class="astro-insight" id="astroInsight" hidden></aside>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      window.OCCULT_ATLAS_API_BASE = window.OCCULT_ATLAS_API_BASE || "https://occult-atlas.onrender.com";
+    </script>
+    <script src="./app.js?v=34"></script>
+  </body>
+</html>

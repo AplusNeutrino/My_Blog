@@ -3094,3 +3094,23 @@
     height: auto;
   }
 }
+/* Occult Atlas hidden tool page */
+.occult-atlas-shell {
+  width: min(100%, 96rem);
+  margin: 0 auto;
+}
+
+.occult-atlas-frame {
+  display: block;
+  width: 100%;
+  min-height: calc(100dvh - 8rem);
+  border: 1px solid var(--main-border-color, rgba(255, 255, 255, 0.12));
+  border-radius: 0.5rem;
+  background: #111318;
+}
+
+@media (max-width: 768px) {
+  .occult-atlas-frame {
+    min-height: calc(100dvh - 5rem);
+  }
+}

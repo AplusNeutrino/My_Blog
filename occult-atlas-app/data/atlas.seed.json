@@ -1,0 +1,4888 @@
+{
+  "meta": {
+    "name": "Occult Atlas Seed",
+    "version": 2,
+    "generatedAt": "2026-05-26T02:39:41.463Z",
+    "counts": {
+      "systems": 9,
+      "concepts": 112,
+      "relations": 157,
+      "sources": 4,
+      "thothTarotCards": 78,
+      "sephiroth": 10
+    }
+  },
+  "systems": [
+    {
+      "id": "all",
+      "label": "全部体系"
+    },
+    {
+      "id": "tarot",
+      "label": "塔罗"
+    },
+    {
+      "id": "kabbalah",
+      "label": "卡巴拉"
+    },
+    {
+      "id": "astrology",
+      "label": "占星"
+    },
+    {
+      "id": "iching",
+      "label": "易经"
+    },
+    {
+      "id": "element",
+      "label": "元素"
+    },
+    {
+      "id": "numerology",
+      "label": "数字"
+    },
+    {
+      "id": "ganzhi",
+      "label": "干支历法"
+    },
+    {
+      "id": "spread",
+      "label": "牌阵"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source.seed.original",
+      "title": "Occult Atlas original seed summaries",
+      "kind": "personal_note",
+      "copyright": "personal",
+      "note": "Original short summaries written for the seed database. These are not copied guidebook passages."
+    },
+    {
+      "id": "source.lineage.thoth-golden-dawn",
+      "title": "Thoth / Golden Dawn correspondence lineage",
+      "kind": "book",
+      "copyright": "summary_only",
+      "note": "Lineage marker for common Thoth and Golden Dawn correspondences. Avoid importing copyrighted text directly."
+    },
+    {
+      "id": "source.public-domain.rws",
+      "title": "Rider-Waite-Smith comparison layer",
+      "kind": "public_domain",
+      "copyright": "public_domain",
+      "note": "Use for broad symbolic comparison. Modern editions and guidebooks may contain separately copyrighted matter."
+    },
+    {
+      "id": "source.official.swiss-ephemeris",
+      "title": "Swiss Ephemeris licensing and programming documentation",
+      "kind": "official_doc",
+      "url": "https://www.astro.com/swisseph/sweph_f.htm",
+      "copyright": "summary_only",
+      "note": "Swiss Ephemeris is planned as the astrology calculation engine under its AGPL licensing path."
+    }
+  ],
+  "concepts": [
+    {
+      "aliases": [
+        "Fire",
+        "火"
+      ],
+      "keywords": [
+        "Fire",
+        "火",
+        "四元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "元素词条用于连接塔罗花色、星座三分性、心理倾向和能量失衡模式。"
+        }
+      ],
+      "id": "element.fire",
+      "name": "火元素",
+      "system": "element",
+      "category": "Western Elements",
+      "summary": "意志、行动、热力、冲动、创造与燃烧。"
+    },
+    {
+      "aliases": [
+        "Water",
+        "水"
+      ],
+      "keywords": [
+        "Water",
+        "水",
+        "四元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "元素词条用于连接塔罗花色、星座三分性、心理倾向和能量失衡模式。"
+        }
+      ],
+      "id": "element.water",
+      "name": "水元素",
+      "system": "element",
+      "category": "Western Elements",
+      "summary": "情感、感受、联结、记忆、梦境与流动。"
+    },
+    {
+      "aliases": [
+        "Air",
+        "风",
+        "风象",
+        "气元素"
+      ],
+      "keywords": [
+        "Air",
+        "风",
+        "风象",
+        "气元素",
+        "四元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "元素词条用于连接塔罗花色、星座三分性、心理倾向和能量失衡模式。"
+        }
+      ],
+      "id": "element.air",
+      "name": "风元素",
+      "system": "element",
+      "category": "Western Elements",
+      "summary": "思维、语言、理性、分析、交流、移动与信息。"
+    },
+    {
+      "aliases": [
+        "Earth",
+        "土",
+        "土象"
+      ],
+      "keywords": [
+        "Earth",
+        "土",
+        "土象",
+        "四元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "元素词条用于连接塔罗花色、星座三分性、心理倾向和能量失衡模式。"
+        }
+      ],
+      "id": "element.earth",
+      "name": "土元素",
+      "system": "element",
+      "category": "Western Elements",
+      "summary": "身体、资源、形式、稳定、边界与物质承载。"
+    },
+    {
+      "aliases": [
+        "1",
+        "Number 1"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.1",
+      "name": "数字1",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "源头、潜能、根本力量与新循环的第一冲动。"
+    },
+    {
+      "aliases": [
+        "2",
+        "Number 2"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.2",
+      "name": "数字2",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "分化、对应、二元关系与最初的稳定张力。"
+    },
+    {
+      "aliases": [
+        "3",
+        "Number 3"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.3",
+      "name": "数字3",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "生成、结构初成、表达和能量的第一次展开。"
+    },
+    {
+      "aliases": [
+        "4",
+        "Number 4"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.4",
+      "name": "数字4",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "秩序、框架、稳定、完成的基础形态。"
+    },
+    {
+      "aliases": [
+        "5",
+        "Number 5"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.5",
+      "name": "数字5",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "冲突、扰动、调整和结构受到压力后的反应。"
+    },
+    {
+      "aliases": [
+        "6",
+        "Number 6"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.6",
+      "name": "数字6",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "调和、中心、平衡、美感和较完整的整合。"
+    },
+    {
+      "aliases": [
+        "7",
+        "Number 7"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.7",
+      "name": "数字7",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "欲望、试炼、偏移、选择和不稳定的推进。"
+    },
+    {
+      "aliases": [
+        "8",
+        "Number 8"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.8",
+      "name": "数字8",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "组织、理性、技术、反复操作和系统化。"
+    },
+    {
+      "aliases": [
+        "9",
+        "Number 9"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "结构"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.9",
+      "name": "数字9",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "成熟、积累、临界完成与一轮循环的丰厚或沉重。"
+    },
+    {
+      "aliases": [
+        "10",
+        "Number 10"
+      ],
+      "keywords": [
+        "数字神秘学",
+        "小牌数字",
+        "显化"
+      ],
+      "sections": [
+        {
+          "title": "塔罗与卡巴拉",
+          "body": "数字词条用于连接小牌序列、生命之树萨弗拉和一轮能量从潜能到显化的变化。"
+        }
+      ],
+      "id": "numerology.number.10",
+      "name": "数字10",
+      "system": "numerology",
+      "category": "Number Symbolism",
+      "summary": "完成、终点、显化、结果落地，以及进入下一轮循环前的清算。"
+    },
+    {
+      "aliases": [
+        "Kether",
+        "Crown",
+        "王冠",
+        "Sephirah 1",
+        "第1萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字1"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字1通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.kether",
+      "name": "Kether / 王冠",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "最初的源点、纯粹潜能和超越人格的统一。"
+    },
+    {
+      "aliases": [
+        "Chokmah",
+        "Wisdom",
+        "智慧",
+        "Sephirah 2",
+        "第2萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字2"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字2通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.chokmah",
+      "name": "Chokmah / 智慧",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "原初动力、阳性发出、创造冲动和未成形的力量。"
+    },
+    {
+      "aliases": [
+        "Binah",
+        "Understanding",
+        "理解",
+        "Sephirah 3",
+        "第3萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字3"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字3通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.binah",
+      "name": "Binah / 理解",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "成形、限制、母性容器和将力量带入结构的能力。"
+    },
+    {
+      "aliases": [
+        "Chesed",
+        "Mercy",
+        "慈悲",
+        "Sephirah 4",
+        "第4萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字4"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字4通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.chesed",
+      "name": "Chesed / 慈悲",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "扩张、秩序、庇护、法则和建设性的稳定。"
+    },
+    {
+      "aliases": [
+        "Geburah",
+        "Severity",
+        "严厉",
+        "Sephirah 5",
+        "第5萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字5"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字5通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.geburah",
+      "name": "Geburah / 严厉",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "切割、力量、判断、冲突和必要的破除。"
+    },
+    {
+      "aliases": [
+        "Tiphereth",
+        "Tiphareth",
+        "Beauty",
+        "美",
+        "Sephirah 6",
+        "第6萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字6"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字6通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.tiphereth",
+      "name": "Tiphereth / 美",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "太阳中心、调和、自我整合、牺牲、美和心灵核心。"
+    },
+    {
+      "aliases": [
+        "Netzach",
+        "Victory",
+        "胜利",
+        "Sephirah 7",
+        "第7萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字7"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字7通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.netzach",
+      "name": "Netzach / 胜利",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "欲望、感性、自然力、艺术冲动和持续推进的生命力。"
+    },
+    {
+      "aliases": [
+        "Hod",
+        "Splendor",
+        "荣耀",
+        "Sephirah 8",
+        "第8萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字8"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字8通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.hod",
+      "name": "Hod / 荣耀",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "语言、理智、分类、仪式形式和可操作的系统。"
+    },
+    {
+      "aliases": [
+        "Yesod",
+        "Foundation",
+        "基础",
+        "Sephirah 9",
+        "第9萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字9"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字9通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.yesod",
+      "name": "Yesod / 基础",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "月亮基础、想象、潜意识、连接层和显化前的蓝图。"
+    },
+    {
+      "aliases": [
+        "Malkuth",
+        "Kingdom",
+        "王国",
+        "Sephirah 10",
+        "第10萨弗拉"
+      ],
+      "keywords": [
+        "生命之树",
+        "萨弗拉",
+        "数字10"
+      ],
+      "sections": [
+        {
+          "title": "小牌数字对应",
+          "body": "在常见的黄金黎明和托特对应框架中，小牌数字10通常与此萨弗拉相连。"
+        },
+        {
+          "title": "流派差异",
+          "body": "Occult Atlas 会把标准对应、图像解释和个人研究假设分开保存，避免把不同来源混成单一结论。"
+        }
+      ],
+      "id": "kabbalah.sephirah.malkuth",
+      "name": "Malkuth / 王国",
+      "system": "kabbalah",
+      "category": "Tree of Life",
+      "summary": "物质界、显化、承载、结果落地和能量沉降的终点。"
+    },
+    {
+      "aliases": [
+        "权杖",
+        "Wands"
+      ],
+      "keywords": [
+        "塔罗花色",
+        "小牌",
+        "元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "花色词条用于把每张小牌连接到元素、数字和生命之树层级。"
+        }
+      ],
+      "id": "tarot.suit.wands",
+      "name": "权杖组 / Wands",
+      "system": "tarot",
+      "category": "Suit",
+      "summary": "火元素的行动、意志和创造冲动。"
+    },
+    {
+      "aliases": [
+        "圣杯",
+        "Cups"
+      ],
+      "keywords": [
+        "塔罗花色",
+        "小牌",
+        "元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "花色词条用于把每张小牌连接到元素、数字和生命之树层级。"
+        }
+      ],
+      "id": "tarot.suit.cups",
+      "name": "圣杯组 / Cups",
+      "system": "tarot",
+      "category": "Suit",
+      "summary": "水元素的情感、关系和感受流动。"
+    },
+    {
+      "aliases": [
+        "宝剑",
+        "Swords"
+      ],
+      "keywords": [
+        "塔罗花色",
+        "小牌",
+        "元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "花色词条用于把每张小牌连接到元素、数字和生命之树层级。"
+        }
+      ],
+      "id": "tarot.suit.swords",
+      "name": "宝剑组 / Swords",
+      "system": "tarot",
+      "category": "Suit",
+      "summary": "风元素的思维、语言和理性结构。"
+    },
+    {
+      "aliases": [
+        "圆盘",
+        "Disks",
+        "Pentacles"
+      ],
+      "keywords": [
+        "塔罗花色",
+        "小牌",
+        "元素"
+      ],
+      "sections": [
+        {
+          "title": "研究用途",
+          "body": "花色词条用于把每张小牌连接到元素、数字和生命之树层级。"
+        }
+      ],
+      "id": "tarot.suit.disks",
+      "name": "圆盘组 / Disks",
+      "system": "tarot",
+      "category": "Suit",
+      "summary": "土元素的物质、身体和资源显化。"
+    },
+    {
+      "aliases": [
+        "The Fool",
+        "愚者",
+        "Atu 0",
+        "大阿尔克那0"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Fool"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.fool",
+      "name": "Atu 0 愚者 / The Fool",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "自由、开端、未知、纯粹可能性与跳入经验之前的开放。"
+    },
+    {
+      "aliases": [
+        "The Magus",
+        "魔术师",
+        "Atu 1",
+        "大阿尔克那1"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Magus"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.magus",
+      "name": "Atu I 魔术师 / The Magus",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "语言、媒介、意志传导、技巧和把潜能转为操作的能力。"
+    },
+    {
+      "aliases": [
+        "The Priestess",
+        "女祭司",
+        "Atu 2",
+        "大阿尔克那2"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Priestess"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.priestess",
+      "name": "Atu II 女祭司 / The Priestess",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "直觉、隐秘知识、月性通道和未被显化的深层理解。"
+    },
+    {
+      "aliases": [
+        "The Empress",
+        "皇后",
+        "Atu 3",
+        "大阿尔克那3"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Empress"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.empress",
+      "name": "Atu III 皇后 / The Empress",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "生长、丰饶、感官、美和使生命形式化的滋养力。"
+    },
+    {
+      "aliases": [
+        "The Emperor",
+        "皇帝",
+        "Atu 4",
+        "大阿尔克那4"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Emperor"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.emperor",
+      "name": "Atu IV 皇帝 / The Emperor",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "秩序、权威、边界、统治和将力量固定成结构。"
+    },
+    {
+      "aliases": [
+        "The Hierophant",
+        "教皇",
+        "Atu 5",
+        "大阿尔克那5"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Hierophant"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.hierophant",
+      "name": "Atu V 教皇 / The Hierophant",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "传承、仪式、教导、信念体系和神圣知识的制度化。"
+    },
+    {
+      "aliases": [
+        "The Lovers",
+        "恋人",
+        "Atu 6",
+        "大阿尔克那6"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Lovers"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.lovers",
+      "name": "Atu VI 恋人 / The Lovers",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "选择、结合、分化后的重新联结和关系中的镜像。"
+    },
+    {
+      "aliases": [
+        "The Chariot",
+        "战车",
+        "Atu 7",
+        "大阿尔克那7"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Chariot"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.chariot",
+      "name": "Atu VII 战车 / The Chariot",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "护持、方向、意志驾驭和在张力中推进。"
+    },
+    {
+      "aliases": [
+        "Adjustment",
+        "调整",
+        "Atu 8",
+        "大阿尔克那8"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "Adjustment"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常称为 Justice；托特使用 Adjustment，强调校准和平衡的过程。"
+        }
+      ],
+      "id": "tarot.thoth.major.adjustment",
+      "name": "Atu VIII 调整 / Adjustment",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "平衡、因果、精确校准、正义和恢复尺度。"
+    },
+    {
+      "aliases": [
+        "The Hermit",
+        "隐者",
+        "Atu 9",
+        "大阿尔克那9"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Hermit"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.hermit",
+      "name": "Atu IX 隐者 / The Hermit",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "内在道路、独处、灯火、精炼和从核心寻找方向。"
+    },
+    {
+      "aliases": [
+        "Fortune",
+        "命运",
+        "Atu 10",
+        "大阿尔克那10"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "Fortune"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.fortune",
+      "name": "Atu X 命运 / Fortune",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "循环、转轮、变化的节律和不可固定的形势。"
+    },
+    {
+      "aliases": [
+        "Lust",
+        "欲望",
+        "Atu 11",
+        "大阿尔克那11"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "Lust"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常称为 Strength；托特使用 Lust，强调生命力与本能能量的整合。"
+        }
+      ],
+      "id": "tarot.thoth.major.lust",
+      "name": "Atu XI 欲望 / Lust",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "生命力、激情、身体勇气和与本能能量的整合。"
+    },
+    {
+      "aliases": [
+        "The Hanged Man",
+        "吊人",
+        "Atu 12",
+        "大阿尔克那12"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Hanged Man"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.hanged-man",
+      "name": "Atu XII 吊人 / The Hanged Man",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "悬置、牺牲、倒转视角和被迫停止后的洞见。"
+    },
+    {
+      "aliases": [
+        "Death",
+        "死神",
+        "Atu 13",
+        "大阿尔克那13"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "Death"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.death",
+      "name": "Atu XIII 死神 / Death",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "结束、蜕变、清除旧形态和不可逆的转化。"
+    },
+    {
+      "aliases": [
+        "Art",
+        "艺术",
+        "Atu 14",
+        "大阿尔克那14"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "Art"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常称为 Temperance；托特使用 Art，强调炼金式的调和与创造。"
+        }
+      ],
+      "id": "tarot.thoth.major.art",
+      "name": "Atu XIV 艺术 / Art",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "调和、炼金术、混合、对立力量的创造性综合。"
+    },
+    {
+      "aliases": [
+        "The Devil",
+        "恶魔",
+        "Atu 15",
+        "大阿尔克那15"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Devil"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.devil",
+      "name": "Atu XV 恶魔 / The Devil",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "物质欲望、束缚、本能、执着和生命力的粗重面。"
+    },
+    {
+      "aliases": [
+        "The Tower",
+        "高塔",
+        "Atu 16",
+        "大阿尔克那16"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Tower"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.tower",
+      "name": "Atu XVI 高塔 / The Tower",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "突发瓦解、释放、破除虚假结构和震荡性的清理。"
+    },
+    {
+      "aliases": [
+        "The Star",
+        "星星",
+        "Atu 17",
+        "大阿尔克那17"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Star"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.star",
+      "name": "Atu XVII 星星 / The Star",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "希望、愿景、灵感、远方指引和净化后的开放。"
+    },
+    {
+      "aliases": [
+        "The Moon",
+        "月亮",
+        "Atu 18",
+        "大阿尔克那18"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Moon"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.moon",
+      "name": "Atu XVIII 月亮 / The Moon",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "迷雾、梦、恐惧、潜意识路径和不确定中的穿越。"
+    },
+    {
+      "aliases": [
+        "The Sun",
+        "太阳",
+        "Atu 19",
+        "大阿尔克那19"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Sun"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "与韦特体系共享大阿尔克那骨架，但图像、标题重心和神秘学对应可有明显差异。"
+        }
+      ],
+      "id": "tarot.thoth.major.sun",
+      "name": "Atu XIX 太阳 / The Sun",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "清明、生命、喜悦、显露和中心意识的照亮。"
+    },
+    {
+      "aliases": [
+        "The Aeon",
+        "永劫",
+        "Atu 20",
+        "大阿尔克那20"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Aeon"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常称为 Judgement；托特使用 The Aeon，强调时代转换和意识更新。"
+        }
+      ],
+      "id": "tarot.thoth.major.aeon",
+      "name": "Atu XX 永劫 / The Aeon",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "召唤、时代转换、审判的更新版本和意识层级的重估。"
+    },
+    {
+      "aliases": [
+        "The Universe",
+        "宇宙",
+        "Atu 21",
+        "大阿尔克那21"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "大阿尔克那",
+        "The Universe"
+      ],
+      "sections": [
+        {
+          "title": "托特视角",
+          "body": "此条目先保存原创摘要和导航用关键词，后续可继续补充占星、希伯来字母、路径和来源差异。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常称为 The World；托特使用 The Universe，强调总合和宇宙结构。"
+        }
+      ],
+      "id": "tarot.thoth.major.universe",
+      "name": "Atu XXI 宇宙 / The Universe",
+      "system": "tarot",
+      "category": "Thoth Major Arcana",
+      "summary": "完成、整体、世界结构和一轮旅程的总合。"
+    },
+    {
+      "aliases": [
+        "1 of Wands",
+        "Root of the Powers of Fire",
+        "权杖Ace"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字1",
+        "Root of the Powers of Fire"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字1提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Root of the Powers of Fire 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.1",
+      "name": "Ace权杖 / Root of the Powers of Fire",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "Ace权杖 / Root of the Powers of Fire 将行动和意志的火元素带入数字1的阶段，托特标题为 Root of the Powers of Fire。"
+    },
+    {
+      "aliases": [
+        "2 of Wands",
+        "Dominion",
+        "权杖二"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字2",
+        "Dominion"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字2提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Dominion 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.2",
+      "name": "二权杖 / Dominion",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "二权杖 / Dominion 将行动和意志的火元素带入数字2的阶段，托特标题为 Dominion。"
+    },
+    {
+      "aliases": [
+        "3 of Wands",
+        "Virtue",
+        "权杖三"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字3",
+        "Virtue"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字3提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Virtue 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.3",
+      "name": "三权杖 / Virtue",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "三权杖 / Virtue 将行动和意志的火元素带入数字3的阶段，托特标题为 Virtue。"
+    },
+    {
+      "aliases": [
+        "4 of Wands",
+        "Completion",
+        "权杖四"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字4",
+        "Completion"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字4提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Completion 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.4",
+      "name": "四权杖 / Completion",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "四权杖 / Completion 将行动和意志的火元素带入数字4的阶段，托特标题为 Completion。"
+    },
+    {
+      "aliases": [
+        "5 of Wands",
+        "Strife",
+        "权杖五"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字5",
+        "Strife"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字5提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Strife 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.5",
+      "name": "五权杖 / Strife",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "五权杖 / Strife 将行动和意志的火元素带入数字5的阶段，托特标题为 Strife。"
+    },
+    {
+      "aliases": [
+        "6 of Wands",
+        "Victory",
+        "权杖六"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字6",
+        "Victory"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字6提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Victory 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.6",
+      "name": "六权杖 / Victory",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "六权杖 / Victory 将行动和意志的火元素带入数字6的阶段，托特标题为 Victory。"
+    },
+    {
+      "aliases": [
+        "7 of Wands",
+        "Valour",
+        "权杖七"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字7",
+        "Valour"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字7提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Valour 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.7",
+      "name": "七权杖 / Valour",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "七权杖 / Valour 将行动和意志的火元素带入数字7的阶段，托特标题为 Valour。"
+    },
+    {
+      "aliases": [
+        "8 of Wands",
+        "Swiftness",
+        "权杖八"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字8",
+        "Swiftness"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字8提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Swiftness 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.8",
+      "name": "八权杖 / Swiftness",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "八权杖 / Swiftness 将行动和意志的火元素带入数字8的阶段，托特标题为 Swiftness。"
+    },
+    {
+      "aliases": [
+        "9 of Wands",
+        "Strength",
+        "权杖九"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字9",
+        "Strength"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字9提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Strength 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.9",
+      "name": "九权杖 / Strength",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "九权杖 / Strength 将行动和意志的火元素带入数字9的阶段，托特标题为 Strength。"
+    },
+    {
+      "aliases": [
+        "10 of Wands",
+        "Oppression",
+        "权杖十"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "权杖",
+        "数字10",
+        "Oppression"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字10提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Oppression 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.wands.10",
+      "name": "十权杖 / Oppression",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "十权杖 / Oppression 将行动和意志的火元素带入数字10的阶段，托特标题为 Oppression。"
+    },
+    {
+      "aliases": [
+        "1 of Cups",
+        "Root of the Powers of Water",
+        "圣杯Ace"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字1",
+        "Root of the Powers of Water"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字1提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Root of the Powers of Water 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.1",
+      "name": "Ace圣杯 / Root of the Powers of Water",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "Ace圣杯 / Root of the Powers of Water 将情感和联结的水元素带入数字1的阶段，托特标题为 Root of the Powers of Water。"
+    },
+    {
+      "aliases": [
+        "2 of Cups",
+        "Love",
+        "圣杯二"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字2",
+        "Love"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字2提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Love 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.2",
+      "name": "二圣杯 / Love",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "二圣杯 / Love 将情感和联结的水元素带入数字2的阶段，托特标题为 Love。"
+    },
+    {
+      "aliases": [
+        "3 of Cups",
+        "Abundance",
+        "圣杯三"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字3",
+        "Abundance"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字3提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Abundance 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.3",
+      "name": "三圣杯 / Abundance",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "三圣杯 / Abundance 将情感和联结的水元素带入数字3的阶段，托特标题为 Abundance。"
+    },
+    {
+      "aliases": [
+        "4 of Cups",
+        "Luxury",
+        "圣杯四"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字4",
+        "Luxury"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字4提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Luxury 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.4",
+      "name": "四圣杯 / Luxury",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "四圣杯 / Luxury 将情感和联结的水元素带入数字4的阶段，托特标题为 Luxury。"
+    },
+    {
+      "aliases": [
+        "5 of Cups",
+        "Disappointment",
+        "圣杯五"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字5",
+        "Disappointment"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字5提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Disappointment 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.5",
+      "name": "五圣杯 / Disappointment",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "五圣杯 / Disappointment 将情感和联结的水元素带入数字5的阶段，托特标题为 Disappointment。"
+    },
+    {
+      "aliases": [
+        "6 of Cups",
+        "Pleasure",
+        "圣杯六"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字6",
+        "Pleasure"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字6提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Pleasure 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.6",
+      "name": "六圣杯 / Pleasure",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "六圣杯 / Pleasure 将情感和联结的水元素带入数字6的阶段，托特标题为 Pleasure。"
+    },
+    {
+      "aliases": [
+        "7 of Cups",
+        "Debauch",
+        "圣杯七"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字7",
+        "Debauch"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字7提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Debauch 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.7",
+      "name": "七圣杯 / Debauch",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "七圣杯 / Debauch 将情感和联结的水元素带入数字7的阶段，托特标题为 Debauch。"
+    },
+    {
+      "aliases": [
+        "8 of Cups",
+        "Indolence",
+        "圣杯八"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字8",
+        "Indolence"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字8提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Indolence 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.8",
+      "name": "八圣杯 / Indolence",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "八圣杯 / Indolence 将情感和联结的水元素带入数字8的阶段，托特标题为 Indolence。"
+    },
+    {
+      "aliases": [
+        "9 of Cups",
+        "Happiness",
+        "圣杯九"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字9",
+        "Happiness"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字9提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Happiness 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.9",
+      "name": "九圣杯 / Happiness",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "九圣杯 / Happiness 将情感和联结的水元素带入数字9的阶段，托特标题为 Happiness。"
+    },
+    {
+      "aliases": [
+        "10 of Cups",
+        "Satiety",
+        "圣杯十"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圣杯",
+        "数字10",
+        "Satiety"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字10提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Satiety 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.cups.10",
+      "name": "十圣杯 / Satiety",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "十圣杯 / Satiety 将情感和联结的水元素带入数字10的阶段，托特标题为 Satiety。"
+    },
+    {
+      "aliases": [
+        "1 of Swords",
+        "Root of the Powers of Air",
+        "宝剑Ace"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字1",
+        "Root of the Powers of Air"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字1提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Root of the Powers of Air 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.1",
+      "name": "Ace宝剑 / Root of the Powers of Air",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "Ace宝剑 / Root of the Powers of Air 将思维和语言的风元素带入数字1的阶段，托特标题为 Root of the Powers of Air。"
+    },
+    {
+      "aliases": [
+        "2 of Swords",
+        "Peace",
+        "宝剑二"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字2",
+        "Peace"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字2提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Peace 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.2",
+      "name": "二宝剑 / Peace",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "二宝剑 / Peace 将思维和语言的风元素带入数字2的阶段，托特标题为 Peace。"
+    },
+    {
+      "aliases": [
+        "3 of Swords",
+        "Sorrow",
+        "宝剑三"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字3",
+        "Sorrow"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字3提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Sorrow 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.3",
+      "name": "三宝剑 / Sorrow",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "三宝剑 / Sorrow 将思维和语言的风元素带入数字3的阶段，托特标题为 Sorrow。"
+    },
+    {
+      "aliases": [
+        "4 of Swords",
+        "Truce",
+        "宝剑四"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字4",
+        "Truce"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字4提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Truce 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.4",
+      "name": "四宝剑 / Truce",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "四宝剑 / Truce 将思维和语言的风元素带入数字4的阶段，托特标题为 Truce。"
+    },
+    {
+      "aliases": [
+        "5 of Swords",
+        "Defeat",
+        "宝剑五"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字5",
+        "Defeat"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字5提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Defeat 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.5",
+      "name": "五宝剑 / Defeat",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "五宝剑 / Defeat 将思维和语言的风元素带入数字5的阶段，托特标题为 Defeat。"
+    },
+    {
+      "aliases": [
+        "6 of Swords",
+        "Science",
+        "宝剑六"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字6",
+        "Science"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字6提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Science 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.6",
+      "name": "六宝剑 / Science",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "六宝剑 / Science 将思维和语言的风元素带入数字6的阶段，托特标题为 Science。"
+    },
+    {
+      "aliases": [
+        "7 of Swords",
+        "Futility",
+        "宝剑七"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字7",
+        "Futility"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字7提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Futility 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.7",
+      "name": "七宝剑 / Futility",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "七宝剑 / Futility 将思维和语言的风元素带入数字7的阶段，托特标题为 Futility。"
+    },
+    {
+      "aliases": [
+        "8 of Swords",
+        "Interference",
+        "宝剑八"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字8",
+        "Interference"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字8提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Interference 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.8",
+      "name": "八宝剑 / Interference",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "八宝剑 / Interference 将思维和语言的风元素带入数字8的阶段，托特标题为 Interference。"
+    },
+    {
+      "aliases": [
+        "9 of Swords",
+        "Cruelty",
+        "宝剑九"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字9",
+        "Cruelty"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字9提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Cruelty 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.9",
+      "name": "九宝剑 / Cruelty",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "九宝剑 / Cruelty 将思维和语言的风元素带入数字9的阶段，托特标题为 Cruelty。"
+    },
+    {
+      "aliases": [
+        "10 of Swords",
+        "Ruin",
+        "宝剑十"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "宝剑",
+        "数字10",
+        "Ruin"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字10提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Ruin 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.swords.10",
+      "name": "十宝剑 / Ruin",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "十宝剑 / Ruin 将思维和语言的风元素带入数字10的阶段，托特标题为 Ruin。"
+    },
+    {
+      "aliases": [
+        "1 of Disks",
+        "Root of the Powers of Earth",
+        "圆盘Ace",
+        "1 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字1",
+        "Root of the Powers of Earth"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字1提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Root of the Powers of Earth 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.1",
+      "name": "Ace圆盘 / Root of the Powers of Earth",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "Ace圆盘 / Root of the Powers of Earth 将身体和资源的土元素带入数字1的阶段，托特标题为 Root of the Powers of Earth。"
+    },
+    {
+      "aliases": [
+        "2 of Disks",
+        "Change",
+        "圆盘二",
+        "2 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字2",
+        "Change"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字2提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Change 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.2",
+      "name": "二圆盘 / Change",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "二圆盘 / Change 将身体和资源的土元素带入数字2的阶段，托特标题为 Change。"
+    },
+    {
+      "aliases": [
+        "3 of Disks",
+        "Works",
+        "圆盘三",
+        "3 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字3",
+        "Works"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字3提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Works 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.3",
+      "name": "三圆盘 / Works",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "三圆盘 / Works 将身体和资源的土元素带入数字3的阶段，托特标题为 Works。"
+    },
+    {
+      "aliases": [
+        "4 of Disks",
+        "Power",
+        "圆盘四",
+        "4 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字4",
+        "Power"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字4提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Power 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.4",
+      "name": "四圆盘 / Power",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "四圆盘 / Power 将身体和资源的土元素带入数字4的阶段，托特标题为 Power。"
+    },
+    {
+      "aliases": [
+        "5 of Disks",
+        "Worry",
+        "圆盘五",
+        "5 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字5",
+        "Worry"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字5提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Worry 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.5",
+      "name": "五圆盘 / Worry",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "五圆盘 / Worry 将身体和资源的土元素带入数字5的阶段，托特标题为 Worry。"
+    },
+    {
+      "aliases": [
+        "6 of Disks",
+        "Success",
+        "圆盘六",
+        "6 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字6",
+        "Success"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字6提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Success 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.6",
+      "name": "六圆盘 / Success",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "六圆盘 / Success 将身体和资源的土元素带入数字6的阶段，托特标题为 Success。"
+    },
+    {
+      "aliases": [
+        "7 of Disks",
+        "Failure",
+        "圆盘七",
+        "7 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字7",
+        "Failure"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字7提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Failure 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.7",
+      "name": "七圆盘 / Failure",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "七圆盘 / Failure 将身体和资源的土元素带入数字7的阶段，托特标题为 Failure。"
+    },
+    {
+      "aliases": [
+        "8 of Disks",
+        "Prudence",
+        "圆盘八",
+        "8 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字8",
+        "Prudence"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字8提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Prudence 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.8",
+      "name": "八圆盘 / Prudence",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "八圆盘 / Prudence 将身体和资源的土元素带入数字8的阶段，托特标题为 Prudence。"
+    },
+    {
+      "aliases": [
+        "9 of Disks",
+        "Gain",
+        "圆盘九",
+        "9 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字9",
+        "Gain"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字9提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Gain 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.9",
+      "name": "九圆盘 / Gain",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "九圆盘 / Gain 将身体和资源的土元素带入数字9的阶段，托特标题为 Gain。"
+    },
+    {
+      "aliases": [
+        "10 of Disks",
+        "Wealth",
+        "圆盘十",
+        "10 of Pentacles"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "小牌",
+        "圆盘",
+        "数字10",
+        "Wealth"
+      ],
+      "sections": [
+        {
+          "title": "结构定位",
+          "body": "花色提供元素语境，数字10提供生命之树和数字象征层级；两者共同形成此牌的基础导航。"
+        },
+        {
+          "title": "托特标题",
+          "body": "Wealth 是此牌在托特体系中的标题，适合用作搜索、比较和跨体系对应入口。"
+        },
+        {
+          "title": "韦特对比",
+          "body": "韦特体系通常更偏向场景叙事和人物图像；托特体系更偏向标题、颜色、几何和对应关系。此处先保留对比槽位，避免把两套体系混写。"
+        }
+      ],
+      "id": "tarot.thoth.disks.10",
+      "name": "十圆盘 / Wealth",
+      "system": "tarot",
+      "category": "Thoth Minor Arcana",
+      "summary": "十圆盘 / Wealth 将身体和资源的土元素带入数字10的阶段，托特标题为 Wealth。"
+    },
+    {
+      "aliases": [
+        "Knight of Wands",
+        "权杖骑士"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "权杖",
+        "骑士"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.wands.knight",
+      "name": "权杖骑士 / Knight of Wands",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "主动发出、火性驱动和一组元素中最外放的推动力。 此牌以行动和意志的火元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Queen of Wands",
+        "权杖皇后"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "权杖",
+        "皇后"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.wands.queen",
+      "name": "权杖皇后 / Queen of Wands",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "承载、稳定、感受和一组元素中较内化的成熟形态。 此牌以行动和意志的火元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Prince of Wands",
+        "权杖王子"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "权杖",
+        "王子"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.wands.prince",
+      "name": "权杖王子 / Prince of Wands",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "执行、组织、运动和把元素力量带入可操作层面。 此牌以行动和意志的火元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Princess of Wands",
+        "权杖公主"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "权杖",
+        "公主"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.wands.princess",
+      "name": "权杖公主 / Princess of Wands",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "显化、土性承载、种子落地和元素在现实中的入口。 此牌以行动和意志的火元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Knight of Cups",
+        "圣杯骑士"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圣杯",
+        "骑士"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.cups.knight",
+      "name": "圣杯骑士 / Knight of Cups",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "主动发出、火性驱动和一组元素中最外放的推动力。 此牌以情感和联结的水元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Queen of Cups",
+        "圣杯皇后"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圣杯",
+        "皇后"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.cups.queen",
+      "name": "圣杯皇后 / Queen of Cups",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "承载、稳定、感受和一组元素中较内化的成熟形态。 此牌以情感和联结的水元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Prince of Cups",
+        "圣杯王子"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圣杯",
+        "王子"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.cups.prince",
+      "name": "圣杯王子 / Prince of Cups",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "执行、组织、运动和把元素力量带入可操作层面。 此牌以情感和联结的水元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Princess of Cups",
+        "圣杯公主"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圣杯",
+        "公主"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.cups.princess",
+      "name": "圣杯公主 / Princess of Cups",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "显化、土性承载、种子落地和元素在现实中的入口。 此牌以情感和联结的水元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Knight of Swords",
+        "宝剑骑士"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "宝剑",
+        "骑士"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.swords.knight",
+      "name": "宝剑骑士 / Knight of Swords",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "主动发出、火性驱动和一组元素中最外放的推动力。 此牌以思维和语言的风元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Queen of Swords",
+        "宝剑皇后"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "宝剑",
+        "皇后"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.swords.queen",
+      "name": "宝剑皇后 / Queen of Swords",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "承载、稳定、感受和一组元素中较内化的成熟形态。 此牌以思维和语言的风元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Prince of Swords",
+        "宝剑王子"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "宝剑",
+        "王子"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.swords.prince",
+      "name": "宝剑王子 / Prince of Swords",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "执行、组织、运动和把元素力量带入可操作层面。 此牌以思维和语言的风元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Princess of Swords",
+        "宝剑公主"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "宝剑",
+        "公主"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.swords.princess",
+      "name": "宝剑公主 / Princess of Swords",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "显化、土性承载、种子落地和元素在现实中的入口。 此牌以思维和语言的风元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Knight of Disks",
+        "圆盘骑士"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圆盘",
+        "骑士"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.disks.knight",
+      "name": "圆盘骑士 / Knight of Disks",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "主动发出、火性驱动和一组元素中最外放的推动力。 此牌以身体和资源的土元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Queen of Disks",
+        "圆盘皇后"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圆盘",
+        "皇后"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.disks.queen",
+      "name": "圆盘皇后 / Queen of Disks",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "承载、稳定、感受和一组元素中较内化的成熟形态。 此牌以身体和资源的土元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Prince of Disks",
+        "圆盘王子"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圆盘",
+        "王子"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.disks.prince",
+      "name": "圆盘王子 / Prince of Disks",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "执行、组织、运动和把元素力量带入可操作层面。 此牌以身体和资源的土元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Princess of Disks",
+        "圆盘公主"
+      ],
+      "keywords": [
+        "托特塔罗",
+        "宫廷牌",
+        "圆盘",
+        "公主"
+      ],
+      "sections": [
+        {
+          "title": "宫廷结构",
+          "body": "托特宫廷牌使用 Knight、Queen、Prince、Princess；与韦特的 King、Queen、Knight、Page 需要做体系对照。"
+        },
+        {
+          "title": "研究用途",
+          "body": "宫廷牌适合连接人物原型、元素组合、行为风格和情境中的能量角色。"
+        }
+      ],
+      "id": "tarot.thoth.disks.princess",
+      "name": "圆盘公主 / Princess of Disks",
+      "system": "tarot",
+      "category": "Thoth Court Card",
+      "summary": "显化、土性承载、种子落地和元素在现实中的入口。 此牌以身体和资源的土元素为主要材料。"
+    },
+    {
+      "aliases": [
+        "Sun in Gemini",
+        "太阳双子",
+        "日双子"
+      ],
+      "keywords": [
+        "太阳",
+        "双子座",
+        "风象",
+        "意识",
+        "语言",
+        "分裂"
+      ],
+      "sections": [
+        {
+          "title": "象征张力",
+          "body": "太阳追求中心化和意志整合，双子倾向移动、比较和分叉；在宝剑十语境中可表现为意志被信息碎片化。"
+        }
+      ],
+      "id": "astrology.placement.sun-in-gemini",
+      "name": "太阳在双子座",
+      "system": "astrology",
+      "category": "Placement",
+      "summary": "太阳意识进入双子座的语言、信息、分化和联结领域。托特宝剑十常以此作为占星对应。"
+    },
+    {
+      "aliases": [
+        "Gemini",
+        "双子",
+        "风象变动星座"
+      ],
+      "keywords": [
+        "风象",
+        "变动",
+        "语言",
+        "信息",
+        "水星"
+      ],
+      "sections": [
+        {
+          "title": "导航用途",
+          "body": "双子座可连接到风元素、水星、相关塔罗对应、今日星盘和本命盘落点。"
+        }
+      ],
+      "id": "astrology.sign.gemini",
+      "name": "双子座",
+      "system": "astrology",
+      "category": "Zodiac Sign",
+      "summary": "黄道十二宫之一，风象、变动，关联语言、交换、分化、学习和信息流动。"
+    },
+    {
+      "aliases": [
+        "Hexagram 43",
+        "Guai",
+        "夬",
+        "泽天夬",
+        "夬者决也"
+      ],
+      "keywords": [
+        "决断",
+        "清算",
+        "去除邪见",
+        "上兑下乾",
+        "重建"
+      ],
+      "sections": [
+        {
+          "title": "与 Ruin 的关联",
+          "body": "夬卦可作为宝剑十的主对应之一：毁灭并非只有破坏，也包括切断、清理和重新确立秩序。"
+        }
+      ],
+      "id": "iching.hexagram.43",
+      "name": "夬卦 / 第四十三卦",
+      "system": "iching",
+      "category": "Hexagram",
+      "summary": "夬卦为泽天夬，上兑下乾，主题为决断、清除、宣告、去除凌驾于上的不正之物。"
+    },
+    {
+      "aliases": [
+        "Hexagram 18",
+        "Gu",
+        "蠱",
+        "山风蛊"
+      ],
+      "keywords": [
+        "腐坏",
+        "积弊",
+        "修复",
+        "整顿",
+        "重建"
+      ],
+      "sections": [
+        {
+          "title": "扩展关联",
+          "body": "蠱卦不一定是宝剑十的主对应，但可作为相似关系：当系统已经腐坏，毁灭与整顿会成为同一过程的两个面。"
+        }
+      ],
+      "id": "iching.hexagram.18",
+      "name": "蠱卦 / 第十八卦",
+      "system": "iching",
+      "category": "Hexagram",
+      "summary": "蠱卦涉及腐坏、积弊、修复、整顿和旧系统的重新治理。"
+    },
+    {
+      "aliases": [
+        "Celtic Cross",
+        "十字牌阵"
+      ],
+      "keywords": [
+        "十张牌",
+        "现状",
+        "挑战",
+        "结果",
+        "结构词典"
+      ],
+      "sections": [
+        {
+          "title": "Occult Atlas 用法",
+          "body": "牌阵先作为结构词典保存，支持手动记录与位置含义查询，而不作为自动占卜入口。"
+        }
+      ],
+      "id": "spread.celtic-cross",
+      "name": "凯尔特十字牌阵",
+      "system": "spread",
+      "category": "Tarot Spread",
+      "summary": "常见十张牌牌阵，用于观察现状、挑战、根基、过去、意识目标、近期未来、自我、环境、希望恐惧和结果。"
+    },
+    {
+      "aliases": [
+        "天干地支",
+        "Ganzhi",
+        "四柱",
+        "年柱",
+        "月柱",
+        "日柱",
+        "时柱"
+      ],
+      "keywords": [
+        "天干",
+        "地支",
+        "五行",
+        "阴阳",
+        "节气",
+        "农历"
+      ],
+      "sections": [
+        {
+          "title": "与易经的关系",
+          "body": "干支和易经可以关联，但不应混为一套。易经先作为卦象词典；干支则作为与今日时间相关的动态系统。"
+        }
+      ],
+      "id": "ganzhi.system",
+      "name": "干支时间系统",
+      "system": "ganzhi",
+      "category": "Chinese Time System",
+      "summary": "以天干、地支、阴阳、五行、节气与四柱组织时间状态，可作为东方动态时间层。"
+    }
+  ],
+  "relations": [
+    {
+      "from": "kabbalah.sephirah.kether",
+      "to": "numerology.number.1",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.chokmah",
+      "to": "numerology.number.2",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.binah",
+      "to": "numerology.number.3",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.chesed",
+      "to": "numerology.number.4",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.geburah",
+      "to": "numerology.number.5",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.tiphereth",
+      "to": "numerology.number.6",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.netzach",
+      "to": "numerology.number.7",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.hod",
+      "to": "numerology.number.8",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.yesod",
+      "to": "numerology.number.9",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "kabbalah.sephirah.malkuth",
+      "to": "numerology.number.10",
+      "label": "数字对应",
+      "type": "primary",
+      "lineage": "Kabbalah",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.suit.wands",
+      "to": "element.fire",
+      "label": "元素",
+      "type": "primary",
+      "lineage": "Tarot",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.suit.cups",
+      "to": "element.water",
+      "label": "元素",
+      "type": "primary",
+      "lineage": "Tarot",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.suit.swords",
+      "to": "element.air",
+      "label": "元素",
+      "type": "primary",
+      "lineage": "Tarot",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.suit.disks",
+      "to": "element.earth",
+      "label": "元素",
+      "type": "primary",
+      "lineage": "Tarot",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.1",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.1",
+      "to": "numerology.number.1",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.1",
+      "to": "kabbalah.sephirah.kether",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.2",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.2",
+      "to": "numerology.number.2",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.2",
+      "to": "kabbalah.sephirah.chokmah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.3",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.3",
+      "to": "numerology.number.3",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.3",
+      "to": "kabbalah.sephirah.binah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.4",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.4",
+      "to": "numerology.number.4",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.4",
+      "to": "kabbalah.sephirah.chesed",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.5",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.5",
+      "to": "numerology.number.5",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.5",
+      "to": "kabbalah.sephirah.geburah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.6",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.6",
+      "to": "numerology.number.6",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.6",
+      "to": "kabbalah.sephirah.tiphereth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.7",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.7",
+      "to": "numerology.number.7",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.7",
+      "to": "kabbalah.sephirah.netzach",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.8",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.8",
+      "to": "numerology.number.8",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.8",
+      "to": "kabbalah.sephirah.hod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.9",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.9",
+      "to": "numerology.number.9",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.9",
+      "to": "kabbalah.sephirah.yesod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.10",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.10",
+      "to": "numerology.number.10",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.10",
+      "to": "kabbalah.sephirah.malkuth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.1",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.1",
+      "to": "numerology.number.1",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.1",
+      "to": "kabbalah.sephirah.kether",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.2",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.2",
+      "to": "numerology.number.2",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.2",
+      "to": "kabbalah.sephirah.chokmah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.3",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.3",
+      "to": "numerology.number.3",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.3",
+      "to": "kabbalah.sephirah.binah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.4",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.4",
+      "to": "numerology.number.4",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.4",
+      "to": "kabbalah.sephirah.chesed",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.5",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.5",
+      "to": "numerology.number.5",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.5",
+      "to": "kabbalah.sephirah.geburah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.6",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.6",
+      "to": "numerology.number.6",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.6",
+      "to": "kabbalah.sephirah.tiphereth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.7",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.7",
+      "to": "numerology.number.7",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.7",
+      "to": "kabbalah.sephirah.netzach",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.8",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.8",
+      "to": "numerology.number.8",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.8",
+      "to": "kabbalah.sephirah.hod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.9",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.9",
+      "to": "numerology.number.9",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.9",
+      "to": "kabbalah.sephirah.yesod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.10",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.10",
+      "to": "numerology.number.10",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.10",
+      "to": "kabbalah.sephirah.malkuth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.1",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.1",
+      "to": "numerology.number.1",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.1",
+      "to": "kabbalah.sephirah.kether",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.2",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.2",
+      "to": "numerology.number.2",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.2",
+      "to": "kabbalah.sephirah.chokmah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.3",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.3",
+      "to": "numerology.number.3",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.3",
+      "to": "kabbalah.sephirah.binah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.4",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.4",
+      "to": "numerology.number.4",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.4",
+      "to": "kabbalah.sephirah.chesed",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.5",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.5",
+      "to": "numerology.number.5",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.5",
+      "to": "kabbalah.sephirah.geburah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.6",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.6",
+      "to": "numerology.number.6",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.6",
+      "to": "kabbalah.sephirah.tiphereth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.7",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.7",
+      "to": "numerology.number.7",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.7",
+      "to": "kabbalah.sephirah.netzach",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.8",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.8",
+      "to": "numerology.number.8",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.8",
+      "to": "kabbalah.sephirah.hod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.9",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.9",
+      "to": "numerology.number.9",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.9",
+      "to": "kabbalah.sephirah.yesod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "numerology.number.10",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "kabbalah.sephirah.malkuth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.1",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.1",
+      "to": "numerology.number.1",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.1",
+      "to": "kabbalah.sephirah.kether",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.2",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.2",
+      "to": "numerology.number.2",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.2",
+      "to": "kabbalah.sephirah.chokmah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.3",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.3",
+      "to": "numerology.number.3",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.3",
+      "to": "kabbalah.sephirah.binah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.4",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.4",
+      "to": "numerology.number.4",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.4",
+      "to": "kabbalah.sephirah.chesed",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.5",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.5",
+      "to": "numerology.number.5",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.5",
+      "to": "kabbalah.sephirah.geburah",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.6",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.6",
+      "to": "numerology.number.6",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.6",
+      "to": "kabbalah.sephirah.tiphereth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.7",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.7",
+      "to": "numerology.number.7",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.7",
+      "to": "kabbalah.sephirah.netzach",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.8",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.8",
+      "to": "numerology.number.8",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.8",
+      "to": "kabbalah.sephirah.hod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.9",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.9",
+      "to": "numerology.number.9",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.9",
+      "to": "kabbalah.sephirah.yesod",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.10",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.10",
+      "to": "numerology.number.10",
+      "label": "数字",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.10",
+      "to": "kabbalah.sephirah.malkuth",
+      "label": "小牌数字对应",
+      "type": "primary",
+      "lineage": "Golden Dawn / Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.knight",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.queen",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.prince",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.wands.princess",
+      "to": "tarot.suit.wands",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.knight",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.queen",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.prince",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.cups.princess",
+      "to": "tarot.suit.cups",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.knight",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.queen",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.prince",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.princess",
+      "to": "tarot.suit.swords",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.knight",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.queen",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.prince",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.disks.princess",
+      "to": "tarot.suit.disks",
+      "label": "花色",
+      "type": "belongs_to",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "astrology.placement.sun-in-gemini",
+      "label": "占星对应",
+      "type": "primary",
+      "lineage": "Thoth",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "kabbalah.sephirah.tiphereth",
+      "label": "图像中心解释",
+      "type": "visual",
+      "lineage": "variant reading",
+      "confidence": "variant",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "iching.hexagram.43",
+      "label": "易经主对应",
+      "type": "primary",
+      "lineage": "Crowley-linked reading",
+      "confidence": "variant",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "tarot.thoth.swords.10",
+      "to": "iching.hexagram.18",
+      "label": "相似或扩展对应",
+      "type": "extended",
+      "lineage": "modern comparative reading",
+      "confidence": "variant",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "astrology.placement.sun-in-gemini",
+      "to": "astrology.sign.gemini",
+      "label": "落座",
+      "type": "belongs_to",
+      "lineage": "Astrology",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "astrology.sign.gemini",
+      "to": "element.air",
+      "label": "星座元素",
+      "type": "belongs_to",
+      "lineage": "Astrology",
+      "confidence": "standard",
+      "sourceId": "source.seed.original",
+      "note": ""
+    },
+    {
+      "from": "iching.hexagram.43",
+      "to": "iching.hexagram.18",
+      "label": "重建主题对照",
+      "type": "analogy",
+      "lineage": "I Ching comparison",
+      "confidence": "personal",
+      "sourceId": "source.seed.original",
+      "note": ""
+    }
+  ]
+}
