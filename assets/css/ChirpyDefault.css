@@ -21,6 +21,97 @@
   display: none;
 }
 
+#sidebar #avatar {
+  cursor: pointer;
+}
+
+#sidebar #avatar.site-logo-spinning img,
+.site-sidebar-recall.is-spinning img {
+  animation: neutriverse-logo-spin 720ms cubic-bezier(0.24, 0.84, 0.34, 1) both;
+}
+
+.site-sidebar-recall {
+  position: fixed;
+  top: 1rem;
+  left: 0.75rem;
+  z-index: 1050;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(120, 130, 145, 0.34);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--sidebar-bg) 86%, transparent);
+  box-shadow: 0 0.45rem 1.4rem rgba(0, 0, 0, 0.26);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-0.55rem) scale(0.86);
+  transition:
+    opacity 220ms ease,
+    transform 260ms ease,
+    border-color 220ms ease;
+}
+
+.site-sidebar-recall img {
+  width: 2.05rem;
+  height: 2.05rem;
+  border-radius: 50%;
+}
+
+.site-sidebar-recall:hover,
+.site-sidebar-recall:focus-visible {
+  border-color: rgba(138, 180, 248, 0.72);
+  transform: translateX(0) scale(1);
+}
+
+@media all and (min-width: 850px) {
+  #sidebar,
+  #main-wrapper,
+  #topbar-wrapper {
+    transition:
+      transform 420ms cubic-bezier(0.22, 0.72, 0.28, 1),
+      margin-left 420ms cubic-bezier(0.22, 0.72, 0.28, 1),
+      padding-left 420ms cubic-bezier(0.22, 0.72, 0.28, 1);
+  }
+
+  body.site-sidebar-collapsed #sidebar {
+    transform: translateX(-100%);
+  }
+
+  body.site-sidebar-collapsed #main-wrapper,
+  body.site-sidebar-collapsed #topbar-wrapper {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  body.site-sidebar-collapsed .site-sidebar-recall {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media all and (max-width: calc(850px - 1px)) {
+  .site-sidebar-recall {
+    display: none;
+  }
+}
+
+@keyframes neutriverse-logo-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  70% {
+    transform: rotate(900deg) scale(1.08);
+  }
+
+  100% {
+    transform: rotate(1080deg) scale(1);
+  }
+}
+
 .post-preview.has-preview-image {
   min-height: 12.2rem;
 }
@@ -3095,15 +3186,41 @@
   }
 }
 /* Occult Atlas hidden tool page */
+body.occult-atlas-page #panel-wrapper,
+body:has(.occult-atlas-shell) #panel-wrapper {
+  display: none !important;
+}
+
+body.occult-atlas-page main[aria-label="Main Content"],
+body:has(.occult-atlas-shell) main[aria-label="Main Content"],
+body.occult-atlas-page #tail-wrapper,
+body:has(.occult-atlas-shell) #tail-wrapper {
+  flex: 0 0 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+body.occult-atlas-page #main-wrapper > .container,
+body:has(.occult-atlas-shell) #main-wrapper > .container {
+  max-width: none;
+  width: 100%;
+}
+
+body.occult-atlas-page main[aria-label="Main Content"] > h1,
+body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
+  display: none;
+}
+
 .occult-atlas-shell {
-  width: min(100%, 96rem);
+  width: 100%;
   margin: 0 auto;
 }
 
 .occult-atlas-frame {
   display: block;
   width: 100%;
-  min-height: calc(100dvh - 8rem);
+  height: calc(100dvh - 7rem);
+  min-height: 42rem;
   border: 1px solid var(--main-border-color, rgba(255, 255, 255, 0.12));
   border-radius: 0.5rem;
   background: #111318;

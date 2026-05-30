@@ -19,3 +19,61 @@
     }
   })();
 </script>
+
+<script>
+  (() => {
+    const storageKey = 'neutriverse-sidebar-collapsed';
+
+    const applySidebarState = (collapsed) => {
+      document.body.classList.toggle('site-sidebar-collapsed', collapsed);
+    };
+
+    const spin = (element) => {
+      element.classList.remove('site-logo-spinning', 'is-spinning');
+      void element.offsetWidth;
+      element.classList.add(element.id === 'avatar' ? 'site-logo-spinning' : 'is-spinning');
+      window.setTimeout(() => {
+        element.classList.remove('site-logo-spinning', 'is-spinning');
+      }, 760);
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatar = document.getElementById('avatar');
+      const sidebar = document.getElementById('sidebar');
+
+      if (document.querySelector('.occult-atlas-shell')) {
+        document.body.classList.add('occult-atlas-page');
+      }
+
+      if (!avatar || !sidebar) {
+        return;
+      }
+
+      const recall = document.createElement('button');
+      recall.type = 'button';
+      recall.className = 'site-sidebar-recall';
+      recall.setAttribute('aria-label', '展开左侧栏');
+      recall.innerHTML = '<img src="{{ "/assets/img/logo.png" | relative_url }}" alt="">';
+      document.body.appendChild(recall);
+
+      applySidebarState(localStorage.getItem(storageKey) === 'true');
+
+      avatar.addEventListener('click', (event) => {
+        if (!window.matchMedia('(min-width: 850px)').matches) {
+          return;
+        }
+
+        event.preventDefault();
+        spin(avatar);
+        localStorage.setItem(storageKey, 'true');
+        applySidebarState(true);
+      });
+
+      recall.addEventListener('click', () => {
+        spin(recall);
+        localStorage.setItem(storageKey, 'false');
+        applySidebarState(false);
+      });
+    });
+  })();
+</script>
