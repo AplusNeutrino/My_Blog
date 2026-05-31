@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#111318">
     <meta name="description" content="{{ page.description | default: 'Live astrology chart workbench and occult knowledge atlas.' | escape }}">
     <title>{{ page.title | default: 'Occult Atlas' }} | {{ site.title }}</title>
-    <link rel="manifest" href="{{ '/occult-atlas-app/manifest.webmanifest' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/occult-atlas-app/styles.css' | relative_url }}?v=34">
+    <link rel="manifest" href="../occult-atlas-app/manifest.webmanifest">
+    <link rel="stylesheet" href="../occult-atlas-app/styles.css?v=35">
   </head>
   <body>
     <div class="astro-home">
@@ -129,9 +129,9 @@
     </div>
 
     <script>
-      window.OCCULT_ATLAS_APP_BASE = "{{ '/occult-atlas-app' | relative_url }}";
+      window.OCCULT_ATLAS_APP_BASE = "../occult-atlas-app";
       window.OCCULT_ATLAS_API_BASE = window.OCCULT_ATLAS_API_BASE || "https://occult-atlas.onrender.com";
     </script>
-    <script src="{{ '/occult-atlas-app/app.js' | relative_url }}?v=34"></script>
+    <script src="../occult-atlas-app/app.js?v=35"></script>
   </body>
 </html>

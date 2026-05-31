@@ -12,7 +12,7 @@ const state = {
     hiddenBodies: []
   }
 };
-const assetVersion = "v34";
+const assetVersion = "v35";
 const historyStorageKey = "occult-atlas-chart-history";
 const sidebarStorageKey = "occult-atlas-sidebar-collapsed";
 const displayFilterStorageKey = "occult-atlas-display-filter";
