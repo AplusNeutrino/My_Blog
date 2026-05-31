@@ -16,10 +16,12 @@
           <span aria-hidden="true">›</span>
         </button>
         <div class="sky-brand">
-          <div class="brand-mark">OA</div>
+          <a class="brand-mark brand-logo-link" href="{{ '/' | relative_url }}" aria-label="返回 Neutriverse 主站">
+            <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="">
+          </a>
           <div>
-            <h1>Occult Atlas</h1>
-            <p>Live Sky Workbench</p>
+            <h1>Neutriverse</h1>
+            <p>Occult Atlas</p>
           </div>
         </div>
 
@@ -113,12 +115,8 @@
       </aside>
 
       <main class="sky-main" aria-label="实时星盘">
-        <div class="sky-topbar">
-          <div>
-            <p class="eyebrow">Swiss Ephemeris</p>
-            <h2 id="chartTitle">本地实时星盘</h2>
-          </div>
-          <div class="sky-hint">悬停左侧条目以高亮星体与相位</div>
+        <div class="sky-topbar" hidden>
+          <h2 id="chartTitle"></h2>
         </div>
 
         <section class="sky-workbench">

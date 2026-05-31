@@ -661,6 +661,27 @@ body.sidebar-collapsed .sky-workbench {
   border-radius: 8px;
   color: #f8d896;
   font-weight: 800;
+  overflow: hidden;
+}
+
+.brand-logo-link {
+  border-color: rgba(138, 180, 248, 0.36);
+  background: rgba(15, 17, 22, 0.52);
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.brand-logo-link:hover,
+.brand-logo-link:focus-visible {
+  border-color: rgba(244, 201, 93, 0.58);
+  box-shadow: 0 0 0 3px rgba(46, 111, 104, 0.14);
+  transform: translateY(-1px);
+}
+
+.brand-logo-link img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .brand h1 {
