@@ -20,6 +20,7 @@ const apiBaseStorageKey = "occult-atlas-api-base";
 const apiBaseUrl = normalizeApiBaseUrl(
   globalThis.OCCULT_ATLAS_API_BASE || localStorage.getItem(apiBaseStorageKey) || ""
 );
+const appBaseUrl = normalizeAppBaseUrl(globalThis.OCCULT_ATLAS_APP_BASE || ".");
 const defaultHiddenAstroBodies = ["chiron", "north-node", "south-node"];
 const defaultLocation = {
   label: "",
@@ -1259,9 +1260,9 @@ function isHovered(type, id) {
 }
 
 function iconPath(type, id) {
-  if (type === "zodiac") return `./assets/astro-icons/zodiac-${id}.png?${assetVersion}`;
-  if (type === "aspect") return `./assets/astro-icons/aspect-${aspectIconIds[id] || id}.png?${assetVersion}`;
-  return `./assets/astro-icons/planet-${planetIconIds[id] || id}.png?${assetVersion}`;
+  if (type === "zodiac") return `${appBaseUrl}/assets/astro-icons/zodiac-${id}.png?${assetVersion}`;
+  if (type === "aspect") return `${appBaseUrl}/assets/astro-icons/aspect-${aspectIconIds[id] || id}.png?${assetVersion}`;
+  return `${appBaseUrl}/assets/astro-icons/planet-${planetIconIds[id] || id}.png?${assetVersion}`;
 }
 
 function polarPoint(radius, longitude) {
@@ -1403,6 +1404,11 @@ function escapeSvg(value) {
 
 function registerServiceWorker() {
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
-    navigator.serviceWorker.register("./sw.js").catch(() => {});
+    navigator.serviceWorker.register(`${appBaseUrl}/sw.js`).catch(() => {});
   }
+}
+
+function normalizeAppBaseUrl(value) {
+  const base = String(value || ".").trim().replace(/\/+$/, "");
+  return base || ".";
 }
