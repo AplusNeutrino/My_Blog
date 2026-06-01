@@ -12,7 +12,7 @@ const state = {
     hiddenBodies: []
   }
 };
-const assetVersion = "v35";
+const assetVersion = "v36";
 const historyStorageKey = "occult-atlas-chart-history";
 const sidebarStorageKey = "occult-atlas-sidebar-collapsed";
 const displayFilterStorageKey = "occult-atlas-display-filter";
@@ -724,7 +724,7 @@ function renderAstrology() {
   elements.aspectCount.textContent = `${visibleAspects.length}/${snapshot.aspects.length}`;
   const angleRows = (snapshot.angles || []).map((angle) => `
     <button class="astro-row angle-row" type="button" data-astro-type="angle" data-astro-id="${escapeHtml(angle.id)}">
-      <span class="astro-mini-symbol">${escapeHtml(angle.label)}</span>
+      ${angleIconMarkup(angle.id, angle.label)}
       <span>${escapeHtml(angleDisplayName(angle.id))}</span>
       <strong>${escapeHtml(angle.sign)} ${formatDegree(angle.signDegree)}</strong>
     </button>
@@ -1183,6 +1183,22 @@ function describePlanetPlacement(body) {
 
 function angleDisplayName(id) {
   return angleInfo[id]?.name || id.toUpperCase();
+}
+
+function angleIconMarkup(id, label) {
+  const icon = {
+    asc: `<path d="M7 17.25h14"></path><path d="M9.25 17.25c1.35-5.35 4.55-8.55 9.5-9.5"></path><path d="M16.4 7.75h2.35v2.35"></path>`,
+    mc: `<path d="M14 5.75v16.5"></path><path d="M8.25 11.25c1.2-2.2 3.1-3.35 5.75-3.35s4.55 1.15 5.75 3.35"></path><path d="M10.2 16.4h7.6"></path>`,
+    dsc: `<path d="M7 10.75h14"></path><path d="M9.25 10.75c1.35 5.35 4.55 8.55 9.5 9.5"></path><path d="M16.4 20.25h2.35V17.9"></path>`,
+    ic: `<path d="M14 5.75v16.5"></path><path d="M8.25 16.75c1.2 2.2 3.1 3.35 5.75 3.35s4.55-1.15 5.75-3.35"></path><path d="M10.2 11.6h7.6"></path>`
+  }[id] || `<path d="M8 14h12"></path><path d="M14 8v12"></path>`;
+
+  return `
+      <span class="astro-mini-symbol angle-symbol" aria-label="${escapeHtml(label)}">
+        <svg viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+          ${icon}
+        </svg>
+      </span>`;
 }
 
 function isAspectVisible(aspect) {

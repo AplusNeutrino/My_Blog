@@ -906,11 +906,38 @@ body.sidebar-collapsed .sky-workbench {
   place-items: center;
   width: 28px;
   height: 28px;
-  border: 1px solid rgba(143, 209, 200, 0.28);
+  border: 1px solid rgba(143, 209, 200, 0.26);
   border-radius: 50%;
   color: #8fd1c8;
   font-size: 10px;
   font-weight: 900;
+}
+
+.angle-symbol {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(36, 216, 205, 0.13), transparent 62%),
+    #1f252a;
+  box-shadow: inset 0 0 0 1px rgba(36, 216, 205, 0.06);
+}
+
+.angle-symbol svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+  opacity: 0.96;
+}
+
+.astro-row:hover .angle-symbol,
+.astro-row.active .angle-symbol {
+  color: #a5f4ea;
+  border-color: rgba(143, 209, 200, 0.52);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(36, 216, 205, 0.2), transparent 64%),
+    #202a2d;
 }
 
 .astro-row span {
