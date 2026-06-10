@@ -1598,10 +1598,7 @@
 }
 
 .middle-memory-entry {
-  max-height: min(24rem, calc(100vh - 13rem));
-  overflow-y: auto;
   padding-right: 0.15rem;
-  scrollbar-width: thin;
 }
 
 .middle-memory-text,
