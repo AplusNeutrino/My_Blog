@@ -64,8 +64,14 @@
       cx: 0,
       cy: 0,
       centerLon: 82,
+      centerLat: 22,
       lastTime: 0,
       pointerInside: false,
+      dragging: false,
+      dragStartX: 0,
+      dragStartY: 0,
+      dragStartLon: 0,
+      dragStartLat: 0,
       highlightedName: null,
       boundaries: [],
       projectedBoundaries: []
@@ -96,19 +102,24 @@
       state.cy = state.height * 0.5;
     };
 
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
     const project = (lat, lon) => {
       const phi = (lat * Math.PI) / 180;
       const lambda = ((lon - state.centerLon) * Math.PI) / 180;
+      const pitch = (state.centerLat * Math.PI) / 180;
       const cosPhi = Math.cos(phi);
       const x = cosPhi * Math.sin(lambda);
       const y = Math.sin(phi);
       const z = cosPhi * Math.cos(lambda);
+      const y2 = y * Math.cos(pitch) - z * Math.sin(pitch);
+      const z2 = y * Math.sin(pitch) + z * Math.cos(pitch);
 
       return {
         x: state.cx + x * state.radius,
-        y: state.cy - y * state.radius,
-        z,
-        visible: z > -0.04
+        y: state.cy - y2 * state.radius,
+        z: z2,
+        visible: z2 > -0.04
       };
     };
 
@@ -241,6 +252,7 @@
       }
 
       const loaded = [];
+      const loadedSummaries = [];
 
       for (const source of enabledSources) {
         try {
@@ -252,21 +264,23 @@
 
           const geojson = await response.json();
           const features = Array.isArray(geojson.features) ? geojson.features : [];
-          loaded.push(
-            ...features
-              .filter((feature) => shouldUseFeature(feature, source))
-              .map((feature) => normalizeFeature(feature, source))
-          );
+          const sourceBoundaries = features
+            .filter((feature) => shouldUseFeature(feature, source))
+            .map((feature) => normalizeFeature(feature, source))
+            .filter((boundary) => boundary.rings.some((ring) => ring.length > 1));
+
+          loaded.push(...sourceBoundaries);
+          loadedSummaries.push(`${source.region || source.name}: ${sourceBoundaries.length}`);
         } catch (error) {
           console.warn(`[travel-globe] boundary source failed: ${source.name}`, error);
         }
       }
 
-      state.boundaries = loaded.filter((boundary) => boundary.rings.some((ring) => ring.length > 1));
+      state.boundaries = loaded;
 
       if (statusNode) {
         const loadedText = state.boundaries.length
-          ? `${state.boundaries.length} 条官方边界已接入`
+          ? `${state.boundaries.length} 条边界已接入（${loadedSummaries.join(' / ')}）`
           : '边界层未加载成功';
         const pendingText = pendingSources.length
           ? `；${pendingSources.map((source) => source.region).join(' / ')}边界待官方数据`
@@ -290,8 +304,8 @@
       const { boundary, rings } = projected;
       const isHighlighted = boundary.normalizedName === state.highlightedName;
       const color = isHighlighted || boundary.visited ? palette.accent : palette.muted;
-      const alpha = isHighlighted ? 0.95 : boundary.visited ? 0.72 : 0.34;
-      const width = isHighlighted ? 2.2 : boundary.visited ? 1.35 : 0.72;
+      const alpha = isHighlighted ? 0.95 : boundary.visited ? 0.78 : 0.58;
+      const width = isHighlighted ? 2.2 : boundary.visited ? 1.45 : 0.95;
 
       rings.forEach((ring) => {
         const segments = [];
@@ -318,7 +332,7 @@
     const draw = (time = 0) => {
       const palette = colors();
 
-      if (!state.pointerInside && !media.matches && state.lastTime) {
+      if (!state.pointerInside && !state.dragging && !media.matches && state.lastTime) {
         state.centerLon = (state.centerLon + (time - state.lastTime) * 0.0045) % 360;
       }
 
@@ -411,7 +425,50 @@
       return nearest;
     };
 
+    canvas.addEventListener('pointerdown', (event) => {
+      state.pointerInside = true;
+      state.dragging = true;
+      state.dragStartX = event.clientX;
+      state.dragStartY = event.clientY;
+      state.dragStartLon = state.centerLon;
+      state.dragStartLat = state.centerLat;
+      canvas.classList.add('is-dragging');
+      canvas.setPointerCapture?.(event.pointerId);
+      tooltip.hidden = true;
+      event.preventDefault();
+    });
+
+    canvas.addEventListener('pointermove', (event) => {
+      if (!state.dragging) {
+        return;
+      }
+
+      const dx = event.clientX - state.dragStartX;
+      const dy = event.clientY - state.dragStartY;
+      state.centerLon = state.dragStartLon - dx * 0.34;
+      state.centerLat = clamp(state.dragStartLat + dy * 0.24, -68, 68);
+      highlight(null);
+      tooltip.hidden = true;
+    });
+
+    const stopDragging = (event) => {
+      if (!state.dragging) {
+        return;
+      }
+
+      state.dragging = false;
+      canvas.classList.remove('is-dragging');
+      canvas.releasePointerCapture?.(event.pointerId);
+    };
+
+    canvas.addEventListener('pointerup', stopDragging);
+    canvas.addEventListener('pointercancel', stopDragging);
+
     canvas.addEventListener('mousemove', (event) => {
+      if (state.dragging) {
+        return;
+      }
+
       state.pointerInside = true;
       const nearest = nearestBoundary(event);
 
@@ -427,6 +484,8 @@
 
     canvas.addEventListener('mouseleave', () => {
       state.pointerInside = false;
+      state.dragging = false;
+      canvas.classList.remove('is-dragging');
       highlight(null);
       tooltip.hidden = true;
     });
