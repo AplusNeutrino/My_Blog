@@ -6,16 +6,8 @@
   }
 
   const toNumber = (value) => Number.parseFloat(value) || 0;
-  const normalizeName = (value) =>
-    String(value || '')
-      .trim()
-      .toLowerCase()
-      .replace(/特别行政区$/u, '')
-      .replace(/维吾尔自治区$/u, '')
-      .replace(/壮族自治区$/u, '')
-      .replace(/回族自治区$/u, '')
-      .replace(/自治区$/u, '')
-      .replace(/[省市]$/u, '');
+  const normalizeName = (value) => String(value || '').trim().toLowerCase();
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
   roots.forEach((root) => {
     const canvas = root.querySelector('[data-travel-globe-canvas]');
@@ -23,7 +15,6 @@
     const sourceNode = root.querySelector('[data-travel-boundary-sources]');
     const tooltip = root.querySelector('[data-travel-globe-tooltip]');
     const statusNode = root.querySelector('[data-travel-boundary-status]');
-    const listItems = Array.from(root.querySelectorAll('[data-travel-place-name]'));
 
     if (!canvas || !dataNode || !sourceNode || !tooltip) {
       return;
@@ -33,26 +24,21 @@
     let sources = [];
 
     try {
-      places = JSON.parse(dataNode.textContent || '[]').map((place) => ({
-        ...place,
-        lat: toNumber(place.lat),
-        lon: toNumber(place.lon),
-        visited: place.visited === true
-      }));
+      places = JSON.parse(dataNode.textContent || '[]')
+        .map((place, index) => ({
+          ...place,
+          id: `${normalizeName(place.group)}-${normalizeName(place.name)}-${index}`,
+          lat: toNumber(place.lat),
+          lon: toNumber(place.lon),
+          label: place.label || place.name,
+          visited: place.visited === true
+        }))
+        .filter((place) => place.visited && Number.isFinite(place.lat) && Number.isFinite(place.lon));
       sources = JSON.parse(sourceNode.textContent || '[]');
     } catch (error) {
       console.warn('[travel-globe] invalid JSON data', error);
       return;
     }
-
-    const visitedNames = new Set(
-      places
-        .filter((place) => place.visited)
-        .map((place) => normalizeName(place.name))
-    );
-    const placeGroups = new Map(
-      places.map((place) => [normalizeName(place.name), place.group || '未分组'])
-    );
 
     const ctx = canvas.getContext('2d');
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -63,8 +49,8 @@
       radius: 0,
       cx: 0,
       cy: 0,
-      centerLon: 82,
-      centerLat: 22,
+      centerLon: 105,
+      centerLat: 24,
       lastTime: 0,
       pointerInside: false,
       dragging: false,
@@ -72,9 +58,11 @@
       dragStartY: 0,
       dragStartLon: 0,
       dragStartLat: 0,
-      highlightedName: null,
+      highlightedBoundaryName: null,
+      highlightedPlaceId: null,
       boundaries: [],
-      projectedBoundaries: []
+      projectedBoundaries: [],
+      projectedPlaces: []
     };
 
     const getVar = (name, fallback) => {
@@ -97,12 +85,10 @@
       canvas.width = Math.round(state.width * state.dpr);
       canvas.height = Math.round(state.height * state.dpr);
       ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
-      state.radius = Math.max(90, Math.min(state.width, state.height) * 0.39);
+      state.radius = Math.max(130, Math.min(state.width, state.height) * 0.47);
       state.cx = state.width * 0.5;
       state.cy = state.height * 0.5;
     };
-
-    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
     const project = (lat, lon) => {
       const phi = (lat * Math.PI) / 180;
@@ -161,7 +147,7 @@
           points.push(project(lat, lon));
         }
 
-        drawSegmentedLine(points, palette.border, lat === 0 ? 0.3 : 0.16, lat === 0 ? 1.1 : 0.8);
+        drawSegmentedLine(points, palette.border, lat === 0 ? 0.24 : 0.12, lat === 0 ? 1 : 0.75);
       }
 
       for (let lon = -180; lon < 180; lon += 30) {
@@ -171,7 +157,7 @@
           points.push(project(lat, lon));
         }
 
-        drawSegmentedLine(points, palette.border, 0.14, 0.8);
+        drawSegmentedLine(points, palette.border, 0.11, 0.75);
       }
     };
 
@@ -186,6 +172,14 @@
 
       if (geometry.type === 'MultiPolygon') {
         return geometry.coordinates.flat();
+      }
+
+      if (geometry.type === 'LineString') {
+        return [geometry.coordinates];
+      }
+
+      if (geometry.type === 'MultiLineString') {
+        return geometry.coordinates;
       }
 
       return [];
@@ -222,17 +216,15 @@
         properties.CNTR_NAME ||
         properties.GEOID ||
         source.name;
-      const normalized = normalizeName(name);
 
       return {
-        id: `${source.id}-${properties.GEOID || properties.STUSAB || code || normalized}`,
+        id: `${source.id}-${properties.GEOID || properties.STUSAB || code || normalizeName(name)}`,
         name,
-        normalizedName: normalized,
-        region: source.region || placeGroups.get(normalized) || '未分组',
+        normalizedName: normalizeName(name),
+        region: source.region || source.name,
         sourceName: source.source_name || source.name,
         sourceUrl: source.source_url || '',
         official: source.official === true,
-        visited: visitedNames.has(normalized),
         rings: coordinatesToRings(feature.geometry).map((ring) =>
           ring
             .map(([lon, lat]) => [toNumber(lon), toNumber(lat)])
@@ -243,16 +235,14 @@
 
     const loadBoundarySources = async () => {
       const enabledSources = sources.filter((source) => source.enabled && source.data_url);
-      const pendingSources = sources.filter((source) => !source.enabled && source.status === 'pending_official_source');
+      const loaded = [];
+      const loadedSummaries = [];
 
       if (statusNode) {
         statusNode.textContent = enabledSources.length
           ? `边界层加载中：${enabledSources.map((source) => source.name).join(' / ')}`
           : '暂无启用边界层';
       }
-
-      const loaded = [];
-      const loadedSummaries = [];
 
       for (const source of enabledSources) {
         try {
@@ -279,13 +269,9 @@
       state.boundaries = loaded;
 
       if (statusNode) {
-        const loadedText = state.boundaries.length
-          ? `${state.boundaries.length} 条边界已接入（${loadedSummaries.join(' / ')}）`
+        statusNode.textContent = state.boundaries.length
+          ? `${state.boundaries.length} 条国界轮廓已接入（${loadedSummaries.join(' / ')}）；点位 ${places.length}`
           : '边界层未加载成功';
-        const pendingText = pendingSources.length
-          ? `；${pendingSources.map((source) => source.region).join(' / ')}边界待官方数据`
-          : '';
-        statusNode.textContent = `${loadedText}${pendingText}`;
       }
     };
 
@@ -300,12 +286,17 @@
       )
     });
 
+    const projectPlaces = () =>
+      places.map((place) => ({
+        ...place,
+        ...project(place.lat, place.lon)
+      }));
+
     const drawBoundary = (projected, palette) => {
       const { boundary, rings } = projected;
-      const isHighlighted = boundary.normalizedName === state.highlightedName;
-      const color = isHighlighted || boundary.visited ? palette.accent : palette.muted;
-      const alpha = isHighlighted ? 0.95 : boundary.visited ? 0.78 : 0.58;
-      const width = isHighlighted ? 2.2 : boundary.visited ? 1.45 : 0.95;
+      const isHighlighted = boundary.normalizedName === state.highlightedBoundaryName;
+      const alpha = isHighlighted ? 0.82 : 0.36;
+      const width = isHighlighted ? 1.8 : 0.85;
 
       rings.forEach((ring) => {
         const segments = [];
@@ -325,8 +316,36 @@
           segments.push(current);
         }
 
-        segments.forEach((segment) => drawSegmentedLine(segment, color, alpha, width));
+        segments.forEach((segment) => drawSegmentedLine(segment, palette.muted, alpha, width));
       });
+    };
+
+    const drawPlace = (place, palette) => {
+      if (!place.visible) {
+        return;
+      }
+
+      const active = place.id === state.highlightedPlaceId;
+      const size = active ? 3.2 : 2.15;
+
+      ctx.save();
+      const glow = ctx.createRadialGradient(place.x, place.y, 0, place.x, place.y, active ? 9 : 6);
+      glow.addColorStop(0, 'rgba(88, 166, 255, 0.78)');
+      glow.addColorStop(0.42, 'rgba(88, 166, 255, 0.24)');
+      glow.addColorStop(1, 'rgba(88, 166, 255, 0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(place.x - 9, place.y - 9, 18, 18);
+
+      ctx.beginPath();
+      ctx.arc(place.x, place.y, size, 0, Math.PI * 2);
+      ctx.fillStyle = palette.accent;
+      ctx.globalAlpha = active ? 0.98 : 0.76;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.78)';
+      ctx.globalAlpha = active ? 0.84 : 0.38;
+      ctx.lineWidth = 0.75;
+      ctx.stroke();
+      ctx.restore();
     };
 
     const draw = (time = 0) => {
@@ -340,8 +359,8 @@
       ctx.clearRect(0, 0, state.width, state.height);
 
       const glow = ctx.createRadialGradient(state.cx, state.cy, state.radius * 0.12, state.cx, state.cy, state.radius * 1.12);
-      glow.addColorStop(0, 'rgba(88, 166, 255, 0.12)');
-      glow.addColorStop(0.54, 'rgba(88, 166, 255, 0.035)');
+      glow.addColorStop(0, 'rgba(88, 166, 255, 0.13)');
+      glow.addColorStop(0.56, 'rgba(88, 166, 255, 0.038)');
       glow.addColorStop(1, 'rgba(88, 166, 255, 0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, state.width, state.height);
@@ -352,7 +371,7 @@
       ctx.fillStyle = 'rgba(255, 255, 255, 0.022)';
       ctx.fill();
       ctx.strokeStyle = palette.border;
-      ctx.globalAlpha = 0.72;
+      ctx.globalAlpha = 0.78;
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.restore();
@@ -360,13 +379,15 @@
       drawGrid(palette);
 
       state.projectedBoundaries = state.boundaries.map(projectBoundary);
+      state.projectedPlaces = projectPlaces();
       state.projectedBoundaries.forEach((projected) => drawBoundary(projected, palette));
+      state.projectedPlaces.forEach((place) => drawPlace(place, palette));
 
       requestAnimationFrame(draw);
     };
 
-    const setTooltip = (boundary, clientX, clientY) => {
-      if (!boundary) {
+    const setTooltip = (item, clientX, clientY) => {
+      if (!item) {
         tooltip.hidden = true;
         return;
       }
@@ -377,25 +398,39 @@
 
       tooltip.style.setProperty('--travel-tooltip-x', `${x}px`);
       tooltip.style.setProperty('--travel-tooltip-y', `${y}px`);
-      tooltip.querySelector('[data-travel-tooltip-name]').textContent = boundary.name;
-      tooltip.querySelector('[data-travel-tooltip-region]').textContent = boundary.region;
-      tooltip.querySelector('[data-travel-tooltip-status]').textContent = boundary.visited ? '已去过' : '未标注';
-      tooltip.querySelector('[data-travel-tooltip-coords]').textContent = boundary.sourceName;
+      tooltip.querySelector('[data-travel-tooltip-name]').textContent = item.title;
+      tooltip.querySelector('[data-travel-tooltip-region]').textContent = item.region;
+      tooltip.querySelector('[data-travel-tooltip-status]').textContent = item.status;
+      tooltip.querySelector('[data-travel-tooltip-coords]').textContent = item.meta;
       tooltip.hidden = false;
     };
 
-    const clearListHighlight = () => {
-      listItems.forEach((item) => item.classList.remove('is-active'));
+    const highlight = ({ boundaryName = null, placeId = null } = {}) => {
+      state.highlightedBoundaryName = boundaryName;
+      state.highlightedPlaceId = placeId;
     };
 
-    const highlight = (normalizedName) => {
-      state.highlightedName = normalizedName;
-      clearListHighlight();
+    const nearestPlace = (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      let nearest = null;
 
-      if (normalizedName) {
-        const item = listItems.find((node) => normalizeName(node.dataset.travelPlaceName) === normalizedName);
-        item?.classList.add('is-active');
-      }
+      state.projectedPlaces.forEach((place) => {
+        if (!place.visible) {
+          return;
+        }
+
+        const dx = place.x - x;
+        const dy = place.y - y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance <= 9 && (!nearest || distance < nearest.distance)) {
+          nearest = { place, distance };
+        }
+      });
+
+      return nearest;
     };
 
     const nearestBoundary = (event) => {
@@ -415,7 +450,7 @@
             const dy = point.y - y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance <= 10 && (!nearest || distance < nearest.distance)) {
+            if (distance <= 7 && (!nearest || distance < nearest.distance)) {
               nearest = { boundary, distance };
             }
           });
@@ -447,7 +482,7 @@
       const dy = event.clientY - state.dragStartY;
       state.centerLon = state.dragStartLon - dx * 0.34;
       state.centerLat = clamp(state.dragStartLat + dy * 0.24, -68, 68);
-      highlight(null);
+      highlight();
       tooltip.hidden = true;
     });
 
@@ -470,36 +505,50 @@
       }
 
       state.pointerInside = true;
+      const point = nearestPlace(event);
+
+      if (point) {
+        highlight({ placeId: point.place.id });
+        setTooltip(
+          {
+            title: point.place.label,
+            region: `${point.place.group} / ${point.place.name}`,
+            status: '已去过',
+            meta: `${point.place.lat.toFixed(4)}, ${point.place.lon.toFixed(4)}`
+          },
+          event.clientX,
+          event.clientY
+        );
+        return;
+      }
+
       const nearest = nearestBoundary(event);
 
       if (!nearest) {
-        highlight(null);
+        highlight();
         tooltip.hidden = true;
         return;
       }
 
-      highlight(nearest.boundary.normalizedName);
-      setTooltip(nearest.boundary, event.clientX, event.clientY);
+      highlight({ boundaryName: nearest.boundary.normalizedName });
+      setTooltip(
+        {
+          title: nearest.boundary.name,
+          region: nearest.boundary.region,
+          status: nearest.boundary.official ? '边界层 / 已标注来源' : '边界层',
+          meta: nearest.boundary.sourceName
+        },
+        event.clientX,
+        event.clientY
+      );
     });
 
     canvas.addEventListener('mouseleave', () => {
       state.pointerInside = false;
       state.dragging = false;
       canvas.classList.remove('is-dragging');
-      highlight(null);
+      highlight();
       tooltip.hidden = true;
-    });
-
-    listItems.forEach((item) => {
-      const normalizedName = normalizeName(item.dataset.travelPlaceName);
-
-      item.addEventListener('mouseenter', () => {
-        highlight(normalizedName);
-      });
-
-      item.addEventListener('mouseleave', () => {
-        highlight(null);
-      });
     });
 
     new ResizeObserver(() => {

@@ -1189,7 +1189,7 @@ order: 5
 
 如果某个条目标题是 `待记录`，或添加时间是 `----/--/--`，页面会自动隐藏它。已有条目会按照添加时间从旧到新排序，日期越早越靠前，所以维护时不需要手动调整顺序。
 
-`待阅读栈` 和 `待观看栈` 下方还有 `地理记忆球` 模块，用于显示已去过地点和暂未标注地点。数据来自：
+`待阅读栈` 和 `待观看栈` 下方还有 `地理记忆球` 模块，用于显示国界轮廓和已去过地点小光点。数据来自：
 
 ```text
 _data/travel_places.yml
@@ -1199,13 +1199,14 @@ _data/travel_places.yml
 
 ```yaml
 - name: 北京
+  label: 北京
   group: 中国
   lat: 39.9042
   lon: 116.4074
   visited: true
 ```
 
-`visited: true` 会显示为已去过亮点，`visited: false` 会显示为弱化的未标注点。前端脚本在：
+`name` 是地点归档名，`label` 是悬浮窗里显示的点位名。当前前端只绘制 `visited: true` 的小光点；如果要临时隐藏整个地球面板，把 `_tabs/about.md` 里的 `travel_globe_enabled` 改成 `false`。前端脚本在：
 
 ```text
 assets/js/travel-globe.js
@@ -1225,17 +1226,15 @@ _data/travel_boundary_sources.yml
 
 当前已启用的边界层：
 
-- 中国省界使用天地图国家标准矢量地图，经 GeoJSON.cn 转换分发并缓存到本仓库，审图号 `GS(2024)0650`，坐标系 `CGCS2000 / EPSG:4490`。
+- 中国国界轮廓由本地缓存的天地图省级行政区划边界派生，只保留外轮廓线；原始数据经 GeoJSON.cn 转换分发，审图号 `GS(2024)0650`，坐标系 `CGCS2000 / EPSG:4490`。
 - 全球国家边界使用 European Commission / Eurostat GISCO Countries 2024 官方数据并缓存到本仓库；其中中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
-- 美国州界使用 PublicaMundi MappingAPI 的 `us-states` GeoJSON 并缓存到本仓库；这是中国之外地图层的非官方公开源。
 
 ```text
+assets/data/tianditu-china-national-boundary.geojson
 assets/data/tianditu-china-provinces.geojson
 assets/data/gisco-countries-2024-20m.geojson
-assets/data/us-states-publicamundi.geojson
 https://geojson.cn/data/file/Tiandi_China
 https://gisco-services.ec.europa.eu/distribution/v2/countries/
-https://github.com/PublicaMundi/MappingAPI
 ```
 
 严肃注意：中国地图、中国边界、行政区边界、南海诸岛、台湾相关边界或任何国界/省界可视化，不要使用第三方随手下载的 GeoJSON、TopoJSON、Natural Earth、OpenStreetMap 导出边界或未经核验的数据。当前中国边界层来自天地图国家标准矢量地图的本地缓存，不要手动改动边界坐标；如需升级数据，只能替换为带明确来源、审图号和坐标系说明的新版本。

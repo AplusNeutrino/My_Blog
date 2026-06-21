@@ -15,6 +15,7 @@
     - MO
   name_property: NAME_ENGL
   name_overrides:
+    US: 美国
     UK: 英国
     FR: 法国
     DE: 德国
@@ -23,25 +24,14 @@
     NL: 荷兰
     CH: 瑞士
   note: 本地缓存全球国家边界；中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
-- id: us-states-2025
-  name: 美国州界
-  region: 美国
-  enabled: true
-  official: false
-  status: active
-  source_name: PublicaMundi MappingAPI us-states GeoJSON
-  source_url: https://github.com/PublicaMundi/MappingAPI
-  data_url: /assets/data/us-states-publicamundi.geojson
-  name_property: name
-  note: 本地缓存美国州界；中国之外地图层，非官方源。
-- id: cn-tianditu-provinces-2025
-  name: 中国省界
+- id: cn-tianditu-national-2025
+  name: 中国国界轮廓
   region: 中国
   enabled: true
   official: true
   status: active
   source_name: 天地图国家标准矢量地图，经 GeoJSON.cn 转换分发，审图号 GS(2024)0650
   source_url: https://geojson.cn/data/file/Tiandi_China
-  data_url: /assets/data/tianditu-china-provinces.geojson
+  data_url: /assets/data/tianditu-china-national-boundary.geojson
   name_property: name
-  note: 本地缓存中国省级行政区划边界；坐标系 CGCS2000 / EPSG:4490；不手动修改中国国界、省界、台海、新疆、西藏、南海相关边界。
+  note: 由本地缓存的天地图省级行政区划边界派生，只保留中国外轮廓线；不手动修改中国国界、省界、台海、新疆、西藏、南海相关边界坐标。

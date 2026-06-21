@@ -1092,14 +1092,14 @@
 
 .about-travel-grid {
   display: grid;
-  grid-template-columns: minmax(18rem, 1.08fr) minmax(14rem, 0.82fr);
+  grid-template-columns: 1fr;
   gap: 0.85rem;
   align-items: stretch;
 }
 
 .travel-globe-shell {
   position: relative;
-  min-height: 22rem;
+  min-height: 30rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.055);
   border-radius: 0.42rem;
@@ -1111,7 +1111,7 @@
 .travel-globe-canvas {
   display: block;
   width: 100%;
-  height: 22rem;
+  height: 30rem;
   cursor: grab;
   touch-action: none;
   user-select: none;
@@ -3368,11 +3368,11 @@
   }
 
   .travel-globe-shell {
-    min-height: 18rem;
+    min-height: 22rem;
   }
 
   .travel-globe-canvas {
-    height: 18rem;
+    height: 22rem;
   }
 
   .about-friend-grid {

@@ -161,10 +161,16 @@ status_items、roadmap_items 和 signal_items 的格式：
     </section>
   </div>
 
+  {% comment %}
+  GEO MEMORY PANEL SWITCH
+  Set travel_globe_enabled to false to hide the entire globe panel while keeping the code/data in place.
+  {% endcomment %}
+  {% assign travel_globe_enabled = true %}
+
+  {% if travel_globe_enabled %}
   {% assign travel_places = site.data.travel_places %}
   {% assign travel_boundary_sources = site.data.travel_boundary_sources %}
   {% assign travel_visited_places = travel_places | where: 'visited', true %}
-  {% assign travel_unvisited_places = travel_places | where: 'visited', false %}
   <section class="about-travel-panel" aria-labelledby="travel-globe-title" data-travel-globe-root>
     <script type="application/json" data-travel-globe-data>{{ travel_places | jsonify }}</script>
     <script type="application/json" data-travel-boundary-sources>{{ travel_boundary_sources | jsonify }}</script>
@@ -173,50 +179,24 @@ status_items、roadmap_items 和 signal_items 的格式：
       <div>
         <span class="about-stack-kicker">GEO MEMORY REGISTER</span>
         <h3 id="travel-globe-title">地理记忆球</h3>
-        <p class="about-travel-note">中国省界使用天地图标准矢量数据本地缓存；其他边界层只接入可核验官方来源。</p>
+        <p class="about-travel-note">国界轮廓本地缓存加载；中国轮廓由天地图省级边界派生，只保留外轮廓。蓝色小光点记录已去过的省会、首府与城市。</p>
       </div>
 
       <div class="about-travel-stats" aria-label="漫游统计">
-        <span><strong>{{ travel_visited_places.size }}</strong> 已标注</span>
-        <span><strong>{{ travel_unvisited_places.size }}</strong> 未标注</span>
+        <span><strong>{{ travel_visited_places.size }}</strong> visited points</span>
+        <span><strong>2</strong> boundary layers</span>
       </div>
     </div>
 
-    <div class="about-travel-grid">
-      <div class="travel-globe-shell">
-        <canvas class="travel-globe-canvas" data-travel-globe-canvas aria-label="旋转地理记忆球"></canvas>
-        <div class="travel-globe-reticle" aria-hidden="true"></div>
-        <div class="travel-boundary-status" data-travel-boundary-status>边界层初始化中</div>
-        <div class="travel-globe-tooltip" data-travel-globe-tooltip hidden>
-          <strong data-travel-tooltip-name></strong>
-          <span data-travel-tooltip-region></span>
-          <em data-travel-tooltip-status></em>
-          <code data-travel-tooltip-coords></code>
-        </div>
-      </div>
-
-      <div class="travel-ledger" aria-label="地理记忆索引">
-        <div class="travel-ledger-section">
-          <span class="travel-ledger-label">visited nodes</span>
-          <div class="travel-place-cloud">
-            {% for place in travel_places %}
-              {% if place.visited %}
-                <span class="travel-place-chip is-visited" data-travel-place-name="{{ place.name }}">{{ place.name }}</span>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="travel-ledger-section">
-          <span class="travel-ledger-label">outside current route</span>
-          <div class="travel-place-cloud">
-            {% for place in travel_places %}
-              {% unless place.visited %}
-                <span class="travel-place-chip" data-travel-place-name="{{ place.name }}">{{ place.name }}</span>
-              {% endunless %}
-            {% endfor %}
-          </div>
-        </div>
+    <div class="travel-globe-shell">
+      <canvas class="travel-globe-canvas" data-travel-globe-canvas aria-label="旋转地理记忆球"></canvas>
+      <div class="travel-globe-reticle" aria-hidden="true"></div>
+      <div class="travel-boundary-status" data-travel-boundary-status>边界层初始化中</div>
+      <div class="travel-globe-tooltip" data-travel-globe-tooltip hidden>
+        <strong data-travel-tooltip-name></strong>
+        <span data-travel-tooltip-region></span>
+        <em data-travel-tooltip-status></em>
+        <code data-travel-tooltip-coords></code>
       </div>
     </div>
 
@@ -229,10 +209,13 @@ status_items、roadmap_items 和 signal_items 的格式：
       {% endfor %}
     </div>
   </section>
+  {% endif %}
 
 </section>
 
+{% if travel_globe_enabled %}
 <script src="{{ '/assets/js/travel-globe.js' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+{% endif %}
 
 <br>
 <br>

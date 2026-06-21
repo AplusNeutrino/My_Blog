@@ -1,195 +1,240 @@
 - name: 北京
+  label: 北京
   group: 中国
   lat: 39.9042
   lon: 116.4074
   visited: true
 - name: 天津
+  label: 天津
   group: 中国
   lat: 39.3434
   lon: 117.3616
   visited: true
 - name: 上海
+  label: 上海
   group: 中国
   lat: 31.2304
   lon: 121.4737
   visited: true
 - name: 重庆
+  label: 重庆
   group: 中国
   lat: 29.563
   lon: 106.5516
   visited: true
 - name: 黑龙江
+  label: 哈尔滨
   group: 中国
   lat: 45.742
   lon: 126.6629
   visited: true
 - name: 吉林
+  label: 长春
   group: 中国
   lat: 43.8171
   lon: 125.3235
   visited: true
 - name: 辽宁
+  label: 沈阳
   group: 中国
   lat: 41.8057
   lon: 123.4315
   visited: true
 - name: 江苏
+  label: 南京
   group: 中国
   lat: 32.0603
   lon: 118.7969
   visited: true
 - name: 浙江
+  label: 杭州
   group: 中国
   lat: 30.2741
   lon: 120.1551
   visited: true
 - name: 安徽
+  label: 合肥
   group: 中国
   lat: 31.8206
   lon: 117.2272
   visited: true
 - name: 江西
+  label: 南昌
   group: 中国
   lat: 28.6829
   lon: 115.8582
   visited: true
 - name: 山东
+  label: 济南
   group: 中国
   lat: 36.6512
   lon: 117.1201
   visited: true
 - name: 河南
+  label: 郑州
   group: 中国
   lat: 34.7466
   lon: 113.6254
   visited: true
 - name: 湖北
+  label: 武汉
   group: 中国
   lat: 30.5928
   lon: 114.3055
   visited: true
 - name: 湖南
+  label: 长沙
   group: 中国
   lat: 28.2282
   lon: 112.9388
   visited: true
 - name: 广东
+  label: 广州
   group: 中国
   lat: 23.1291
   lon: 113.2644
   visited: true
 - name: 海南
+  label: 海口
   group: 中国
   lat: 20.044
   lon: 110.1999
   visited: true
 - name: 四川
+  label: 成都
   group: 中国
   lat: 30.5728
   lon: 104.0668
   visited: true
 - name: 云南
+  label: 昆明
   group: 中国
   lat: 25.0389
   lon: 102.7183
   visited: true
 - name: 陕西
+  label: 西安
   group: 中国
   lat: 34.3416
   lon: 108.9398
   visited: true
 - name: 甘肃
+  label: 兰州
   group: 中国
   lat: 36.0611
   lon: 103.8343
   visited: true
 - name: 青海
+  label: 西宁
   group: 中国
   lat: 36.6171
   lon: 101.7782
   visited: true
 - name: 西藏
+  label: 拉萨
   group: 中国
   lat: 29.652
   lon: 91.1721
   visited: true
 - name: 内蒙古
+  label: 呼和浩特
   group: 中国
   lat: 40.8426
   lon: 111.7492
   visited: true
 - name: 广西
+  label: 南宁
   group: 中国
   lat: 22.817
   lon: 108.3669
   visited: true
 - name: 宁夏
+  label: 银川
   group: 中国
   lat: 38.4872
   lon: 106.2309
   visited: true
-- name: 新疆
-  group: 中国
-  lat: 43.8256
-  lon: 87.6168
-  visited: false
-- name: 台湾
-  group: 中国
-  lat: 25.033
-  lon: 121.5654
-  visited: false
-- name: 福建
-  group: 中国
-  lat: 26.0745
-  lon: 119.2965
-  visited: false
-- name: 贵州
-  group: 中国
-  lat: 26.647
-  lon: 106.6302
-  visited: false
-- name: 河北
-  group: 中国
-  lat: 38.0428
-  lon: 114.5149
-  visited: false
-- name: 山西
-  group: 中国
-  lat: 37.8706
-  lon: 112.5489
-  visited: false
+- name: 纽约
+  label: New York
+  group: 美国
+  lat: 40.7128
+  lon: -74.006
+  visited: true
+- name: 华盛顿
+  label: Washington, D.C.
+  group: 美国
+  lat: 38.9072
+  lon: -77.0369
+  visited: true
+- name: 波士顿
+  label: Boston
+  group: 美国
+  lat: 42.3601
+  lon: -71.0589
+  visited: true
+- name: 旧金山
+  label: San Francisco
+  group: 美国
+  lat: 37.7749
+  lon: -122.4194
+  visited: true
+- name: 拉斯维加斯
+  label: Las Vegas
+  group: 美国
+  lat: 36.1699
+  lon: -115.1398
+  visited: true
+- name: 盐湖城
+  label: Salt Lake City
+  group: 美国
+  lat: 40.7608
+  lon: -111.891
+  visited: true
+- name: 洛杉矶
+  label: Los Angeles
+  group: 美国
+  lat: 34.0522
+  lon: -118.2437
+  visited: true
 - name: 英国
+  label: London
   group: 欧洲
-  lat: 54.7024
-  lon: -3.2766
+  lat: 51.5074
+  lon: -0.1278
   visited: true
 - name: 法国
+  label: Paris
   group: 欧洲
-  lat: 46.2276
-  lon: 2.2137
+  lat: 48.8566
+  lon: 2.3522
   visited: true
 - name: 德国
+  label: Berlin
   group: 欧洲
-  lat: 51.1657
-  lon: 10.4515
+  lat: 52.52
+  lon: 13.405
   visited: true
 - name: 比利时
+  label: Brussels
   group: 欧洲
-  lat: 50.5039
-  lon: 4.4699
+  lat: 50.8503
+  lon: 4.3517
   visited: true
 - name: 卢森堡
+  label: Luxembourg
   group: 欧洲
-  lat: 49.8153
-  lon: 6.1296
+  lat: 49.6116
+  lon: 6.1319
   visited: true
 - name: 荷兰
+  label: Amsterdam
   group: 欧洲
-  lat: 52.1326
-  lon: 5.2913
+  lat: 52.3676
+  lon: 4.9041
   visited: true
 - name: 瑞士
+  label: Bern
   group: 欧洲
-  lat: 46.8182
-  lon: 8.2275
+  lat: 46.948
+  lon: 7.4474
   visited: true
