@@ -1172,7 +1172,23 @@ assets/js/travel-globe.js
 assets/css/ChirpyDefault.css
 ```
 
-严肃注意：当前 `地理记忆球` 只绘制经纬网和地点点位，不绘制国界、省界、海岸线或台海等边界线。以后如果要增加中国地图、中国边界、行政区边界、南海诸岛、台湾相关边界或任何国界/省界可视化，不要使用第三方随手下载的 GeoJSON、TopoJSON、Natural Earth、OpenStreetMap 导出边界或未经核验的数据。必须以中国自然资源部标准地图服务系统提供的标准地图/地图数据为准，并按公开地图使用场景确认是否需要地图审核或审图号。
+`地理记忆球` 支持边界线图层。边界数据源配置在：
+
+```text
+_data/travel_boundary_sources.yml
+```
+
+当前已启用的边界层：
+
+- 美国 Census Bureau TIGERweb 官方州界服务，只请求 50 个州和 District of Columbia。
+- European Commission / Eurostat GISCO Countries 2024 官方国家边界服务，只白名单显示已访欧洲国家：英国、法国、德国、比利时、卢森堡、荷兰、瑞士。
+
+```text
+https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/0
+https://gisco-services.ec.europa.eu/distribution/v2/countries/
+```
+
+严肃注意：中国地图、中国边界、行政区边界、南海诸岛、台湾相关边界或任何国界/省界可视化，不要使用第三方随手下载的 GeoJSON、TopoJSON、Natural Earth、OpenStreetMap 导出边界或未经核验的数据。必须以中国自然资源部标准地图服务系统提供的标准地图/地图数据为准，并按公开地图使用场景确认是否需要地图审核或审图号。当前中国边界源在 `_data/travel_boundary_sources.yml` 中保持 `enabled: false`，拿到官方认可数据前不要启用。
 
 官方核验入口：
 

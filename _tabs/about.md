@@ -162,16 +162,18 @@ status_items、roadmap_items 和 signal_items 的格式：
   </div>
 
   {% assign travel_places = site.data.travel_places %}
+  {% assign travel_boundary_sources = site.data.travel_boundary_sources %}
   {% assign travel_visited_places = travel_places | where: 'visited', true %}
   {% assign travel_unvisited_places = travel_places | where: 'visited', false %}
   <section class="about-travel-panel" aria-labelledby="travel-globe-title" data-travel-globe-root>
     <script type="application/json" data-travel-globe-data>{{ travel_places | jsonify }}</script>
+    <script type="application/json" data-travel-boundary-sources>{{ travel_boundary_sources | jsonify }}</script>
 
     <div class="about-travel-header">
       <div>
         <span class="about-stack-kicker">GEO MEMORY REGISTER</span>
         <h3 id="travel-globe-title">地理记忆球</h3>
-        <p class="about-travel-note">仅显示地点投影与经纬网，不绘制国界、省界、海岸线或台海等边界线。</p>
+        <p class="about-travel-note">边界层只接入可核验官方来源；中国边界等待自然资源部认可数据后启用。</p>
       </div>
 
       <div class="about-travel-stats" aria-label="漫游统计">
@@ -184,6 +186,7 @@ status_items、roadmap_items 和 signal_items 的格式：
       <div class="travel-globe-shell">
         <canvas class="travel-globe-canvas" data-travel-globe-canvas aria-label="旋转地理记忆球"></canvas>
         <div class="travel-globe-reticle" aria-hidden="true"></div>
+        <div class="travel-boundary-status" data-travel-boundary-status>边界层初始化中</div>
         <div class="travel-globe-tooltip" data-travel-globe-tooltip hidden>
           <strong data-travel-tooltip-name></strong>
           <span data-travel-tooltip-region></span>
@@ -196,8 +199,10 @@ status_items、roadmap_items 和 signal_items 的格式：
         <div class="travel-ledger-section">
           <span class="travel-ledger-label">visited nodes</span>
           <div class="travel-place-cloud">
-            {% for place in travel_visited_places %}
-              <span class="travel-place-chip is-visited" data-travel-place-index="{{ forloop.index0 }}">{{ place.name }}</span>
+            {% for place in travel_places %}
+              {% if place.visited %}
+                <span class="travel-place-chip is-visited" data-travel-place-name="{{ place.name }}">{{ place.name }}</span>
+              {% endif %}
             {% endfor %}
           </div>
         </div>
@@ -205,9 +210,10 @@ status_items、roadmap_items 和 signal_items 的格式：
         <div class="travel-ledger-section">
           <span class="travel-ledger-label">outside current route</span>
           <div class="travel-place-cloud">
-            {% for place in travel_unvisited_places %}
-              {% assign place_index = forloop.index0 | plus: travel_visited_places.size %}
-              <span class="travel-place-chip" data-travel-place-index="{{ place_index }}">{{ place.name }}</span>
+            {% for place in travel_places %}
+              {% unless place.visited %}
+                <span class="travel-place-chip" data-travel-place-name="{{ place.name }}">{{ place.name }}</span>
+              {% endunless %}
             {% endfor %}
           </div>
         </div>

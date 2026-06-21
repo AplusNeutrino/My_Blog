@@ -6,31 +6,44 @@
   }
 
   const toNumber = (value) => Number.parseFloat(value) || 0;
+  const normalizeName = (value) => String(value || '').trim().toLowerCase();
 
   roots.forEach((root) => {
     const canvas = root.querySelector('[data-travel-globe-canvas]');
     const dataNode = root.querySelector('[data-travel-globe-data]');
+    const sourceNode = root.querySelector('[data-travel-boundary-sources]');
     const tooltip = root.querySelector('[data-travel-globe-tooltip]');
-    const listItems = Array.from(root.querySelectorAll('[data-travel-place-index]'));
+    const statusNode = root.querySelector('[data-travel-boundary-status]');
+    const listItems = Array.from(root.querySelectorAll('[data-travel-place-name]'));
 
-    if (!canvas || !dataNode || !tooltip) {
+    if (!canvas || !dataNode || !sourceNode || !tooltip) {
       return;
     }
 
     let places = [];
+    let sources = [];
 
     try {
-      places = JSON.parse(dataNode.textContent || '[]').map((place, index) => ({
+      places = JSON.parse(dataNode.textContent || '[]').map((place) => ({
         ...place,
-        index,
         lat: toNumber(place.lat),
         lon: toNumber(place.lon),
         visited: place.visited === true
       }));
+      sources = JSON.parse(sourceNode.textContent || '[]');
     } catch (error) {
-      console.warn('[travel-globe] invalid place data', error);
+      console.warn('[travel-globe] invalid JSON data', error);
       return;
     }
+
+    const visitedNames = new Set(
+      places
+        .filter((place) => place.visited)
+        .map((place) => normalizeName(place.name))
+    );
+    const placeGroups = new Map(
+      places.map((place) => [normalizeName(place.name), place.group || '未分组'])
+    );
 
     const ctx = canvas.getContext('2d');
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -44,8 +57,9 @@
       centerLon: 82,
       lastTime: 0,
       pointerInside: false,
-      highlightedIndex: null,
-      projected: []
+      highlightedName: null,
+      boundaries: [],
+      projectedBoundaries: []
     };
 
     const getVar = (name, fallback) => {
@@ -57,8 +71,7 @@
       text: getVar('--heading-color', '#d8dee9'),
       muted: getVar('--text-muted-color', '#8f9baa'),
       border: getVar('--main-border-color', 'rgba(255,255,255,.14)'),
-      accent: getVar('--link-color', '#58a6ff'),
-      panel: getVar('--card-bg', '#11151b')
+      accent: getVar('--link-color', '#58a6ff')
     });
 
     const resize = () => {
@@ -95,6 +108,8 @@
       ctx.strokeStyle = color;
       ctx.globalAlpha = alpha;
       ctx.lineWidth = width;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
       ctx.beginPath();
 
       let drawing = false;
@@ -126,7 +141,7 @@
           points.push(project(lat, lon));
         }
 
-        drawSegmentedLine(points, palette.border, lat === 0 ? 0.36 : 0.2, lat === 0 ? 1.2 : 1);
+        drawSegmentedLine(points, palette.border, lat === 0 ? 0.3 : 0.16, lat === 0 ? 1.1 : 0.8);
       }
 
       for (let lon = -180; lon < 180; lon += 30) {
@@ -136,40 +151,153 @@
           points.push(project(lat, lon));
         }
 
-        drawSegmentedLine(points, palette.border, 0.18, 1);
+        drawSegmentedLine(points, palette.border, 0.14, 0.8);
       }
     };
 
-    const drawPoint = (point, place, palette) => {
-      if (!point.visible) {
-        return;
+    const coordinatesToRings = (geometry) => {
+      if (!geometry) {
+        return [];
       }
 
-      const isHighlighted = place.index === state.highlightedIndex;
-      const baseRadius = place.visited ? 3.7 : 2.6;
-      const radius = isHighlighted ? baseRadius + 2.4 : baseRadius;
-      const color = place.visited ? palette.accent : palette.muted;
-
-      ctx.save();
-      ctx.globalAlpha = place.visited ? 0.96 : 0.42;
-      ctx.fillStyle = color;
-      ctx.shadowColor = color;
-      ctx.shadowBlur = place.visited ? 12 : 0;
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      if (place.visited || isHighlighted) {
-        ctx.globalAlpha = isHighlighted ? 0.46 : 0.22;
-        ctx.shadowBlur = 0;
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, radius + 5.5, 0, Math.PI * 2);
-        ctx.stroke();
+      if (geometry.type === 'Polygon') {
+        return geometry.coordinates;
       }
 
-      ctx.restore();
+      if (geometry.type === 'MultiPolygon') {
+        return geometry.coordinates.flat();
+      }
+
+      return [];
+    };
+
+    const shouldUseFeature = (feature, source) => {
+      const properties = feature.properties || {};
+      const codeProperty = source.code_property;
+      const includeCodes = Array.isArray(source.include_codes) ? source.include_codes.map(String) : [];
+
+      if (!codeProperty || !includeCodes.length) {
+        return true;
+      }
+
+      return includeCodes.includes(String(properties[codeProperty] || ''));
+    };
+
+    const normalizeFeature = (feature, source) => {
+      const properties = feature.properties || {};
+      const code = source.code_property ? String(properties[source.code_property] || '') : '';
+      const overrides = source.name_overrides || {};
+      const name =
+        overrides[code] ||
+        properties[source.name_property] ||
+        properties.NAME ||
+        properties.name ||
+        properties.NL_NAME_1 ||
+        properties.CNTR_NAME ||
+        properties.GEOID ||
+        source.name;
+      const normalized = normalizeName(name);
+
+      return {
+        id: `${source.id}-${properties.GEOID || properties.STUSAB || code || normalized}`,
+        name,
+        normalizedName: normalized,
+        region: source.region || placeGroups.get(normalized) || '未分组',
+        sourceName: source.source_name || source.name,
+        sourceUrl: source.source_url || '',
+        official: source.official === true,
+        visited: visitedNames.has(normalized),
+        rings: coordinatesToRings(feature.geometry).map((ring) =>
+          ring
+            .map(([lon, lat]) => [toNumber(lon), toNumber(lat)])
+            .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat))
+        )
+      };
+    };
+
+    const loadBoundarySources = async () => {
+      const enabledSources = sources.filter((source) => source.enabled && source.data_url);
+      const pendingSources = sources.filter((source) => !source.enabled && source.status === 'pending_official_source');
+
+      if (statusNode) {
+        statusNode.textContent = enabledSources.length
+          ? `边界层加载中：${enabledSources.map((source) => source.name).join(' / ')}`
+          : '暂无启用边界层';
+      }
+
+      const loaded = [];
+
+      for (const source of enabledSources) {
+        try {
+          const response = await fetch(source.data_url, { mode: 'cors' });
+
+          if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+          }
+
+          const geojson = await response.json();
+          const features = Array.isArray(geojson.features) ? geojson.features : [];
+          loaded.push(
+            ...features
+              .filter((feature) => shouldUseFeature(feature, source))
+              .map((feature) => normalizeFeature(feature, source))
+          );
+        } catch (error) {
+          console.warn(`[travel-globe] boundary source failed: ${source.name}`, error);
+        }
+      }
+
+      state.boundaries = loaded.filter((boundary) => boundary.rings.some((ring) => ring.length > 1));
+
+      if (statusNode) {
+        const loadedText = state.boundaries.length
+          ? `${state.boundaries.length} 条官方边界已接入`
+          : '边界层未加载成功';
+        const pendingText = pendingSources.length
+          ? `；${pendingSources.map((source) => source.region).join(' / ')}边界待官方数据`
+          : '';
+        statusNode.textContent = `${loadedText}${pendingText}`;
+      }
+    };
+
+    const projectBoundary = (boundary) => ({
+      boundary,
+      rings: boundary.rings.map((ring) =>
+        ring.map(([lon, lat], index) => {
+          const previous = index > 0 ? ring[index - 1] : null;
+          const split = previous ? Math.abs(lon - previous[0]) > 120 : false;
+          return { ...project(lat, lon), lon, lat, split };
+        })
+      )
+    });
+
+    const drawBoundary = (projected, palette) => {
+      const { boundary, rings } = projected;
+      const isHighlighted = boundary.normalizedName === state.highlightedName;
+      const color = isHighlighted || boundary.visited ? palette.accent : palette.muted;
+      const alpha = isHighlighted ? 0.95 : boundary.visited ? 0.72 : 0.34;
+      const width = isHighlighted ? 2.2 : boundary.visited ? 1.35 : 0.72;
+
+      rings.forEach((ring) => {
+        const segments = [];
+        let current = [];
+
+        ring.forEach((point) => {
+          if (point.split) {
+            if (current.length > 1) {
+              segments.push(current);
+            }
+            current = [];
+          }
+          current.push(point);
+        });
+
+        if (current.length > 1) {
+          segments.push(current);
+        }
+
+        segments.forEach((segment) => drawSegmentedLine(segment, color, alpha, width));
+      });
     };
 
     const draw = (time = 0) => {
@@ -195,43 +323,35 @@
       ctx.fillStyle = 'rgba(255, 255, 255, 0.022)';
       ctx.fill();
       ctx.strokeStyle = palette.border;
-      ctx.globalAlpha = 0.74;
+      ctx.globalAlpha = 0.72;
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.restore();
 
       drawGrid(palette);
 
-      state.projected = places.map((place) => ({
-        place,
-        point: project(place.lat, place.lon)
-      }));
-
-      state.projected
-        .slice()
-        .sort((a, b) => a.point.z - b.point.z)
-        .forEach(({ point, place }) => drawPoint(point, place, palette));
+      state.projectedBoundaries = state.boundaries.map(projectBoundary);
+      state.projectedBoundaries.forEach((projected) => drawBoundary(projected, palette));
 
       requestAnimationFrame(draw);
     };
 
-    const setTooltip = (place, point, clientX, clientY) => {
-      if (!place || !point || !point.visible) {
+    const setTooltip = (boundary, clientX, clientY) => {
+      if (!boundary) {
         tooltip.hidden = true;
         return;
       }
 
       const rect = root.getBoundingClientRect();
-      const x = Math.min(rect.width - 178, Math.max(12, clientX - rect.left + 14));
-      const y = Math.min(rect.height - 86, Math.max(12, clientY - rect.top + 14));
+      const x = Math.min(rect.width - 210, Math.max(12, clientX - rect.left + 14));
+      const y = Math.min(rect.height - 104, Math.max(12, clientY - rect.top + 14));
 
       tooltip.style.setProperty('--travel-tooltip-x', `${x}px`);
       tooltip.style.setProperty('--travel-tooltip-y', `${y}px`);
-      tooltip.querySelector('[data-travel-tooltip-name]').textContent = place.name;
-      tooltip.querySelector('[data-travel-tooltip-region]').textContent = place.group || '未分组';
-      tooltip.querySelector('[data-travel-tooltip-status]').textContent = place.visited ? '已去过' : '未标注';
-      tooltip.querySelector('[data-travel-tooltip-coords]').textContent =
-        `${Math.abs(place.lat).toFixed(1)}°${place.lat >= 0 ? 'N' : 'S'} / ${Math.abs(place.lon).toFixed(1)}°${place.lon >= 0 ? 'E' : 'W'}`;
+      tooltip.querySelector('[data-travel-tooltip-name]').textContent = boundary.name;
+      tooltip.querySelector('[data-travel-tooltip-region]').textContent = boundary.region;
+      tooltip.querySelector('[data-travel-tooltip-status]').textContent = boundary.visited ? '已去过' : '未标注';
+      tooltip.querySelector('[data-travel-tooltip-coords]').textContent = boundary.sourceName;
       tooltip.hidden = false;
     };
 
@@ -239,35 +359,38 @@
       listItems.forEach((item) => item.classList.remove('is-active'));
     };
 
-    const highlight = (index) => {
-      state.highlightedIndex = index;
+    const highlight = (normalizedName) => {
+      state.highlightedName = normalizedName;
       clearListHighlight();
 
-      if (index !== null) {
-        const item = root.querySelector(`[data-travel-place-index="${index}"]`);
+      if (normalizedName) {
+        const item = listItems.find((node) => normalizeName(node.dataset.travelPlaceName) === normalizedName);
         item?.classList.add('is-active');
       }
     };
 
-    const nearestPlace = (event) => {
+    const nearestBoundary = (event) => {
       const rect = canvas.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
       let nearest = null;
 
-      state.projected.forEach(({ place, point }) => {
-        if (!point.visible) {
-          return;
-        }
+      state.projectedBoundaries.forEach(({ boundary, rings }) => {
+        rings.forEach((ring) => {
+          ring.forEach((point) => {
+            if (!point.visible) {
+              return;
+            }
 
-        const dx = point.x - x;
-        const dy = point.y - y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const limit = place.visited ? 15 : 11;
+            const dx = point.x - x;
+            const dy = point.y - y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance <= limit && (!nearest || distance < nearest.distance)) {
-          nearest = { place, point, distance };
-        }
+            if (distance <= 10 && (!nearest || distance < nearest.distance)) {
+              nearest = { boundary, distance };
+            }
+          });
+        });
       });
 
       return nearest;
@@ -275,7 +398,7 @@
 
     canvas.addEventListener('mousemove', (event) => {
       state.pointerInside = true;
-      const nearest = nearestPlace(event);
+      const nearest = nearestBoundary(event);
 
       if (!nearest) {
         highlight(null);
@@ -283,8 +406,8 @@
         return;
       }
 
-      highlight(nearest.place.index);
-      setTooltip(nearest.place, nearest.point, event.clientX, event.clientY);
+      highlight(nearest.boundary.normalizedName);
+      setTooltip(nearest.boundary, event.clientX, event.clientY);
     });
 
     canvas.addEventListener('mouseleave', () => {
@@ -294,10 +417,10 @@
     });
 
     listItems.forEach((item) => {
-      const index = Number.parseInt(item.dataset.travelPlaceIndex || '', 10);
+      const normalizedName = normalizeName(item.dataset.travelPlaceName);
 
       item.addEventListener('mouseenter', () => {
-        highlight(index);
+        highlight(normalizedName);
       });
 
       item.addEventListener('mouseleave', () => {
@@ -310,6 +433,7 @@
     }).observe(canvas);
 
     resize();
+    loadBoundarySources();
     requestAnimationFrame(draw);
   });
 })();

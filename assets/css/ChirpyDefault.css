@@ -1145,13 +1145,29 @@
   height: 100%;
 }
 
+.travel-boundary-status {
+  position: absolute;
+  left: 0.82rem;
+  right: 0.82rem;
+  bottom: 0.82rem;
+  z-index: 2;
+  padding: 0.44rem 0.56rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.28rem;
+  background: rgba(13, 17, 23, 0.64);
+  color: var(--text-muted-color);
+  font-size: 0.68rem;
+  line-height: 1.38;
+  pointer-events: none;
+}
+
 .travel-globe-tooltip {
   position: absolute;
   z-index: 3;
   left: var(--travel-tooltip-x, 1rem);
   top: var(--travel-tooltip-y, 1rem);
-  min-width: 10.25rem;
-  max-width: 13.5rem;
+  min-width: 12rem;
+  max-width: 16rem;
   padding: 0.62rem 0.68rem;
   border: 1px solid var(--main-border-color);
   border-radius: 0.38rem;
