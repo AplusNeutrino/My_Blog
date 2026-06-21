@@ -165,7 +165,7 @@ status_items、roadmap_items 和 signal_items 的格式：
   GEO MEMORY PANEL SWITCH
   Set travel_globe_enabled to false to hide the entire globe panel while keeping the code/data in place.
   {% endcomment %}
-  {% assign travel_globe_enabled = true %}
+  {% assign travel_globe_enabled = false %}
 
   {% if travel_globe_enabled %}
   {% assign travel_places = site.data.travel_places %}
