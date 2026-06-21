@@ -886,6 +886,51 @@ posts/2026/example/cover.jpg
 
 图片一定写 alt 文本，方便搜索、辅助阅读和后续维护。
 
+### 3.4.1 嵌入式插图
+
+站点现在支持类似 Sinister Design 文章里的“文字环绕插图”：图片不再必须单独占一整段，而是可以浮动在正文左侧或右侧，让段落文字自然绕排。
+
+实现文件：
+
+```text
+_includes/inline-image.html
+assets/css/ChirpyDefault.css
+```
+
+右侧嵌入图：
+
+```liquid
+{% include inline-image.html
+  src="/assets/img/posts/example.jpg"
+  alt="图片说明"
+  align="right"
+%}
+```
+
+左侧嵌入图：
+
+```liquid
+{% include inline-image.html
+  src="/assets/img/posts/example.jpg"
+  alt="图片说明"
+  align="left"
+%}
+```
+
+带原图链接和说明文字：
+
+```liquid
+{% include inline-image.html
+  src="/assets/img/posts/example.jpg"
+  href="/assets/img/posts/example.jpg"
+  alt="图片说明"
+  caption="可选图片说明。"
+  align="right"
+%}
+```
+
+使用时把 include 放在要绕排的段落前面。桌面端图片会浮动到一侧；窄屏下会自动恢复为整宽图片，避免正文太窄。
+
 图片资产约定：
 
 - `assets/img/logo.png` 和 favicon 系列保留在仓库中。
@@ -1180,15 +1225,20 @@ _data/travel_boundary_sources.yml
 
 当前已启用的边界层：
 
-- 美国 Census Bureau TIGERweb 官方州界服务，只请求 50 个州和 District of Columbia。
-- European Commission / Eurostat GISCO Countries 2024 官方国家边界服务，只白名单显示已访欧洲国家：英国、法国、德国、比利时、卢森堡、荷兰、瑞士。
+- 中国省界使用天地图国家标准矢量地图，经 GeoJSON.cn 转换分发并缓存到本仓库，审图号 `GS(2024)0650`，坐标系 `CGCS2000 / EPSG:4490`。
+- 全球国家边界使用 European Commission / Eurostat GISCO Countries 2024 官方数据并缓存到本仓库；其中中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
+- 美国州界使用 PublicaMundi MappingAPI 的 `us-states` GeoJSON 并缓存到本仓库；这是中国之外地图层的非官方公开源。
 
 ```text
-https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/0
+assets/data/tianditu-china-provinces.geojson
+assets/data/gisco-countries-2024-20m.geojson
+assets/data/us-states-publicamundi.geojson
+https://geojson.cn/data/file/Tiandi_China
 https://gisco-services.ec.europa.eu/distribution/v2/countries/
+https://github.com/PublicaMundi/MappingAPI
 ```
 
-严肃注意：中国地图、中国边界、行政区边界、南海诸岛、台湾相关边界或任何国界/省界可视化，不要使用第三方随手下载的 GeoJSON、TopoJSON、Natural Earth、OpenStreetMap 导出边界或未经核验的数据。必须以中国自然资源部标准地图服务系统提供的标准地图/地图数据为准，并按公开地图使用场景确认是否需要地图审核或审图号。当前中国边界源在 `_data/travel_boundary_sources.yml` 中保持 `enabled: false`，拿到官方认可数据前不要启用。
+严肃注意：中国地图、中国边界、行政区边界、南海诸岛、台湾相关边界或任何国界/省界可视化，不要使用第三方随手下载的 GeoJSON、TopoJSON、Natural Earth、OpenStreetMap 导出边界或未经核验的数据。当前中国边界层来自天地图国家标准矢量地图的本地缓存，不要手动改动边界坐标；如需升级数据，只能替换为带明确来源、审图号和坐标系说明的新版本。
 
 官方核验入口：
 

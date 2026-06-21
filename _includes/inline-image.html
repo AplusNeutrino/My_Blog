@@ -1,0 +1,25 @@
+{%- assign inline_align = include.align | default: "right" -%}
+{%- assign inline_class = "inline-illustration" -%}
+{%- if inline_align == "left" -%}
+  {%- assign inline_class = inline_class | append: " inline-left" -%}
+{%- endif -%}
+{%- if include.class -%}
+  {%- assign inline_class = inline_class | append: " " | append: include.class -%}
+{%- endif -%}
+
+<figure class="{{ inline_class }}">
+  {%- if include.href -%}
+    <a href="{{ include.href | relative_url }}">
+  {%- endif -%}
+  <img
+    src="{{ include.src | relative_url }}"
+    alt="{{ include.alt | default: '' | escape }}"
+    decoding="async"
+  >
+  {%- if include.href -%}
+    </a>
+  {%- endif -%}
+  {%- if include.caption -%}
+    <figcaption>{{ include.caption }}</figcaption>
+  {%- endif -%}
+</figure>

@@ -173,7 +173,7 @@ status_items、roadmap_items 和 signal_items 的格式：
       <div>
         <span class="about-stack-kicker">GEO MEMORY REGISTER</span>
         <h3 id="travel-globe-title">地理记忆球</h3>
-        <p class="about-travel-note">边界层只接入可核验官方来源；中国边界等待自然资源部认可数据后启用。</p>
+        <p class="about-travel-note">中国省界使用天地图标准矢量数据本地缓存；其他边界层只接入可核验官方来源。</p>
       </div>
 
       <div class="about-travel-stats" aria-label="漫游统计">
@@ -218,6 +218,15 @@ status_items、roadmap_items 和 signal_items 的格式：
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="travel-source-note" aria-label="边界数据来源">
+      <span>边界数据来源</span>
+      {% for source in travel_boundary_sources %}
+        {% if source.enabled %}
+          <a href="{{ source.source_url }}" target="_blank" rel="noopener noreferrer">{{ source.name }}：{{ source.source_name }}</a>
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 

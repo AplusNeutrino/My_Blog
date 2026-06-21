@@ -6,7 +6,16 @@
   }
 
   const toNumber = (value) => Number.parseFloat(value) || 0;
-  const normalizeName = (value) => String(value || '').trim().toLowerCase();
+  const normalizeName = (value) =>
+    String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/特别行政区$/u, '')
+      .replace(/维吾尔自治区$/u, '')
+      .replace(/壮族自治区$/u, '')
+      .replace(/回族自治区$/u, '')
+      .replace(/自治区$/u, '')
+      .replace(/[省市]$/u, '');
 
   roots.forEach((root) => {
     const canvas = root.querySelector('[data-travel-globe-canvas]');
@@ -175,12 +184,18 @@
       const properties = feature.properties || {};
       const codeProperty = source.code_property;
       const includeCodes = Array.isArray(source.include_codes) ? source.include_codes.map(String) : [];
+      const excludeCodes = Array.isArray(source.exclude_codes) ? source.exclude_codes.map(String) : [];
+      const code = codeProperty ? String(properties[codeProperty] || '') : '';
+
+      if (codeProperty && excludeCodes.includes(code)) {
+        return false;
+      }
 
       if (!codeProperty || !includeCodes.length) {
         return true;
       }
 
-      return includeCodes.includes(String(properties[codeProperty] || ''));
+      return includeCodes.includes(code);
     };
 
     const normalizeFeature = (feature, source) => {
