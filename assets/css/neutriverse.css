@@ -48,7 +48,7 @@ html[data-mode='light'] {
   --sidebar-btn-bg: var(--neutriverse-sidebar-button-bg);
   --sidebar-btn-color: var(--neutriverse-sidebar-button-text);
   --avatar-border-color: var(--neutriverse-accent);
-  --blockquote-border-color: var(--neutriverse-primary);
+  --blockquote-border-color: var(--neutriverse-border);
   --blockquote-text-color: var(--neutriverse-text);
   --code-header-text-color: var(--neutriverse-muted);
   --code-header-muted-color: var(--neutriverse-muted);
@@ -223,7 +223,7 @@ a:hover {
 }
 
 .content blockquote {
-  border-left-color: var(--neutriverse-primary);
+  border-left-color: var(--blockquote-border-color, var(--neutriverse-border));
 }
 
 .highlight,
