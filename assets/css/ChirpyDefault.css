@@ -1885,7 +1885,7 @@
 .middle-memory-translation {
   margin-top: 0.62rem;
   padding-left: 0.72rem;
-  border-left: 1px solid rgba(10, 72, 255, 0.34);
+  border-left: 1px solid var(--main-border-color);
   color: color-mix(in srgb, var(--text-muted-color) 88%, #d8d8d8);
   font-size: 0.82rem;
   line-height: 1.62;
