@@ -6,17 +6,38 @@
 {%- if include.class -%}
   {%- assign inline_class = inline_class | append: " " | append: include.class -%}
 {%- endif -%}
+{%- assign inline_src = include.src | default: "" | strip -%}
+{%- assign inline_href = include.href | default: "" | strip -%}
+{%- if page.media_subpath -%}
+  {%- assign inline_media_prefix = page.media_subpath | append: "/" -%}
+  {%- unless inline_src contains "://" -%}
+    {%- assign inline_src_original = inline_src -%}
+    {%- assign inline_src = inline_src | replace_first: inline_media_prefix, "" -%}
+    {%- assign inline_src = inline_src | replace_first: page.media_subpath, "" -%}
+    {%- if inline_src != inline_src_original -%}
+      {%- assign inline_src = inline_src | remove_first: "/" -%}
+    {%- endif -%}
+  {%- endunless -%}
+  {%- unless inline_href contains "://" -%}
+    {%- assign inline_href_original = inline_href -%}
+    {%- assign inline_href = inline_href | replace_first: inline_media_prefix, "" -%}
+    {%- assign inline_href = inline_href | replace_first: page.media_subpath, "" -%}
+    {%- if inline_href != inline_href_original -%}
+      {%- assign inline_href = inline_href | remove_first: "/" -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endif -%}
 
 <figure class="{{ inline_class }}">
-  {%- if include.href -%}
-    <a href="{{ include.href | relative_url }}">
+  {%- if inline_href != "" -%}
+    <a href="{{ inline_href | escape }}">
   {%- endif -%}
   <img
-    src="{{ include.src | relative_url }}"
+    src="{{ inline_src | escape }}"
     alt="{{ include.alt | default: '' | escape }}"
     decoding="async"
   >
-  {%- if include.href -%}
+  {%- if inline_href != "" -%}
     </a>
   {%- endif -%}
   {%- if include.caption -%}
