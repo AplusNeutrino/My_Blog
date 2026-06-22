@@ -3620,3 +3620,10 @@ body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
     margin: 1rem 0;
   }
 }
+
+.post-preview.has-preview-image .card-text.content p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3 !important;
+}
