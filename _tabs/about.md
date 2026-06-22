@@ -23,11 +23,12 @@ status_items、roadmap_items 和 signal_items 的格式：
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino状态监控' %}
-{% capture about_now_summary %}最近在迁移整理近五年散落在各个软件中的笔记资料。{% endcapture %}
+{% capture about_now_summary %}最近开始品鉴各种遗漏的精品独立佳作。
+大量游玩，大量记录。{% endcapture %}
 {% assign about_now_updated = '更新于 2026-06-22' %}
-{% assign signal_items = 'focus|中间层维护||load|63%||mode|quiet build||sync|2026-05-05' | split: '||' %}
-{% assign status_items = '学|CS技能复健||写|修订整理笔记||做|前往面试！||态|我将结束这一切' | split: '||' %}
-{% assign roadmap_items = '现在|面经持续背诵中||接下来|CS专业知识复健||稍后|读书《洛丽塔》' | split: '||' %}
+{% assign signal_items = 'focus|中间层维护||load|72%||mode|FULL OUTPUT||sync|2026-06-22' | split: '||' %}
+{% assign status_items = '学|CS技能复健||写|记录各种体验||做|VB各种小玩具||态|控制心情' | split: '||' %}
+{% assign roadmap_items = '现在|调整完善计划表||短期|CS专业知识复健||长期|品鉴更多电动' | split: '||' %}
 {% assign reading_stack_items = '《迷雾之子》|2026/05/02||《大师与玛格丽特》|2025/12/25||《阿特拉斯耸耸肩》|2025/11/21||《无限近似于青色的蓝》|2025/04/03||《诺瓦利斯作品选集》|2026/02/06||《洛丽塔》|1970/01/02||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 {% assign visual_stack_items = '《纽约提喻法》|2025/03/05||《Amadeus》|2025/04/04||《挽救计划》|2026/03/23||《全金属外壳》|2026/01/26||《斯巴达克斯》|2026/01/26||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 
