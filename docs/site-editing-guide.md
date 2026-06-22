@@ -1,4 +1,4 @@
-# Neutriverse 博客使用与修改说明
+﻿# Neutriverse 博客使用与修改说明
 
 本文档对应仓库 `AplusNeutrino/My_Blog`，说明当前 GitHub Pages 博客中各个设计要素、图标和文字信息分别来自哪里，以及如何修改。
 
@@ -364,7 +364,7 @@ recommend_images:
 
 ```text
 _config.yml
-_includes/head/custom-head.html
+docs/archive/legacy-includes/head/custom-head.html
 _data/home_popular.yml
 tools/update_home_popular.rb
 .github/workflows/update-home-popular.yml
@@ -383,7 +383,7 @@ pageviews:
 
 注意：`pageviews.provider` 要保持空白。这样网站只记录访问，不会在文章页公开显示每篇文章的浏览量。
 
-`_includes/head/custom-head.html` 只会在 production 构建且 `analytics.goatcounter.id` 有值时加载 GoatCounter 统计脚本。
+旧的 `docs/archive/legacy-includes/head/custom-head.html` 已封存，不参与当前 Chirpy head 加载；GoatCounter 脚本由主题 analytics 链处理。
 
 后续如果要把浏览量用于首页推荐，建议由 GitHub Actions 使用 GoatCounter API 读取统计数据，然后只生成 `_data/home_popular.yml` 里的 URL 排序列表。不要把 view count 数字写入仓库页面数据。
 
@@ -456,9 +456,10 @@ path: '{{ page.url | relative_url }}'
 
 截图位置：右侧 `兴趣之中` 区块。
 
-当前站点已隐藏该区块；`_includes/update-list.html` 仍保留。若以后需要恢复，可在 `_layouts/default.html` 的右侧栏 `.access` 中重新加入：
+当前站点已隐藏该区块；`docs/archive/legacy-includes/update-list.html` 仍保留。若以后需要恢复，可在 `_layouts/default.html` 的右侧栏 `.access` 中重新加入：
 
 ```liquid
+{% comment %}Restore docs/archive/legacy-includes/update-list.html to _includes/update-list.html first.{% endcomment %}
 {% include_cached update-list.html lang=lang %}
 ```
 
@@ -467,7 +468,7 @@ path: '{{ page.url | relative_url }}'
 排序主要依据文章日期和最后修改时间。相关逻辑包含：
 
 ```text
-_includes/update-list.html
+docs/archive/legacy-includes/update-list.html
 _plugins/posts-lastmod-hook.rb
 ```
 
@@ -1327,7 +1328,7 @@ assets/css/ChirpyDefault.css
 
 注意：`_data/neutriverse.yml` 现在不再保存配色。当前默认观感主要由 Chirpy 主题自己控制；`ChirpyDefault.css` 只维护新增模块的布局和少量尺寸样式。
 
-旧的高饱和测试配色保留在 `assets/css/neutriverse.css`，完整留档见：
+旧的高饱和测试配色保留在 `docs/archive/legacy-css/neutriverse.css`，完整留档见：
 
 ```text
 docs/april-fools-color-scheme.md
@@ -1822,7 +1823,7 @@ _tabs/
 _data/contact.yml
 _data/share.yml
 _data/middle_memory.yml
-_includes/head/custom-head.html
+docs/archive/legacy-includes/head/custom-head.html
 ```
 
 如果未来要深度自定义布局，再把主题模板复制到仓库中覆盖。
@@ -1975,7 +1976,7 @@ bundle exec jekyll build
 本地构建可能出现一个既有 warning：
 
 ```text
-Conflict: _site/assets/img/favicons/site.webmanifest is shared by multiple files.
+Resolved: custom manifest now uses assets/img/favicons/neutriverse.webmanifest to avoid Chirpy site.webmanifest destination conflicts.
 ```
 
 这个 warning 目前不是 fatal，不会阻止构建完成。

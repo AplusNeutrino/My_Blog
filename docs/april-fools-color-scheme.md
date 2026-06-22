@@ -1,13 +1,13 @@
-# April Fools Color Scheme
+﻿# April Fools Color Scheme
 
 This file records the deliberately vivid light-mode test palette for future reuse.
 
 ## Source
 
-Configured in:
+Archived in:
 
 ```text
-assets/css/neutriverse.css
+docs/archive/legacy-css/neutriverse.css
 ```
 
 Path:
@@ -43,7 +43,7 @@ html[data-mode='light']
 | `code_bg` | `#E0EAFF` | Inline code and code block background |
 | `shadow` | `rgba(255, 0, 128, 0.55)` | Card hover shadow |
 
-## Current CSS Variables
+## Archived CSS Variables
 
 ```css
 --neutriverse-bg: #ff1744;
