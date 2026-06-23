@@ -3798,7 +3798,7 @@ body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
 .article-content .nv-text-block .nv-text-translation,
 .content .nv-text-block .nv-text-original,
 .content .nv-text-block .nv-text-translation {
-  white-space: pre-wrap;
+  white-space: normal;
 }
 
 .post-content .nv-text-block .nv-text-translation,
