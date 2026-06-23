@@ -1,0 +1,12 @@
+{% comment %}
+  Determine TOC state and return it through variable "enable_toc".
+  Mirrors jekyll-theme-chirpy 7.5.0 so the overridden post layout can build
+  without depending on theme include resolution.
+{% endcomment %}
+
+{% assign enable_toc = false %}
+{% if site.toc and page.toc %}
+  {% if page.content contains '<h2' or page.content contains '<h3' %}
+    {% assign enable_toc = true %}
+  {% endif %}
+{% endif %}

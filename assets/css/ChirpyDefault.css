@@ -382,7 +382,7 @@ footer a:hover,
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.66)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12) 12%, rgba(0, 0, 0, 0.38) 50%, rgba(0, 0, 0, 0.78)),
     rgba(0, 0, 0, 0.24);
   pointer-events: none;
 }
@@ -822,7 +822,7 @@ footer a:hover,
   height: 2.8rem;
   border: 1px solid var(--main-border-color);
   border-radius: 50%;
-  opacity: 0.72;
+  opacity: 0.82;
 }
 
 .about-scan {
@@ -833,7 +833,7 @@ footer a:hover,
   overflow: hidden;
   border: 1px solid var(--main-border-color);
   border-radius: 0.22rem;
-  opacity: 0.64;
+  opacity: 0.74;
 }
 
 .about-bars {
@@ -848,7 +848,7 @@ footer a:hover,
   align-self: center;
   border: 1px solid var(--main-border-color);
   border-radius: 0.22rem;
-  opacity: 0.58;
+  opacity: 0.68;
 }
 
 .about-bars span {
@@ -857,7 +857,7 @@ footer a:hover,
   min-height: 0.28rem;
   margin-bottom: 0.26rem;
   background: var(--text-muted-color);
-  opacity: 0.45;
+  opacity: 0.55;
   animation: about-bars-level 2.4s ease-in-out infinite;
 }
 
@@ -900,7 +900,7 @@ footer a:hover,
   height: 0.24rem;
   border-radius: 50%;
   background: var(--text-muted-color);
-  opacity: 0.46;
+  opacity: 0.56;
 }
 
 .about-scan span {
@@ -909,7 +909,7 @@ footer a:hover,
   left: 0.38rem;
   width: 1px;
   background: var(--text-muted-color);
-  box-shadow: 0 0 0.55rem rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0.55rem rgba(255, 255, 255, 0.26);
   animation: about-scan-line 2.8s ease-in-out infinite alternate;
 }
 
@@ -964,7 +964,7 @@ footer a:hover,
   height: 0.28rem;
   border-radius: 50%;
   background: var(--link-color);
-  opacity: 0.65;
+  opacity: 0.75;
   animation: about-monitor-pulse 1.8s ease-in-out infinite;
 }
 
@@ -1028,8 +1028,8 @@ footer a:hover,
 
 .about-signal-row strong {
   color: var(--heading-color);
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 800;
   overflow-wrap: anywhere;
 }
 
@@ -1958,10 +1958,10 @@ footer a:hover,
 .post-series-item a {
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: start;
   gap: 0.45rem;
-  min-height: 2.15rem;
-  padding: 0.2rem 0.35rem;
+  min-height: 2.45rem;
+  padding: 0.32rem 0.35rem;
   border-left: 2px solid transparent;
   border-radius: 0.35rem;
   color: var(--text-color);
@@ -1978,13 +1978,20 @@ footer a:hover,
 .post-series-order {
   color: var(--text-muted-color);
   font-variant-numeric: tabular-nums;
+  line-height: 1.45;
 }
 
 .post-series-title {
+  display: -webkit-box;
   min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.post-series-date {
+  line-height: 1.45;
 }
 
 .middle-memory-entry {
@@ -3312,6 +3319,27 @@ footer a:hover,
     min-height: 16.8rem;
   }
 
+  .home-dispatch-media::after {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08) 8%, rgba(0, 0, 0, 0.42) 44%, rgba(0, 0, 0, 0.84)),
+      rgba(0, 0, 0, 0.22);
+  }
+
+  .home-dispatch-main-meta {
+    padding: 0.92rem;
+  }
+
+  .home-dispatch-main-meta h2 {
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0.3rem 0 0.35rem;
+    overflow: hidden;
+    font-size: clamp(1.35rem, 7vw, 1.72rem);
+    line-height: 1.12;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
   .home-dispatch-sublist {
     grid-template-rows: none;
     gap: 0.5rem;
@@ -3533,35 +3561,29 @@ footer a:hover,
   }
 
   .probe-module {
-    align-items: start;
+    align-items: stretch;
     height: var(--probe-visual-height, 100dvh);
     min-height: 100svh;
-    overflow-y: auto;
+    overflow: hidden;
     padding:
-      max(4.8rem, calc(var(--probe-visual-offset-top, 0px) + env(safe-area-inset-top, 0px) + 1rem))
+      max(4.1rem, calc(var(--probe-visual-offset-top, 0px) + env(safe-area-inset-top, 0px) + 0.75rem))
       0.7rem
       max(1.1rem, calc(env(safe-area-inset-bottom, 0px) + 0.9rem));
-    scrollbar-width: none;
-  }
-
-  .probe-module::-webkit-scrollbar {
-    display: none;
   }
 
   .probe-module-shell {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-height: none;
-    overflow-y: auto;
-    scrollbar-width: none;
-  }
-
-  .probe-module-shell::-webkit-scrollbar {
-    display: none;
+    max-height: 100%;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .probe-module-window {
+    flex: 1 1 auto;
     max-height: none;
+    min-height: 0;
   }
 
   .probe-module-sidecar {
@@ -3569,6 +3591,7 @@ footer a:hover,
     min-width: 0;
     margin-top: 0.55rem;
     margin-left: 0;
+    flex: 0 0 auto;
   }
 
   .probe-module-header,
@@ -3582,14 +3605,67 @@ footer a:hover,
 
   .probe-module-gates {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem;
+  }
+
+  .probe-module-gates a {
+    min-height: 3.2rem;
+    padding: 0.48rem 0.58rem;
   }
 
   .probe-module h2 {
     font-size: 1.05rem;
   }
 
+  .probe-module-search {
+    padding-top: 0.72rem;
+    padding-bottom: 0.48rem;
+  }
+
+  .probe-module-search input {
+    min-height: 2.35rem;
+  }
+
+  .probe-module-status {
+    padding-bottom: 0.52rem;
+  }
+
+  .probe-module-list {
+    min-height: 0;
+    padding-bottom: 0.9rem;
+    overflow-y: auto;
+  }
+
   .neutriverse-status.probe-status-panel {
     height: auto;
+    padding: 0.78rem;
+  }
+
+  .probe-status-panel .status-heading {
+    margin-bottom: 0.62rem;
+  }
+
+  .probe-status-panel .status-heading h2 {
+    font-size: 0.96rem;
+  }
+
+  .probe-status-panel .status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem;
+  }
+
+  .probe-status-panel .status-item {
+    min-height: 3.35rem;
+    padding: 0.52rem 0.58rem;
+  }
+
+  .probe-status-panel .status-label {
+    margin-bottom: 0.12rem;
+    font-size: 0.66rem;
+  }
+
+  .probe-status-panel .status-item strong {
+    font-size: 0.88rem;
   }
 }
 /* Occult Atlas hidden tool page */
