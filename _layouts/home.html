@@ -10,23 +10,9 @@ refactor: true
 {% assign recommend_config = site.data.home_recommend %}
 {% assign popular_config = site.data.home_popular %}
 
-{% assign main_post = nil %}
-{% assign main_url = recommend_config.main_rec | default: '' %}
-
-{% if main_url != '' %}
-  {% for post in all_visible_posts %}
-    {% if post.url == main_url %}
-      {% assign main_post = post %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
+{% assign main_post = all_pinned | first %}
 {% unless main_post %}
-  {% assign main_post = all_pinned | first %}
-  {% unless main_post %}
-    {% assign main_post = all_visible_posts | first %}
-  {% endunless %}
+  {% assign main_post = all_visible_posts | first %}
 {% endunless %}
 
 {% assign used_rec_urls = '' | split: '' %}
