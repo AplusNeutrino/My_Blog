@@ -2,6 +2,8 @@
 
 #mode-toggle {
   order: -2;
+  display: none !important;
+  pointer-events: none;
 }
 
 #sidebar .sidebar-bottom .icon-border {

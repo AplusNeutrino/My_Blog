@@ -1286,6 +1286,8 @@ friends:
 theme_mode: dark
 ```
 
+固定黑夜模式现在还有一层兜底组件：`_includes/poe-night-mode.html`。它通过 `_includes/metadata-hook.html` 注入到 `<head>`，会在移动端浏览器恢复旧页面状态、旧 `localStorage` 主题值或返回缓存时，把 `html[data-mode]` 重新锁定为 `dark`，并隐藏 `#mode-toggle`。
+
 当前站点临时固定为黑夜模式，左下角模式切换按钮会隐藏。
 
 如果以后想恢复点击切换，可以把它改回空值：

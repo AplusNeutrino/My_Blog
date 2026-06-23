@@ -1,0 +1,97 @@
+<!-- Poe Night Mode: keep Neutriverse in the dark even when mobile browsers restore old theme state. -->
+<meta name="color-scheme" content="dark">
+<meta name="supported-color-schemes" content="dark">
+<meta name="theme-color" content="#05070f">
+
+<script>
+  (() => {
+    const mode = 'dark';
+    const storageKeys = [
+      'mode',
+      'theme',
+      'theme-mode',
+      'chirpy-mode',
+      'chirpy-theme',
+      'color-scheme'
+    ];
+
+    const setStoredMode = () => {
+      storageKeys.forEach((key) => {
+        try {
+          localStorage.setItem(key, mode);
+        } catch {
+          /* Ignore storage failures in private or restricted browsers. */
+        }
+      });
+
+      try {
+        sessionStorage.setItem('mode', mode);
+      } catch {
+        /* Ignore storage failures in private or restricted browsers. */
+      }
+    };
+
+    const setMetaThemeColor = () => {
+      const metas = document.querySelectorAll('meta[name="theme-color"]');
+
+      metas.forEach((meta) => {
+        meta.setAttribute('content', '#05070f');
+      });
+    };
+
+    const applyNightMode = () => {
+      const root = document.documentElement;
+
+      root.setAttribute('data-mode', mode);
+      root.style.colorScheme = mode;
+      setMetaThemeColor();
+    };
+
+    setStoredMode();
+    applyNightMode();
+
+    const observer = new MutationObserver(() => {
+      if (document.documentElement.getAttribute('data-mode') !== mode) {
+        applyNightMode();
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-mode']
+    });
+
+    window.addEventListener('pageshow', () => {
+      setStoredMode();
+      applyNightMode();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('mode-toggle');
+
+      if (toggle) {
+        toggle.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('tabindex', '-1');
+      }
+
+      applyNightMode();
+    });
+  })();
+</script>
+
+<style>
+  :root,
+  html[data-mode='dark'] {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #main-wrapper {
+    background: #1b1b1e !important;
+  }
+
+  #mode-toggle {
+    display: none !important;
+  }
+</style>
