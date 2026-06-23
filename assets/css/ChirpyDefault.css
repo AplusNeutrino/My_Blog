@@ -3574,10 +3574,11 @@ body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
 .entry-content .inline-illustration figcaption,
 .article-content .inline-illustration figcaption,
 .content .inline-illustration figcaption {
-  margin-top: 0.45rem;
-  color: var(--text-muted-color);
-  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: rgba(226, 231, 241, 0.68);
+  font-size: 0.78rem;
   line-height: 1.35;
+  text-align: center;
 }
 
 .post-content .inline-illustration-clear,
@@ -3626,4 +3627,227 @@ body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3 !important;
+}
+
+@font-face {
+  font-family: "NV Zhi Mang Xing";
+  src: url("../fonts/chinese-display/zhimangxing/ZhiMangXing-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NV Long Cang";
+  src: url("../fonts/chinese-display/longcang/LongCang-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NV Liu Jian Mao Cao";
+  src: url("../fonts/chinese-display/liujianmaocao/LiuJianMaoCao-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NV Ma Shan Zheng";
+  src: url("../fonts/chinese-display/mashanzheng/MaShanZheng-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NV ZCOOL XiaoWei";
+  src: url("../fonts/chinese-display/zcoolxiaowei/ZCOOLXiaoWei-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+.post-content .nv-text-block,
+.entry-content .nv-text-block,
+.article-content .nv-text-block,
+.content .nv-text-block {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.05rem 1.2rem;
+  border: 1px solid rgba(0, 77, 255, 0.46);
+  border-radius: 0;
+  background: var(--nv-text-block-bg, #18191b);
+  box-shadow:
+    0 0 0 1px rgba(0, 77, 255, 0.1),
+    0 0 1.15rem rgba(0, 77, 255, 0.16);
+  color: rgba(226, 231, 241, 0.88);
+  font-family: inherit;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.post-content .nv-text-block.nv-font-script,
+.entry-content .nv-text-block.nv-font-script,
+.article-content .nv-text-block.nv-font-script,
+.content .nv-text-block.nv-font-script {
+  font-family: "Segoe Script", "Brush Script MT", "Lucida Handwriting", cursive;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.post-content .nv-text-block.nv-font-serif,
+.entry-content .nv-text-block.nv-font-serif,
+.article-content .nv-text-block.nv-font-serif,
+.content .nv-text-block.nv-font-serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.post-content .nv-text-block.nv-font-mono,
+.entry-content .nv-text-block.nv-font-mono,
+.article-content .nv-text-block.nv-font-mono,
+.content .nv-text-block.nv-font-mono {
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.92rem;
+}
+
+.post-content .nv-text-block.nv-font-cn-script,
+.entry-content .nv-text-block.nv-font-cn-script,
+.article-content .nv-text-block.nv-font-cn-script,
+.content .nv-text-block.nv-font-cn-script,
+.post-content .nv-text-block .nv-font-cn-script,
+.entry-content .nv-text-block .nv-font-cn-script,
+.article-content .nv-text-block .nv-font-cn-script,
+.content .nv-text-block .nv-font-cn-script {
+  font-family: "NV Ma Shan Zheng", cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  line-height: 1.95;
+}
+
+.post-content .nv-text-block.nv-font-cn-longcang,
+.entry-content .nv-text-block.nv-font-cn-longcang,
+.article-content .nv-text-block.nv-font-cn-longcang,
+.content .nv-text-block.nv-font-cn-longcang,
+.post-content .nv-text-block .nv-font-cn-longcang,
+.entry-content .nv-text-block .nv-font-cn-longcang,
+.article-content .nv-text-block .nv-font-cn-longcang,
+.content .nv-text-block .nv-font-cn-longcang {
+  font-family: "NV Long Cang", cursive;
+  font-size: 1.1rem;
+  line-height: 1.95;
+}
+
+.post-content .nv-text-block.nv-font-cn-zhimang,
+.entry-content .nv-text-block.nv-font-cn-zhimang,
+.article-content .nv-text-block.nv-font-cn-zhimang,
+.content .nv-text-block.nv-font-cn-zhimang,
+.post-content .nv-text-block .nv-font-cn-zhimang,
+.entry-content .nv-text-block .nv-font-cn-zhimang,
+.article-content .nv-text-block .nv-font-cn-zhimang,
+.content .nv-text-block .nv-font-cn-zhimang {
+  font-family: "NV Zhi Mang Xing", cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  line-height: 1.95;
+}
+
+.post-content .nv-text-block.nv-font-cn-maocao,
+.entry-content .nv-text-block.nv-font-cn-maocao,
+.article-content .nv-text-block.nv-font-cn-maocao,
+.content .nv-text-block.nv-font-cn-maocao,
+.post-content .nv-text-block .nv-font-cn-maocao,
+.entry-content .nv-text-block .nv-font-cn-maocao,
+.article-content .nv-text-block .nv-font-cn-maocao,
+.content .nv-text-block .nv-font-cn-maocao {
+  font-family: "NV Liu Jian Mao Cao", cursive;
+  font-size: 1.08rem;
+  line-height: 2;
+}
+
+.post-content .nv-text-block.nv-font-cn-mashan,
+.entry-content .nv-text-block.nv-font-cn-mashan,
+.article-content .nv-text-block.nv-font-cn-mashan,
+.content .nv-text-block.nv-font-cn-mashan,
+.post-content .nv-text-block .nv-font-cn-mashan,
+.entry-content .nv-text-block .nv-font-cn-mashan,
+.article-content .nv-text-block .nv-font-cn-mashan,
+.content .nv-text-block .nv-font-cn-mashan {
+  font-family: "NV Ma Shan Zheng", cursive;
+  font-size: 1.06rem;
+  line-height: 1.9;
+}
+
+.post-content .nv-text-block.nv-font-cn-xiaowei,
+.entry-content .nv-text-block.nv-font-cn-xiaowei,
+.article-content .nv-text-block.nv-font-cn-xiaowei,
+.content .nv-text-block.nv-font-cn-xiaowei,
+.post-content .nv-text-block .nv-font-cn-xiaowei,
+.entry-content .nv-text-block .nv-font-cn-xiaowei,
+.article-content .nv-text-block .nv-font-cn-xiaowei,
+.content .nv-text-block .nv-font-cn-xiaowei {
+  font-family: "NV ZCOOL XiaoWei", serif;
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.post-content .nv-text-block.nv-bilingual,
+.entry-content .nv-text-block.nv-bilingual,
+.article-content .nv-text-block.nv-bilingual,
+.content .nv-text-block.nv-bilingual {
+  cursor: help;
+  white-space: normal;
+}
+
+.post-content .nv-text-block .nv-text-original,
+.post-content .nv-text-block .nv-text-translation,
+.entry-content .nv-text-block .nv-text-original,
+.entry-content .nv-text-block .nv-text-translation,
+.article-content .nv-text-block .nv-text-original,
+.article-content .nv-text-block .nv-text-translation,
+.content .nv-text-block .nv-text-original,
+.content .nv-text-block .nv-text-translation {
+  white-space: pre-wrap;
+}
+
+.post-content .nv-text-block .nv-text-translation,
+.entry-content .nv-text-block .nv-text-translation,
+.article-content .nv-text-block .nv-text-translation,
+.content .nv-text-block .nv-text-translation {
+  display: none;
+}
+
+.post-content .nv-text-block.nv-bilingual:hover > .nv-text-original,
+.post-content .nv-text-block.nv-bilingual:focus > .nv-text-original,
+.post-content .nv-text-block.nv-bilingual:focus-within > .nv-text-original,
+.entry-content .nv-text-block.nv-bilingual:hover > .nv-text-original,
+.entry-content .nv-text-block.nv-bilingual:focus > .nv-text-original,
+.entry-content .nv-text-block.nv-bilingual:focus-within > .nv-text-original,
+.article-content .nv-text-block.nv-bilingual:hover > .nv-text-original,
+.article-content .nv-text-block.nv-bilingual:focus > .nv-text-original,
+.article-content .nv-text-block.nv-bilingual:focus-within > .nv-text-original,
+.content .nv-text-block.nv-bilingual:hover > .nv-text-original,
+.content .nv-text-block.nv-bilingual:focus > .nv-text-original,
+.content .nv-text-block.nv-bilingual:focus-within > .nv-text-original {
+  display: none;
+}
+
+.post-content .nv-text-block.nv-bilingual:hover > .nv-text-translation,
+.post-content .nv-text-block.nv-bilingual:focus > .nv-text-translation,
+.post-content .nv-text-block.nv-bilingual:focus-within > .nv-text-translation,
+.entry-content .nv-text-block.nv-bilingual:hover > .nv-text-translation,
+.entry-content .nv-text-block.nv-bilingual:focus > .nv-text-translation,
+.entry-content .nv-text-block.nv-bilingual:focus-within > .nv-text-translation,
+.article-content .nv-text-block.nv-bilingual:hover > .nv-text-translation,
+.article-content .nv-text-block.nv-bilingual:focus > .nv-text-translation,
+.article-content .nv-text-block.nv-bilingual:focus-within > .nv-text-translation,
+.content .nv-text-block.nv-bilingual:hover > .nv-text-translation,
+.content .nv-text-block.nv-bilingual:focus > .nv-text-translation,
+.content .nv-text-block.nv-bilingual:focus-within > .nv-text-translation {
+  display: block;
+}
+
+.post-content .nv-text-block.nv-align-center,
+.entry-content .nv-text-block.nv-align-center,
+.article-content .nv-text-block.nv-align-center,
+.content .nv-text-block.nv-align-center {
+  text-align: center;
+}
+
+.post-content .nv-text-block.nv-align-right,
+.entry-content .nv-text-block.nv-align-right,
+.article-content .nv-text-block.nv-align-right,
+.content .nv-text-block.nv-align-right {
+  text-align: right;
 }

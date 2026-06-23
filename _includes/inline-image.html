@@ -41,6 +41,6 @@
     </a>
   {%- endif -%}
   {%- if include.caption -%}
-    <figcaption>{{ include.caption }}</figcaption>
+    <figcaption>{{ include.caption | escape }}</figcaption>
   {%- endif -%}
 </figure>
