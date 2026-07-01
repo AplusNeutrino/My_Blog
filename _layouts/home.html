@@ -251,7 +251,7 @@ refactor: true
         <div class="home-dispatch-main-meta">
           <span class="home-dispatch-kicker">Pinned Signal</span>
           <h2>{{ main_post.title }}</h2>
-          <p>
+          <p class="home-dispatch-main-details">
             {% assign visible_post_date = main_post.display_date | default: main_post.date %}
             {% include datetime.html date=visible_post_date lang=lang %}
             {% if main_post.categories.size > 0 %}
@@ -264,6 +264,16 @@ refactor: true
 
       <div class="home-dispatch-sublist" aria-label="Recommended posts">
         {% for post in sub_recs limit: 4 %}
+          {% case forloop.index %}
+            {% when 1 %}
+              {% assign signal_score = '96' %}
+            {% when 2 %}
+              {% assign signal_score = '84' %}
+            {% when 3 %}
+              {% assign signal_score = '76' %}
+            {% else %}
+              {% assign signal_score = '68' %}
+          {% endcase %}
           <a href="{{ post.url | relative_url }}" class="home-dispatch-sub">
             <span class="home-dispatch-index">0{{ forloop.index }}</span>
             <span class="home-dispatch-sub-title">{{ post.title }}</span>
@@ -274,6 +284,11 @@ refactor: true
                 / {{ post.categories[0] }}
               {% endif %}
             </span>
+            <span class="home-dispatch-sub-signal" style="--home-sub-signal: {{ signal_score }}%;">
+              <span>SIGNAL 0{{ forloop.index }}</span>
+              <i aria-hidden="true"></i>
+              <strong>MATCH {{ signal_score }}</strong>
+            </span>
           </a>
         {% endfor %}
       </div>
@@ -282,55 +297,57 @@ refactor: true
 {% endif %}
 
 <section class="home-feed-control" aria-labelledby="home-feed-title">
-  <div class="home-feed-control-heading">
-    <p>Launch Module</p>
-    <h2 id="home-feed-title">历史观测记录</h2>
-  </div>
+  <div class="home-feed-control-rail">
+    <div class="home-feed-control-heading">
+      <p>Launch Module</p>
+      <h2 id="home-feed-title">历史观测记录</h2>
+    </div>
 
-  <div class="home-category-filter" aria-label="Filter posts by category">
-    <button type="button" class="is-active" data-home-filter="all">全部文章</button>
+    <div class="home-category-filter" aria-label="Filter posts by category">
+      <button type="button" class="is-active" data-home-filter="all">全部文章</button>
 
-    {% for primary_category in primary_categories %}
-      {% assign secondary_categories = '' | split: '' %}
-      {% for post in all_visible_posts %}
-        {% if post.categories[0] == primary_category %}
-          {% assign secondary_category = post.categories[1] | default: '' %}
-          {% if secondary_category != '' %}
-            {% unless secondary_categories contains secondary_category %}
-              {% assign secondary_categories = secondary_categories | push: secondary_category %}
-            {% endunless %}
+      {% for primary_category in primary_categories %}
+        {% assign secondary_categories = '' | split: '' %}
+        {% for post in all_visible_posts %}
+          {% if post.categories[0] == primary_category %}
+            {% assign secondary_category = post.categories[1] | default: '' %}
+            {% if secondary_category != '' %}
+              {% unless secondary_categories contains secondary_category %}
+                {% assign secondary_categories = secondary_categories | push: secondary_category %}
+              {% endunless %}
+            {% endif %}
           {% endif %}
-        {% endif %}
+        {% endfor %}
+
+        <div class="home-category-group">
+          <button type="button" data-home-filter="primary" data-category="{{ primary_category | escape }}">
+            {{ primary_category }}
+          </button>
+
+          {% if secondary_categories.size > 0 %}
+            <div class="home-category-submenu">
+              {% for secondary_category in secondary_categories %}
+                <button
+                  type="button"
+                  data-home-filter="secondary"
+                  data-category="{{ primary_category | escape }}"
+                  data-secondary="{{ secondary_category | escape }}"
+                >
+                  {{ secondary_category }}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       {% endfor %}
+    </div>
 
-      <div class="home-category-group">
-        <button type="button" data-home-filter="primary" data-category="{{ primary_category | escape }}">
-          {{ primary_category }}
-        </button>
-
-        {% if secondary_categories.size > 0 %}
-          <div class="home-category-submenu">
-            {% for secondary_category in secondary_categories %}
-              <button
-                type="button"
-                data-home-filter="secondary"
-                data-category="{{ primary_category | escape }}"
-                data-secondary="{{ secondary_category | escape }}"
-              >
-                {{ secondary_category }}
-              </button>
-            {% endfor %}
-          </div>
-        {% endif %}
-      </div>
-    {% endfor %}
+    <nav class="home-feed-pager home-feed-pager-top" data-home-pager aria-label="Launch Module pages" hidden>
+      <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
+      <span data-home-page-status>01 / 01</span>
+      <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
+    </nav>
   </div>
-
-  <nav class="home-feed-pager" data-home-pager aria-label="Launch Module pages" hidden>
-    <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
-    <span data-home-page-status>01 / 01</span>
-    <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
-  </nav>
 </section>
 
 <div id="post-list" class="flex-grow-1 px-xl-1 home-feed-list" data-home-feed-list>

@@ -6,7 +6,9 @@
 <section id="access-tags" class="middle-memory-panel">
   <h2 class="panel-heading">碎片之中</h2>
   <div class="middle-memory-entry" aria-live="polite">
+    <span class="middle-memory-label">ORIGINAL</span>
     <p class="middle-memory-text" data-middle-memory-text>正在加载中...</p>
+    <span class="middle-memory-label middle-memory-translation-label" data-middle-memory-translation-label hidden>TRANSLATION</span>
     <p class="middle-memory-translation" data-middle-memory-translation hidden></p>
   </div>
   <script type="application/json" data-middle-memory-source>
@@ -18,10 +20,11 @@
   (() => {
     const panel = document.currentScript.previousElementSibling;
     const target = panel?.querySelector('[data-middle-memory-text]');
+    const translationLabel = panel?.querySelector('[data-middle-memory-translation-label]');
     const translationTarget = panel?.querySelector('[data-middle-memory-translation]');
     const source = panel?.querySelector('[data-middle-memory-source]');
 
-    if (!target || !translationTarget || !source) {
+    if (!target || !translationLabel || !translationTarget || !source) {
       return;
     }
 
@@ -64,6 +67,7 @@
 
       if (sentences.length === 0) {
         target.textContent = fallback;
+        translationLabel.hidden = true;
         translationTarget.textContent = '';
         translationTarget.hidden = true;
         return;
@@ -75,8 +79,10 @@
 
       if (selected.translation) {
         translationTarget.textContent = selected.translation;
+        translationLabel.hidden = false;
         translationTarget.hidden = false;
       } else {
+        translationLabel.hidden = true;
         translationTarget.textContent = '';
         translationTarget.hidden = true;
       }
