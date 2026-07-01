@@ -264,16 +264,6 @@ refactor: true
 
       <div class="home-dispatch-sublist" aria-label="Recommended posts">
         {% for post in sub_recs limit: 4 %}
-          {% case forloop.index %}
-            {% when 1 %}
-              {% assign signal_score = '96' %}
-            {% when 2 %}
-              {% assign signal_score = '84' %}
-            {% when 3 %}
-              {% assign signal_score = '76' %}
-            {% else %}
-              {% assign signal_score = '68' %}
-          {% endcase %}
           <a href="{{ post.url | relative_url }}" class="home-dispatch-sub">
             <span class="home-dispatch-index">0{{ forloop.index }}</span>
             <span class="home-dispatch-sub-title">{{ post.title }}</span>
@@ -283,11 +273,6 @@ refactor: true
               {% if post.categories.size > 0 %}
                 / {{ post.categories[0] }}
               {% endif %}
-            </span>
-            <span class="home-dispatch-sub-signal" style="--home-sub-signal: {{ signal_score }}%;">
-              <span>SIGNAL 0{{ forloop.index }}</span>
-              <i aria-hidden="true"></i>
-              <strong>MATCH {{ signal_score }}</strong>
             </span>
           </a>
         {% endfor %}
@@ -343,9 +328,9 @@ refactor: true
     </div>
 
     <nav class="home-feed-pager home-feed-pager-top" data-home-pager aria-label="Launch Module pages" hidden>
-      <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
+      <button type="button" data-home-page="prev" aria-label="上一页">&#8592;</button>
       <span data-home-page-status>01 / 01</span>
-      <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
+      <button type="button" data-home-page="next" aria-label="下一页">&#8594;</button>
     </nav>
   </div>
 </section>
