@@ -2057,17 +2057,6 @@ footer a:hover,
   padding-right: 0.15rem;
 }
 
-.middle-memory-label {
-  display: block;
-  margin: 0 0 0.35rem;
-  color: color-mix(in srgb, #8fb7ff 88%, var(--heading-color));
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
 .middle-memory-text,
 .middle-memory-translation {
   margin: 0;
@@ -2083,11 +2072,6 @@ footer a:hover,
   line-height: 1.75;
 }
 
-.middle-memory-translation-label {
-  margin-top: 0.82rem;
-  color: color-mix(in srgb, var(--text-muted-color) 82%, #8fb7ff);
-}
-
 .middle-memory-translation {
   margin-top: 0.62rem;
   padding-left: 0.72rem;
@@ -2098,7 +2082,6 @@ footer a:hover,
   opacity: 0.84;
 }
 
-.middle-memory-translation-label[hidden],
 .middle-memory-translation[hidden] {
   display: none;
 }
