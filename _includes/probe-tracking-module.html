@@ -215,23 +215,32 @@
       }
     };
 
+    const queryMeetsSearchThreshold = (query) => {
+      const hanCount = (query.match(/[\u3400-\u9fff\uf900-\ufaff]/g) || []).length;
+      const alphanumericCount = (query.match(/[a-z0-9]/g) || []).length;
+
+      return hanCount >= 2 || alphanumericCount >= 4;
+    };
+
     const filterItems = () => {
       renderItems();
 
       const query = input.value.trim().toLowerCase();
       const hasQuery = query !== '';
+      const isEyeQuery = query === eyeSignal;
+      const canSearch = !hasQuery || isEyeQuery || queryMeetsSearchThreshold(query);
       let visibleCount = 0;
 
-      if (query !== eyeSignal) {
+      if (!isEyeQuery) {
         eyeSignalActive = false;
         module.classList.remove('probe-module-eye-signal');
         eyeResult.hidden = true;
       }
 
       items.forEach((item) => {
-        const matched = hasQuery
+        const matched = canSearch && (hasQuery
           ? item.dataset.probeSearch.includes(query)
-          : item.dataset.probeDefault === 'true';
+          : item.dataset.probeDefault === 'true');
         item.hidden = !matched;
 
         if (matched) {
@@ -241,16 +250,23 @@
 
       if (!hasQuery) {
         empty.textContent = 'Awaiting search signal.';
+      } else if (!canSearch) {
+        empty.textContent = 'Enter 4 letters or 2 Chinese characters to track hidden signals.';
       } else {
         empty.textContent = 'No hidden signals matched.';
       }
 
-      empty.hidden = visibleCount !== 0 || query === eyeSignal;
-      updateStatus(visibleCount, hasQuery);
+      empty.hidden = visibleCount !== 0 || isEyeQuery;
 
-      if (query === eyeSignal && !eyeSignalActive) {
+      if (hasQuery && !canSearch) {
+        status.textContent = 'Signal input below tracking threshold.';
+      } else {
+        updateStatus(visibleCount, hasQuery);
+      }
+
+      if (isEyeQuery && !eyeSignalActive) {
         triggerEyeSignal();
-      } else if (query === eyeSignal) {
+      } else if (isEyeQuery) {
         eyeResult.hidden = false;
       }
     };
