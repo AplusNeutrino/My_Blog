@@ -932,6 +932,36 @@ assets/css/ChirpyDefault.css
 
 使用时把 include 放在要绕排的段落前面。桌面端图片会浮动到一侧；窄屏下会自动恢复为整宽图片，避免正文太窄。
 
+### 3.4.2 软件发布下载页
+
+文章中需要插入自己的软件发布页时，使用独立的下载页 block。它不是普通正文链接，也不是直接下载文件，而是指向包含安装包、校验值和版本说明的发布页面。
+
+实现文件：
+
+```text
+_includes/download-page-link.html
+assets/css/ChirpyDefault.css
+```
+
+示例：
+
+```liquid
+{% include download-page-link.html
+  title="Neutriverse Writer 发布页"
+  url="https://example.com/neutriverse-writer"
+  version="v1.2.0"
+  system="Windows x64"
+  size="38.6 MB"
+  description="下载页包含安装包、便携版、校验值和版本说明。"
+%}
+```
+
+可选字段：
+
+- `label`：左上角小标签，默认 `SOFTWARE RELEASE`。
+- `action`：右下角链接文字，默认 `打开下载页`。
+- `description`：说明文字，可留空。
+
 图片资产约定：
 
 - `assets/img/logo.png` 和 favicon 系列保留在仓库中。

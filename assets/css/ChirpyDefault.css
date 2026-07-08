@@ -3906,6 +3906,219 @@ body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
   }
 }
 
+/* Software download page link block */
+.post-content .nv-download-link,
+.entry-content .nv-download-link,
+.article-content .nv-download-link,
+.content .nv-download-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
+  gap: 1.1rem;
+  margin: 1.65rem 0 1.85rem;
+  padding: 1.05rem 1.15rem 1.05rem 1.35rem;
+  border-top: 1px solid rgba(154, 164, 178, 0.2);
+  border-right: 1px solid rgba(154, 164, 178, 0.18);
+  border-bottom: 1px solid rgba(154, 164, 178, 0.2);
+  background: rgba(19, 21, 27, 0.9);
+  color: rgba(226, 231, 241, 0.9);
+}
+
+.post-content .nv-download-link::before,
+.entry-content .nv-download-link::before,
+.article-content .nv-download-link::before,
+.content .nv-download-link::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: rgba(154, 164, 178, 0.74);
+}
+
+.post-content .nv-download-link-main,
+.entry-content .nv-download-link-main,
+.article-content .nv-download-link-main,
+.content .nv-download-link-main,
+.post-content .nv-download-link-side,
+.entry-content .nv-download-link-side,
+.article-content .nv-download-link-side,
+.content .nv-download-link-side {
+  min-width: 0;
+}
+
+.post-content .nv-download-link-label,
+.entry-content .nv-download-link-label,
+.article-content .nv-download-link-label,
+.content .nv-download-link-label {
+  margin-bottom: 0.42rem;
+  color: rgba(154, 164, 178, 0.82);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.post-content .nv-download-link-title,
+.entry-content .nv-download-link-title,
+.article-content .nv-download-link-title,
+.content .nv-download-link-title {
+  clear: none;
+  margin: 0;
+  color: rgba(238, 243, 249, 0.96);
+  font-size: clamp(1.03rem, 1rem + 0.28vw, 1.2rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.38;
+}
+
+.post-content .nv-download-link-description,
+.entry-content .nv-download-link-description,
+.article-content .nv-download-link-description,
+.content .nv-download-link-description {
+  margin: 0.52rem 0 0;
+  color: rgba(205, 213, 225, 0.74);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.post-content .nv-download-link-side,
+.entry-content .nv-download-link-side,
+.article-content .nv-download-link-side,
+.content .nv-download-link-side {
+  display: grid;
+  align-content: space-between;
+  gap: 0.75rem;
+}
+
+.post-content .nv-download-link-specs,
+.entry-content .nv-download-link-specs,
+.article-content .nv-download-link-specs,
+.content .nv-download-link-specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.post-content .nv-download-link-specs > div,
+.entry-content .nv-download-link-specs > div,
+.article-content .nv-download-link-specs > div,
+.content .nv-download-link-specs > div {
+  min-width: 0;
+}
+
+.post-content .nv-download-link-specs dt,
+.entry-content .nv-download-link-specs dt,
+.article-content .nv-download-link-specs dt,
+.content .nv-download-link-specs dt {
+  margin: 0 0 0.16rem;
+  color: rgba(154, 164, 178, 0.68);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.post-content .nv-download-link-specs dd,
+.entry-content .nv-download-link-specs dd,
+.article-content .nv-download-link-specs dd,
+.content .nv-download-link-specs dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: rgba(226, 231, 241, 0.86);
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.post-content .nv-download-link-action,
+.entry-content .nv-download-link-action,
+.article-content .nv-download-link-action,
+.content .nv-download-link-action {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.15rem;
+  padding: 0.36rem 0.72rem;
+  border: 1px solid rgba(154, 164, 178, 0.34);
+  background: rgba(27, 30, 38, 0.9);
+  color: rgba(226, 231, 241, 0.9);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 150ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 150ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.post-content .nv-download-link-action:hover,
+.entry-content .nv-download-link-action:hover,
+.article-content .nv-download-link-action:hover,
+.content .nv-download-link-action:hover {
+  border-color: rgba(216, 183, 106, 0.48);
+  background: rgba(35, 34, 28, 0.92);
+  color: rgba(245, 236, 210, 0.95);
+}
+
+.post-content .nv-download-link-action:focus-visible,
+.entry-content .nv-download-link-action:focus-visible,
+.article-content .nv-download-link-action:focus-visible,
+.content .nv-download-link-action:focus-visible {
+  outline: 2px solid rgba(216, 183, 106, 0.62);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .post-content .nv-download-link,
+  .entry-content .nv-download-link,
+  .article-content .nv-download-link,
+  .content .nv-download-link {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    margin: 1.35rem 0 1.5rem;
+    padding: 0.95rem 1rem 1rem 1.15rem;
+  }
+
+  .post-content .nv-download-link-side,
+  .entry-content .nv-download-link-side,
+  .article-content .nv-download-link-side,
+  .content .nv-download-link-side {
+    align-content: start;
+  }
+
+  .post-content .nv-download-link-action,
+  .entry-content .nv-download-link-action,
+  .article-content .nv-download-link-action,
+  .content .nv-download-link-action {
+    justify-self: stretch;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .post-content .nv-download-link-specs,
+  .entry-content .nv-download-link-specs,
+  .article-content .nv-download-link-specs,
+  .content .nv-download-link-specs {
+    grid-template-columns: 1fr;
+    gap: 0.28rem;
+  }
+
+  .post-content .nv-download-link-specs > div,
+  .entry-content .nv-download-link-specs > div,
+  .article-content .nv-download-link-specs > div,
+  .content .nv-download-link-specs > div {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 0.55rem;
+    align-items: baseline;
+  }
+}
+
 .post-preview.has-preview-image .card-text.content p {
   display: -webkit-box;
   overflow: hidden;

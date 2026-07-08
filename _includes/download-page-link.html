@@ -1,0 +1,39 @@
+{%- assign download_title = include.title | default: include.name | default: "软件下载页" | strip -%}
+{%- assign download_url = include.url | default: "" | strip -%}
+{%- assign download_label = include.label | default: "SOFTWARE RELEASE" | strip -%}
+{%- assign download_action = include.action | default: "打开下载页" | strip -%}
+{%- assign download_description = include.description | default: "" | strip -%}
+{%- assign download_version = include.version | default: "待定" | strip -%}
+{%- assign download_system = include.system | default: "待定" | strip -%}
+{%- assign download_size = include.size | default: "待定" | strip -%}
+
+<section class="nv-download-link" aria-label="{{ download_title | escape }} 下载页">
+  <div class="nv-download-link-main">
+    <div class="nv-download-link-label">{{ download_label | escape }}</div>
+    <h3 class="nv-download-link-title">{{ download_title | escape }}</h3>
+    {%- if download_description != "" -%}
+      <p class="nv-download-link-description">{{ download_description | escape }}</p>
+    {%- endif -%}
+  </div>
+  <div class="nv-download-link-side">
+    <dl class="nv-download-link-specs">
+      <div>
+        <dt>版本</dt>
+        <dd>{{ download_version | escape }}</dd>
+      </div>
+      <div>
+        <dt>系统</dt>
+        <dd>{{ download_system | escape }}</dd>
+      </div>
+      <div>
+        <dt>大小</dt>
+        <dd>{{ download_size | escape }}</dd>
+      </div>
+    </dl>
+    {%- if download_url != "" -%}
+      <a class="nv-download-link-action" href="{{ download_url | escape }}" target="_blank" rel="noopener noreferrer">
+        {{ download_action | escape }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
