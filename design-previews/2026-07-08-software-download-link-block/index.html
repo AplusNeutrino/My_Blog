@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b1b1e">
+  <title>文章内软件下载链接块方向样机 | 中间层</title>
+  <link rel="stylesheet" href="../../_site/assets/css/jekyll-theme-chirpy.css">
+  <link rel="stylesheet" href="../../_site/assets/css/ChirpyDefault.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --dl-panel: color-mix(in srgb, var(--main-bg) 88%, #ffffff);
+      --dl-panel-strong: color-mix(in srgb, var(--main-bg) 82%, #ffffff);
+      --dl-border: color-mix(in srgb, var(--main-border-color) 78%, #ffffff);
+      --dl-border-blue: color-mix(in srgb, var(--neutriverse-accent) 52%, var(--main-border-color));
+      --dl-text: rgba(255, 255, 255, 0.85);
+      --dl-muted: rgba(255, 255, 255, 0.62);
+      --dl-faint: rgba(255, 255, 255, 0.42);
+      --dl-blue: color-mix(in srgb, var(--neutriverse-accent) 72%, #b9c8ff);
+      --dl-blue-soft: color-mix(in srgb, var(--neutriverse-accent) 14%, transparent);
+      --dl-code: #15171c;
+      --dl-radius: 8px;
+      --dl-ease: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    body {
+      margin: 0;
+      background: var(--main-bg);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .preview-shell {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    .preview-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 12px 0;
+      border-top: 1px solid var(--main-border-color);
+      border-bottom: 1px solid var(--main-border-color);
+      color: var(--dl-muted);
+      font-size: 0.82rem;
+    }
+
+    .preview-note strong {
+      color: var(--heading-color);
+      font-weight: 600;
+    }
+
+    .article-card {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .article-card header {
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--main-border-color);
+    }
+
+    .article-card h1 {
+      margin: 0 0 1rem;
+      color: var(--heading-color);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.16;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .article-card .post-meta {
+      color: var(--text-muted-color);
+      font-size: 0.88rem;
+    }
+
+    .content {
+      font-size: 1.02rem;
+      line-height: 1.78;
+    }
+
+    .content p {
+      margin-bottom: 1.1rem;
+    }
+
+    .variant-label {
+      margin: 2.5rem 0 0.75rem;
+      color: var(--dl-faint);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .download-block {
+      margin: 1rem 0 2.4rem;
+      color: var(--dl-text);
+    }
+
+    .download-block a {
+      text-decoration: none;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--dl-border-blue);
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--neutriverse-accent) 22%, #11151e);
+      color: rgba(255, 255, 255, 0.92) !important;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.2;
+      transition: transform 140ms var(--dl-ease), border-color 140ms var(--dl-ease), background-color 140ms var(--dl-ease);
+    }
+
+    .download-button:active {
+      transform: scale(0.98);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .download-button:hover {
+        border-color: color-mix(in srgb, var(--neutriverse-accent) 76%, #ffffff);
+        background: color-mix(in srgb, var(--neutriverse-accent) 30%, #11151e);
+      }
+    }
+
+    .download-secondary {
+      color: var(--dl-muted) !important;
+      border-bottom: 1px solid color-mix(in srgb, var(--dl-border-blue) 56%, transparent);
+      font-size: 0.86rem;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .download-secondary:hover {
+        color: var(--heading-color) !important;
+        border-bottom-color: var(--neutriverse-accent);
+      }
+    }
+
+    .dl-meta {
+      color: var(--dl-muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .dl-code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dl-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 8px;
+      border: 1px solid var(--dl-border);
+      border-radius: 999px;
+      color: var(--dl-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .dl-name {
+      color: var(--heading-color);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .dl-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .dl-title-row .dl-name {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .dl-version {
+      color: var(--dl-faint);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .download-manifest {
+      padding: 18px;
+      border: 1px solid var(--dl-border-blue);
+      border-radius: var(--dl-radius);
+      background:
+        linear-gradient(90deg, var(--dl-blue-soft), transparent 54%),
+        var(--dl-panel);
+    }
+
+    .download-manifest .manifest-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .download-manifest .dl-meta {
+      margin: 8px 0 0;
+    }
+
+    .download-manifest .manifest-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .download-checksum {
+      border: 1px solid var(--main-border-color);
+      border-radius: var(--dl-radius);
+      overflow: hidden;
+      background: var(--dl-code);
+    }
+
+    .download-checksum .checksum-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--main-border-color);
+      background: color-mix(in srgb, var(--main-bg) 82%, #ffffff);
+    }
+
+    .download-checksum .checksum-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 14px;
+    }
+
+    .download-checksum .hash-line {
+      margin-top: 8px;
+      color: var(--dl-faint);
+      font-size: 0.76rem;
+      overflow-wrap: anywhere;
+    }
+
+    .download-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.72fr);
+      border: 1px solid var(--main-border-color);
+      border-radius: var(--dl-radius);
+      background: var(--dl-panel);
+      overflow: hidden;
+    }
+
+    .download-split .split-main {
+      padding: 18px;
+      border-right: 1px solid var(--main-border-color);
+    }
+
+    .download-split .split-side {
+      display: grid;
+      gap: 10px;
+      align-content: center;
+      padding: 18px;
+      background: color-mix(in srgb, var(--main-bg) 92%, #ffffff);
+    }
+
+    .download-split .split-specs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .download-split .split-spec {
+      min-width: 0;
+      padding-top: 8px;
+      border-top: 1px solid var(--main-border-color);
+    }
+
+    .download-split .split-spec b {
+      display: block;
+      color: var(--heading-color);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .download-split .split-spec span {
+      color: var(--dl-faint);
+      font-size: 0.74rem;
+    }
+
+    .download-release {
+      padding: 0;
+      border-top: 1px solid var(--dl-border-blue);
+      border-bottom: 1px solid var(--main-border-color);
+    }
+
+    .download-release .release-row {
+      display: grid;
+      grid-template-columns: 106px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .download-release .release-channel {
+      color: var(--dl-blue);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .download-release .release-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    .download-seal {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid var(--main-border-color);
+      border-radius: var(--dl-radius);
+      background:
+        radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--neutriverse-accent) 10%, transparent), transparent 36%),
+        var(--dl-panel);
+      overflow: hidden;
+    }
+
+    .download-seal::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--dl-blue), color-mix(in srgb, var(--dl-blue) 24%, transparent));
+    }
+
+    .download-seal .seal-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-seal .seal-actions {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 9px;
+      justify-items: end;
+    }
+
+    .download-seal .seal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 767.98px) {
+      .preview-shell {
+        padding: 28px 14px 56px;
+      }
+
+      .preview-note {
+        display: block;
+      }
+
+      .preview-note span {
+        display: block;
+        margin-top: 6px;
+      }
+
+      .article-card h1 {
+        font-size: clamp(1.85rem, 10vw, 2.45rem);
+      }
+
+      .download-manifest .manifest-grid,
+      .download-checksum .checksum-body,
+      .download-split,
+      .download-seal {
+        grid-template-columns: 1fr;
+      }
+
+      .download-manifest .manifest-actions,
+      .download-seal .seal-actions {
+        align-items: stretch;
+        justify-items: stretch;
+      }
+
+      .download-split .split-main {
+        border-right: 0;
+        border-bottom: 1px solid var(--main-border-color);
+      }
+
+      .download-release .release-row,
+      .download-index .index-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .download-release .release-links,
+      .download-index .index-link {
+        justify-self: stretch;
+      }
+
+      .download-release .download-button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .download-button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+    <div class="preview-note">
+      <strong>下载链接块方向样机</strong>
+      <span>基于本地 _site 的 Chirpy/Neutriverse CSS；这是文章内插入块，不是最终发布页。</span>
+    </div>
+
+    <article class="article-card px-1" data-toc="true">
+      <header>
+        <h1>把一个软件下载入口嵌进文章正文</h1>
+        <div class="post-meta text-muted">
+          2026/07/08 · 设计预览 · 阅读记录 / 工具发布
+        </div>
+      </header>
+
+      <div class="content">
+        <p>这篇模拟文章用于检查软件下载链接在正文里的存在感。它需要比普通超链接更醒目，让读者一眼知道这里可以获取软件；但它仍然属于文章叙述的一部分，不能变成营销式首屏，也不能打断阅读节奏。</p>
+
+        <p>下面五种方案使用同一个虚拟发布物：<strong>Neutriverse Probe Console v0.4.2</strong>。下载地址、版本号、校验值和系统信息都只是展示结构用的样例，后续可以替换成真实软件信息。</p>
+
+        <div class="variant-label">Variant 01 · Manifest Block</div>
+        <section class="download-block download-manifest" aria-label="Manifest download block">
+          <div class="manifest-grid">
+            <div>
+              <div class="dl-title-row">
+                <div class="dl-name">Neutriverse Probe Console</div>
+                <div class="dl-version dl-code">v0.4.2</div>
+              </div>
+              <div class="dl-meta">Windows x64 · 38.6 MB · Signed build · SHA-256 available</div>
+            </div>
+            <div class="manifest-actions">
+              <a class="download-button" href="https://example.com/download/neutriverse-probe-console">打开下载页</a>
+              <a class="download-secondary" href="https://example.com/releases/probe-console">查看发布记录</a>
+            </div>
+          </div>
+        </section>
+
+        <p>第一种最适合短文章或教程里放一个明确入口。它像一条发布清单，有版本、平台、大小和主下载按钮，读者不用离开正文上下文就能判断是否下载。</p>
+
+        <div class="variant-label">Variant 02 · Checksum Terminal</div>
+        <section class="download-block download-checksum" aria-label="Checksum download block">
+          <div class="checksum-head">
+            <span class="dl-chip">Release Artifact</span>
+            <span class="dl-meta dl-code">probe-console_0.4.2_win64.exe</span>
+          </div>
+          <div class="checksum-body">
+            <div>
+              <div class="dl-name">Neutriverse Probe Console · Windows build</div>
+              <div class="hash-line dl-code">SHA-256 · 9f43b0c1a57d8e21a6d4cbe77f02c4a6b95e0d31a74b921c8f5c0e26a4f1c903</div>
+            </div>
+            <a class="download-button" href="https://example.com/download/neutriverse-probe-console">进入下载页</a>
+          </div>
+        </section>
+
+        <p>第二种更偏工程和归档。它把文件名与校验值放得更重，适合命令行工具、测试版构建、需要读者校验完整性的软件下载。</p>
+
+        <div class="variant-label">Variant 03 · Split Spec Panel</div>
+        <section class="download-block download-split" aria-label="Split spec download block">
+          <div class="split-main">
+            <div class="dl-title-row">
+              <div class="dl-name">Neutriverse Probe Console</div>
+              <div class="dl-version dl-code">Stable</div>
+            </div>
+            <div class="dl-meta">用于检索本地隐藏页和文章探针的桌面控制台。适合已经读完配置说明、准备实际运行的人。</div>
+            <div class="split-specs">
+              <div class="split-spec"><b class="dl-code">0.4.2</b><span>当前版本</span></div>
+              <div class="split-spec"><b>Win64</b><span>系统</span></div>
+              <div class="split-spec"><b>38.6 MB</b><span>文件大小</span></div>
+            </div>
+          </div>
+          <div class="split-side">
+            <a class="download-button" href="https://example.com/download/neutriverse-probe-console">打开下载页</a>
+            <a class="download-secondary" href="https://example.com/docs/probe-console">阅读安装说明</a>
+          </div>
+        </section>
+
+        <p>第三种信息最完整。左侧解释它是什么，右侧给动作，底部用小仪表呈现版本、平台和大小。适合软件发布文章中第一次出现下载入口的位置。</p>
+
+        <div class="variant-label">Variant 04 · Release Note Row</div>
+        <section class="download-block download-release" aria-label="Release note download block">
+          <div class="release-row">
+            <div class="release-channel">Stable</div>
+            <div>
+              <div class="dl-name">Probe Console v0.4.2 已归档</div>
+              <div class="dl-meta">修正索引刷新延迟，新增本地日志导出。适用于 Windows x64。</div>
+            </div>
+            <div class="release-links">
+              <a class="download-secondary" href="https://example.com/releases/probe-console">变更记录</a>
+              <a class="download-button" href="https://example.com/download/neutriverse-probe-console">下载页</a>
+            </div>
+          </div>
+        </section>
+
+        <p>第四种最像文章原生段落，视觉存在感最低，但仍比普通链接可靠。适合一篇文章里多次提到版本更新，或者你希望它看起来像发布记录的一行。</p>
+
+        <div class="variant-label">Variant 05 · Signal Seal</div>
+        <section class="download-block download-seal" aria-label="Signal seal download block">
+          <div class="seal-copy">
+            <div class="dl-title-row">
+              <div class="dl-name">获取 Probe Console v0.4.2</div>
+              <div class="dl-version dl-code">2026.07</div>
+            </div>
+            <div class="dl-meta">推荐给只需要一个明确入口的正文段落。信息量克制，状态感比普通按钮更强。</div>
+            <div class="seal-tags">
+              <span class="dl-chip">Windows x64</span>
+              <span class="dl-chip">Signed</span>
+              <span class="dl-chip">SHA-256</span>
+            </div>
+          </div>
+          <div class="seal-actions">
+            <a class="download-button" href="https://example.com/download/neutriverse-probe-console">打开下载页</a>
+            <a class="download-secondary" href="https://example.com/releases/probe-console">校验与历史版本</a>
+          </div>
+        </section>
+
+        <p>第五种是我认为最贴近你网站气质的方向：像一个被盖章的档案条目，既醒目，又不会把文章改造成下载页。它适合放在正式发布文章的第一处下载入口。</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
