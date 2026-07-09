@@ -1,5 +1,5 @@
 ---
-title: "丰聪耳机Toyosatomimi’s headphone v0.2.0"
+title: "丰聪耳机 Toyosatomimi’s headphone v0.2.0"
 date: 2026-07-09
 categories: [记忆碎片, 软件发布]
 tags: [东方Project, 丰聪耳神子, STT]
