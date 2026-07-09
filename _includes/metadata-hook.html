@@ -24,9 +24,38 @@
 <script>
   (() => {
     const storageKey = 'neutriverse-sidebar-collapsed';
+    const pageLayout = '{{ page.layout | default: layout.layout | default: "" | escape }}';
+    const desktopQuery = window.matchMedia('(min-width: 850px)');
 
     const applySidebarState = (collapsed) => {
       document.body.classList.toggle('site-sidebar-collapsed', collapsed);
+    };
+
+    const getAutomaticSidebarState = () => {
+      if (!desktopQuery.matches) {
+        return null;
+      }
+
+      if (pageLayout === 'post') {
+        return true;
+      }
+
+      if (pageLayout === 'home') {
+        return false;
+      }
+
+      return null;
+    };
+
+    const applyStoredOrAutomaticSidebarState = () => {
+      const automaticState = getAutomaticSidebarState();
+      if (automaticState !== null) {
+        localStorage.setItem(storageKey, automaticState ? 'true' : 'false');
+        applySidebarState(automaticState);
+        return;
+      }
+
+      applySidebarState(localStorage.getItem(storageKey) === 'true');
     };
 
     const spin = (element) => {
@@ -57,10 +86,11 @@
       recall.innerHTML = '<img src="{{ "/assets/img/logo.png" | relative_url }}" alt="">';
       document.body.appendChild(recall);
 
-      applySidebarState(localStorage.getItem(storageKey) === 'true');
+      applyStoredOrAutomaticSidebarState();
+      window.addEventListener('pageshow', applyStoredOrAutomaticSidebarState);
 
       avatar.addEventListener('click', (event) => {
-        if (!window.matchMedia('(min-width: 850px)').matches) {
+        if (!desktopQuery.matches) {
           return;
         }
 
