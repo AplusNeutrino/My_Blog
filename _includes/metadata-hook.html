@@ -38,6 +38,7 @@
   (() => {
     const storageKey = 'neutriverse-sidebar-collapsed';
     const pageLayout = '{{ page.layout | default: layout.layout | default: "" | escape }}';
+    const siteLogoUrl = '{{ "/assets/img/logo.png" | relative_url }}?v={{ site.github.build_revision | default: site.time | date: "%Y%m%d%H%M%S" }}';
     const desktopQuery = window.matchMedia('(min-width: 850px)');
     const safeStorage = {
       get(key) {
@@ -99,6 +100,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       const avatar = document.getElementById('avatar');
       const sidebar = document.getElementById('sidebar');
+      const avatarImage = avatar?.querySelector('img');
+
+      if (avatarImage) {
+        avatarImage.src = siteLogoUrl;
+      }
 
       if (document.querySelector('.occult-atlas-shell')) {
         document.body.classList.add('occult-atlas-page');
@@ -112,7 +118,7 @@
       recall.type = 'button';
       recall.className = 'site-sidebar-recall';
       recall.setAttribute('aria-label', '展开左侧栏');
-      recall.innerHTML = '<img src="{{ "/assets/img/logo.png" | relative_url }}" alt="">';
+      recall.innerHTML = `<img src="${siteLogoUrl}" alt="">`;
       document.body.appendChild(recall);
 
       applyStoredOrAutomaticSidebarState();

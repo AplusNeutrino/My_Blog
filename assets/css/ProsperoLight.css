@@ -3,11 +3,12 @@
 html[data-mode='light'],
 html[data-bs-theme='light'] {
   color-scheme: light;
+  --prospero-page-bg: #eee5ce;
   --prospero-muted: #6c7575;
   --prospero-muted-ink: #536060;
   --prospero-gold-ink: #78551d;
   --prospero-gold-on-lapis: #d1b975;
-  --main-bg: #eee5ce;
+  --main-bg: var(--prospero-page-bg);
   --mask-bg: rgba(12, 53, 77, 0.38);
   --main-border-color: #c5ad70;
   --text-color: #2c3436;
@@ -113,14 +114,14 @@ html[data-bs-theme='light'] {
 
 html[data-mode='light'] body,
 html[data-bs-theme='light'] body {
-  background-color: #eee5ce;
+  background-color: var(--prospero-page-bg);
   color: var(--text-color);
   font-family: var(--font-day-ui);
 }
 
 html[data-mode='light'] #main-wrapper,
 html[data-bs-theme='light'] #main-wrapper {
-  background-color: #eee5ce;
+  background-color: var(--prospero-page-bg);
   background-image:
     radial-gradient(circle at 86% 4%, rgba(25, 127, 147, 0.045), transparent 23rem),
     linear-gradient(90deg, rgba(173, 125, 41, 0.025), transparent 12%, transparent 88%, rgba(173, 125, 41, 0.025));
@@ -233,7 +234,7 @@ html[data-mode='light'] #sidebar #avatar,
 html[data-bs-theme='light'] #sidebar #avatar {
   position: relative;
   overflow: visible;
-  background-color: var(--main-bg);
+  background: var(--prospero-page-bg) !important;
   box-shadow: 0 0 0 2px #c5ad70, 0 0 0 5px rgba(248, 241, 221, 0.08);
 }
 
@@ -252,7 +253,9 @@ html[data-bs-theme='light'] #sidebar #avatar::before {
 
 html[data-mode='light'] #sidebar #avatar img,
 html[data-bs-theme='light'] #sidebar #avatar img {
+  display: block;
   border-radius: 50%;
+  background: var(--prospero-page-bg) !important;
 }
 
 html[data-mode='light'] #sidebar .nav-link,
@@ -292,8 +295,13 @@ html[data-bs-theme='light'] #sidebar #mode-toggle {
 html[data-mode='light'] .site-sidebar-recall,
 html[data-bs-theme='light'] .site-sidebar-recall {
   border-color: #c5ad70;
-  background: var(--main-bg);
+  background: var(--prospero-page-bg) !important;
   box-shadow: rgba(23, 68, 90, 0.16) 0 8px 22px;
+}
+
+html[data-mode='light'] .site-sidebar-recall img,
+html[data-bs-theme='light'] .site-sidebar-recall img {
+  background: var(--prospero-page-bg) !important;
 }
 
 /* Topbar, search, and common controls */
