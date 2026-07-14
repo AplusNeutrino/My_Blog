@@ -4,6 +4,7 @@ const state = {
   hoveredAstro: null,
   pinnedAstro: null,
   chartQuery: null,
+  requestQuery: null,
   history: [],
   displayFilter: {
     aspectLines: true,
@@ -12,15 +13,20 @@ const state = {
     hiddenBodies: []
   }
 };
-const assetVersion = "v36";
+const assetVersion = String(globalThis.OCCULT_ATLAS_ASSET_VERSION || "37");
 const historyStorageKey = "occult-atlas-chart-history";
 const sidebarStorageKey = "occult-atlas-sidebar-collapsed";
 const displayFilterStorageKey = "occult-atlas-display-filter";
 const apiBaseStorageKey = "occult-atlas-api-base";
 const apiBaseUrl = normalizeApiBaseUrl(
-  globalThis.OCCULT_ATLAS_API_BASE || localStorage.getItem(apiBaseStorageKey) || ""
+  globalThis.OCCULT_ATLAS_API_BASE || safeStorageGet(apiBaseStorageKey) || ""
 );
 const appBaseUrl = normalizeAppBaseUrl(globalThis.OCCULT_ATLAS_APP_BASE || ".");
+const requestTimeoutMs = 45_000;
+const serviceWakeDelayMs = 6_000;
+const mobileLayoutQuery = window.matchMedia("(max-width: 1100px)");
+let activeAstrologyRequest = null;
+let astrologyRequestSequence = 0;
 const defaultHiddenAstroBodies = ["chiron", "north-node", "south-node"];
 const defaultLocation = {
   label: "",
@@ -36,7 +42,9 @@ const elements = {
   refreshAstroButton: document.getElementById("refreshAstroButton"),
   exportChartButton: document.getElementById("exportChartButton"),
   resetToNowButton: document.getElementById("resetToNowButton"),
+  chartQueryButton: document.getElementById("chartQueryButton"),
   chartQueryForm: document.getElementById("chartQueryForm"),
+  chartFormError: document.getElementById("chartFormError"),
   chartDateTime: document.getElementById("chartDateTime"),
   chartLocationLabel: document.getElementById("chartLocationLabel"),
   chartLatitude: document.getElementById("chartLatitude"),
@@ -49,11 +57,16 @@ const elements = {
   sidebarToggle: document.getElementById("sidebarToggle"),
   chartControlToggle: document.getElementById("chartControlToggle"),
   chartControlPanel: document.getElementById("chartControlPanel"),
+  chartState: document.getElementById("chartState"),
+  chartStateMessage: document.getElementById("chartStateMessage"),
+  chartProgressRing: document.getElementById("chartProgressRing"),
+  chartRetryButton: document.getElementById("chartRetryButton"),
   aspectDisplayPanel: document.getElementById("aspectDisplayPanel"),
   aspectLinesToggle: document.getElementById("aspectLinesToggle"),
   aspectTypeFilterList: document.getElementById("aspectTypeFilterList"),
   bodyVisibilityFilterList: document.getElementById("bodyVisibilityFilterList"),
-  aspectBodyFilterList: document.getElementById("aspectBodyFilterList")
+  aspectBodyFilterList: document.getElementById("aspectBodyFilterList"),
+  mobileCollapsiblePanels: Array.from(document.querySelectorAll("[data-mobile-collapsible]"))
 };
 
 const zodiacIcons = ["aries", "taurus", "gemini", "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"];
@@ -176,8 +189,8 @@ bindEvents();
 initializeChartControls();
 initializeSidebar();
 initializeDisplayFilter();
+renderAstrology();
 loadAstrologySnapshot();
-registerServiceWorker();
 
 function bindEvents() {
   elements.sidebarToggle.addEventListener("click", () => {
@@ -191,17 +204,23 @@ function bindEvents() {
   document.addEventListener("click", (event) => {
     if (elements.chartControlPanel.hidden) return;
     if (event.target.closest(".chart-control-menu")) return;
-    setChartControlOpen(false);
+    setChartControlOpen(false, { restoreFocus: true });
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      setChartControlOpen(false);
+    if (event.key === "Escape" && !elements.chartControlPanel.hidden) {
+      setChartControlOpen(false, { restoreFocus: true });
+    } else if (event.key === "Tab" && !elements.chartControlPanel.hidden) {
+      trapChartControlFocus(event);
     }
   });
 
   elements.refreshAstroButton.addEventListener("click", () => {
     loadAstrologySnapshot(state.chartQuery);
+  });
+
+  elements.chartRetryButton.addEventListener("click", () => {
+    loadAstrologySnapshot(state.requestQuery);
   });
 
   elements.exportChartButton.addEventListener("click", () => {
@@ -212,14 +231,27 @@ function bindEvents() {
 
   elements.resetToNowButton.addEventListener("click", () => {
     setDefaultQueryValues(new Date());
-    state.chartQuery = null;
+    clearChartFormError();
     loadAstrologySnapshot();
   });
 
   elements.chartQueryForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const query = readChartQueryFromForm();
-    state.chartQuery = query;
+    clearChartFormError();
+    if (!elements.chartQueryForm.checkValidity()) {
+      elements.chartQueryForm.reportValidity();
+      setChartFormError("请填写有效的时间和经纬度。");
+      return;
+    }
+
+    let query;
+    try {
+      query = readChartQueryFromForm();
+    } catch (error) {
+      setChartFormError(error instanceof Error ? error.message : "无法读取查询条件。");
+      return;
+    }
+
     addChartHistory(query);
     loadAstrologySnapshot(query);
   });
@@ -231,21 +263,13 @@ function bindEvents() {
       deleteChartHistory(deleteButton.dataset.historyDelete);
       return;
     }
-    const row = event.target.closest("[data-history-id]");
-    if (!row) return;
-    const item = state.history.find((entry) => entry.id === row.dataset.historyId);
+    const loadButton = event.target.closest("[data-history-load]");
+    if (!loadButton) return;
+    const item = state.history.find((entry) => entry.id === loadButton.dataset.historyLoad);
     if (!item) return;
-    state.chartQuery = item.query;
     applyQueryToForm(item.query);
+    clearChartFormError();
     loadAstrologySnapshot(item.query);
-  });
-
-  elements.chartHistoryList.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    const deleteButton = event.target.closest("[data-history-delete]");
-    if (!deleteButton) return;
-    event.preventDefault();
-    deleteChartHistory(deleteButton.dataset.historyDelete);
   });
 
   elements.aspectDisplayPanel.addEventListener("change", (event) => {
@@ -481,13 +505,17 @@ function initializeChartControls() {
 }
 
 function initializeSidebar() {
-  const collapsed = localStorage.getItem(sidebarStorageKey) === "true";
-  setSidebarCollapsed(collapsed);
+  syncResponsiveLayout();
+  if (typeof mobileLayoutQuery.addEventListener === "function") {
+    mobileLayoutQuery.addEventListener("change", syncResponsiveLayout);
+  } else {
+    mobileLayoutQuery.addListener(syncResponsiveLayout);
+  }
 }
 
 function initializeDisplayFilter() {
   try {
-    const raw = localStorage.getItem(displayFilterStorageKey);
+    const raw = safeStorageGet(displayFilterStorageKey);
     const saved = raw ? JSON.parse(raw) : null;
     state.displayFilter = {
       aspectLines: saved?.aspectLines !== false,
@@ -506,7 +534,7 @@ function initializeDisplayFilter() {
 }
 
 function saveDisplayFilter() {
-  localStorage.setItem(displayFilterStorageKey, JSON.stringify(state.displayFilter));
+  safeStorageSet(displayFilterStorageKey, JSON.stringify(state.displayFilter));
 }
 
 function toggleFilterValue(key, value, hidden) {
@@ -519,41 +547,225 @@ function toggleFilterValue(key, value, hidden) {
   state.displayFilter[key] = Array.from(values);
 }
 
-function setSidebarCollapsed(collapsed) {
-  document.body.classList.toggle("sidebar-collapsed", collapsed);
-  localStorage.setItem(sidebarStorageKey, String(collapsed));
-  elements.sidebarToggle.setAttribute("aria-expanded", String(!collapsed));
-  elements.sidebarToggle.setAttribute("aria-label", collapsed ? "展开左侧星盘菜单" : "收起左侧星盘菜单");
-  elements.sidebarToggle.querySelector("span").textContent = collapsed ? "›" : "‹";
-  if (collapsed) {
+function syncResponsiveLayout() {
+  const isMobile = mobileLayoutQuery.matches;
+  document.body.classList.toggle("mobile-layout", isMobile);
+  const storedCollapsed = safeStorageGet(sidebarStorageKey) === "true";
+  setSidebarCollapsed(isMobile ? false : storedCollapsed, { persist: false });
+  elements.mobileCollapsiblePanels.forEach((panel) => {
+    panel.open = !isMobile;
+  });
+}
+
+function setSidebarCollapsed(collapsed, { persist = true } = {}) {
+  const nextCollapsed = mobileLayoutQuery.matches ? false : Boolean(collapsed);
+  document.body.classList.toggle("sidebar-collapsed", nextCollapsed);
+  if (persist && !mobileLayoutQuery.matches) {
+    safeStorageSet(sidebarStorageKey, String(nextCollapsed));
+  }
+  elements.sidebarToggle.setAttribute("aria-expanded", String(!nextCollapsed));
+  elements.sidebarToggle.setAttribute("aria-label", nextCollapsed ? "展开左侧星盘菜单" : "收起左侧星盘菜单");
+  elements.sidebarToggle.querySelector("span").textContent = nextCollapsed ? "›" : "‹";
+  if (nextCollapsed) {
     setChartControlOpen(false);
   }
 }
 
-function setChartControlOpen(open) {
+function setChartControlOpen(open, { restoreFocus = false } = {}) {
   elements.chartControlPanel.hidden = !open;
   elements.chartControlToggle.setAttribute("aria-expanded", String(open));
   document.body.classList.toggle("control-menu-open", open);
+  if (open) {
+    window.requestAnimationFrame(() => {
+      const firstControl = elements.chartControlPanel.querySelector("button, input, [tabindex='0']");
+      (firstControl || elements.chartControlPanel).focus();
+    });
+  } else if (restoreFocus) {
+    elements.chartControlToggle.focus();
+  }
+}
+
+function trapChartControlFocus(event) {
+  const focusable = Array.from(elements.chartControlPanel.querySelectorAll(
+    "button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])"
+  )).filter((element) => !element.hidden && element.offsetParent !== null);
+  if (!focusable.length) {
+    event.preventDefault();
+    elements.chartControlPanel.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
 }
 
 async function loadAstrologySnapshot(query = null) {
+  const requestId = ++astrologyRequestSequence;
+  state.requestQuery = query;
+  if (activeAstrologyRequest) {
+    activeAstrologyRequest.controller.abort();
+  }
+
+  const controller = new AbortController();
+  const request = { controller, id: requestId, timedOut: false };
+  activeAstrologyRequest = request;
+  const initialMessage = query ? "正在读取历史星盘…" : "正在连接星历服务…";
+  setChartLoadingState(initialMessage);
+  setRequestControlsDisabled(true);
+
+  const wakeTimer = window.setTimeout(() => {
+    if (activeAstrologyRequest?.id === requestId) {
+      setChartLoadingState("星历服务唤醒中，请稍候…");
+    }
+  }, serviceWakeDelayMs);
+  const timeoutTimer = window.setTimeout(() => {
+    request.timedOut = true;
+    controller.abort();
+  }, requestTimeoutMs);
+
   try {
-    elements.astroStatus.textContent = query ? "读取历史星盘..." : "读取实时星盘...";
-    const response = await fetch(buildAstrologyUrl(query), { cache: "no-store" });
+    const response = await fetch(buildAstrologyUrl(query), {
+      cache: "no-store",
+      signal: controller.signal
+    });
     if (!response.ok) {
       const payload = await safeJson(response);
-      throw new Error(payload?.message || `Astrology API returned ${response.status}`);
+      const error = new Error(payload?.message || `Astrology API returned ${response.status}`);
+      error.code = "http";
+      error.status = response.status;
+      throw error;
     }
-    state.astrology = await response.json();
+
+    let snapshot;
+    try {
+      snapshot = await response.json();
+    } catch {
+      const error = new Error("星历服务返回了无效 JSON");
+      error.code = "invalid-data";
+      throw error;
+    }
+    validateAstrologySnapshot(snapshot);
+    if (requestId !== astrologyRequestSequence) return false;
+
+    state.astrology = snapshot;
     state.astrologyError = "";
     state.hoveredAstro = null;
     state.pinnedAstro = null;
+    state.chartQuery = query;
+    clearChartRequestState();
+    renderAstrology();
+    return true;
   } catch (error) {
-    state.astrology = null;
-    state.astrologyError = error instanceof Error ? error.message : String(error);
+    if (requestId !== astrologyRequestSequence) return false;
+    if (error?.name === "AbortError" && !request.timedOut) return false;
+    const message = describeAstrologyError(error, request.timedOut);
+    state.astrologyError = message;
+    setChartErrorState(message);
+    if (!state.astrology) {
+      renderAstrology();
+      setChartErrorState(message);
+    }
+    return false;
+  } finally {
+    window.clearTimeout(wakeTimer);
+    window.clearTimeout(timeoutTimer);
+    if (activeAstrologyRequest?.id === requestId) {
+      activeAstrologyRequest = null;
+      setRequestControlsDisabled(false);
+    }
   }
+}
 
-  renderAstrology();
+function validateAstrologySnapshot(snapshot) {
+  const calculatedAt = new Date(snapshot?.calculatedAt);
+  const bodyIds = new Set();
+  const hasValidBodies = Array.isArray(snapshot?.bodies) && snapshot.bodies.length > 0 && snapshot.bodies.every((body) => {
+    const valid = body
+      && typeof body === "object"
+      && typeof body.id === "string"
+      && body.id.length > 0
+      && typeof body.name === "string"
+      && typeof body.sign === "string"
+      && Number.isFinite(body.longitude)
+      && Number.isFinite(body.signDegree);
+    if (valid) bodyIds.add(body.id);
+    return valid;
+  });
+  const hasValidAspects = Array.isArray(snapshot?.aspects) && snapshot.aspects.every((aspect) => (
+    aspect
+    && typeof aspect === "object"
+    && typeof aspect.id === "string"
+    && typeof aspect.a === "string"
+    && typeof aspect.b === "string"
+    && typeof aspect.aspect === "string"
+    && typeof aspect.aName === "string"
+    && typeof aspect.bName === "string"
+    && Number.isFinite(aspect.orb)
+    && bodyIds.has(aspect.a)
+    && bodyIds.has(aspect.b)
+  ));
+  if (!snapshot || typeof snapshot !== "object"
+    || Number.isNaN(calculatedAt.getTime())
+    || !hasValidBodies
+    || !hasValidAspects) {
+    const error = new Error("星历服务返回了无法识别的数据");
+    error.code = "invalid-data";
+    throw error;
+  }
+}
+
+function describeAstrologyError(error, timedOut) {
+  if (timedOut) return "星历服务响应超时";
+  if (navigator.onLine === false) return "当前设备离线，无法连接星历服务";
+  if (error?.code === "invalid-data") return "星历服务返回了无法识别的数据";
+  if (error?.code === "http") {
+    return Number(error.status) >= 500
+      ? `星历服务暂时不可用（HTTP ${error.status}）`
+      : `星盘请求未被接受（HTTP ${error.status}）`;
+  }
+  return "无法连接星历服务，请检查网络后重试";
+}
+
+function setChartLoadingState(message) {
+  elements.chartState.hidden = false;
+  elements.chartState.dataset.state = "loading";
+  elements.chartState.setAttribute("role", "status");
+  elements.chartProgressRing.hidden = false;
+  elements.chartRetryButton.hidden = true;
+  elements.chartStateMessage.textContent = message;
+  elements.astroStatus.textContent = message;
+}
+
+function setChartErrorState(message) {
+  elements.chartState.hidden = false;
+  elements.chartState.dataset.state = "error";
+  elements.chartState.setAttribute("role", "alert");
+  elements.chartProgressRing.hidden = true;
+  elements.chartRetryButton.hidden = false;
+  elements.chartStateMessage.textContent = message;
+  elements.astroStatus.textContent = message;
+}
+
+function clearChartRequestState() {
+  elements.chartState.hidden = true;
+  elements.chartState.removeAttribute("data-state");
+  elements.chartState.setAttribute("role", "status");
+  elements.chartProgressRing.hidden = true;
+  elements.chartRetryButton.hidden = true;
+}
+
+function setRequestControlsDisabled(disabled) {
+  elements.refreshAstroButton.disabled = disabled;
+  elements.chartQueryButton.disabled = disabled;
+  elements.resetToNowButton.disabled = disabled;
+  elements.exportChartButton.disabled = disabled || !state.astrology;
 }
 
 function buildAstrologyUrl(query) {
@@ -584,16 +796,35 @@ function setDefaultQueryValues(date) {
 
 function readChartQueryFromForm() {
   const dateValue = elements.chartDateTime.value;
-  const date = dateValue ? new Date(dateValue) : new Date();
-  const lat = Number.parseFloat(elements.chartLatitude.value || String(defaultLocation.lat));
-  const lon = Number.parseFloat(elements.chartLongitude.value || String(defaultLocation.lon));
+  const date = new Date(dateValue);
+  const lat = Number.parseFloat(elements.chartLatitude.value);
+  const lon = Number.parseFloat(elements.chartLongitude.value);
+  if (!dateValue || Number.isNaN(date.getTime())) {
+    throw new Error("请选择有效的星盘时间。");
+  }
+  if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
+    throw new Error("纬度必须位于 -90 到 90 之间。");
+  }
+  if (!Number.isFinite(lon) || lon < -180 || lon > 180) {
+    throw new Error("经度必须位于 -180 到 180 之间。");
+  }
   return {
     id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
     datetime: date.toISOString(),
     label: elements.chartLocationLabel.value.trim(),
-    lat: Number.isFinite(lat) ? lat : defaultLocation.lat,
-    lon: Number.isFinite(lon) ? lon : defaultLocation.lon
+    lat,
+    lon
   };
+}
+
+function setChartFormError(message) {
+  elements.chartFormError.textContent = message;
+  elements.chartFormError.hidden = false;
+}
+
+function clearChartFormError() {
+  elements.chartFormError.textContent = "";
+  elements.chartFormError.hidden = true;
 }
 
 function applyQueryToForm(query) {
@@ -704,21 +935,23 @@ function togglePin(type, id) {
 
 function renderAstrology() {
   if (!state.astrology) {
-    elements.astroStatus.textContent = state.astrologyError
-      ? `实时星盘不可用：${state.astrologyError}`
-      : "等待实时星盘数据...";
+    elements.astroStatus.textContent = state.astrologyError || "等待星历服务...";
     elements.astroChart.innerHTML = buildEmptyChart();
-    elements.astroPlanetTable.innerHTML = `<div class="astro-empty">启动 <code>python scripts/dev-server.py</code> 后可读取 Swiss Ephemeris 数据。</div>`;
-    elements.astroAspectList.innerHTML = "";
-    elements.astroInsight.hidden = true;
+    elements.astroPlanetTable.innerHTML = `<div class="astro-empty">星历数据尚未载入。</div>`;
+    elements.astroAspectList.innerHTML = `<div class="astro-empty">星历数据尚未载入。</div>`;
+    elements.planetCount.textContent = "0";
+    elements.aspectCount.textContent = "0";
+    renderInsight(null);
+    elements.exportChartButton.disabled = true;
     return;
   }
 
   const snapshot = state.astrology;
   const warning = snapshot.warning ? " · fallback" : "";
+  const engine = snapshot.engine || "Swiss Ephemeris";
   const visibleBodies = snapshot.bodies.filter((body) => isBodyVisible(body.id));
   const visibleAspects = snapshot.aspects.filter((aspect) => isAspectVisible(aspect));
-  elements.astroStatus.textContent = `${formatDateTime(snapshot.calculatedAt)} · ${snapshot.engine}${warning}`;
+  elements.astroStatus.textContent = `${formatDateTime(snapshot.calculatedAt)} · ${engine}${warning}`;
   elements.chartTitle.textContent = `${state.chartQuery ? "历史星盘" : "本地实时星盘"} · ${snapshot.houseSystem || "Placidus"}`;
   elements.planetCount.textContent = `${visibleBodies.length + (snapshot.angles?.length || 0)}/${snapshot.bodies.length + (snapshot.angles?.length || 0)}`;
   elements.aspectCount.textContent = `${visibleAspects.length}/${snapshot.aspects.length}`;
@@ -747,7 +980,7 @@ function renderAstrology() {
     : `<div class="astro-empty">当前过滤条件下没有可显示的相位线。</div>`;
   renderDisplayFilters(snapshot);
   elements.astroChart.innerHTML = buildAstroChart(snapshot, !state.chartQuery);
-  elements.astroInsight.hidden = false;
+  elements.exportChartButton.disabled = false;
   updateAstrologyFocus();
 }
 
@@ -758,7 +991,7 @@ function buildEmptyChart() {
       <circle class="astro-ring middle" r="190"></circle>
       <circle class="astro-ring inner" r="116"></circle>
       <text class="astro-center" y="-6">Occult Atlas</text>
-      <text class="astro-center sub" y="18">等待实时星盘数据</text>
+      <text class="astro-center sub" y="18">等待星历连接</text>
     </svg>
   `;
 }
@@ -872,7 +1105,7 @@ function buildAstroChart(snapshot, isLive = true) {
       <g>${planets}</g>
       <g>${angleLines}</g>
       <g>${signLabels}</g>
-      <text class="astro-center" y="-8">${escapeSvg(snapshot.moonPhase.name)}</text>
+      <text class="astro-center" y="-8">${escapeSvg(snapshot.moonPhase?.name || "Moon Phase")}</text>
       <text class="astro-center sub" y="16">${escapeSvg(snapshot.houseSystem || "Placidus")}</text>
     </svg>
   `;
@@ -1024,8 +1257,14 @@ function renderInsight(snapshot) {
   const hovered = snapshot?.note ? snapshot : resolveFocusedAstro(snapshot);
   if (!hovered) {
     elements.astroInsight.classList.remove("has-focus");
-    elements.astroInsight.setAttribute("aria-hidden", "true");
-    elements.astroInsight.innerHTML = "";
+    elements.astroInsight.setAttribute("aria-hidden", "false");
+    elements.astroInsight.innerHTML = `
+      <div class="insight-placeholder">
+        <p class="eyebrow">Object Focus</p>
+        <h3>等待选择</h3>
+        <p>未锁定观测对象。</p>
+      </div>
+    `;
     return;
   }
   elements.astroInsight.classList.add("has-focus");
@@ -1216,15 +1455,30 @@ function isBodyVisible(id) {
 
 function loadChartHistory() {
   try {
-    const raw = localStorage.getItem(historyStorageKey);
-    return raw ? JSON.parse(raw) : [];
+    const raw = safeStorageGet(historyStorageKey);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((entry) => isValidStoredChartEntry(entry)).slice(0, 8);
   } catch {
     return [];
   }
 }
 
 function saveChartHistory() {
-  localStorage.setItem(historyStorageKey, JSON.stringify(state.history.slice(0, 8)));
+  safeStorageSet(historyStorageKey, JSON.stringify(state.history.slice(0, 8)));
+}
+
+function isValidStoredChartEntry(entry) {
+  const query = entry?.query;
+  const date = new Date(query?.datetime);
+  return Boolean(entry?.id)
+    && !Number.isNaN(date.getTime())
+    && Number.isFinite(Number(query?.lat))
+    && Number(query.lat) >= -90
+    && Number(query.lat) <= 90
+    && Number.isFinite(Number(query?.lon))
+    && Number(query.lon) >= -180
+    && Number(query.lon) <= 180;
 }
 
 function addChartHistory(query) {
@@ -1240,9 +1494,6 @@ function addChartHistory(query) {
 
 function deleteChartHistory(id) {
   state.history = state.history.filter((entry) => entry.id !== id);
-  if (state.chartQuery && !state.history.some((entry) => sameChartQuery(entry.query, state.chartQuery))) {
-    state.chartQuery = null;
-  }
   saveChartHistory();
   renderChartHistory();
 }
@@ -1261,12 +1512,14 @@ function renderChartHistory() {
   elements.chartHistoryList.innerHTML = state.history.map((entry) => {
     const query = entry.query;
     return `
-      <button class="history-row" type="button" data-history-id="${escapeHtml(entry.id)}">
-        <span class="history-title">${escapeHtml(query.label || "未命名地点")}</span>
-        <span class="history-delete" role="button" tabindex="0" data-history-delete="${escapeHtml(entry.id)}" aria-label="删除这条历史星盘">×</span>
-        <strong>${escapeHtml(formatDateTime(query.datetime))}</strong>
-        <small>${escapeHtml(formatCoordinates(query.lat, query.lon))}</small>
-      </button>
+      <div class="history-row">
+        <button class="history-load" type="button" data-history-load="${escapeHtml(entry.id)}">
+          <span class="history-title">${escapeHtml(query.label || "未命名地点")}</span>
+          <strong>${escapeHtml(formatDateTime(query.datetime))}</strong>
+          <small>${escapeHtml(formatCoordinates(query.lat, query.lon))}</small>
+        </button>
+        <button class="history-delete" type="button" data-history-delete="${escapeHtml(entry.id)}" aria-label="删除这条历史星盘">×</button>
+      </div>
     `;
   }).join("");
 }
@@ -1276,9 +1529,10 @@ function isHovered(type, id) {
 }
 
 function iconPath(type, id) {
-  if (type === "zodiac") return `${appBaseUrl}/assets/astro-icons/zodiac-${id}.png?${assetVersion}`;
-  if (type === "aspect") return `${appBaseUrl}/assets/astro-icons/aspect-${aspectIconIds[id] || id}.png?${assetVersion}`;
-  return `${appBaseUrl}/assets/astro-icons/planet-${planetIconIds[id] || id}.png?${assetVersion}`;
+  const versionQuery = `?v=${encodeURIComponent(assetVersion)}`;
+  if (type === "zodiac") return `${appBaseUrl}/assets/astro-icons/zodiac-${id}.png${versionQuery}`;
+  if (type === "aspect") return `${appBaseUrl}/assets/astro-icons/aspect-${aspectIconIds[id] || id}.png${versionQuery}`;
+  return `${appBaseUrl}/assets/astro-icons/planet-${planetIconIds[id] || id}.png${versionQuery}`;
 }
 
 function polarPoint(radius, longitude) {
@@ -1418,9 +1672,20 @@ function escapeSvg(value) {
   return escapeHtml(value);
 }
 
-function registerServiceWorker() {
-  if ("serviceWorker" in navigator && location.protocol !== "file:") {
-    navigator.serviceWorker.register(`${appBaseUrl}/sw.js`).catch(() => {});
+function safeStorageGet(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeStorageSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
   }
 }
 

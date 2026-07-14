@@ -1,6 +1,6 @@
 ---
 title: "Occult Atlas"
-description: "Live astrology chart workbench and occult knowledge atlas."
+description: "Live and historical astrology chart workbench."
 probe_terms: "occult atlas astrology chart live sky xingpan astrology tarot"
 permalink: /occult-atlas/
 sitemap: false

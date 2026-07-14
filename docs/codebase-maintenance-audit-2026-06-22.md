@@ -1,12 +1,12 @@
-﻿# Codebase Maintenance Audit - 2026-06-22
+# Codebase Maintenance Audit - 2026-06-22
 
 Scope: Jekyll/Chirpy site repository for neutriverse.uk.
 
 ## Active runtime paths
 
 - `_includes/metadata-hook.html` is the active Chirpy head hook.
-- `_includes/metadata-hook.html` loads `assets/css/ChirpyDefault.css` with a build/version query string.
-- `assets/css/ChirpyDefault.css` is the active custom stylesheet.
+- `_includes/metadata-hook.html` loads `assets/css/NormaiNight.css` with a build/version query string.
+- `assets/css/NormaiNight.css` is the active custom stylesheet.
 - `_layouts/default.html` loads the sidebar, topbar, right panel, footer, Neutriverse labels, and Probe Tracking Module.
 - `_layouts/home.html` reads `_data/home_recommend.yml` and `_data/home_popular.yml`.
 - `_layouts/post.html` loads `_includes/post-panel-stack.html`, `_includes/post-like.html`, sharing, comments, and read time.
@@ -41,6 +41,6 @@ These files had no active runtime include/link path and were moved out of live a
 
 ## Deferred cleanup candidates
 
-- `assets/css/ChirpyDefault.css` is large and mixes multiple modules. Split only when there is time to verify final load order across home, post, About, Probe, links, and occult atlas pages.
+- `assets/css/NormaiNight.css` is large and mixes multiple modules. Split only when there is time to verify final load order across home, post, About, Probe, links, and occult atlas pages.
 - `_layouts/home.html` repeats image URL normalization logic for front matter images, markdown images, and HTML images. This can be extracted later, but Liquid include refactors should be tested with representative posts.
 - Documentation still contains historical sections. Keep them, but prefer pointing to archived paths when they describe non-runtime files.

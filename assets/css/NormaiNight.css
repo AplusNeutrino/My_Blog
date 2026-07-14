@@ -3849,53 +3849,6 @@ footer a:hover,
     font-size: 0.88rem;
   }
 }
-/* Occult Atlas hidden tool page */
-body.occult-atlas-page #panel-wrapper,
-body:has(.occult-atlas-shell) #panel-wrapper {
-  display: none !important;
-}
-
-body.occult-atlas-page main[aria-label="Main Content"],
-body:has(.occult-atlas-shell) main[aria-label="Main Content"],
-body.occult-atlas-page #tail-wrapper,
-body:has(.occult-atlas-shell) #tail-wrapper {
-  flex: 0 0 100%;
-  max-width: 100%;
-  width: 100%;
-}
-
-body.occult-atlas-page #main-wrapper > .container,
-body:has(.occult-atlas-shell) #main-wrapper > .container {
-  max-width: none;
-  width: 100%;
-}
-
-body.occult-atlas-page main[aria-label="Main Content"] > h1,
-body:has(.occult-atlas-shell) main[aria-label="Main Content"] > h1 {
-  display: none;
-}
-
-.occult-atlas-shell {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.occult-atlas-frame {
-  display: block;
-  width: 100%;
-  height: calc(100dvh - 7rem);
-  min-height: 42rem;
-  border: 1px solid var(--main-border-color, rgba(255, 255, 255, 0.12));
-  border-radius: 0.5rem;
-  background: #111318;
-}
-
-@media (max-width: 768px) {
-  .occult-atlas-frame {
-    min-height: calc(100dvh - 5rem);
-  }
-}
-
 /* Inline post illustrations */
 .post-content .inline-illustration,
 .entry-content .inline-illustration,

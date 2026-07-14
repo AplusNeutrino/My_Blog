@@ -1,4 +1,4 @@
-﻿# Neutriverse 博客使用与修改说明
+# Neutriverse 博客使用与修改说明
 
 本文档对应仓库 `AplusNeutrino/My_Blog`，说明当前 GitHub Pages 博客中各个设计要素、图标和文字信息分别来自哪里，以及如何修改。
 
@@ -33,7 +33,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | Probe 状态模块 | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
-| 当前自定义配色方案 | `assets/css/ChirpyDefault.css` |
+| 当前自定义配色方案 | `assets/css/NormaiNight.css` |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
@@ -129,7 +129,7 @@ tagline: 你的副标题
 | 中间层漫游指南 | `_tabs/about.md` | 关于页 |
 | 中间层友情链接 | `_tabs/links.md` | 友链页 |
 
-`中间文段索引`、`中间文段标签`、`中间思维片段` 和 `中间层时间线` 页面仍然保留，文章标签链接也仍可访问；左侧导航中通过 `assets/css/ChirpyDefault.css` 隐藏 `/categories/`、`/tags/`、`/thoughts/` 与 `/archives/` 入口。Probe Tracking Module 顶部提供 `索引`、`标签`、`思维片段`、`更新记录` 四个固定入口按钮，它们不会混入下方隐藏文章搜索结果。
+`中间文段索引`、`中间文段标签`、`中间思维片段` 和 `中间层时间线` 页面仍然保留，文章标签链接也仍可访问；左侧导航中通过 `assets/css/NormaiNight.css` 隐藏 `/categories/`、`/tags/`、`/thoughts/` 与 `/archives/` 入口。Probe Tracking Module 顶部提供 `索引`、`标签`、`思维片段`、`更新记录` 四个固定入口按钮，它们不会混入下方隐藏文章搜索结果。
 
 这些文件开头都有 front matter，例如：
 
@@ -287,7 +287,7 @@ description: "这是一段会显示在首页卡片中的摘要。"
 _layouts/home.html
 _data/home_recommend.yml
 _data/home_popular.yml
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 首页顶部是“推送中枢”：
@@ -418,7 +418,7 @@ POPULAR_LIMIT: "32"
 _config.yml
 _layouts/post.html
 _includes/comments/twikoo.html
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 当前评论系统使用 Twikoo：
@@ -644,7 +644,7 @@ fragments:
 
 ```text
 _layouts/thoughts.html
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 这个页面不是 `_posts` 文章，因此不会计入首页状态模块的文章数量和总字数。
@@ -726,7 +726,7 @@ description: "这是一篇测试首页摘要的文章。"
 文章正文里可以直接写 HTML `span`，使用 `nv-` 开头的辅助 class。样式定义在：
 
 ```text
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 常用写法：
@@ -895,7 +895,7 @@ posts/2026/example/cover.jpg
 
 ```text
 _includes/inline-image.html
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 右侧嵌入图：
@@ -940,7 +940,7 @@ assets/css/ChirpyDefault.css
 
 ```text
 _includes/download-page-link.html
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 示例：
@@ -1246,7 +1246,7 @@ assets/js/travel-globe.js
 样式在：
 
 ```text
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 `地理记忆球` 支持边界线图层。边界数据源配置在：
@@ -1333,10 +1333,10 @@ theme_mode:
 颜色接口文件：
 
 ```text
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
-当前 `ChirpyDefault.css` 用于恢复 Chirpy 默认配色，同时保留 Neutriverse 新增模块的布局样式。
+当前 `NormaiNight.css` 用于恢复 Chirpy 默认配色，同时保留 Neutriverse 新增模块的布局样式。
 
 它不重新定义 Chirpy 的全局颜色变量，只使用主题已有变量：
 
@@ -1358,7 +1358,7 @@ assets/css/ChirpyDefault.css
 }
 ```
 
-注意：`_data/neutriverse.yml` 现在不再保存配色。当前默认观感主要由 Chirpy 主题自己控制；`ChirpyDefault.css` 只维护新增模块的布局和少量尺寸样式。
+注意：`_data/neutriverse.yml` 现在不再保存配色。当前默认观感主要由 Chirpy 主题自己控制；`NormaiNight.css` 只维护新增模块的布局和少量尺寸样式。
 
 旧的高饱和测试配色保留在 `docs/archive/legacy-css/neutriverse.css`，完整留档见：
 
@@ -1458,7 +1458,7 @@ platforms:
 | --- | --- |
 | Probe 右侧 `中间层监测面板` | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
-| 当前默认配色兼容样式 | `assets/css/ChirpyDefault.css` |
+| 当前默认配色兼容样式 | `assets/css/NormaiNight.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -1482,7 +1482,7 @@ _layouts/tags.html
 文件：
 
 ```text
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 这里不覆盖 Chirpy 的默认配色，只保留状态模块、碎片之中、点赞按钮、文章封面等新增模块的结构样式。
@@ -1815,7 +1815,7 @@ pwa:
 并在 `_includes/metadata-hook.html` 中：
 
 - 添加了 no-cache meta。
-- 给 `assets/css/ChirpyDefault.css` 增加构建版本参数。
+- 给 `assets/css/NormaiNight.css` 增加构建版本参数。
 - 注销旧的 Service Worker。
 - 清理旧的 Cache Storage。
 
@@ -1888,12 +1888,12 @@ docs/archive/legacy-includes/head/custom-head.html
 | 评论系统 | `_config.yml` 的 `comments`，当前为 Twikoo |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
-| 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
+| 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/NormaiNight.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 右侧碎片之中短句 | `_data/middle_memory.yml` |
 | 标签页列表 | `_layouts/tags.html` |
 | 导航文字统一替换 | `_includes/neutriverse-labels.html` |
-| 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/ChirpyDefault.css` |
+| 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/NormaiNight.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 
@@ -2099,7 +2099,7 @@ ArrowUp, ArrowRight, ArrowDown, ArrowDown, ArrowDown
 
 ```text
 _includes/probe-tracking-module.html
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 R2 object: https://img.neutriverse.uk/ui/probe/probe-eye-of-the-universe.webp
 ```
 
@@ -2116,7 +2116,7 @@ site.posts | where_exp: 'post', 'post.hidden == true'
 site.hidden_pages | where_exp: 'page', 'page.probe != false'
 ```
 
-Probe 模块的主色使用网站 logo 的蓝色。以后如果要微调颜色，优先改 `assets/css/ChirpyDefault.css` 中 `.probe-module` 里的变量：
+Probe 模块的主色使用网站 logo 的蓝色。以后如果要微调颜色，优先改 `assets/css/NormaiNight.css` 中 `.probe-module` 里的变量：
 
 ```css
 --probe-accent: #0a48ff;
@@ -2159,7 +2159,7 @@ Files:
 _hidden_pages/navi.md
 _includes/private-navigation.html
 _data/private_navigation.yml
-assets/css/ChirpyDefault.css
+assets/css/NormaiNight.css
 ```
 
 Open Probe Tracking Module and type `navi` to find the page. The page is implemented as a `hidden_pages` collection document, so it does not enter the article library, home feed, Atom feed, category pages, or normal navigation. Add future hidden utility pages under `_hidden_pages/`; they are indexed by Probe Tracking Module unless their front matter sets `probe: false`. Edit `_data/private_navigation.yml` to add, remove, or regroup NAVI bookmark nodes. Do not store passwords, tokens, private invite links, or sensitive account-only URLs here; hidden pages are discoverable from generated front-end data by a technical visitor.
