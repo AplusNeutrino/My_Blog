@@ -1,0 +1,65 @@
+<script>
+  (() => {
+    if (window.__neutriverseSiteAvatarLoaderReady) {
+      return;
+    }
+
+    window.__neutriverseSiteAvatarLoaderReady = true;
+
+    const initializeSiteAvatars = () => {
+      document.querySelectorAll('[data-site-avatar]').forEach((avatar) => {
+        if (avatar.dataset.avatarInitialized === 'true') {
+          return;
+        }
+
+        avatar.dataset.avatarInitialized = 'true';
+
+        const source = avatar.dataset.avatarSrc;
+        const host = avatar.dataset.avatarHost;
+        const initial = avatar.dataset.avatarInitial || '?';
+        let fallbackTried = false;
+
+        const showInitial = () => {
+          avatar.textContent = initial;
+          avatar.classList.add('is-fallback');
+        };
+
+        const applyImage = (url) => {
+          const probe = new Image();
+
+          probe.onload = () => {
+            avatar.style.backgroundImage = `url(${JSON.stringify(url)})`;
+            avatar.classList.add('is-loaded');
+          };
+
+          probe.onerror = () => {
+            if (!fallbackTried && host) {
+              fallbackTried = true;
+              applyImage(`https://icons.duckduckgo.com/ip3/${encodeURIComponent(host)}.ico`);
+              return;
+            }
+
+            showInitial();
+          };
+
+          probe.src = url;
+        };
+
+        if (source) {
+          applyImage(source);
+        } else if (host) {
+          fallbackTried = true;
+          applyImage(`https://icons.duckduckgo.com/ip3/${encodeURIComponent(host)}.ico`);
+        } else {
+          showInitial();
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeSiteAvatars, { once: true });
+    } else {
+      initializeSiteAvatars();
+    }
+  })();
+</script>

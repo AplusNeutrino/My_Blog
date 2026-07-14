@@ -48,6 +48,13 @@ read_baseurl() {
   fi
 }
 
+build_site() {
+  local sass_cli_fallback="${1:-0}"
+
+  JEKYLL_ENV=production JEKYLL_SASS_CLI_FALLBACK="$sass_cli_fallback" bundle exec jekyll b \
+    -d "$SITE_DIR$_baseurl" -c "$_config"
+}
+
 main() {
   # clean up
   if [[ -d $SITE_DIR ]]; then
@@ -57,13 +64,15 @@ main() {
   read_baseurl
 
   # build
-  JEKYLL_ENV=production bundle exec jekyll b \
-    -d "$SITE_DIR$_baseurl" -c "$_config"
+  if [[ ${JEKYLL_FORCE_SASS_CLI_FALLBACK:-0} == "1" ]]; then
+    build_site 1
+  elif ! build_site; then
+    echo "Jekyll's embedded Sass build failed; retrying with the Sass CLI." >&2
+    build_site 1
+  fi
 
   # test
-  bundle exec htmlproofer "$SITE_DIR" \
-    --disable-external \
-    --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+  bundle exec ruby tools/htmlproofer.rb "$SITE_DIR"
 }
 
 while (($#)); do

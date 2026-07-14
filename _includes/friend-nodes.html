@@ -27,11 +27,10 @@
             <span
               class="about-friend-avatar"
               aria-hidden="true"
-              data-friend-avatar
-              data-friend-src="{{ friend_avatar_src | escape }}"
-              data-friend-host="{{ friend_host | escape }}"
-              data-friend-initial="{{ friend_name | slice: 0, 1 | escape }}"
-              {% if friend_avatar != '' %}data-friend-custom-avatar="true"{% endif %}
+              data-site-avatar
+              data-avatar-src="{{ friend_avatar_src | escape }}"
+              data-avatar-host="{{ friend_host | escape }}"
+              data-avatar-initial="{{ friend_name | slice: 0, 1 | escape }}"
             >{{ friend_name | slice: 0, 1 }}</span>
 
             <span class="about-friend-body">
@@ -63,46 +62,5 @@
     </div>
   </section>
 
-  <script>
-    (() => {
-      document.querySelectorAll('[data-friend-avatar]').forEach((avatar) => {
-        const source = avatar.dataset.friendSrc;
-        const host = avatar.dataset.friendHost;
-        const initial = avatar.dataset.friendInitial || '?';
-        let fallbackTried = avatar.dataset.friendCustomAvatar === 'true';
-
-        const applyImage = (url) => {
-          const probe = new Image();
-          probe.onload = () => {
-            avatar.style.backgroundImage = `url("${url}")`;
-            avatar.classList.add('is-loaded');
-          };
-          probe.onerror = () => {
-            if (!fallbackTried && host) {
-              fallbackTried = true;
-              applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
-              return;
-            }
-
-            avatar.textContent = initial;
-            avatar.classList.add('is-fallback');
-          };
-          probe.src = url;
-        };
-
-        if (source) {
-          applyImage(source);
-        } else {
-          if (!fallbackTried && host) {
-            fallbackTried = true;
-            applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
-            return;
-          }
-
-          avatar.textContent = initial;
-          avatar.classList.add('is-fallback');
-        }
-      });
-    })();
-  </script>
+  {% include site-avatar-loader.html %}
 {% endif %}

@@ -1,0 +1,62 @@
+# Neutriverse Prospero Light
+
+## 1. Visual Theme
+
+Neutriverse has two states of one facility. Night mode is the existing deep-space observation console. Light mode is a modern arcane archive: sandstone paper, lapis instruments, old gold rules, and rare turquoise signals. It is scholarly and operational, never theatrical or promotional.
+
+## 2. Color Roles
+
+- Canvas: `#EEE5CE`
+- Primary paper: `#F8F1DD`
+- Secondary surface: `#E4D7B8`
+- Lapis sidebar: `#124D68` to `#0C354D`
+- Standard rule: `#C5AD70`
+- Active gold: `#AD7D29`
+- Ink: `#2C3436`
+- Muted ink: `#6C7575`
+- Accessible small-text ink: `#536060`
+- Accessible text gold: `#78551D` on paper, `#D1B975` on lapis
+- Heading: `#17445A`
+- Link: `#086D80`
+- Signal cyan: `#197F93`
+- Anomaly purple: `#744B87`, limited to exceptional states
+
+The base muted and gold values remain decorative tokens; small rendered text uses the darker contrast-safe derivatives. Gold is never body text. Cyan marks interaction and status. Purple remains below roughly 2% of a page.
+
+## 3. Typography
+
+- Chinese article text: `Noto Serif SC` 400, 17px, line-height 1.9.
+- Chinese headings: `Noto Serif SC` 600.
+- UI and navigation: `Noto Sans SC` 400/500/600.
+- English inscriptions: `Cinzel` 500/600, uppercase, 0.10em to 0.14em tracking.
+- Dates, status, code, versions: `IBM Plex Mono` 400/500 with tabular numerals.
+- Night typography remains unchanged.
+
+## 4. Components
+
+Cards are paper records with 1px gold rules, 4px to 8px radii, and almost imperceptible blue-gray shadows. Buttons are compact controls, not calls to action. Focus uses a 2px turquoise outline plus offset. Tags and status colors occupy only dots, short rules, or small labels.
+
+## 5. Layout
+
+Keep Chirpy's current information architecture, sidebar dimensions, content widths, pagination, and panels. Use an 8px spacing rhythm. Article reading width stays near 700px to 740px. Mobile layouts collapse without horizontal page overflow.
+
+## 6. Depth
+
+Depth comes primarily from surface layering: sandstone canvas, ivory paper, then secondary archive drawers. Shadows use several low-opacity blue-gray layers and are reserved for actual raised or floating elements. The featured image remains dark as the light theme's anchor.
+
+## 7. Do / Do Not
+
+- Do preserve the current night mode and all content logic.
+- Do use gold for rules, numbering, and active markers.
+- Do keep decorative geometry subordinate to reading.
+- Do not use official franchise symbols, names, characters, or copied motifs.
+- Do not use pure white, bright yellow gold, neon glow, heavy texture, or persistent particles.
+- Do not add `transition: all` or decorative motion that competes with text.
+
+## 8. Responsive
+
+Validate at 1366px, 1024px, 768px, and 390px. Keep desktop sidebar collapse behavior. On small screens, controls may wrap or scroll internally, tables remain horizontally scrollable, and PTM stays within the visual viewport.
+
+## 9. Motion
+
+Theme color, background, border, shadow, and opacity transitions use 180ms to 250ms. Hover movement is at most 1px and only on fine pointers. The optional logo astrolabe ring rotates extremely slowly. `prefers-reduced-motion: reduce` removes decorative rotation and movement.

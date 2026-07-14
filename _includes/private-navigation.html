@@ -42,11 +42,10 @@
                     <span
                       class="private-navi-avatar"
                       aria-hidden="true"
-                      data-private-navi-avatar
-                      data-private-navi-src="{{ node_avatar_src | escape }}"
-                      data-private-navi-host="{{ node_host | escape }}"
-                      data-private-navi-initial="{{ node_name | slice: 0, 1 | escape }}"
-                      {% if node_avatar != '' %}data-private-navi-custom-avatar="true"{% endif %}
+                      data-site-avatar
+                      data-avatar-src="{{ node_avatar_src | escape }}"
+                      data-avatar-host="{{ node_host | escape }}"
+                      data-avatar-initial="{{ node_name | slice: 0, 1 | escape }}"
                     >{{ node_name | slice: 0, 1 }}</span>
 
                     <span class="private-navi-body">
@@ -85,42 +84,4 @@
   {% endif %}
 </section>
 
-<script>
-  (() => {
-    document.querySelectorAll('[data-private-navi-avatar]').forEach((avatar) => {
-      const source = avatar.dataset.privateNaviSrc;
-      const host = avatar.dataset.privateNaviHost;
-      const initial = avatar.dataset.privateNaviInitial || '?';
-      let fallbackTried = avatar.dataset.privateNaviCustomAvatar === 'true';
-
-      const applyImage = (url) => {
-        const probe = new Image();
-        probe.onload = () => {
-          avatar.style.backgroundImage = `url("${url}")`;
-          avatar.classList.add('is-loaded');
-        };
-        probe.onerror = () => {
-          if (!fallbackTried && host) {
-            fallbackTried = true;
-            applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
-            return;
-          }
-
-          avatar.textContent = initial;
-          avatar.classList.add('is-fallback');
-        };
-        probe.src = url;
-      };
-
-      if (source) {
-        applyImage(source);
-      } else if (host) {
-        fallbackTried = true;
-        applyImage(`https://icons.duckduckgo.com/ip3/${host}.ico`);
-      } else {
-        avatar.textContent = initial;
-        avatar.classList.add('is-fallback');
-      }
-    });
-  })();
-</script>
+{% include site-avatar-loader.html %}

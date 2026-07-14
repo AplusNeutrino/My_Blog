@@ -1,97 +1,213 @@
-<!-- Poe Night Mode: keep Neutriverse in the dark even when mobile browsers restore old theme state. -->
-<meta name="color-scheme" content="dark">
-<meta name="supported-color-schemes" content="dark">
-<meta name="theme-color" content="#05070f">
+<!-- Keep Chirpy's native data-mode/session state while adding a one-click day/night control. -->
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
 
 <script>
   (() => {
-    const mode = 'dark';
-    const storageKeys = [
-      'mode',
-      'theme',
-      'theme-mode',
-      'chirpy-mode',
-      'chirpy-theme',
-      'color-scheme'
-    ];
+    const root = document.documentElement;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const storageKey = 'neutriverse-theme-preference';
+    const sessionKey = 'mode';
+    const modes = new Set(['light', 'dark']);
+    const targetLabels = {
+      light: '切换到普罗斯佩罗之昼',
+      dark: '切换到碎空星之夜'
+    };
+    const targetIcons = {
+      light: 'fas fa-sun',
+      dark: 'fas fa-moon'
+    };
+    let toggle;
 
-    const setStoredMode = () => {
-      storageKeys.forEach((key) => {
+    const safeStorage = {
+      get(storage, key) {
         try {
-          localStorage.setItem(key, mode);
+          return storage.getItem(key);
+        } catch {
+          return null;
+        }
+      },
+      set(storage, key, value) {
+        try {
+          storage.setItem(key, value);
         } catch {
           /* Ignore storage failures in private or restricted browsers. */
         }
-      });
-
-      try {
-        sessionStorage.setItem('mode', mode);
-      } catch {
-        /* Ignore storage failures in private or restricted browsers. */
+      },
+      remove(storage, key) {
+        try {
+          storage.removeItem(key);
+        } catch {
+          /* Ignore storage failures in private or restricted browsers. */
+        }
       }
     };
 
-    const setMetaThemeColor = () => {
-      const metas = document.querySelectorAll('meta[name="theme-color"]');
+    const getVisualMode = () => {
+      const explicitMode = root.getAttribute('data-mode');
+      return modes.has(explicitMode) ? explicitMode : (media.matches ? 'dark' : 'light');
+    };
 
-      metas.forEach((meta) => {
-        meta.setAttribute('content', '#05070f');
+    const setControlLabel = (control, label) => {
+      control.setAttribute('aria-label', label);
+      control.setAttribute('title', label);
+      control.dataset.bsTitle = label;
+
+      if (control.hasAttribute('data-bs-original-title')) {
+        control.setAttribute('data-bs-original-title', label);
+      }
+    };
+
+    const updateThemeColor = (visualMode) => {
+      const color = visualMode === 'light' ? '#EEE5CE' : '#1B1B1E';
+      document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+        meta.setAttribute('content', color);
       });
     };
 
-    const applyNightMode = () => {
-      const root = document.documentElement;
+    const syncCopy = (element, visualMode, dayCopy) => {
+      if (!element.dataset.themeNightCopy) {
+        element.dataset.themeNightCopy = element.textContent.trim();
+      }
+
+      element.textContent = visualMode === 'light' ? dayCopy : element.dataset.themeNightCopy;
+    };
+
+    const syncThemeCopy = (visualMode) => {
+      document.querySelectorAll('[data-theme-day-copy]').forEach((element) => {
+        syncCopy(element, visualMode, element.dataset.themeDayCopy);
+      });
+
+      const subtitle = document.querySelector('#sidebar .site-subtitle');
+      if (subtitle) {
+        syncCopy(subtitle, visualMode, 'ECHOES OF TIZCA');
+      }
+    };
+
+    const syncControl = () => {
+      const visualMode = getVisualMode();
+      const explicitMode = root.getAttribute('data-mode');
+
+      root.setAttribute('data-bs-theme', visualMode);
+      root.style.colorScheme = visualMode;
+
+      if (modes.has(explicitMode)) {
+        safeStorage.set(localStorage, storageKey, explicitMode);
+      }
+
+      updateThemeColor(visualMode);
+      syncThemeCopy(visualMode);
+
+      if (!toggle) {
+        return;
+      }
+
+      const targetMode = visualMode === 'light' ? 'dark' : 'light';
+      const icon = toggle.querySelector('i');
+      setControlLabel(toggle, targetLabels[targetMode]);
+      toggle.dataset.themeTarget = targetMode;
+
+      if (icon) {
+        icon.className = targetIcons[targetMode];
+        icon.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    const setPreference = (mode) => {
+      if (!modes.has(mode)) {
+        return;
+      }
 
       root.setAttribute('data-mode', mode);
-      root.style.colorScheme = mode;
-      setMetaThemeColor();
+      safeStorage.set(sessionStorage, sessionKey, mode);
+      safeStorage.set(localStorage, storageKey, mode);
+      syncControl();
+      window.postMessage({ id: 'theme-mode' }, '*');
     };
 
-    setStoredMode();
-    applyNightMode();
+    const storedPreference = safeStorage.get(localStorage, storageKey);
+    if (modes.has(storedPreference)) {
+      root.setAttribute('data-mode', storedPreference);
+      safeStorage.set(sessionStorage, sessionKey, storedPreference);
+    } else if (storedPreference === 'system') {
+      root.removeAttribute('data-mode');
+      safeStorage.remove(sessionStorage, sessionKey);
+      safeStorage.remove(localStorage, storageKey);
+    }
 
-    const observer = new MutationObserver(() => {
-      if (document.documentElement.getAttribute('data-mode') !== mode) {
-        applyNightMode();
-      }
-    });
+    syncControl();
 
-    observer.observe(document.documentElement, {
+    new MutationObserver(syncControl).observe(root, {
       attributes: true,
       attributeFilter: ['data-mode']
     });
 
-    window.addEventListener('pageshow', () => {
-      setStoredMode();
-      applyNightMode();
+    media.addEventListener('change', () => {
+      if (!modes.has(root.getAttribute('data-mode'))) {
+        syncControl();
+        window.postMessage({ id: 'theme-mode' }, '*');
+      }
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('mode-toggle');
+    window.addEventListener('message', (event) => {
+      if (event.source === window && event.data?.id === 'theme-mode') {
+        window.requestAnimationFrame(syncControl);
+      }
+    });
 
-      if (toggle) {
-        toggle.setAttribute('aria-hidden', 'true');
-        toggle.setAttribute('tabindex', '-1');
+    window.addEventListener('pageshow', syncControl);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      toggle = document.getElementById('mode-toggle');
+      const bottom = toggle?.closest('.sidebar-bottom');
+
+      if (!toggle || !bottom) {
+        syncControl();
+        return;
       }
 
-      applyNightMode();
+      toggle.removeAttribute('aria-hidden');
+      toggle.removeAttribute('tabindex');
+      toggle.removeAttribute('aria-haspopup');
+      toggle.removeAttribute('aria-expanded');
+
+      const atlasUrl = '{{ "/occult-atlas/" | relative_url }}';
+      let atlasLink = document.getElementById('occult-atlas-link');
+
+      if (!atlasLink) {
+        atlasLink = document.createElement('a');
+        atlasLink.id = 'occult-atlas-link';
+        atlasLink.href = atlasUrl;
+        atlasLink.innerHTML = '<i class="fas fa-compass" aria-hidden="true"></i>';
+
+        const firstContact = bottom.querySelector('a');
+        firstContact ? bottom.insertBefore(atlasLink, firstContact) : bottom.appendChild(atlasLink);
+      }
+
+      setControlLabel(atlasLink, '星图');
+
+      const bangumiLink = bottom.querySelector('a[href*="bangumi.tv"]');
+      if (bangumiLink) {
+        setControlLabel(bangumiLink, 'BGM主页');
+      }
+
+      const rssLink = bottom.querySelector('a[href$="/feed.xml"]');
+      if (rssLink) {
+        setControlLabel(rssLink, 'RSS订阅');
+      }
+
+      syncControl();
+
+      document.addEventListener('click', (event) => {
+        const pressedToggle = event.target.closest?.('#mode-toggle');
+        if (!pressedToggle) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        setPreference(getVisualMode() === 'light' ? 'dark' : 'light');
+      }, true);
     });
   })();
 </script>
-
-<style>
-  :root,
-  html[data-mode='dark'] {
-    color-scheme: dark;
-  }
-
-  html,
-  body,
-  #main-wrapper {
-    background: #1b1b1e !important;
-  }
-
-  #mode-toggle {
-    display: none !important;
-  }
-</style>

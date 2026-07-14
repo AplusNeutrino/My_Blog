@@ -4,28 +4,57 @@
 <meta http-equiv="Expires" content="0">
 {% include poe-night-mode.html %}
 <link rel="stylesheet" href="{{ '/assets/css/ChirpyDefault.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
+<link rel="stylesheet" href="{{ '/assets/css/ProsperoLight.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
 
-<script>
-  (() => {
-    if ('serviceWorker' in navigator) {
+{% unless site.pwa.enabled %}
+  <script>
+    (() => {
+      if (!('serviceWorker' in navigator)) {
+        return;
+      }
+
       navigator.serviceWorker.getRegistrations()
-        .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
-        .catch(() => {});
-    }
+        .then((registrations) => {
+          if (registrations.length === 0) {
+            return null;
+          }
 
-    if ('caches' in window) {
-      caches.keys()
-        .then((keys) => Promise.all(keys.map((key) => caches.delete(key))))
+          return Promise.all(registrations.map((registration) => registration.unregister()));
+        })
+        .then((unregistered) => {
+          if (!unregistered || !('caches' in window)) {
+            return;
+          }
+
+          return caches.keys()
+            .then((keys) => Promise.all(keys.map((key) => caches.delete(key))));
+        })
         .catch(() => {});
-    }
-  })();
-</script>
+    })();
+  </script>
+{% endunless %}
 
 <script>
   (() => {
     const storageKey = 'neutriverse-sidebar-collapsed';
     const pageLayout = '{{ page.layout | default: layout.layout | default: "" | escape }}';
     const desktopQuery = window.matchMedia('(min-width: 850px)');
+    const safeStorage = {
+      get(key) {
+        try {
+          return localStorage.getItem(key);
+        } catch {
+          return null;
+        }
+      },
+      set(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch {
+          /* Ignore storage failures in private or restricted browsers. */
+        }
+      }
+    };
 
     const applySidebarState = (collapsed) => {
       document.body.classList.toggle('site-sidebar-collapsed', collapsed);
@@ -50,12 +79,12 @@
     const applyStoredOrAutomaticSidebarState = () => {
       const automaticState = getAutomaticSidebarState();
       if (automaticState !== null) {
-        localStorage.setItem(storageKey, automaticState ? 'true' : 'false');
+        safeStorage.set(storageKey, automaticState ? 'true' : 'false');
         applySidebarState(automaticState);
         return;
       }
 
-      applySidebarState(localStorage.getItem(storageKey) === 'true');
+      applySidebarState(safeStorage.get(storageKey) === 'true');
     };
 
     const spin = (element) => {
@@ -96,13 +125,13 @@
 
         event.preventDefault();
         spin(avatar);
-        localStorage.setItem(storageKey, 'true');
+        safeStorage.set(storageKey, 'true');
         applySidebarState(true);
       });
 
       recall.addEventListener('click', () => {
         spin(recall);
-        localStorage.setItem(storageKey, 'false');
+        safeStorage.set(storageKey, 'false');
         applySidebarState(false);
       });
     });

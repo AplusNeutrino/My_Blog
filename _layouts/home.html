@@ -20,62 +20,29 @@ refactor: true
   {% assign used_rec_urls = used_rec_urls | push: main_post.url %}
 {% endif %}
 
-{% assign sub_rec_1_url = recommend_config.sub_rec_1 | default: '' %}
-{% assign sub_rec_2_url = recommend_config.sub_rec_2 | default: '' %}
-{% assign sub_rec_3_url = recommend_config.sub_rec_3 | default: '' %}
-{% assign sub_rec_4_url = recommend_config.sub_rec_4 | default: '' %}
-{% assign sub_rec_1 = nil %}
-{% assign sub_rec_2 = nil %}
-{% assign sub_rec_3 = nil %}
-{% assign sub_rec_4 = nil %}
+{% assign configured_rec_urls = '' | split: '' %}
+{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_1 %}
+{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_2 %}
+{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_3 %}
+{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_4 %}
+{% assign sub_recs = '' | split: '' %}
 
-{% if sub_rec_1_url != '' %}
+{% for configured_rec_url in configured_rec_urls %}
+  {% assign configured_rec_url = configured_rec_url | default: '' | strip %}
+  {% if configured_rec_url == '' %}
+    {% continue %}
+  {% endif %}
+
   {% for post in all_visible_posts %}
-    {% if post.url == sub_rec_1_url %}
+    {% if post.url == configured_rec_url %}
       {% unless used_rec_urls contains post.url %}
-        {% assign sub_rec_1 = post %}
+        {% assign sub_recs = sub_recs | push: post %}
         {% assign used_rec_urls = used_rec_urls | push: post.url %}
-        {% break %}
       {% endunless %}
+      {% break %}
     {% endif %}
   {% endfor %}
-{% endif %}
-
-{% if sub_rec_2_url != '' %}
-  {% for post in all_visible_posts %}
-    {% if post.url == sub_rec_2_url %}
-      {% unless used_rec_urls contains post.url %}
-        {% assign sub_rec_2 = post %}
-        {% assign used_rec_urls = used_rec_urls | push: post.url %}
-        {% break %}
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
-{% if sub_rec_3_url != '' %}
-  {% for post in all_visible_posts %}
-    {% if post.url == sub_rec_3_url %}
-      {% unless used_rec_urls contains post.url %}
-        {% assign sub_rec_3 = post %}
-        {% assign used_rec_urls = used_rec_urls | push: post.url %}
-        {% break %}
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
-{% if sub_rec_4_url != '' %}
-  {% for post in all_visible_posts %}
-    {% if post.url == sub_rec_4_url %}
-      {% unless used_rec_urls contains post.url %}
-        {% assign sub_rec_4 = post %}
-        {% assign used_rec_urls = used_rec_urls | push: post.url %}
-        {% break %}
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
+{% endfor %}
 
 {% assign fill_candidates = '' | split: '' %}
 {% for popular_url in popular_config.posts %}
@@ -96,43 +63,15 @@ refactor: true
 {% endfor %}
 
 {% for post in fill_candidates %}
-  {% if sub_rec_1 and sub_rec_2 and sub_rec_3 and sub_rec_4 %}
+  {% if sub_recs.size >= 4 %}
     {% break %}
   {% endif %}
 
-  {% if used_rec_urls contains post.url %}
-    {% continue %}
-  {% endif %}
-
-  {% unless sub_rec_1 %}
-    {% assign sub_rec_1 = post %}
-    {% assign used_rec_urls = used_rec_urls | push: post.url %}
-    {% continue %}
-  {% endunless %}
-
-  {% unless sub_rec_2 %}
-    {% assign sub_rec_2 = post %}
-    {% assign used_rec_urls = used_rec_urls | push: post.url %}
-    {% continue %}
-  {% endunless %}
-
-  {% unless sub_rec_3 %}
-    {% assign sub_rec_3 = post %}
-    {% assign used_rec_urls = used_rec_urls | push: post.url %}
-    {% continue %}
-  {% endunless %}
-
-  {% unless sub_rec_4 %}
-    {% assign sub_rec_4 = post %}
+  {% unless used_rec_urls contains post.url %}
+    {% assign sub_recs = sub_recs | push: post %}
     {% assign used_rec_urls = used_rec_urls | push: post.url %}
   {% endunless %}
 {% endfor %}
-
-{% assign sub_recs = '' | split: '' %}
-{% assign sub_recs = sub_recs | push: sub_rec_1 %}
-{% assign sub_recs = sub_recs | push: sub_rec_2 %}
-{% assign sub_recs = sub_recs | push: sub_rec_3 %}
-{% assign sub_recs = sub_recs | push: sub_rec_4 %}
 
 {% assign primary_categories = '' | split: '' %}
 {% for post in all_visible_posts %}
@@ -221,8 +160,8 @@ refactor: true
 
   <section class="home-dispatch" aria-labelledby="home-dispatch-title">
     <div class="home-dispatch-heading">
-      <p>Control Module</p>
-      <h1 id="home-dispatch-title">本次观测结果</h1>
+      <p data-theme-day-copy="Cult of the Corvidae">Control Module</p>
+      <h1 id="home-dispatch-title" data-theme-day-copy="黑鸦学派占卜结果">本次观测结果</h1>
     </div>
 
     <div class="home-dispatch-grid">
@@ -237,7 +176,12 @@ refactor: true
             >
               {% for hero_src in hero_images %}
                 <div class="home-dispatch-slide">
-                  <img src="{{ hero_src }}" alt="">
+                  <img
+                    src="{{ hero_src }}"
+                    alt=""
+                    decoding="async"
+                    {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                  >
                 </div>
               {% endfor %}
             </div>
@@ -249,7 +193,7 @@ refactor: true
         </div>
 
         <div class="home-dispatch-main-meta">
-          <span class="home-dispatch-kicker">Pinned Signal</span>
+          <span class="home-dispatch-kicker" data-theme-day-copy="Rehati Digest">Pinned Signal</span>
           <h2>{{ main_post.title }}</h2>
           <p class="home-dispatch-main-details">
             {% assign visible_post_date = main_post.display_date | default: main_post.date %}
@@ -284,8 +228,8 @@ refactor: true
 <section class="home-feed-control" aria-labelledby="home-feed-title">
   <div class="home-feed-control-rail">
     <div class="home-feed-control-heading">
-      <p>Launch Module</p>
-      <h2 id="home-feed-title">历史观测记录</h2>
+      <p data-theme-day-copy="Cult of the Athanaeans">Launch Module</p>
+      <h2 id="home-feed-title" data-theme-day-copy="天枭学派信息汇总">历史观测记录</h2>
     </div>
 
     <div class="home-category-filter" aria-label="Filter posts by category">
@@ -369,7 +313,7 @@ refactor: true
 
           <div class="col-md-5 post-preview-image">
             <div class="post-preview-image-frame">
-              <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+              <img src="{{ src }}" alt="{{ alt }}" loading="lazy" decoding="async" {{ lqip }}>
             </div>
           </div>
 
@@ -436,8 +380,12 @@ refactor: true
       return;
     }
 
-    const setActiveFilter = (activeFilter) => {
-      filters.forEach((filter) => filter.classList.toggle('is-active', filter === activeFilter));
+    const setActiveFilter = (filterToActivate) => {
+      filters.forEach((filter) => {
+        const isActive = filter === filterToActivate;
+        filter.classList.toggle('is-active', isActive);
+        filter.setAttribute('aria-pressed', String(isActive));
+      });
     };
 
     const itemMatchesFilter = (item, filter) => {
@@ -499,11 +447,13 @@ refactor: true
       });
     });
 
+    setActiveFilter(activeFilter);
     renderFeedPage();
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.querySelectorAll('[data-home-dispatch-track]').forEach((track) => {
       const slides = Array.from(track.children);
-      if (slides.length <= 1) {
+      if (slides.length <= 1 || reducedMotion.matches) {
         return;
       }
 
@@ -527,6 +477,13 @@ refactor: true
           scheduleNext(slideHold);
         }, delay);
       };
+
+      document.addEventListener('visibilitychange', () => {
+        window.clearTimeout(timer);
+        if (!document.hidden) {
+          scheduleNext(slideHold);
+        }
+      });
 
       scheduleNext(firstHold);
     });

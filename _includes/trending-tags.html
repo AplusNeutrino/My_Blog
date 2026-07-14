@@ -1,10 +1,12 @@
+{% if include.middle_memory %}
 {% assign middle_memory = site.data.middle_memory.sentences %}
 {% unless middle_memory %}
   {% assign middle_memory = '' | split: '' %}
 {% endunless %}
 
 <section id="access-tags" class="middle-memory-panel">
-  <h2 class="panel-heading">碎片之中</h2>
+  <p class="middle-memory-kicker" aria-hidden="true">RECEIVED FRAGMENT</p>
+  <h2 class="panel-heading" data-theme-day-copy="砂砾之中">碎片之中</h2>
   <div class="middle-memory-entry" aria-live="polite">
     <p class="middle-memory-text" data-middle-memory-text>正在加载中...</p>
     <p class="middle-memory-translation" data-middle-memory-translation hidden></p>
@@ -85,3 +87,45 @@
     renderMemory();
   })();
 </script>
+{% else %}
+  {% assign max_trending_tags = 10 %}
+  {% assign size_list = '' | split: '' %}
+  {% assign tag_list = '' | split: '' %}
+
+  {% for tag in site.tags %}
+    {% assign tag_size = tag | last | size %}
+    {% assign size_list = size_list | push: tag_size %}
+    {% assign tag_entry = tag | first | append: '::' | append: tag_size %}
+    {% assign tag_list = tag_list | push: tag_entry %}
+  {% endfor %}
+
+  {% assign size_list = size_list | sort | reverse %}
+  {% assign tag_list = tag_list | sort_natural %}
+  {% assign trending_tags = '' | split: '' %}
+
+  {% for tag_size in size_list limit: max_trending_tags %}
+    {% for tag_entry in tag_list %}
+      {% assign tag = tag_entry | split: '::' %}
+      {% assign tag_name = tag | first %}
+      {% assign entry_size = tag | last | plus: 0 %}
+      {% if entry_size == tag_size %}
+        {% unless trending_tags contains tag_name %}
+          {% assign trending_tags = trending_tags | push: tag_name %}
+          {% break %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if trending_tags.size > 0 %}
+    <section>
+      <h2 class="panel-heading">{{- site.data.locales[include.lang].panel.trending_tags -}}</h2>
+      <div class="d-flex flex-wrap mt-3 mb-1 me-3">
+        {% for tag_name in trending_tags %}
+          {% assign tag_url = tag_name | slugify | url_encode | prepend: '/tags/' | append: '/' %}
+          <a class="post-tag btn btn-outline-primary" href="{{ tag_url | relative_url }}">{{ tag_name }}</a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endif %}

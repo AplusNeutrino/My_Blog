@@ -2005,6 +2005,16 @@ bundle exec jekyll build
 
 如果直接运行 `bundle exec jekyll build` 遇到 `ruby.exe is not recognized`，通常是当前 PowerShell/Codex 进程里同时存在 `PATH` 和 `Path` 两个环境变量，导致 Windows wrapper 找不到 Ruby。使用上面的命令会先清理当前进程的重复 PATH，再把 Ruby 3.3 放到最前面。
 
+Codex 沙箱可能禁止 Ruby 创建 `IO.pipe`，从而让 `sass-embedded` 和 Git 时间钩子报 `Permission denied`。仓库中的 `_plugins/sass-cli-fallback.rb` 与 `_plugins/posts-lastmod-hook.rb` 会自动检测这种限制：正常环境继续使用原实现，受限环境则通过临时文件调用随 `sass-embedded` 附带的 Dart Sass CLI，并以无管道方式读取 Git 历史。因此仍然直接运行上面的标准构建命令，不需要手动跳过主题 SCSS。
+
+构建完成后，可继续检查站内图片、链接、锚点和脚本引用：
+
+```powershell
+bundle exec ruby tools/htmlproofer.rb _site
+```
+
+`tools/htmlproofer.rb` 只检查内部资源，并顺序处理页面，避免 Codex 沙箱的管道限制，也不依赖本机 `libcurl.dll`。
+
 本地构建可能出现一个既有 warning：
 
 ```text
