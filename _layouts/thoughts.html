@@ -9,38 +9,77 @@ layout: page
   {% assign fragments = '' | split: '' %}
 {% endunless %}
 
-<div class="thought-fragments" aria-label="中间思维片段">
-  {% if fragments.size > 0 %}
+{% assign valid_fragment_count = 0 %}
+{% assign fragment_dates = '' | split: '' %}
+{% for fragment in fragments %}
+  {% assign fragment_text = fragment.text | default: '' | strip %}
+  {% if fragment_text != '' %}
+    {% assign valid_fragment_count = valid_fragment_count | plus: 1 %}
+    {% if fragment.date %}
+      {% assign fragment_date_key = fragment.date | date: '%Y-%m-%d' %}
+      {% assign fragment_dates = fragment_dates | push: fragment_date_key %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign sorted_fragment_dates = fragment_dates | sort %}
+
+<div class="thought-fragments thought-ledger" aria-label="中间思维片段">
+  {% if valid_fragment_count > 0 %}
+    <div class="index-ledger-summary thought-ledger-summary" aria-label="思维片段概览">
+      <span class="index-summary-item">
+        <span class="index-summary-label">片段记录</span>
+        <strong>{{ valid_fragment_count }} 条</strong>
+      </span>
+      {% if sorted_fragment_dates.size > 0 %}
+        {% assign earliest_fragment_date = sorted_fragment_dates | first %}
+        {% assign latest_fragment_date = sorted_fragment_dates | last %}
+        <span class="index-summary-item">
+          <span class="index-summary-label">时间跨度</span>
+          <strong>
+            {{ earliest_fragment_date | date: '%Y / %m-%d' }}—{{ latest_fragment_date | date: '%Y / %m-%d' }}
+          </strong>
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="thought-ledger-list">
     {% for fragment in fragments %}
       {% assign fragment_text = fragment.text | default: '' | strip %}
       {% if fragment_text != '' %}
         {% capture fragment_key %}{{ page.url | relative_url }}fragment-{{ forloop.index }}{% endcapture %}
         <article class="thought-fragment-card">
-          <p class="thought-fragment-text">{{ fragment_text }}</p>
+          {% if fragment.date %}
+            <time class="thought-record-date" datetime="{{ fragment.date | date_to_xmlschema }}">
+              <span>{{ fragment.date | date: '%Y' }}</span>
+              <span>/ {{ fragment.date | date: '%m-%d' }}</span>
+            </time>
+          {% else %}
+            <span class="thought-record-date is-undated">未标日期</span>
+          {% endif %}
 
-          <div class="thought-fragment-meta">
-            {% include post-like.html like_key=fragment_key %}
+          <span class="thought-record-node" aria-hidden="true"></span>
 
-            {% if fragment.tags and fragment.tags.size > 0 %}
-              <div class="thought-fragment-tags">
-                <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
-                {% for tag in fragment.tags %}
-                  <span class="thought-fragment-tag">{{ tag }}</span>
-                {% endfor %}
-              </div>
-            {% endif %}
+          <div class="thought-fragment-body">
+            <p class="thought-fragment-text">{{ fragment_text }}</p>
 
-            {% if fragment.date %}
-              <time class="thought-fragment-date" datetime="{{ fragment.date | date_to_xmlschema }}">
-                <i class="far fa-calendar fa-fw" aria-hidden="true"></i>
-                {% include datetime.html date=fragment.date lang=lang %}
-              </time>
-            {% endif %}
+            <div class="thought-fragment-meta">
+              {% include post-like.html like_key=fragment_key %}
+
+              {% if fragment.tags and fragment.tags.size > 0 %}
+                <div class="thought-fragment-tags">
+                  <i class="fa fa-tags fa-fw" aria-hidden="true"></i>
+                  {% for tag in fragment.tags %}
+                    <span class="thought-fragment-tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
           </div>
         </article>
       {% endif %}
     {% endfor %}
+    </div>
   {% else %}
-    <p class="text-muted">还没有思维片段。</p>
+    <p class="index-ledger-empty">还没有思维片段。</p>
   {% endif %}
 </div>

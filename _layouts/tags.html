@@ -9,14 +9,34 @@ layout: page
 {% endfor %}
 
 {% assign sorted_tags = tags | sort_natural %}
+{% assign tag_relation_count = 0 %}
+{% for t in sorted_tags %}
+  {% assign tag_relation_count = tag_relation_count | plus: site.tags[t].size %}
+{% endfor %}
 
-<div id="tags" class="tag-index-list d-flex flex-wrap mx-xl-2">
-  {% for t in sorted_tags %}
-    <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
-      </a>
+<div id="tags" class="tag-ledger">
+  {% if sorted_tags.size > 0 %}
+    <div class="index-ledger-summary tag-ledger-summary" aria-label="标签概览">
+      <span class="index-summary-item">
+        <span class="index-summary-label">标签索引</span>
+        <strong>{{ sorted_tags.size }} 个</strong>
+      </span>
+      <span class="index-summary-item">
+        <span class="index-summary-label">关联记录</span>
+        <strong>{{ tag_relation_count }} 次</strong>
+      </span>
     </div>
-  {% endfor %}
+
+    <div class="tag-index-list">
+      {% for t in sorted_tags %}
+        <a class="tag tag-ledger-entry" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+          <span class="tag-ledger-node" aria-hidden="true"></span>
+          <span class="tag-ledger-name">{{ t }}</span>
+          <span class="tag-ledger-count" aria-label="{{ site.tags[t].size }} 篇记录">{{ site.tags[t].size }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="index-ledger-empty">暂无标签记录。</p>
+  {% endif %}
 </div>

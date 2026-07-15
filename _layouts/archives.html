@@ -8,29 +8,50 @@ layout: page
 {% assign df_strftime_m = site.data.locales[lang].df.archives.strftime | default: '/ %m' %}
 {% assign df_dayjs_m = site.data.locales[lang].df.archives.dayjs | default: '/ MM' %}
 {% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
+{% assign visible_post_count = visible_posts | size %}
+{% assign archive_years = visible_posts | group_by_exp: 'post', 'post.date | date: "%Y"' %}
 
-<div id="archives" class="pl-xl-3">
-  {% for post in visible_posts %}
-    {% assign cur_year = post.date | date: '%Y' %}
+<div id="archives" class="archive-ledger pl-xl-3">
+  {% if visible_post_count > 0 %}
+    {% assign newest_year = visible_posts.first.date | date: '%Y' %}
+    {% assign oldest_year = visible_posts.last.date | date: '%Y' %}
 
-    {% if cur_year != last_year %}
-      {% unless forloop.first %}</ul>{% endunless %}
-
-      <time class="year lead d-block">{{ cur_year }}</time>
-      {{ '<ul class="list-unstyled">' }}
-
-      {% assign last_year = cur_year %}
-    {% endif %}
-
-    <li>
-      {% assign ts = post.date | date: '%s' %}
-      <span class="date day" data-ts="{{ ts }}" data-df="DD">{{ post.date | date: '%d' }}</span>
-      <span class="date month small text-muted ms-1" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
-        {{ post.date | date: df_strftime_m }}
+    <div class="archive-ledger-summary" aria-label="归档概览">
+      <span class="archive-summary-item">
+        <span class="archive-summary-label">公开记录</span>
+        <strong>{{ visible_post_count }} 篇</strong>
       </span>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
+      <span class="archive-summary-item">
+        <span class="archive-summary-label">时间跨度</span>
+        <strong>{{ oldest_year }}—{{ newest_year }}</strong>
+      </span>
+    </div>
 
-    {% if forloop.last %}</ul>{% endif %}
-  {% endfor %}
+    {% for year in archive_years %}
+      <section class="archive-year-group" aria-labelledby="archive-year-{{ year.name }}">
+        <header class="archive-year-heading">
+          <time class="year" id="archive-year-{{ year.name }}" datetime="{{ year.name }}">{{ year.name }}</time>
+          <span class="archive-year-count">{{ year.items | size }} 篇</span>
+        </header>
+
+        <ol class="archive-entry-list list-unstyled">
+          {% for post in year.items %}
+            {% assign ts = post.date | date: '%s' %}
+            <li class="archive-entry">
+              <time class="archive-entry-date" datetime="{{ post.date | date_to_xmlschema }}">
+                <span class="date day" data-ts="{{ ts }}" data-df="DD">{{ post.date | date: '%d' }}</span>
+                <span class="date month" data-ts="{{ ts }}" data-df="{{ df_dayjs_m }}">
+                  {{ post.date | date: df_strftime_m }}
+                </span>
+              </time>
+              <span class="archive-entry-node" aria-hidden="true"></span>
+              <a class="archive-entry-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endfor %}
+  {% else %}
+    <p class="archive-empty">暂无公开记录。</p>
+  {% endif %}
 </div>
