@@ -58,6 +58,53 @@
       }
     };
 
+    const normalizeModeToggle = (bottom) => {
+      if (!toggle) {
+        return;
+      }
+
+      const wrapper = toggle.parentElement?.matches('.btn-group, .dropup, .dropdown')
+        ? toggle.parentElement
+        : null;
+      const adjacentMenu = toggle.nextElementSibling?.matches('.dropdown-menu')
+        ? toggle.nextElementSibling
+        : null;
+      const menu = wrapper?.querySelector('.dropdown-menu') || adjacentMenu;
+
+      menu?.remove();
+
+      if (wrapper && bottom && wrapper.parentElement === bottom) {
+        bottom.insertBefore(toggle, wrapper);
+        wrapper.remove();
+      } else if (wrapper) {
+        wrapper.classList.remove('dropup', 'dropdown', 'show');
+      }
+
+      [
+        'data-bs-toggle',
+        'data-bs-target',
+        'data-bs-auto-close',
+        'data-theme-mode',
+        'aria-haspopup',
+        'aria-expanded'
+      ].forEach((attribute) => toggle.removeAttribute(attribute));
+
+      toggle.classList.remove('dropdown-toggle', 'show');
+
+      const icons = Array.from(toggle.querySelectorAll('i'));
+      let icon = icons.shift();
+
+      icons.forEach((extraIcon) => extraIcon.remove());
+
+      if (!icon) {
+        icon = document.createElement('i');
+        toggle.appendChild(icon);
+      }
+
+      icon.removeAttribute('data-theme-mode');
+      icon.setAttribute('aria-hidden', 'true');
+    };
+
     const updateThemeColor = (visualMode) => {
       const color = visualMode === 'light' ? '#EEE5CE' : '#05070D';
       document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
@@ -168,8 +215,7 @@
 
       toggle.removeAttribute('aria-hidden');
       toggle.removeAttribute('tabindex');
-      toggle.removeAttribute('aria-haspopup');
-      toggle.removeAttribute('aria-expanded');
+      normalizeModeToggle(bottom);
 
       const atlasUrl = '{{ "/occult-atlas/" | relative_url }}';
       let atlasLink = document.getElementById('occult-atlas-link');
@@ -198,14 +244,27 @@
 
       syncControl();
 
+      window.requestAnimationFrame(() => {
+        normalizeModeToggle(bottom);
+        syncControl();
+      });
+
+      document.addEventListener('pointerdown', (event) => {
+        const pressedToggle = event.target.closest?.('#mode-toggle');
+        if (pressedToggle === toggle) {
+          event.stopImmediatePropagation();
+        }
+      }, true);
+
       document.addEventListener('click', (event) => {
         const pressedToggle = event.target.closest?.('#mode-toggle');
-        if (!pressedToggle) {
+        if (pressedToggle !== toggle) {
           return;
         }
 
         event.preventDefault();
         event.stopImmediatePropagation();
+        normalizeModeToggle(bottom);
         setPreference(getVisualMode() === 'light' ? 'dark' : 'light');
       }, true);
     });
