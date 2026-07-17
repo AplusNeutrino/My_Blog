@@ -1100,6 +1100,62 @@ html[data-bs-theme='light'] .about-travel-panel {
   box-shadow: color-mix(in srgb, var(--prospero-text-primary) 4.5%, transparent) 0 4px 18px;
 }
 
+html[data-mode='light'] .about-travel-panel,
+html[data-bs-theme='light'] .about-travel-panel {
+  --travel-globe-viewport: #f8f1dd;
+  --travel-globe-base: #f1e8d2;
+  --travel-globe-land: rgba(18, 77, 104, 0.065);
+  --travel-globe-grid: rgba(23, 68, 90, 0.09);
+  --travel-globe-world-border: rgba(23, 68, 90, 0.24);
+  --travel-globe-province-border: rgba(23, 68, 90, 0.22);
+  --travel-globe-maritime-border: rgba(18, 77, 104, 0.56);
+  --travel-globe-national-border: rgba(18, 77, 104, 0.72);
+  --travel-globe-sphere-border: rgba(173, 125, 41, 0.46);
+  --travel-globe-fill: rgba(25, 127, 147, 0.22);
+  --travel-globe-line-scale: 1;
+  --travel-globe-hover-fill: #197f93;
+  --travel-globe-hover-border: #086d80;
+  --travel-globe-active: var(--prospero-teal-deep);
+  --travel-globe-pinned: var(--prospero-gold-ink);
+  --travel-globe-interface-bg: var(--prospero-surface-1);
+  --travel-globe-interface-border: var(--prospero-border);
+  --travel-globe-interface-text: var(--prospero-text-muted);
+  --travel-globe-interface-primary: var(--prospero-text-primary);
+  --travel-globe-control-bg: var(--prospero-surface-2);
+  --travel-globe-reticle: rgba(23, 68, 90, 0.18);
+  --travel-globe-placeholder-line: rgba(23, 68, 90, 0.18);
+  --travel-globe-placeholder-border: rgba(173, 125, 41, 0.46);
+  box-shadow: none;
+}
+
+html[data-mode='light'] .about-travel-header,
+html[data-mode='light'] .travel-source-note,
+html[data-bs-theme='light'] .about-travel-header,
+html[data-bs-theme='light'] .travel-source-note {
+  border-color: var(--prospero-border);
+}
+
+html[data-mode='light'] .about-travel-header h3,
+html[data-bs-theme='light'] .about-travel-header h3 {
+  color: var(--prospero-text-primary);
+}
+
+html[data-mode='light'] .about-travel-note,
+html[data-mode='light'] .travel-source-note,
+html[data-mode='light'] .travel-source-note a,
+html[data-bs-theme='light'] .about-travel-note,
+html[data-bs-theme='light'] .travel-source-note,
+html[data-bs-theme='light'] .travel-source-note a {
+  color: var(--prospero-text-muted);
+}
+
+html[data-mode='light'] .travel-source-note a:hover,
+html[data-mode='light'] .travel-source-note a:focus-visible,
+html[data-bs-theme='light'] .travel-source-note a:hover,
+html[data-bs-theme='light'] .travel-source-note a:focus-visible {
+  color: var(--prospero-teal-deep);
+}
+
 html[data-mode='light'] .about-stack-header,
 html[data-bs-theme='light'] .about-stack-header {
   border-color: var(--prospero-gold-border);

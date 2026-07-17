@@ -1220,28 +1220,50 @@ order: 5
 
 如果某个条目标题是 `待记录`，或添加时间是 `----/--/--`，页面会自动隐藏它。已有条目会按照添加时间从旧到新排序，日期越早越靠前，所以维护时不需要手动调整顺序。
 
-`待阅读栈` 和 `待观看栈` 下方还有 `地理记忆球` 模块，用于显示国界轮廓和已去过地点小光点。数据来自：
+`待阅读栈` 和 `待观看栈` 下方还有 `地理记忆球` 模块，用于显示全球国界、中国省界、中国国界和已到访区域。已到访省份与国家使用半透明主题色填充，不再绘制城市光点。数据来自：
 
 ```text
-_data/travel_places.yml
+_data/travel_regions.yml
 ```
 
-每个地点格式是：
+每个区域使用边界数据中的稳定代码，不依赖中英文名称匹配：
 
 ```yaml
-- name: 北京
+- source: cn-tianditu-provinces-2025
+  code: "110000"
   label: 北京
-  group: 中国
-  lat: 39.9042
-  lon: 116.4074
+  group: 中国省级
   visited: true
 ```
 
-`name` 是地点归档名，`label` 是悬浮窗里显示的点位名。当前前端只绘制 `visited: true` 的小光点；如果要临时隐藏整个地球面板，把 `_tabs/about.md` 里的 `travel_globe_enabled` 改成 `false`。前端脚本在：
+可按需为已到访区域补充日期、地点和一段简短记忆：
+
+```yaml
+- source: cn-tianditu-provinces-2025
+  code: "110000"
+  label: 北京
+  group: 中国省级
+  visited: true
+  visited_on:
+    - "YYYY-MM"
+  places:
+    - 地点名称
+  note: 一段简短记忆
+```
+
+`visited_on` 和 `places` 必须是字符串数组，`note` 是单行或多行字符串；未填写的字段不会在档案面板中留下空行。中国省级区域的 `code` 使用天地图数据中的六位行政区代码；国家使用 GISCO 的 `CNTR_ID`，例如美国为 `US`、英国为 `UK`。`label` 用于档案标题，`group` 当前只使用 `中国省级` 和 `国家`。只有 `visited: true` 的区域会填色并响应拾取；`false` 或未列出的区域保持未填充。
+
+桌面端悬停已到访区域时会暂停自转并在球体下方预览档案，单击后锁定；再次单击同一区域、单击空白球面或按 `Escape` 解锁。触控端使用单击选择；拖动支持上下左右自由旋转，键盘聚焦画布后可用四个方向键转动，并用 `Enter` 锁定准星中央区域。停止拖动或方向键操作 2 秒后，球体纬向角度会平滑恢复默认观测姿态，同时保留当前经度。区域档案不显示区域代码或数据来源，边界数据来源统一列在档案横条下方。
+
+如果要临时隐藏整个地球面板，把 `_tabs/about.md` 里的 `travel_globe_enabled` 改成 `false`。前端脚本分为：
 
 ```text
 assets/js/travel-globe.js
+assets/js/travel-globe-worker.js
+assets/js/travel-globe-texture.js
 ```
+
+主线程只负责 Three.js 球体旋转和区域拾取；Worker 并行载入 GeoJSON，并将边界一次性绘制成地图纹理。依赖固定保存在 `assets/js/third-party/travel-globe/`，网页运行时不访问 CDN。
 
 样式在：
 
@@ -1257,8 +1279,11 @@ _data/travel_boundary_sources.yml
 
 当前已启用的边界层：
 
-- 中国国界轮廓由本地缓存的天地图省级行政区划边界派生，只保留外轮廓线；原始数据经 GeoJSON.cn 转换分发，审图号 `GS(2024)0650`，坐标系 `CGCS2000 / EPSG:4490`。
+- 中国省级行政区划边界使用本地缓存的天地图国家标准矢量地图数据；同一数据中的南海分段海域境界线按国界层级单独绘制，不重新生成或修改坐标。
+- 中国国界轮廓由同一份省级行政区划边界派生，只保留外轮廓线；原始数据经 GeoJSON.cn 转换分发，审图号 `GS(2024)0650`，坐标系 `CGCS2000 / EPSG:4490`。
 - 全球国家边界使用 European Commission / Eurostat GISCO Countries 2024 官方数据并缓存到本仓库；其中中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
+
+显示层级固定为：已到访区域填色、全球国界、中国省界、南海海域境界线、中国国界。中国国界与南海海域境界线必须明显亮于省界；南海海域境界线单独使用虚线，显示纹理只保留海南主岛轮廓并省略南海诸岛的逐岛描边。该处理只影响显示与拾取纹理，不修改官方 GeoJSON 坐标；边界数据只能调整绘制样式或替换经过核验的新版本。
 
 ```text
 assets/data/tianditu-china-national-boundary.geojson

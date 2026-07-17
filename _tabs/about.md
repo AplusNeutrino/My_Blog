@@ -166,48 +166,82 @@ status_items、roadmap_items 和 signal_items 的格式：
   GEO MEMORY PANEL SWITCH
   Set travel_globe_enabled to false to hide the entire globe panel while keeping the code/data in place.
   {% endcomment %}
-  {% assign travel_globe_enabled = false %}
+  {% assign travel_globe_enabled = true %}
 
   {% if travel_globe_enabled %}
-  {% assign travel_places = site.data.travel_places %}
+  {% assign travel_regions = site.data.travel_regions %}
   {% assign travel_boundary_sources = site.data.travel_boundary_sources %}
-  {% assign travel_visited_places = travel_places | where: 'visited', true %}
   <section class="about-travel-panel" aria-labelledby="travel-globe-title" data-travel-globe-root>
-    <script type="application/json" data-travel-globe-data>{{ travel_places | jsonify }}</script>
+    <script type="application/json" data-travel-region-data>{{ travel_regions | jsonify }}</script>
     <script type="application/json" data-travel-boundary-sources>{{ travel_boundary_sources | jsonify }}</script>
 
     <div class="about-travel-header">
       <div>
         <span class="about-stack-kicker">GEO MEMORY REGISTER</span>
-        <h3 id="travel-globe-title">地理记忆球</h3>
-        <p class="about-travel-note">国界轮廓本地缓存加载；中国轮廓由天地图省级边界派生，只保留外轮廓。蓝色小光点记录已去过的省会、首府与城市。</p>
-      </div>
-
-      <div class="about-travel-stats" aria-label="漫游统计">
-        <span><strong>{{ travel_visited_places.size }}</strong> visited points</span>
-        <span><strong>2</strong> boundary layers</span>
+        <h3 id="travel-globe-title">中间出游记录</h3>
+        <p class="about-travel-note" id="travel-globe-note">记录出游历史</p>
       </div>
     </div>
 
     <div class="travel-globe-shell">
-      <canvas class="travel-globe-canvas" data-travel-globe-canvas aria-label="旋转地理记忆球"></canvas>
-      <div class="travel-globe-reticle" aria-hidden="true"></div>
-      <div class="travel-boundary-status" data-travel-boundary-status>边界层初始化中</div>
-      <div class="travel-globe-tooltip" data-travel-globe-tooltip hidden>
-        <strong data-travel-tooltip-name></strong>
-        <span data-travel-tooltip-region></span>
-        <em data-travel-tooltip-status></em>
-        <code data-travel-tooltip-coords></code>
+      <div class="travel-globe-placeholder" aria-hidden="true"><span></span></div>
+      <canvas
+        class="travel-globe-canvas"
+        data-travel-globe-canvas
+        aria-label="旋转地理记忆球"
+        aria-describedby="travel-globe-note"
+        tabindex="0"
+      ></canvas>
+      <div class="travel-globe-reticle" aria-hidden="true">
+        <span class="travel-globe-corner is-north-west"></span>
+        <span class="travel-globe-corner is-north-east"></span>
+        <span class="travel-globe-corner is-south-east"></span>
+        <span class="travel-globe-corner is-south-west"></span>
+        <span class="travel-globe-reticle-center"></span>
       </div>
+      <div class="travel-boundary-status" data-travel-boundary-status aria-live="polite">
+        <span data-travel-boundary-message>边界层载入中</span>
+        <button type="button" data-travel-boundary-retry hidden>重新载入</button>
+      </div>
+    </div>
+
+    <div
+      class="travel-globe-dossier is-empty"
+      data-travel-globe-dossier
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div class="travel-dossier-primary">
+        <span class="travel-dossier-kicker" data-travel-tooltip-mode>GEO MEMORY RECORD</span>
+        <strong data-travel-tooltip-name>未选择记录</strong>
+        <div class="travel-dossier-meta">
+          <span data-travel-tooltip-region hidden></span>
+          <em data-travel-tooltip-status hidden></em>
+        </div>
+      </div>
+      <dl class="travel-dossier-fields" data-travel-dossier-fields hidden>
+        <div data-travel-tooltip-dates-row hidden>
+          <dt>VISITED</dt>
+          <dd data-travel-tooltip-dates></dd>
+        </div>
+        <div data-travel-tooltip-places-row hidden>
+          <dt>PLACES</dt>
+          <dd data-travel-tooltip-places></dd>
+        </div>
+      </dl>
+      <p class="travel-dossier-note" data-travel-tooltip-note hidden></p>
     </div>
 
     <div class="travel-source-note" aria-label="边界数据来源">
       <span>边界数据来源</span>
-      {% for source in travel_boundary_sources %}
-        {% if source.enabled %}
-          <a href="{{ source.source_url }}" target="_blank" rel="noopener noreferrer">{{ source.name }}：{{ source.source_name }}</a>
-        {% endif %}
-      {% endfor %}
+      <div class="travel-source-links">
+        {% for source in travel_boundary_sources %}
+          {% if source.enabled %}
+            <a href="{{ source.source_url }}" target="_blank" rel="noopener noreferrer">{{ source.name }}：{{ source.source_name }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </section>
   {% endif %}
@@ -215,7 +249,7 @@ status_items、roadmap_items 和 signal_items 的格式：
 </section>
 
 {% if travel_globe_enabled %}
-<script src="{{ '/assets/js/travel-globe.js' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+<script type="module" src="{{ '/assets/js/travel-globe.js' | relative_url }}?v={{ site.github.build_revision | default: 'local' }}-{{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
 {% endif %}
 
 <br>

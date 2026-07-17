@@ -8,6 +8,7 @@
   source_url: https://gisco-services.ec.europa.eu/distribution/v2/countries/
   data_url: /assets/data/gisco-countries-2024-20m.geojson
   code_property: CNTR_ID
+  boundary_kind: country
   exclude_codes:
     - CN
     - TW
@@ -24,6 +25,19 @@
     NL: 荷兰
     CH: 瑞士
   note: 本地缓存全球国家边界；中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
+- id: cn-tianditu-provinces-2025
+  name: 中国省级边界
+  region: 中国
+  enabled: true
+  official: true
+  status: active
+  source_name: 天地图国家标准矢量地图，经 GeoJSON.cn 转换分发，审图号 GS(2024)0650
+  source_url: https://geojson.cn/data/file/Tiandi_China
+  data_url: /assets/data/tianditu-china-provinces.geojson
+  boundary_kind: province
+  code_property: code
+  name_property: name
+  note: 本地缓存天地图省级行政区划边界及南海分段海域境界线；不手动修改中国国界、省界、台海、新疆、西藏、南海相关边界坐标。
 - id: cn-tianditu-national-2025
   name: 中国国界轮廓
   region: 中国
@@ -33,5 +47,6 @@
   source_name: 天地图国家标准矢量地图，经 GeoJSON.cn 转换分发，审图号 GS(2024)0650
   source_url: https://geojson.cn/data/file/Tiandi_China
   data_url: /assets/data/tianditu-china-national-boundary.geojson
+  boundary_kind: national-outline
   name_property: name
   note: 由本地缓存的天地图省级行政区划边界派生，只保留中国外轮廓线；不手动修改中国国界、省界、台海、新疆、西藏、南海相关边界坐标。
