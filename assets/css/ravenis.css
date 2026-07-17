@@ -1,0 +1,690 @@
+/* Ravenis is intentionally scoped so it cannot alter the rest of Neutriverse. */
+.ravenis-app {
+  --rv-canvas: #070b12;
+  --rv-surface: #0d1420;
+  --rv-surface-2: #111c2a;
+  --rv-rule: #25384b;
+  --rv-rule-strong: #3c6373;
+  --rv-text: #e2e9e8;
+  --rv-muted: #98a8aa;
+  --rv-heading: #f3f6f2;
+  --rv-accent: #66c4ce;
+  --rv-accent-ink: #061014;
+  --rv-gold: #c8aa69;
+  --rv-danger: #df8d83;
+  --rv-shadow: 0 18px 46px rgb(0 0 0 / 22%);
+  position: relative;
+  max-width: 100%;
+  color: var(--rv-text);
+  font-family: Inter, "Noto Sans SC", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+html[data-mode="light"] .ravenis-app {
+  --rv-canvas: #eee5ce;
+  --rv-surface: #f8f1dd;
+  --rv-surface-2: #e8ddc2;
+  --rv-rule: #c5ad70;
+  --rv-rule-strong: #8c743f;
+  --rv-text: #2c3436;
+  --rv-muted: #536060;
+  --rv-heading: #17445a;
+  --rv-accent: #197f93;
+  --rv-accent-ink: #f8f1dd;
+  --rv-gold: #78551d;
+  --rv-danger: #8d403b;
+  --rv-shadow: 0 18px 42px rgb(39 57 63 / 10%);
+}
+
+.ravenis-app [hidden] {
+  display: none !important;
+}
+
+.ravenis-app h2,
+.ravenis-app h3,
+.ravenis-app p {
+  margin-top: 0;
+}
+
+.ravenis-app h2,
+.ravenis-app h3 {
+  color: var(--rv-heading);
+  font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+  font-style: normal;
+}
+
+.ravenis-app button,
+.ravenis-app input,
+.ravenis-app select {
+  font: inherit;
+}
+
+.ravenis-app :where(button, input, select, summary, a):focus-visible {
+  outline: 2px solid var(--rv-accent);
+  outline-offset: 3px;
+}
+
+.ravenis-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  margin: 4px 0 24px;
+  padding: 28px;
+  border: 1px solid var(--rv-rule);
+  border-top: 3px solid var(--rv-gold);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--rv-accent) 7%, transparent), transparent 42%),
+    var(--rv-surface);
+  box-shadow: var(--rv-shadow);
+}
+
+.ravenis-kicker,
+.ravenis-section-heading > p {
+  margin-bottom: 8px;
+  color: var(--rv-gold);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+}
+
+.ravenis-hero h2 {
+  margin-bottom: 8px;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ravenis-overview {
+  max-width: 46rem;
+  margin-bottom: 0;
+  color: var(--rv-muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.ravenis-ledger {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  min-width: 9rem;
+  color: var(--rv-muted);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ravenis-seal {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid var(--rv-rule-strong);
+  border-radius: 999px;
+  color: var(--rv-accent);
+  background: color-mix(in srgb, var(--rv-accent) 7%, transparent);
+}
+
+.ravenis-search {
+  margin-bottom: 16px;
+  padding: 20px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 8px;
+  background: var(--rv-surface);
+}
+
+.ravenis-query > label,
+.ravenis-filter-grid label {
+  display: grid;
+  gap: 7px;
+  color: var(--rv-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ravenis-query > label {
+  margin-bottom: 8px;
+  color: var(--rv-heading);
+  font-size: 0.9rem;
+}
+
+.ravenis-query-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.ravenis-app input,
+.ravenis-app select {
+  min-width: 0;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 5px;
+  color: var(--rv-text);
+  background: var(--rv-canvas);
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.ravenis-app input:hover,
+.ravenis-app select:hover {
+  border-color: var(--rv-rule-strong);
+}
+
+.ravenis-app input::placeholder {
+  color: color-mix(in srgb, var(--rv-muted) 78%, transparent);
+}
+
+.ravenis-button {
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid var(--rv-rule-strong);
+  border-radius: 5px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.ravenis-button-primary {
+  border-color: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  background: var(--rv-accent);
+}
+
+.ravenis-button-quiet {
+  color: var(--rv-muted);
+  background: transparent;
+}
+
+.ravenis-hint {
+  margin: 7px 0 0;
+  color: var(--rv-muted);
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
+
+.ravenis-filters {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rv-rule);
+}
+
+.ravenis-filters > summary {
+  width: fit-content;
+  color: var(--rv-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#ravenis-filter-count:not(:empty)::before {
+  content: "· ";
+}
+
+.ravenis-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 12px;
+  margin-top: 16px;
+}
+
+.ravenis-filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.ravenis-view-switch {
+  display: flex;
+  gap: 4px;
+  width: fit-content;
+  margin: 0 0 24px;
+  padding: 3px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 6px;
+  background: var(--rv-surface);
+}
+
+.ravenis-view-switch a {
+  padding: 7px 16px;
+  border-radius: 3px;
+  color: var(--rv-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ravenis-view-switch a[aria-current="page"] {
+  color: var(--rv-accent-ink);
+  background: var(--rv-accent);
+}
+
+.ravenis-loading {
+  display: grid;
+  gap: 10px;
+  padding: 10px 0 30px;
+}
+
+.ravenis-loading span {
+  display: block;
+  height: 72px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--rv-surface), var(--rv-surface-2), var(--rv-surface));
+  background-size: 220% 100%;
+  animation: ravenis-pulse 1.5s ease-in-out infinite;
+}
+
+.ravenis-section {
+  margin: 0 0 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rv-rule);
+}
+
+.ravenis-section-heading {
+  margin-bottom: 18px;
+}
+
+.ravenis-section-heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.ravenis-top-items {
+  display: grid;
+  gap: 12px;
+}
+
+.ravenis-signal {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 14px;
+  padding: 18px 18px 18px 0;
+  border: 1px solid var(--rv-rule);
+  border-left: 3px solid var(--rv-gold);
+  border-radius: 0 7px 7px 0;
+  background: var(--rv-surface);
+}
+
+.ravenis-signal-number {
+  padding-top: 2px;
+  color: var(--rv-gold);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.ravenis-signal h4 {
+  margin: 0 0 12px;
+  color: var(--rv-heading);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.ravenis-signal dl {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+  gap: 6px 10px;
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.ravenis-signal dt {
+  color: var(--rv-accent);
+  font-weight: 600;
+}
+
+.ravenis-signal dd {
+  margin: 0;
+  color: var(--rv-text);
+}
+
+.ravenis-evidence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.ravenis-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 999px;
+  color: var(--rv-muted);
+  background: color-mix(in srgb, var(--rv-surface-2) 75%, transparent);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.68rem;
+}
+
+.ravenis-empty-signal {
+  margin: 0;
+  padding: 18px;
+  border-left: 3px solid var(--rv-rule-strong);
+  color: var(--rv-muted);
+  background: var(--rv-surface);
+}
+
+.ravenis-watchlist {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ravenis-watchlist li {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 22px;
+  color: var(--rv-text);
+  line-height: 1.75;
+}
+
+.ravenis-watchlist li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--rv-accent);
+  border-radius: 50%;
+  content: "";
+}
+
+.ravenis-category-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px 24px;
+}
+
+.ravenis-category {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--rv-rule);
+}
+
+.ravenis-category strong {
+  color: var(--rv-text);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.ravenis-category span {
+  color: var(--rv-gold);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ravenis-record-heading-row {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+#ravenis-result-count {
+  color: var(--rv-muted);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.72rem;
+}
+
+.ravenis-records {
+  display: grid;
+  gap: 8px;
+}
+
+.ravenis-record {
+  padding: 16px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 6px;
+  background: var(--rv-surface);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.ravenis-record-header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ravenis-record h4 {
+  margin: 0;
+  color: var(--rv-heading);
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.ravenis-record-score {
+  flex: 0 0 auto;
+  min-width: 2.2rem;
+  color: var(--rv-gold);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.ravenis-record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 8px 0 0;
+  color: var(--rv-muted);
+  font-size: 0.73rem;
+  line-height: 1.55;
+}
+
+.ravenis-record-summary {
+  margin: 11px 0 0;
+  color: var(--rv-text);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.ravenis-record-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ravenis-record-actions a,
+.ravenis-record details > summary {
+  color: var(--rv-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ravenis-record details {
+  margin-top: 10px;
+}
+
+.ravenis-record details p {
+  margin: 8px 0 0;
+}
+
+.ravenis-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ravenis-pagination button {
+  min-width: 40px;
+  min-height: 40px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 4px;
+  color: var(--rv-muted);
+  background: var(--rv-surface);
+  cursor: pointer;
+}
+
+.ravenis-pagination button[aria-current="page"] {
+  border-color: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  background: var(--rv-accent);
+}
+
+.ravenis-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.ravenis-error {
+  padding: 24px;
+  border: 1px solid var(--rv-danger);
+  border-radius: 7px;
+  color: var(--rv-text);
+  background: color-mix(in srgb, var(--rv-danger) 7%, var(--rv-surface));
+}
+
+.ravenis-error h3 {
+  margin-bottom: 8px;
+}
+
+.ravenis-weekly-theme {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--rv-rule);
+}
+
+.ravenis-weekly-theme:last-child {
+  border-bottom: 0;
+}
+
+.ravenis-weekly-theme h4 {
+  margin: 0 0 6px;
+  color: var(--rv-heading);
+  font-size: 0.95rem;
+}
+
+.ravenis-weekly-theme p {
+  margin: 4px 0 0;
+  color: var(--rv-muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ravenis-button:hover,
+  .ravenis-record:hover {
+    transform: translateY(-1px);
+  }
+
+  .ravenis-record:hover {
+    border-color: var(--rv-rule-strong);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ravenis-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .ravenis-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .ravenis-ledger {
+    justify-items: start;
+  }
+
+  .ravenis-search {
+    padding: 16px;
+  }
+
+  .ravenis-query-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ravenis-button {
+    min-height: 44px;
+  }
+
+  .ravenis-filter-grid,
+  .ravenis-category-list {
+    grid-template-columns: 1fr;
+  }
+
+  .ravenis-signal {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 10px;
+    padding: 15px 14px 15px 0;
+  }
+
+  .ravenis-signal dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .ravenis-signal dd + dt {
+    margin-top: 6px;
+  }
+
+  .ravenis-record-header {
+    gap: 8px;
+  }
+
+  .ravenis-record {
+    padding: 17px 15px;
+  }
+
+  .ravenis-record h4 {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .ravenis-record-meta {
+    font-size: 0.77rem;
+    line-height: 1.65;
+  }
+
+  .ravenis-record-summary {
+    font-size: 0.9rem;
+    line-height: 1.82;
+  }
+
+  .ravenis-record-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ravenis-app *,
+  .ravenis-app *::before,
+  .ravenis-app *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes ravenis-pulse {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+}

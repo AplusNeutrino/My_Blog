@@ -186,7 +186,8 @@
     };
 
     const storedPreference = safeStorage.get(localStorage, storageKey);
-    const initialPreference = modes.has(storedPreference) ? storedPreference : 'light';
+    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const initialPreference = modes.has(storedPreference) ? storedPreference : systemPreference;
     root.setAttribute('data-mode', initialPreference);
     safeStorage.set(sessionStorage, sessionKey, initialPreference);
     safeStorage.set(localStorage, storageKey, initialPreference);

@@ -1,0 +1,147 @@
+---
+layout: page
+title: Ravenis
+description: 最近 30 天的公开新闻简报、观察信号与历史检索。
+permalink: /ravenis/
+sitemap: false
+search: false
+robots: noindex,nofollow
+ravenis: true
+---
+
+<div
+  id="ravenis-app"
+  class="ravenis-app"
+  data-base-url="{{ '/ravenis/data/' | relative_url }}"
+  aria-busy="true"
+>
+  <header class="ravenis-hero" aria-labelledby="ravenis-heading">
+    <div>
+      <p class="ravenis-kicker">PUBLIC INTELLIGENCE LOG · 30 DAYS</p>
+      <h2 id="ravenis-heading">公开情报简报</h2>
+      <p id="ravenis-overview" class="ravenis-overview">读取最近一次已验证的公开投影。</p>
+    </div>
+    <div class="ravenis-ledger" aria-label="数据状态">
+      <span id="ravenis-date">—</span>
+      <span id="ravenis-freshness" class="ravenis-seal">正在校验</span>
+    </div>
+  </header>
+
+  <form id="ravenis-search" class="ravenis-search" role="search">
+    <div class="ravenis-query">
+      <label for="ravenis-q">搜索最近 30 天</label>
+      <div class="ravenis-query-row">
+        <input id="ravenis-q" name="q" type="search" autocomplete="off" placeholder="标题、分类、标签、来源或短摘要">
+        <button class="ravenis-button ravenis-button-primary" type="submit">检索</button>
+      </div>
+      <p class="ravenis-hint">中文会先做 NFKC 规范化；完整新闻正文不会进入公开索引。</p>
+    </div>
+
+    <details id="ravenis-filter-panel" class="ravenis-filters">
+      <summary>筛选与排序 <span id="ravenis-filter-count" aria-label="启用的筛选数量"></span></summary>
+      <div class="ravenis-filter-grid">
+        <label>查看日期
+          <input id="ravenis-target-date" name="date" type="date">
+        </label>
+        <label>起始日期
+          <input id="ravenis-from" name="from" type="date">
+        </label>
+        <label>结束日期
+          <input id="ravenis-to" name="to" type="date">
+        </label>
+        <label>时段
+          <select id="ravenis-slot" name="slot">
+            <option value="">全部时段</option>
+            <option value="A">A · 早间</option>
+            <option value="B">B · 午间</option>
+            <option value="C">C · 晚间</option>
+            <option value="DIGEST">AI Digest</option>
+          </select>
+        </label>
+        <label>分类
+          <select id="ravenis-category" name="category"><option value="">全部分类</option></select>
+        </label>
+        <label>来源
+          <select id="ravenis-source" name="source"><option value="">全部来源</option></select>
+        </label>
+        <label>类型
+          <select id="ravenis-type" name="type">
+            <option value="">全部类型</option>
+            <option value="news">新闻</option>
+            <option value="event_cluster">事件簇</option>
+            <option value="ai_digest">AI Digest</option>
+            <option value="rss">RSS</option>
+            <option value="hotlist">热榜</option>
+          </select>
+        </label>
+        <label>排序
+          <select id="ravenis-sort" name="sort">
+            <option value="latest">最新出现</option>
+            <option value="first">首次出现</option>
+          </select>
+        </label>
+      </div>
+      <div class="ravenis-filter-actions">
+        <button id="ravenis-reset" class="ravenis-button ravenis-button-quiet" type="button">清除筛选</button>
+      </div>
+    </details>
+  </form>
+
+  <nav class="ravenis-view-switch" aria-label="简报视图">
+    <a id="ravenis-daily-link" href="?" aria-current="page">日报</a>
+    <a id="ravenis-weekly-link" href="?view=weekly">周报</a>
+  </nav>
+
+  <div id="ravenis-loading" class="ravenis-loading" aria-label="正在载入公开情报">
+    <span></span><span></span><span></span>
+  </div>
+
+  <main id="ravenis-content" hidden>
+    <section id="ravenis-top-section" class="ravenis-section" aria-labelledby="ravenis-top-heading">
+      <div class="ravenis-section-heading">
+        <p>01 · PRIORITY</p>
+        <h3 id="ravenis-top-heading">当日重点</h3>
+      </div>
+      <div id="ravenis-top-items" class="ravenis-top-items"></div>
+    </section>
+
+    <section id="ravenis-watch-section" class="ravenis-section" aria-labelledby="ravenis-watch-heading">
+      <div class="ravenis-section-heading">
+        <p>02 · VERIFY NEXT</p>
+        <h3 id="ravenis-watch-heading">继续观察</h3>
+      </div>
+      <ul id="ravenis-watchlist" class="ravenis-watchlist"></ul>
+    </section>
+
+    <section id="ravenis-category-section" class="ravenis-section" aria-labelledby="ravenis-category-heading">
+      <div class="ravenis-section-heading">
+        <p>03 · FIELD MAP</p>
+        <h3 id="ravenis-category-heading">分类速览</h3>
+      </div>
+      <div id="ravenis-categories" class="ravenis-category-list"></div>
+    </section>
+
+    <section class="ravenis-section ravenis-record-section" aria-labelledby="ravenis-record-heading">
+      <div class="ravenis-section-heading ravenis-record-heading-row">
+        <div>
+          <p>04 · PUBLIC RECORDS</p>
+          <h3 id="ravenis-record-heading">完整公开记录</h3>
+        </div>
+        <output id="ravenis-result-count" for="ravenis-search">—</output>
+      </div>
+      <div id="ravenis-records" class="ravenis-records"></div>
+      <nav id="ravenis-pagination" class="ravenis-pagination" aria-label="结果分页"></nav>
+    </section>
+  </main>
+
+  <section id="ravenis-error" class="ravenis-error" role="alert" hidden>
+    <p class="ravenis-kicker">DATA CHANNEL UNAVAILABLE</p>
+    <h3>当前无法读取已验证数据</h3>
+    <p id="ravenis-error-message">线上上一版不会被空数据覆盖，请稍后再试。</p>
+    <button id="ravenis-retry" class="ravenis-button ravenis-button-primary" type="button">重新读取</button>
+  </section>
+
+  <noscript><p class="ravenis-error">历史检索需要启用 JavaScript；公开摘要本身不包含正文。</p></noscript>
+</div>
+
+<script src="{{ '/assets/js/ravenis.js' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}" defer></script>

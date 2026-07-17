@@ -5,6 +5,10 @@
 {% include poe-night-mode.html %}
 <link rel="stylesheet" href="{{ '/assets/css/NormaiNight.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
 <link rel="stylesheet" href="{{ '/assets/css/ProsperoLight.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
+{% if page.ravenis %}
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="{{ '/assets/css/ravenis.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
+{% endif %}
 
 {% unless site.pwa.enabled %}
   <script>
