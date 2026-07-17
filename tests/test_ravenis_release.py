@@ -5,6 +5,8 @@ import hashlib
 import importlib.util
 import io
 import json
+import shutil
+import subprocess
 import sys
 import tarfile
 import tempfile
@@ -14,6 +16,7 @@ from unittest.mock import patch
 
 
 SCRIPT = Path(__file__).parents[1] / "tools" / "fetch_ravenis_release.py"
+RAVENIS_JS = Path(__file__).parents[1] / "assets" / "js" / "ravenis.js"
 SPEC = importlib.util.spec_from_file_location("fetch_ravenis_release", SCRIPT)
 release = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = release
@@ -77,6 +80,34 @@ def make_release(record=None):
 
 
 class RavenisReleaseTests(unittest.TestCase):
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_priority_signal_uses_complete_evidence_title(self):
+        fixture = {
+            "item": {
+                "id": "r_1",
+                "headline": "半导体抛售潮拖累美股…",
+                "evidence_ids": ["r_1"],
+            },
+            "records": [{
+                "id": "r_1",
+                "title": "半导体抛售潮拖累美股，纳指100一度跌2%，中概股逆市上涨，黄金大跌破4000",
+            }],
+        }
+        script = """
+const { resolveSignalTitle } = require(process.argv[1]);
+const fixture = JSON.parse(process.argv[2]);
+process.stdout.write(resolveSignalTitle(fixture.item, fixture.records));
+"""
+        result = subprocess.run(
+            [shutil.which("node"), "-e", script, str(RAVENIS_JS), json.dumps(fixture, ensure_ascii=False)],
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        self.assertEqual(result.stdout, fixture["records"][0]["title"])
+        self.assertNotIn("…", result.stdout)
+
     def test_valid_release_is_accepted(self):
         pointer, payload = make_release()
         validated, files = release.validate_release(pointer, payload)

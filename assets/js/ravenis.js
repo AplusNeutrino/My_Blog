@@ -18,7 +18,21 @@
     cooled: '明显降温'
   };
 
-  const app = document.getElementById('ravenis-app');
+  function resolveSignalTitle(item, records) {
+    const evidenceIds = new Set([
+      item?.id,
+      ...(Array.isArray(item?.evidence_ids) ? item.evidence_ids : [])
+    ].filter(Boolean));
+    const evidence = (Array.isArray(records) ? records : [])
+      .find((record) => evidenceIds.has(record.id) && record.title);
+    return evidence?.title || item?.headline || '未命名信号';
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { resolveSignalTitle };
+  }
+
+  const app = typeof document === 'undefined' ? null : document.getElementById('ravenis-app');
   if (!app) return;
 
   const $ = (id) => document.getElementById(id);
@@ -246,6 +260,7 @@
 
   function signalMarkup(item, index, records) {
     const sources = sourceEvidence(item.evidence_ids, records);
+    const title = resolveSignalTitle(item, records);
     const chips = [
       ...sources,
       item.evidence_ids?.length ? `${item.evidence_ids.length} 条证据` : ''
@@ -254,7 +269,7 @@
       <article class="ravenis-signal">
         <div class="ravenis-signal-number">${String(index + 1).padStart(2, '0')}</div>
         <div>
-          <h4>${escapeHTML(item.headline || '未命名信号')}</h4>
+          <h4>${escapeHTML(title)}</h4>
           <dl>
             <dt>发生</dt><dd>${escapeHTML(item.event || '公开记录出现新的变化。')}</dd>
             <dt>影响</dt><dd>${escapeHTML(item.impact || '影响范围仍需由后续公开证据确认。')}</dd>
