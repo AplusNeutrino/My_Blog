@@ -321,8 +321,17 @@ html[data-mode='light'] #sidebar .sidebar-bottom > a,
 html[data-mode='light'] #sidebar #mode-toggle,
 html[data-bs-theme='light'] #sidebar .sidebar-bottom > a,
 html[data-bs-theme='light'] #sidebar #mode-toggle {
+  border: 1px solid color-mix(in srgb, var(--prospero-gold-on-lapis) 58%, var(--prospero-shell));
   color: var(--prospero-shell-text);
   background: var(--prospero-shell-wash);
+  box-shadow: none !important;
+}
+
+html[data-mode='light'] #sidebar #mode-toggle,
+html[data-bs-theme='light'] #sidebar #mode-toggle {
+  border-color: var(--prospero-gold-on-lapis);
+  color: var(--prospero-shell-active);
+  background: color-mix(in srgb, var(--prospero-gold) 13%, transparent);
 }
 
 html[data-mode='light'] .site-sidebar-recall,

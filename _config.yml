@@ -225,6 +225,7 @@ exclude:
   - design-previews
   - docs
   - tools
+  - tests
   - DESIGN.md
   - README.md
   - LICENSE

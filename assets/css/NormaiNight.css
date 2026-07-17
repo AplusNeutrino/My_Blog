@@ -234,6 +234,18 @@ footer a:hover,
   position: relative;
 }
 
+#sidebar .sidebar-bottom .site-port-icon {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 #occult-atlas-link {
   order: -1;
 }
@@ -4288,6 +4300,23 @@ html[data-bs-theme='dark'] #sidebar #mode-toggle {
   border: 1px solid var(--night-border);
   background: var(--night-surface-2);
   color: var(--night-text-muted);
+  box-shadow: none;
+}
+
+html[data-mode='dark'] #sidebar #mode-toggle,
+html[data-bs-theme='dark'] #sidebar #mode-toggle {
+  border-color: color-mix(in srgb, var(--night-blue) 52%, var(--night-border));
+  background: color-mix(in srgb, var(--night-blue) 8%, var(--night-surface-2));
+  color: var(--night-signal);
+}
+
+html[data-mode='dark'] #sidebar .sidebar-bottom > a:focus-visible,
+html[data-mode='dark'] #sidebar #mode-toggle:focus-visible,
+html[data-bs-theme='dark'] #sidebar .sidebar-bottom > a:focus-visible,
+html[data-bs-theme='dark'] #sidebar #mode-toggle:focus-visible {
+  outline: 2px solid var(--night-blue);
+  outline-offset: 3px;
+  box-shadow: none !important;
 }
 
 html[data-mode='dark'] .site-sidebar-recall,

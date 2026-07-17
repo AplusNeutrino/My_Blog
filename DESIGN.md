@@ -60,3 +60,16 @@ Validate at 1366px, 1024px, 768px, and 390px. Keep desktop sidebar collapse beha
 ## 9. Motion
 
 Theme color, background, border, shadow, and opacity transitions use 180ms to 250ms. Hover movement is at most 1px and only on fine pointers. The optional logo astrolabe ring rotates extremely slowly. `prefers-reduced-motion: reduce` removes decorative rotation and movement.
+
+## 10. Ravenis Public Intelligence
+
+Ravenis is a quiet, unlisted reading room inside Neutriverse rather than a second product shell. It inherits Chirpy's sidebar, top bar, breadcrumb, footer, typography, and saved day/night preference. Its visual adventure is 3/10, motion 2/10, and information density 6/10.
+
+- The first viewport answers three questions in order: what changed, what matters, and what to verify next.
+- Search controls are an archive instrument panel, not a dashboard. The keyword field is primary; secondary filters wrap on an 8px rhythm and never overflow the viewport.
+- Night mode uses the existing deep-space console surfaces. Light mode uses sandstone paper, lapis structure, old-gold rules, and turquoise interaction states.
+- Top signals use a numbered left rule, evidence chips, and compact `发生 / 影响 / 观察` labels. Full records use restrained archive rows with disclosure for records without a safe external URL.
+- Five deliberate craft details are required: a mono date ledger, three-step signal grammar, evidence-count chips, category tally rules, and a small LKG/data-freshness seal.
+- The page is public but deliberately quiet: no tab entry, no sitemap entry, `noindex,nofollow`, and no analytics-specific promotion.
+- The browser loads only the manifest and selected day at first. The 30-day search index is lazy-loaded after a search or historical filter is requested.
+- All interactive controls retain visible labels, 2px turquoise focus outlines, 44px mobile targets where practical, and reduced-motion behavior.

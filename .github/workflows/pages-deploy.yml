@@ -11,6 +11,8 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  repository_dispatch:
+    types: [ravenis-history-published]
 
 permissions:
   contents: read
@@ -45,10 +47,53 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Restore last-known-good Ravenis data
+        id: ravenis-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: _ravenis_lkg
+          key: ravenis-lkg-${{ github.sha }}
+          restore-keys: |
+            ravenis-lkg-
+
+      - name: Install Ravenis reader dependency
+        run: python -m pip install boto3
+
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
+
+      - name: Fetch verified Ravenis public release
+        id: ravenis
+        env:
+          RAVENIS_R2_BUCKET: ${{ secrets.RAVENIS_R2_BUCKET }}
+          RAVENIS_R2_ACCESS_KEY_ID: ${{ secrets.RAVENIS_R2_ACCESS_KEY_ID }}
+          RAVENIS_R2_SECRET_ACCESS_KEY: ${{ secrets.RAVENIS_R2_SECRET_ACCESS_KEY }}
+          RAVENIS_R2_ENDPOINT: ${{ secrets.RAVENIS_R2_ENDPOINT }}
+          RAVENIS_R2_REGION: ${{ secrets.RAVENIS_R2_REGION }}
+          ALLOW_RAVENIS_LKG: ${{ github.event_name == 'repository_dispatch' && '0' || '1' }}
+        run: |
+          args=()
+          if [ "$ALLOW_RAVENIS_LKG" = "1" ]; then
+            args+=(--allow-lkg)
+          fi
+          python tools/fetch_ravenis_release.py \
+            --target "_site${{ steps.pages.outputs.base_path }}/ravenis/data" \
+            --lkg _ravenis_lkg \
+            "${args[@]}"
+
+      - name: Save verified Ravenis release
+        if: steps.ravenis.outputs.source == 'remote'
+        uses: actions/cache/save@v4
+        with:
+          path: _ravenis_lkg
+          key: ravenis-lkg-${{ steps.ravenis.outputs.release_sha }}
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v5

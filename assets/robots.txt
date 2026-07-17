@@ -1,0 +1,10 @@
+---
+permalink: /robots.txt
+---
+
+User-agent: *
+
+Disallow: /norobots/
+Disallow: /ravenis/
+
+Sitemap: {{ '/sitemap.xml' | absolute_url }}
