@@ -167,38 +167,56 @@
   label: 美国
   group: 国家
   visited: true
+  visited_on:
+    - "2015"
 - source: global-countries-2024
   code: UK
   label: 英国
   group: 国家
   visited: true
+  visited_on:
+    - "2024-2025"
 - source: global-countries-2024
   code: FR
   label: 法国
   group: 国家
   visited: true
+  visited_on:
+    - "2025"
 - source: global-countries-2024
   code: DE
   label: 德国
   group: 国家
   visited: true
+  visited_on:
+    - "2017"
+    - "2025"
 - source: global-countries-2024
   code: BE
   label: 比利时
   group: 国家
   visited: true
+  visited_on:
+    - "2017"
+    - "2025"
 - source: global-countries-2024
   code: LU
   label: 卢森堡
   group: 国家
   visited: true
+  visited_on:
+    - "2025"
 - source: global-countries-2024
   code: NL
   label: 荷兰
   group: 国家
   visited: true
+  visited_on:
+    - "2017"
 - source: global-countries-2024
   code: CH
   label: 瑞士
   group: 国家
   visited: true
+  visited_on:
+    - "2025"
