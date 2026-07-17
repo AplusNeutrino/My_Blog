@@ -5,7 +5,6 @@
 <script>
   (() => {
     const root = document.documentElement;
-    const media = window.matchMedia('(prefers-color-scheme: dark)');
     const storageKey = 'neutriverse-theme-preference';
     const sessionKey = 'mode';
     const modes = new Set(['light', 'dark']);
@@ -14,8 +13,38 @@
       dark: '切换到碎空星之夜'
     };
     const targetIcons = {
-      light: 'fas fa-sun',
-      dark: 'fas fa-moon'
+      light: 'sunrise',
+      dark: 'moon'
+    };
+    const portIcons = {
+      sunrise: `
+        <svg class="site-port-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 17.5h16"></path>
+          <path d="M7.5 17.5a4.5 4.5 0 0 1 9 0"></path>
+          <path d="M12 5.5v4"></path>
+          <path d="m6.8 9.2 2 2"></path>
+          <path d="m17.2 9.2-2 2"></path>
+        </svg>`,
+      moon: `
+        <svg class="site-port-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 15.4A7.4 7.4 0 0 1 8.6 5 7.5 7.5 0 1 0 19 15.4Z"></path>
+        </svg>`,
+      atlas: `
+        <svg class="site-port-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8"></circle>
+          <path d="m15.8 8.2-2.2 5.4-5.4 2.2 2.2-5.4 5.4-2.2Z"></path>
+        </svg>`,
+      media: `
+        <svg class="site-port-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="4" y="5" width="16" height="14" rx="1.5"></rect>
+          <path d="M8 5v14M16 5v14M4 9h4M16 9h4M4 15h4M16 15h4"></path>
+        </svg>`,
+      rss: `
+        <svg class="site-port-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="6.5" cy="17.5" r="1"></circle>
+          <path d="M5.5 11a7.5 7.5 0 0 1 7.5 7.5"></path>
+          <path d="M5.5 5.5a13 13 0 0 1 13 13"></path>
+        </svg>`
     };
     let toggle;
 
@@ -34,18 +63,11 @@
           /* Ignore storage failures in private or restricted browsers. */
         }
       },
-      remove(storage, key) {
-        try {
-          storage.removeItem(key);
-        } catch {
-          /* Ignore storage failures in private or restricted browsers. */
-        }
-      }
     };
 
     const getVisualMode = () => {
       const explicitMode = root.getAttribute('data-mode');
-      return modes.has(explicitMode) ? explicitMode : (media.matches ? 'dark' : 'light');
+      return modes.has(explicitMode) ? explicitMode : 'light';
     };
 
     const setControlLabel = (control, label) => {
@@ -56,6 +78,15 @@
       if (control.hasAttribute('data-bs-original-title')) {
         control.setAttribute('data-bs-original-title', label);
       }
+    };
+
+    const setPortIcon = (control, iconName) => {
+      if (!control || !portIcons[iconName] || control.dataset.siteIcon === iconName) {
+        return;
+      }
+
+      control.innerHTML = portIcons[iconName];
+      control.dataset.siteIcon = iconName;
     };
 
     const normalizeModeToggle = (bottom) => {
@@ -90,19 +121,6 @@
       ].forEach((attribute) => toggle.removeAttribute(attribute));
 
       toggle.classList.remove('dropdown-toggle', 'show');
-
-      const icons = Array.from(toggle.querySelectorAll('i'));
-      let icon = icons.shift();
-
-      icons.forEach((extraIcon) => extraIcon.remove());
-
-      if (!icon) {
-        icon = document.createElement('i');
-        toggle.appendChild(icon);
-      }
-
-      icon.removeAttribute('data-theme-mode');
-      icon.setAttribute('aria-hidden', 'true');
     };
 
     const updateThemeColor = (visualMode) => {
@@ -150,14 +168,9 @@
       }
 
       const targetMode = visualMode === 'light' ? 'dark' : 'light';
-      const icon = toggle.querySelector('i');
       setControlLabel(toggle, targetLabels[targetMode]);
       toggle.dataset.themeTarget = targetMode;
-
-      if (icon) {
-        icon.className = targetIcons[targetMode];
-        icon.setAttribute('aria-hidden', 'true');
-      }
+      setPortIcon(toggle, targetIcons[targetMode]);
     };
 
     const setPreference = (mode) => {
@@ -173,27 +186,16 @@
     };
 
     const storedPreference = safeStorage.get(localStorage, storageKey);
-    if (modes.has(storedPreference)) {
-      root.setAttribute('data-mode', storedPreference);
-      safeStorage.set(sessionStorage, sessionKey, storedPreference);
-    } else if (storedPreference === 'system') {
-      root.removeAttribute('data-mode');
-      safeStorage.remove(sessionStorage, sessionKey);
-      safeStorage.remove(localStorage, storageKey);
-    }
+    const initialPreference = modes.has(storedPreference) ? storedPreference : 'light';
+    root.setAttribute('data-mode', initialPreference);
+    safeStorage.set(sessionStorage, sessionKey, initialPreference);
+    safeStorage.set(localStorage, storageKey, initialPreference);
 
     syncControl();
 
     new MutationObserver(syncControl).observe(root, {
       attributes: true,
       attributeFilter: ['data-mode']
-    });
-
-    media.addEventListener('change', () => {
-      if (!modes.has(root.getAttribute('data-mode'))) {
-        syncControl();
-        window.postMessage({ id: 'theme-mode' }, '*');
-      }
     });
 
     window.addEventListener('message', (event) => {
@@ -224,21 +226,23 @@
         atlasLink = document.createElement('a');
         atlasLink.id = 'occult-atlas-link';
         atlasLink.href = atlasUrl;
-        atlasLink.innerHTML = '<i class="fas fa-compass" aria-hidden="true"></i>';
 
         const firstContact = bottom.querySelector('a');
         firstContact ? bottom.insertBefore(atlasLink, firstContact) : bottom.appendChild(atlasLink);
       }
 
+      setPortIcon(atlasLink, 'atlas');
       setControlLabel(atlasLink, '星图');
 
       const bangumiLink = bottom.querySelector('a[href*="bangumi.tv"]');
       if (bangumiLink) {
+        setPortIcon(bangumiLink, 'media');
         setControlLabel(bangumiLink, 'BGM主页');
       }
 
       const rssLink = bottom.querySelector('a[href$="/feed.xml"]');
       if (rssLink) {
+        setPortIcon(rssLink, 'rss');
         setControlLabel(rssLink, 'RSS订阅');
       }
 
