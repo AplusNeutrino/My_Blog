@@ -3,6 +3,8 @@
 
   const PAGE_SIZE = 20;
   const MAX_MATCHES = 200;
+  const ARTICLE_TYPES = new Set(['news', 'rss', 'hotlist']);
+  const SEARCH_SCOPES = new Set(['articles', 'ai', 'clusters', 'all']);
   const TYPE_LABELS = {
     news: '新闻',
     event_cluster: '事件簇',
@@ -10,7 +12,13 @@
     rss: 'RSS',
     hotlist: '热榜'
   };
-  const SLOT_LABELS = { A: '早间', B: '午间', C: '晚间', DIGEST: 'AI Digest' };
+  const SLOT_LABELS = { A: '早间', B: '午间', C: '晚间', DIGEST: 'AI Digest', MIGRATION: '全天归档' };
+  const SLOT_SCHEDULE = [
+    { slot: 'A', label: 'A', time: '06:00' },
+    { slot: 'DIGEST', label: 'AI Digest', time: '10:00' },
+    { slot: 'B', label: 'B', time: '14:05' },
+    { slot: 'C', label: 'C', time: '17:10' }
+  ];
   const STATUS_LABELS = {
     new: '本周新增',
     reinforced: '持续增强',
@@ -28,8 +36,48 @@
     return evidence?.title || item?.headline || '未命名信号';
   }
 
+  function isValidEventCluster(record) {
+    if (record?.type !== 'event_cluster') return true;
+    const sourceCount = Number(record.source_count) || 0;
+    const memberCount = Number(record.occurrence_count) || 0;
+    const source = normalize(record.source);
+    return sourceCount >= 2 && memberCount >= 2 && !/^[01]\s*个(?:独立|公开)?来源/.test(source);
+  }
+
+  function availableSlotsForDay(day) {
+    const runs = Array.isArray(day?.runs) ? day.runs : [];
+    const bySlot = new Map(runs.map((run) => [String(run.slot || '').toUpperCase(), run]));
+    const hasScheduledRun = SLOT_SCHEDULE.some((item) => bySlot.has(item.slot));
+    if (hasScheduledRun) {
+      return SLOT_SCHEDULE.map((item) => ({
+        ...item,
+        available: bySlot.has(item.slot),
+        count: new Set(bySlot.get(item.slot)?.record_ids || []).size
+      }));
+    }
+    if (runs.length || Array.isArray(day?.items)) {
+      return [{
+        slot: '', label: '全天归档', time: '', available: true,
+        count: Number(day?.total) || day?.items?.length || 0
+      }];
+    }
+    return [];
+  }
+
+  function chooseDailySlot(day, preferredSlot = '') {
+    const slots = availableSlotsForDay(day).filter((item) => item.available);
+    if (slots.some((item) => item.slot === preferredSlot)) return preferredSlot;
+    return slots.at(-1)?.slot || '';
+  }
+
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { resolveSignalTitle };
+    module.exports = {
+      availableSlotsForDay,
+      chooseDailySlot,
+      filterSearchItems,
+      isValidEventCluster,
+      resolveSignalTitle
+    };
   }
 
   const app = typeof document === 'undefined' ? null : document.getElementById('ravenis-app');
@@ -39,14 +87,19 @@
   const ui = {
     form: $('ravenis-search'),
     q: $('ravenis-q'),
-    date: $('ravenis-target-date'),
     from: $('ravenis-from'),
     to: $('ravenis-to'),
     slot: $('ravenis-slot'),
     category: $('ravenis-category'),
     source: $('ravenis-source'),
-    type: $('ravenis-type'),
     sort: $('ravenis-sort'),
+    scopeInputs: [...document.querySelectorAll('input[name="scope"]')],
+    periodNav: $('ravenis-period-nav'),
+    daySelect: $('ravenis-day-select'),
+    prevDay: $('ravenis-prev-day'),
+    nextDay: $('ravenis-next-day'),
+    slotNav: $('ravenis-slot-nav'),
+    returnDaily: $('ravenis-return-daily'),
     reset: $('ravenis-reset'),
     retry: $('ravenis-retry'),
     loading: $('ravenis-loading'),
@@ -75,16 +128,33 @@
   };
 
   const params = new URLSearchParams(window.location.search);
+  const legacyType = params.get('type') || '';
+  const requestedScope = params.get('scope');
+  const scope = SEARCH_SCOPES.has(requestedScope)
+    ? requestedScope
+    : legacyType === 'event_cluster'
+      ? 'clusters'
+      : legacyType === 'ai_digest'
+        ? 'ai'
+        : legacyType
+          ? 'articles'
+          : 'articles';
+  const searching = ['q', 'from', 'to', 'category', 'source', 'type', 'scope']
+    .some((key) => params.has(key));
+  const requestedSlot = (params.get('slot') || '').toUpperCase();
   const state = {
     view: params.get('view') === 'weekly' ? 'weekly' : 'daily',
+    searching,
     q: params.get('q') || '',
     date: params.get('date') || '',
     from: params.get('from') || '',
     to: params.get('to') || '',
-    slot: (params.get('slot') || '').toUpperCase(),
+    dailySlot: searching ? '' : requestedSlot,
+    searchSlot: searching ? requestedSlot : '',
     category: params.get('category') || '',
     source: params.get('source') || '',
-    type: params.get('type') || '',
+    type: legacyType,
+    scope,
     sort: params.get('sort') === 'first' ? 'first' : 'latest',
     page: Math.max(1, Number.parseInt(params.get('page') || '1', 10) || 1)
   };
@@ -185,37 +255,39 @@
   }
 
   function activeSearch() {
-    return Boolean(state.q || state.from || state.to || state.category || state.source || state.type);
+    return state.searching;
   }
 
   function activeFilterCount() {
-    return [state.q, state.from, state.to, state.slot, state.category, state.source, state.type]
+    return [state.q, state.from, state.to, state.searchSlot, state.category, state.source, state.type,
+      state.scope !== 'articles' ? state.scope : '']
       .filter(Boolean).length;
   }
 
   function readControls() {
     state.q = ui.q.value.trim();
-    state.date = ui.date.value;
     state.from = ui.from.value;
     state.to = ui.to.value;
-    state.slot = ui.slot.value;
+    state.searchSlot = ui.slot.value;
     state.category = ui.category.value;
     state.source = ui.source.value;
-    state.type = ui.type.value;
+    state.scope = ui.scopeInputs.find((input) => input.checked)?.value || 'articles';
+    state.type = '';
     state.sort = ui.sort.value;
+    state.searching = true;
     state.page = 1;
   }
 
   function writeControls() {
     ui.q.value = state.q;
-    ui.date.value = state.date;
     ui.from.value = state.from;
     ui.to.value = state.to;
-    ui.slot.value = state.slot;
+    ui.slot.value = state.searchSlot;
     ui.category.value = state.category;
     ui.source.value = state.source;
-    ui.type.value = state.type;
     ui.sort.value = state.sort;
+    ui.scopeInputs.forEach((input) => { input.checked = input.value === state.scope; });
+    ui.returnDaily.hidden = !activeSearch();
     const count = activeFilterCount();
     ui.filterCount.textContent = count ? `${count} 项` : '';
   }
@@ -225,14 +297,17 @@
     if (state.view === 'weekly') {
       next.set('view', 'weekly');
     } else if (activeSearch()) {
-      for (const key of ['q', 'from', 'to', 'slot', 'category', 'source', 'type']) {
+      for (const key of ['q', 'from', 'to', 'category', 'source']) {
         if (state[key]) next.set(key, state[key]);
       }
+      if (state.searchSlot) next.set('slot', state.searchSlot);
+      next.set('scope', state.scope);
+      if (state.type) next.set('type', state.type);
       if (state.sort !== 'latest') next.set('sort', state.sort);
       if (state.page > 1) next.set('page', String(state.page));
     } else {
       if (state.date) next.set('date', state.date);
-      if (state.slot) next.set('slot', state.slot);
+      if (state.dailySlot) next.set('slot', state.dailySlot);
       if (state.page > 1) next.set('page', String(state.page));
     }
     const url = `${window.location.pathname}${next.size ? `?${next}` : ''}`;
@@ -241,15 +316,38 @@
 
   function selectRun(day) {
     const runs = Array.isArray(day.runs) ? day.runs : [];
-    const matches = state.slot ? runs.filter((run) => run.slot === state.slot) : runs;
+    const matches = state.dailySlot
+      ? runs.filter((run) => String(run.slot || '').toUpperCase() === state.dailySlot)
+      : runs.filter((run) => String(run.slot || '').toUpperCase() === 'MIGRATION');
     return [...matches].sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)))[0] || null;
   }
 
   function recordsForRun(day, run) {
     const items = Array.isArray(day.items) ? day.items : [];
-    if (!run) return state.slot ? [] : items;
+    if (!run) return state.dailySlot ? [] : items;
     const ids = new Set(run.record_ids || []);
     return items.filter((item) => ids.has(item.id));
+  }
+
+  function renderDayNavigation(day) {
+    const dates = cache.manifest.days.map((entry) => entry.date).sort();
+    ui.daySelect.innerHTML = dates.map((date) => (
+      `<option value="${escapeHTML(date)}">${escapeHTML(formatDate(date))}</option>`
+    )).join('');
+    ui.daySelect.value = state.date;
+    const index = dates.indexOf(state.date);
+    ui.prevDay.disabled = index <= 0;
+    ui.prevDay.dataset.date = index > 0 ? dates[index - 1] : '';
+    ui.nextDay.disabled = index < 0 || index >= dates.length - 1;
+    ui.nextDay.dataset.date = index >= 0 && index < dates.length - 1 ? dates[index + 1] : '';
+
+    const options = availableSlotsForDay(day);
+    ui.slotNav.innerHTML = options.map((item) => {
+      const active = item.slot === state.dailySlot;
+      const primary = item.time ? `${item.label} · ${item.time}` : item.label;
+      return `<button type="button" data-slot="${escapeHTML(item.slot)}" aria-pressed="${active}" ${item.available ? '' : 'disabled'}>`
+        + `<span>${escapeHTML(primary)}</span><small>${item.count} 条</small></button>`;
+    }).join('');
   }
 
   function sourceEvidence(ids, records) {
@@ -310,7 +408,8 @@
   function recordMarkup(record) {
     const url = safeHttpUrl(record.url);
     const type = TYPE_LABELS[record.type] || record.type || '新闻';
-    const sourceCount = Math.max(1, Number(record.source_count) || 1);
+    const sourceCount = Math.max(0, Number(record.source_count) || 0);
+    const occurrenceCount = Math.max(0, Number(record.occurrence_count) || 0);
     const tags = (record.tags || []).slice(0, 4).map((tag) => `<span class="ravenis-chip">${escapeHTML(tag)}</span>`).join('');
     const details = !url && record.summary ? `
       <details><summary>展开公开摘要</summary><p class="ravenis-record-summary">${escapeHTML(record.summary)}</p></details>` : '';
@@ -327,7 +426,7 @@
           <span>${sourceCount} 个来源</span>
           <span>首次 ${formatMoment(record.first_seen || record.date)}</span>
           <span>最新 ${formatMoment(record.last_seen || record.date)}</span>
-          <span>出现 ${Math.max(1, Number(record.occurrence_count) || 1)} 次</span>
+          <span>出现 ${occurrenceCount} 次</span>
         </div>
         ${url && record.summary ? `<p class="ravenis-record-summary">${escapeHTML(record.summary)}</p>` : ''}
         ${tags ? `<div class="ravenis-evidence">${tags}</div>` : ''}
@@ -354,14 +453,17 @@
     ui.pagination.innerHTML = buttons.join('');
   }
 
-  function renderRecords(records, label = '') {
+  function renderRecords(records, label = '', totalCount = records.length) {
     const total = records.length;
     const start = (state.page - 1) * PAGE_SIZE;
     const visible = records.slice(start, start + PAGE_SIZE);
     ui.records.innerHTML = visible.length
       ? visible.map(recordMarkup).join('')
-      : '<p class="ravenis-empty-signal">没有符合当前条件的公开记录。</p>';
-    ui.count.textContent = `${label || '共'} ${total} 条${total >= MAX_MATCHES ? ' · 已截取前 200 条' : ''}`;
+      : `<div class="ravenis-empty-signal"><p>没有符合当前条件的公开记录。</p>${activeSearch()
+        ? '<button class="ravenis-button ravenis-button-quiet" type="button" data-clear-search>清除搜索条件</button>'
+        : ''}</div>`;
+    const capped = totalCount > total ? ` · 显示前 ${total} 条` : '';
+    ui.count.textContent = `${label || '共'} ${totalCount} 条${capped}`;
     renderPagination(total);
   }
 
@@ -387,44 +489,76 @@
     return score;
   }
 
-  function filterIndex(items) {
-    const tokens = normalize(state.q).split(' ').filter(Boolean);
-    return items.map((record) => ({ record, relevance: scoreRecord(record, tokens) }))
+  function scopeAllowsRecord(record, scope) {
+    if (scope === 'all') return true;
+    if (scope === 'ai') return record.type === 'ai_digest';
+    if (scope === 'clusters') return record.type === 'event_cluster';
+    return ARTICLE_TYPES.has(record.type);
+  }
+
+  function filterSearchItems(items, criteria = {}, maxMatches = MAX_MATCHES) {
+    const tokens = normalize(criteria.q).split(' ').filter(Boolean);
+    const matches = (Array.isArray(items) ? items : [])
+      .filter(isValidEventCluster)
+      .map((record) => ({ record, relevance: scoreRecord(record, tokens) }))
       .filter(({ record, relevance }) => {
         if (relevance < 0) return false;
-        if (state.from && record.date < state.from) return false;
-        if (state.to && record.date > state.to) return false;
-        if (state.slot && !(record.slots || []).includes(state.slot)) return false;
-        if (state.category && record.category !== state.category) return false;
-        if (state.source && record.source !== state.source) return false;
-        return !(state.type && record.type !== state.type);
+        if (!scopeAllowsRecord(record, criteria.scope || 'articles')) return false;
+        if (criteria.from && record.date < criteria.from) return false;
+        if (criteria.to && record.date > criteria.to) return false;
+        if (criteria.slot && !(record.slots || []).includes(criteria.slot)) return false;
+        if (criteria.category && record.category !== criteria.category) return false;
+        if (criteria.source && record.source !== criteria.source) return false;
+        return !(criteria.type && record.type !== criteria.type);
       })
       .sort((left, right) => {
         if (tokens.length && right.relevance !== left.relevance) return right.relevance - left.relevance;
-        const leftDate = state.sort === 'first' ? (left.record.first_seen || left.record.date) : (left.record.last_seen || left.record.date);
-        const rightDate = state.sort === 'first' ? (right.record.first_seen || right.record.date) : (right.record.last_seen || right.record.date);
+        const leftDate = criteria.sort === 'first' ? (left.record.first_seen || left.record.date) : (left.record.last_seen || left.record.date);
+        const rightDate = criteria.sort === 'first' ? (right.record.first_seen || right.record.date) : (right.record.last_seen || right.record.date);
         return String(rightDate).localeCompare(String(leftDate)) || (Number(right.record.score) - Number(left.record.score));
-      })
-      .slice(0, MAX_MATCHES)
-      .map(({ record }) => record);
+      });
+    return {
+      total: matches.length,
+      items: matches.slice(0, maxMatches).map(({ record }) => record
+      )
+    };
+  }
+
+  function filterIndex(items) {
+    return filterSearchItems(items, {
+      q: state.q,
+      from: state.from,
+      to: state.to,
+      slot: state.searchSlot,
+      category: state.category,
+      source: state.source,
+      type: state.type,
+      scope: state.scope,
+      sort: state.sort
+    });
   }
 
   async function renderSearch() {
     setBusy(true);
     try {
       const index = await fetchSearchIndex();
-      populateFacets(index.items);
+      const publicItems = index.items.filter(isValidEventCluster);
+      const scopedItems = publicItems.filter((record) => (
+        scopeAllowsRecord(record, state.scope) && (!state.type || record.type === state.type)
+      ));
+      populateFacets(scopedItems);
       writeControls();
-      const results = filterIndex(index.items);
+      const results = filterIndex(publicItems);
+      ui.returnDaily.textContent = `← 返回 ${formatDate(state.date)}${state.dailySlot ? ` · ${state.dailySlot}` : ''} 日报`;
       ui.overview.textContent = state.q
         ? `“${state.q}” 的公开记录检索结果；标题匹配权重最高。`
         : '最近 30 天公开记录的组合筛选结果。';
       ui.dateLabel.textContent = `${cache.manifest.retention_days || 30} DAY INDEX`;
       ui.topSection.hidden = true;
       ui.watchSection.hidden = true;
-      renderCategories(results);
+      renderCategories(results.items);
       ui.recordHeading.textContent = '历史检索结果';
-      renderRecords(results, '匹配');
+      renderRecords(results.items, '匹配', results.total);
       showContent();
     } catch (error) {
       showError(error);
@@ -444,13 +578,22 @@
     setBusy(true);
     try {
       const day = await loadDay(state.date);
+      const resolvedSlot = chooseDailySlot(day, state.dailySlot);
+      if (resolvedSlot !== state.dailySlot) {
+        state.dailySlot = resolvedSlot;
+        syncUrl({ replace: true });
+      }
+      renderDayNavigation(day);
       const run = selectRun(day);
-      const records = recordsForRun(day, run);
+      const records = recordsForRun(day, run).filter(isValidEventCluster);
       const summary = run?.summary || {};
-      populateFacets(day.items || []);
+      populateFacets((day.items || [])
+        .filter(isValidEventCluster)
+        .filter((record) => scopeAllowsRecord(record, state.scope)));
       writeControls();
       ui.overview.textContent = summary.overview || `${records.length} 条公开记录；未公开正文和原始 AI 响应。`;
-      ui.dateLabel.textContent = `${formatDate(day.date)}${run?.slot ? ` · ${SLOT_LABELS[run.slot] || run.slot}` : ''}`;
+      const runLabel = state.dailySlot ? SLOT_LABELS[state.dailySlot] || state.dailySlot : '全天归档';
+      ui.dateLabel.textContent = `${formatDate(day.date)} · ${runLabel}`;
       ui.topHeading.textContent = '当日重点';
       ui.watchHeading.textContent = '继续观察';
       ui.categoryHeading.textContent = '分类速览';
@@ -540,6 +683,7 @@
   async function renderCurrent() {
     ui.dailyLink.setAttribute('aria-current', state.view === 'daily' ? 'page' : 'false');
     ui.weeklyLink.setAttribute('aria-current', state.view === 'weekly' ? 'page' : 'false');
+    ui.periodNav.hidden = state.view !== 'daily' || activeSearch();
     if (state.view === 'weekly') return renderWeekly();
     return activeSearch() ? renderSearch() : renderDaily();
   }
@@ -554,7 +698,7 @@
       const dates = cache.manifest.days.map((day) => day.date).sort();
       const latest = dates[dates.length - 1];
       if (!dates.includes(state.date)) state.date = latest;
-      for (const input of [ui.date, ui.from, ui.to]) {
+      for (const input of [ui.from, ui.to]) {
         input.min = dates[0];
         input.max = latest;
       }
@@ -574,29 +718,54 @@
     await renderCurrent();
   });
 
-  ui.date.addEventListener('change', async () => {
-    state.date = ui.date.value;
+  async function switchDailyDate(date) {
+    if (!cache.manifest.days.some((entry) => entry.date === date)) return;
+    state.date = date;
+    state.searching = false;
     state.page = 1;
-    if (!activeSearch() && state.view === 'daily') {
-      syncUrl();
-      await renderDaily();
-    }
+    syncUrl();
+    await renderCurrent();
+  }
+
+  ui.daySelect.addEventListener('change', () => switchDailyDate(ui.daySelect.value));
+
+  ui.prevDay.addEventListener('click', () => switchDailyDate(ui.prevDay.dataset.date));
+  ui.nextDay.addEventListener('click', () => switchDailyDate(ui.nextDay.dataset.date));
+
+  ui.slotNav.addEventListener('click', async (event) => {
+    const button = event.target.closest('button[data-slot]');
+    if (!button || button.disabled) return;
+    state.dailySlot = button.dataset.slot || '';
+    state.searching = false;
+    state.page = 1;
+    syncUrl();
+    await renderCurrent();
   });
 
-  ui.slot.addEventListener('change', async () => {
-    state.slot = ui.slot.value;
+  ui.scopeInputs.forEach((input) => input.addEventListener('change', async () => {
+    if (!input.checked) return;
+    state.scope = input.value;
+    state.type = '';
+    state.searching = true;
     state.page = 1;
-    if (!activeSearch() && state.view === 'daily') {
-      syncUrl();
-      await renderDaily();
-    }
-  });
+    syncUrl();
+    await renderCurrent();
+  }));
 
   ui.reset.addEventListener('click', async () => {
-    Object.assign(state, { q: '', from: '', to: '', slot: '', category: '', source: '', type: '', sort: 'latest', page: 1 });
+    Object.assign(state, {
+      searching: false, q: '', from: '', to: '', searchSlot: '', category: '', source: '', type: '',
+      scope: 'articles', sort: 'latest', page: 1
+    });
     writeControls();
     syncUrl();
-    await renderDaily();
+    await renderCurrent();
+  });
+
+  ui.returnDaily.addEventListener('click', () => ui.reset.click());
+
+  ui.records.addEventListener('click', (event) => {
+    if (event.target.closest('[data-clear-search]')) ui.reset.click();
   });
 
   ui.retry.addEventListener('click', initialize);

@@ -67,9 +67,12 @@ Ravenis is a quiet, unlisted reading room inside Neutriverse rather than a secon
 
 - The first viewport answers three questions in order: what changed, what matters, and what to verify next.
 - Search controls are an archive instrument panel, not a dashboard. The keyword field is primary; secondary filters wrap on an 8px rhythm and never overflow the viewport.
+- A persistent day/slot rail sits directly below the hero: previous day, actual manifest date, next day, then A 06:00 / Digest 10:00 / B 14:05 / C 17:10. Missing runs are absent or disabled; migration-only days are called `全天归档`.
+- Search scope is explicit and quiet: `新闻` is the default, while AI Digest and valid multi-source clusters require an intentional scope change. Search results always report the true match count before the 200-item display cap.
 - Night mode uses the existing deep-space console surfaces. Light mode uses sandstone paper, lapis structure, old-gold rules, and turquoise interaction states.
 - Top signals use a numbered left rule, evidence chips, and compact `发生 / 影响 / 观察` labels. Full records use restrained archive rows with disclosure for records without a safe external URL.
 - Five deliberate craft details are required: a mono date ledger, three-step signal grammar, evidence-count chips, category tally rules, and a small LKG/data-freshness seal.
 - The page is public but deliberately quiet: no tab entry, no sitemap entry, `noindex,nofollow`, and no analytics-specific promotion.
 - The browser loads only the manifest and selected day at first. The 30-day search index is lazy-loaded after a search or historical filter is requested.
 - All interactive controls retain visible labels, 2px turquoise focus outlines, 44px mobile targets where practical, and reduced-motion behavior.
+- Concrete reference DNA stays subordinate to Neutriverse: Notion contributes 1px whisper-weight divisions; Linear contributes the 8px spacing rhythm, 6px control / 8px panel radius split, and 160-180ms functional state transitions. Existing Ravenis colors and typography remain authoritative.

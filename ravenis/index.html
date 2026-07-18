@@ -27,6 +27,18 @@ ravenis: true
     </div>
   </header>
 
+  <section id="ravenis-period-nav" class="ravenis-period-nav" aria-label="日报日期与时段">
+    <div class="ravenis-day-controls">
+      <button id="ravenis-prev-day" class="ravenis-period-button" type="button" aria-label="查看上一天">‹</button>
+      <label class="ravenis-day-select-label" for="ravenis-day-select">
+        <span>日报日期</span>
+        <select id="ravenis-day-select" name="daily-date"></select>
+      </label>
+      <button id="ravenis-next-day" class="ravenis-period-button" type="button" aria-label="查看下一天">›</button>
+    </div>
+    <div id="ravenis-slot-nav" class="ravenis-slot-nav" role="group" aria-label="日报时段"></div>
+  </section>
+
   <form id="ravenis-search" class="ravenis-search" role="search">
     <div class="ravenis-query">
       <label for="ravenis-q">搜索最近 30 天</label>
@@ -37,12 +49,19 @@ ravenis: true
       <p class="ravenis-hint">中文会先做 NFKC 规范化；完整新闻正文不会进入公开索引。</p>
     </div>
 
+    <fieldset class="ravenis-scope-switch">
+      <legend>检索范围</legend>
+      <label><input type="radio" name="scope" value="articles" checked><span>新闻</span></label>
+      <label><input type="radio" name="scope" value="ai"><span>AI Digest</span></label>
+      <label><input type="radio" name="scope" value="clusters"><span>事件簇</span></label>
+      <label><input type="radio" name="scope" value="all"><span>全部</span></label>
+    </fieldset>
+
+    <button id="ravenis-return-daily" class="ravenis-return-daily" type="button" hidden>← 返回当前日报</button>
+
     <details id="ravenis-filter-panel" class="ravenis-filters">
       <summary>筛选与排序 <span id="ravenis-filter-count" aria-label="启用的筛选数量"></span></summary>
       <div class="ravenis-filter-grid">
-        <label>查看日期
-          <input id="ravenis-target-date" name="date" type="date">
-        </label>
         <label>起始日期
           <input id="ravenis-from" name="from" type="date">
         </label>
@@ -52,10 +71,10 @@ ravenis: true
         <label>时段
           <select id="ravenis-slot" name="slot">
             <option value="">全部时段</option>
-            <option value="A">A · 早间</option>
-            <option value="B">B · 午间</option>
-            <option value="C">C · 晚间</option>
-            <option value="DIGEST">AI Digest</option>
+            <option value="A">A · 06:00</option>
+            <option value="DIGEST">AI Digest · 10:00</option>
+            <option value="B">B · 14:05</option>
+            <option value="C">C · 17:10</option>
           </select>
         </label>
         <label>分类
@@ -63,16 +82,6 @@ ravenis: true
         </label>
         <label>来源
           <select id="ravenis-source" name="source"><option value="">全部来源</option></select>
-        </label>
-        <label>类型
-          <select id="ravenis-type" name="type">
-            <option value="">全部类型</option>
-            <option value="news">新闻</option>
-            <option value="event_cluster">事件簇</option>
-            <option value="ai_digest">AI Digest</option>
-            <option value="rss">RSS</option>
-            <option value="hotlist">热榜</option>
-          </select>
         </label>
         <label>排序
           <select id="ravenis-sort" name="sort">

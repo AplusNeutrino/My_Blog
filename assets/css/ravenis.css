@@ -128,6 +128,94 @@ html[data-mode="light"] .ravenis-app {
   background: color-mix(in srgb, var(--rv-accent) 7%, transparent);
 }
 
+.ravenis-period-nav {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 8px;
+  background: var(--rv-surface);
+}
+
+.ravenis-day-controls {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  gap: 8px;
+  align-items: end;
+}
+
+.ravenis-day-select-label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  color: var(--rv-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.ravenis-day-select-label select {
+  width: 100%;
+  min-height: 42px;
+}
+
+.ravenis-period-button,
+.ravenis-slot-nav button {
+  min-height: 42px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 6px;
+  color: var(--rv-text);
+  background: var(--rv-canvas);
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ravenis-period-button {
+  font-size: 1.2rem;
+}
+
+.ravenis-period-button:disabled,
+.ravenis-slot-nav button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.ravenis-slot-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ravenis-slot-nav button {
+  display: grid;
+  gap: 2px;
+  justify-items: start;
+  min-width: 0;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.ravenis-slot-nav button small {
+  color: var(--rv-muted);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.66rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ravenis-slot-nav button[aria-pressed="true"] {
+  border-color: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  background: var(--rv-accent);
+}
+
+.ravenis-slot-nav button[aria-pressed="true"] small {
+  color: color-mix(in srgb, var(--rv-accent-ink) 75%, transparent);
+}
+
 .ravenis-search {
   margin-bottom: 16px;
   padding: 20px;
@@ -206,6 +294,74 @@ html[data-mode="light"] .ravenis-app {
   color: var(--rv-muted);
   font-size: 0.74rem;
   line-height: 1.6;
+}
+
+.ravenis-scope-switch {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.ravenis-scope-switch legend {
+  margin-bottom: 7px;
+  padding: 0;
+  color: var(--rv-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.ravenis-scope-switch label {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.ravenis-scope-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.ravenis-scope-switch span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 9px;
+  border: 1px solid var(--rv-rule);
+  border-radius: 5px;
+  color: var(--rv-muted);
+  background: var(--rv-canvas);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.ravenis-scope-switch input:checked + span {
+  border-color: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  background: var(--rv-accent);
+}
+
+.ravenis-scope-switch input:focus-visible + span {
+  outline: 2px solid var(--rv-accent);
+  outline-offset: 3px;
+}
+
+.ravenis-return-daily {
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  color: var(--rv-accent);
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .ravenis-filters {
@@ -372,6 +528,10 @@ html[data-mode="light"] .ravenis-app {
   border-left: 3px solid var(--rv-rule-strong);
   color: var(--rv-muted);
   background: var(--rv-surface);
+}
+
+.ravenis-empty-signal p {
+  margin-bottom: 12px;
 }
 
 .ravenis-watchlist {
@@ -586,13 +746,21 @@ html[data-mode="light"] .ravenis-app {
 
 @media (hover: hover) and (pointer: fine) {
   .ravenis-button:hover,
-  .ravenis-record:hover {
+  .ravenis-record:hover,
+  .ravenis-period-button:hover:not(:disabled),
+  .ravenis-slot-nav button:hover:not(:disabled) {
     transform: translateY(-1px);
   }
 
   .ravenis-record:hover {
     border-color: var(--rv-rule-strong);
   }
+}
+
+.ravenis-button:active,
+.ravenis-period-button:active:not(:disabled),
+.ravenis-slot-nav button:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 @media (max-width: 1024px) {
@@ -614,6 +782,28 @@ html[data-mode="light"] .ravenis-app {
 
   .ravenis-search {
     padding: 16px;
+  }
+
+  .ravenis-day-controls {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+  }
+
+  .ravenis-day-select-label {
+    display: block;
+  }
+
+  .ravenis-day-select-label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .ravenis-slot-nav,
+  .ravenis-scope-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ravenis-query-row {
