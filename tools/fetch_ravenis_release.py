@@ -84,7 +84,7 @@ def reject_forbidden_keys(value: Any, trail: str = "root") -> None:
 def validate_records(items: Any, *, search: bool = False) -> None:
     if not isinstance(items, list):
         raise ValueError("Ravenis public records are not a list")
-    allowed = PUBLIC_RECORD_FIELDS | ({"slots"} if search else set())
+    allowed = PUBLIC_RECORD_FIELDS | ({"slots", "perspectives"} if search else set())
     for item in items:
         if not isinstance(item, dict) or set(item) - allowed:
             raise ValueError("Ravenis public record contains unknown fields")
@@ -93,6 +93,50 @@ def validate_records(items: Any, *, search: bool = False) -> None:
         url = str(item.get("url") or "").strip()
         if url and not re.match(r"^https?://", url, re.IGNORECASE):
             raise ValueError("Ravenis public record contains an unsafe URL")
+        perspectives = item.get("perspectives")
+        if perspectives is not None:
+            if not search or not isinstance(perspectives, dict) or set(perspectives) - {"A", "B", "C"}:
+                raise ValueError("Ravenis record perspectives are invalid")
+            for ranking in perspectives.values():
+                if (
+                    not isinstance(ranking, dict)
+                    or set(ranking) != {"score", "reasons"}
+                    or not 0 <= int(ranking.get("score", -1)) <= 100
+                    or not isinstance(ranking.get("reasons"), list)
+                    or len(ranking["reasons"]) > 2
+                    or not all(isinstance(reason, str) for reason in ranking["reasons"])
+                ):
+                    raise ValueError("Ravenis record perspective ranking is invalid")
+
+
+def validate_runs(runs: Any, record_ids: set[str]) -> None:
+    if not isinstance(runs, list):
+        raise ValueError("Ravenis day runs are not a list")
+    for run in runs:
+        if not isinstance(run, dict):
+            raise ValueError("Ravenis day run is invalid")
+        ids = run.get("record_ids")
+        if not isinstance(ids, list) or len(ids) != len(set(ids)) or not set(ids).issubset(record_ids):
+            raise ValueError("Ravenis run record_ids are invalid")
+        ranking = run.get("ranking")
+        if ranking is None or ranking == []:
+            continue
+        if run.get("perspective") not in {"A", "B", "C"} or not isinstance(ranking, list):
+            raise ValueError("Ravenis run perspective/ranking is invalid")
+        ranking_ids = []
+        for entry in ranking:
+            if (
+                not isinstance(entry, dict)
+                or set(entry) != {"id", "score", "reasons"}
+                or not 0 <= int(entry.get("score", -1)) <= 100
+                or not isinstance(entry.get("reasons"), list)
+                or len(entry["reasons"]) > 2
+                or not all(isinstance(reason, str) for reason in entry["reasons"])
+            ):
+                raise ValueError("Ravenis run ranking entry is invalid")
+            ranking_ids.append(entry["id"])
+        if ranking_ids != ids:
+            raise ValueError("Ravenis run ranking order does not match record_ids")
 
 
 def validate_release(pointer_value: Any, payload: bytes) -> tuple[dict[str, Any], dict[str, bytes]]:
@@ -150,6 +194,7 @@ def validate_release(pointer_value: Any, payload: bytes) -> tuple[dict[str, Any]
         if not isinstance(day, dict) or not isinstance(day.get("runs"), list):
             raise ValueError(f"Ravenis day shard is invalid: {name}")
         validate_records(day.get("items"))
+        validate_runs(day.get("runs"), {str(item.get("id")) for item in day.get("items", [])})
     return pointer, files
 
 

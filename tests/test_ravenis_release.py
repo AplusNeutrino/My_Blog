@@ -41,16 +41,20 @@ def make_release(record=None):
     record = record or public_record()
     day = {
         "date": "2026-07-16", "total": 1,
-        "runs": [{"date": "2026-07-16", "slot": "B", "source": "ravenis",
+        "runs": [{"date": "2026-07-16", "slot": "B", "perspective": "B", "source": "ravenis",
                   "generated_at": "2026-07-16T12:00:00+08:00", "record_ids": [record["id"]],
+                  "ranking": [{"id": record["id"], "score": 88,
+                               "reasons": ["B 核心主题：宏观 / 财经", "高可信专业来源"]}],
                   "summary": {"status": "rules", "overview": "午间更新。", "top_items": [], "watchlist": []}}],
         "items": [record],
     }
-    search_record = dict(record, slots=["B"])
-    search = {"schema_version": 1, "generated_at": "2026-07-16T12:00:00Z", "total": 1, "items": [search_record]}
+    search_record = dict(record, slots=["B"], perspectives={
+        "B": {"score": 88, "reasons": ["B 核心主题：宏观 / 财经", "高可信专业来源"]}
+    })
+    search = {"schema_version": 2, "generated_at": "2026-07-16T12:00:00Z", "total": 1, "items": [search_record]}
     search_body = release.json_bytes(search)
     manifest = {
-        "schema_version": 2, "generated_at": "2026-07-16T12:00:00Z", "retention_days": 30,
+        "schema_version": 3, "generated_at": "2026-07-16T12:00:00Z", "retention_days": 30,
         "total": 1, "run_count": 1,
         "days": [{"date": "2026-07-16", "count": 1, "path": "days/2026-07-16.json"}],
         "types": ["news"], "slots": ["B"],
@@ -129,6 +133,78 @@ process.stdout.write(resolveSignalTitle(fixture.item, fixture.records));
             self.assertIn(f'value="{scope}"', page)
         self.assertNotIn('id="ravenis-target-date"', page)
         self.assertNotIn('id="ravenis-type"', page)
+        self.assertIn('id="ravenis-perspective"', page)
+        self.assertIn('按分类筛选记录', page)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_v3_run_order_and_category_order_are_preserved(self):
+        fixture = {
+            "date": "2026-07-18",
+            "items": [
+                {"id": "r1", "title": "AI 新闻", "category": "AI / 模型", "score": 60},
+                {"id": "r2", "title": "财经新闻", "category": "宏观 / 财经 / 地缘", "score": 70},
+                {"id": "r3", "title": "另一条 AI 新闻", "category": "AI / 模型", "score": 65},
+            ],
+            "run": {
+                "slot": "B", "perspective": "B", "record_ids": ["r2", "r3", "r1"],
+                "ranking": [
+                    {"id": "r2", "score": 91, "reasons": ["B 核心主题：宏观 / 财经"]},
+                    {"id": "r3", "score": 82, "reasons": ["高可信专业来源"]},
+                    {"id": "r1", "score": 77, "reasons": ["24 小时内更新"]},
+                ],
+            },
+        }
+        script = """
+const { recordsForRun, dailyCategoryEntries } = require(process.argv[1]);
+const fixture = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+const records = recordsForRun(fixture, fixture.run);
+process.stdout.write(JSON.stringify({ records, categories: dailyCategoryEntries(records) }));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual([item["id"] for item in result["records"]], ["r2", "r3", "r1"])
+        self.assertEqual(result["records"][0]["rankScore"], 91)
+        self.assertEqual(result["records"][0]["rankPerspective"], "B")
+        self.assertEqual([item["name"] for item in result["categories"]], ["宏观 / 财经 / 地缘", "AI / 模型"])
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_v2_run_fallback_does_not_mislabel_global_score_as_a_perspective(self):
+        fixture = {
+            "items": [{"id": "r1", "title": "旧版记录", "score": 73}],
+            "run": {"slot": "B", "record_ids": ["r1"]},
+        }
+        script = """
+const { recordsForRun } = require(process.argv[1]);
+const fixture = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+process.stdout.write(JSON.stringify(recordsForRun(fixture, fixture.run)));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual(result[0]["rankScore"], 73)
+        self.assertEqual(result[0]["rankPerspective"], "")
+        self.assertTrue(result[0]["rankLegacy"])
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_search_relevance_tie_uses_selected_perspective(self):
+        fixture = [
+            {"id": "tech", "type": "news", "title": "共同关键词 技术进展", "date": "2026-07-18",
+             "last_seen": "2026-07-18T10:00:00", "perspectives": {
+                 "A": {"score": 92, "reasons": ["A 核心主题：AI / 模型"]},
+                 "B": {"score": 61, "reasons": ["来源身份已规范化"]}}},
+            {"id": "public", "type": "news", "title": "共同关键词 公共事件", "date": "2026-07-18",
+             "last_seen": "2026-07-18T10:00:00", "perspectives": {
+                 "A": {"score": 58, "reasons": ["来源身份已规范化"]},
+                 "B": {"score": 95, "reasons": ["B 核心主题：国内政策"]}}},
+        ]
+        script = """
+const { filterSearchItems } = require(process.argv[1]);
+const items = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+const a = filterSearchItems(items, { q: '共同关键词', scope: 'articles', perspective: 'A' });
+const b = filterSearchItems(items, { q: '共同关键词', scope: 'articles', perspective: 'B' });
+process.stdout.write(JSON.stringify({ a, b }));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual(result["a"]["items"][0]["id"], "tech")
+        self.assertEqual(result["b"]["items"][0]["id"], "public")
+        self.assertEqual(result["b"]["items"][0]["rankScore"], 95)
 
     @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
     def test_search_defaults_to_articles_and_rejects_invalid_clusters(self):
@@ -210,6 +286,32 @@ process.stdout.write(JSON.stringify({
         validated, files = release.validate_release(pointer, payload)
         self.assertEqual(validated["sha256"], hashlib.sha256(payload).hexdigest())
         self.assertEqual(set(files), set(pointer["files"]))
+
+    def test_v3_run_ranking_must_match_record_order(self):
+        pointer, payload = make_release()
+        with tarfile.open(fileobj=io.BytesIO(payload), mode="r:gz") as archive:
+            files = {member.name: archive.extractfile(member).read() for member in archive.getmembers()}
+        day = json.loads(files["days/2026-07-16.json"])
+        day["runs"][0]["record_ids"] = ["missing"]
+        files["days/2026-07-16.json"] = release.json_bytes(day)
+        buffer = io.BytesIO()
+        with gzip.GzipFile(fileobj=buffer, mode="wb", mtime=0) as zipped:
+            with tarfile.open(fileobj=zipped, mode="w") as archive:
+                for name, body in files.items():
+                    info = tarfile.TarInfo(name)
+                    info.size = len(body)
+                    archive.addfile(info, io.BytesIO(body))
+        broken = buffer.getvalue()
+        pointer["size"] = len(broken)
+        pointer["sha256"] = hashlib.sha256(broken).hexdigest()
+        with self.assertRaisesRegex(ValueError, "record_ids"):
+            release.validate_release(pointer, broken)
+
+    def test_v2_empty_ranking_remains_compatible(self):
+        release.validate_runs(
+            [{"slot": "B", "record_ids": ["r_1"], "ranking": []}],
+            {"r_1"},
+        )
 
     def test_forbidden_field_is_rejected(self):
         pointer, payload = make_release(public_record(full_text="private body"))

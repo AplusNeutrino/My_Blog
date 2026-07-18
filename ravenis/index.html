@@ -83,6 +83,13 @@ ravenis: true
         <label>来源
           <select id="ravenis-source" name="source"><option value="">全部来源</option></select>
         </label>
+        <label>排序视角
+          <select id="ravenis-perspective" name="perspective">
+            <option value="A">A · 工作 / 学术</option>
+            <option value="B">B · 综合时事</option>
+            <option value="C">C · 娱乐 / 生活</option>
+          </select>
+        </label>
         <label>排序
           <select id="ravenis-sort" name="sort">
             <option value="latest">最新出现</option>
@@ -125,7 +132,7 @@ ravenis: true
     <section id="ravenis-category-section" class="ravenis-section" aria-labelledby="ravenis-category-heading">
       <div class="ravenis-section-heading">
         <p>03 · FIELD MAP</p>
-        <h3 id="ravenis-category-heading">分类速览</h3>
+        <h3 id="ravenis-category-heading">按分类筛选记录</h3>
       </div>
       <div id="ravenis-categories" class="ravenis-category-list"></div>
     </section>
