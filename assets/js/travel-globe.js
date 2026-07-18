@@ -881,7 +881,7 @@ if (travelHoverStrength > 0.001) {
           setHoveredRegion(null);
         }
         globe.rotation.y = startRotationY + dx * 0.005;
-        globe.rotation.x = clamp(startRotationX - dy * 0.0035, -1.1, 1.1);
+        globe.rotation.x = clamp(startRotationX + dy * 0.0035, -1.1, 1.1);
         renderOnce();
         return;
       }
@@ -950,8 +950,8 @@ if (travelHoverStrength > 0.001) {
       const step = THREE.MathUtils.degToRad(8);
       if (event.key === 'ArrowLeft') globe.rotation.y -= step;
       if (event.key === 'ArrowRight') globe.rotation.y += step;
-      if (event.key === 'ArrowUp') globe.rotation.x = clamp(globe.rotation.x + step, -1.1, 1.1);
-      if (event.key === 'ArrowDown') globe.rotation.x = clamp(globe.rotation.x - step, -1.1, 1.1);
+      if (event.key === 'ArrowUp') globe.rotation.x = clamp(globe.rotation.x - step, -1.1, 1.1);
+      if (event.key === 'ArrowDown') globe.rotation.x = clamp(globe.rotation.x + step, -1.1, 1.1);
       setHoveredRegion(regionAtCenter());
       scheduleOrientationReset();
       renderOnce();

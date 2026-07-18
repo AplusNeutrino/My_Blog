@@ -237,8 +237,8 @@ status_items、roadmap_items 和 signal_items 的格式：
       <span>边界数据来源</span>
       <div class="travel-source-links">
         {% for source in travel_boundary_sources %}
-          {% if source.enabled %}
-            <a href="{{ source.source_url }}" target="_blank" rel="noopener noreferrer">{{ source.name }}：{{ source.source_name }}</a>
+          {% if source.enabled and source.reference_hidden != true %}
+            <a href="{{ source.source_url }}" target="_blank" rel="noopener noreferrer">{{ source.reference_name | default: source.name }}：{{ source.source_name }}</a>
           {% endif %}
         {% endfor %}
       </div>

@@ -27,6 +27,7 @@
   note: 本地缓存全球国家边界；中国、台湾、香港、澳门相关条目排除，统一使用天地图中国边界层。
 - id: cn-tianditu-provinces-2025
   name: 中国省级边界
+  reference_name: 中国省界与国界
   region: 中国
   enabled: true
   official: true
@@ -40,6 +41,7 @@
   note: 本地缓存天地图省级行政区划边界及南海分段海域境界线；不手动修改中国国界、省界、台海、新疆、西藏、南海相关边界坐标。
 - id: cn-tianditu-national-2025
   name: 中国国界轮廓
+  reference_hidden: true
   region: 中国
   enabled: true
   official: true

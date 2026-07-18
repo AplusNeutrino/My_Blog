@@ -1753,10 +1753,7 @@ footer a:hover,
 }
 
 .travel-source-note {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.3rem 0.68rem;
+  display: block;
   margin-top: 0.7rem;
   padding-top: 0.62rem;
   border-top: 1px solid var(--travel-globe-interface-border);
@@ -1766,29 +1763,29 @@ footer a:hover,
 }
 
 .travel-source-note span {
-  flex: 0 0 auto;
+  display: block;
+  margin-bottom: 0.3rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .travel-source-links {
-  display: inline;
+  display: grid;
+  gap: 0.18rem;
   min-width: 0;
 }
 
 .travel-source-note a {
-  display: inline;
+  display: block;
+  min-width: 0;
   color: var(--text-muted-color);
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .travel-source-note a + a::before {
-  content: '·';
-  display: inline-block;
-  margin: 0 0.38rem;
-  color: var(--travel-globe-interface-border);
-  text-decoration: none;
+  content: none;
 }
 
 .travel-source-note a:hover,
@@ -3931,10 +3928,6 @@ footer a:hover,
 
   .travel-dossier-fields {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .travel-source-note {
-    display: grid;
   }
 
   .about-friend-grid {
