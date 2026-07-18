@@ -17,6 +17,7 @@ from unittest.mock import patch
 
 SCRIPT = Path(__file__).parents[1] / "tools" / "fetch_ravenis_release.py"
 RAVENIS_JS = Path(__file__).parents[1] / "assets" / "js" / "ravenis.js"
+RAVENIS_PAGE = Path(__file__).parents[1] / "ravenis" / "index.html"
 SPEC = importlib.util.spec_from_file_location("fetch_ravenis_release", SCRIPT)
 release = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = release
@@ -80,6 +81,18 @@ def make_release(record=None):
 
 
 class RavenisReleaseTests(unittest.TestCase):
+    @staticmethod
+    def run_renderer(script, fixture):
+        result = subprocess.run(
+            [shutil.which("node"), "-e", script, str(RAVENIS_JS)],
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            input=json.dumps(fixture, ensure_ascii=False),
+        )
+        return json.loads(result.stdout)
+
     @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
     def test_priority_signal_uses_complete_evidence_title(self):
         fixture = {
@@ -107,6 +120,90 @@ process.stdout.write(resolveSignalTitle(fixture.item, fixture.records));
         )
         self.assertEqual(result.stdout, fixture["records"][0]["title"])
         self.assertNotIn("…", result.stdout)
+
+    def test_page_has_persistent_day_navigation_and_explicit_search_scopes(self):
+        page = RAVENIS_PAGE.read_text(encoding="utf-8")
+        self.assertIn('id="ravenis-day-select"', page)
+        self.assertIn('id="ravenis-slot-nav"', page)
+        for scope in ("articles", "ai", "clusters", "all"):
+            self.assertIn(f'value="{scope}"', page)
+        self.assertNotIn('id="ravenis-target-date"', page)
+        self.assertNotIn('id="ravenis-type"', page)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_search_defaults_to_articles_and_rejects_invalid_clusters(self):
+        fixture = [
+            {"id": "n1", "type": "news", "title": "芯片行业出现新的价格信号", "source": "财联社",
+             "source_count": 1, "occurrence_count": 1, "date": "2026-07-18", "last_seen": "2026-07-18T09:00:00", "score": 82},
+            {"id": "c0", "type": "event_cluster", "title": "芯片相关信号", "source": "0 个独立来源",
+             "source_count": 1, "occurrence_count": 1, "date": "2026-07-18", "last_seen": "2026-07-18T10:00:00", "score": 99},
+            {"id": "c1", "type": "event_cluster", "title": "芯片供应链价格变化", "source": "2 个独立来源",
+             "source_count": 2, "occurrence_count": 2, "date": "2026-07-18", "last_seen": "2026-07-18T08:00:00", "score": 85},
+            {"id": "d1", "type": "ai_digest", "title": "芯片晨间摘要", "source": "AI Digest",
+             "source_count": 1, "occurrence_count": 1, "date": "2026-07-18", "last_seen": "2026-07-18T10:00:00", "score": 70},
+        ]
+        script = """
+const { filterSearchItems } = require(process.argv[1]);
+const items = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+const articles = filterSearchItems(items, { q: '芯片', scope: 'articles', sort: 'latest' });
+const clusters = filterSearchItems(items, { q: '芯片', scope: 'clusters', sort: 'latest' });
+process.stdout.write(JSON.stringify({ articles, clusters }));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual(result["articles"]["total"], 1)
+        self.assertEqual(result["articles"]["items"][0]["title"], fixture[0]["title"])
+        self.assertEqual([item["id"] for item in result["clusters"]["items"]], ["c1"])
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_search_reports_true_total_before_200_item_cap(self):
+        fixture = [
+            {"id": f"n{index}", "type": "news", "title": f"芯片新闻 {index}", "source": "示例",
+             "source_count": 1, "occurrence_count": 1, "date": "2026-07-18", "score": index}
+            for index in range(205)
+        ]
+        script = """
+const { filterSearchItems } = require(process.argv[1]);
+const items = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+process.stdout.write(JSON.stringify(filterSearchItems(items, { q: '芯片', scope: 'articles' })));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual(result["total"], 205)
+        self.assertEqual(len(result["items"]), 200)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required for the Ravenis renderer test")
+    def test_slot_navigation_uses_schedule_order_and_legacy_label(self):
+        fixture = {
+            "scheduled": {"runs": [
+                {"slot": "C", "record_ids": ["c1"]},
+                {"slot": "A", "record_ids": ["a1", "a2"]},
+                {"slot": "DIGEST", "record_ids": ["d1"]},
+                {"slot": "B", "record_ids": ["b1"]},
+            ]},
+            "legacy": {"total": 9, "runs": [{"slot": "MIGRATION", "record_ids": ["m1"]}], "items": []},
+            "partial": {"runs": [
+                {"slot": "A", "record_ids": ["a1"]},
+                {"slot": "B", "record_ids": ["b1"]},
+            ]},
+        }
+        script = """
+const { availableSlotsForDay, chooseDailySlot } = require(process.argv[1]);
+const fixture = JSON.parse(require('fs').readFileSync(0, 'utf8'));
+process.stdout.write(JSON.stringify({
+  slots: availableSlotsForDay(fixture.scheduled),
+  fallback: chooseDailySlot(fixture.scheduled, 'MISSING'),
+  retained: chooseDailySlot(fixture.scheduled, 'DIGEST'),
+  legacy: availableSlotsForDay(fixture.legacy),
+  partial: availableSlotsForDay(fixture.partial),
+  partialFallback: chooseDailySlot(fixture.partial, 'C')
+}));
+"""
+        result = self.run_renderer(script, fixture)
+        self.assertEqual([item["slot"] for item in result["slots"]], ["A", "DIGEST", "B", "C"])
+        self.assertEqual(result["fallback"], "C")
+        self.assertEqual(result["retained"], "DIGEST")
+        self.assertEqual(result["legacy"][0]["label"], "全天归档")
+        self.assertFalse(result["partial"][3]["available"])
+        self.assertEqual(result["partialFallback"], "B")
 
     def test_valid_release_is_accepted(self):
         pointer, payload = make_release()
