@@ -38,6 +38,8 @@ html[data-bs-theme='dark'] {
   --night-blue: #5f85ff;
   --night-signal: #e4d45f;
   --night-violet: #8b7ad1;
+  --night-selection-bg: var(--night-signal);
+  --night-selection-text: var(--night-void);
   background-color: var(--night-void);
   --main-bg: var(--night-void);
   --mask-bg: rgba(8, 11, 18, 0.76);
@@ -119,9 +121,12 @@ html[data-bs-theme='dark'] #main-wrapper::before {
   mask-image: linear-gradient(90deg, #000 0 22%, transparent 38% 64%, #000 84% 100%);
 }
 
-::selection {
-  background: var(--neutriverse-accent-mark);
-  color: #f4f7ff;
+html[data-mode='dark'] ::selection,
+html[data-bs-theme='dark'] ::selection,
+html[data-mode='dark'] ::-moz-selection,
+html[data-bs-theme='dark'] ::-moz-selection {
+  background: var(--night-selection-bg);
+  color: var(--night-selection-text);
 }
 
 a:hover,
