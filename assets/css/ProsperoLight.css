@@ -1008,6 +1008,12 @@ html[data-bs-theme='light'] .about-stack-header h3 {
   font-weight: 600;
 }
 
+html[data-mode='light'] .about-now h2,
+html[data-bs-theme='light'] .about-now h2 {
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
 html[data-mode='light'] .about-monitor,
 html[data-mode='light'] .about-scan,
 html[data-mode='light'] .about-bars,

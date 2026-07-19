@@ -122,7 +122,11 @@ html[data-bs-theme='dark'] #main-wrapper::before {
 }
 
 html[data-mode='dark'] ::selection,
-html[data-bs-theme='dark'] ::selection,
+html[data-bs-theme='dark'] ::selection {
+  background: var(--night-selection-bg);
+  color: var(--night-selection-text);
+}
+
 html[data-mode='dark'] ::-moz-selection,
 html[data-bs-theme='dark'] ::-moz-selection {
   background: var(--night-selection-bg);
