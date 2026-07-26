@@ -206,6 +206,10 @@ defaults:
     values:
       layout: page
       sitemap: false
+  - scope:
+      path: "occult-atlas-app" # noindex redirect stub; keep it out of the sitemap too
+    values:
+      sitemap: false
 
 sass:
   style: compressed

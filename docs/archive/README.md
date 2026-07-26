@@ -7,4 +7,4 @@ for the live site unless a template, include, or generated page links to them
 explicitly.
 
 Active styling is loaded from `_includes/metadata-hook.html`, which points to
-`assets/css/NormaiNight.css`.
+`assets/css/NormaiNight.css` (night) and `assets/css/ProsperoLight.css` (day).

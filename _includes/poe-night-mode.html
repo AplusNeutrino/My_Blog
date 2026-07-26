@@ -199,6 +199,17 @@
       attributeFilter: ['data-mode']
     });
 
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      // Chirpy's own Theme listener clears data-mode on OS scheme changes; re-assert the saved choice
+      // in a microtask so it runs after every listener of this event, regardless of registration order.
+      queueMicrotask(() => {
+        const stored = safeStorage.get(localStorage, storageKey);
+        const mode = modes.has(stored) ? stored : (event.matches ? 'dark' : 'light');
+        root.setAttribute('data-mode', mode);
+        safeStorage.set(sessionStorage, sessionKey, mode);
+      });
+    });
+
     window.addEventListener('message', (event) => {
       if (event.source === window && event.data?.id === 'theme-mode') {
         window.requestAnimationFrame(syncControl);

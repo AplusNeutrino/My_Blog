@@ -33,7 +33,7 @@ C:\Users\ZFY\Documents\Codex\2026-04-29\github-blog\repo
 | 自定义域名 | `CNAME` 和 `_config.yml` |
 | Probe 状态模块 | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
-| 当前自定义配色方案 | `assets/css/NormaiNight.css` |
+| 当前自定义配色方案 | 夜间 `assets/css/NormaiNight.css`，白天 `assets/css/ProsperoLight.css` |
 | 阅读时间文案 | `_includes/read-time.html` |
 | 自动部署流程 | `.github/workflows/pages-deploy.yml` |
 | 主题依赖 | `Gemfile` |
@@ -1338,41 +1338,39 @@ friends:
 
 ```yaml
 # _config.yml
-theme_mode: dark
-```
-
-固定黑夜模式现在还有一层兜底组件：`_includes/poe-night-mode.html`。它通过 `_includes/metadata-hook.html` 注入到 `<head>`，会在移动端浏览器恢复旧页面状态、旧 `localStorage` 主题值或返回缓存时，把 `html[data-mode]` 重新锁定为 `dark`，并隐藏 `#mode-toggle`。
-
-当前站点临时固定为黑夜模式，左下角模式切换按钮会隐藏。
-
-如果以后想恢复点击切换，可以把它改回空值：
-
-```yaml
 theme_mode:
 ```
 
-恢复为空后，Chirpy 会重新显示左下角模式切换按钮。
+`theme_mode` 当前为空值，站点支持昼/夜两种模式。左下角 `#mode-toggle` 按钮由 `_includes/poe-night-mode.html` 接管（经 `_includes/metadata-hook.html` 注入 `<head>`）：点击在 `light`（普罗斯佩罗之昼）与 `dark`（碎空星之夜）之间直接切换，不再走 Chirpy 原生的三态循环。
+
+主题选择持久化在：
+
+- `localStorage` 的 `neutriverse-theme-preference`
+- `sessionStorage` 的 `mode`（与 Chirpy 原生逻辑兼容）
+
+首次访问且无存储偏好时跟随系统配色；之后系统配色变化不会覆盖已保存的显式选择。
 
 ### 6.2 白天/黑夜颜色接口
 
-颜色接口文件：
+颜色接口文件有两份，由 `_includes/metadata-hook.html` 同时加载：
 
 ```text
-assets/css/NormaiNight.css
+assets/css/NormaiNight.css    # 夜间（碎空星之夜）
+assets/css/ProsperoLight.css  # 白天（普罗斯佩罗之昼）
 ```
 
-当前 `NormaiNight.css` 用于恢复 Chirpy 默认配色，同时保留 Neutriverse 新增模块的布局样式。
+`NormaiNight.css` 在 `html[data-mode='dark']` 下重定义整套 Chirpy 颜色变量（深空配色、星空背景），并承载 Neutriverse 新增模块的结构样式；`ProsperoLight.css` 在 `html[data-mode='light']` 下定义完整的亮色调色板，设计规范见仓库根目录 `DESIGN.md`。
 
-它不重新定义 Chirpy 的全局颜色变量，只使用主题已有变量：
+常用变量（两份文件各自定义自己的值，新增模块直接引用即可自动适配昼夜）：
 
 | 字段 | 作用 |
 | --- | --- |
-| `--main-bg` | Chirpy 默认页面背景 |
-| `--card-bg` | Chirpy 默认卡片背景 |
-| `--main-border-color` | Chirpy 默认边框颜色 |
-| `--text-color` | Chirpy 默认正文颜色 |
-| `--text-muted-color` | Chirpy 默认次级文字颜色 |
-| `--heading-color` | Chirpy 默认标题颜色 |
+| `--main-bg` | 页面背景 |
+| `--card-bg` | 卡片背景 |
+| `--main-border-color` | 边框颜色 |
+| `--text-color` | 正文颜色 |
+| `--text-muted-color` | 次级文字颜色 |
+| `--heading-color` | 标题颜色 |
 
 例如：
 
@@ -1383,7 +1381,7 @@ assets/css/NormaiNight.css
 }
 ```
 
-注意：`_data/neutriverse.yml` 现在不再保存配色。当前默认观感主要由 Chirpy 主题自己控制；`NormaiNight.css` 只维护新增模块的布局和少量尺寸样式。
+注意：`_data/neutriverse.yml` 不保存配色。改夜间颜色编辑 `NormaiNight.css` 顶部的变量块，改白天颜色编辑 `ProsperoLight.css` 顶部的变量块；如果某个模块硬编码了夜间颜色，对应的亮色覆盖也放在 `ProsperoLight.css`。
 
 旧的高饱和测试配色保留在 `docs/archive/legacy-css/neutriverse.css`，完整留档见：
 
@@ -1483,7 +1481,8 @@ platforms:
 | --- | --- |
 | Probe 右侧 `中间层监测面板` | `_includes/neutriverse-status.html` |
 | 标签页列表 | `_layouts/tags.html` |
-| 当前默认配色兼容样式 | `assets/css/NormaiNight.css` |
+| 夜间配色与模块结构样式 | `assets/css/NormaiNight.css` |
+| 白天配色 | `assets/css/ProsperoLight.css` |
 | 加载自定义 CSS | `_includes/metadata-hook.html` |
 | 覆盖主题 favicon | `_includes/favicons.html` 和 `assets/img/favicons/` |
 | 文章封面图 | 文章 front matter 的 `image` |
@@ -1507,10 +1506,11 @@ _layouts/tags.html
 文件：
 
 ```text
-assets/css/NormaiNight.css
+assets/css/NormaiNight.css    # 夜间调色板 + 新增模块结构样式
+assets/css/ProsperoLight.css  # 白天调色板与亮色覆盖
 ```
 
-这里不覆盖 Chirpy 的默认配色，只保留状态模块、碎片之中、点赞按钮、文章封面等新增模块的结构样式。
+两份文件分别在 `html[data-mode='dark']` / `html[data-mode='light']` 下覆盖 Chirpy 的颜色变量。状态模块、碎片之中、点赞按钮、文章封面等新增模块的结构样式维护在 `NormaiNight.css`，对应的亮色覆盖维护在 `ProsperoLight.css`。
 
 ### 文章封面图
 
@@ -1912,13 +1912,13 @@ docs/archive/legacy-includes/head/custom-head.html
 | 点赞按钮 | `_includes/post-like.html` 和 `_data/neutriverse.yml` 的 `likes` |
 | 评论系统 | `_config.yml` 的 `comments`，当前为 Twikoo |
 | 阅读时间文案 | `_includes/read-time.html` |
-| 深色/浅色切换按钮 | `_config.yml` 的 `theme_mode`，当前固定为 `dark` |
-| 白天/黑夜颜色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/NormaiNight.css` |
+| 深色/浅色切换按钮 | `_includes/poe-night-mode.html`（`theme_mode` 为空，支持昼/夜切换） |
+| 白天/黑夜颜色 | 夜间 `assets/css/NormaiNight.css`，白天 `assets/css/ProsperoLight.css` |
 | 首页状态模块 | `_includes/neutriverse-status.html` |
 | 右侧碎片之中短句 | `_data/middle_memory.yml` |
 | 标签页列表 | `_layouts/tags.html` |
-| 导航文字统一替换 | `_includes/neutriverse-labels.html` |
-| 白天/黑夜仪表盘配色 | 当前由 Chirpy 默认主题控制，新增模块样式在 `assets/css/NormaiNight.css` |
+| 导航文字统一替换 | `_data/locales/zh-CN.yml`（昼夜切换文案在 `_includes/poe-night-mode.html`） |
+| 白天/黑夜仪表盘配色 | 夜间 `assets/css/NormaiNight.css`，白天 `assets/css/ProsperoLight.css` |
 | 文章封面 | 文章 front matter 的 `image` |
 | 部署流程 | `.github/workflows/pages-deploy.yml` |
 

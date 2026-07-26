@@ -62,6 +62,7 @@
         const likedKey = `neutriverse-liked-${key}`;
         const localCountKey = `neutriverse-like-count-${key}`;
         let liked = safeStorage.get(likedKey) === '1';
+        let countRequestToken = 0;
 
         const setCount = (value) => {
           const count = Math.max(0, Number(value) || 0);
@@ -83,6 +84,8 @@
         }
 
         const loadCount = async () => {
+          const token = ++countRequestToken;
+
           if (!endpoint) {
             setCount(getLocalCount());
             return;
@@ -96,9 +99,15 @@
               throw new Error('Like count request failed.');
             }
 
-            setCount(await parseLikeCount(response));
+            const count = await parseLikeCount(response);
+
+            if (token === countRequestToken) {
+              setCount(count);
+            }
           } catch {
-            setCount(getLocalCount());
+            if (token === countRequestToken) {
+              setCount(getLocalCount());
+            }
           }
         };
 
@@ -108,6 +117,8 @@
           }
 
           button.disabled = true;
+          // A like supersedes any in-flight count fetch; a stale response must not overwrite the new total.
+          countRequestToken += 1;
 
           try {
             let nextCount = getLocalCount() + 1;

@@ -1710,3 +1710,58 @@ html[data-bs-theme='light'] .category-ledger a:focus-visible {
     color: var(--prospero-teal-deep) !important;
   }
 }
+
+/* Twikoo comments: NormaiNight hardcodes night gold with !important, so daylight needs matching overrides. */
+html[data-mode='light'] .twikoo-comments .el-input__inner:focus,
+html[data-bs-theme='light'] .twikoo-comments .el-input__inner:focus,
+html[data-mode='light'] .twikoo-comments .el-textarea__inner:focus,
+html[data-bs-theme='light'] .twikoo-comments .el-textarea__inner:focus {
+  border-color: var(--prospero-teal-border-strong);
+  box-shadow: 0 0 0 2px var(--prospero-teal-wash);
+}
+
+html[data-mode='light'] .twikoo-comments .el-button--primary,
+html[data-bs-theme='light'] .twikoo-comments .el-button--primary {
+  border-color: var(--prospero-teal-border-strong) !important;
+  background: var(--prospero-teal-wash) !important;
+  color: var(--prospero-teal-deep) !important;
+}
+
+html[data-mode='light'] .twikoo-comments .el-button--primary:hover,
+html[data-bs-theme='light'] .twikoo-comments .el-button--primary:hover,
+html[data-mode='light'] .twikoo-comments .el-button--primary:focus,
+html[data-bs-theme='light'] .twikoo-comments .el-button--primary:focus {
+  border-color: var(--prospero-teal-deep) !important;
+  background: var(--prospero-teal-mark) !important;
+  color: var(--prospero-ink-deep) !important;
+}
+
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-comment .tk-action-link:hover,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-comment .tk-action-link:hover,
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-comment .tk-action-link:focus-visible,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-comment .tk-action-link:focus-visible {
+  color: var(--prospero-teal-deep) !important;
+}
+
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-expand-wrap::before,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-expand-wrap::before {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 241, 221, 0) 0%,
+    rgba(248, 241, 221, 0.5) 58%,
+    rgba(248, 241, 221, 0.86) 100%
+  );
+}
+
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-expand,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-expand {
+  color: var(--prospero-text-primary);
+  text-shadow: none;
+}
+
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-expand:hover,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-expand:hover,
+html[data-mode='light'] .twikoo-comments .tk-comments-container .tk-expand:focus-visible,
+html[data-bs-theme='light'] .twikoo-comments .tk-comments-container .tk-expand:focus-visible {
+  color: var(--prospero-teal-deep);
+}
