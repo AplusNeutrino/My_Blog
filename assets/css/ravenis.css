@@ -1,39 +1,68 @@
-/* Ravenis is intentionally scoped so it cannot alter the rest of Neutriverse. */
+/*
+ * Ravenis is one quiet reading room inside Neutriverse, not a third theme.
+ * Component rules stay scoped here; color roles are bridged to the active
+ * Neutriverse theme below so Ravenis cannot drift into an independent palette.
+ */
 .ravenis-app {
-  --rv-canvas: #070b12;
-  --rv-surface: #0d1420;
-  --rv-surface-2: #111c2a;
-  --rv-rule: #25384b;
-  --rv-rule-strong: #3c6373;
-  --rv-text: #e2e9e8;
-  --rv-muted: #98a8aa;
-  --rv-heading: #f3f6f2;
-  --rv-accent: #66c4ce;
-  --rv-accent-ink: #061014;
-  --rv-gold: #c8aa69;
-  --rv-danger: #df8d83;
-  --rv-shadow: 0 18px 46px rgb(0 0 0 / 22%);
+  --rv-canvas: var(--main-bg, #080b12);
+  --rv-surface: var(--card-bg, #121925);
+  --rv-surface-2: var(--button-bg, #182231);
+  --rv-rule: var(--main-border-color, #28364b);
+  --rv-rule-strong: var(--main-border-color, #3d506c);
+  --rv-text: var(--text-color, #b0bac9);
+  --rv-muted: var(--text-muted-color, #8996aa);
+  --rv-heading: var(--heading-color, #e8edf5);
+  --rv-accent: var(--neutriverse-accent, #5f85ff);
+  --rv-accent-ink: var(--heading-color, #e8edf5);
+  --rv-accent-wash: var(--neutriverse-accent-wash, color-mix(in srgb, var(--rv-accent) 9%, transparent));
+  --rv-accent-wash-strong: var(--neutriverse-accent-mark, color-mix(in srgb, var(--rv-accent) 15%, var(--rv-surface)));
+  --rv-gold: var(--neutriverse-signal, var(--neutriverse-gold, #e4d45f));
+  --rv-danger: #c97f79;
+  --rv-shadow: none;
   position: relative;
   max-width: 100%;
   color: var(--rv-text);
-  font-family: Inter, "Noto Sans SC", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+  font-family: inherit;
   overflow-wrap: anywhere;
 }
 
-html[data-mode="light"] .ravenis-app {
-  --rv-canvas: #eee5ce;
-  --rv-surface: #f8f1dd;
-  --rv-surface-2: #e8ddc2;
-  --rv-rule: #c5ad70;
-  --rv-rule-strong: #8c743f;
-  --rv-text: #2c3436;
-  --rv-muted: #536060;
-  --rv-heading: #17445a;
-  --rv-accent: #197f93;
-  --rv-accent-ink: #f8f1dd;
-  --rv-gold: #78551d;
-  --rv-danger: #8d403b;
-  --rv-shadow: 0 18px 42px rgb(39 57 63 / 10%);
+html[data-mode="dark"] .ravenis-app,
+html[data-bs-theme="dark"] .ravenis-app {
+  --rv-canvas: var(--night-void);
+  --rv-surface: var(--night-surface-1);
+  --rv-surface-2: var(--night-surface-2);
+  --rv-rule: var(--night-border);
+  --rv-rule-strong: var(--night-border-strong);
+  --rv-text: var(--night-text-secondary);
+  --rv-muted: var(--night-text-muted);
+  --rv-heading: var(--night-text-primary);
+  --rv-accent: var(--night-blue);
+  --rv-accent-ink: var(--night-text-primary);
+  --rv-accent-wash: color-mix(in srgb, var(--night-blue) 9%, transparent);
+  --rv-accent-wash-strong: color-mix(in srgb, var(--night-blue) 14%, var(--night-surface-1));
+  --rv-gold: var(--night-signal);
+  --rv-danger: #c97f79;
+  --rv-shadow: none;
+}
+
+html[data-mode="light"] .ravenis-app,
+html[data-bs-theme="light"] .ravenis-app {
+  --rv-canvas: var(--prospero-page, #eee5ce);
+  --rv-surface: var(--prospero-surface-1, #f8f1dd);
+  --rv-surface-2: var(--prospero-surface-2, #e4d7b8);
+  --rv-rule: var(--prospero-border, #c5ad70);
+  --rv-rule-strong: var(--prospero-gold-border-strong, #ad7d29);
+  --rv-text: var(--prospero-text-secondary, #2c3436);
+  --rv-muted: var(--prospero-text-muted, #536060);
+  --rv-heading: var(--prospero-text-primary, #17445a);
+  --rv-accent: var(--prospero-teal-deep, #086d80);
+  --rv-accent-ink: var(--prospero-text-primary, #17445a);
+  --rv-accent-wash: var(--prospero-teal-wash, color-mix(in srgb, #197f93 9%, transparent));
+  --rv-accent-wash-strong: var(--prospero-teal-mark, color-mix(in srgb, #197f93 22%, transparent));
+  --rv-gold: var(--prospero-gold-ink, #78551d);
+  --rv-danger: var(--prospero-danger, #823849);
+  --rv-shadow: none;
+  font-family: var(--font-day-ui, "Noto Sans SC", "Microsoft YaHei", sans-serif);
 }
 
 .ravenis-app [hidden] {
@@ -49,7 +78,7 @@ html[data-mode="light"] .ravenis-app {
 .ravenis-app h2,
 .ravenis-app h3 {
   color: var(--rv-heading);
-  font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+  font-family: inherit;
   font-style: normal;
 }
 
@@ -74,9 +103,7 @@ html[data-mode="light"] .ravenis-app {
   border: 1px solid var(--rv-rule);
   border-top: 3px solid var(--rv-gold);
   border-radius: 8px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--rv-accent) 7%, transparent), transparent 42%),
-    var(--rv-surface);
+  background: var(--rv-surface);
   box-shadow: var(--rv-shadow);
 }
 
@@ -125,7 +152,7 @@ html[data-mode="light"] .ravenis-app {
   border: 1px solid var(--rv-rule-strong);
   border-radius: 999px;
   color: var(--rv-accent);
-  background: color-mix(in srgb, var(--rv-accent) 7%, transparent);
+  background: var(--rv-accent-wash);
 }
 
 .ravenis-period-nav {
@@ -208,12 +235,12 @@ html[data-mode="light"] .ravenis-app {
 
 .ravenis-slot-nav button[aria-pressed="true"] {
   border-color: var(--rv-accent);
-  color: var(--rv-accent-ink);
-  background: var(--rv-accent);
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-slot-nav button[aria-pressed="true"] small {
-  color: color-mix(in srgb, var(--rv-accent-ink) 75%, transparent);
+  color: var(--rv-accent);
 }
 
 .ravenis-search {
@@ -280,8 +307,8 @@ html[data-mode="light"] .ravenis-app {
 
 .ravenis-button-primary {
   border-color: var(--rv-accent);
-  color: var(--rv-accent-ink);
-  background: var(--rv-accent);
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-button-quiet {
@@ -344,8 +371,8 @@ html[data-mode="light"] .ravenis-app {
 
 .ravenis-scope-switch input:checked + span {
   border-color: var(--rv-accent);
-  color: var(--rv-accent-ink);
-  background: var(--rv-accent);
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-scope-switch input:focus-visible + span {
@@ -416,8 +443,8 @@ html[data-mode="light"] .ravenis-app {
 }
 
 .ravenis-view-switch a[aria-current="page"] {
-  color: var(--rv-accent-ink);
-  background: var(--rv-accent);
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-loading {
@@ -431,8 +458,7 @@ html[data-mode="light"] .ravenis-app {
   height: 72px;
   border: 1px solid var(--rv-rule);
   border-radius: 6px;
-  background: linear-gradient(90deg, var(--rv-surface), var(--rv-surface-2), var(--rv-surface));
-  background-size: 220% 100%;
+  background: var(--rv-surface-2);
   animation: ravenis-pulse 1.5s ease-in-out infinite;
 }
 
@@ -603,8 +629,8 @@ html[data-mode="light"] .ravenis-app {
 
 .ravenis-category-filter[aria-pressed="true"] {
   border-color: var(--rv-accent);
-  color: var(--rv-accent-ink);
-  background: color-mix(in srgb, var(--rv-accent) 14%, var(--rv-surface));
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-category-filter:focus-visible {
@@ -778,8 +804,8 @@ html[data-mode="light"] .ravenis-app {
 
 .ravenis-pagination button[aria-current="page"] {
   border-color: var(--rv-accent);
-  color: var(--rv-accent-ink);
-  background: var(--rv-accent);
+  color: var(--rv-heading);
+  background: var(--rv-accent-wash-strong);
 }
 
 .ravenis-pagination button:disabled {
@@ -964,6 +990,6 @@ html[data-mode="light"] .ravenis-app {
 }
 
 @keyframes ravenis-pulse {
-  0%, 100% { background-position: 0 0; }
-  50% { background-position: 100% 0; }
+  0%, 100% { opacity: 0.52; }
+  50% { opacity: 0.82; }
 }
