@@ -3561,6 +3561,18 @@ footer a:hover,
   line-height: 1.16;
 }
 
+.probe-status-panel [data-total-views] {
+  display: inline-block;
+  min-inline-size: 6ch;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.probe-status-panel [data-total-views][data-views-state='loading'] {
+  color: var(--text-muted-color);
+  letter-spacing: 0.08em;
+}
+
 @keyframes probe-module-fly-in {
   0% {
     opacity: 0;

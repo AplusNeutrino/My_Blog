@@ -46,7 +46,15 @@
     </div>
     <div class="status-item">
       <span class="status-label">总访问</span>
-      <strong><span data-total-views>...</span></strong>
+      <strong>
+        <span
+          data-total-views
+          data-views-state="loading"
+          aria-live="polite"
+          aria-busy="true"
+          aria-label="总访问数据加载中"
+        >···</span>
+      </strong>
     </div>
   </div>
 </section>
