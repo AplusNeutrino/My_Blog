@@ -22,7 +22,7 @@
   position: relative;
   max-width: 100%;
   color: var(--rv-text);
-  font-family: inherit;
+  font-family: Inter, "Noto Sans SC", "Microsoft YaHei UI", "PingFang SC", sans-serif;
   overflow-wrap: anywhere;
 }
 
@@ -62,7 +62,6 @@ html[data-bs-theme="light"] .ravenis-app {
   --rv-gold: var(--prospero-gold-ink, #78551d);
   --rv-danger: var(--prospero-danger, #823849);
   --rv-shadow: none;
-  font-family: var(--font-day-ui, "Noto Sans SC", "Microsoft YaHei", sans-serif);
 }
 
 .ravenis-app [hidden] {
@@ -78,7 +77,7 @@ html[data-bs-theme="light"] .ravenis-app {
 .ravenis-app h2,
 .ravenis-app h3 {
   color: var(--rv-heading);
-  font-family: inherit;
+  font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
   font-style: normal;
 }
 

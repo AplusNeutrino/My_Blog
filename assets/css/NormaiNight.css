@@ -23,6 +23,25 @@ html[data-mode='dark'] {
   --footnote-target-bg: var(--neutriverse-accent-wash);
 }
 
+/*
+ * Theme-specific labels are rendered in the document from the first frame.
+ * CSS selects the copy so navigation restores and delayed scripts cannot leave
+ * daylight pages showing their night labels.
+ */
+.theme-copy-day {
+  display: none;
+}
+
+html[data-mode='light'] .theme-copy-night,
+html[data-bs-theme='light'] .theme-copy-night {
+  display: none;
+}
+
+html[data-mode='light'] .theme-copy-day,
+html[data-bs-theme='light'] .theme-copy-day {
+  display: inline;
+}
+
 html[data-mode='dark'],
 html[data-bs-theme='dark'] {
   color-scheme: dark;

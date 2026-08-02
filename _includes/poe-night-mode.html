@@ -66,8 +66,15 @@
     };
 
     const getVisualMode = () => {
-      const explicitMode = root.getAttribute('data-mode');
-      return modes.has(explicitMode) ? explicitMode : 'light';
+      const candidates = [
+        root.getAttribute('data-mode'),
+        root.getAttribute('data-bs-theme'),
+        safeStorage.get(localStorage, storageKey),
+        safeStorage.get(sessionStorage, sessionKey)
+      ];
+
+      return candidates.find((mode) => modes.has(mode))
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     };
 
     const setControlLabel = (control, label) => {
@@ -130,28 +137,26 @@
       });
     };
 
-    const syncCopy = (element, visualMode, dayCopy) => {
-      if (!element.dataset.themeNightCopy) {
-        element.dataset.themeNightCopy = element.textContent.trim();
-      }
-
-      element.textContent = visualMode === 'light' ? dayCopy : element.dataset.themeNightCopy;
-    };
-
-    const syncThemeCopy = (visualMode) => {
-      document.querySelectorAll('[data-theme-day-copy]').forEach((element) => {
-        syncCopy(element, visualMode, element.dataset.themeDayCopy);
-      });
-
+    const syncSidebarSubtitle = (visualMode) => {
       const subtitle = document.querySelector('#sidebar .site-subtitle');
       if (subtitle) {
-        syncCopy(subtitle, visualMode, 'ECHOES OF TIZCA');
+        if (!subtitle.dataset.themeNightCopy) {
+          subtitle.dataset.themeNightCopy = subtitle.textContent.trim();
+        }
+
+        subtitle.textContent = visualMode === 'light'
+          ? 'ECHOES OF TIZCA'
+          : subtitle.dataset.themeNightCopy;
       }
     };
 
     const syncControl = () => {
       const visualMode = getVisualMode();
       const explicitMode = root.getAttribute('data-mode');
+
+      if (!modes.has(explicitMode)) {
+        root.setAttribute('data-mode', visualMode);
+      }
 
       root.setAttribute('data-bs-theme', visualMode);
       root.style.colorScheme = visualMode;
@@ -161,7 +166,7 @@
       }
 
       updateThemeColor(visualMode);
-      syncThemeCopy(visualMode);
+      syncSidebarSubtitle(visualMode);
 
       if (!toggle) {
         return;
