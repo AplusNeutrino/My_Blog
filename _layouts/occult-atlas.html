@@ -8,6 +8,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>{{ page.title | default: 'Occult Atlas' }} | {{ site.title }}</title>
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    {% include poe-night-mode.html %}
     <link rel="stylesheet" href="{{ '/occult-atlas-app/styles.css' | relative_url }}?v={{ site.data.occult_atlas.asset_version }}">
   </head>
   <body>

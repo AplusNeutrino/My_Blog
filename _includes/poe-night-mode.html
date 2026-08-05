@@ -205,8 +205,11 @@
     });
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-      // Chirpy's own Theme listener clears data-mode on OS scheme changes; re-assert the saved choice
-      // in a microtask so it runs after every listener of this event, regardless of registration order.
+      /*
+       * Chirpy's own Theme listener clears data-mode on OS scheme changes. Re-assert the saved
+       * choice in a microtask so it runs after every listener, regardless of registration order.
+       * Keep block comments in inline scripts: the compress layout folds this script to one line.
+       */
       queueMicrotask(() => {
         const stored = safeStorage.get(localStorage, storageKey);
         const mode = modes.has(stored) ? stored : (event.matches ? 'dark' : 'light');

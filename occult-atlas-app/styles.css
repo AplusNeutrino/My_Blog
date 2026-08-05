@@ -14,8 +14,83 @@
   --atlas-signal: #e2cf5b;
   --atlas-danger: #bc7280;
   --atlas-aspect-soft: #6ca79d;
+  --atlas-focus-outline: rgba(49, 94, 255, 0.88);
+  --atlas-focus-wash: rgba(49, 94, 255, 0.12);
+  --atlas-modal-scrim: rgba(5, 7, 13, 0.7);
+  --atlas-modal-shadow: rgba(0, 0, 0, 0.48);
+  --atlas-filter-wash: rgba(13, 18, 28, 0.55);
+  --atlas-signal-border: rgba(226, 207, 91, 0.72);
+  --atlas-chart-glow: rgba(49, 94, 255, 0.055);
+  --atlas-chart-state: rgba(5, 7, 13, 0.86);
+  --atlas-chart-ring: rgba(182, 192, 205, 0.2);
+  --atlas-chart-grid: rgba(182, 192, 205, 0.17);
+  --atlas-chart-grid-strong: rgba(182, 192, 205, 0.36);
+  --atlas-chart-angle: rgba(231, 236, 243, 0.64);
+  --atlas-chart-active: rgba(226, 207, 91, 0.82);
+  --atlas-chart-dial: rgba(182, 192, 205, 0.24);
+  --atlas-chart-accent: rgba(49, 94, 255, 0.24);
+  --atlas-chart-signal: rgba(226, 207, 91, 0.66);
+  --atlas-chart-signal-soft: rgba(226, 207, 91, 0.34);
+  --atlas-chart-signal-faint: rgba(226, 207, 91, 0.26);
+  --atlas-chart-muted: rgba(116, 129, 145, 0.58);
+  --atlas-planet-stroke: #315b66;
+  --atlas-planet-active-fill: #fffce8;
+  --atlas-aspect-conjunction: #b79b42;
+  --atlas-callout-line: rgba(226, 207, 91, 0.76);
+  --atlas-callout-fill: rgba(13, 18, 28, 0.98);
+  --atlas-interactive-border: rgba(49, 94, 255, 0.68);
+  --atlas-interactive-border-strong: rgba(49, 94, 255, 0.7);
+  --atlas-interactive-signal: rgba(226, 207, 91, 0.62);
+  --atlas-danger-text: #d8a2ac;
   --atlas-radius: 8px;
   --atlas-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html[data-mode='light'],
+html[data-bs-theme='light'] {
+  color-scheme: light;
+  --atlas-void: #eee5ce;
+  --atlas-main: #f8f1dd;
+  --atlas-surface: #f3ead3;
+  --atlas-surface-raised: #e4d7b8;
+  --atlas-line: #d8c79f;
+  --atlas-line-strong: #c5ad70;
+  --atlas-heading: #17445a;
+  --atlas-text: #2c3436;
+  --atlas-muted: #606c6c;
+  --atlas-muted-strong: #536060;
+  --atlas-accent: #197f93;
+  --atlas-signal: #ad7d29;
+  --atlas-danger: #823849;
+  --atlas-aspect-soft: #197f93;
+  --atlas-focus-outline: rgba(25, 127, 147, 0.88);
+  --atlas-focus-wash: rgba(25, 127, 147, 0.16);
+  --atlas-modal-scrim: rgba(12, 53, 77, 0.42);
+  --atlas-modal-shadow: rgba(23, 68, 90, 0.2);
+  --atlas-filter-wash: rgba(228, 215, 184, 0.58);
+  --atlas-signal-border: rgba(173, 125, 41, 0.66);
+  --atlas-chart-glow: rgba(25, 127, 147, 0.09);
+  --atlas-chart-state: rgba(248, 241, 221, 0.9);
+  --atlas-chart-ring: rgba(23, 68, 90, 0.22);
+  --atlas-chart-grid: rgba(23, 68, 90, 0.18);
+  --atlas-chart-grid-strong: rgba(23, 68, 90, 0.4);
+  --atlas-chart-angle: rgba(12, 53, 77, 0.68);
+  --atlas-chart-active: rgba(173, 125, 41, 0.86);
+  --atlas-chart-dial: rgba(23, 68, 90, 0.25);
+  --atlas-chart-accent: rgba(25, 127, 147, 0.28);
+  --atlas-chart-signal: rgba(173, 125, 41, 0.72);
+  --atlas-chart-signal-soft: rgba(173, 125, 41, 0.42);
+  --atlas-chart-signal-faint: rgba(173, 125, 41, 0.32);
+  --atlas-chart-muted: rgba(83, 96, 96, 0.62);
+  --atlas-planet-stroke: #197f93;
+  --atlas-planet-active-fill: #fff8e7;
+  --atlas-aspect-conjunction: #9a6d1f;
+  --atlas-callout-line: rgba(173, 125, 41, 0.8);
+  --atlas-callout-fill: rgba(248, 241, 221, 0.98);
+  --atlas-interactive-border: rgba(25, 127, 147, 0.68);
+  --atlas-interactive-border-strong: rgba(8, 109, 128, 0.74);
+  --atlas-interactive-signal: rgba(173, 125, 41, 0.68);
+  --atlas-danger-text: #823849;
 }
 
 * {
@@ -54,7 +129,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(49, 94, 255, 0.88);
+  outline: 2px solid var(--atlas-focus-outline);
   outline-offset: 3px;
 }
 
@@ -221,7 +296,7 @@ body.control-menu-open::after {
   position: fixed;
   z-index: 900;
   inset: 0;
-  background: rgba(5, 7, 13, 0.7);
+  background: var(--atlas-modal-scrim);
   content: "";
   pointer-events: none;
 }
@@ -246,7 +321,7 @@ body.control-menu-open .sky-sidebar {
   border: 1px solid var(--atlas-line-strong);
   border-radius: var(--atlas-radius);
   background: var(--atlas-surface);
-  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.48);
+  box-shadow: 0 24px 72px var(--atlas-modal-shadow);
 }
 
 .chart-control-popover .sky-meta,
@@ -406,7 +481,7 @@ details[open] > summary.sky-panel-heading::after {
 
 .chart-query-form input:focus {
   border-color: var(--atlas-accent);
-  box-shadow: 0 0 0 2px rgba(49, 94, 255, 0.12);
+  box-shadow: 0 0 0 2px var(--atlas-focus-wash);
 }
 
 .coordinate-grid,
@@ -425,7 +500,7 @@ details[open] > summary.sky-panel-heading::after {
   margin: 0;
   padding-left: 9px;
   border-left: 1px solid var(--atlas-danger);
-  color: #d8a2ac;
+  color: var(--atlas-danger-text);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -540,7 +615,7 @@ details[open] > summary.sky-panel-heading::after {
 
 .filter-toggle:has(input:not(:checked)) {
   color: var(--atlas-muted);
-  background: rgba(13, 18, 28, 0.55);
+  background: var(--atlas-filter-wash);
 }
 
 .astro-pick-list {
@@ -566,7 +641,7 @@ details[open] > summary.sky-panel-heading::after {
 }
 
 .astro-row.pinned {
-  border-color: rgba(226, 207, 91, 0.72);
+  border-color: var(--atlas-signal-border);
   box-shadow: inset 2px 0 0 var(--atlas-signal);
 }
 
@@ -677,7 +752,7 @@ details[open] > summary.sky-panel-heading::after {
   min-height: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 50%, rgba(49, 94, 255, 0.055), transparent 42%),
+    radial-gradient(circle at 50% 50%, var(--atlas-chart-glow), transparent 42%),
     var(--atlas-main);
 }
 
@@ -712,7 +787,7 @@ body.sidebar-collapsed .astro-visual svg {
   justify-items: center;
   gap: 13px;
   padding: 24px;
-  background: rgba(5, 7, 13, 0.86);
+  background: var(--atlas-chart-state);
   text-align: center;
 }
 
@@ -863,7 +938,7 @@ body.sidebar-collapsed .astro-visual svg {
 /* Chart SVG */
 .astro-ring {
   fill: none;
-  stroke: rgba(182, 192, 205, 0.2);
+  stroke: var(--atlas-chart-ring);
 }
 
 .astro-ring.outer {
@@ -885,12 +960,12 @@ body.sidebar-collapsed .astro-visual svg {
 
 .zodiac-tick,
 .house-line {
-  stroke: rgba(182, 192, 205, 0.17);
+  stroke: var(--atlas-chart-grid);
   stroke-width: 1;
 }
 
 .zodiac-tick.major {
-  stroke: rgba(182, 192, 205, 0.36);
+  stroke: var(--atlas-chart-grid-strong);
   stroke-width: 1.6;
 }
 
@@ -933,7 +1008,7 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .angle-line {
-  stroke: rgba(231, 236, 243, 0.64);
+  stroke: var(--atlas-chart-angle);
   stroke-width: 1.5;
 }
 
@@ -954,7 +1029,7 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .zodiac-zone.active {
-  stroke: rgba(226, 207, 91, 0.82);
+  stroke: var(--atlas-chart-active);
 }
 
 .zodiac-icon.active {
@@ -975,23 +1050,23 @@ body.sidebar-collapsed .astro-visual svg {
 .time-dial line,
 .time-dial circle {
   fill: none;
-  stroke: rgba(182, 192, 205, 0.24);
+  stroke: var(--atlas-chart-dial);
   stroke-width: 1;
 }
 
 .time-dial circle {
-  stroke: rgba(49, 94, 255, 0.2);
+  stroke: var(--atlas-chart-accent);
   stroke-dasharray: 2 9;
 }
 
 .time-dial .time-pointer {
-  stroke: rgba(226, 207, 91, 0.66);
+  stroke: var(--atlas-chart-signal);
   stroke-width: 1.8;
   stroke-linecap: round;
 }
 
 .time-dial .time-pointer.faint {
-  stroke: rgba(116, 129, 145, 0.58);
+  stroke: var(--atlas-chart-muted);
 }
 
 .magic-layer {
@@ -1003,13 +1078,13 @@ body.sidebar-collapsed .astro-visual svg {
 .magic-layer polygon,
 .magic-layer line {
   fill: none;
-  stroke: rgba(49, 94, 255, 0.24);
+  stroke: var(--atlas-chart-accent);
   stroke-width: 1;
 }
 
 .magic-layer-runes text {
   dominant-baseline: middle;
-  fill: rgba(226, 207, 91, 0.34);
+  fill: var(--atlas-chart-signal-soft);
   font-size: 13px;
   font-weight: 600;
   text-anchor: middle;
@@ -1020,7 +1095,7 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .magic-layer-sigil polygon {
-  stroke: rgba(226, 207, 91, 0.26);
+  stroke: var(--atlas-chart-signal-faint);
 }
 
 .magic-layer-spokes {
@@ -1034,13 +1109,13 @@ body.sidebar-collapsed .astro-visual svg {
 
 .planet-node circle {
   fill: var(--atlas-heading);
-  stroke: #315b66;
+  stroke: var(--atlas-planet-stroke);
   stroke-width: 2;
   transition: fill 180ms var(--atlas-ease), stroke 180ms var(--atlas-ease), stroke-width 180ms var(--atlas-ease);
 }
 
 .planet-node.active circle {
-  fill: #fffce8;
+  fill: var(--atlas-planet-active-fill);
   stroke: var(--atlas-signal);
   stroke-width: 4;
 }
@@ -1064,7 +1139,7 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .aspect-line.conjunction {
-  stroke: #b79b42;
+  stroke: var(--atlas-aspect-conjunction);
 }
 
 .aspect-line.opposition,
@@ -1091,13 +1166,13 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .astro-callout line {
-  stroke: rgba(226, 207, 91, 0.76);
+  stroke: var(--atlas-callout-line);
   stroke-width: 1.4;
 }
 
 .astro-callout rect {
-  fill: rgba(13, 18, 28, 0.98);
-  stroke: rgba(226, 207, 91, 0.72);
+  fill: var(--atlas-callout-fill);
+  stroke: var(--atlas-signal-border);
   stroke-width: 1;
 }
 
@@ -1145,23 +1220,23 @@ body.sidebar-collapsed .sky-sidebar {
   .history-load:hover,
   .history-delete:hover,
   .related-link:hover {
-    border-color: rgba(49, 94, 255, 0.68);
+    border-color: var(--atlas-interactive-border);
     background: var(--atlas-surface-raised);
   }
 
   .brand-logo-link:hover {
-    border-color: rgba(226, 207, 91, 0.62);
+    border-color: var(--atlas-interactive-signal);
     transform: translateY(-1px);
   }
 
   .astro-row:hover,
   .astro-row.active {
-    border-color: rgba(49, 94, 255, 0.7);
+    border-color: var(--atlas-interactive-border-strong);
     background: var(--atlas-surface-raised);
   }
 
   .history-delete:hover {
-    border-color: rgba(226, 207, 91, 0.62);
+    border-color: var(--atlas-interactive-signal);
     color: var(--atlas-signal);
   }
 
