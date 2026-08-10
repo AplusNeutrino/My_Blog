@@ -101,6 +101,14 @@ description: "Neutriverse personal transit gate."
         <button type="submit">EXECUTE</button>
       </form>
 
+      <div
+        class="gate-query-suggestions"
+        data-gate-suggestions
+        role="listbox"
+        aria-label="Query suggestions"
+        hidden
+      ></div>
+
       <div class="gate-query-hints" aria-live="polite">
         <span data-gate-query-state>g / gh / yt / wiki / map / ai</span>
         <span>URL · /route · &gt; command</span>
@@ -142,40 +150,138 @@ description: "Neutriverse personal transit gate."
       </div>
     </section>
 
-    <div class="gate-lower-grid">
-      <section class="gate-panel gate-note-panel" aria-labelledby="gate-note-title">
+    <div class="gate-dashboard-grid">
+      {% if gate.current_vector.enabled %}
+      <section class="gate-panel gate-vector-panel" aria-labelledby="gate-vector-title" data-gate-vector-panel>
         <div class="gate-section-heading">
           <div>
             <span class="gate-section-index">02</span>
             <div>
-              <p id="gate-note-title">
-                <span class="theme-copy-night">FIELD RECORD</span>
-                <span class="theme-copy-day">MARGIN NOTES</span>
-              </p>
+              <p id="gate-vector-title">CURRENT VECTOR</p>
               <span>
-                <span class="theme-copy-night">Local transient memory.</span>
-                <span class="theme-copy-day">仅保存在当前浏览器。</span>
+                <span class="theme-copy-night">Resume the active trajectory.</span>
+                <span class="theme-copy-day">继续当前工作路径。</span>
+              </span>
+            </div>
+          </div>
+          <button class="gate-panel-action" type="button" data-gate-vector-edit>EDIT</button>
+        </div>
+
+        <div class="gate-vector-display" data-gate-vector-display>
+          <div class="gate-vector-header">
+            <div>
+              <span class="gate-vector-status">
+                <span class="gate-status-dot"></span>
+                <span data-gate-vector-status>{{ gate.current_vector.status }}</span>
+              </span>
+              <h2 data-gate-vector-title>{{ gate.current_vector.title }}</h2>
+              <p data-gate-vector-description>{{ gate.current_vector.description }}</p>
+            </div>
+            <span class="gate-vector-mark" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="gate-vector-links">
+            {% for link in gate.current_vector.links %}
+              {% assign external = false %}
+              {% if link.url contains '://' %}
+                {% assign external = true %}
+              {% endif %}
+              <a
+                href="{% if external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"
+                data-gate-vector-link
+                data-gate-transit-label="{{ link.label }}"
+                data-gate-transit-detail="{{ link.detail }}"
+              >
+                <span>{{ link.label }}</span>
+                <small>{{ link.detail }}</small>
+              </a>
+            {% endfor %}
+          </div>
+
+          <div class="gate-vector-meta">
+            <span>LOCAL OVERRIDE</span>
+            <span data-gate-vector-updated>CONFIG DEFAULT</span>
+          </div>
+        </div>
+
+        <form class="gate-vector-editor" data-gate-vector-editor hidden>
+          <label>
+            <span>TITLE</span>
+            <input type="text" maxlength="72" data-gate-vector-title-input>
+          </label>
+
+          <label>
+            <span>STATUS</span>
+            <select data-gate-vector-status-input>
+              <option value="ACTIVE">ACTIVE</option>
+              <option value="STANDBY">STANDBY</option>
+              <option value="PAUSED">PAUSED</option>
+            </select>
+          </label>
+
+          <label class="gate-vector-editor-wide">
+            <span>DESCRIPTION</span>
+            <input type="text" maxlength="140" data-gate-vector-description-input>
+          </label>
+
+          <div class="gate-vector-editor-actions">
+            <button type="submit">SAVE</button>
+            <button type="button" data-gate-vector-reset>RESET</button>
+            <button type="button" data-gate-vector-cancel>CANCEL</button>
+          </div>
+        </form>
+      </section>
+      {% endif %}
+
+      {% if gate.weather.enabled %}
+      <section class="gate-panel gate-weather-panel" aria-labelledby="gate-weather-title" data-gate-weather-panel>
+        <div class="gate-section-heading">
+          <div>
+            <span class="gate-section-index">03</span>
+            <div>
+              <p id="gate-weather-title">LOCAL CONDITIONS</p>
+              <span data-gate-weather-subtitle>
+                <span class="theme-copy-night">Location remains local to this browser.</span>
+                <span class="theme-copy-day">位置仅保存在当前浏览器。</span>
               </span>
             </div>
           </div>
         </div>
 
-        <textarea
-          data-gate-note
-          aria-label="Quick note"
-          placeholder="> Record something before transit…"
-        ></textarea>
+        <div class="gate-weather-empty" data-gate-weather-empty>
+          <span class="gate-weather-sigil" aria-hidden="true">◎</span>
+          <strong>NO LOCAL FIX</strong>
+          <p>Grant location once to establish this node.</p>
+          <button type="button" data-gate-locate>LOCATE</button>
+        </div>
 
-        <div class="gate-note-meta">
-          <span>LOCAL STORAGE</span>
-          <span data-gate-note-status>EMPTY</span>
+        <div class="gate-weather-data" data-gate-weather-data hidden>
+          <div class="gate-weather-current">
+            <div>
+              <span class="gate-weather-location" data-gate-weather-location>LOCAL NODE</span>
+              <strong data-gate-weather-temp>--°</strong>
+              <span data-gate-weather-label>---</span>
+            </div>
+            <div class="gate-weather-meta">
+              <span>FEELS <b data-gate-weather-feels>--°</b></span>
+              <span>WIND <b data-gate-weather-wind>--</b></span>
+            </div>
+          </div>
+
+          <div class="gate-weather-days" data-gate-weather-days></div>
+
+          <div class="gate-weather-footer">
+            <span data-gate-weather-updated>NOT SYNCED</span>
+            <button type="button" data-gate-locate>RELOCATE</button>
+          </div>
         </div>
       </section>
+      {% endif %}
 
       <section class="gate-panel gate-routes-panel" aria-labelledby="gate-routes-title">
         <div class="gate-section-heading">
           <div>
-            <span class="gate-section-index">03</span>
+            <span class="gate-section-index">04</span>
             <div>
               <p id="gate-routes-title">
                 <span class="theme-copy-night">ACTIVE SYSTEMS</span>
@@ -198,6 +304,9 @@ description: "Neutriverse personal transit gate."
             <a
               class="gate-route"
               href="{% if external %}{{ route.url }}{% else %}{{ route.url | relative_url }}{% endif %}"
+              data-gate-route
+              data-gate-transit-label="{{ route.label }}"
+              data-gate-transit-detail="{{ route.detail }}"
             >
               <span class="gate-status-dot"></span>
               <span>
@@ -211,6 +320,35 @@ description: "Neutriverse personal transit gate."
       </section>
     </div>
 
+    <section class="gate-panel gate-note-panel gate-note-wide" aria-labelledby="gate-note-title">
+      <div class="gate-section-heading">
+        <div>
+          <span class="gate-section-index">05</span>
+          <div>
+            <p id="gate-note-title">
+              <span class="theme-copy-night">FIELD RECORD</span>
+              <span class="theme-copy-day">MARGIN NOTES</span>
+            </p>
+            <span>
+              <span class="theme-copy-night">Local transient memory.</span>
+              <span class="theme-copy-day">仅保存在当前浏览器。</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <textarea
+        data-gate-note
+        aria-label="Quick note"
+        placeholder="> Record something before transit…"
+      ></textarea>
+
+      <div class="gate-note-meta">
+        <span>LOCAL STORAGE</span>
+        <span data-gate-note-status>EMPTY</span>
+      </div>
+    </section>
+
     <footer class="gate-footer">
       <span>NEUTRIVERSE // GATE NODE 01</span>
       <span>
@@ -222,5 +360,9 @@ description: "Neutriverse personal transit gate."
 
   <script type="application/json" id="gate-search-config">
     {{ gate.search_engines | jsonify }}
+  </script>
+
+  <script type="application/json" id="gate-vector-config">
+    {{ gate.current_vector | jsonify }}
   </script>
 </div>

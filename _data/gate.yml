@@ -2,99 +2,104 @@
 # Keep this file data-only so /gate/ can be changed without touching the layout.
 
 default_search: google
-
 search_engines:
   google:
     label: Google
     prefix: g
-    url: "https://www.google.com/search?q={query}"
+    url: https://www.google.com/search?q={query}
   duckduckgo:
     label: DuckDuckGo
     prefix: ddg
-    url: "https://duckduckgo.com/?q={query}"
+    url: https://duckduckgo.com/?q={query}
   github:
     label: GitHub
     prefix: gh
-    url: "https://github.com/search?q={query}"
+    url: https://github.com/search?q={query}
   youtube:
     label: YouTube
     prefix: yt
-    url: "https://www.youtube.com/results?search_query={query}"
+    url: https://www.youtube.com/results?search_query={query}
   wikipedia:
     label: Wikipedia
     prefix: wiki
-    url: "https://en.wikipedia.org/w/index.php?search={query}"
+    url: https://en.wikipedia.org/w/index.php?search={query}
   maps:
     label: Maps
     prefix: map
-    url: "https://www.google.com/maps/search/{query}"
+    url: https://www.google.com/maps/search/{query}
   chatgpt:
     label: ChatGPT
     prefix: ai
-    url: "https://chatgpt.com/?q={query}"
-
+    url: https://chatgpt.com/?q={query}
 launches:
-  - code: "01"
-    name: Google
-    role: SEARCH
-    url: "https://www.google.com/"
-    command: google
-
-  - code: "02"
-    name: ChatGPT
-    role: COGNITION
-    url: "https://chatgpt.com/"
-    command: chatgpt
-
-  - code: "03"
-    name: GitHub
-    role: REPOSITORY
-    url: "https://github.com/"
-    command: github
-
-  - code: "04"
-    name: YouTube
-    role: MEDIA
-    url: "https://www.youtube.com/"
-    command: youtube
-
-  - code: "05"
-    name: Gmail
-    role: MAIL
-    url: "https://mail.google.com/"
-    command: gmail
-
-  - code: "06"
-    name: Drive
-    role: STORAGE
-    url: "https://drive.google.com/"
-    command: drive
-
-  - code: "07"
-    name: Reddit
-    role: NETWORK
-    url: "https://www.reddit.com/"
-    command: reddit
-
-  - code: "08"
-    name: Maps
-    role: CARTOGRAPHY
-    url: "https://maps.google.com/"
-    command: maps
-
+- code: '01'
+  name: Google
+  role: SEARCH
+  url: https://www.google.com/
+  command: google
+- code: '02'
+  name: ChatGPT
+  role: COGNITION
+  url: https://chatgpt.com/
+  command: chatgpt
+- code: '03'
+  name: GitHub
+  role: REPOSITORY
+  url: https://github.com/
+  command: github
+- code: '04'
+  name: YouTube
+  role: MEDIA
+  url: https://www.youtube.com/
+  command: youtube
+- code: '05'
+  name: Gmail
+  role: MAIL
+  url: https://mail.google.com/
+  command: gmail
+- code: '06'
+  name: Drive
+  role: STORAGE
+  url: https://drive.google.com/
+  command: drive
+- code: '07'
+  name: Reddit
+  role: NETWORK
+  url: https://www.reddit.com/
+  command: reddit
+- code: 08
+  name: Maps
+  role: CARTOGRAPHY
+  url: https://maps.google.com/
+  command: maps
 routes:
-  - label: NEUTRIVERSE
-    detail: BLOG / ARCHIVE
-    url: "/"
-
+- label: NEUTRIVERSE
+  detail: BLOG / ARCHIVE
+  url: /
+- label: RAVENIS
+  detail: PUBLIC INTELLIGENCE
+  url: /ravenis/
+- label: OCCULT ATLAS
+  detail: FIELD MAP
+  url: /occult-atlas/
+- label: GITHUB
+  detail: SOURCE REPOSITORY
+  url: https://github.com/AplusNeutrino/My_Blog
+weather:
+  enabled: true
+  provider: open-meteo
+current_vector:
+  enabled: true
+  title: Neutriverse Gate
+  status: ACTIVE
+  description: Personal transit terminal · interface development
+  links:
+  - label: GATE
+    detail: LIVE NODE
+    url: /gate/
+  - label: SOURCE
+    detail: GITHUB
+    url: https://github.com/AplusNeutrino/My_Blog
   - label: RAVENIS
-    detail: PUBLIC INTELLIGENCE
-    url: "/ravenis/"
-
-  - label: OCCULT ATLAS
-    detail: FIELD MAP
-    url: "/occult-atlas/"
-
-  - label: GITHUB
-    detail: SOURCE REPOSITORY
-    url: "https://github.com/AplusNeutrino/My_Blog"
+    detail: INTELLIGENCE
+    url: /ravenis/
