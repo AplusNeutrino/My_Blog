@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hans" data-mode="light" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Occult Atlas 白天模式预览</title>
+    <link rel="stylesheet" href="occult-atlas-app/styles.css">
+    <style>
+      .preview-theme-toggle {
+        position: fixed;
+        z-index: 2000;
+        right: 18px;
+        bottom: 18px;
+        min-height: 42px;
+        padding: 0 15px;
+        border: 1px solid var(--atlas-line-strong);
+        border-radius: 999px;
+        background: var(--atlas-surface-raised);
+        box-shadow: 0 8px 24px var(--atlas-modal-shadow);
+        color: var(--atlas-heading);
+        cursor: pointer;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="astro-home">
+      <header class="sky-command">
+        <button class="sidebar-toggle" type="button"><span>‹</span></button>
+        <div class="sky-brand">
+          <a class="brand-mark brand-logo-link" href="#"><img src="assets/img/logo.png" alt=""></a>
+          <div><h1>Neutriverse</h1><p>Occult Atlas</p></div>
+        </div>
+        <div class="chart-control-menu">
+          <button class="control-menu-button" type="button"><span>星盘控制</span><strong>▼</strong></button>
+        </div>
+      </header>
+
+      <aside class="sky-sidebar">
+        <details class="sky-panel sky-data-panel" open>
+          <summary class="sky-panel-heading"><h3>行星位置</h3><span>3</span></summary>
+          <div class="sky-panel-body astro-pick-list">
+            <button class="astro-row is-active"><span class="astro-row-icon">☉</span><span>太阳</span><strong>12° 42′</strong></button>
+            <button class="astro-row"><span class="astro-row-icon">☽</span><span>月亮</span><strong>04° 18′</strong></button>
+            <button class="astro-row"><span class="astro-row-icon">♀</span><span>金星</span><strong>27° 06′</strong></button>
+          </div>
+        </details>
+        <details class="sky-panel sky-data-panel" open>
+          <summary class="sky-panel-heading"><h3>主要相位</h3><span>2</span></summary>
+          <div class="sky-panel-body astro-pick-list">
+            <button class="astro-row"><span class="astro-row-icon">△</span><span>日月拱</span><strong>120°</strong></button>
+            <button class="astro-row"><span class="astro-row-icon">□</span><span>金土刑</span><strong>90°</strong></button>
+          </div>
+        </details>
+      </aside>
+
+      <main class="sky-main">
+        <div class="sky-topbar">
+          <div><p class="eyebrow">Swiss Ephemeris</p><h2>实时星盘</h2></div>
+          <p class="sky-status">本地白天模式预览</p>
+        </div>
+        <section class="sky-workbench">
+          <div class="astro-chart-region">
+            <div class="astro-visual">
+              <svg viewBox="0 0 600 600" aria-label="Theme preview chart">
+                <circle class="astro-ring outer" cx="300" cy="300" r="250"></circle>
+                <circle class="astro-ring zodiac" cx="300" cy="300" r="205"></circle>
+                <circle class="astro-ring middle" cx="300" cy="300" r="148"></circle>
+                <path class="house-line" d="M300 50V550M50 300H550M123 123L477 477M477 123L123 477"></path>
+                <path class="aspect-line trine" fill="none" d="M300 95L478 403L122 403Z"></path>
+                <path class="aspect-line opposition" fill="none" d="M105 300H495"></path>
+                <g class="planet-node active"><circle cx="300" cy="95" r="10"></circle></g>
+                <g class="planet-node"><circle cx="478" cy="403" r="9"></circle></g>
+                <text class="astro-center" x="300" y="292">Occult Atlas</text>
+                <text class="astro-center sub" x="300" y="316">PROSPERO DAYLIGHT</text>
+              </svg>
+            </div>
+          </div>
+          <aside class="astro-insight has-focus">
+            <div class="insight-header"><div><p class="eyebrow">Object Focus</p><h3>太阳 <span>☉</span></h3></div></div>
+            <dl>
+              <div><dt>黄经</dt><dd>狮子座 12° 42′</dd></div>
+              <div><dt>状态</dt><dd>基于主站 Prospero 白天主题的星图配色。</dd></div>
+            </dl>
+            <button class="text-button" type="button">查看相关相位</button>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <button class="preview-theme-toggle" type="button" aria-label="切换预览主题">切换到深色</button>
+    <script>
+      const root = document.documentElement;
+      const toggle = document.querySelector('.preview-theme-toggle');
+      toggle.addEventListener('click', () => {
+        const mode = root.dataset.mode === 'light' ? 'dark' : 'light';
+        root.dataset.mode = mode;
+        root.dataset.bsTheme = mode;
+        toggle.textContent = mode === 'light' ? '切换到深色' : '切换到浅色';
+      });
+    </script>
+  </body>
+</html>
