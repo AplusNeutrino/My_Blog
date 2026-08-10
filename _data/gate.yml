@@ -103,3 +103,14 @@ current_vector:
   - label: RAVENIS
     detail: INTELLIGENCE
     url: /ravenis/
+settings_defaults:
+  default_search: google
+  density: standard
+  ambient: true
+  modules:
+    launch_routes: true
+    current_vector: true
+    local_conditions: true
+    active_systems: true
+    field_record: true
+    recent_transits: true

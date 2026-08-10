@@ -35,6 +35,175 @@
     },
   };
 
+  function readJson(key, fallback = null) {
+    try {
+      const value = storage.get(key);
+      return value ? JSON.parse(value) : fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function writeJson(key, value) {
+    storage.set(key, JSON.stringify(value));
+  }
+
+  function parseConfig(id, fallback = {}) {
+    try {
+      return JSON.parse(document.getElementById(id)?.textContent || "{}");
+    } catch {
+      return fallback;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Static configuration / DOM references
+  // ---------------------------------------------------------------------------
+
+  const engines = parseConfig("gate-search-config", {});
+  const vectorDefault = parseConfig("gate-vector-config", {});
+  const settingsDefault = parseConfig("gate-settings-config", {});
+
+  const searchForm = qs("[data-gate-search]");
+  const searchInput = qs("[data-gate-search-input]");
+  const queryState = qs("[data-gate-query-state]");
+  const suggestionsNode = qs("[data-gate-suggestions]");
+
+  const launchGrid = qs("[data-gate-launch-grid]");
+  let launchNodes = qsa("[data-gate-launch]");
+  const routeNodes = qsa("[data-gate-route]");
+  const vectorLinkNodes = qsa("[data-gate-vector-link]");
+
+  const launchMap = new Map();
+  launchNodes.forEach((node) => {
+    const command = (node.dataset.gateCommand || "").trim().toLowerCase();
+    const label = (node.dataset.gateLabel || "").trim().toLowerCase();
+
+    if (command) launchMap.set(command, node.href);
+    if (label) launchMap.set(label, node.href);
+  });
+
+  // ---------------------------------------------------------------------------
+  // Gate preferences
+  // ---------------------------------------------------------------------------
+
+  const settingsKey = "neutriverse-gate-settings-v1";
+  const defaultLaunchOrder = launchNodes
+    .map((node) => node.dataset.gateLaunchId || node.dataset.gateCommand)
+    .filter(Boolean);
+
+  const preferenceDefaults = {
+    defaultSearch: settingsDefault.default_search || "google",
+    density: settingsDefault.density === "compact" ? "compact" : "standard",
+    ambient: settingsDefault.ambient !== false,
+    modules: {
+      launch_routes: settingsDefault.modules?.launch_routes !== false,
+      current_vector: settingsDefault.modules?.current_vector !== false,
+      local_conditions: settingsDefault.modules?.local_conditions !== false,
+      active_systems: settingsDefault.modules?.active_systems !== false,
+      field_record: settingsDefault.modules?.field_record !== false,
+      recent_transits: settingsDefault.modules?.recent_transits !== false,
+    },
+    launchOrder: [...defaultLaunchOrder],
+    hiddenLaunches: [],
+  };
+
+  function normalizePreferences(raw = {}) {
+    const modules = {
+      ...preferenceDefaults.modules,
+      ...(raw.modules && typeof raw.modules === "object" ? raw.modules : {}),
+    };
+
+    const requestedOrder = Array.isArray(raw.launchOrder)
+      ? raw.launchOrder.filter((id) => defaultLaunchOrder.includes(id))
+      : [];
+
+    const launchOrder = [
+      ...requestedOrder,
+      ...defaultLaunchOrder.filter((id) => !requestedOrder.includes(id)),
+    ];
+
+    const hiddenLaunches = Array.isArray(raw.hiddenLaunches)
+      ? raw.hiddenLaunches.filter((id) => defaultLaunchOrder.includes(id))
+      : [];
+
+    return {
+      defaultSearch: engines[raw.defaultSearch]
+        ? raw.defaultSearch
+        : (engines[preferenceDefaults.defaultSearch] ? preferenceDefaults.defaultSearch : "google"),
+      density: raw.density === "compact" ? "compact" : "standard",
+      ambient: raw.ambient !== false,
+      modules,
+      launchOrder,
+      hiddenLaunches,
+    };
+  }
+
+  let preferences = normalizePreferences(readJson(settingsKey, {}));
+
+  function savePreferences(next) {
+    preferences = normalizePreferences(next);
+    writeJson(settingsKey, preferences);
+    applyPreferences();
+    syncSettingsControls();
+  }
+
+  function moduleEnabled(name) {
+    return preferences.modules?.[name] !== false;
+  }
+
+  function applyModulePreferences() {
+    qsa("[data-gate-module]").forEach((node) => {
+      const name = node.dataset.gateModule;
+      node.hidden = !moduleEnabled(name);
+    });
+  }
+
+  function applyLaunchPreferences() {
+    if (!launchGrid) {
+      return;
+    }
+
+    const currentNodes = qsa("[data-gate-launch]");
+    const byId = new Map(
+      currentNodes.map((node) => [
+        node.dataset.gateLaunchId || node.dataset.gateCommand,
+        node,
+      ])
+    );
+
+    preferences.launchOrder.forEach((id) => {
+      const node = byId.get(id);
+      if (node) launchGrid.appendChild(node);
+    });
+
+    const hidden = new Set(preferences.hiddenLaunches);
+
+    launchNodes = qsa("[data-gate-launch]");
+    let visibleIndex = 1;
+
+    launchNodes.forEach((node) => {
+      const id = node.dataset.gateLaunchId || node.dataset.gateCommand;
+      const isHidden = hidden.has(id);
+      node.hidden = isHidden;
+
+      const code = node.querySelector(".gate-launch-code");
+      if (code && !isHidden) {
+        code.textContent = String(visibleIndex).padStart(2, "0");
+        visibleIndex += 1;
+      }
+    });
+  }
+
+  function applyPreferences() {
+    app.dataset.gateDensity = preferences.density;
+    app.dataset.gateAmbient = preferences.ambient ? "on" : "off";
+    applyModulePreferences();
+    applyLaunchPreferences();
+  }
+
+  applyPreferences();
+
   // ---------------------------------------------------------------------------
   // Theme
   // ---------------------------------------------------------------------------
@@ -45,11 +214,13 @@
 
   function getTheme() {
     const explicit = root.getAttribute("data-mode");
+
     if (explicit === "light" || explicit === "dark") {
       return explicit;
     }
 
     const saved = storage.get(themeKey);
+
     if (saved === "light" || saved === "dark") {
       return saved;
     }
@@ -63,7 +234,6 @@
     root.setAttribute("data-mode", normalized);
     root.setAttribute("data-bs-theme", normalized);
     root.style.colorScheme = normalized;
-
     storage.set(themeKey, normalized);
 
     try {
@@ -106,6 +276,7 @@
       const parts = new Intl.DateTimeFormat("en-GB", {
         timeZoneName: "short",
       }).formatToParts(new Date());
+
       return parts.find((part) => part.type === "timeZoneName")?.value || resolvedZone;
     } catch {
       return resolvedZone;
@@ -166,7 +337,7 @@
   window.addEventListener("offline", syncNetworkState);
 
   // ---------------------------------------------------------------------------
-  // Quick note
+  // Field Record
   // ---------------------------------------------------------------------------
 
   const noteKey = "neutriverse-gate-field-record";
@@ -176,15 +347,11 @@
   let noteTimer;
 
   function formatSavedTime(value) {
-    if (!value) {
-      return "EMPTY";
-    }
+    if (!value) return "EMPTY";
 
     const date = new Date(value);
 
-    if (Number.isNaN(date.getTime())) {
-      return "SAVED";
-    }
+    if (Number.isNaN(date.getTime())) return "SAVED";
 
     return `SAVED ${new Intl.DateTimeFormat("en-GB", {
       hour: "2-digit",
@@ -194,12 +361,17 @@
   }
 
   function refreshNoteStatus() {
-    if (!noteStatus) {
-      return;
-    }
+    if (!noteStatus) return;
 
     const value = note?.value.trim() || "";
     noteStatus.textContent = value ? formatSavedTime(storage.get(noteTimeKey)) : "EMPTY";
+  }
+
+  function clearNote() {
+    if (note) note.value = "";
+    storage.remove(noteKey);
+    storage.remove(noteTimeKey);
+    refreshNoteStatus();
   }
 
   if (note) {
@@ -209,16 +381,11 @@
     note.addEventListener("input", () => {
       window.clearTimeout(noteTimer);
 
-      if (noteStatus) {
-        noteStatus.textContent = "WRITING";
-      }
+      if (noteStatus) noteStatus.textContent = "WRITING";
 
       noteTimer = window.setTimeout(() => {
-        const value = note.value;
-        const savedAt = new Date().toISOString();
-
-        storage.set(noteKey, value);
-        storage.set(noteTimeKey, savedAt);
+        storage.set(noteKey, note.value);
+        storage.set(noteTimeKey, new Date().toISOString());
         refreshNoteStatus();
       }, 280);
     });
@@ -228,7 +395,6 @@
   // Current Vector
   // ---------------------------------------------------------------------------
 
-  const vectorConfigNode = document.getElementById("gate-vector-config");
   const vectorKey = "neutriverse-gate-current-vector";
   const vectorPanel = qs("[data-gate-vector-panel]");
   const vectorDisplay = qs("[data-gate-vector-display]");
@@ -244,20 +410,8 @@
   const vectorStatusInput = qs("[data-gate-vector-status-input]");
   const vectorDescriptionInput = qs("[data-gate-vector-description-input]");
 
-  let vectorDefault = {};
-
-  try {
-    vectorDefault = JSON.parse(vectorConfigNode?.textContent || "{}");
-  } catch {
-    vectorDefault = {};
-  }
-
   function readVectorOverride() {
-    try {
-      return JSON.parse(storage.get(vectorKey) || "null");
-    } catch {
-      return null;
-    }
+    return readJson(vectorKey, null);
   }
 
   function currentVector() {
@@ -272,9 +426,7 @@
   }
 
   function renderVector() {
-    if (!vectorPanel) {
-      return;
-    }
+    if (!vectorPanel) return;
 
     const vector = currentVector();
 
@@ -286,12 +438,11 @@
       if (!vector.updatedAt) {
         vectorUpdatedNode.textContent = "CONFIG DEFAULT";
       } else {
-        const date = new Date(vector.updatedAt);
         vectorUpdatedNode.textContent = `UPDATED ${new Intl.DateTimeFormat("en-GB", {
           hour: "2-digit",
           minute: "2-digit",
           hour12: false,
-        }).format(date)}`;
+        }).format(new Date(vector.updatedAt))}`;
       }
     }
   }
@@ -300,6 +451,7 @@
     if (!vectorEditor || !vectorDisplay) return;
 
     const vector = currentVector();
+
     if (vectorTitleInput) vectorTitleInput.value = vector.title;
     if (vectorStatusInput) vectorStatusInput.value = vector.status;
     if (vectorDescriptionInput) vectorDescriptionInput.value = vector.description;
@@ -318,15 +470,16 @@
     vectorEditButton?.setAttribute("aria-expanded", "false");
   }
 
-  vectorEditButton?.setAttribute("aria-expanded", "false");
-  vectorEditButton?.addEventListener("click", openVectorEditor);
-  vectorCancelButton?.addEventListener("click", closeVectorEditor);
-
-  vectorResetButton?.addEventListener("click", () => {
+  function resetVector() {
     storage.remove(vectorKey);
     renderVector();
     closeVectorEditor();
-  });
+  }
+
+  vectorEditButton?.setAttribute("aria-expanded", "false");
+  vectorEditButton?.addEventListener("click", openVectorEditor);
+  vectorCancelButton?.addEventListener("click", closeVectorEditor);
+  vectorResetButton?.addEventListener("click", resetVector);
 
   vectorEditor?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -335,12 +488,12 @@
       ? vectorStatusInput.value
       : "ACTIVE";
 
-    storage.set(vectorKey, JSON.stringify({
+    writeJson(vectorKey, {
       title: vectorTitleInput?.value.trim() || vectorDefault.title || "Current Vector",
       status,
       description: vectorDescriptionInput?.value.trim() || "",
       updatedAt: new Date().toISOString(),
-    }));
+    });
 
     renderVector();
     closeVectorEditor();
@@ -356,20 +509,22 @@
   const recentTransitLimit = 8;
 
   function readRecentTransits() {
-    try {
-      const parsed = JSON.parse(storage.get(recentTransitKey) || "[]");
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return [];
-    }
+    const value = readJson(recentTransitKey, []);
+    return Array.isArray(value) ? value : [];
   }
 
   function writeRecentTransits(items) {
-    storage.set(recentTransitKey, JSON.stringify(items.slice(0, recentTransitLimit)));
+    writeJson(recentTransitKey, items.slice(0, recentTransitLimit));
+  }
+
+  function clearRecentTransits() {
+    storage.remove(recentTransitKey);
   }
 
   function recordTransit(entry) {
-    if (!entry?.label || !entry?.action) return;
+    if (!moduleEnabled("recent_transits") || !entry?.label || !entry?.action) {
+      return;
+    }
 
     const normalized = {
       label: String(entry.label).slice(0, 80),
@@ -386,20 +541,10 @@
     writeRecentTransits([normalized, ...remaining]);
   }
 
-  function safeOrigin(value) {
-    try {
-      return new URL(value).origin;
-    } catch {
-      return value;
-    }
-  }
-
   launchNodes.forEach((node) => {
     node.addEventListener("click", () => {
       recordTransit({
-        label: node.dataset.gateCommand
-          ? node.dataset.gateCommand.toUpperCase()
-          : node.textContent.trim(),
+        label: (node.dataset.gateCommand || node.dataset.gateLabel || "LAUNCH").toUpperCase(),
         detail: "LAUNCH ROUTE",
         action: "url",
         value: node.href,
@@ -430,40 +575,8 @@
   });
 
   // ---------------------------------------------------------------------------
-  // Query array
+  // Query Array helpers
   // ---------------------------------------------------------------------------
-
-  const searchForm = qs("[data-gate-search]");
-  const searchInput = qs("[data-gate-search-input]");
-  const queryState = qs("[data-gate-query-state]");
-  const configNode = document.getElementById("gate-search-config");
-
-  let engines = {};
-
-  try {
-    engines = JSON.parse(configNode?.textContent || "{}");
-  } catch {
-    engines = {};
-  }
-
-  const defaultEngine = "google";
-  const launchNodes = qsa("[data-gate-launch]");
-  const routeNodes = qsa("[data-gate-route]");
-  const vectorLinkNodes = qsa("[data-gate-vector-link]");
-
-  const launchMap = new Map();
-  launchNodes.forEach((node) => {
-    const command = (node.dataset.gateCommand || "").trim().toLowerCase();
-    const label = (node.dataset.gateLabel || "").trim().toLowerCase();
-
-    if (command) {
-      launchMap.set(command, node.href);
-    }
-
-    if (label) {
-      launchMap.set(label, node.href);
-    }
-  });
 
   function engineByPrefix(prefix) {
     return Object.values(engines).find((engine) => {
@@ -471,28 +584,56 @@
     });
   }
 
-  function buildEngineUrl(engine, query) {
-    if (!engine?.url) {
-      return null;
-    }
+  function defaultEngine() {
+    const key = engines[preferences.defaultSearch]
+      ? preferences.defaultSearch
+      : preferenceDefaults.defaultSearch;
 
+    return engines[key] || Object.values(engines)[0];
+  }
+
+  function buildEngineUrl(engine, query) {
+    if (!engine?.url) return null;
     return engine.url.replace("{query}", encodeURIComponent(query));
   }
 
   function looksLikeUrl(value) {
-    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
-      return true;
-    }
-
+    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) return true;
     return /^[^\s/]+\.[a-z]{2,}(?:[/?#][^\s]*)?$/i.test(value);
   }
 
   function normalizeUrl(value) {
-    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) {
+    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(value)) return value;
+    return `https://${value}`;
+  }
+
+  function safeOrigin(value) {
+    try {
+      return new URL(value).origin;
+    } catch {
       return value;
     }
+  }
 
-    return `https://${value}`;
+  // Settings functions are declarations so Command Mode can call them before
+  // their event bindings appear later in this file.
+  function openSettings() {
+    const drawer = qs("[data-gate-settings-drawer]");
+    const backdrop = qs("[data-gate-settings-backdrop]");
+    const close = qs("[data-gate-settings-close]");
+
+    if (!drawer || !backdrop) return;
+
+    syncSettingsControls();
+    drawer.hidden = false;
+    backdrop.hidden = false;
+    document.body.classList.add("gate-settings-open");
+
+    window.requestAnimationFrame(() => {
+      drawer.classList.add("is-open");
+      backdrop.classList.add("is-open");
+      close?.focus();
+    });
   }
 
   function runCommand(rawCommand) {
@@ -513,25 +654,24 @@
       }
     }
 
-    if (verb === "note") {
-      if (note && argument) {
-        note.value = note.value.trim()
-          ? `${note.value.trimEnd()}\n> ${argument}`
-          : `> ${argument}`;
-        note.dispatchEvent(new Event("input", { bubbles: true }));
-        note.focus();
-        return true;
-      }
+    if (verb === "note" && note && argument) {
+      note.value = note.value.trim()
+        ? `${note.value.trimEnd()}\n> ${argument}`
+        : `> ${argument}`;
+      note.dispatchEvent(new Event("input", { bubbles: true }));
+      note.focus();
+      return true;
     }
 
     if (verb === "clear" && argument === "note") {
-      if (note) {
-        note.value = "";
-        storage.set(noteKey, "");
-        storage.set(noteTimeKey, "");
-        refreshNoteStatus();
-        return true;
-      }
+      clearNote();
+      return true;
+    }
+
+    if (verb === "clear" && argument === "recent") {
+      clearRecentTransits();
+      renderSuggestions();
+      return true;
     }
 
     if (verb === "open" && argument) {
@@ -548,9 +688,8 @@
       return true;
     }
 
-    if (verb === "clear" && argument === "recent") {
-      storage.remove(recentTransitKey);
-      renderSuggestions();
+    if (verb === "settings") {
+      openSettings();
       return true;
     }
 
@@ -575,6 +714,7 @@
 
     if (input.startsWith(">")) {
       const handled = runCommand(input.slice(1));
+
       if (!handled && queryState) queryState.textContent = "UNKNOWN COMMAND";
       return;
     }
@@ -592,12 +732,15 @@
 
     if (looksLikeUrl(input)) {
       const destination = normalizeUrl(input);
+      const origin = safeOrigin(destination);
+
       recordTransit({
-        label: safeOrigin(destination).replace(/^https?:\/\//, "").toUpperCase(),
+        label: String(origin).replace(/^https?:\/\//, "").toUpperCase(),
         detail: "DIRECT TRANSIT",
         action: "url",
-        value: safeOrigin(destination),
+        value: origin,
       });
+
       window.location.assign(destination);
       return;
     }
@@ -605,12 +748,10 @@
     const match = input.match(/^(\S+)\s+(.+)$/);
 
     if (match) {
-      const prefix = match[1];
-      const query = match[2];
-      const engine = engineByPrefix(prefix);
+      const engine = engineByPrefix(match[1]);
 
       if (engine) {
-        const destination = buildEngineUrl(engine, query);
+        const destination = buildEngineUrl(engine, match[2]);
 
         if (destination) {
           recordTransit({
@@ -625,7 +766,7 @@
       }
     }
 
-    const engine = engines[defaultEngine] || Object.values(engines)[0];
+    const engine = defaultEngine();
     const destination = buildEngineUrl(engine, input);
 
     if (destination) {
@@ -643,7 +784,6 @@
   // Query Suggestions
   // ---------------------------------------------------------------------------
 
-  const suggestionsNode = qs("[data-gate-suggestions]");
   let suggestionItems = [];
   let activeSuggestionIndex = -1;
   let suggestionHideTimer;
@@ -654,6 +794,7 @@
     { label: "> theme toggle", detail: "Toggle authored theme state", action: "fill", value: "> theme toggle", code: "CMD" },
     { label: "> note ", detail: "Append to Field Record", action: "fill", value: "> note ", code: "CMD" },
     { label: "> vector edit", detail: "Edit Current Vector", action: "fill", value: "> vector edit", code: "CMD" },
+    { label: "> settings", detail: "Open System Configuration", action: "fill", value: "> settings", code: "CMD" },
     { label: "> clear recent", detail: "Clear Recent Transits", action: "fill", value: "> clear recent", code: "CMD" },
     { label: "> home", detail: "Return to Neutriverse", action: "fill", value: "> home", code: "CMD" },
   ];
@@ -669,15 +810,17 @@
   }
 
   function launchSuggestions() {
-    return launchNodes.map((node) => ({
-      label: node.dataset.gateCommand
-        ? node.dataset.gateCommand.toUpperCase()
-        : node.dataset.gateLabel?.toUpperCase() || "LAUNCH",
-      detail: "Launch route",
-      action: "url",
-      value: node.href,
-      code: "↗",
-    }));
+    return launchNodes
+      .filter((node) => !node.hidden)
+      .map((node) => ({
+        label: node.dataset.gateCommand
+          ? node.dataset.gateCommand.toUpperCase()
+          : node.dataset.gateLabel?.toUpperCase() || "LAUNCH",
+        detail: "Launch route",
+        action: "url",
+        value: node.href,
+        code: "↗",
+      }));
   }
 
   function routeSuggestions() {
@@ -691,7 +834,12 @@
   }
 
   function recentSuggestions() {
-    return readRecentTransits().slice(0, 5).map((item) => ({ ...item, code: "↺" }));
+    if (!moduleEnabled("recent_transits")) return [];
+
+    return readRecentTransits().slice(0, 5).map((item) => ({
+      ...item,
+      code: "↺",
+    }));
   }
 
   function matchesSuggestion(item, query) {
@@ -706,13 +854,16 @@
       const recent = recentSuggestions();
       const groups = [];
 
-      if (recent.length) groups.push({ title: "RECENT TRANSITS", items: recent });
+      if (recent.length) {
+        groups.push({ title: "RECENT TRANSITS", items: recent });
+      }
 
       groups.push({
         title: "QUICK COMMANDS",
         items: [
           ...engineSuggestions().slice(0, 5),
           { label: "> vector edit", detail: "Edit Current Vector", action: "fill", value: "> vector edit", code: "CMD" },
+          { label: "> settings", detail: "Open System Configuration", action: "fill", value: "> settings", code: "CMD" },
         ],
       });
 
@@ -761,6 +912,7 @@
 
     pool.forEach((item) => {
       const key = `${item.action}:${item.value}`;
+
       if (!seen.has(key) && matchesSuggestion(item, query)) {
         seen.add(key);
         unique.push(item);
@@ -809,8 +961,8 @@
       wrapper.appendChild(heading);
 
       group.items.forEach((item) => {
-        const button = document.createElement("button");
         const itemIndex = runningIndex;
+        const button = document.createElement("button");
         button.type = "button";
         button.className = "gate-suggestion";
         button.setAttribute("role", "option");
@@ -836,7 +988,8 @@
         hint.className = "gate-suggestion-hint";
         hint.textContent =
           item.action === "fill" ? "INSERT" :
-          item.action === "execute" ? "EXECUTE" : "OPEN";
+          item.action === "execute" ? "EXECUTE" :
+          "OPEN";
 
         button.append(code, main, hint);
         wrapper.appendChild(button);
@@ -856,12 +1009,16 @@
       const selected = Number(node.dataset.suggestionIndex) === activeSuggestionIndex;
       node.classList.toggle("is-active", selected);
       node.setAttribute("aria-selected", selected ? "true" : "false");
-      if (selected) node.scrollIntoView({ block: "nearest" });
+
+      if (selected) {
+        node.scrollIntoView({ block: "nearest" });
+      }
     });
   }
 
   function chooseSuggestion(index = activeSuggestionIndex) {
     const item = suggestionItems[index];
+
     if (!item || !searchInput) return false;
 
     if (item.action === "fill") {
@@ -886,11 +1043,16 @@
     return false;
   }
 
-  suggestionsNode?.addEventListener("pointerdown", (event) => event.preventDefault());
+  suggestionsNode?.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+  });
 
   suggestionsNode?.addEventListener("click", (event) => {
     const button = event.target.closest?.("[data-suggestion-index]");
-    if (button) chooseSuggestion(Number(button.dataset.suggestionIndex));
+
+    if (button) {
+      chooseSuggestion(Number(button.dataset.suggestionIndex));
+    }
   });
 
   searchInput?.addEventListener("focus", () => {
@@ -904,17 +1066,10 @@
     }, 120);
   });
 
-  searchForm?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    executeQuery(searchInput?.value || "");
-  });
-
   searchInput?.addEventListener("input", () => {
     renderSuggestions();
 
-    if (!queryState) {
-      return;
-    }
+    if (!queryState) return;
 
     const value = searchInput.value.trim();
 
@@ -936,66 +1091,18 @@
     const prefix = value.split(/\s+/, 1)[0];
     const engine = engineByPrefix(prefix);
 
-    queryState.textContent = engine ? `${engine.label.toUpperCase()} SEARCH` : "GOOGLE SEARCH";
+    queryState.textContent = engine
+      ? `${engine.label.toUpperCase()} SEARCH`
+      : `${defaultEngine()?.label?.toUpperCase() || "WEB"} SEARCH`;
   });
 
-  document.addEventListener("keydown", (event) => {
-    const commandKey = event.metaKey || event.ctrlKey;
-
-    if (commandKey && event.key.toLowerCase() === "k") {
-      event.preventDefault();
-      searchInput?.focus();
-      searchInput?.select();
-      renderSuggestions();
-      return;
-    }
-
-    if (document.activeElement === searchInput && !suggestionsNode?.hidden) {
-      if (event.key === "ArrowDown") {
-        event.preventDefault();
-        activeSuggestionIndex = suggestionItems.length
-          ? (activeSuggestionIndex < 0 ? 0 : (activeSuggestionIndex + 1) % suggestionItems.length)
-          : -1;
-        syncActiveSuggestion();
-        return;
-      }
-
-      if (event.key === "ArrowUp") {
-        event.preventDefault();
-        activeSuggestionIndex = suggestionItems.length
-          ? (activeSuggestionIndex < 0
-              ? suggestionItems.length - 1
-              : (activeSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length)
-          : -1;
-        syncActiveSuggestion();
-        return;
-      }
-
-      if (event.key === "Enter" && activeSuggestionIndex >= 0 && suggestionItems.length) {
-        const value = searchInput.value.trim();
-
-        if (!value || value.startsWith(">") || value.startsWith("/") || !value.includes(" ")) {
-          event.preventDefault();
-          chooseSuggestion(activeSuggestionIndex);
-          return;
-        }
-      }
-    }
-
-    if (event.key === "Escape" && document.activeElement === searchInput) {
-      searchInput.value = "";
-      searchInput.blur();
-
-      if (suggestionsNode) suggestionsNode.hidden = true;
-
-      if (queryState) {
-        queryState.textContent = "g / gh / yt / wiki / map / ai";
-      }
-    }
+  searchForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    executeQuery(searchInput?.value || "");
   });
 
   // ---------------------------------------------------------------------------
-  // V2 · Local Conditions
+  // Local Conditions
   // ---------------------------------------------------------------------------
 
   const weatherPanel = qs("[data-gate-weather-panel]");
@@ -1045,34 +1152,18 @@
     [99, "HEAVY THUNDERSTORM / HAIL"],
   ]);
 
-  function readJsonStorage(key) {
-    try {
-      return JSON.parse(storage.get(key) || "null");
-    } catch {
-      return null;
-    }
-  }
-
-  function writeJsonStorage(key, value) {
-    storage.set(key, JSON.stringify(value));
-  }
-
   function weatherCodeLabel(code) {
     return weatherCodes.get(Number(code)) || "VARIABLE";
   }
 
   function showWeatherEmpty(message = "NO LOCAL FIX") {
-    if (!weatherPanel) {
-      return;
-    }
+    if (!weatherPanel) return;
 
     weatherEmpty?.removeAttribute("hidden");
     weatherData?.setAttribute("hidden", "");
 
     const title = weatherEmpty?.querySelector("strong");
-    if (title) {
-      title.textContent = message;
-    }
+    if (title) title.textContent = message;
   }
 
   function renderWeather(payload, location) {
@@ -1087,25 +1178,17 @@
     const current = payload.current;
     const daily = payload.daily;
 
-    if (weatherTemp) {
-      weatherTemp.textContent = `${Math.round(current.temperature_2m)}°`;
-    }
-
-    if (weatherLabel) {
-      weatherLabel.textContent = weatherCodeLabel(current.weather_code);
-    }
-
-    if (weatherFeels) {
-      weatherFeels.textContent = `${Math.round(current.apparent_temperature)}°`;
-    }
-
-    if (weatherWind) {
-      weatherWind.textContent = `${Math.round(current.wind_speed_10m)} KM/H`;
-    }
+    if (weatherTemp) weatherTemp.textContent = `${Math.round(current.temperature_2m)}°`;
+    if (weatherLabel) weatherLabel.textContent = weatherCodeLabel(current.weather_code);
+    if (weatherFeels) weatherFeels.textContent = `${Math.round(current.apparent_temperature)}°`;
+    if (weatherWind) weatherWind.textContent = `${Math.round(current.wind_speed_10m)} KM/H`;
 
     if (weatherLocation) {
       const zone = payload.timezone_abbreviation || resolvedZone;
-      weatherLocation.textContent = `${zone.toUpperCase()} · ${Math.abs(location.latitude).toFixed(2)}${location.latitude >= 0 ? "N" : "S"} / ${Math.abs(location.longitude).toFixed(2)}${location.longitude >= 0 ? "E" : "W"}`;
+      const latitude = Math.abs(location.latitude).toFixed(2);
+      const longitude = Math.abs(location.longitude).toFixed(2);
+      weatherLocation.textContent =
+        `${String(zone).toUpperCase()} · ${latitude}${location.latitude >= 0 ? "N" : "S"} / ${longitude}${location.longitude >= 0 ? "E" : "W"}`;
     }
 
     if (weatherDays) {
@@ -1117,7 +1200,7 @@
         const day = document.createElement("div");
         day.className = "gate-weather-day";
 
-        const label = new Intl.DateTimeFormat("en-GB", {
+        const dayLabel = new Intl.DateTimeFormat("en-GB", {
           weekday: "short",
         }).format(new Date(`${daily.time[index]}T12:00:00`)).toUpperCase();
 
@@ -1125,12 +1208,18 @@
         const min = Math.round(daily.temperature_2m_min[index]);
         const rain = daily.precipitation_probability_max?.[index];
 
-        day.innerHTML = `
-          <span>${label}</span>
-          <strong>${max}° / ${min}°</strong>
-          <small>${Number.isFinite(rain) ? `${Math.round(rain)}% PRECIP` : weatherCodeLabel(daily.weather_code?.[index])}</small>
-        `;
+        const label = document.createElement("span");
+        label.textContent = dayLabel;
 
+        const temperatures = document.createElement("strong");
+        temperatures.textContent = `${max}° / ${min}°`;
+
+        const detail = document.createElement("small");
+        detail.textContent = Number.isFinite(rain)
+          ? `${Math.round(rain)}% PRECIP`
+          : weatherCodeLabel(daily.weather_code?.[index]);
+
+        day.append(label, temperatures, detail);
         weatherDays.appendChild(day);
       }
     }
@@ -1145,11 +1234,9 @@
   }
 
   async function fetchWeather(location, { force = false } = {}) {
-    if (!weatherPanel || !location) {
-      return;
-    }
+    if (!weatherPanel || !moduleEnabled("local_conditions") || !location) return;
 
-    const cached = readJsonStorage(weatherCacheKey);
+    const cached = readJson(weatherCacheKey, null);
 
     if (!force && cached?.timestamp && cached?.payload) {
       const fresh = Date.now() - cached.timestamp < weatherCacheMaxAge;
@@ -1163,9 +1250,7 @@
       }
     }
 
-    if (weatherUpdated) {
-      weatherUpdated.textContent = "SYNCING";
-    }
+    if (weatherUpdated) weatherUpdated.textContent = "SYNCING";
 
     const params = new URLSearchParams({
       latitude: String(location.latitude),
@@ -1187,7 +1272,7 @@
 
       const payload = await response.json();
 
-      writeJsonStorage(weatherCacheKey, {
+      writeJson(weatherCacheKey, {
         timestamp: Date.now(),
         latitude: location.latitude,
         longitude: location.longitude,
@@ -1199,10 +1284,7 @@
       if (cached?.payload) {
         renderWeather(cached.payload, location);
 
-        if (weatherUpdated) {
-          weatherUpdated.textContent = "CACHED";
-        }
-
+        if (weatherUpdated) weatherUpdated.textContent = "CACHED";
         return;
       }
 
@@ -1210,7 +1292,16 @@
     }
   }
 
+  function resetLocateButtons() {
+    locateButtons.forEach((button) => {
+      button.disabled = false;
+      button.textContent = button.closest("[data-gate-weather-data]") ? "RELOCATE" : "LOCATE";
+    });
+  }
+
   function requestLocation() {
+    if (!moduleEnabled("local_conditions")) return;
+
     if (!navigator.geolocation) {
       showWeatherEmpty("LOCATION UNSUPPORTED");
       return;
@@ -1228,21 +1319,12 @@
           longitude: Number(position.coords.longitude.toFixed(4)),
         };
 
-        writeJsonStorage(weatherLocationKey, location);
-
-        locateButtons.forEach((button) => {
-          button.disabled = false;
-          button.textContent = button.closest("[data-gate-weather-data]") ? "RELOCATE" : "LOCATE";
-        });
-
+        writeJson(weatherLocationKey, location);
+        resetLocateButtons();
         fetchWeather(location, { force: true });
       },
       () => {
-        locateButtons.forEach((button) => {
-          button.disabled = false;
-          button.textContent = button.closest("[data-gate-weather-data]") ? "RELOCATE" : "LOCATE";
-        });
-
+        resetLocateButtons();
         showWeatherEmpty("LOCATION DENIED");
       },
       {
@@ -1253,17 +1335,380 @@
     );
   }
 
+  function clearWeather() {
+    storage.remove(weatherLocationKey);
+    storage.remove(weatherCacheKey);
+    showWeatherEmpty();
+  }
+
+  function syncWeatherPreference() {
+    if (!weatherPanel || !moduleEnabled("local_conditions")) return;
+
+    const savedLocation = readJson(weatherLocationKey, null);
+
+    if (savedLocation?.latitude && savedLocation?.longitude) {
+      fetchWeather(savedLocation);
+    } else {
+      showWeatherEmpty();
+    }
+  }
+
   locateButtons.forEach((button) => {
     button.addEventListener("click", requestLocation);
   });
 
-  const savedWeatherLocation = readJsonStorage(weatherLocationKey);
+  syncWeatherPreference();
 
-  if (savedWeatherLocation?.latitude && savedWeatherLocation?.longitude) {
-    fetchWeather(savedWeatherLocation);
-  } else if (weatherPanel) {
-    showWeatherEmpty();
+  // ---------------------------------------------------------------------------
+  // Settings Drawer
+  // ---------------------------------------------------------------------------
+
+  const settingsOpenButton = qs("[data-gate-settings-open]");
+  const settingsDrawer = qs("[data-gate-settings-drawer]");
+  const settingsBackdrop = qs("[data-gate-settings-backdrop]");
+  const settingsCloseButton = qs("[data-gate-settings-close]");
+  const settingSearch = qs("[data-gate-setting-search]");
+  const settingDensity = qs("[data-gate-setting-density]");
+  const settingAmbient = qs("[data-gate-setting-ambient]");
+  const settingModuleInputs = qsa("[data-gate-setting-module]");
+  const launchSettingsNode = qs("[data-gate-launch-settings]");
+  const settingsStatus = qs("[data-gate-settings-status]");
+
+  const clearRecentButton = qs("[data-gate-clear-recent]");
+  const clearWeatherButton = qs("[data-gate-clear-weather]");
+  const resetVectorButton = qs("[data-gate-reset-vector]");
+  const clearNoteButton = qs("[data-gate-clear-note]");
+  const resetSettingsButton = qs("[data-gate-reset-settings]");
+
+  let settingsReturnFocus = null;
+  let settingsCloseTimer;
+
+  function setSettingsStatus(message) {
+    if (!settingsStatus) return;
+
+    settingsStatus.textContent = message;
+
+    window.setTimeout(() => {
+      if (settingsStatus?.textContent === message) {
+        settingsStatus.textContent = "LOCAL CONFIGURATION";
+      }
+    }, 1800);
   }
 
+  function renderLaunchSettings() {
+    if (!launchSettingsNode) return;
 
+    launchSettingsNode.replaceChildren();
+
+    const hidden = new Set(preferences.hiddenLaunches);
+    const allNodes = new Map(
+      qsa("[data-gate-launch]").map((node) => [
+        node.dataset.gateLaunchId || node.dataset.gateCommand,
+        node,
+      ])
+    );
+
+    preferences.launchOrder.forEach((id, index) => {
+      const node = allNodes.get(id);
+      if (!node) return;
+
+      const row = document.createElement("div");
+      row.className = "gate-launch-setting-row";
+
+      const visible = document.createElement("input");
+      visible.type = "checkbox";
+      visible.checked = !hidden.has(id);
+      visible.setAttribute("aria-label", `显示 ${node.dataset.gateLabel || id}`);
+      visible.addEventListener("change", () => {
+        const nextHidden = new Set(preferences.hiddenLaunches);
+
+        if (visible.checked) nextHidden.delete(id);
+        else nextHidden.add(id);
+
+        savePreferences({
+          ...preferences,
+          hiddenLaunches: [...nextHidden],
+        });
+
+        setSettingsStatus("LAUNCH ROUTES UPDATED");
+      });
+
+      const label = document.createElement("span");
+      label.className = "gate-launch-setting-label";
+
+      const strong = document.createElement("strong");
+      strong.textContent = (node.dataset.gateLabel || id).toUpperCase();
+
+      const small = document.createElement("small");
+      small.textContent = node.querySelector("small")?.textContent || "LAUNCH ROUTE";
+
+      label.append(strong, small);
+
+      const controls = document.createElement("span");
+      controls.className = "gate-launch-setting-controls";
+
+      const up = document.createElement("button");
+      up.type = "button";
+      up.textContent = "↑";
+      up.disabled = index === 0;
+      up.setAttribute("aria-label", `上移 ${strong.textContent}`);
+
+      const down = document.createElement("button");
+      down.type = "button";
+      down.textContent = "↓";
+      down.disabled = index === preferences.launchOrder.length - 1;
+      down.setAttribute("aria-label", `下移 ${strong.textContent}`);
+
+      up.addEventListener("click", () => {
+        if (index <= 0) return;
+
+        const order = [...preferences.launchOrder];
+        [order[index - 1], order[index]] = [order[index], order[index - 1]];
+        savePreferences({ ...preferences, launchOrder: order });
+        setSettingsStatus("LAUNCH ORDER UPDATED");
+      });
+
+      down.addEventListener("click", () => {
+        if (index >= preferences.launchOrder.length - 1) return;
+
+        const order = [...preferences.launchOrder];
+        [order[index + 1], order[index]] = [order[index], order[index + 1]];
+        savePreferences({ ...preferences, launchOrder: order });
+        setSettingsStatus("LAUNCH ORDER UPDATED");
+      });
+
+      controls.append(up, down);
+      row.append(visible, label, controls);
+      launchSettingsNode.appendChild(row);
+    });
+  }
+
+  function syncSettingsControls() {
+    if (settingSearch) {
+      settingSearch.value = engines[preferences.defaultSearch]
+        ? preferences.defaultSearch
+        : preferenceDefaults.defaultSearch;
+    }
+
+    if (settingDensity) settingDensity.value = preferences.density;
+    if (settingAmbient) settingAmbient.checked = preferences.ambient;
+
+    settingModuleInputs.forEach((input) => {
+      input.checked = moduleEnabled(input.dataset.gateSettingModule);
+    });
+
+    renderLaunchSettings();
+  }
+
+  function closeSettings({ restoreFocus = true } = {}) {
+    if (!settingsDrawer || !settingsBackdrop || settingsDrawer.hidden) return;
+
+    window.clearTimeout(settingsCloseTimer);
+    settingsDrawer.classList.remove("is-open");
+    settingsBackdrop.classList.remove("is-open");
+    document.body.classList.remove("gate-settings-open");
+
+    settingsCloseTimer = window.setTimeout(() => {
+      settingsDrawer.hidden = true;
+      settingsBackdrop.hidden = true;
+
+      if (restoreFocus) settingsReturnFocus?.focus?.();
+    }, 205);
+  }
+
+  // Replace the earlier declaration body with the fully-featured drawer opener.
+  openSettings = function openSettingsDrawer() {
+    if (!settingsDrawer || !settingsBackdrop) return;
+
+    window.clearTimeout(settingsCloseTimer);
+    settingsReturnFocus = document.activeElement;
+    syncSettingsControls();
+
+    settingsDrawer.hidden = false;
+    settingsBackdrop.hidden = false;
+    document.body.classList.add("gate-settings-open");
+
+    window.requestAnimationFrame(() => {
+      settingsDrawer.classList.add("is-open");
+      settingsBackdrop.classList.add("is-open");
+      settingsCloseButton?.focus();
+    });
+  };
+
+  settingsOpenButton?.addEventListener("click", openSettings);
+  settingsCloseButton?.addEventListener("click", () => closeSettings());
+  settingsBackdrop?.addEventListener("click", () => closeSettings());
+
+  settingSearch?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      defaultSearch: settingSearch.value,
+    });
+    setSettingsStatus("DEFAULT SEARCH UPDATED");
+  });
+
+  settingDensity?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      density: settingDensity.value,
+    });
+    setSettingsStatus("DENSITY UPDATED");
+  });
+
+  settingAmbient?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      ambient: settingAmbient.checked,
+    });
+    setSettingsStatus("AMBIENT GRAPHICS UPDATED");
+  });
+
+  settingModuleInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      const name = input.dataset.gateSettingModule;
+
+      savePreferences({
+        ...preferences,
+        modules: {
+          ...preferences.modules,
+          [name]: input.checked,
+        },
+      });
+
+      if (name === "local_conditions" && input.checked) {
+        syncWeatherPreference();
+      }
+
+      renderSuggestions();
+      setSettingsStatus("MODULE STATE UPDATED");
+    });
+  });
+
+  clearRecentButton?.addEventListener("click", () => {
+    clearRecentTransits();
+    renderSuggestions();
+    setSettingsStatus("RECENT TRANSITS CLEARED");
+  });
+
+  clearWeatherButton?.addEventListener("click", () => {
+    clearWeather();
+    setSettingsStatus("WEATHER DATA CLEARED");
+  });
+
+  resetVectorButton?.addEventListener("click", () => {
+    resetVector();
+    setSettingsStatus("VECTOR RESET");
+  });
+
+  clearNoteButton?.addEventListener("click", () => {
+    if (window.confirm("Clear the local Field Record in this browser?")) {
+      clearNote();
+      setSettingsStatus("FIELD RECORD CLEARED");
+    }
+  });
+
+  resetSettingsButton?.addEventListener("click", () => {
+    if (!window.confirm("Reset Gate preferences and local Gate data in this browser?")) {
+      return;
+    }
+
+    storage.remove(settingsKey);
+    storage.remove(recentTransitKey);
+    storage.remove(weatherLocationKey);
+    storage.remove(weatherCacheKey);
+    storage.remove(vectorKey);
+    storage.remove(noteKey);
+    storage.remove(noteTimeKey);
+
+    window.location.reload();
+  });
+
+  // Drawer focus loop.
+  settingsDrawer?.addEventListener("keydown", (event) => {
+    if (event.key !== "Tab") return;
+
+    const focusable = [...settingsDrawer.querySelectorAll(
+      'button:not([disabled]), select:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
+    )].filter((node) => !node.hidden);
+
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  syncSettingsControls();
+
+  // ---------------------------------------------------------------------------
+  // Global keyboard shortcuts
+  // ---------------------------------------------------------------------------
+
+  document.addEventListener("keydown", (event) => {
+    const commandKey = event.metaKey || event.ctrlKey;
+
+    if (commandKey && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      closeSettings({ restoreFocus: false });
+      searchInput?.focus();
+      searchInput?.select();
+      renderSuggestions();
+      return;
+    }
+
+    if (commandKey && event.key === ",") {
+      event.preventDefault();
+      openSettings();
+      return;
+    }
+
+    if (event.key === "Escape" && settingsDrawer && !settingsDrawer.hidden) {
+      event.preventDefault();
+      closeSettings();
+      return;
+    }
+
+    if (document.activeElement === searchInput && !suggestionsNode?.hidden) {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        activeSuggestionIndex = suggestionItems.length
+          ? (activeSuggestionIndex < 0 ? 0 : (activeSuggestionIndex + 1) % suggestionItems.length)
+          : -1;
+        syncActiveSuggestion();
+        return;
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        activeSuggestionIndex = suggestionItems.length
+          ? (activeSuggestionIndex < 0
+              ? suggestionItems.length - 1
+              : (activeSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length)
+          : -1;
+        syncActiveSuggestion();
+        return;
+      }
+
+      if (event.key === "Enter" && activeSuggestionIndex >= 0 && suggestionItems.length) {
+        event.preventDefault();
+        chooseSuggestion(activeSuggestionIndex);
+        return;
+      }
+    }
+
+    if (event.key === "Escape" && document.activeElement === searchInput) {
+      searchInput.value = "";
+      searchInput.blur();
+
+      if (suggestionsNode) suggestionsNode.hidden = true;
+      if (queryState) queryState.textContent = "g / gh / yt / wiki / map / ai";
+    }
+  });
 })();

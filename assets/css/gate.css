@@ -1536,3 +1536,540 @@
     display: none;
   }
 }
+
+
+/* V2.2 · System Configuration --------------------------------------------- */
+
+.gate-rail-controls {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.gate-rail-control {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--gate-control-radius);
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.gate-rail-control svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gate-rail-control:hover,
+.gate-rail-control:focus-visible {
+  color: var(--gate-text);
+  border-color: var(--gate-line);
+  background: var(--gate-surface-alt);
+}
+
+.gate-settings-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(2px);
+  transition: opacity 180ms ease;
+}
+
+.gate-settings-backdrop.is-open {
+  opacity: 1;
+}
+
+.gate-settings-drawer {
+  width: min(440px, calc(100vw - 1rem));
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 190;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  border-left: 1px solid var(--gate-line);
+  background: color-mix(in srgb, var(--gate-surface) 98%, transparent);
+  color: var(--gate-text);
+  box-shadow: -22px 0 60px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(20px);
+  transform: translateX(102%);
+  transition: transform 200ms ease;
+}
+
+.gate-settings-drawer.is-open {
+  transform: translateX(0);
+}
+
+.gate-settings-backdrop[hidden],
+.gate-settings-drawer[hidden],
+[data-gate-module][hidden],
+.gate-launch[hidden] {
+  display: none !important;
+}
+
+.gate-settings-open {
+  overflow: hidden;
+}
+
+.gate-settings-header {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.05rem;
+  border-bottom: 1px solid var(--gate-line);
+}
+
+.gate-settings-header p,
+.gate-settings-header h2 {
+  margin: 0;
+}
+
+.gate-settings-header p {
+  color: var(--gate-muted);
+  font-size: 0.57rem;
+  letter-spacing: 0.11em;
+}
+
+.gate-settings-header h2 {
+  margin-top: 0.25rem;
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.gate-settings-close {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.gate-settings-close:hover,
+.gate-settings-close:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 6%, transparent);
+}
+
+.gate-settings-scroll {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.gate-settings-section {
+  padding: 1rem 1.05rem 1.15rem;
+  border-bottom: 1px solid var(--gate-line);
+}
+
+.gate-settings-section-title {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.gate-settings-section-title > span {
+  padding-top: 0.05rem;
+  color: var(--gate-signal);
+  font-size: 0.58rem;
+}
+
+.gate-settings-section-title h3,
+.gate-settings-section-title p {
+  margin: 0;
+}
+
+.gate-settings-section-title h3 {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.gate-settings-section-title p {
+  margin-top: 0.2rem;
+  color: var(--gate-muted);
+  font-size: 0.59rem;
+  line-height: 1.55;
+}
+
+.gate-setting-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.gate-setting-field > span {
+  color: var(--gate-muted);
+  font-size: 0.55rem;
+  letter-spacing: 0.07em;
+}
+
+.gate-setting-field select {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 0.62rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  outline: none;
+  background: var(--gate-surface-alt);
+  color: var(--gate-text);
+  box-shadow: none;
+  font-size: 0.65rem;
+}
+
+.gate-setting-field select:focus {
+  border-color: var(--gate-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gate-accent) 10%, transparent);
+}
+
+.gate-setting-switch-list {
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-setting-switch {
+  min-height: 54px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--gate-line);
+  cursor: pointer;
+}
+
+.gate-settings-section > .gate-setting-switch {
+  margin-top: 0.85rem;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-setting-switch > span {
+  min-width: 0;
+}
+
+.gate-setting-switch strong,
+.gate-setting-switch small {
+  display: block;
+}
+
+.gate-setting-switch strong {
+  color: var(--gate-text);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+}
+
+.gate-setting-switch small {
+  margin-top: 0.14rem;
+  color: var(--gate-muted);
+  font-size: 0.55rem;
+  line-height: 1.4;
+}
+
+.gate-setting-switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gate-setting-switch i {
+  width: 34px;
+  height: 18px;
+  position: relative;
+  border: 1px solid var(--gate-line);
+  border-radius: 99px;
+  background: var(--gate-surface-alt);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.gate-setting-switch i::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: var(--gate-muted);
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.gate-setting-switch input:checked + i {
+  border-color: var(--gate-accent);
+  background: color-mix(in srgb, var(--gate-accent) 13%, var(--gate-surface-alt));
+}
+
+.gate-setting-switch input:checked + i::after {
+  transform: translateX(16px);
+  background: var(--gate-accent);
+}
+
+.gate-setting-switch input:focus-visible + i {
+  outline: 2px solid var(--gate-accent);
+  outline-offset: 3px;
+}
+
+.gate-launch-settings {
+  display: grid;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-launch-setting-row {
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid var(--gate-line);
+}
+
+.gate-launch-setting-row > input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--gate-accent);
+}
+
+.gate-launch-setting-label {
+  min-width: 0;
+}
+
+.gate-launch-setting-label strong,
+.gate-launch-setting-label small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gate-launch-setting-label strong {
+  color: var(--gate-text);
+  font-size: 0.61rem;
+  font-weight: 500;
+}
+
+.gate-launch-setting-label small {
+  margin-top: 0.08rem;
+  color: var(--gate-muted);
+  font-size: 0.53rem;
+}
+
+.gate-launch-setting-controls {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.gate-launch-setting-controls button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+}
+
+.gate-launch-setting-controls button:hover,
+.gate-launch-setting-controls button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 6%, transparent);
+}
+
+.gate-launch-setting-controls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.gate-storage-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.gate-storage-actions button,
+.gate-settings-footer button {
+  min-height: 38px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: var(--gate-surface-alt);
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.55rem;
+  letter-spacing: 0.055em;
+}
+
+.gate-storage-actions button:hover,
+.gate-storage-actions button:focus-visible,
+.gate-settings-footer button:hover,
+.gate-settings-footer button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 7%, var(--gate-surface-alt));
+}
+
+.gate-settings-footer {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.8rem 1.05rem;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-settings-footer span {
+  color: var(--gate-muted);
+  font-size: 0.54rem;
+  letter-spacing: 0.05em;
+}
+
+.gate-app[data-gate-ambient="off"]::before,
+.gate-app[data-gate-ambient="off"] .gate-orbit {
+  display: none;
+}
+
+.gate-app[data-gate-density="compact"] .gate-main {
+  padding-top: 1rem;
+}
+
+.gate-app[data-gate-density="compact"] .gate-hero {
+  min-height: clamp(205px, 29vh, 300px);
+}
+
+.gate-app[data-gate-density="compact"] .gate-time {
+  font-size: clamp(4.1rem, 7.5vw, 7rem);
+}
+
+.gate-app[data-gate-density="compact"] .gate-launch {
+  min-height: 86px;
+}
+
+.gate-app[data-gate-density="compact"] .gate-dashboard-grid .gate-panel {
+  min-height: 245px;
+}
+
+.gate-app[data-gate-density="compact"] .gate-panel {
+  padding: 0.82rem;
+}
+
+:root[data-mode="light"] .gate-rail-control,
+:root[data-bs-theme="light"] .gate-rail-control {
+  color: var(--prospero-shell-text, #d4dedb);
+}
+
+:root[data-mode="light"] .gate-rail-control:hover,
+:root[data-bs-theme="light"] .gate-rail-control:hover,
+:root[data-mode="light"] .gate-rail-control:focus-visible,
+:root[data-bs-theme="light"] .gate-rail-control:focus-visible {
+  color: var(--prospero-shell-active, #f0d9a2);
+  border-color: color-mix(in srgb, var(--prospero-gold-on-lapis, #d1b975) 62%, transparent);
+  background: color-mix(in srgb, var(--prospero-surface-1, #f8f1dd) 10%, transparent);
+}
+
+:root[data-mode="light"] .gate-settings-drawer,
+:root[data-bs-theme="light"] .gate-settings-drawer {
+  border-left-color: var(--prospero-border, #c5ad70);
+  background: color-mix(in srgb, var(--prospero-surface-1, #f8f1dd) 99%, transparent);
+  box-shadow: -18px 0 46px color-mix(in srgb, var(--prospero-text-primary, #17445a) 12%, transparent);
+}
+
+:root[data-mode="light"] .gate-setting-field select,
+:root[data-bs-theme="light"] .gate-setting-field select,
+:root[data-mode="light"] .gate-storage-actions button,
+:root[data-bs-theme="light"] .gate-storage-actions button,
+:root[data-mode="light"] .gate-settings-footer button,
+:root[data-bs-theme="light"] .gate-settings-footer button {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: var(--prospero-surface-2, #e4d7b8);
+  color: var(--prospero-text-primary, #17445a);
+}
+
+:root[data-mode="light"] .gate-setting-field select:focus,
+:root[data-bs-theme="light"] .gate-setting-field select:focus,
+:root[data-mode="light"] .gate-storage-actions button:hover,
+:root[data-bs-theme="light"] .gate-storage-actions button:hover,
+:root[data-mode="light"] .gate-settings-footer button:hover,
+:root[data-bs-theme="light"] .gate-settings-footer button:hover {
+  border-color: var(--prospero-teal, #197f93);
+  background: var(--prospero-teal-wash, rgba(25, 127, 147, 0.09));
+}
+
+:root[data-mode="light"] .gate-setting-switch i,
+:root[data-bs-theme="light"] .gate-setting-switch i {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: var(--prospero-surface-2, #e4d7b8);
+}
+
+:root[data-mode="light"] .gate-setting-switch input:checked + i,
+:root[data-bs-theme="light"] .gate-setting-switch input:checked + i {
+  border-color: var(--prospero-teal, #197f93);
+  background: var(--prospero-teal-wash, rgba(25, 127, 147, 0.12));
+}
+
+:root[data-mode="light"] .gate-setting-switch input:checked + i::after,
+:root[data-bs-theme="light"] .gate-setting-switch input:checked + i::after {
+  background: var(--prospero-teal, #197f93);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gate-rail-control:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 720px) {
+  .gate-rail-controls {
+    display: flex;
+    gap: 0.3rem;
+    margin-left: auto;
+  }
+
+  .gate-rail-control {
+    width: 38px;
+    height: 38px;
+  }
+
+  .gate-settings-drawer {
+    width: min(100vw, 440px);
+  }
+}
+
+@media (max-width: 440px) {
+  .gate-storage-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .gate-settings-drawer {
+    width: 100vw;
+    border-left: 0;
+  }
+}

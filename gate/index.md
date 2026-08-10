@@ -25,12 +25,32 @@ description: "Neutriverse personal transit gate."
       </a>
     </nav>
 
-    <button class="gate-theme-toggle" type="button" data-gate-theme aria-label="切换主题">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4"></circle>
-        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
-      </svg>
-    </button>
+    <div class="gate-rail-controls">
+      <button
+        class="gate-rail-control gate-settings-toggle"
+        type="button"
+        data-gate-settings-open
+        aria-label="打开 Gate 设置"
+        title="Gate Settings"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1a1.7 1.7 0 0 0-1.4-1.66 1.7 1.7 0 0 0-1.5.47l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.76 8.2a1.7 1.7 0 0 0-.47-1.5l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.8 4.76a1.7 1.7 0 0 0 1.5-.47l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.1.38.32.72.6 1 .3.28.68.42 1.1.4h.1v4h-.1A1.7 1.7 0 0 0 19.4 15Z"></path>
+        </svg>
+      </button>
+
+      <button
+        class="gate-rail-control gate-theme-toggle"
+        type="button"
+        data-gate-theme
+        aria-label="切换主题"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+        </svg>
+      </button>
+    </div>
   </aside>
 
   <main class="gate-main">
@@ -115,7 +135,7 @@ description: "Neutriverse personal transit gate."
       </div>
     </section>
 
-    <section class="gate-launch-section" aria-labelledby="gate-launch-title">
+    <section class="gate-launch-section" aria-labelledby="gate-launch-title" data-gate-module="launch_routes">
       <div class="gate-section-heading">
         <div>
           <span class="gate-section-index">01</span>
@@ -138,6 +158,7 @@ description: "Neutriverse personal transit gate."
             class="gate-launch"
             href="{{ item.url }}"
             data-gate-launch
+            data-gate-launch-id="{{ item.command | downcase }}"
             data-gate-command="{{ item.command | downcase }}"
             data-gate-label="{{ item.name | downcase }}"
           >
@@ -152,7 +173,7 @@ description: "Neutriverse personal transit gate."
 
     <div class="gate-dashboard-grid">
       {% if gate.current_vector.enabled %}
-      <section class="gate-panel gate-vector-panel" aria-labelledby="gate-vector-title" data-gate-vector-panel>
+      <section class="gate-panel gate-vector-panel" aria-labelledby="gate-vector-title" data-gate-vector-panel data-gate-module="current_vector">
         <div class="gate-section-heading">
           <div>
             <span class="gate-section-index">02</span>
@@ -234,7 +255,7 @@ description: "Neutriverse personal transit gate."
       {% endif %}
 
       {% if gate.weather.enabled %}
-      <section class="gate-panel gate-weather-panel" aria-labelledby="gate-weather-title" data-gate-weather-panel>
+      <section class="gate-panel gate-weather-panel" aria-labelledby="gate-weather-title" data-gate-weather-panel data-gate-module="local_conditions">
         <div class="gate-section-heading">
           <div>
             <span class="gate-section-index">03</span>
@@ -278,7 +299,7 @@ description: "Neutriverse personal transit gate."
       </section>
       {% endif %}
 
-      <section class="gate-panel gate-routes-panel" aria-labelledby="gate-routes-title">
+      <section class="gate-panel gate-routes-panel" aria-labelledby="gate-routes-title" data-gate-module="active_systems">
         <div class="gate-section-heading">
           <div>
             <span class="gate-section-index">04</span>
@@ -320,7 +341,7 @@ description: "Neutriverse personal transit gate."
       </section>
     </div>
 
-    <section class="gate-panel gate-note-panel gate-note-wide" aria-labelledby="gate-note-title">
+    <section class="gate-panel gate-note-panel gate-note-wide" aria-labelledby="gate-note-title" data-gate-module="field_record">
       <div class="gate-section-heading">
         <div>
           <span class="gate-section-index">05</span>
@@ -358,11 +379,172 @@ description: "Neutriverse personal transit gate."
     </footer>
   </main>
 
+  <div class="gate-settings-backdrop" data-gate-settings-backdrop hidden></div>
+
+  <aside
+    class="gate-settings-drawer"
+    data-gate-settings-drawer
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gate-settings-title"
+    hidden
+  >
+    <header class="gate-settings-header">
+      <div>
+        <p>NEUTRIVERSE // GATE</p>
+        <h2 id="gate-settings-title">SYSTEM CONFIGURATION</h2>
+      </div>
+
+      <button
+        class="gate-settings-close"
+        type="button"
+        data-gate-settings-close
+        aria-label="关闭 Gate 设置"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+    </header>
+
+    <div class="gate-settings-scroll">
+      <section class="gate-settings-section" aria-labelledby="gate-settings-query">
+        <div class="gate-settings-section-title">
+          <span>01</span>
+          <div>
+            <h3 id="gate-settings-query">QUERY ARRAY</h3>
+            <p>检索入口与默认行为。</p>
+          </div>
+        </div>
+
+        <label class="gate-setting-field">
+          <span>DEFAULT SEARCH</span>
+          <select data-gate-setting-search>
+            {% for engine in gate.search_engines %}
+              <option value="{{ engine[0] }}">{{ engine[1].label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-interface">
+        <div class="gate-settings-section-title">
+          <span>02</span>
+          <div>
+            <h3 id="gate-settings-interface">INTERFACE</h3>
+            <p>调整信息密度与环境图形。</p>
+          </div>
+        </div>
+
+        <label class="gate-setting-field">
+          <span>DENSITY</span>
+          <select data-gate-setting-density>
+            <option value="standard">STANDARD</option>
+            <option value="compact">COMPACT</option>
+          </select>
+        </label>
+
+        <label class="gate-setting-switch">
+          <span>
+            <strong>AMBIENT GRAPHICS</strong>
+            <small>轨道、星点与档案网格背景。</small>
+          </span>
+          <input type="checkbox" data-gate-setting-ambient>
+          <i aria-hidden="true"></i>
+        </label>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-modules">
+        <div class="gate-settings-section-title">
+          <span>03</span>
+          <div>
+            <h3 id="gate-settings-modules">MODULES</h3>
+            <p>核心 Clock 与 Query Array 始终保留。</p>
+          </div>
+        </div>
+
+        <div class="gate-settings-switch-list">
+          <label class="gate-setting-switch">
+            <span><strong>LAUNCH ROUTES</strong><small>常用站点快速入口。</small></span>
+            <input type="checkbox" data-gate-setting-module="launch_routes">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
+            <span><strong>CURRENT VECTOR</strong><small>当前工作路径。</small></span>
+            <input type="checkbox" data-gate-setting-module="current_vector">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
+            <span><strong>LOCAL CONDITIONS</strong><small>浏览器本地天气。</small></span>
+            <input type="checkbox" data-gate-setting-module="local_conditions">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
+            <span><strong>ACTIVE SYSTEMS</strong><small>Neutriverse 内部入口。</small></span>
+            <input type="checkbox" data-gate-setting-module="active_systems">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
+            <span><strong>FIELD RECORD</strong><small>浏览器本地临时记录。</small></span>
+            <input type="checkbox" data-gate-setting-module="field_record">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
+            <span><strong>RECENT TRANSITS</strong><small>在 Query Array 中显示最近入口。</small></span>
+            <input type="checkbox" data-gate-setting-module="recent_transits">
+            <i aria-hidden="true"></i>
+          </label>
+        </div>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-launch">
+        <div class="gate-settings-section-title">
+          <span>04</span>
+          <div>
+            <h3 id="gate-settings-launch">LAUNCH ROUTES</h3>
+            <p>隐藏或调整八个主入口的顺序。</p>
+          </div>
+        </div>
+
+        <div class="gate-launch-settings" data-gate-launch-settings></div>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
+        <div class="gate-settings-section-title">
+          <span>05</span>
+          <div>
+            <h3 id="gate-settings-storage">LOCAL STORAGE</h3>
+            <p>这些操作只影响当前浏览器。</p>
+          </div>
+        </div>
+
+        <div class="gate-storage-actions">
+          <button type="button" data-gate-clear-recent>CLEAR RECENT</button>
+          <button type="button" data-gate-clear-weather>CLEAR WEATHER</button>
+          <button type="button" data-gate-reset-vector>RESET VECTOR</button>
+          <button type="button" data-gate-clear-note>CLEAR FIELD RECORD</button>
+        </div>
+      </section>
+    </div>
+
+    <footer class="gate-settings-footer">
+      <span data-gate-settings-status>LOCAL CONFIGURATION</span>
+      <button type="button" data-gate-reset-settings>RESET GATE</button>
+    </footer>
+  </aside>
+
   <script type="application/json" id="gate-search-config">
     {{ gate.search_engines | jsonify }}
   </script>
 
   <script type="application/json" id="gate-vector-config">
     {{ gate.current_vector | jsonify }}
+  </script>
+
+  <script type="application/json" id="gate-settings-config">
+    {{ gate.settings_defaults | jsonify }}
   </script>
 </div>

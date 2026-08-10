@@ -48,18 +48,26 @@ inside the Neutriverse facility language.
 
 ### V2 · Productivity
 - Command mode (`> ...`).
-- Local Conditions weather module.
-- Weather location requested only on explicit user action.
-- Weather cache and graceful offline fallback.
-- Next: proper command-palette suggestions/history.
-- Next: Today/Calendar integration only after choosing a privacy-safe calendar strategy.
+- Local Conditions weather module with explicit opt-in location.
+- Current Vector with browser-local editable override.
+- Query Array suggestions with keyboard navigation.
+- Recent Transits inside Query Array without storing full search text.
+- Settings Drawer:
+  - default search engine;
+  - standard / compact density;
+  - ambient graphics toggle;
+  - module visibility;
+  - Quick Launch visibility and ordering;
+  - browser-local data cleanup.
+- `Cmd/Ctrl + ,` opens System Configuration.
+- Today / Calendar is intentionally not part of Gate.
 
 ### V3 · Dashboard
 - Focus / Dashboard modes.
 - Bento-style secondary modules.
 - Bookmark groups by context (WORK / KNOWLEDGE / MEDIA / SYSTEM), not app categories.
 - Projects.
-- Widget show/hide/reorder; resize only where it adds value.
+- Module show/hide and Quick Launch ordering are already implemented in V2.2; V3 may add layout rearrangement only where it adds value.
 - Settings drawer.
 
 ### V4 · Personal OS
@@ -70,16 +78,15 @@ inside the Neutriverse facility language.
 - PWA/offline caching after the current site's PWA policy is revisited.
 - API secrets must never ship to the browser.
 
-## Calendar decision
+## Calendar / Today decision
 
-Do not expose a private Google Calendar token or private ICS URL in static frontend code.
+Gate intentionally does not include a Today or Calendar module.
 
-Preferred future options:
-1. backend/BFF with OAuth and scoped calendar read access;
-2. deliberately public calendar feed for non-sensitive events;
-3. local-only manual agenda.
-
-Until one is intentionally selected, Gate should not fake a calendar integration.
+Reason:
+- Gate is a browser transit terminal, not a productivity dashboard.
+- Calendar OAuth would introduce private-account complexity into a static start page.
+- Current Vector provides a better "continue what I am doing" primitive.
+- If calendar information is ever added, it should be an optional secondary module rather than a core dependency.
 
 ## Interaction vocabulary
 
@@ -97,3 +104,9 @@ Prospero may use archive/reference language, but labels for real services remain
 
 Core UI (clock, query, launch routes) must not wait for any network API.
 Weather, calendar, server status, and future integrations load asynchronously.
+
+
+## Package convention
+
+Every future Gate release ZIP must include the current `docs/GATE_ROADMAP.md`.
+The roadmap is part of the deliverable, not an optional side file.
