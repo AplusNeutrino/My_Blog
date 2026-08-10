@@ -11,3 +11,7 @@ Use the default Matt Pocock triage label vocabulary. See `docs/agents/triage-lab
 ### Domain docs
 
 This is a single-context repository. See `docs/agents/domain.md`.
+
+### Delivery convention
+
+Whenever files are changed, include copy-paste-ready PowerShell commands for committing and pushing the changes in the final handoff.
