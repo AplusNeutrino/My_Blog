@@ -171,12 +171,83 @@ description: "Neutriverse personal transit gate."
       </div>
     </section>
 
-    <div class="gate-dashboard-grid">
+    <section
+      class="gate-context-section"
+      aria-labelledby="gate-context-title"
+      data-gate-module="context_routes"
+      data-gate-context-routes
+    >
+      <div class="gate-section-heading gate-context-heading">
+        <div>
+          <span class="gate-section-index">02</span>
+          <div>
+            <p id="gate-context-title">
+              <span class="theme-copy-night">ROUTE MATRIX</span>
+              <span class="theme-copy-day">REFERENCE ROUTES</span>
+            </p>
+            <span>
+              <span class="theme-copy-night">Context-bound transit vectors.</span>
+              <span class="theme-copy-day">按使用情境组织的入口。</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gate-context-shell">
+        <div class="gate-context-tabs" role="tablist" aria-label="Route groups">
+          {% for group in gate.route_groups %}
+            <button
+              type="button"
+              role="tab"
+              data-gate-route-group-tab="{{ group.id }}"
+              aria-controls="gate-route-group-{{ group.id }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              <strong>{{ group.label }}</strong>
+              <small>{{ group.detail }}</small>
+            </button>
+          {% endfor %}
+        </div>
+
+        <div class="gate-context-panels">
+          {% for group in gate.route_groups %}
+            <div
+              id="gate-route-group-{{ group.id }}"
+              class="gate-context-panel"
+              role="tabpanel"
+              data-gate-route-group-panel="{{ group.id }}"
+              {% unless forloop.first %}hidden{% endunless %}
+            >
+              {% for route in group.routes %}
+                {% assign external = false %}
+                {% if route.url contains '://' %}
+                  {% assign external = true %}
+                {% endif %}
+                <a
+                  href="{% if external %}{{ route.url }}{% else %}{{ route.url | relative_url }}{% endif %}"
+                  data-gate-context-route
+                  data-gate-transit-label="{{ route.label }}"
+                  data-gate-transit-detail="{{ group.label }} · {{ route.detail }}"
+                >
+                  <span>
+                    <strong>{{ route.label }}</strong>
+                    <small>{{ route.detail }}</small>
+                  </span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <div class="gate-dashboard-grid" data-gate-dashboard-grid>
       {% if gate.current_vector.enabled %}
-      <section class="gate-panel gate-vector-panel" aria-labelledby="gate-vector-title" data-gate-vector-panel data-gate-module="current_vector">
+      <section class="gate-panel gate-vector-panel" aria-labelledby="gate-vector-title" data-gate-vector-panel data-gate-module="current_vector" data-gate-layout-id="current_vector">
         <div class="gate-section-heading">
           <div>
-            <span class="gate-section-index">02</span>
+            <span class="gate-section-index" data-gate-layout-index="current_vector">02</span>
             <div>
               <p id="gate-vector-title">CURRENT VECTOR</p>
               <span>
@@ -255,10 +326,10 @@ description: "Neutriverse personal transit gate."
       {% endif %}
 
       {% if gate.weather.enabled %}
-      <section class="gate-panel gate-weather-panel" aria-labelledby="gate-weather-title" data-gate-weather-panel data-gate-module="local_conditions">
+      <section class="gate-panel gate-weather-panel" aria-labelledby="gate-weather-title" data-gate-weather-panel data-gate-module="local_conditions" data-gate-layout-id="local_conditions">
         <div class="gate-section-heading">
           <div>
-            <span class="gate-section-index">03</span>
+            <span class="gate-section-index" data-gate-layout-index="local_conditions">03</span>
             <div>
               <p id="gate-weather-title">LOCAL CONDITIONS</p>
               <span data-gate-weather-subtitle>
@@ -299,10 +370,10 @@ description: "Neutriverse personal transit gate."
       </section>
       {% endif %}
 
-      <section class="gate-panel gate-routes-panel" aria-labelledby="gate-routes-title" data-gate-module="active_systems">
+      <section class="gate-panel gate-routes-panel" aria-labelledby="gate-routes-title" data-gate-module="active_systems" data-gate-layout-id="active_systems">
         <div class="gate-section-heading">
           <div>
-            <span class="gate-section-index">04</span>
+            <span class="gate-section-index" data-gate-layout-index="active_systems">04</span>
             <div>
               <p id="gate-routes-title">
                 <span class="theme-copy-night">ACTIVE SYSTEMS</span>
@@ -339,12 +410,10 @@ description: "Neutriverse personal transit gate."
           {% endfor %}
         </div>
       </section>
-    </div>
-
-    <section class="gate-panel gate-note-panel gate-note-wide" aria-labelledby="gate-note-title" data-gate-module="field_record">
+    <section class="gate-panel gate-note-panel gate-note-wide" aria-labelledby="gate-note-title" data-gate-module="field_record" data-gate-layout-id="field_record">
       <div class="gate-section-heading">
         <div>
-          <span class="gate-section-index">05</span>
+          <span class="gate-section-index" data-gate-layout-index="field_record">05</span>
           <div>
             <p id="gate-note-title">
               <span class="theme-copy-night">FIELD RECORD</span>
@@ -369,6 +438,8 @@ description: "Neutriverse personal transit gate."
         <span data-gate-note-status>EMPTY</span>
       </div>
     </section>
+
+    </div>
 
     <footer class="gate-footer">
       <span>NEUTRIVERSE // GATE NODE 01</span>
@@ -469,6 +540,12 @@ description: "Neutriverse personal transit gate."
           </label>
 
           <label class="gate-setting-switch">
+            <span><strong>CONTEXT ROUTES</strong><small>WORK / KNOWLEDGE / MEDIA / SYSTEM。</small></span>
+            <input type="checkbox" data-gate-setting-module="context_routes">
+            <i aria-hidden="true"></i>
+          </label>
+
+          <label class="gate-setting-switch">
             <span><strong>CURRENT VECTOR</strong><small>当前工作路径。</small></span>
             <input type="checkbox" data-gate-setting-module="current_vector">
             <i aria-hidden="true"></i>
@@ -512,9 +589,40 @@ description: "Neutriverse personal transit gate."
         <div class="gate-launch-settings" data-gate-launch-settings></div>
       </section>
 
-      <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
+      <section class="gate-settings-section" aria-labelledby="gate-settings-context">
         <div class="gate-settings-section-title">
           <span>05</span>
+          <div>
+            <h3 id="gate-settings-context">CONTEXT ROUTES</h3>
+            <p>选择 Gate 打开时默认显示的 Route Matrix。</p>
+          </div>
+        </div>
+
+        <label class="gate-setting-field">
+          <span>DEFAULT GROUP</span>
+          <select data-gate-setting-route-group>
+            {% for group in gate.route_groups %}
+              <option value="{{ group.id }}">{{ group.label }} · {{ group.detail }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-layout">
+        <div class="gate-settings-section-title">
+          <span>06</span>
+          <div>
+            <h3 id="gate-settings-layout">DASHBOARD ORDER</h3>
+            <p>调整下方状态模块的排列顺序。</p>
+          </div>
+        </div>
+
+        <div class="gate-dashboard-settings" data-gate-dashboard-settings></div>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
+        <div class="gate-settings-section-title">
+          <span>07</span>
           <div>
             <h3 id="gate-settings-storage">LOCAL STORAGE</h3>
             <p>这些操作只影响当前浏览器。</p>
@@ -546,5 +654,9 @@ description: "Neutriverse personal transit gate."
 
   <script type="application/json" id="gate-settings-config">
     {{ gate.settings_defaults | jsonify }}
+  </script>
+
+  <script type="application/json" id="gate-route-groups-config">
+    {{ gate.route_groups | jsonify }}
   </script>
 </div>

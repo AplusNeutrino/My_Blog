@@ -114,3 +114,75 @@ settings_defaults:
     active_systems: true
     field_record: true
     recent_transits: true
+    context_routes: true
+  dashboard_order:
+  - current_vector
+  - local_conditions
+  - active_systems
+  - field_record
+  active_route_group: work
+route_groups:
+- id: work
+  label: WORK
+  detail: BUILD / OPERATE
+  routes:
+  - label: GitHub
+    detail: REPOSITORY
+    url: https://github.com/
+  - label: Gmail
+    detail: MAIL
+    url: https://mail.google.com/
+  - label: Drive
+    detail: STORAGE
+    url: https://drive.google.com/
+  - label: ChatGPT
+    detail: COGNITION
+    url: https://chatgpt.com/
+- id: knowledge
+  label: KNOWLEDGE
+  detail: SEARCH / REFERENCE
+  routes:
+  - label: Google Scholar
+    detail: PAPERS
+    url: https://scholar.google.com/
+  - label: Wikipedia
+    detail: ENCYCLOPEDIA
+    url: https://en.wikipedia.org/
+  - label: Stack Overflow
+    detail: TECHNICAL
+    url: https://stackoverflow.com/
+  - label: ChatGPT
+    detail: SYNTHESIS
+    url: https://chatgpt.com/
+- id: media
+  label: MEDIA
+  detail: WATCH / READ
+  routes:
+  - label: YouTube
+    detail: VIDEO
+    url: https://www.youtube.com/
+  - label: Reddit
+    detail: NETWORK
+    url: https://www.reddit.com/
+  - label: Bangumi
+    detail: CATALOGUE
+    url: https://bgm.tv/
+  - label: Spotify
+    detail: AUDIO
+    url: https://open.spotify.com/
+- id: system
+  label: SYSTEM
+  detail: NEUTRIVERSE / INFRA
+  routes:
+  - label: Neutriverse
+    detail: HOME
+    url: /
+  - label: Gate
+    detail: TRANSIT NODE
+    url: /gate/
+  - label: Ravenis
+    detail: INTELLIGENCE
+    url: /ravenis/
+  - label: Source
+    detail: GITHUB
+    url: https://github.com/AplusNeutrino/My_Blog

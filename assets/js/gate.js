@@ -63,6 +63,7 @@
   const engines = parseConfig("gate-search-config", {});
   const vectorDefault = parseConfig("gate-vector-config", {});
   const settingsDefault = parseConfig("gate-settings-config", {});
+  const routeGroupsDefault = parseConfig("gate-route-groups-config", []);
 
   const searchForm = qs("[data-gate-search]");
   const searchInput = qs("[data-gate-search-input]");
@@ -73,6 +74,11 @@
   let launchNodes = qsa("[data-gate-launch]");
   const routeNodes = qsa("[data-gate-route]");
   const vectorLinkNodes = qsa("[data-gate-vector-link]");
+  const contextRouteNodes = qsa("[data-gate-context-route]");
+  const routeGroupTabs = qsa("[data-gate-route-group-tab]");
+  const routeGroupPanels = qsa("[data-gate-route-group-panel]");
+  const dashboardGrid = qs("[data-gate-dashboard-grid]");
+  const dashboardNodes = qsa("[data-gate-layout-id]");
 
   const launchMap = new Map();
   launchNodes.forEach((node) => {
@@ -87,10 +93,19 @@
   // Gate preferences
   // ---------------------------------------------------------------------------
 
-  const settingsKey = "neutriverse-gate-settings-v1";
+  const settingsKey = "neutriverse-gate-settings-v2";
+  const legacySettingsKey = "neutriverse-gate-settings-v1";
   const defaultLaunchOrder = launchNodes
     .map((node) => node.dataset.gateLaunchId || node.dataset.gateCommand)
     .filter(Boolean);
+
+  const defaultDashboardOrder = dashboardNodes
+    .map((node) => node.dataset.gateLayoutId)
+    .filter(Boolean);
+
+  const routeGroupIds = Array.isArray(routeGroupsDefault)
+    ? routeGroupsDefault.map((group) => group.id).filter(Boolean)
+    : [];
 
   const preferenceDefaults = {
     defaultSearch: settingsDefault.default_search || "google",
@@ -103,9 +118,16 @@
       active_systems: settingsDefault.modules?.active_systems !== false,
       field_record: settingsDefault.modules?.field_record !== false,
       recent_transits: settingsDefault.modules?.recent_transits !== false,
+      context_routes: settingsDefault.modules?.context_routes !== false,
     },
     launchOrder: [...defaultLaunchOrder],
     hiddenLaunches: [],
+    dashboardOrder: Array.isArray(settingsDefault.dashboard_order)
+      ? settingsDefault.dashboard_order
+      : [...defaultDashboardOrder],
+    activeRouteGroup: routeGroupIds.includes(settingsDefault.active_route_group)
+      ? settingsDefault.active_route_group
+      : (routeGroupIds[0] || "work"),
   };
 
   function normalizePreferences(raw = {}) {
@@ -127,6 +149,19 @@
       ? raw.hiddenLaunches.filter((id) => defaultLaunchOrder.includes(id))
       : [];
 
+    const requestedDashboardOrder = Array.isArray(raw.dashboardOrder)
+      ? raw.dashboardOrder.filter((id) => defaultDashboardOrder.includes(id))
+      : [];
+
+    const dashboardOrder = [
+      ...requestedDashboardOrder,
+      ...defaultDashboardOrder.filter((id) => !requestedDashboardOrder.includes(id)),
+    ];
+
+    const activeRouteGroup = routeGroupIds.includes(raw.activeRouteGroup)
+      ? raw.activeRouteGroup
+      : preferenceDefaults.activeRouteGroup;
+
     return {
       defaultSearch: engines[raw.defaultSearch]
         ? raw.defaultSearch
@@ -136,10 +171,17 @@
       modules,
       launchOrder,
       hiddenLaunches,
+      dashboardOrder,
+      activeRouteGroup,
     };
   }
 
-  let preferences = normalizePreferences(readJson(settingsKey, {}));
+  const storedPreferences = readJson(
+    settingsKey,
+    readJson(legacySettingsKey, {})
+  );
+
+  let preferences = normalizePreferences(storedPreferences);
 
   function savePreferences(next) {
     preferences = normalizePreferences(next);
@@ -157,6 +199,8 @@
       const name = node.dataset.gateModule;
       node.hidden = !moduleEnabled(name);
     });
+
+    syncDashboardIndices();
   }
 
   function applyLaunchPreferences() {
@@ -195,11 +239,66 @@
     });
   }
 
+  function syncDashboardIndices() {
+    let nextIndex = 3;
+
+    preferences.dashboardOrder.forEach((id) => {
+      const node = dashboardNodes.find((item) => item.dataset.gateLayoutId === id);
+
+      if (!node || node.hidden) {
+        return;
+      }
+
+      const indexNode = node.querySelector(`[data-gate-layout-index="${id}"]`);
+
+      if (indexNode) {
+        indexNode.textContent = String(nextIndex).padStart(2, "0");
+      }
+
+      nextIndex += 1;
+    });
+  }
+
+  function applyDashboardOrder() {
+    if (!dashboardGrid) {
+      return;
+    }
+
+    const byId = new Map(
+      dashboardNodes.map((node) => [node.dataset.gateLayoutId, node])
+    );
+
+    preferences.dashboardOrder.forEach((id) => {
+      const node = byId.get(id);
+      if (node) dashboardGrid.appendChild(node);
+    });
+
+    syncDashboardIndices();
+  }
+
+  function applyRouteGroup(groupId = preferences.activeRouteGroup) {
+    const validId = routeGroupIds.includes(groupId)
+      ? groupId
+      : preferenceDefaults.activeRouteGroup;
+
+    routeGroupTabs.forEach((tab) => {
+      const selected = tab.dataset.gateRouteGroupTab === validId;
+      tab.setAttribute("aria-selected", selected ? "true" : "false");
+      tab.tabIndex = selected ? 0 : -1;
+    });
+
+    routeGroupPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.gateRouteGroupPanel !== validId;
+    });
+  }
+
   function applyPreferences() {
     app.dataset.gateDensity = preferences.density;
     app.dataset.gateAmbient = preferences.ambient ? "on" : "off";
     applyModulePreferences();
     applyLaunchPreferences();
+    applyDashboardOrder();
+    applyRouteGroup();
   }
 
   applyPreferences();
@@ -574,6 +673,64 @@
     });
   });
 
+  contextRouteNodes.forEach((node) => {
+    node.addEventListener("click", () => {
+      recordTransit({
+        label: node.dataset.gateTransitLabel || "CONTEXT ROUTE",
+        detail: node.dataset.gateTransitDetail || "ROUTE MATRIX",
+        action: "url",
+        value: node.href,
+      });
+    });
+  });
+
+  routeGroupTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const groupId = tab.dataset.gateRouteGroupTab;
+
+      if (!routeGroupIds.includes(groupId)) {
+        return;
+      }
+
+      savePreferences({
+        ...preferences,
+        activeRouteGroup: groupId,
+      });
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const currentIndex = routeGroupTabs.indexOf(tab);
+      let nextIndex = currentIndex;
+
+      if (event.key === "ArrowRight") {
+        nextIndex = (currentIndex + 1) % routeGroupTabs.length;
+      } else if (event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + routeGroupTabs.length) % routeGroupTabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = routeGroupTabs.length - 1;
+      }
+
+      const nextTab = routeGroupTabs[nextIndex];
+      const groupId = nextTab?.dataset.gateRouteGroupTab;
+
+      if (groupId) {
+        savePreferences({
+          ...preferences,
+          activeRouteGroup: groupId,
+        });
+        nextTab.focus();
+      }
+    });
+  });
+
   // ---------------------------------------------------------------------------
   // Query Array helpers
   // ---------------------------------------------------------------------------
@@ -833,6 +990,16 @@
     }));
   }
 
+  function contextRouteSuggestions() {
+    return contextRouteNodes.map((node) => ({
+      label: node.dataset.gateTransitLabel || node.textContent.trim(),
+      detail: node.dataset.gateTransitDetail || "Context route",
+      action: "url",
+      value: node.href,
+      code: "◇",
+    }));
+  }
+
   function recentSuggestions() {
     if (!moduleEnabled("recent_transits")) return [];
 
@@ -905,6 +1072,7 @@
       ...launchSuggestions(),
       ...engineSuggestions(),
       ...routeSuggestions(),
+      ...contextRouteSuggestions(),
     ];
 
     const unique = [];
@@ -1371,6 +1539,8 @@
   const settingDensity = qs("[data-gate-setting-density]");
   const settingAmbient = qs("[data-gate-setting-ambient]");
   const settingModuleInputs = qsa("[data-gate-setting-module]");
+  const settingRouteGroup = qs("[data-gate-setting-route-group]");
+  const dashboardSettingsNode = qs("[data-gate-dashboard-settings]");
   const launchSettingsNode = qs("[data-gate-launch-settings]");
   const settingsStatus = qs("[data-gate-settings-status]");
 
@@ -1483,6 +1653,89 @@
     });
   }
 
+  const dashboardLabels = {
+    current_vector: ["CURRENT VECTOR", "Active trajectory"],
+    local_conditions: ["LOCAL CONDITIONS", "Weather node"],
+    active_systems: ["ACTIVE SYSTEMS", "Internal facility routes"],
+    field_record: ["FIELD RECORD", "Local transient memory"],
+  };
+
+  function renderDashboardSettings() {
+    if (!dashboardSettingsNode) {
+      return;
+    }
+
+    dashboardSettingsNode.replaceChildren();
+
+    preferences.dashboardOrder.forEach((id, index) => {
+      const labels = dashboardLabels[id] || [id.toUpperCase(), "MODULE"];
+      const row = document.createElement("div");
+      row.className = "gate-dashboard-setting-row";
+
+      const code = document.createElement("span");
+      code.className = "gate-dashboard-setting-code";
+      code.textContent = String(index + 1).padStart(2, "0");
+
+      const label = document.createElement("span");
+      label.className = "gate-dashboard-setting-label";
+
+      const strong = document.createElement("strong");
+      strong.textContent = labels[0];
+
+      const small = document.createElement("small");
+      small.textContent = labels[1];
+
+      label.append(strong, small);
+
+      const controls = document.createElement("span");
+      controls.className = "gate-dashboard-setting-controls";
+
+      const up = document.createElement("button");
+      up.type = "button";
+      up.textContent = "↑";
+      up.disabled = index === 0;
+      up.setAttribute("aria-label", `上移 ${labels[0]}`);
+
+      const down = document.createElement("button");
+      down.type = "button";
+      down.textContent = "↓";
+      down.disabled = index === preferences.dashboardOrder.length - 1;
+      down.setAttribute("aria-label", `下移 ${labels[0]}`);
+
+      up.addEventListener("click", () => {
+        if (index <= 0) return;
+
+        const order = [...preferences.dashboardOrder];
+        [order[index - 1], order[index]] = [order[index], order[index - 1]];
+
+        savePreferences({
+          ...preferences,
+          dashboardOrder: order,
+        });
+
+        setSettingsStatus("DASHBOARD ORDER UPDATED");
+      });
+
+      down.addEventListener("click", () => {
+        if (index >= preferences.dashboardOrder.length - 1) return;
+
+        const order = [...preferences.dashboardOrder];
+        [order[index + 1], order[index]] = [order[index], order[index + 1]];
+
+        savePreferences({
+          ...preferences,
+          dashboardOrder: order,
+        });
+
+        setSettingsStatus("DASHBOARD ORDER UPDATED");
+      });
+
+      controls.append(up, down);
+      row.append(code, label, controls);
+      dashboardSettingsNode.appendChild(row);
+    });
+  }
+
   function syncSettingsControls() {
     if (settingSearch) {
       settingSearch.value = engines[preferences.defaultSearch]
@@ -1492,12 +1745,14 @@
 
     if (settingDensity) settingDensity.value = preferences.density;
     if (settingAmbient) settingAmbient.checked = preferences.ambient;
+    if (settingRouteGroup) settingRouteGroup.value = preferences.activeRouteGroup;
 
     settingModuleInputs.forEach((input) => {
       input.checked = moduleEnabled(input.dataset.gateSettingModule);
     });
 
     renderLaunchSettings();
+    renderDashboardSettings();
   }
 
   function closeSettings({ restoreFocus = true } = {}) {
@@ -1563,6 +1818,15 @@
     setSettingsStatus("AMBIENT GRAPHICS UPDATED");
   });
 
+  settingRouteGroup?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      activeRouteGroup: settingRouteGroup.value,
+    });
+
+    setSettingsStatus("DEFAULT ROUTE GROUP UPDATED");
+  });
+
   settingModuleInputs.forEach((input) => {
     input.addEventListener("change", () => {
       const name = input.dataset.gateSettingModule;
@@ -1613,6 +1877,7 @@
     }
 
     storage.remove(settingsKey);
+    storage.remove(legacySettingsKey);
     storage.remove(recentTransitKey);
     storage.remove(weatherLocationKey);
     storage.remove(weatherCacheKey);

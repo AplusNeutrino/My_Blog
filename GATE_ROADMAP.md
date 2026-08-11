@@ -62,13 +62,26 @@ inside the Neutriverse facility language.
 - `Cmd/Ctrl + ,` opens System Configuration.
 - Today / Calendar is intentionally not part of Gate.
 
-### V3 · Dashboard
-- Focus / Dashboard modes.
-- Bento-style secondary modules.
-- Bookmark groups by context (WORK / KNOWLEDGE / MEDIA / SYSTEM), not app categories.
-- Projects.
-- Module show/hide and Quick Launch ordering are already implemented in V2.2; V3 may add layout rearrangement only where it adds value.
-- Settings drawer.
+### V3 · Composable Gate
+
+#### V3.0 — implemented
+- Context Route Matrix with four modes:
+  - WORK;
+  - KNOWLEDGE;
+  - MEDIA;
+  - SYSTEM.
+- Route Matrix is a compact strip, not another large dashboard card.
+- Selected Route Matrix group is browser-local and keyboard accessible.
+- Dashboard module order is configurable in Settings.
+- Current Vector / Local Conditions / Active Systems / Field Record participate in ordering.
+- Visible dashboard section numbers update after reordering/hiding.
+- V2.2 preferences migrate forward to the V3 settings schema.
+
+#### V3.1 — next
+- Focus / Dashboard presentation modes.
+- Route Group customization (optional user-defined URLs).
+- Optional module width/span presets where they materially improve the layout.
+- Settings export/import for moving Gate configuration between browsers.
 
 ### V4 · Personal OS
 - Optional authenticated sync.
