@@ -121,6 +121,12 @@ settings_defaults:
   - active_systems
   - field_record
   active_route_group: work
+  presentation: dashboard
+  dashboard_spans:
+    current_vector: standard
+    local_conditions: standard
+    active_systems: standard
+    field_record: full
 route_groups:
 - id: work
   label: WORK

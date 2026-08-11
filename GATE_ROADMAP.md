@@ -77,11 +77,29 @@ inside the Neutriverse facility language.
 - Visible dashboard section numbers update after reordering/hiding.
 - V2.2 preferences migrate forward to the V3 settings schema.
 
-#### V3.1 — next
+#### V3.1 — implemented
 - Focus / Dashboard presentation modes.
-- Route Group customization (optional user-defined URLs).
-- Optional module width/span presets where they materially improve the layout.
-- Settings export/import for moving Gate configuration between browsers.
+  - Focus keeps Clock / Query / Launch / Route Matrix.
+  - Focus hides secondary dashboard modules.
+  - Toggle from Facility Rail, Settings, `> focus`, `> dashboard`, or `Cmd/Ctrl + Shift + F`.
+- Route Group local overrides.
+  - Edit the four routes inside WORK / KNOWLEDGE / MEDIA / SYSTEM.
+  - Custom label, detail, and URL.
+  - URL validation allows only root-relative, HTTP, and HTTPS routes.
+- Dashboard width presets.
+  - STANDARD;
+  - WIDE;
+  - FIELD RECORD remains FULL.
+- Configuration export/import.
+  - JSON file for cross-browser migration.
+  - Includes Gate preferences, layout, route overrides, and Current Vector.
+  - Explicitly excludes weather coordinates, Recent Transits, and Field Record.
+
+#### V3.2 — next
+- Route Group creation beyond the four default groups.
+- Optional custom Quick Launch entries rather than only hide/reorder.
+- Configuration diagnostics / conflict repair after import.
+- Small-screen layout polish after wider real-device testing.
 
 ### V4 · Personal OS
 - Optional authenticated sync.

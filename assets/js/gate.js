@@ -69,6 +69,8 @@
   const searchInput = qs("[data-gate-search-input]");
   const queryState = qs("[data-gate-query-state]");
   const suggestionsNode = qs("[data-gate-suggestions]");
+  const modeToggleButton = qs("[data-gate-mode-toggle]");
+  const modeLabelNode = qs("[data-gate-mode-label]");
 
   const launchGrid = qs("[data-gate-launch-grid]");
   let launchNodes = qsa("[data-gate-launch]");
@@ -111,6 +113,7 @@
     defaultSearch: settingsDefault.default_search || "google",
     density: settingsDefault.density === "compact" ? "compact" : "standard",
     ambient: settingsDefault.ambient !== false,
+    presentation: settingsDefault.presentation === "focus" ? "focus" : "dashboard",
     modules: {
       launch_routes: settingsDefault.modules?.launch_routes !== false,
       current_vector: settingsDefault.modules?.current_vector !== false,
@@ -128,6 +131,19 @@
     activeRouteGroup: routeGroupIds.includes(settingsDefault.active_route_group)
       ? settingsDefault.active_route_group
       : (routeGroupIds[0] || "work"),
+    dashboardSpans: {
+      current_vector: ["standard", "wide"].includes(settingsDefault.dashboard_spans?.current_vector)
+        ? settingsDefault.dashboard_spans.current_vector
+        : "standard",
+      local_conditions: ["standard", "wide"].includes(settingsDefault.dashboard_spans?.local_conditions)
+        ? settingsDefault.dashboard_spans.local_conditions
+        : "standard",
+      active_systems: ["standard", "wide"].includes(settingsDefault.dashboard_spans?.active_systems)
+        ? settingsDefault.dashboard_spans.active_systems
+        : "standard",
+      field_record: "full",
+    },
+    routeOverrides: {},
   };
 
   function normalizePreferences(raw = {}) {
@@ -162,17 +178,50 @@
       ? raw.activeRouteGroup
       : preferenceDefaults.activeRouteGroup;
 
+    const presentation = raw.presentation === "focus" ? "focus" : "dashboard";
+
+    const dashboardSpans = {
+      current_vector: ["standard", "wide"].includes(raw.dashboardSpans?.current_vector)
+        ? raw.dashboardSpans.current_vector
+        : preferenceDefaults.dashboardSpans.current_vector,
+      local_conditions: ["standard", "wide"].includes(raw.dashboardSpans?.local_conditions)
+        ? raw.dashboardSpans.local_conditions
+        : preferenceDefaults.dashboardSpans.local_conditions,
+      active_systems: ["standard", "wide"].includes(raw.dashboardSpans?.active_systems)
+        ? raw.dashboardSpans.active_systems
+        : preferenceDefaults.dashboardSpans.active_systems,
+      field_record: "full",
+    };
+
+    const routeOverrides = {};
+    const rawOverrides = raw.routeOverrides && typeof raw.routeOverrides === "object"
+      ? raw.routeOverrides
+      : {};
+
+    routeGroupIds.forEach((groupId) => {
+      const slots = Array.isArray(rawOverrides[groupId]) ? rawOverrides[groupId] : [];
+
+      routeOverrides[groupId] = slots.slice(0, 4).map((slot) => ({
+        label: typeof slot?.label === "string" ? slot.label.slice(0, 60) : "",
+        detail: typeof slot?.detail === "string" ? slot.detail.slice(0, 60) : "",
+        url: typeof slot?.url === "string" ? slot.url.slice(0, 500) : "",
+      }));
+    });
+
     return {
       defaultSearch: engines[raw.defaultSearch]
         ? raw.defaultSearch
         : (engines[preferenceDefaults.defaultSearch] ? preferenceDefaults.defaultSearch : "google"),
       density: raw.density === "compact" ? "compact" : "standard",
       ambient: raw.ambient !== false,
+      presentation,
       modules,
       launchOrder,
       hiddenLaunches,
       dashboardOrder,
       activeRouteGroup,
+      dashboardSpans,
+      routeOverrides,
     };
   }
 
@@ -276,6 +325,97 @@
     syncDashboardIndices();
   }
 
+  function isSafeRouteUrl(value) {
+    if (typeof value !== "string") {
+      return false;
+    }
+
+    const url = value.trim();
+
+    if (!url) {
+      return false;
+    }
+
+    if (url.startsWith("/")) {
+      return !url.startsWith("//");
+    }
+
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol === "https:" || parsed.protocol === "http:";
+    } catch {
+      return false;
+    }
+  }
+
+  function routeGroupDefaults(groupId) {
+    const group = Array.isArray(routeGroupsDefault)
+      ? routeGroupsDefault.find((item) => item.id === groupId)
+      : null;
+
+    return Array.isArray(group?.routes) ? group.routes : [];
+  }
+
+  function resolvedRouteSlot(groupId, slotIndex) {
+    const defaults = routeGroupDefaults(groupId)[slotIndex] || {};
+    const override = preferences.routeOverrides?.[groupId]?.[slotIndex] || {};
+
+    return {
+      label: override.label?.trim() || defaults.label || `Route ${slotIndex + 1}`,
+      detail: override.detail?.trim() || defaults.detail || "ROUTE",
+      url: isSafeRouteUrl(override.url) ? override.url.trim() : (defaults.url || "/"),
+    };
+  }
+
+  function applyRouteOverrides() {
+    contextRouteNodes.forEach((node) => {
+      const groupId = node.dataset.gateRouteGroupId;
+      const slotIndex = Number(node.dataset.gateRouteSlot);
+
+      if (!groupId || !Number.isInteger(slotIndex)) {
+        return;
+      }
+
+      const route = resolvedRouteSlot(groupId, slotIndex);
+      const group = routeGroupsDefault.find?.((item) => item.id === groupId);
+
+      node.href = route.url;
+      node.dataset.gateTransitLabel = route.label;
+      node.dataset.gateTransitDetail = `${group?.label || groupId.toUpperCase()} · ${route.detail}`;
+
+      const strong = node.querySelector("strong");
+      const small = node.querySelector("small");
+
+      if (strong) strong.textContent = route.label;
+      if (small) small.textContent = route.detail;
+    });
+  }
+
+  function applyDashboardSpans() {
+    dashboardNodes.forEach((node) => {
+      const id = node.dataset.gateLayoutId;
+      const span = id === "field_record"
+        ? "full"
+        : (preferences.dashboardSpans?.[id] === "wide" ? "wide" : "standard");
+
+      node.dataset.gateSpan = span;
+    });
+  }
+
+  function applyPresentation() {
+    app.dataset.gatePresentation = preferences.presentation;
+
+    if (modeLabelNode) {
+      modeLabelNode.textContent = preferences.presentation.toUpperCase();
+    }
+
+    if (modeToggleButton) {
+      const target = preferences.presentation === "focus" ? "Dashboard" : "Focus";
+      modeToggleButton.setAttribute("aria-label", `切换到 ${target} 模式`);
+      modeToggleButton.setAttribute("title", `Switch to ${target}`);
+    }
+  }
+
   function applyRouteGroup(groupId = preferences.activeRouteGroup) {
     const validId = routeGroupIds.includes(groupId)
       ? groupId
@@ -298,7 +438,10 @@
     applyModulePreferences();
     applyLaunchPreferences();
     applyDashboardOrder();
+    applyDashboardSpans();
+    applyRouteOverrides();
     applyRouteGroup();
+    applyPresentation();
   }
 
   applyPreferences();
@@ -358,6 +501,13 @@
 
   themeButton?.addEventListener("click", () => {
     applyTheme(getTheme() === "dark" ? "light" : "dark");
+  });
+
+  modeToggleButton?.addEventListener("click", () => {
+    savePreferences({
+      ...preferences,
+      presentation: preferences.presentation === "focus" ? "dashboard" : "focus",
+    });
   });
 
   // ---------------------------------------------------------------------------
@@ -850,6 +1000,27 @@
       return true;
     }
 
+    if (verb === "focus") {
+      savePreferences({
+        ...preferences,
+        presentation: "focus",
+      });
+      return true;
+    }
+
+    if (verb === "dashboard") {
+      savePreferences({
+        ...preferences,
+        presentation: "dashboard",
+      });
+      return true;
+    }
+
+    if (verb === "export" && argument === "config") {
+      exportGateConfig();
+      return true;
+    }
+
     if (verb === "home") {
       recordTransit({
         label: "NEUTRIVERSE",
@@ -952,6 +1123,9 @@
     { label: "> note ", detail: "Append to Field Record", action: "fill", value: "> note ", code: "CMD" },
     { label: "> vector edit", detail: "Edit Current Vector", action: "fill", value: "> vector edit", code: "CMD" },
     { label: "> settings", detail: "Open System Configuration", action: "fill", value: "> settings", code: "CMD" },
+    { label: "> focus", detail: "Switch to Focus presentation", action: "fill", value: "> focus", code: "CMD" },
+    { label: "> dashboard", detail: "Switch to Dashboard presentation", action: "fill", value: "> dashboard", code: "CMD" },
+    { label: "> export config", detail: "Download Gate configuration", action: "fill", value: "> export config", code: "CMD" },
     { label: "> clear recent", detail: "Clear Recent Transits", action: "fill", value: "> clear recent", code: "CMD" },
     { label: "> home", detail: "Return to Neutriverse", action: "fill", value: "> home", code: "CMD" },
   ];
@@ -1540,7 +1714,15 @@
   const settingAmbient = qs("[data-gate-setting-ambient]");
   const settingModuleInputs = qsa("[data-gate-setting-module]");
   const settingRouteGroup = qs("[data-gate-setting-route-group]");
+  const settingPresentation = qs("[data-gate-setting-presentation]");
   const dashboardSettingsNode = qs("[data-gate-dashboard-settings]");
+  const routeEditGroup = qs("[data-gate-route-edit-group]");
+  const routeEditorList = qs("[data-gate-route-editor-list]");
+  const routeSaveGroupButton = qs("[data-gate-route-save-group]");
+  const routeResetGroupButton = qs("[data-gate-route-reset-group]");
+  const exportConfigButton = qs("[data-gate-export-config]");
+  const importConfigButton = qs("[data-gate-import-config]");
+  const importConfigFile = qs("[data-gate-import-file]");
   const launchSettingsNode = qs("[data-gate-launch-settings]");
   const settingsStatus = qs("[data-gate-settings-status]");
 
@@ -1687,6 +1869,40 @@
 
       label.append(strong, small);
 
+      const spanSelect = document.createElement("select");
+      spanSelect.className = "gate-dashboard-setting-span";
+      spanSelect.setAttribute("aria-label", `${labels[0]} 宽度`);
+
+      if (id === "field_record") {
+        const full = document.createElement("option");
+        full.value = "full";
+        full.textContent = "FULL";
+        spanSelect.appendChild(full);
+        spanSelect.value = "full";
+        spanSelect.disabled = true;
+      } else {
+        ["standard", "wide"].forEach((value) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = value.toUpperCase();
+          spanSelect.appendChild(option);
+        });
+
+        spanSelect.value = preferences.dashboardSpans?.[id] === "wide" ? "wide" : "standard";
+
+        spanSelect.addEventListener("change", () => {
+          savePreferences({
+            ...preferences,
+            dashboardSpans: {
+              ...preferences.dashboardSpans,
+              [id]: spanSelect.value,
+            },
+          });
+
+          setSettingsStatus("MODULE WIDTH UPDATED");
+        });
+      }
+
       const controls = document.createElement("span");
       controls.className = "gate-dashboard-setting-controls";
 
@@ -1731,9 +1947,130 @@
       });
 
       controls.append(up, down);
-      row.append(code, label, controls);
+      row.append(code, label, spanSelect, controls);
       dashboardSettingsNode.appendChild(row);
     });
+  }
+
+  function renderRouteEditor(groupId = routeEditGroup?.value || preferences.activeRouteGroup) {
+    if (!routeEditorList || !routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    routeEditorList.replaceChildren();
+
+    for (let slotIndex = 0; slotIndex < 4; slotIndex += 1) {
+      const route = resolvedRouteSlot(groupId, slotIndex);
+      const row = document.createElement("div");
+      row.className = "gate-route-edit-row";
+      row.dataset.routeSlot = String(slotIndex);
+
+      const code = document.createElement("span");
+      code.className = "gate-route-edit-code";
+      code.textContent = String(slotIndex + 1).padStart(2, "0");
+
+      const fields = document.createElement("div");
+      fields.className = "gate-route-edit-fields";
+
+      const makeField = (name, value, maxlength = 80) => {
+        const label = document.createElement("label");
+        const caption = document.createElement("span");
+        caption.textContent = name.toUpperCase();
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.maxLength = maxlength;
+        input.value = value;
+        input.dataset.routeField = name;
+
+        label.append(caption, input);
+        return label;
+      };
+
+      fields.append(
+        makeField("label", route.label, 60),
+        makeField("detail", route.detail, 60),
+        makeField("url", route.url, 500)
+      );
+
+      row.append(code, fields);
+      routeEditorList.appendChild(row);
+    }
+  }
+
+  function collectRouteEditor(groupId) {
+    if (!routeEditorList || !routeGroupIds.includes(groupId)) {
+      return null;
+    }
+
+    const rows = [...routeEditorList.querySelectorAll("[data-route-slot]")];
+
+    return rows.map((row) => {
+      const value = (field) =>
+        row.querySelector(`[data-route-field="${field}"]`)?.value.trim() || "";
+
+      return {
+        label: value("label"),
+        detail: value("detail"),
+        url: value("url"),
+      };
+    });
+  }
+
+  function saveRouteEditorGroup() {
+    const groupId = routeEditGroup?.value;
+
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const routes = collectRouteEditor(groupId);
+
+    if (!routes) {
+      return;
+    }
+
+    const invalid = routes.find((route) => route.url && !isSafeRouteUrl(route.url));
+
+    if (invalid) {
+      setSettingsStatus("INVALID ROUTE URL");
+      return;
+    }
+
+    savePreferences({
+      ...preferences,
+      routeOverrides: {
+        ...preferences.routeOverrides,
+        [groupId]: routes,
+      },
+    });
+
+    renderRouteEditor(groupId);
+    renderSuggestions();
+    setSettingsStatus("ROUTE GROUP SAVED");
+  }
+
+  function resetRouteEditorGroup() {
+    const groupId = routeEditGroup?.value;
+
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const nextOverrides = {
+      ...preferences.routeOverrides,
+    };
+
+    delete nextOverrides[groupId];
+
+    savePreferences({
+      ...preferences,
+      routeOverrides: nextOverrides,
+    });
+
+    renderRouteEditor(groupId);
+    renderSuggestions();
+    setSettingsStatus("ROUTE GROUP RESET");
   }
 
   function syncSettingsControls() {
@@ -1744,8 +2081,12 @@
     }
 
     if (settingDensity) settingDensity.value = preferences.density;
+    if (settingPresentation) settingPresentation.value = preferences.presentation;
     if (settingAmbient) settingAmbient.checked = preferences.ambient;
     if (settingRouteGroup) settingRouteGroup.value = preferences.activeRouteGroup;
+    if (routeEditGroup && !routeGroupIds.includes(routeEditGroup.value)) {
+      routeEditGroup.value = preferences.activeRouteGroup;
+    }
 
     settingModuleInputs.forEach((input) => {
       input.checked = moduleEnabled(input.dataset.gateSettingModule);
@@ -1753,6 +2094,7 @@
 
     renderLaunchSettings();
     renderDashboardSettings();
+    renderRouteEditor();
   }
 
   function closeSettings({ restoreFocus = true } = {}) {
@@ -1810,6 +2152,14 @@
     setSettingsStatus("DENSITY UPDATED");
   });
 
+  settingPresentation?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      presentation: settingPresentation.value,
+    });
+    setSettingsStatus("PRESENTATION UPDATED");
+  });
+
   settingAmbient?.addEventListener("change", () => {
     savePreferences({
       ...preferences,
@@ -1826,6 +2176,13 @@
 
     setSettingsStatus("DEFAULT ROUTE GROUP UPDATED");
   });
+
+  routeEditGroup?.addEventListener("change", () => {
+    renderRouteEditor(routeEditGroup.value);
+  });
+
+  routeSaveGroupButton?.addEventListener("click", saveRouteEditorGroup);
+  routeResetGroupButton?.addEventListener("click", resetRouteEditorGroup);
 
   settingModuleInputs.forEach((input) => {
     input.addEventListener("change", () => {
@@ -1869,6 +2226,99 @@
       clearNote();
       setSettingsStatus("FIELD RECORD CLEARED");
     }
+  });
+
+  function gateConfigPayload() {
+    return {
+      format: "neutriverse-gate-config",
+      version: "3.1",
+      exportedAt: new Date().toISOString(),
+      preferences: normalizePreferences(preferences),
+      currentVector: readVectorOverride(),
+    };
+  }
+
+  function exportGateConfig() {
+    const payload = JSON.stringify(gateConfigPayload(), null, 2);
+    const blob = new Blob([payload], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+
+    const stamp = new Date().toISOString().slice(0, 10);
+    anchor.href = url;
+    anchor.download = `neutriverse-gate-config-${stamp}.json`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setSettingsStatus("CONFIG EXPORTED");
+  }
+
+  function normalizeImportedVector(value) {
+    if (!value || typeof value !== "object") {
+      return null;
+    }
+
+    const status = ["ACTIVE", "STANDBY", "PAUSED"].includes(value.status)
+      ? value.status
+      : "ACTIVE";
+
+    return {
+      title: typeof value.title === "string" ? value.title.slice(0, 72) : "",
+      status,
+      description: typeof value.description === "string" ? value.description.slice(0, 140) : "",
+      updatedAt: new Date().toISOString(),
+    };
+  }
+
+  async function importGateConfigFile(file) {
+    if (!file || file.size > 256 * 1024) {
+      setSettingsStatus("INVALID CONFIG FILE");
+      return;
+    }
+
+    try {
+      const text = await file.text();
+      const payload = JSON.parse(text);
+
+      if (
+        payload?.format !== "neutriverse-gate-config" ||
+        !payload.preferences ||
+        typeof payload.preferences !== "object"
+      ) {
+        throw new Error("Unsupported Gate configuration");
+      }
+
+      const importedPreferences = normalizePreferences(payload.preferences);
+      writeJson(settingsKey, importedPreferences);
+
+      const vector = normalizeImportedVector(payload.currentVector);
+
+      if (vector) {
+        writeJson(vectorKey, vector);
+      } else {
+        storage.remove(vectorKey);
+      }
+
+      window.location.reload();
+    } catch {
+      setSettingsStatus("IMPORT FAILED");
+    } finally {
+      if (importConfigFile) {
+        importConfigFile.value = "";
+      }
+    }
+  }
+
+  exportConfigButton?.addEventListener("click", exportGateConfig);
+
+  importConfigButton?.addEventListener("click", () => {
+    importConfigFile?.click();
+  });
+
+  importConfigFile?.addEventListener("change", () => {
+    importGateConfigFile(importConfigFile.files?.[0]);
   });
 
   resetSettingsButton?.addEventListener("click", () => {
@@ -1931,6 +2381,15 @@
     if (commandKey && event.key === ",") {
       event.preventDefault();
       openSettings();
+      return;
+    }
+
+    if (commandKey && event.shiftKey && event.key.toLowerCase() === "f") {
+      event.preventDefault();
+      savePreferences({
+        ...preferences,
+        presentation: preferences.presentation === "focus" ? "dashboard" : "focus",
+      });
       return;
     }
 

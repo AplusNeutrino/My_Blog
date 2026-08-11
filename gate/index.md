@@ -27,6 +27,21 @@ description: "Neutriverse personal transit gate."
 
     <div class="gate-rail-controls">
       <button
+        class="gate-rail-control gate-presentation-toggle"
+        type="button"
+        data-gate-mode-toggle
+        aria-label="切换 Gate 展示模式"
+        title="Toggle Focus / Dashboard"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+          <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+          <rect x="4" y="14" width="6" height="6" rx="1"></rect>
+          <rect x="14" y="14" width="6" height="6" rx="1"></rect>
+        </svg>
+      </button>
+
+      <button
         class="gate-rail-control gate-settings-toggle"
         type="button"
         data-gate-settings-open
@@ -67,6 +82,8 @@ description: "Neutriverse personal transit gate."
       </div>
 
       <div class="gate-top-status" aria-label="Local status">
+        <span data-gate-mode-label>DASHBOARD</span>
+        <span aria-hidden="true">/</span>
         <span data-gate-network-dot class="gate-status-dot"></span>
         <span data-gate-network>ONLINE</span>
         <span aria-hidden="true">/</span>
@@ -226,6 +243,11 @@ description: "Neutriverse personal transit gate."
                 <a
                   href="{% if external %}{{ route.url }}{% else %}{{ route.url | relative_url }}{% endif %}"
                   data-gate-context-route
+                  data-gate-route-group-id="{{ group.id }}"
+                  data-gate-route-slot="{{ forloop.index0 }}"
+                  data-gate-default-label="{{ route.label | escape }}"
+                  data-gate-default-detail="{{ route.detail | escape }}"
+                  data-gate-default-url="{{ route.url | escape }}"
                   data-gate-transit-label="{{ route.label }}"
                   data-gate-transit-detail="{{ group.label }} · {{ route.detail }}"
                 >
@@ -513,6 +535,14 @@ description: "Neutriverse personal transit gate."
           </select>
         </label>
 
+        <label class="gate-setting-field gate-setting-field-spaced">
+          <span>PRESENTATION</span>
+          <select data-gate-setting-presentation>
+            <option value="dashboard">DASHBOARD</option>
+            <option value="focus">FOCUS</option>
+          </select>
+        </label>
+
         <label class="gate-setting-switch">
           <span>
             <strong>AMBIENT GRAPHICS</strong>
@@ -606,6 +636,28 @@ description: "Neutriverse personal transit gate."
             {% endfor %}
           </select>
         </label>
+
+        <div class="gate-route-editor">
+          <div class="gate-route-editor-head">
+            <span>LOCAL ROUTE OVERRIDES</span>
+            <button type="button" data-gate-route-reset-group>RESET GROUP</button>
+          </div>
+
+          <label class="gate-setting-field">
+            <span>EDIT GROUP</span>
+            <select data-gate-route-edit-group>
+              {% for group in gate.route_groups %}
+                <option value="{{ group.id }}">{{ group.label }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <div class="gate-route-editor-list" data-gate-route-editor-list></div>
+
+          <button class="gate-settings-primary" type="button" data-gate-route-save-group>
+            SAVE GROUP
+          </button>
+        </div>
       </section>
 
       <section class="gate-settings-section" aria-labelledby="gate-settings-layout">
@@ -618,11 +670,35 @@ description: "Neutriverse personal transit gate."
         </div>
 
         <div class="gate-dashboard-settings" data-gate-dashboard-settings></div>
+        <p class="gate-settings-footnote">
+          STANDARD 保持单列；WIDE 跨两列；FIELD RECORD 固定为 FULL。
+        </p>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-transfer">
+        <div class="gate-settings-section-title">
+          <span>07</span>
+          <div>
+            <h3 id="gate-settings-transfer">CONFIGURATION TRANSFER</h3>
+            <p>在不同浏览器间迁移 Gate 配置，不包含天气坐标、浏览记录或 Field Record。</p>
+          </div>
+        </div>
+
+        <div class="gate-config-transfer">
+          <button type="button" data-gate-export-config>EXPORT CONFIG</button>
+          <button type="button" data-gate-import-config>IMPORT CONFIG</button>
+          <input
+            type="file"
+            accept="application/json,.json"
+            data-gate-import-file
+            hidden
+          >
+        </div>
       </section>
 
       <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
         <div class="gate-settings-section-title">
-          <span>07</span>
+          <span>08</span>
           <div>
             <h3 id="gate-settings-storage">LOCAL STORAGE</h3>
             <p>这些操作只影响当前浏览器。</p>
