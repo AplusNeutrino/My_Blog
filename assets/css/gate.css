@@ -2619,3 +2619,288 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* V3.2 · Extensible Routes / Diagnostics / Small-screen polish ------------ */
+
+.gate-custom-create {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-custom-create-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.gate-custom-create-head span,
+.gate-custom-create-head small {
+  color: var(--gate-muted);
+  font-size: 0.53rem;
+  letter-spacing: 0.065em;
+}
+
+.gate-custom-create-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.gate-custom-create-fields label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.gate-custom-create-fields label > span {
+  color: var(--gate-muted);
+  font-size: 0.49rem;
+  letter-spacing: 0.055em;
+}
+
+.gate-custom-create-fields input {
+  min-width: 0;
+  min-height: 36px;
+  padding: 0 0.48rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  outline: none;
+  background: var(--gate-surface-alt);
+  color: var(--gate-text);
+  box-shadow: none;
+  font-size: 0.59rem;
+}
+
+.gate-custom-create-fields input:focus {
+  border-color: var(--gate-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gate-accent) 10%, transparent);
+}
+
+.gate-custom-create-wide {
+  grid-column: 1 / -1;
+}
+
+.gate-custom-group-list {
+  display: grid;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-custom-group-row {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  border-bottom: 1px solid var(--gate-line);
+}
+
+.gate-custom-group-row strong,
+.gate-custom-group-row small {
+  display: block;
+}
+
+.gate-custom-group-row strong {
+  color: var(--gate-text);
+  font-size: 0.59rem;
+  font-weight: 500;
+}
+
+.gate-custom-group-row small {
+  margin-top: 0.1rem;
+  color: var(--gate-muted);
+  font-size: 0.51rem;
+}
+
+.gate-custom-group-row button,
+.gate-launch-setting-controls .gate-launch-delete {
+  min-height: 30px;
+  padding: 0 0.42rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.5rem;
+}
+
+.gate-custom-group-row button:hover,
+.gate-custom-group-row button:focus-visible,
+.gate-launch-setting-controls .gate-launch-delete:hover,
+.gate-launch-setting-controls .gate-launch-delete:focus-visible {
+  border-color: var(--gate-warp);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-warp) 9%, transparent);
+}
+
+.gate-launch[data-gate-custom-launch="true"]::before {
+  content: "LOCAL";
+  position: absolute;
+  left: 0.78rem;
+  top: 2rem;
+  color: var(--gate-warp);
+  font-size: 0.48rem;
+  letter-spacing: 0.06em;
+}
+
+.gate-context-route-empty {
+  opacity: 0.54;
+  cursor: default;
+}
+
+.gate-context-route-empty:hover,
+.gate-context-route-empty:focus-visible {
+  background: transparent !important;
+}
+
+.gate-diagnostics {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.gate-diagnostics-summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: var(--gate-surface-alt);
+}
+
+.gate-diagnostics-summary strong {
+  color: var(--gate-text);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.gate-diagnostics-summary.is-warning .gate-status-dot {
+  background: var(--gate-signal);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gate-signal) 10%, transparent);
+}
+
+.gate-diagnostics-list {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.gate-diagnostic-item {
+  padding: 0.38rem 0.48rem;
+  border-left: 2px solid var(--gate-signal);
+  background: color-mix(in srgb, var(--gate-signal) 4%, transparent);
+  color: var(--gate-muted);
+  font-size: 0.54rem;
+  line-height: 1.5;
+}
+
+.gate-diagnostics-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.gate-diagnostics-actions button {
+  min-height: 36px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: var(--gate-surface-alt);
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.53rem;
+  letter-spacing: 0.05em;
+}
+
+.gate-diagnostics-actions button:hover,
+.gate-diagnostics-actions button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+}
+
+:root[data-mode="light"] .gate-custom-create-fields input,
+:root[data-bs-theme="light"] .gate-custom-create-fields input,
+:root[data-mode="light"] .gate-diagnostics-summary,
+:root[data-bs-theme="light"] .gate-diagnostics-summary,
+:root[data-mode="light"] .gate-diagnostics-actions button,
+:root[data-bs-theme="light"] .gate-diagnostics-actions button {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: var(--prospero-surface-2, #e4d7b8);
+  color: var(--prospero-text-primary, #17445a);
+}
+
+@media (max-width: 900px) {
+  .gate-context-tabs {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+  .gate-context-tabs button {
+    flex: 0 0 min(42vw, 180px);
+    border-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .gate-settings-drawer {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .gate-settings-header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .gate-settings-footer {
+    padding-bottom: max(0.8rem, env(safe-area-inset-bottom));
+  }
+
+  .gate-rail {
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .gate-query-suggestions {
+    max-height: min(62dvh, 480px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 520px) {
+  .gate-custom-create-fields,
+  .gate-diagnostics-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .gate-custom-create-wide {
+    grid-column: auto;
+  }
+
+  .gate-context-tabs button {
+    flex-basis: 44vw;
+  }
+}
+
+@media (max-width: 380px) {
+  .gate-launch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gate-launch {
+    min-height: 78px;
+  }
+
+  .gate-context-tabs button {
+    flex-basis: 58vw;
+  }
+
+  .gate-time {
+    font-size: clamp(3.8rem, 22vw, 5rem);
+  }
+}

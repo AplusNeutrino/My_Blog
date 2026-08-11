@@ -127,6 +127,10 @@ settings_defaults:
     local_conditions: standard
     active_systems: standard
     field_record: full
+  limits:
+    custom_launches: 8
+    custom_route_groups: 4
+    routes_per_group: 4
 route_groups:
 - id: work
   label: WORK

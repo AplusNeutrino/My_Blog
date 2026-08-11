@@ -612,11 +612,37 @@ description: "Neutriverse personal transit gate."
           <span>04</span>
           <div>
             <h3 id="gate-settings-launch">LAUNCH ROUTES</h3>
-            <p>隐藏或调整八个主入口的顺序。</p>
+            <p>管理默认入口与浏览器本地的自定义入口。</p>
           </div>
         </div>
 
         <div class="gate-launch-settings" data-gate-launch-settings></div>
+
+        <div class="gate-custom-create">
+          <div class="gate-custom-create-head">
+            <span>CUSTOM QUICK LAUNCH</span>
+            <small data-gate-custom-launch-count>0 / 8</small>
+          </div>
+
+          <div class="gate-custom-create-fields">
+            <label>
+              <span>LABEL</span>
+              <input type="text" maxlength="40" placeholder="Vercel" data-gate-custom-launch-label>
+            </label>
+            <label>
+              <span>ROLE</span>
+              <input type="text" maxlength="40" placeholder="DEPLOY" data-gate-custom-launch-role>
+            </label>
+            <label class="gate-custom-create-wide">
+              <span>URL</span>
+              <input type="url" maxlength="500" placeholder="https://vercel.com/" data-gate-custom-launch-url>
+            </label>
+          </div>
+
+          <button class="gate-settings-primary" type="button" data-gate-add-custom-launch>
+            ADD QUICK LAUNCH
+          </button>
+        </div>
       </section>
 
       <section class="gate-settings-section" aria-labelledby="gate-settings-context">
@@ -636,6 +662,30 @@ description: "Neutriverse personal transit gate."
             {% endfor %}
           </select>
         </label>
+
+        <div class="gate-custom-create gate-custom-group-create">
+          <div class="gate-custom-create-head">
+            <span>CUSTOM ROUTE GROUP</span>
+            <small data-gate-custom-group-count>0 / 4</small>
+          </div>
+
+          <div class="gate-custom-create-fields">
+            <label>
+              <span>LABEL</span>
+              <input type="text" maxlength="24" placeholder="RESEARCH" data-gate-custom-group-label>
+            </label>
+            <label>
+              <span>DETAIL</span>
+              <input type="text" maxlength="40" placeholder="DATA / PAPERS" data-gate-custom-group-detail>
+            </label>
+          </div>
+
+          <button class="gate-settings-primary" type="button" data-gate-add-custom-group>
+            ADD ROUTE GROUP
+          </button>
+
+          <div class="gate-custom-group-list" data-gate-custom-group-list></div>
+        </div>
 
         <div class="gate-route-editor">
           <div class="gate-route-editor-head">
@@ -696,9 +746,31 @@ description: "Neutriverse personal transit gate."
         </div>
       </section>
 
-      <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
+      <section class="gate-settings-section" aria-labelledby="gate-settings-diagnostics">
         <div class="gate-settings-section-title">
           <span>08</span>
+          <div>
+            <h3 id="gate-settings-diagnostics">CONFIG DIAGNOSTICS</h3>
+            <p>检查本地配置冲突、无效 URL、重复 ID 与旧数据残留。</p>
+          </div>
+        </div>
+
+        <div class="gate-diagnostics" data-gate-diagnostics>
+          <div class="gate-diagnostics-summary">
+            <span class="gate-status-dot" data-gate-diagnostics-dot></span>
+            <strong data-gate-diagnostics-summary>NOT CHECKED</strong>
+          </div>
+          <div class="gate-diagnostics-list" data-gate-diagnostics-list></div>
+          <div class="gate-diagnostics-actions">
+            <button type="button" data-gate-run-diagnostics>RUN DIAGNOSTICS</button>
+            <button type="button" data-gate-repair-config>REPAIR CONFIG</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
+        <div class="gate-settings-section-title">
+          <span>09</span>
           <div>
             <h3 id="gate-settings-storage">LOCAL STORAGE</h3>
             <p>这些操作只影响当前浏览器。</p>

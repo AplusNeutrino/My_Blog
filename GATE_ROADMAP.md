@@ -95,11 +95,31 @@ inside the Neutriverse facility language.
   - Includes Gate preferences, layout, route overrides, and Current Vector.
   - Explicitly excludes weather coordinates, Recent Transits, and Field Record.
 
-#### V3.2 — next
-- Route Group creation beyond the four default groups.
-- Optional custom Quick Launch entries rather than only hide/reorder.
-- Configuration diagnostics / conflict repair after import.
-- Small-screen layout polish after wider real-device testing.
+#### V3.2 — implemented
+- Custom Quick Launch entries.
+  - Add browser-local label / role / URL.
+  - Hide, reorder, or delete alongside the repository defaults.
+  - Maximum 8 custom entries.
+- Custom Route Groups.
+  - Add up to 4 browser-local groups beyond WORK / KNOWLEDGE / MEDIA / SYSTEM.
+  - Four route slots per group.
+  - Custom groups participate in Route Matrix, keyboard navigation, Query Suggestions, Recent Transits, and config export/import.
+- Configuration diagnostics and repair.
+  - Detect malformed settings, duplicate/unknown IDs, excessive custom objects, unavailable Route Groups, and invalid custom URLs.
+  - Repair normalizes the Gate settings schema without touching weather/history/Field Record.
+  - Imports are normalized before activation and can report repaired issues.
+- Small-screen polish.
+  - Route Group tabs scroll horizontally instead of compressing indefinitely.
+  - Settings drawer uses dynamic viewport height and safe-area padding.
+  - Query Suggestions gain a bounded mobile scroll region.
+  - Very narrow screens collapse Quick Launch to one column.
+
+#### V3.3 — next
+- Edit custom Quick Launch entries in place rather than delete/re-add.
+- Rename existing custom Route Groups.
+- Optional per-context Query presets.
+- Configuration health badge in the Facility Rail.
+- Real-browser regression suite once a reliable headless browser is available.
 
 ### V4 · Personal OS
 - Optional authenticated sync.

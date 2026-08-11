@@ -76,20 +76,29 @@
   let launchNodes = qsa("[data-gate-launch]");
   const routeNodes = qsa("[data-gate-route]");
   const vectorLinkNodes = qsa("[data-gate-vector-link]");
-  const contextRouteNodes = qsa("[data-gate-context-route]");
-  const routeGroupTabs = qsa("[data-gate-route-group-tab]");
-  const routeGroupPanels = qsa("[data-gate-route-group-panel]");
+  let contextRouteNodes = qsa("[data-gate-context-route]");
+  let routeGroupTabs = qsa("[data-gate-route-group-tab]");
+  let routeGroupPanels = qsa("[data-gate-route-group-panel]");
+  const contextTabsNode = qs(".gate-context-tabs");
+  const contextPanelsNode = qs(".gate-context-panels");
   const dashboardGrid = qs("[data-gate-dashboard-grid]");
   const dashboardNodes = qsa("[data-gate-layout-id]");
 
   const launchMap = new Map();
-  launchNodes.forEach((node) => {
-    const command = (node.dataset.gateCommand || "").trim().toLowerCase();
-    const label = (node.dataset.gateLabel || "").trim().toLowerCase();
 
-    if (command) launchMap.set(command, node.href);
-    if (label) launchMap.set(label, node.href);
-  });
+  function rebuildLaunchMap() {
+    launchMap.clear();
+
+    launchNodes.forEach((node) => {
+      const command = (node.dataset.gateCommand || "").trim().toLowerCase();
+      const label = (node.dataset.gateLabel || "").trim().toLowerCase();
+
+      if (command) launchMap.set(command, node.href);
+      if (label) launchMap.set(label, node.href);
+    });
+  }
+
+  rebuildLaunchMap();
 
   // ---------------------------------------------------------------------------
   // Gate preferences
@@ -105,9 +114,116 @@
     .map((node) => node.dataset.gateLayoutId)
     .filter(Boolean);
 
-  const routeGroupIds = Array.isArray(routeGroupsDefault)
+  const defaultRouteGroupIds = Array.isArray(routeGroupsDefault)
     ? routeGroupsDefault.map((group) => group.id).filter(Boolean)
     : [];
+
+  let routeGroupIds = [...defaultRouteGroupIds];
+
+  const customLaunchLimit = Number(settingsDefault.limits?.custom_launches) || 8;
+  const customRouteGroupLimit = Number(settingsDefault.limits?.custom_route_groups) || 4;
+  const routesPerGroup = Number(settingsDefault.limits?.routes_per_group) || 4;
+
+  function isSafeRouteUrl(value) {
+    if (typeof value !== "string") {
+      return false;
+    }
+
+    const url = value.trim();
+
+    if (!url) {
+      return false;
+    }
+
+    if (url.startsWith("/")) {
+      return !url.startsWith("//");
+    }
+
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol === "https:" || parsed.protocol === "http:";
+    } catch {
+      return false;
+    }
+  }
+
+  function cleanText(value, maxLength) {
+    return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+  }
+
+  function normalizeCustomLaunches(value) {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
+    const result = [];
+    const ids = new Set();
+
+    value.slice(0, customLaunchLimit).forEach((item) => {
+      const id = cleanText(item?.id, 80);
+      const label = cleanText(item?.label, 40);
+      const role = cleanText(item?.role, 40) || "CUSTOM";
+      const url = cleanText(item?.url, 500);
+
+      if (
+        !/^custom-launch-[a-z0-9-]+$/i.test(id) ||
+        ids.has(id) ||
+        !label ||
+        !isSafeRouteUrl(url)
+      ) {
+        return;
+      }
+
+      ids.add(id);
+      result.push({ id, label, role, url });
+    });
+
+    return result;
+  }
+
+  function normalizeCustomRouteGroups(value) {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
+    const result = [];
+    const ids = new Set(defaultRouteGroupIds);
+
+    value.slice(0, customRouteGroupLimit).forEach((item) => {
+      const id = cleanText(item?.id, 80);
+      const label = cleanText(item?.label, 24);
+      const detail = cleanText(item?.detail, 40) || "CUSTOM ROUTES";
+
+      if (
+        !/^custom-group-[a-z0-9-]+$/i.test(id) ||
+        ids.has(id) ||
+        !label
+      ) {
+        return;
+      }
+
+      const rawRoutes = Array.isArray(item?.routes) ? item.routes : [];
+      const routes = [];
+
+      for (let index = 0; index < routesPerGroup; index += 1) {
+        const route = rawRoutes[index] || {};
+        const routeLabel = cleanText(route.label, 60);
+        const routeDetail = cleanText(route.detail, 60);
+        const routeUrl = cleanText(route.url, 500);
+
+        routes.push({
+          label: routeLabel,
+          detail: routeDetail,
+          url: routeUrl && isSafeRouteUrl(routeUrl) ? routeUrl : "",
+        });
+      }
+
+      ids.add(id);
+      result.push({ id, label, detail, routes });
+    });
+
+    return result;
+  }
 
   const preferenceDefaults = {
     defaultSearch: settingsDefault.default_search || "google",
@@ -144,6 +260,8 @@
       field_record: "full",
     },
     routeOverrides: {},
+    customLaunches: [],
+    customRouteGroups: [],
   };
 
   function normalizePreferences(raw = {}) {
@@ -152,17 +270,27 @@
       ...(raw.modules && typeof raw.modules === "object" ? raw.modules : {}),
     };
 
+    const customLaunches = normalizeCustomLaunches(raw.customLaunches);
+    const validLaunchIds = [
+      ...defaultLaunchOrder,
+      ...customLaunches.map((item) => item.id),
+    ];
+
     const requestedOrder = Array.isArray(raw.launchOrder)
-      ? raw.launchOrder.filter((id) => defaultLaunchOrder.includes(id))
+      ? raw.launchOrder.filter((id, index, array) =>
+          validLaunchIds.includes(id) && array.indexOf(id) === index
+        )
       : [];
 
     const launchOrder = [
       ...requestedOrder,
-      ...defaultLaunchOrder.filter((id) => !requestedOrder.includes(id)),
+      ...validLaunchIds.filter((id) => !requestedOrder.includes(id)),
     ];
 
     const hiddenLaunches = Array.isArray(raw.hiddenLaunches)
-      ? raw.hiddenLaunches.filter((id) => defaultLaunchOrder.includes(id))
+      ? raw.hiddenLaunches.filter((id, index, array) =>
+          validLaunchIds.includes(id) && array.indexOf(id) === index
+        )
       : [];
 
     const requestedDashboardOrder = Array.isArray(raw.dashboardOrder)
@@ -174,7 +302,13 @@
       ...defaultDashboardOrder.filter((id) => !requestedDashboardOrder.includes(id)),
     ];
 
-    const activeRouteGroup = routeGroupIds.includes(raw.activeRouteGroup)
+    const customRouteGroups = normalizeCustomRouteGroups(raw.customRouteGroups);
+    const normalizedRouteGroupIds = [
+      ...defaultRouteGroupIds,
+      ...customRouteGroups.map((group) => group.id),
+    ];
+
+    const activeRouteGroup = normalizedRouteGroupIds.includes(raw.activeRouteGroup)
       ? raw.activeRouteGroup
       : preferenceDefaults.activeRouteGroup;
 
@@ -198,7 +332,7 @@
       ? raw.routeOverrides
       : {};
 
-    routeGroupIds.forEach((groupId) => {
+    defaultRouteGroupIds.forEach((groupId) => {
       const slots = Array.isArray(rawOverrides[groupId]) ? rawOverrides[groupId] : [];
 
       routeOverrides[groupId] = slots.slice(0, 4).map((slot) => ({
@@ -222,6 +356,8 @@
       activeRouteGroup,
       dashboardSpans,
       routeOverrides,
+      customLaunches,
+      customRouteGroups,
     };
   }
 
@@ -231,6 +367,13 @@
   );
 
   let preferences = normalizePreferences(storedPreferences);
+
+  function allRouteGroups() {
+    return [
+      ...(Array.isArray(routeGroupsDefault) ? routeGroupsDefault : []),
+      ...preferences.customRouteGroups,
+    ];
+  }
 
   function savePreferences(next) {
     preferences = normalizePreferences(next);
@@ -252,10 +395,57 @@
     syncDashboardIndices();
   }
 
+  function createCustomLaunchNode(item) {
+    const node = document.createElement("a");
+    node.className = "gate-launch";
+    node.href = item.url;
+    node.dataset.gateLaunch = "";
+    node.dataset.gateLaunchId = item.id;
+    node.dataset.gateCustomLaunch = "true";
+    node.dataset.gateCommand = "";
+    node.dataset.gateLabel = item.label.toLowerCase();
+
+    const code = document.createElement("span");
+    code.className = "gate-launch-code";
+    code.textContent = "--";
+
+    const arrow = document.createElement("span");
+    arrow.className = "gate-launch-arrow";
+    arrow.setAttribute("aria-hidden", "true");
+    arrow.textContent = "↗";
+
+    const strong = document.createElement("strong");
+    strong.textContent = item.label;
+
+    const small = document.createElement("small");
+    small.textContent = item.role;
+
+    node.append(code, arrow, strong, small);
+
+    node.addEventListener("click", () => {
+      recordTransit({
+        label: item.label.toUpperCase(),
+        detail: "CUSTOM LAUNCH",
+        action: "url",
+        value: node.href,
+      });
+    });
+
+    return node;
+  }
+
   function applyLaunchPreferences() {
     if (!launchGrid) {
       return;
     }
+
+    launchGrid.querySelectorAll('[data-gate-custom-launch="true"]').forEach((node) => {
+      node.remove();
+    });
+
+    preferences.customLaunches.forEach((item) => {
+      launchGrid.appendChild(createCustomLaunchNode(item));
+    });
 
     const currentNodes = qsa("[data-gate-launch]");
     const byId = new Map(
@@ -286,6 +476,8 @@
         visibleIndex += 1;
       }
     });
+
+    rebuildLaunchMap();
   }
 
   function syncDashboardIndices() {
@@ -325,39 +517,30 @@
     syncDashboardIndices();
   }
 
-  function isSafeRouteUrl(value) {
-    if (typeof value !== "string") {
-      return false;
-    }
-
-    const url = value.trim();
-
-    if (!url) {
-      return false;
-    }
-
-    if (url.startsWith("/")) {
-      return !url.startsWith("//");
-    }
-
-    try {
-      const parsed = new URL(url);
-      return parsed.protocol === "https:" || parsed.protocol === "http:";
-    } catch {
-      return false;
-    }
+  function routeGroupDefinition(groupId) {
+    return allRouteGroups().find((item) => item.id === groupId) || null;
   }
 
   function routeGroupDefaults(groupId) {
-    const group = Array.isArray(routeGroupsDefault)
-      ? routeGroupsDefault.find((item) => item.id === groupId)
-      : null;
-
+    const group = routeGroupDefinition(groupId);
     return Array.isArray(group?.routes) ? group.routes : [];
+  }
+
+  function isCustomRouteGroup(groupId) {
+    return preferences.customRouteGroups.some((group) => group.id === groupId);
   }
 
   function resolvedRouteSlot(groupId, slotIndex) {
     const defaults = routeGroupDefaults(groupId)[slotIndex] || {};
+
+    if (isCustomRouteGroup(groupId)) {
+      return {
+        label: defaults.label?.trim() || "UNASSIGNED",
+        detail: defaults.detail?.trim() || "CUSTOM ROUTE",
+        url: isSafeRouteUrl(defaults.url) ? defaults.url.trim() : "",
+      };
+    }
+
     const override = preferences.routeOverrides?.[groupId]?.[slotIndex] || {};
 
     return {
@@ -367,8 +550,157 @@
     };
   }
 
+  function bindCustomRouteGroupTab(tab) {
+    tab.addEventListener("click", () => {
+      const groupId = tab.dataset.gateRouteGroupTab;
+
+      if (!routeGroupIds.includes(groupId)) {
+        return;
+      }
+
+      savePreferences({
+        ...preferences,
+        activeRouteGroup: groupId,
+      });
+    });
+
+    tab.addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const currentIndex = routeGroupTabs.indexOf(tab);
+      let nextIndex = currentIndex;
+
+      if (event.key === "ArrowRight") {
+        nextIndex = (currentIndex + 1) % routeGroupTabs.length;
+      } else if (event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + routeGroupTabs.length) % routeGroupTabs.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = routeGroupTabs.length - 1;
+      }
+
+      const nextTab = routeGroupTabs[nextIndex];
+      const groupId = nextTab?.dataset.gateRouteGroupTab;
+
+      if (groupId) {
+        savePreferences({
+          ...preferences,
+          activeRouteGroup: groupId,
+        });
+
+        qsa("[data-gate-route-group-tab]")
+          .find((item) => item.dataset.gateRouteGroupTab === groupId)
+          ?.focus();
+      }
+    });
+  }
+
+  function syncCustomRouteMatrix() {
+    if (!contextTabsNode || !contextPanelsNode) {
+      return;
+    }
+
+    contextTabsNode
+      .querySelectorAll('[data-gate-custom-route-group="true"]')
+      .forEach((node) => node.remove());
+
+    contextPanelsNode
+      .querySelectorAll('[data-gate-custom-route-group="true"]')
+      .forEach((node) => node.remove());
+
+    preferences.customRouteGroups.forEach((group) => {
+      const tab = document.createElement("button");
+      tab.type = "button";
+      tab.setAttribute("role", "tab");
+      tab.dataset.gateRouteGroupTab = group.id;
+      tab.dataset.gateCustomRouteGroup = "true";
+      tab.setAttribute("aria-controls", `gate-route-group-${group.id}`);
+      tab.setAttribute("aria-selected", "false");
+
+      const tabStrong = document.createElement("strong");
+      tabStrong.textContent = group.label;
+      const tabSmall = document.createElement("small");
+      tabSmall.textContent = group.detail;
+      tab.append(tabStrong, tabSmall);
+
+      const panel = document.createElement("div");
+      panel.id = `gate-route-group-${group.id}`;
+      panel.className = "gate-context-panel";
+      panel.setAttribute("role", "tabpanel");
+      panel.dataset.gateRouteGroupPanel = group.id;
+      panel.dataset.gateCustomRouteGroup = "true";
+      panel.hidden = true;
+
+      for (let slotIndex = 0; slotIndex < routesPerGroup; slotIndex += 1) {
+        const route = resolvedRouteSlot(group.id, slotIndex);
+        const anchor = document.createElement("a");
+        anchor.dataset.gateContextRoute = "";
+        anchor.dataset.gateRouteGroupId = group.id;
+        anchor.dataset.gateRouteSlot = String(slotIndex);
+        anchor.dataset.gateTransitLabel = route.label;
+        anchor.dataset.gateTransitDetail = `${group.label} · ${route.detail}`;
+
+        if (isSafeRouteUrl(route.url)) {
+          anchor.href = route.url;
+        } else {
+          anchor.href = "#";
+          anchor.classList.add("gate-context-route-empty");
+          anchor.setAttribute("aria-disabled", "true");
+        }
+
+        const text = document.createElement("span");
+        const strong = document.createElement("strong");
+        strong.textContent = route.label;
+        const small = document.createElement("small");
+        small.textContent = route.detail;
+        text.append(strong, small);
+
+        const arrow = document.createElement("span");
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = isSafeRouteUrl(route.url) ? "↗" : "—";
+
+        anchor.append(text, arrow);
+
+        anchor.addEventListener("click", (event) => {
+          if (anchor.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            return;
+          }
+
+          recordTransit({
+            label: anchor.dataset.gateTransitLabel || "CONTEXT ROUTE",
+            detail: anchor.dataset.gateTransitDetail || "ROUTE MATRIX",
+            action: "url",
+            value: anchor.href,
+          });
+        });
+
+        panel.appendChild(anchor);
+      }
+
+      contextTabsNode.appendChild(tab);
+      contextPanelsNode.appendChild(panel);
+      bindCustomRouteGroupTab(tab);
+    });
+
+    routeGroupIds = allRouteGroups().map((group) => group.id);
+    routeGroupTabs = qsa("[data-gate-route-group-tab]");
+    routeGroupPanels = qsa("[data-gate-route-group-panel]");
+    contextRouteNodes = qsa("[data-gate-context-route]");
+
+    app.style.setProperty("--gate-route-group-count", String(Math.max(1, routeGroupIds.length)));
+  }
+
   function applyRouteOverrides() {
-    contextRouteNodes.forEach((node) => {
+    const defaultNodes = qsa("[data-gate-context-route]")
+      .filter((node) => node.dataset.gateCustomRouteGroup !== "true");
+
+    defaultNodes.forEach((node) => {
       const groupId = node.dataset.gateRouteGroupId;
       const slotIndex = Number(node.dataset.gateRouteSlot);
 
@@ -377,7 +709,7 @@
       }
 
       const route = resolvedRouteSlot(groupId, slotIndex);
-      const group = routeGroupsDefault.find?.((item) => item.id === groupId);
+      const group = routeGroupDefinition(groupId);
 
       node.href = route.url;
       node.dataset.gateTransitLabel = route.label;
@@ -389,6 +721,8 @@
       if (strong) strong.textContent = route.label;
       if (small) small.textContent = route.detail;
     });
+
+    syncCustomRouteMatrix();
   }
 
   function applyDashboardSpans() {
@@ -419,7 +753,9 @@
   function applyRouteGroup(groupId = preferences.activeRouteGroup) {
     const validId = routeGroupIds.includes(groupId)
       ? groupId
-      : preferenceDefaults.activeRouteGroup;
+      : (routeGroupIds.includes(preferenceDefaults.activeRouteGroup)
+          ? preferenceDefaults.activeRouteGroup
+          : routeGroupIds[0]);
 
     routeGroupTabs.forEach((tab) => {
       const selected = tab.dataset.gateRouteGroupTab === validId;
@@ -790,7 +1126,7 @@
     writeRecentTransits([normalized, ...remaining]);
   }
 
-  launchNodes.forEach((node) => {
+  launchNodes.filter((node) => node.dataset.gateCustomLaunch !== "true").forEach((node) => {
     node.addEventListener("click", () => {
       recordTransit({
         label: (node.dataset.gateCommand || node.dataset.gateLabel || "LAUNCH").toUpperCase(),
@@ -823,7 +1159,7 @@
     });
   });
 
-  contextRouteNodes.forEach((node) => {
+  contextRouteNodes.filter((node) => node.dataset.gateCustomRouteGroup !== "true").forEach((node) => {
     node.addEventListener("click", () => {
       recordTransit({
         label: node.dataset.gateTransitLabel || "CONTEXT ROUTE",
@@ -834,7 +1170,7 @@
     });
   });
 
-  routeGroupTabs.forEach((tab) => {
+  routeGroupTabs.filter((tab) => tab.dataset.gateCustomRouteGroup !== "true").forEach((tab) => {
     tab.addEventListener("click", () => {
       const groupId = tab.dataset.gateRouteGroupTab;
 
@@ -1021,6 +1357,20 @@
       return true;
     }
 
+    if (verb === "diagnostics") {
+      openSettings();
+      window.setTimeout(() => {
+        renderDiagnostics();
+        document.querySelector("#gate-settings-diagnostics")?.scrollIntoView({ block: "start" });
+      }, 230);
+      return true;
+    }
+
+    if (verb === "repair" && argument === "config") {
+      repairCurrentConfig();
+      return true;
+    }
+
     if (verb === "home") {
       recordTransit({
         label: "NEUTRIVERSE",
@@ -1126,6 +1476,8 @@
     { label: "> focus", detail: "Switch to Focus presentation", action: "fill", value: "> focus", code: "CMD" },
     { label: "> dashboard", detail: "Switch to Dashboard presentation", action: "fill", value: "> dashboard", code: "CMD" },
     { label: "> export config", detail: "Download Gate configuration", action: "fill", value: "> export config", code: "CMD" },
+    { label: "> diagnostics", detail: "Check local Gate configuration", action: "fill", value: "> diagnostics", code: "CMD" },
+    { label: "> repair config", detail: "Normalize local Gate configuration", action: "fill", value: "> repair config", code: "CMD" },
     { label: "> clear recent", detail: "Clear Recent Transits", action: "fill", value: "> clear recent", code: "CMD" },
     { label: "> home", detail: "Return to Neutriverse", action: "fill", value: "> home", code: "CMD" },
   ];
@@ -1720,6 +2072,24 @@
   const routeEditorList = qs("[data-gate-route-editor-list]");
   const routeSaveGroupButton = qs("[data-gate-route-save-group]");
   const routeResetGroupButton = qs("[data-gate-route-reset-group]");
+
+  const customLaunchLabel = qs("[data-gate-custom-launch-label]");
+  const customLaunchRole = qs("[data-gate-custom-launch-role]");
+  const customLaunchUrl = qs("[data-gate-custom-launch-url]");
+  const addCustomLaunchButton = qs("[data-gate-add-custom-launch]");
+  const customLaunchCount = qs("[data-gate-custom-launch-count]");
+
+  const customGroupLabel = qs("[data-gate-custom-group-label]");
+  const customGroupDetail = qs("[data-gate-custom-group-detail]");
+  const addCustomGroupButton = qs("[data-gate-add-custom-group]");
+  const customGroupCount = qs("[data-gate-custom-group-count]");
+  const customGroupList = qs("[data-gate-custom-group-list]");
+
+  const diagnosticsSummary = qs("[data-gate-diagnostics-summary]");
+  const diagnosticsList = qs("[data-gate-diagnostics-list]");
+  const runDiagnosticsButton = qs("[data-gate-run-diagnostics]");
+  const repairConfigButton = qs("[data-gate-repair-config]");
+
   const exportConfigButton = qs("[data-gate-export-config]");
   const importConfigButton = qs("[data-gate-import-config]");
   const importConfigFile = qs("[data-gate-import-file]");
@@ -1830,6 +2200,28 @@
       });
 
       controls.append(up, down);
+
+      if (node.dataset.gateCustomLaunch === "true") {
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "gate-launch-delete";
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", `删除 ${strong.textContent}`);
+
+        remove.addEventListener("click", () => {
+          savePreferences({
+            ...preferences,
+            customLaunches: preferences.customLaunches.filter((item) => item.id !== id),
+            launchOrder: preferences.launchOrder.filter((itemId) => itemId !== id),
+            hiddenLaunches: preferences.hiddenLaunches.filter((itemId) => itemId !== id),
+          });
+
+          setSettingsStatus("CUSTOM LAUNCH REMOVED");
+        });
+
+        controls.appendChild(remove);
+      }
+
       row.append(visible, label, controls);
       launchSettingsNode.appendChild(row);
     });
@@ -1952,6 +2344,157 @@
     });
   }
 
+  function makeLocalId(prefix, label) {
+    const slug = cleanText(label, 32)
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 24) || "node";
+
+    return `${prefix}-${slug}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
+  }
+
+  function addCustomLaunch() {
+    const label = cleanText(customLaunchLabel?.value, 40);
+    const role = cleanText(customLaunchRole?.value, 40) || "CUSTOM";
+    const url = cleanText(customLaunchUrl?.value, 500);
+
+    if (preferences.customLaunches.length >= customLaunchLimit) {
+      setSettingsStatus("CUSTOM LAUNCH LIMIT REACHED");
+      return;
+    }
+
+    if (!label || !isSafeRouteUrl(url)) {
+      setSettingsStatus("INVALID CUSTOM LAUNCH");
+      return;
+    }
+
+    const item = {
+      id: makeLocalId("custom-launch", label),
+      label,
+      role,
+      url,
+    };
+
+    savePreferences({
+      ...preferences,
+      customLaunches: [...preferences.customLaunches, item],
+      launchOrder: [...preferences.launchOrder, item.id],
+    });
+
+    if (customLaunchLabel) customLaunchLabel.value = "";
+    if (customLaunchRole) customLaunchRole.value = "";
+    if (customLaunchUrl) customLaunchUrl.value = "";
+
+    setSettingsStatus("CUSTOM LAUNCH ADDED");
+  }
+
+  function syncRouteGroupSelects(preferredEditId = routeEditGroup?.value) {
+    const groups = allRouteGroups();
+
+    [settingRouteGroup, routeEditGroup].forEach((select) => {
+      if (!select) return;
+
+      const desired = select === settingRouteGroup
+        ? preferences.activeRouteGroup
+        : preferredEditId;
+
+      select.replaceChildren();
+
+      groups.forEach((group) => {
+        const option = document.createElement("option");
+        option.value = group.id;
+        option.textContent = `${group.label} · ${group.detail || "ROUTES"}`;
+        select.appendChild(option);
+      });
+
+      select.value = groups.some((group) => group.id === desired)
+        ? desired
+        : (groups[0]?.id || "");
+    });
+  }
+
+  function renderCustomGroupList() {
+    if (!customGroupList) {
+      return;
+    }
+
+    customGroupList.replaceChildren();
+
+    preferences.customRouteGroups.forEach((group) => {
+      const row = document.createElement("div");
+      row.className = "gate-custom-group-row";
+
+      const text = document.createElement("span");
+      const strong = document.createElement("strong");
+      strong.textContent = group.label;
+      const small = document.createElement("small");
+      small.textContent = group.detail;
+      text.append(strong, small);
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "DELETE";
+
+      remove.addEventListener("click", () => {
+        savePreferences({
+          ...preferences,
+          customRouteGroups: preferences.customRouteGroups.filter((item) => item.id !== group.id),
+          activeRouteGroup: preferences.activeRouteGroup === group.id
+            ? preferenceDefaults.activeRouteGroup
+            : preferences.activeRouteGroup,
+        });
+
+        setSettingsStatus("CUSTOM GROUP REMOVED");
+      });
+
+      row.append(text, remove);
+      customGroupList.appendChild(row);
+    });
+  }
+
+  function addCustomRouteGroup() {
+    const label = cleanText(customGroupLabel?.value, 24);
+    const detail = cleanText(customGroupDetail?.value, 40) || "CUSTOM ROUTES";
+
+    if (preferences.customRouteGroups.length >= customRouteGroupLimit) {
+      setSettingsStatus("CUSTOM GROUP LIMIT REACHED");
+      return;
+    }
+
+    if (!label) {
+      setSettingsStatus("GROUP LABEL REQUIRED");
+      return;
+    }
+
+    const group = {
+      id: makeLocalId("custom-group", label),
+      label,
+      detail,
+      routes: Array.from({ length: routesPerGroup }, () => ({
+        label: "",
+        detail: "",
+        url: "",
+      })),
+    };
+
+    savePreferences({
+      ...preferences,
+      customRouteGroups: [...preferences.customRouteGroups, group],
+      activeRouteGroup: group.id,
+    });
+
+    if (customGroupLabel) customGroupLabel.value = "";
+    if (customGroupDetail) customGroupDetail.value = "";
+
+    syncRouteGroupSelects(group.id);
+    if (routeEditGroup) routeEditGroup.value = group.id;
+    renderRouteEditor(group.id);
+
+    setSettingsStatus("CUSTOM GROUP ADDED");
+  }
+
   function renderRouteEditor(groupId = routeEditGroup?.value || preferences.activeRouteGroup) {
     if (!routeEditorList || !routeGroupIds.includes(groupId)) {
       return;
@@ -2037,16 +2580,28 @@
       return;
     }
 
-    savePreferences({
-      ...preferences,
-      routeOverrides: {
-        ...preferences.routeOverrides,
-        [groupId]: routes,
-      },
-    });
+    if (isCustomRouteGroup(groupId)) {
+      savePreferences({
+        ...preferences,
+        customRouteGroups: preferences.customRouteGroups.map((group) =>
+          group.id === groupId ? { ...group, routes } : group
+        ),
+      });
+    } else {
+      savePreferences({
+        ...preferences,
+        routeOverrides: {
+          ...preferences.routeOverrides,
+          [groupId]: routes,
+        },
+      });
+    }
 
+    syncRouteGroupSelects(groupId);
+    if (routeEditGroup) routeEditGroup.value = groupId;
     renderRouteEditor(groupId);
     renderSuggestions();
+
     setSettingsStatus("ROUTE GROUP SAVED");
   }
 
@@ -2057,19 +2612,37 @@
       return;
     }
 
-    const nextOverrides = {
-      ...preferences.routeOverrides,
-    };
+    if (isCustomRouteGroup(groupId)) {
+      savePreferences({
+        ...preferences,
+        customRouteGroups: preferences.customRouteGroups.map((group) =>
+          group.id === groupId
+            ? {
+                ...group,
+                routes: Array.from({ length: routesPerGroup }, () => ({
+                  label: "",
+                  detail: "",
+                  url: "",
+                })),
+              }
+            : group
+        ),
+      });
+    } else {
+      const nextOverrides = { ...preferences.routeOverrides };
+      delete nextOverrides[groupId];
 
-    delete nextOverrides[groupId];
+      savePreferences({
+        ...preferences,
+        routeOverrides: nextOverrides,
+      });
+    }
 
-    savePreferences({
-      ...preferences,
-      routeOverrides: nextOverrides,
-    });
-
+    syncRouteGroupSelects(groupId);
+    if (routeEditGroup) routeEditGroup.value = groupId;
     renderRouteEditor(groupId);
     renderSuggestions();
+
     setSettingsStatus("ROUTE GROUP RESET");
   }
 
@@ -2083,10 +2656,18 @@
     if (settingDensity) settingDensity.value = preferences.density;
     if (settingPresentation) settingPresentation.value = preferences.presentation;
     if (settingAmbient) settingAmbient.checked = preferences.ambient;
-    if (settingRouteGroup) settingRouteGroup.value = preferences.activeRouteGroup;
-    if (routeEditGroup && !routeGroupIds.includes(routeEditGroup.value)) {
-      routeEditGroup.value = preferences.activeRouteGroup;
+
+    syncRouteGroupSelects();
+
+    if (customLaunchCount) {
+      customLaunchCount.textContent = `${preferences.customLaunches.length} / ${customLaunchLimit}`;
     }
+
+    if (customGroupCount) {
+      customGroupCount.textContent = `${preferences.customRouteGroups.length} / ${customRouteGroupLimit}`;
+    }
+
+    renderCustomGroupList();
 
     settingModuleInputs.forEach((input) => {
       input.checked = moduleEnabled(input.dataset.gateSettingModule);
@@ -2120,6 +2701,7 @@
     window.clearTimeout(settingsCloseTimer);
     settingsReturnFocus = document.activeElement;
     syncSettingsControls();
+    renderDiagnostics();
 
     settingsDrawer.hidden = false;
     settingsBackdrop.hidden = false;
@@ -2184,6 +2766,9 @@
   routeSaveGroupButton?.addEventListener("click", saveRouteEditorGroup);
   routeResetGroupButton?.addEventListener("click", resetRouteEditorGroup);
 
+  addCustomLaunchButton?.addEventListener("click", addCustomLaunch);
+  addCustomGroupButton?.addEventListener("click", addCustomRouteGroup);
+
   settingModuleInputs.forEach((input) => {
     input.addEventListener("change", () => {
       const name = input.dataset.gateSettingModule;
@@ -2228,10 +2813,198 @@
     }
   });
 
+  function diagnosePreferences(raw) {
+    const issues = [];
+
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+      return {
+        issues: ["Settings payload is not an object."],
+        repaired: normalizePreferences({}),
+      };
+    }
+
+    const rawCustomLaunches = Array.isArray(raw.customLaunches) ? raw.customLaunches : [];
+
+    if (rawCustomLaunches.length > customLaunchLimit) {
+      issues.push(`Custom Quick Launch count exceeds ${customLaunchLimit}.`);
+    }
+
+    const launchIds = new Set();
+
+    rawCustomLaunches.forEach((item, index) => {
+      if (!/^custom-launch-[a-z0-9-]+$/i.test(item?.id || "")) {
+        issues.push(`Custom Quick Launch ${index + 1} has an invalid ID.`);
+      }
+
+      if (launchIds.has(item?.id)) {
+        issues.push(`Duplicate Custom Quick Launch ID: ${item.id}.`);
+      }
+
+      launchIds.add(item?.id);
+
+      if (!cleanText(item?.label, 40)) {
+        issues.push(`Custom Quick Launch ${index + 1} has no label.`);
+      }
+
+      if (!isSafeRouteUrl(item?.url || "")) {
+        issues.push(`Custom Quick Launch ${index + 1} has an invalid URL.`);
+      }
+    });
+
+    const rawGroups = Array.isArray(raw.customRouteGroups) ? raw.customRouteGroups : [];
+
+    if (rawGroups.length > customRouteGroupLimit) {
+      issues.push(`Custom Route Group count exceeds ${customRouteGroupLimit}.`);
+    }
+
+    const groupIds = new Set(defaultRouteGroupIds);
+
+    rawGroups.forEach((group, groupIndex) => {
+      if (!/^custom-group-[a-z0-9-]+$/i.test(group?.id || "")) {
+        issues.push(`Custom Route Group ${groupIndex + 1} has an invalid ID.`);
+      }
+
+      if (groupIds.has(group?.id)) {
+        issues.push(`Duplicate Route Group ID: ${group.id}.`);
+      }
+
+      groupIds.add(group?.id);
+
+      if (!cleanText(group?.label, 24)) {
+        issues.push(`Custom Route Group ${groupIndex + 1} has no label.`);
+      }
+
+      const routes = Array.isArray(group?.routes) ? group.routes : [];
+
+      routes.slice(0, routesPerGroup).forEach((route, routeIndex) => {
+        if (route?.url && !isSafeRouteUrl(route.url)) {
+          issues.push(
+            `${cleanText(group?.label, 24) || `Group ${groupIndex + 1}`} route ${routeIndex + 1} has an invalid URL.`
+          );
+        }
+      });
+    });
+
+    const validLaunchIds = [
+      ...defaultLaunchOrder,
+      ...normalizeCustomLaunches(rawCustomLaunches).map((item) => item.id),
+    ];
+
+    const rawLaunchOrder = Array.isArray(raw.launchOrder) ? raw.launchOrder : [];
+
+    if (new Set(rawLaunchOrder).size !== rawLaunchOrder.length) {
+      issues.push("Launch order contains duplicate IDs.");
+    }
+
+    rawLaunchOrder.forEach((id) => {
+      if (!validLaunchIds.includes(id)) {
+        issues.push(`Launch order contains unknown ID: ${id}.`);
+      }
+    });
+
+    const validGroupIds = [
+      ...defaultRouteGroupIds,
+      ...normalizeCustomRouteGroups(rawGroups).map((group) => group.id),
+    ];
+
+    if (raw.activeRouteGroup && !validGroupIds.includes(raw.activeRouteGroup)) {
+      issues.push(`Active Route Group is unavailable: ${raw.activeRouteGroup}.`);
+    }
+
+    const rawDashboardOrder = Array.isArray(raw.dashboardOrder) ? raw.dashboardOrder : [];
+
+    if (new Set(rawDashboardOrder).size !== rawDashboardOrder.length) {
+      issues.push("Dashboard order contains duplicate IDs.");
+    }
+
+    rawDashboardOrder.forEach((id) => {
+      if (!defaultDashboardOrder.includes(id)) {
+        issues.push(`Dashboard order contains unknown ID: ${id}.`);
+      }
+    });
+
+    return {
+      issues: [...new Set(issues)],
+      repaired: normalizePreferences(raw),
+    };
+  }
+
+  function currentRawPreferences() {
+    const value = storage.get(settingsKey);
+
+    if (!value) {
+      return { raw: preferences, parseIssue: null };
+    }
+
+    try {
+      return { raw: JSON.parse(value), parseIssue: null };
+    } catch {
+      return { raw: {}, parseIssue: "Settings JSON cannot be parsed." };
+    }
+  }
+
+  function renderDiagnostics(report = null) {
+    if (!diagnosticsSummary || !diagnosticsList) {
+      return;
+    }
+
+    const rawState = currentRawPreferences();
+    const result = report || diagnosePreferences(rawState.raw);
+    const issues = [
+      ...(rawState.parseIssue ? [rawState.parseIssue] : []),
+      ...result.issues,
+    ];
+
+    diagnosticsList.replaceChildren();
+
+    const summaryBox = diagnosticsSummary.closest(".gate-diagnostics-summary");
+
+    if (!issues.length) {
+      diagnosticsSummary.textContent = "CONFIGURATION NOMINAL";
+      summaryBox?.classList.remove("is-warning");
+      return;
+    }
+
+    diagnosticsSummary.textContent = `${issues.length} ISSUE${issues.length === 1 ? "" : "S"} DETECTED`;
+    summaryBox?.classList.add("is-warning");
+
+    issues.forEach((issue) => {
+      const item = document.createElement("div");
+      item.className = "gate-diagnostic-item";
+      item.textContent = issue;
+      diagnosticsList.appendChild(item);
+    });
+  }
+
+  function repairCurrentConfig() {
+    const rawState = currentRawPreferences();
+    const report = diagnosePreferences(rawState.raw);
+
+    preferences = report.repaired;
+    writeJson(settingsKey, preferences);
+    applyPreferences();
+    syncSettingsControls();
+    renderDiagnostics();
+    renderSuggestions();
+
+    setSettingsStatus(
+      rawState.parseIssue || report.issues.length
+        ? "CONFIG REPAIRED"
+        : "NO REPAIR REQUIRED"
+    );
+  }
+
+  runDiagnosticsButton?.addEventListener("click", () => {
+    renderDiagnostics();
+    setSettingsStatus("DIAGNOSTICS COMPLETE");
+  });
+
+  repairConfigButton?.addEventListener("click", repairCurrentConfig);
+
   function gateConfigPayload() {
     return {
       format: "neutriverse-gate-config",
-      version: "3.1",
+      version: "3.2",
       exportedAt: new Date().toISOString(),
       preferences: normalizePreferences(preferences),
       currentVector: readVectorOverride(),
@@ -2290,8 +3063,21 @@
         throw new Error("Unsupported Gate configuration");
       }
 
-      const importedPreferences = normalizePreferences(payload.preferences);
+      const importReport = diagnosePreferences(payload.preferences);
+      const importedPreferences = importReport.repaired;
       writeJson(settingsKey, importedPreferences);
+
+      try {
+        sessionStorage.setItem(
+          "neutriverse-gate-last-import-report",
+          JSON.stringify({
+            issueCount: importReport.issues.length,
+            importedAt: new Date().toISOString(),
+          })
+        );
+      } catch {
+        /* Ignore restricted storage. */
+      }
 
       const vector = normalizeImportedVector(payload.currentVector);
 
@@ -2361,6 +3147,24 @@
   });
 
   syncSettingsControls();
+
+  try {
+    const importReport = JSON.parse(
+      sessionStorage.getItem("neutriverse-gate-last-import-report") || "null"
+    );
+
+    if (importReport) {
+      sessionStorage.removeItem("neutriverse-gate-last-import-report");
+
+      if (importReport.issueCount > 0) {
+        setSettingsStatus(
+          `IMPORT REPAIRED ${importReport.issueCount} ISSUE${importReport.issueCount === 1 ? "" : "S"}`
+        );
+      }
+    }
+  } catch {
+    /* Ignore malformed session report. */
+  }
 
   // ---------------------------------------------------------------------------
   // Global keyboard shortcuts
