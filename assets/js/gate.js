@@ -809,11 +809,22 @@
     routeGroupPanels = qsa("[data-gate-route-group-panel]");
     contextRouteNodes = qsa("[data-gate-context-route]");
 
-    routeGroupTabs.forEach((tab) => {
+    routeGroupTabs.forEach((tab, index) => {
+      const groupId = tab.dataset.gateRouteGroupTab;
+      const shortcut = index < 9 ? String(index + 1) : "";
+
       tab.classList.toggle(
         "gate-route-group-pinned",
-        tab.dataset.gateRouteGroupTab === preferences.pinnedRouteGroup
+        groupId === preferences.pinnedRouteGroup
       );
+
+      if (shortcut) {
+        tab.dataset.gateShortcut = `⌘/Ctrl+Alt+${shortcut}`;
+        tab.title = `${routeGroupDefinition(groupId)?.label || groupId} · Ctrl/Cmd + Alt + ${shortcut}`;
+      } else {
+        delete tab.dataset.gateShortcut;
+        tab.removeAttribute("title");
+      }
     });
 
     app.style.setProperty("--gate-route-group-count", String(Math.max(1, routeGroupIds.length)));
@@ -873,6 +884,83 @@
     }
   }
 
+  function effectiveLaunchVisibility(groupId = preferences.activeRouteGroup) {
+    const globalHidden = new Set(preferences.hiddenLaunches);
+    const contextHidden = new Set(preferences.contextLaunchHidden?.[groupId] || []);
+
+    return preferences.launchOrder.filter(
+      (id) => !globalHidden.has(id) && !contextHidden.has(id)
+    );
+  }
+
+  function validRoutesForGroup(groupId) {
+    const routes = [];
+
+    for (let index = 0; index < routesPerGroup; index += 1) {
+      const route = resolvedRouteSlot(groupId, index);
+
+      if (isSafeRouteUrl(route.url)) {
+        routes.push(route);
+      }
+    }
+
+    return routes;
+  }
+
+  function syncContextProfile(groupId = preferences.activeRouteGroup) {
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const group = routeGroupDefinition(groupId);
+    const preset = preferences.queryPresets?.[groupId] || {};
+    const engineKey =
+      preset.engine && engines[preset.engine]
+        ? preset.engine
+        : preferences.defaultSearch;
+    const engine = engines[engineKey] || defaultEngine();
+
+    const visibleLaunches = effectiveLaunchVisibility(groupId);
+    const routes = validRoutesForGroup(groupId);
+    const shortcutIndex = routeGroupIds.indexOf(groupId);
+    const shortcut = shortcutIndex >= 0 && shortcutIndex < 9
+      ? `CTRL/CMD + ALT + ${shortcutIndex + 1}`
+      : "SHORTCUT —";
+
+    if (contextProfileGroup) {
+      contextProfileGroup.textContent = group?.label || groupId.toUpperCase();
+    }
+
+    if (contextProfileSearch) {
+      contextProfileSearch.textContent = engine?.label?.toUpperCase() || "GLOBAL";
+    }
+
+    if (contextProfileLaunches) {
+      contextProfileLaunches.textContent =
+        `${visibleLaunches.length} / ${preferences.launchOrder.length}`;
+    }
+
+    if (contextProfileRoutes) {
+      contextProfileRoutes.textContent = `${routes.length} / ${routesPerGroup}`;
+    }
+
+    if (contextProfileShortcut) {
+      contextProfileShortcut.textContent = shortcut;
+    }
+
+    if (contextProfileNote) {
+      const pinNote =
+        groupId === preferences.pinnedRouteGroup ? "Pinned first. " : "";
+
+      const searchNote = preset.engine
+        ? `${engine?.label || "Context"} overrides global search. `
+        : "Global search inherited. ";
+
+      contextProfileNote.textContent =
+        `${pinNote}${searchNote}${visibleLaunches.length} Launch routes visible; ${routes.length} transit routes assigned.`;
+    }
+  }
+
   function applyRouteGroup(groupId = preferences.activeRouteGroup) {
     const validId = routeGroupIds.includes(groupId)
       ? groupId
@@ -889,6 +977,8 @@
     routeGroupPanels.forEach((panel) => {
       panel.hidden = panel.dataset.gateRouteGroupPanel !== validId;
     });
+
+    syncContextProfile(validId);
   }
 
   function applyPreferences() {
@@ -2268,11 +2358,24 @@
 
   const settingsFilterInput = qs("[data-gate-settings-filter]");
   const settingsFilterState = qs("[data-gate-settings-filter-state]");
+  const settingsJumpSelect = qs("[data-gate-settings-jump]");
   const settingsSections = qsa(".gate-settings-section");
+
+  const contextProfileGroup = qs("[data-gate-context-profile-group]");
+  const contextProfileSearch = qs("[data-gate-context-profile-search]");
+  const contextProfileLaunches = qs("[data-gate-context-profile-launches]");
+  const contextProfileRoutes = qs("[data-gate-context-profile-routes]");
+  const contextProfileShortcut = qs("[data-gate-context-profile-shortcut]");
+  const contextProfileNote = qs("[data-gate-context-profile-note]");
 
   const snapshotLabel = qs("[data-gate-snapshot-label]");
   const createSnapshotButton = qs("[data-gate-create-snapshot]");
   const snapshotList = qs("[data-gate-snapshot-list]");
+  const snapshotDiffPanel = qs("[data-gate-snapshot-diff]");
+  const snapshotDiffTitle = qs("[data-gate-snapshot-diff-title]");
+  const snapshotDiffList = qs("[data-gate-snapshot-diff-list]");
+  const snapshotDiffCloseButton = qs("[data-gate-snapshot-diff-close]");
+  const snapshotDiffRestoreButton = qs("[data-gate-snapshot-diff-restore]");
 
   const diagnosticsSummary = qs("[data-gate-diagnostics-summary]");
   const diagnosticsList = qs("[data-gate-diagnostics-list]");
@@ -2621,6 +2724,258 @@
     setSettingsStatus("CONFIG SNAPSHOT CREATED");
   }
 
+  let snapshotDiffTargetId = null;
+
+  function renameConfigSnapshot(id) {
+    const snapshots = readSnapshots();
+    const snapshot = snapshots.find((item) => item.id === id);
+
+    if (!snapshot) {
+      setSettingsStatus("SNAPSHOT NOT FOUND");
+      return;
+    }
+
+    const nextLabel = window.prompt("Rename Gate snapshot:", snapshot.label);
+
+    if (nextLabel === null) {
+      return;
+    }
+
+    const label = cleanText(nextLabel, 48);
+
+    if (!label) {
+      setSettingsStatus("SNAPSHOT LABEL REQUIRED");
+      return;
+    }
+
+    writeSnapshots(
+      snapshots.map((item) =>
+        item.id === id
+          ? { ...item, label }
+          : item
+      )
+    );
+
+    renderSnapshotList();
+
+    if (snapshotDiffTargetId === id) {
+      showSnapshotDiff(id);
+    }
+
+    setSettingsStatus("SNAPSHOT RENAMED");
+  }
+
+  function snapshotComparable(preferenceValue, vectorValue) {
+    const normalized = normalizePreferences(preferenceValue || {});
+
+    return {
+      search: {
+        defaultSearch: normalized.defaultSearch,
+        queryPresets: normalized.queryPresets,
+      },
+      interface: {
+        density: normalized.density,
+        ambient: normalized.ambient,
+        presentation: normalized.presentation,
+        modules: normalized.modules,
+      },
+      launch: {
+        launchOrder: normalized.launchOrder,
+        hiddenLaunches: normalized.hiddenLaunches,
+        customLaunches: normalized.customLaunches,
+        contextLaunchHidden: normalized.contextLaunchHidden,
+      },
+      context: {
+        activeRouteGroup: normalized.activeRouteGroup,
+        routeGroupOrder: normalized.routeGroupOrder,
+        pinnedRouteGroup: normalized.pinnedRouteGroup,
+        customRouteGroups: normalized.customRouteGroups,
+        routeOverrides: normalized.routeOverrides,
+      },
+      dashboard: {
+        dashboardOrder: normalized.dashboardOrder,
+        dashboardSpans: normalized.dashboardSpans,
+      },
+      vector: (() => {
+        const vector = normalizeImportedVector(vectorValue);
+
+        return vector
+          ? {
+              title: vector.title,
+              status: vector.status,
+              description: vector.description,
+            }
+          : null;
+      })(),
+    };
+  }
+
+  function sameSnapshotValue(left, right) {
+    return JSON.stringify(left ?? null) === JSON.stringify(right ?? null);
+  }
+
+  function snapshotDiffSummary(snapshot) {
+    const current = snapshotComparable(preferences, readVectorOverride());
+    const saved = snapshotComparable(snapshot.preferences, snapshot.currentVector);
+    const changes = [];
+
+    if (!sameSnapshotValue(current.search, saved.search)) {
+      const from = engines[current.search.defaultSearch]?.label || current.search.defaultSearch;
+      const to = engines[saved.search.defaultSearch]?.label || saved.search.defaultSearch;
+      const presetFrom = Object.keys(current.search.queryPresets || {}).length;
+      const presetTo = Object.keys(saved.search.queryPresets || {}).length;
+
+      changes.push({
+        label: "SEARCH",
+        detail:
+          `${from} → ${to}; context presets ${presetFrom} → ${presetTo}.`,
+      });
+    }
+
+    if (!sameSnapshotValue(current.interface, saved.interface)) {
+      const activeModules = (value) =>
+        Object.values(value.modules || {}).filter((enabled) => enabled !== false).length;
+
+      changes.push({
+        label: "INTERFACE",
+        detail:
+          `${current.interface.presentation.toUpperCase()} → ${saved.interface.presentation.toUpperCase()}; ` +
+          `${current.interface.density.toUpperCase()} → ${saved.interface.density.toUpperCase()}; ` +
+          `modules ${activeModules(current.interface)} → ${activeModules(saved.interface)}.`,
+      });
+    }
+
+    if (!sameSnapshotValue(current.launch, saved.launch)) {
+      const visibleCount = (value, groupId) => {
+        const globalHidden = new Set(value.hiddenLaunches || []);
+        const contextHidden = new Set(value.contextLaunchHidden?.[groupId] || []);
+
+        return (value.launchOrder || []).filter(
+          (id) => !globalHidden.has(id) && !contextHidden.has(id)
+        ).length;
+      };
+
+      changes.push({
+        label: "LAUNCH",
+        detail:
+          `entries ${current.launch.launchOrder.length} → ${saved.launch.launchOrder.length}; ` +
+          `active-context visible ${visibleCount(current.launch, current.context.activeRouteGroup)} → ` +
+          `${visibleCount(saved.launch, saved.context.activeRouteGroup)}; ` +
+          `custom ${current.launch.customLaunches.length} → ${saved.launch.customLaunches.length}.`,
+      });
+    }
+
+    if (!sameSnapshotValue(current.context, saved.context)) {
+      const currentGroup =
+        routeGroupDefinition(current.context.activeRouteGroup)?.label ||
+        current.context.activeRouteGroup ||
+        "—";
+
+      const savedGroups = [
+        ...(Array.isArray(routeGroupsDefault) ? routeGroupsDefault : []),
+        ...(saved.context.customRouteGroups || []),
+      ];
+      const savedGroup =
+        savedGroups.find((group) => group.id === saved.context.activeRouteGroup)?.label ||
+        saved.context.activeRouteGroup ||
+        "—";
+
+      changes.push({
+        label: "CONTEXT",
+        detail:
+          `${currentGroup} → ${savedGroup}; groups ` +
+          `${current.context.routeGroupOrder.length} → ${saved.context.routeGroupOrder.length}; ` +
+          `pin ${current.context.pinnedRouteGroup || "none"} → ${saved.context.pinnedRouteGroup || "none"}.`,
+      });
+    }
+
+    if (!sameSnapshotValue(current.dashboard, saved.dashboard)) {
+      changes.push({
+        label: "DASHBOARD",
+        detail:
+          `order ${current.dashboard.dashboardOrder.join(" / ")} → ` +
+          `${saved.dashboard.dashboardOrder.join(" / ")}.`,
+      });
+    }
+
+    if (!sameSnapshotValue(current.vector, saved.vector)) {
+      changes.push({
+        label: "CURRENT VECTOR",
+        detail:
+          `${current.vector?.title || "default"} → ${saved.vector?.title || "default"}; ` +
+          `${current.vector?.status || "default"} → ${saved.vector?.status || "default"}.`,
+      });
+    }
+
+    return changes;
+  }
+
+  function closeSnapshotDiff() {
+    snapshotDiffTargetId = null;
+
+    if (snapshotDiffPanel) {
+      snapshotDiffPanel.hidden = true;
+    }
+
+    if (snapshotDiffList) {
+      snapshotDiffList.replaceChildren();
+    }
+
+    if (snapshotDiffRestoreButton) {
+      snapshotDiffRestoreButton.disabled = true;
+    }
+  }
+
+  function showSnapshotDiff(id) {
+    const snapshot = readSnapshots().find((item) => item.id === id);
+
+    if (!snapshot || !snapshotDiffPanel || !snapshotDiffList) {
+      setSettingsStatus("SNAPSHOT NOT FOUND");
+      return;
+    }
+
+    snapshotDiffTargetId = id;
+    snapshotDiffList.replaceChildren();
+
+    if (snapshotDiffTitle) {
+      snapshotDiffTitle.textContent = `DIFF · ${snapshot.label}`;
+    }
+
+    const changes = snapshotDiffSummary(snapshot);
+
+    if (!changes.length) {
+      const empty = document.createElement("div");
+      empty.className = "gate-snapshot-diff-empty";
+      empty.textContent = "NO CONFIGURATION DIFFERENCE";
+      snapshotDiffList.appendChild(empty);
+    } else {
+      changes.forEach((change) => {
+        const row = document.createElement("div");
+        row.className = "gate-snapshot-diff-item";
+
+        const label = document.createElement("strong");
+        label.textContent = change.label;
+
+        const detail = document.createElement("span");
+        detail.textContent = change.detail;
+
+        row.append(label, detail);
+        snapshotDiffList.appendChild(row);
+      });
+    }
+
+    snapshotDiffPanel.hidden = false;
+
+    if (snapshotDiffRestoreButton) {
+      snapshotDiffRestoreButton.disabled = false;
+    }
+
+    snapshotDiffPanel.scrollIntoView({
+      block: "nearest",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }
+
   function restoreConfigSnapshot(id) {
     const snapshot = readSnapshots().find((item) => item.id === id);
 
@@ -2649,6 +3004,11 @@
 
   function deleteConfigSnapshot(id) {
     writeSnapshots(readSnapshots().filter((item) => item.id !== id));
+
+    if (snapshotDiffTargetId === id) {
+      closeSnapshotDiff();
+    }
+
     renderSnapshotList();
     setSettingsStatus("CONFIG SNAPSHOT DELETED");
   }
@@ -2666,6 +3026,7 @@
       empty.className = "gate-snapshot-empty";
       empty.textContent = "NO LOCAL SNAPSHOTS";
       snapshotList.appendChild(empty);
+      closeSnapshotDiff();
       return;
     }
 
@@ -2695,20 +3056,42 @@
       const controls = document.createElement("span");
       controls.className = "gate-snapshot-controls";
 
+      const rename = document.createElement("button");
+      rename.type = "button";
+      rename.className = "gate-snapshot-rename";
+      rename.textContent = "RENAME";
+      rename.addEventListener("click", () => renameConfigSnapshot(snapshot.id));
+
+      const diff = document.createElement("button");
+      diff.type = "button";
+      diff.className = "gate-snapshot-diff-button";
+      diff.textContent = "DIFF";
+      diff.addEventListener("click", () => showSnapshotDiff(snapshot.id));
+
       const restore = document.createElement("button");
       restore.type = "button";
       restore.textContent = "RESTORE";
-      restore.addEventListener("click", () => restoreConfigSnapshot(snapshot.id));
+      restore.addEventListener("click", () => showSnapshotDiff(snapshot.id));
 
       const remove = document.createElement("button");
       remove.type = "button";
       remove.textContent = "DELETE";
       remove.addEventListener("click", () => deleteConfigSnapshot(snapshot.id));
 
-      controls.append(restore, remove);
+      controls.append(rename, diff, restore, remove);
       row.append(text, controls);
       snapshotList.appendChild(row);
     });
+
+    if (snapshotDiffTargetId) {
+      const exists = snapshots.some((snapshot) => snapshot.id === snapshotDiffTargetId);
+
+      if (exists) {
+        showSnapshotDiff(snapshotDiffTargetId);
+      } else {
+        closeSnapshotDiff();
+      }
+    }
   }
 
   function makeLocalId(prefix, label) {
@@ -3517,8 +3900,43 @@
     filterSettingsSections(settingsFilterInput.value);
   });
 
+  settingsJumpSelect?.addEventListener("change", () => {
+    const targetId = settingsJumpSelect.value;
+
+    if (!targetId) {
+      return;
+    }
+
+    if (settingsFilterInput) {
+      settingsFilterInput.value = "";
+      filterSettingsSections("");
+    }
+
+    const heading = document.getElementById(targetId);
+    const section = heading?.closest(".gate-settings-section");
+
+    section?.scrollIntoView({
+      block: "start",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+
+    window.setTimeout(() => {
+      settingsJumpSelect.value = "";
+    }, 180);
+  });
+
   createSnapshotButton?.addEventListener("click", () => {
     createConfigSnapshot();
+  });
+
+  snapshotDiffCloseButton?.addEventListener("click", closeSnapshotDiff);
+
+  snapshotDiffRestoreButton?.addEventListener("click", () => {
+    if (snapshotDiffTargetId) {
+      restoreConfigSnapshot(snapshotDiffTargetId);
+    }
   });
 
   settingSearch?.addEventListener("change", () => {
@@ -3947,7 +4365,7 @@
   function gateConfigPayload() {
     return {
       format: "neutriverse-gate-config",
-      version: "3.4",
+      version: "3.5",
       exportedAt: new Date().toISOString(),
       preferences: normalizePreferences(preferences),
       currentVector: readVectorOverride(),
@@ -4074,7 +4492,12 @@
 
     const focusable = [...settingsDrawer.querySelectorAll(
       'button:not([disabled]), select:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
-    )].filter((node) => !node.hidden);
+    )].filter(
+      (node) =>
+        !node.hidden &&
+        !node.closest("[hidden]") &&
+        !node.closest(".is-filtered-out")
+    );
 
     if (!focusable.length) return;
 
@@ -4117,6 +4540,35 @@
 
   document.addEventListener("keydown", (event) => {
     const commandKey = event.metaKey || event.ctrlKey;
+    const target = event.target;
+    const editableTarget =
+      target instanceof HTMLElement &&
+      (
+        target.matches("input, textarea, select") ||
+        target.isContentEditable
+      );
+
+    if (
+      settingsDefault.route_shortcuts !== false &&
+      commandKey &&
+      event.altKey &&
+      /^[1-9]$/.test(event.key) &&
+      !editableTarget
+    ) {
+      const index = Number(event.key) - 1;
+      const groupId = routeGroupIds[index];
+
+      if (groupId) {
+        event.preventDefault();
+
+        savePreferences({
+          ...preferences,
+          activeRouteGroup: groupId,
+        });
+
+        return;
+      }
+    }
 
     if (commandKey && event.key.toLowerCase() === "k") {
       event.preventDefault();

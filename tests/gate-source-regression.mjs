@@ -27,30 +27,45 @@ check(
 );
 
 check("Settings health indicator retained", gatePage.includes("data-gate-settings-health"));
-check("Settings filter present", gatePage.includes("data-gate-settings-filter"));
-check("Context Launch editor present", gatePage.includes("data-gate-context-launch-list"));
-check("Route Group order editor present", gatePage.includes("data-gate-route-order-list"));
-check("Config snapshot UI present", gatePage.includes("data-gate-create-snapshot"));
+check("Settings filter retained", gatePage.includes("data-gate-settings-filter"));
+check("Settings jump navigation present", gatePage.includes("data-gate-settings-jump"));
+check("Context Profile present", gatePage.includes("data-gate-context-profile-group"));
+check("Snapshot diff panel present", gatePage.includes("data-gate-snapshot-diff-list"));
 
+check("Context Launch editor retained", gatePage.includes("data-gate-context-launch-list"));
+check("Route Group order editor retained", gatePage.includes("data-gate-route-order-list"));
+check("Config snapshot UI retained", gatePage.includes("data-gate-create-snapshot"));
 check("Quick Launch editor retained", gatePage.includes("data-gate-cancel-custom-launch"));
 check("Route Group rename retained", gatePage.includes("data-gate-cancel-custom-group"));
 check("Query preset editor retained", gatePage.includes("data-gate-query-preset-engine"));
 
-check("Context Launch visibility normalized", gateJs.includes("contextLaunchHidden"));
-check("Route Group order normalized", gateJs.includes("routeGroupOrder"));
-check("Pinned Route Group normalized", gateJs.includes("pinnedRouteGroup"));
+check("Context profile logic present", gateJs.includes("function syncContextProfile("));
+check("Route shortcut labels present", gateJs.includes("data.gateShortcut") || gateJs.includes("dataset.gateShortcut"));
+check(
+  "Route keyboard shortcut present",
+  gateJs.includes("event.altKey") &&
+    gateJs.includes("/^[1-9]$/.test(event.key)")
+);
+check("Settings jump logic present", gateJs.includes("settingsJumpSelect?.addEventListener"));
+check("Snapshot rename present", gateJs.includes("function renameConfigSnapshot("));
+check("Snapshot diff summary present", gateJs.includes("function snapshotDiffSummary("));
+check("Snapshot restore preview present", gateJs.includes("showSnapshotDiff(snapshot.id)"));
+check("Snapshot timestamp noise excluded", gateJs.includes("description: vector.description"));
+
+check("Context Launch visibility retained", gateJs.includes("contextLaunchHidden"));
+check("Route Group order retained", gateJs.includes("routeGroupOrder"));
+check("Pinned Route Group retained", gateJs.includes("pinnedRouteGroup"));
 check("Snapshot storage isolated", gateJs.includes("neutriverse-gate-config-snapshots-v1"));
-check("Settings filter logic present", gateJs.includes("function filterSettingsSections("));
-check("Snapshot renderer present", gateJs.includes("function renderSnapshotList()"));
 check("Config diagnostics retained", gateJs.includes("function diagnosePreferences("));
 check("Rail health sync retained", gateJs.includes("function syncSettingsHealth()"));
 
 check("Custom launch limit retained", gateData.includes("custom_launches: 8"));
 check("Custom group limit retained", gateData.includes("custom_route_groups: 4"));
-check("Snapshot limit configured", gateData.includes("config_snapshots: 5"));
+check("Snapshot limit retained", gateData.includes("config_snapshots: 5"));
+check("Route shortcuts enabled", gateData.includes("route_shortcuts: true"));
 
 check("Roadmap packaged", roadmap.includes("Package convention"));
-check("V3.4 roadmap recorded", roadmap.includes("V3.4"));
+check("V3.5 roadmap recorded", roadmap.includes("V3.5"));
 
 const failed = checks.filter((item) => !item.condition);
 

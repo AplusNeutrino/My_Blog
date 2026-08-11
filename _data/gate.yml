@@ -140,6 +140,7 @@ settings_defaults:
   - system
   pinned_route_group: ''
   context_launch_hidden: {}
+  route_shortcuts: true
 route_groups:
 - id: work
   label: WORK

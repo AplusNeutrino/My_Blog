@@ -155,11 +155,34 @@ inside the Neutriverse facility language.
   - Context Launch visibility rules.
 - Source regression suite expanded to cover V3.4 controls and schema.
 
-#### V3.5 — next
-- Snapshot rename and optional diff preview before restore.
-- Context profile summary showing Search + Launch + Route behavior in one place.
-- Optional Route Group keyboard shortcuts.
-- Settings section anchors / quick navigation if filtering alone becomes insufficient.
+#### V3.5 — implemented
+- Snapshot rename and restore preview.
+  - Rename browser-local snapshots without recreating them.
+  - DIFF / RESTORE first opens a readable six-domain comparison:
+    - Search;
+    - Interface;
+    - Launch;
+    - Context;
+    - Dashboard;
+    - Current Vector.
+  - Current Vector timestamps are ignored so `updatedAt` noise does not create false differences.
+- Context Profile summary.
+  - Shows current Route Group, effective search engine, visible Launch count, valid Route count, pin state, and keyboard shortcut.
+  - Uses the same effective visibility and route resolution logic as the live Gate.
+- Route Group keyboard shortcuts.
+  - `Ctrl/Cmd + Alt + 1–9` selects groups by the effective Route Matrix order.
+  - Pinned ordering is therefore reflected in shortcut numbering.
+  - Shortcuts are disabled while typing in form fields or editable content.
+- Settings quick navigation.
+  - `JUMP TO` select provides direct navigation to all ten Settings sections.
+  - Jumping clears Settings filtering so the target section cannot remain hidden.
+- Source regression suite expanded for V3.5 controls and shortcut/diff logic.
+
+#### V3.6 — next
+- More detailed Snapshot diff values for custom Route/Launch edits.
+- Optional user-facing toggle for Route Group keyboard shortcuts.
+- Context Profile actions such as copy/export profile configuration.
+- Snapshot metadata such as reason/tag and last-restored timestamp.
 - Real-browser E2E regression suite when a reliable browser runtime is available.
 
 ### V4 · Personal OS

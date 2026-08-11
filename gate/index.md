@@ -514,6 +514,24 @@ description: "Neutriverse personal transit gate."
           data-gate-settings-filter
         >
       </label>
+
+      <label class="gate-settings-jump">
+        <span>JUMP TO</span>
+        <select data-gate-settings-jump>
+          <option value="">SELECT SECTION</option>
+          <option value="gate-settings-query">01 · QUERY ARRAY</option>
+          <option value="gate-settings-interface">02 · INTERFACE</option>
+          <option value="gate-settings-modules">03 · MODULES</option>
+          <option value="gate-settings-launch">04 · LAUNCH ROUTES</option>
+          <option value="gate-settings-context">05 · CONTEXT ROUTES</option>
+          <option value="gate-settings-layout">06 · DASHBOARD ORDER</option>
+          <option value="gate-settings-transfer">07 · CONFIGURATION TRANSFER</option>
+          <option value="gate-settings-snapshots">08 · CONFIG SNAPSHOTS</option>
+          <option value="gate-settings-diagnostics">09 · CONFIG DIAGNOSTICS</option>
+          <option value="gate-settings-storage">10 · LOCAL STORAGE</option>
+        </select>
+      </label>
+
       <span data-gate-settings-filter-state>ALL SECTIONS</span>
     </div>
 
@@ -686,6 +704,36 @@ description: "Neutriverse personal transit gate."
             {% endfor %}
           </select>
         </label>
+
+        <div class="gate-context-profile">
+          <div class="gate-route-editor-head">
+            <span>CONTEXT PROFILE</span>
+            <small data-gate-context-profile-shortcut>SHORTCUT —</small>
+          </div>
+
+          <div class="gate-context-profile-grid">
+            <div>
+              <span>GROUP</span>
+              <strong data-gate-context-profile-group>WORK</strong>
+            </div>
+            <div>
+              <span>SEARCH</span>
+              <strong data-gate-context-profile-search>GLOBAL</strong>
+            </div>
+            <div>
+              <span>LAUNCHES</span>
+              <strong data-gate-context-profile-launches>—</strong>
+            </div>
+            <div>
+              <span>ROUTES</span>
+              <strong data-gate-context-profile-routes>—</strong>
+            </div>
+          </div>
+
+          <p data-gate-context-profile-note>
+            Active context behavior summary.
+          </p>
+        </div>
 
         <div class="gate-query-preset-editor">
           <div class="gate-route-editor-head">
@@ -870,6 +918,19 @@ description: "Neutriverse personal transit gate."
         </div>
 
         <div class="gate-snapshot-list" data-gate-snapshot-list></div>
+
+        <div class="gate-snapshot-diff" data-gate-snapshot-diff hidden>
+          <div class="gate-route-editor-head">
+            <span data-gate-snapshot-diff-title>SNAPSHOT DIFF</span>
+            <button type="button" data-gate-snapshot-diff-close>CLOSE</button>
+          </div>
+
+          <div class="gate-snapshot-diff-list" data-gate-snapshot-diff-list></div>
+
+          <div class="gate-snapshot-diff-actions">
+            <button type="button" data-gate-snapshot-diff-restore>RESTORE THIS SNAPSHOT</button>
+          </div>
+        </div>
 
         <p class="gate-settings-footnote">
           快照包含 Gate preferences 与 Current Vector；不包含天气坐标、Recent Transits 或 Field Record。
