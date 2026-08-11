@@ -230,6 +230,7 @@
     defaultSearch: settingsDefault.default_search || "google",
     density: settingsDefault.density === "compact" ? "compact" : "standard",
     ambient: settingsDefault.ambient !== false,
+    routeShortcuts: settingsDefault.route_shortcuts !== false,
     presentation: settingsDefault.presentation === "focus" ? "focus" : "dashboard",
     modules: {
       launch_routes: settingsDefault.modules?.launch_routes !== false,
@@ -416,6 +417,7 @@
         : (engines[preferenceDefaults.defaultSearch] ? preferenceDefaults.defaultSearch : "google"),
       density: raw.density === "compact" ? "compact" : "standard",
       ambient: raw.ambient !== false,
+      routeShortcuts: raw.routeShortcuts !== false,
       presentation,
       modules,
       launchOrder,
@@ -818,7 +820,7 @@
         groupId === preferences.pinnedRouteGroup
       );
 
-      if (shortcut) {
+      if (preferences.routeShortcuts && shortcut) {
         tab.dataset.gateShortcut = `⌘/Ctrl+Alt+${shortcut}`;
         tab.title = `${routeGroupDefinition(groupId)?.label || groupId} · Ctrl/Cmd + Alt + ${shortcut}`;
       } else {
@@ -907,6 +909,147 @@
     return routes;
   }
 
+  function contextProfilePayload(groupId = preferences.activeRouteGroup) {
+    const group = routeGroupDefinition(groupId);
+    const preset = preferences.queryPresets?.[groupId] || {};
+    const engineKey =
+      preset.engine && engines[preset.engine]
+        ? preset.engine
+        : preferences.defaultSearch;
+    const engine = engines[engineKey] || defaultEngine();
+
+    const visibleIds = effectiveLaunchVisibility(groupId);
+    const launchNodesById = new Map(
+      qsa("[data-gate-launch]").map((node) => [
+        node.dataset.gateLaunchId || node.dataset.gateCommand,
+        node,
+      ])
+    );
+
+    const launches = visibleIds.map((id) => {
+      const node = launchNodesById.get(id);
+
+      return {
+        id,
+        label: node?.dataset.gateLabel || id,
+        detail: node?.querySelector("small")?.textContent || "LAUNCH ROUTE",
+        url: node?.href || "",
+      };
+    });
+
+    const routes = validRoutesForGroup(groupId).map((route) => ({
+      label: route.label,
+      detail: route.detail,
+      url: route.url,
+    }));
+
+    const shortcutIndex = routeGroupIds.indexOf(groupId);
+
+    return {
+      format: "neutriverse-gate-context-profile",
+      version: "1",
+      exportedAt: new Date().toISOString(),
+      group: {
+        id: groupId,
+        label: group?.label || groupId,
+        detail: group?.detail || "",
+        pinned: groupId === preferences.pinnedRouteGroup,
+        effectiveOrder: routeGroupIds.indexOf(groupId) + 1,
+      },
+      search: {
+        engine: engineKey,
+        label: engine?.label || engineKey,
+        inherited: !preset.engine,
+        placeholder: preset.placeholder || "",
+      },
+      launches,
+      routes,
+      shortcut:
+        preferences.routeShortcuts && shortcutIndex >= 0 && shortcutIndex < 9
+          ? `Ctrl/Cmd + Alt + ${shortcutIndex + 1}`
+          : null,
+    };
+  }
+
+  function contextProfileText(groupId = preferences.activeRouteGroup) {
+    const profile = contextProfilePayload(groupId);
+
+    return [
+      `NEUTRIVERSE // CONTEXT PROFILE`,
+      `${profile.group.label.toUpperCase()} · ${profile.group.detail || "ROUTES"}`,
+      `Search: ${profile.search.label}${profile.search.inherited ? " (global)" : " (context)"}`,
+      `Launches: ${profile.launches.length}`,
+      `Routes: ${profile.routes.length}`,
+      `Pinned: ${profile.group.pinned ? "yes" : "no"}`,
+      `Shortcut: ${profile.shortcut || "off"}`,
+      "",
+      "Launch Routes:",
+      ...profile.launches.map((item) => `- ${item.label} · ${item.detail}`),
+      "",
+      "Transit Routes:",
+      ...profile.routes.map((item) => `- ${item.label} · ${item.detail} · ${item.url}`),
+    ].join("\n");
+  }
+
+  async function copyTextToClipboard(value) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      let copied = false;
+
+      try {
+        copied = document.execCommand("copy");
+      } catch {
+        copied = false;
+      }
+
+      textarea.remove();
+      return copied;
+    }
+  }
+
+  async function copyContextProfile() {
+    const copied = await copyTextToClipboard(
+      contextProfileText(preferences.activeRouteGroup)
+    );
+
+    setSettingsStatus(
+      copied ? "CONTEXT PROFILE COPIED" : "COPY UNAVAILABLE"
+    );
+  }
+
+  function exportContextProfile() {
+    const profile = contextProfilePayload(preferences.activeRouteGroup);
+    const blob = new Blob(
+      [JSON.stringify(profile, null, 2)],
+      { type: "application/json" }
+    );
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    const groupSlug = cleanText(profile.group.label, 24)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "context";
+
+    anchor.href = url;
+    anchor.download = `neutriverse-gate-context-${groupSlug}.json`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setSettingsStatus("CONTEXT PROFILE EXPORTED");
+  }
+
   function syncContextProfile(groupId = preferences.activeRouteGroup) {
     if (!routeGroupIds.includes(groupId)) {
       return;
@@ -923,9 +1066,10 @@
     const visibleLaunches = effectiveLaunchVisibility(groupId);
     const routes = validRoutesForGroup(groupId);
     const shortcutIndex = routeGroupIds.indexOf(groupId);
-    const shortcut = shortcutIndex >= 0 && shortcutIndex < 9
-      ? `CTRL/CMD + ALT + ${shortcutIndex + 1}`
-      : "SHORTCUT —";
+    const shortcut =
+      preferences.routeShortcuts && shortcutIndex >= 0 && shortcutIndex < 9
+        ? `CTRL/CMD + ALT + ${shortcutIndex + 1}`
+        : "SHORTCUT OFF";
 
     if (contextProfileGroup) {
       contextProfileGroup.textContent = group?.label || groupId.toUpperCase();
@@ -2320,6 +2464,7 @@
   const settingSearch = qs("[data-gate-setting-search]");
   const settingDensity = qs("[data-gate-setting-density]");
   const settingAmbient = qs("[data-gate-setting-ambient]");
+  const settingRouteShortcuts = qs("[data-gate-setting-route-shortcuts]");
   const settingModuleInputs = qsa("[data-gate-setting-module]");
   const settingRouteGroup = qs("[data-gate-setting-route-group]");
   const settingPresentation = qs("[data-gate-setting-presentation]");
@@ -2367,8 +2512,12 @@
   const contextProfileRoutes = qs("[data-gate-context-profile-routes]");
   const contextProfileShortcut = qs("[data-gate-context-profile-shortcut]");
   const contextProfileNote = qs("[data-gate-context-profile-note]");
+  const copyContextProfileButton = qs("[data-gate-copy-context-profile]");
+  const exportContextProfileButton = qs("[data-gate-export-context-profile]");
 
   const snapshotLabel = qs("[data-gate-snapshot-label]");
+  const snapshotTag = qs("[data-gate-snapshot-tag]");
+  const snapshotReason = qs("[data-gate-snapshot-reason]");
   const createSnapshotButton = qs("[data-gate-create-snapshot]");
   const snapshotList = qs("[data-gate-snapshot-list]");
   const snapshotDiffPanel = qs("[data-gate-snapshot-diff]");
@@ -2672,6 +2821,33 @@
     });
   }
 
+  function normalizeSnapshotRecord(item) {
+    if (
+      !item ||
+      typeof item !== "object" ||
+      typeof item.id !== "string" ||
+      !item.preferences ||
+      typeof item.preferences !== "object"
+    ) {
+      return null;
+    }
+
+    return {
+      id: item.id.slice(0, 96),
+      label: cleanText(item.label, 48) || "Gate Snapshot",
+      tag: cleanText(item.tag, 24),
+      reason: cleanText(item.reason, 120),
+      createdAt: typeof item.createdAt === "string"
+        ? item.createdAt
+        : new Date().toISOString(),
+      lastRestoredAt: typeof item.lastRestoredAt === "string"
+        ? item.lastRestoredAt
+        : "",
+      preferences: item.preferences,
+      currentVector: item.currentVector || null,
+    };
+  }
+
   function readSnapshots() {
     const value = readJson(snapshotKey, []);
 
@@ -2680,13 +2856,8 @@
     }
 
     return value
-      .filter((item) =>
-        item &&
-        typeof item === "object" &&
-        typeof item.id === "string" &&
-        item.preferences &&
-        typeof item.preferences === "object"
-      )
+      .map(normalizeSnapshotRecord)
+      .filter(Boolean)
       .slice(0, snapshotLimit);
   }
 
@@ -2709,16 +2880,19 @@
     const snapshot = {
       id: `snapshot-${now.getTime().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
       label: cleanText(label, 48) || defaultSnapshotLabel(now),
+      tag: cleanText(snapshotTag?.value, 24),
+      reason: cleanText(snapshotReason?.value, 120),
       createdAt: now.toISOString(),
+      lastRestoredAt: "",
       preferences: normalizePreferences(preferences),
       currentVector: readVectorOverride(),
     };
 
     writeSnapshots([snapshot, ...readSnapshots()]);
 
-    if (snapshotLabel) {
-      snapshotLabel.value = "";
-    }
+    if (snapshotLabel) snapshotLabel.value = "";
+    if (snapshotTag) snapshotTag.value = "";
+    if (snapshotReason) snapshotReason.value = "";
 
     renderSnapshotList();
     setSettingsStatus("CONFIG SNAPSHOT CREATED");
@@ -2776,6 +2950,7 @@
       interface: {
         density: normalized.density,
         ambient: normalized.ambient,
+        routeShortcuts: normalized.routeShortcuts,
         presentation: normalized.presentation,
         modules: normalized.modules,
       },
@@ -2814,6 +2989,247 @@
     return JSON.stringify(left ?? null) === JSON.stringify(right ?? null);
   }
 
+  function namedItemsById(items = []) {
+    return new Map(
+      items
+        .filter((item) => item && typeof item.id === "string")
+        .map((item) => [item.id, item])
+    );
+  }
+
+  function compactDiffParts(parts, limit = 6) {
+    const visible = parts.slice(0, limit);
+
+    if (parts.length > limit) {
+      visible.push(`+${parts.length - limit} more`);
+    }
+
+    return visible.join("; ");
+  }
+
+  function customLaunchDiffDetails(currentLaunch, savedLaunch) {
+    const currentMap = namedItemsById(currentLaunch.customLaunches);
+    const savedMap = namedItemsById(savedLaunch.customLaunches);
+    const details = [];
+
+    savedMap.forEach((item, id) => {
+      if (!currentMap.has(id)) {
+        details.push(`added ${item.label} (${item.role})`);
+      }
+    });
+
+    currentMap.forEach((item, id) => {
+      if (!savedMap.has(id)) {
+        details.push(`removed ${item.label} (${item.role})`);
+      }
+    });
+
+    currentMap.forEach((currentItem, id) => {
+      const savedItem = savedMap.get(id);
+
+      if (!savedItem) {
+        return;
+      }
+
+      const fieldChanges = [];
+
+      if (currentItem.label !== savedItem.label) {
+        fieldChanges.push(`label ${currentItem.label} → ${savedItem.label}`);
+      }
+
+      if (currentItem.role !== savedItem.role) {
+        fieldChanges.push(`role ${currentItem.role} → ${savedItem.role}`);
+      }
+
+      if (currentItem.url !== savedItem.url) {
+        fieldChanges.push(`URL ${currentItem.url} → ${savedItem.url}`);
+      }
+
+      if (fieldChanges.length) {
+        details.push(`${savedItem.label}: ${fieldChanges.join(", ")}`);
+      }
+    });
+
+    const currentHidden = new Set(currentLaunch.hiddenLaunches || []);
+    const savedHidden = new Set(savedLaunch.hiddenLaunches || []);
+
+    const newlyHidden = [...savedHidden].filter((id) => !currentHidden.has(id));
+    const newlyVisible = [...currentHidden].filter((id) => !savedHidden.has(id));
+
+    if (newlyHidden.length) {
+      details.push(`globally hidden: ${newlyHidden.join(", ")}`);
+    }
+
+    if (newlyVisible.length) {
+      details.push(`globally visible: ${newlyVisible.join(", ")}`);
+    }
+
+    const currentRules = currentLaunch.contextLaunchHidden || {};
+    const savedRules = savedLaunch.contextLaunchHidden || {};
+    const ruleGroups = new Set([
+      ...Object.keys(currentRules),
+      ...Object.keys(savedRules),
+    ]);
+
+    ruleGroups.forEach((groupId) => {
+      if (!sameSnapshotValue(currentRules[groupId] || [], savedRules[groupId] || [])) {
+        details.push(
+          `${groupId} context-hidden: ` +
+          `${(currentRules[groupId] || []).join(", ") || "none"} → ` +
+          `${(savedRules[groupId] || []).join(", ") || "none"}`
+        );
+      }
+    });
+
+    return details;
+  }
+
+  function queryPresetDiffDetails(currentSearch, savedSearch) {
+    const currentPresets = currentSearch.queryPresets || {};
+    const savedPresets = savedSearch.queryPresets || {};
+    const groupIds = new Set([
+      ...Object.keys(currentPresets),
+      ...Object.keys(savedPresets),
+    ]);
+    const details = [];
+
+    groupIds.forEach((groupId) => {
+      const currentPreset = currentPresets[groupId] || {};
+      const savedPreset = savedPresets[groupId] || {};
+
+      if (sameSnapshotValue(currentPreset, savedPreset)) {
+        return;
+      }
+
+      const currentEngine = currentPreset.engine || "GLOBAL";
+      const savedEngine = savedPreset.engine || "GLOBAL";
+      const currentPlaceholder = currentPreset.placeholder || "default hint";
+      const savedPlaceholder = savedPreset.placeholder || "default hint";
+
+      details.push(
+        `${groupId}: engine ${currentEngine} → ${savedEngine}; ` +
+        `hint ${currentPlaceholder} → ${savedPlaceholder}`
+      );
+    });
+
+    return details;
+  }
+
+  function snapshotGroups(context) {
+    return [
+      ...(Array.isArray(routeGroupsDefault) ? routeGroupsDefault : []),
+      ...(context.customRouteGroups || []),
+    ];
+  }
+
+  function snapshotResolvedRoute(context, groupId, slotIndex) {
+    const custom = (context.customRouteGroups || [])
+      .find((group) => group.id === groupId);
+
+    if (custom) {
+      const route = custom.routes?.[slotIndex] || {};
+
+      return {
+        label: route.label || "UNASSIGNED",
+        detail: route.detail || "CUSTOM ROUTE",
+        url: route.url || "",
+      };
+    }
+
+    const baseGroup = (Array.isArray(routeGroupsDefault) ? routeGroupsDefault : [])
+      .find((group) => group.id === groupId);
+    const defaults = baseGroup?.routes?.[slotIndex] || {};
+    const override = context.routeOverrides?.[groupId]?.[slotIndex] || {};
+
+    return {
+      label: override.label || defaults.label || `Route ${slotIndex + 1}`,
+      detail: override.detail || defaults.detail || "ROUTE",
+      url: override.url || defaults.url || "",
+    };
+  }
+
+  function routeContextDiffDetails(currentContext, savedContext) {
+    const currentGroups = namedItemsById(snapshotGroups(currentContext));
+    const savedGroups = namedItemsById(snapshotGroups(savedContext));
+    const details = [];
+
+    savedGroups.forEach((group, id) => {
+      if (!currentGroups.has(id)) {
+        details.push(`group added ${group.label}`);
+      }
+    });
+
+    currentGroups.forEach((group, id) => {
+      if (!savedGroups.has(id)) {
+        details.push(`group removed ${group.label}`);
+      }
+    });
+
+    currentGroups.forEach((currentGroup, groupId) => {
+      const savedGroup = savedGroups.get(groupId);
+
+      if (!savedGroup) {
+        return;
+      }
+
+      if (
+        currentGroup.label !== savedGroup.label ||
+        currentGroup.detail !== savedGroup.detail
+      ) {
+        details.push(
+          `group ${currentGroup.label}: ` +
+          `${currentGroup.label}/${currentGroup.detail || "—"} → ` +
+          `${savedGroup.label}/${savedGroup.detail || "—"}`
+        );
+      }
+
+      for (let slotIndex = 0; slotIndex < routesPerGroup; slotIndex += 1) {
+        const currentRoute = snapshotResolvedRoute(
+          currentContext,
+          groupId,
+          slotIndex
+        );
+        const savedRoute = snapshotResolvedRoute(
+          savedContext,
+          groupId,
+          slotIndex
+        );
+
+        if (!sameSnapshotValue(currentRoute, savedRoute)) {
+          details.push(
+            `${savedGroup.label} route ${slotIndex + 1}: ` +
+            `${currentRoute.label} → ${savedRoute.label}; ` +
+            `${currentRoute.url || "unassigned"} → ${savedRoute.url || "unassigned"}`
+          );
+        }
+      }
+    });
+
+    return details;
+  }
+
+  function dashboardDiffDetails(currentDashboard, savedDashboard) {
+    const details = [];
+
+    if (!sameSnapshotValue(currentDashboard.dashboardOrder, savedDashboard.dashboardOrder)) {
+      details.push(
+        `order ${currentDashboard.dashboardOrder.join(" / ")} → ` +
+        `${savedDashboard.dashboardOrder.join(" / ")}`
+      );
+    }
+
+    Object.keys(currentDashboard.dashboardSpans || {}).forEach((id) => {
+      const currentSpan = currentDashboard.dashboardSpans?.[id];
+      const savedSpan = savedDashboard.dashboardSpans?.[id];
+
+      if (currentSpan !== savedSpan) {
+        details.push(`${id} width ${currentSpan} → ${savedSpan}`);
+      }
+    });
+
+    return details;
+  }
+
   function snapshotDiffSummary(snapshot) {
     const current = snapshotComparable(preferences, readVectorOverride());
     const saved = snapshotComparable(snapshot.preferences, snapshot.currentVector);
@@ -2830,6 +3246,16 @@
         detail:
           `${from} → ${to}; context presets ${presetFrom} → ${presetTo}.`,
       });
+
+      const presetDetails = queryPresetDiffDetails(current.search, saved.search);
+
+      if (presetDetails.length) {
+        changes.push({
+          label: "SEARCH · DETAIL",
+          detail: compactDiffParts(presetDetails),
+          isDetail: true,
+        });
+      }
     }
 
     if (!sameSnapshotValue(current.interface, saved.interface)) {
@@ -2841,7 +3267,9 @@
         detail:
           `${current.interface.presentation.toUpperCase()} → ${saved.interface.presentation.toUpperCase()}; ` +
           `${current.interface.density.toUpperCase()} → ${saved.interface.density.toUpperCase()}; ` +
-          `modules ${activeModules(current.interface)} → ${activeModules(saved.interface)}.`,
+          `modules ${activeModules(current.interface)} → ${activeModules(saved.interface)}; ` +
+          `route shortcuts ${current.interface.routeShortcuts ? "on" : "off"} → ` +
+          `${saved.interface.routeShortcuts ? "on" : "off"}.`,
       });
     }
 
@@ -2863,6 +3291,16 @@
           `${visibleCount(saved.launch, saved.context.activeRouteGroup)}; ` +
           `custom ${current.launch.customLaunches.length} → ${saved.launch.customLaunches.length}.`,
       });
+
+      const launchDetails = customLaunchDiffDetails(current.launch, saved.launch);
+
+      if (launchDetails.length) {
+        changes.push({
+          label: "LAUNCH · DETAIL",
+          detail: compactDiffParts(launchDetails),
+          isDetail: true,
+        });
+      }
     }
 
     if (!sameSnapshotValue(current.context, saved.context)) {
@@ -2887,6 +3325,16 @@
           `${current.context.routeGroupOrder.length} → ${saved.context.routeGroupOrder.length}; ` +
           `pin ${current.context.pinnedRouteGroup || "none"} → ${saved.context.pinnedRouteGroup || "none"}.`,
       });
+
+      const contextDetails = routeContextDiffDetails(current.context, saved.context);
+
+      if (contextDetails.length) {
+        changes.push({
+          label: "CONTEXT · DETAIL",
+          detail: compactDiffParts(contextDetails, 8),
+          isDetail: true,
+        });
+      }
     }
 
     if (!sameSnapshotValue(current.dashboard, saved.dashboard)) {
@@ -2896,6 +3344,16 @@
           `order ${current.dashboard.dashboardOrder.join(" / ")} → ` +
           `${saved.dashboard.dashboardOrder.join(" / ")}.`,
       });
+
+      const dashboardDetails = dashboardDiffDetails(current.dashboard, saved.dashboard);
+
+      if (dashboardDetails.length) {
+        changes.push({
+          label: "DASHBOARD · DETAIL",
+          detail: compactDiffParts(dashboardDetails),
+          isDetail: true,
+        });
+      }
     }
 
     if (!sameSnapshotValue(current.vector, saved.vector)) {
@@ -2903,7 +3361,9 @@
         label: "CURRENT VECTOR",
         detail:
           `${current.vector?.title || "default"} → ${saved.vector?.title || "default"}; ` +
-          `${current.vector?.status || "default"} → ${saved.vector?.status || "default"}.`,
+          `${current.vector?.status || "default"} → ${saved.vector?.status || "default"}; ` +
+          `description ${current.vector?.description || "default"} → ` +
+          `${saved.vector?.description || "default"}.`,
       });
     }
 
@@ -2943,6 +3403,27 @@
 
     const changes = snapshotDiffSummary(snapshot);
 
+    if (snapshot.tag || snapshot.reason || snapshot.lastRestoredAt) {
+      const meta = document.createElement("div");
+      meta.className = "gate-snapshot-diff-item is-detail";
+
+      const metaLabel = document.createElement("strong");
+      metaLabel.textContent = "SNAPSHOT · META";
+
+      const metaDetail = document.createElement("span");
+      const restored = snapshot.lastRestoredAt
+        ? `; last restored ${snapshot.lastRestoredAt}`
+        : "";
+
+      metaDetail.textContent =
+        `${snapshot.tag ? `tag ${snapshot.tag}` : "untagged"}` +
+        `${snapshot.reason ? `; reason ${snapshot.reason}` : ""}` +
+        restored;
+
+      meta.append(metaLabel, metaDetail);
+      snapshotDiffList.appendChild(meta);
+    }
+
     if (!changes.length) {
       const empty = document.createElement("div");
       empty.className = "gate-snapshot-diff-empty";
@@ -2952,6 +3433,7 @@
       changes.forEach((change) => {
         const row = document.createElement("div");
         row.className = "gate-snapshot-diff-item";
+        row.classList.toggle("is-detail", change.isDetail === true);
 
         const label = document.createElement("strong");
         label.textContent = change.label;
@@ -2998,6 +3480,15 @@
     } else {
       storage.remove(vectorKey);
     }
+
+    const restoredAt = new Date().toISOString();
+    writeSnapshots(
+      readSnapshots().map((item) =>
+        item.id === id
+          ? { ...item, lastRestoredAt: restoredAt }
+          : item
+      )
+    );
 
     window.location.reload();
   }
@@ -3052,6 +3543,43 @@
           }).format(date).toUpperCase();
 
       text.append(strong, small);
+
+      const meta = document.createElement("span");
+      meta.className = "gate-snapshot-meta";
+
+      if (snapshot.tag) {
+        const tag = document.createElement("span");
+        tag.className = "gate-snapshot-tag";
+        tag.textContent = snapshot.tag.toUpperCase();
+        meta.appendChild(tag);
+      }
+
+      if (snapshot.reason) {
+        const reason = document.createElement("span");
+        reason.className = "gate-snapshot-reason";
+        reason.textContent = snapshot.reason;
+        meta.appendChild(reason);
+      }
+
+      if (snapshot.lastRestoredAt) {
+        const restoredDate = new Date(snapshot.lastRestoredAt);
+        const restored = document.createElement("span");
+        restored.className = "gate-snapshot-restored";
+        restored.textContent = Number.isNaN(restoredDate.getTime())
+          ? "RESTORED"
+          : `RESTORED ${new Intl.DateTimeFormat("en-GB", {
+              day: "2-digit",
+              month: "short",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+            }).format(restoredDate).toUpperCase()}`;
+        meta.appendChild(restored);
+      }
+
+      if (meta.childNodes.length) {
+        text.appendChild(meta);
+      }
 
       const controls = document.createElement("span");
       controls.className = "gate-snapshot-controls";
@@ -3829,6 +4357,7 @@
     if (settingDensity) settingDensity.value = preferences.density;
     if (settingPresentation) settingPresentation.value = preferences.presentation;
     if (settingAmbient) settingAmbient.checked = preferences.ambient;
+    if (settingRouteShortcuts) settingRouteShortcuts.checked = preferences.routeShortcuts;
 
     syncRouteGroupSelects();
 
@@ -3931,6 +4460,9 @@
     createConfigSnapshot();
   });
 
+  copyContextProfileButton?.addEventListener("click", copyContextProfile);
+  exportContextProfileButton?.addEventListener("click", exportContextProfile);
+
   snapshotDiffCloseButton?.addEventListener("click", closeSnapshotDiff);
 
   snapshotDiffRestoreButton?.addEventListener("click", () => {
@@ -3969,6 +4501,14 @@
       ambient: settingAmbient.checked,
     });
     setSettingsStatus("AMBIENT GRAPHICS UPDATED");
+  });
+
+  settingRouteShortcuts?.addEventListener("change", () => {
+    savePreferences({
+      ...preferences,
+      routeShortcuts: settingRouteShortcuts.checked,
+    });
+    setSettingsStatus("ROUTE SHORTCUTS UPDATED");
   });
 
   settingRouteGroup?.addEventListener("change", () => {
@@ -4072,6 +4612,13 @@
         issues: ["Settings payload is not an object."],
         repaired: normalizePreferences({}),
       };
+    }
+
+    if (
+      Object.prototype.hasOwnProperty.call(raw, "routeShortcuts") &&
+      typeof raw.routeShortcuts !== "boolean"
+    ) {
+      issues.push("Route shortcut preference is malformed.");
     }
 
     const rawCustomLaunches = Array.isArray(raw.customLaunches) ? raw.customLaunches : [];
@@ -4365,7 +4912,7 @@
   function gateConfigPayload() {
     return {
       format: "neutriverse-gate-config",
-      version: "3.5",
+      version: "3.6",
       exportedAt: new Date().toISOString(),
       preferences: normalizePreferences(preferences),
       currentVector: readVectorOverride(),
@@ -4549,7 +5096,7 @@
       );
 
     if (
-      settingsDefault.route_shortcuts !== false &&
+      preferences.routeShortcuts &&
       commandKey &&
       event.altKey &&
       /^[1-9]$/.test(event.key) &&

@@ -3534,3 +3534,125 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+
+/* V3.6 · Detailed snapshot metadata / Context profile actions ------------- */
+
+.gate-context-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gate-context-profile-actions button {
+  min-height: 30px;
+  padding: 0 0.48rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.49rem;
+  letter-spacing: 0.045em;
+}
+
+.gate-context-profile-actions button:hover,
+.gate-context-profile-actions button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 7%, transparent);
+}
+
+.gate-snapshot-create {
+  grid-template-columns: minmax(0, 1.15fr) minmax(110px, 0.55fr) auto;
+}
+
+.gate-snapshot-reason-field {
+  grid-column: 1 / -2;
+}
+
+.gate-snapshot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.gate-snapshot-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 0.36rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 999px;
+  color: var(--gate-signal);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.055em;
+}
+
+.gate-snapshot-reason,
+.gate-snapshot-restored {
+  color: var(--gate-muted);
+  font-size: 0.47rem;
+  line-height: 1.4;
+}
+
+.gate-snapshot-diff-item.is-detail {
+  border-left: 2px solid color-mix(in srgb, var(--gate-accent) 65%, transparent);
+  padding-left: 0.55rem;
+}
+
+.gate-snapshot-diff-item.is-detail > strong {
+  color: var(--gate-accent);
+}
+
+.gate-snapshot-diff-item code {
+  color: var(--gate-text);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.5rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+:root[data-mode="light"] .gate-context-profile-actions button,
+:root[data-bs-theme="light"] .gate-context-profile-actions button {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  color: var(--prospero-text-primary, #17445a);
+}
+
+:root[data-mode="light"] .gate-context-profile-actions button:hover,
+:root[data-bs-theme="light"] .gate-context-profile-actions button:hover,
+:root[data-mode="light"] .gate-context-profile-actions button:focus-visible,
+:root[data-bs-theme="light"] .gate-context-profile-actions button:focus-visible {
+  border-color: var(--prospero-teal, #197f93);
+  background: var(--prospero-teal-wash, rgba(25, 127, 147, 0.09));
+}
+
+@media (max-width: 720px) {
+  .gate-snapshot-create {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gate-snapshot-reason-field {
+    grid-column: 1 / -1;
+  }
+
+  .gate-snapshot-create > .gate-settings-primary {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .gate-context-profile-actions,
+  .gate-snapshot-create {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .gate-context-profile-actions button,
+  .gate-snapshot-create > * {
+    width: 100%;
+    grid-column: auto;
+  }
+}

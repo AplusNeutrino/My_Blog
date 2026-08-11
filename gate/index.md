@@ -588,6 +588,15 @@ description: "Neutriverse personal transit gate."
           <input type="checkbox" data-gate-setting-ambient>
           <i aria-hidden="true"></i>
         </label>
+
+        <label class="gate-setting-switch">
+          <span>
+            <strong>ROUTE SHORTCUTS</strong>
+            <small>Ctrl/Cmd + Alt + 1–9 切换 Route Group。</small>
+          </span>
+          <input type="checkbox" data-gate-setting-route-shortcuts>
+          <i aria-hidden="true"></i>
+        </label>
       </section>
 
       <section class="gate-settings-section" aria-labelledby="gate-settings-modules">
@@ -733,6 +742,11 @@ description: "Neutriverse personal transit gate."
           <p data-gate-context-profile-note>
             Active context behavior summary.
           </p>
+
+          <div class="gate-context-profile-actions">
+            <button type="button" data-gate-copy-context-profile>COPY PROFILE</button>
+            <button type="button" data-gate-export-context-profile>EXPORT PROFILE</button>
+          </div>
         </div>
 
         <div class="gate-query-preset-editor">
@@ -909,6 +923,26 @@ description: "Neutriverse personal transit gate."
               maxlength="48"
               placeholder="Before homelab changes"
               data-gate-snapshot-label
+            >
+          </label>
+
+          <label class="gate-setting-field">
+            <span>TAG</span>
+            <input
+              type="text"
+              maxlength="24"
+              placeholder="HOMELAB"
+              data-gate-snapshot-tag
+            >
+          </label>
+
+          <label class="gate-setting-field gate-snapshot-reason-field">
+            <span>REASON</span>
+            <input
+              type="text"
+              maxlength="120"
+              placeholder="What is about to change?"
+              data-gate-snapshot-reason
             >
           </label>
 

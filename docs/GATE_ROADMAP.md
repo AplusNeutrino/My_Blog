@@ -178,11 +178,39 @@ inside the Neutriverse facility language.
   - Jumping clears Settings filtering so the target section cannot remain hidden.
 - Source regression suite expanded for V3.5 controls and shortcut/diff logic.
 
-#### V3.6 — next
-- More detailed Snapshot diff values for custom Route/Launch edits.
-- Optional user-facing toggle for Route Group keyboard shortcuts.
-- Context Profile actions such as copy/export profile configuration.
-- Snapshot metadata such as reason/tag and last-restored timestamp.
+#### V3.6 — implemented
+- Detailed Snapshot diff.
+  - Keeps the six high-level domains from V3.5 but adds targeted detail rows.
+  - Custom Quick Launch diff reports additions, removals, label/role/URL edits, and global/context visibility changes.
+  - Query preset diff identifies affected Route Groups and engine/placeholder changes.
+  - Route diff identifies added/removed/renamed custom groups and changed route slots/URLs.
+  - Dashboard diff identifies both order and width changes.
+  - Current Vector diff includes title, status, and description while still ignoring timestamp noise.
+- Route Group keyboard shortcut preference.
+  - New user-facing INTERFACE toggle.
+  - Shortcut hints disappear when disabled.
+  - Shortcut state is included in normal Gate configuration export/import.
+  - CONFIG DIAGNOSTICS validates malformed shortcut preference values.
+- Context Profile actions.
+  - COPY PROFILE creates a readable text summary.
+  - EXPORT PROFILE downloads a focused JSON description of the active Context.
+  - Profile export includes effective search, visible Launches, valid routes, pin/order state, and shortcut.
+  - It does not include transient Gate history, weather, notes, or snapshots.
+- Snapshot metadata.
+  - Optional tag and reason captured at creation.
+  - Last-restored timestamp recorded when a snapshot is restored.
+  - Old V3.4/V3.5 snapshots are normalized forward automatically.
+  - Metadata is displayed in the snapshot list and restore preview.
+- Source regression suite expanded for V3.6 schema and controls.
+
+#### V3.7 — next
+- V3 consolidation/refactor:
+  - remove superseded CSS/JS layers accumulated across V2–V3;
+  - consolidate settings/render helpers without changing behavior;
+  - add a release-manifest/version constant shared by UI, config export, and regression checks.
+- Optional Snapshot metadata editing beyond label rename.
+- Context Profile import/apply as an explicit, scoped action.
+- Configuration preflight before destructive resets/imports.
 - Real-browser E2E regression suite when a reliable browser runtime is available.
 
 ### V4 · Personal OS
