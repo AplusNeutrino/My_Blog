@@ -27,17 +27,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.5.0 multi-intent Agent implemented / DuckDB runtime validated / OpenAI + Streamlit runtime validations next",
+    "phase": "FitzSight v0.6.0 three-intent Agent implemented / Customer Intelligence + initial-round materials / OpenAI + Streamlit live validation pending",
     "priority": "P0",
     "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.5.0 delivery · DuckDB deployment runtime validated 2026-08-11"
+    "sourceVersion": "FitzSight v0.6.0 delivery · based on AplusNeutrino/FitzSight main c8e751b · DuckDB deployment runtime already validated"
   },
   "summary": {
-    "verifiedDone": 41,
-    "inProgress": 9,
-    "todo": 15,
+    "verifiedDone": 47,
+    "inProgress": 14,
+    "todo": 5,
     "blocked": 0,
-    "note": "FitzSight v0.5.0 multi-intent Agent build remains validated at 40 passed, 1 skipped in the restricted build environment, with compileall PASS and 2/2 deterministic benchmark PASS. The previously skipped DuckDB-specific runtime path has now been explicitly validated in the deployment environment: DuckDB loaded data/generated, both the default constrained planner and JSON-file planner completed successfully, final status was verified, verifier evidence E0012 and final-answer evidence E0013. Therefore T3 is now done. OpenAI live API and Streamlit runtime validation remain in_progress until separate real-runtime evidence is provided."
+    "note": "FitzSight v0.6.0 adds the third approved Agent intent (Customer Intelligence / behavioral segmentation), a transparent observable-feature segmentation Tool, 3-scenario benchmark quality metrics, UI KPI/chart/trace/evidence-card code, formal initial-round Project Summary / pitch-deck content, and MIT licensing. Build validation: 46 passed, 1 skipped; compileall PASS; 3/3 deterministic benchmark PASS; scenario pass rate 100%, root-cause scenario accuracy 100%, mean evidence coverage 100%, verifier violations 0. Customer Intelligence default: 6,770 Europe customers, 4 segments, High Value 4.1% of customers / 55.8% of deposits, 5/5 claims verified. DuckDB deployment runtime remains previously verified. OpenAI live API and Streamlit live runtime remain in_progress because no new real runtime evidence was provided."
   },
   "milestones": [
     {
@@ -268,10 +268,10 @@
         {
           "id": "B6",
           "title": "Customer segmentation",
-          "status": "todo",
+          "status": "done",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 src/fitzsight/tools/segmentation.py + tests/test_segmentation.py；transparent behavioral_value_score_v1 using observable deposits/trading only；normal SQL does not query *_gt；Europe default 6,770 customers, 100% coverage, 4 segments"
         },
         {
           "id": "D1",
@@ -401,6 +401,14 @@
           "priority": "P0",
           "updated": "2026-08-11",
           "evidence": "v0.5 providers/openai_planner.py；fake Responses client test 验证 json_schema strict、store=False、local scope gate、post-generation plan validation；live API runtime 单独由 T4 跟踪"
+        },
+        {
+          "id": "C9",
+          "title": "Customer Intelligence / segmentation 第三 Agent intent",
+          "status": "done",
+          "priority": "P1",
+          "updated": "2026-08-11",
+          "evidence": "v0.6 CustomerSegmentationTool + CustomerIntelligenceInvestigationEngine + catalog/router/runtime integration；rule planner 与 JSON-file planner 均通过；SQLite Agent 5/5 claims verified；third benchmark PASS"
         }
       ]
     },
@@ -422,10 +430,10 @@
         {
           "id": "E2",
           "title": "KPI cards",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 streamlit_app.py 已实现三 intent business KPI cards；compileall PASS；受 External Runtime 规则约束，Streamlit 实际运行前不标 done"
         },
         {
           "id": "E3",
@@ -433,15 +441,15 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.5 Streamlit demo 可展示 Agent plan 与完整 audit_evidence；尚未实现执行中的实时 step-by-step trace"
+          "evidence": "v0.6 UI 将 approved AgentPlan steps 渲染为 investigation trace table，并显示 verifier outcome；Streamlit runtime 尚未验证"
         },
         {
           "id": "E4",
           "title": "Charts",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 UI 已为 CRM contribution、Net Deposit period flow、Customer Intelligence segment shares 实现 verified-output bar charts；Streamlit runtime 尚未验证"
         },
         {
           "id": "E5",
@@ -449,23 +457,23 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.5 UI 展示 verified findings、guardrail、metrics、Evidence/audit JSON；尚未形成最终 Evidence card 视觉组件与正式报告页"
+          "evidence": "v0.6 UI 已实现 Evidence cards（ID/tool/status/digest/parameters/result）与 verified findings/raw metrics；Streamlit runtime 尚未验证"
         },
         {
           "id": "G1",
           "title": "Project summary",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "docs/INITIAL_ROUND_PROJECT_SUMMARY.md 已形成正式初赛 Project Summary：问题、用户、三 workflow、架构、benchmark、合规与开源叙事齐全"
         },
         {
           "id": "G2",
           "title": "PPT / PDF",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "docs/PITCH_DECK_CONTENT.md 已形成 10-slide 正式内容源稿；尚未生成最终 PPT/PDF artifact，因此不标 done"
         },
         {
           "id": "G3",
@@ -502,10 +510,10 @@
         {
           "id": "G7",
           "title": "Secrets、license、repo visibility 检查",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "repo 已验证 public；.gitignore 与 .env.example 已存在；license 仍待最终确认"
+          "evidence": "repo 已验证 public；.gitignore/.env.example 已存在；v0.6 新增 MIT LICENSE 与 THIRD_PARTY_NOTICES.md；仍需最终提交前再做一次 secrets/dependency scan"
         }
       ]
     },
@@ -522,39 +530,39 @@
           "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.5 evaluation/benchmark_catalog.json 已包含 2 个独立 synthetic scenarios（CRM/FTD + Europe net deposit）；目标仍为 5 scenarios"
+          "evidence": "v0.6 evaluation/benchmark_catalog.json 已扩展为 3 个独立 workflows（CRM/FTD + Europe net deposit + Customer Intelligence）；目标仍为 5 scenarios"
         },
         {
           "id": "F2",
           "title": "Root cause scoring",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.5 scripts/run_benchmark.py 对两个 scenario 执行预期方向、verification 与 root_cause_status 检查；尚未形成正式 root-cause accuracy aggregate metric"
+          "evidence": "v0.6 scripts/run_benchmark.py 新增 root_cause_scenario_accuracy aggregate metric；当前 2 个 root-cause scenarios 均通过，build result 100%"
         },
         {
           "id": "F3",
           "title": "Evidence coverage scoring",
-          "status": "todo",
+          "status": "done",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 benchmark runner 新增 claim evidence coverage scoring；3 scenarios mean_evidence_coverage=100%"
         },
         {
           "id": "F4",
           "title": "Hallucination / overclaim scoring",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 benchmark runner 已记录 verifier_violation_count / total_verifier_violations，当前为 0；尚需 false-correlation/adversarial scenario 才能形成更完整 hallucination/overclaim benchmark"
         },
         {
           "id": "F5",
           "title": "Latency / cost measurement",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 benchmark runner 记录 per-scenario latency_ms 与 mean_latency_ms（SQLite build ~72.7ms）；live model token/cost 仍需 OpenAI runtime 后补充"
         },
         {
           "id": "F6",
@@ -562,15 +570,15 @@
           "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.5 新增 two-scenario benchmark runner/catalog；build validation 40 passed, 1 skipped；尚未完成 planned 5-scenario evaluation harness"
+          "evidence": "v0.6 build validation 46 passed, 1 skipped；3/3 deterministic benchmark PASS；evaluation harness 已有 quality/latency metrics，但计划目标仍为 5 scenarios"
         },
         {
           "id": "F7",
           "title": "UI、视频与部署脚本优化",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.6 UI code 增加 KPI cards、verified charts、plan trace、Evidence cards；视频/部署脚本与 Streamlit live smoke test 尚未完成"
         }
       ]
     },
@@ -587,15 +595,15 @@
           "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": ".env.example 已包含 OPENAI_API_KEY/FITZSIGHT_MODEL/FITZSIGHT_DATA_DIR/FITZSIGHT_BACKEND；CLI 与 Streamlit entrypoint 已有，但尚未完成 one-command startup"
+          "evidence": "v0.6 .env.example + CLI/Streamlit entrypoints；empty external data-dir clean-start rehearsal 成功自动生成 synthetic data 并跑通 3/3 Agent intents；仍未形成最终 one-command full UI/deployment startup，因此保持 in_progress"
         },
         {
           "id": "R2",
           "title": "Benchmark results 与完整 compliance explanation",
-          "status": "todo",
+          "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "已有首个 baseline result，但尚未达到多场景 benchmark / 完整 compliance DoD"
+          "evidence": "v0.6 已生成 docs/V0.6_BENCHMARK_RESULTS.json、V0.6_VALIDATION.md、INITIAL_ROUND_PROJECT_SUMMARY.md，并完善合规边界；最终复赛级 benchmark/compliance package 尚未完成"
         },
         {
           "id": "R3",
@@ -684,6 +692,12 @@
       "level": "medium",
       "title": "Second intent over-interprets customer withdrawal motives",
       "mitigation": "只报告 observed withdrawal concentration/driver；Verifier guardrail 禁止把行为模式升级为客户动机、AML 或投资结论"
+    },
+    {
+      "id": "RK-11",
+      "level": "high",
+      "title": "Customer segmentation 被误用为高影响决策",
+      "mitigation": "segmentation 明确标注 descriptive-only；Verifier/claim guardrail 禁止 credit、AML、suitability、eligibility、restriction 或 adverse-action 推断"
     }
   ],
   "unknowns": [
@@ -714,7 +728,11 @@
     "D-013 采用 approved-intent expansion 而不是 unrestricted tool autonomy；每个新业务意图都有固定 action contract 与 deterministic executor",
     "D-014 净入金场景区分 observed driver 与 customer motive；可量化 withdrawal pressure/concentration，但不能无证据推断客户为何提款或给出 AML/投资结论",
     "D-015 concrete external provider 首选 OpenAI Responses structured planner；strict JSON schema + store=False，且 local classifier/validator 仍为最终权限边界",
-    "D-016 UI 只负责展示 verified outputs/evidence，不重新计算业务指标或绕过 verifier"
+    "D-016 UI 只负责展示 verified outputs/evidence，不重新计算业务指标或绕过 verifier",
+    "D-017 Customer segmentation 必须透明且 descriptive-only：behavioral_value_score_v1 仅使用 observable deposit/trading behavior；禁止 normal Agent 使用 hidden *_gt labels；不得转化为 credit/AML/suitability/adverse-action 决策",
+    "D-018 Benchmark evidence quality 成为一等指标：runner 输出 scenario pass rate、root-cause scenario accuracy、evidence coverage、verifier violations 与 deterministic latency",
+    "D-019 FitzSight 项目代码采用 MIT License；third-party dependencies 继续遵守各自 license，并由 THIRD_PARTY_NOTICES.md 跟踪",
+    "D-020 UI KPI/cards/charts/trace 只读取 verified Agent result，不能重新定义 KPI 或形成第二条未验证 analytics path"
   ]
 }
 ```
@@ -730,48 +748,41 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.5）
+## 当前实现基线（v0.6）
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 已核验公开基线：`v0.4.0` commit `2935ddaa690e29d669607492233b3539ef310152`（`Release FitzSight v0.4.0`）
-- 当前实现版本：`v0.5.0`；已提供部署环境 DuckDB runtime 验证证据
-- Build tests：分组汇总 `40 passed, 1 skipped`；`41 tests collected`
-- Compile validation：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
-- Build 环境仍记录 DuckDB-specific test skip；但部署环境已完成真实 DuckDB runtime validation，因此 `T3` 已关闭为 `done`
-- DuckDB deployment runtime：数据目录 `data/generated`；default constrained planner 与 JSON-file planner 均成功；final status `verified`；verifier evidence `E0012`；final-answer evidence `E0013`
-- Two-scenario deterministic benchmark：`2/2 PASS`
-- CRM benchmark 保持：Affected FTD `-7.53 pp`；Control `-1.21 pp`；response median `+29.15 min`；verification PASS
-- 新 Net Deposit benchmark：baseline `$141,733.52` → current `-$82,168.18`；change `-$223,901.70`；deposit change `+$24,365.52`；withdrawal change `+$248,267.22`；top-11 withdrawal share `92.2%`；verification `5/5 PASS`
-- 新 OpenAI provider：Responses API structured planner adapter 已实现；fake-client integration test 验证 strict JSON schema、`store=False` 与 local policy；**live API 未验证**
-- 新 Streamlit demo shell：代码与 compile validation 已完成；**runtime smoke test 未验证**
+- 已核验公开代码基线：`v0.5.0` commit `c8e751b2e7afe68f7d96837bbeffbebd4e957fd2`（`Release FitzSight v0.5.0`）
+- 本次实现版本：`v0.6.0`
+- DuckDB deployment runtime：此前已验证；`data/generated`；default constrained planner 与 JSON-file planner 均 `verified`；verifier evidence `E0012`；final-answer evidence `E0013`
+- Build tests：`46 passed, 1 skipped`（分组 clean exit；唯一 skip 为 build sandbox 缺少 DuckDB）
+- Compile：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
+- Deterministic benchmark：`3/3 PASS`
+- Scenario pass rate：`100%`
+- Root-cause scenario accuracy：`100%`
+- Mean evidence coverage：`100%`
+- Verifier violations：`0`
+- Customer Intelligence：Europe `6,770` customers；`4` segments；High Value `278` customers（`4.1%`）但占 `55.8%` deposits；Agent verification `5/5 PASS`
+- Streamlit：KPI cards / charts / plan trace / Evidence cards 代码已完成；**live runtime 未验证**
+- OpenAI Responses planner：代码/fake-client contract 已完成；**live API 未验证**
+- License：**MIT**；`THIRD_PARTY_NOTICES.md` 已新增
+- 初赛文案：`docs/INITIAL_ROUND_PROJECT_SUMMARY.md` 已完成；`docs/PITCH_DECK_CONTENT.md` 已形成 10-slide source draft，尚未生成最终 PPT/PDF artifact
+- Clean-start CLI rehearsal：empty data directory 自动生成 synthetic data；CRM `6/6`、Net Deposit `5/5`、Customer Intelligence `5/5` claims 全部 `verified`
 
-## 下一开发切片：FitzSight v0.6
+## 下一开发切片：FitzSight v0.7
 
-1. `DuckDB` runtime 已验证并关闭 T3；下一步优先验证 `OpenAI Responses`（若有 API key/model）与 `Streamlit` runtime，只有实际输出才能关闭 T4/E1 等任务。
-2. P1 引入 Customer Intelligence / segmentation，但必须作为 deterministic Tool，再决定是否暴露为第三个 Agent intent。
-3. 将 benchmark catalog 从 2 scenarios 扩展到至少 3，逐步接近计划中的 5 scenarios。
-4. UI 增加真实 business KPI cards、图表与更清晰的 investigation trace；UI 继续只读取 verified result。
-5. 开始初赛 Project Summary / PPT/PDF 的正式内容版本，不再只停留在 Master Plan outline。
-6. 保留 deterministic fallback，任何 live provider failure 都不得导致核心 Demo 失效。
-7. Final license 仍需在提交前完成。
+1. 若部署环境可用，优先完成 `Streamlit` live smoke test 与 `OpenAI Responses` live planner validation；只有真实输出才能关闭 E1/T4。
+2. 将 benchmark catalog 从 3 scenarios 扩展到 4–5：优先加入 **marketing lead-quality shift** 与 **false-correlation trap**，直接强化 root-cause / overclaim evaluation。
+3. 将 verifier-violation metric 扩展为 adversarial hallucination/causal-overclaim benchmark，而不只是在正常场景里保持 0 violations。
+4. 把 `docs/PITCH_DECK_CONTENT.md` 转化为最终初赛 PPT/PDF artifact，并基于实际 UI 截图完善 Demo narrative。
+5. 完成 demo recording、submission screenshots/backup、one-command startup / clean-environment rehearsal。
+6. 保持 deterministic fallback；live provider 或 UI 失败不能影响核心 CLI demo。
 
 ## 更新日志
 
-- 2026-08-11：核验 `AplusNeutrino/FitzSight` 已部署 v0.4.0，main commit `2935ddaa`（`Release FitzSight v0.4.0`）。
-- 2026-08-11：完成 FitzSight v0.5.0 multi-intent Agent：新增 `net_deposit_anomaly_investigation` 与 Europe high-value withdrawal-cluster synthetic benchmark。
-- 2026-08-11：第二意图 default-seed 结果：net-deposit change `-$223,901.70`；withdrawal change `+$248,267.22`；top-11 withdrawal share `92.2%`；5/5 claims verification PASS。
-- 2026-08-11：新增 `MultiIntentInvestigationEngine`、intent/action catalog、OpenAI Responses structured planner adapter、Streamlit demo shell、two-scenario benchmark catalog/runner。
-- 2026-08-11：v0.5 build validation 分组汇总 `40 passed, 1 skipped`；`compileall PASS`；two-scenario benchmark `2/2 PASS`。
-- 2026-08-11：A8、C7、C8 按代码/测试/运行证据标为 `done`；E1/E3/E5/F1/F2/F6/R1/T4 按已实现但尚未达到完整 DoD 的状态标为 `in_progress`。
-- 2026-08-11：新增 External runtime 证据规则：mock/compile/code presence 不得替代 DuckDB/OpenAI/Streamlit 的真实 runtime validation。
-- 2026-08-11：新增 D-013–D-016，固定 approved-intent expansion、withdrawal-motive guardrail、OpenAI provider 权限边界及 UI 非分析权威原则。
-
-- 2026-08-11：部署环境完成 DuckDB runtime validation：`data/generated` 成功加载；default constrained planner 与 JSON-file planner 均成功执行；final status `verified`；verifier evidence `E0012`；final-answer evidence `E0013`。据此 `T3` 从 `in_progress` 更新为 `done`。
-
-### 历史摘要
-
-- v0.1.0：Synthetic Data + first CRM Ground Truth baseline；用户验证 `5 passed`。
-- v0.2.0：Deterministic Tool Layer；build `17 passed, 1 skipped`。
-- v0.3.0：Contribution Analysis + Anomaly Detection；build `19 passed, 1 skipped`。
-- v0.4.0：Constrained Agent MVP + verifier + fail-closed renderer；build `31 passed, 1 skipped`。
+- 2026-08-11：依据 Master Plan 建立初始追踪基线。
+- 2026-08-11：发布并验证 FitzSight v0.1 → v0.5；完成 Synthetic Data、deterministic Tool Layer、Evidence/Verifier、CRM/FTD + Net Deposit multi-intent Agent、OpenAI provider adapter 与 Streamlit shell。
+- 2026-08-11：部署环境完成 DuckDB runtime validation：`data/generated` 成功加载；default constrained planner 与 JSON-file planner 均成功执行；final status `verified`；verifier evidence `E0012`；final-answer evidence `E0013`；`T3` 关闭为 `done`。
+- 2026-08-11：FitzSight v0.6 新增 Customer Intelligence / `behavioral_value_score_v1` 第三 Agent intent；Europe 6,770 customers 100% coverage；High Value 4.1% customers / 55.8% deposits；5/5 claims verified。
+- 2026-08-11：v0.6 benchmark 扩展至 3 scenarios，3/3 PASS；新增 scenario pass rate、root-cause scenario accuracy、evidence coverage、verifier violations 与 deterministic latency metrics。
+- 2026-08-11：v0.6 UI code 增加 business KPI cards、verified charts、plan trace、Evidence cards；正式 Project Summary 与 10-slide pitch content source 完成；项目代码采用 MIT License。
