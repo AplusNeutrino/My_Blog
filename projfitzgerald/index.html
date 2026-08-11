@@ -1,0 +1,78 @@
+---
+layout: null
+permalink: /projfitzgerald/
+title: Project Fitzgerald — FinSight Tracker
+---
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project Fitzgerald / FinSight 项目进度追踪页">
+  <meta name="theme-color" content="#07130f">
+  <title>Project Fitzgerald · FinSight Tracker</title>
+  <link rel="stylesheet" href="{{ '/projfitzgerald/styles.css' | relative_url }}">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}">NEUTRIVERSE</a>
+    <div class="sync"><span></span> SOURCE-SYNCED</div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">GOAI 2026 · MISSION CONTROL</div>
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">PROJECT FITZGERALD</p>
+          <h1>FIN<span>SIGHT</span></h1>
+          <p id="subtitle" class="subtitle">Financial Operations Intelligence Agent</p>
+        </div>
+        <div class="orb" aria-hidden="true"><div></div></div>
+      </div>
+      <p id="north-star" class="north-star">正在读取项目进度真源…</p>
+      <div class="meta-row">
+        <span id="phase">—</span><span id="priority">—</span><span id="updated">—</span>
+      </div>
+    </section>
+
+    <section class="overview" aria-label="进度总览">
+      <div class="progress-panel">
+        <div class="section-label">TOTAL PROGRESS</div>
+        <div class="progress-number"><strong id="percent">0</strong><span>%</span></div>
+        <div class="bar"><i id="bar"></i></div>
+        <p id="summary-note"></p>
+      </div>
+      <div class="stats">
+        <article><strong id="done-count">0</strong><span>已完成</span></article>
+        <article><strong id="doing-count">0</strong><span>进行中</span></article>
+        <article><strong id="todo-count">0</strong><span>待办</span></article>
+        <article><strong id="blocked-count">0</strong><span>阻塞</span></article>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="section-label">EXECUTION MAP</div>
+      <div class="filters" role="group" aria-label="筛选任务">
+        <button class="active" data-filter="all">全部</button>
+        <button data-filter="done">已完成</button>
+        <button data-filter="in_progress">进行中</button>
+        <button data-filter="todo">待办</button>
+        <button data-filter="P0">P0</button>
+      </div>
+    </section>
+    <section id="milestones" class="milestones" aria-live="polite"></section>
+
+    <section class="intel-grid">
+      <article class="intel risks"><div class="section-label">RISK RADAR</div><div id="risks"></div></article>
+      <article class="intel"><div class="section-label">KNOWN UNKNOWNS</div><ol id="unknowns"></ol></article>
+      <article class="intel decisions"><div class="section-label">LOCKED DECISIONS</div><ol id="decisions"></ol></article>
+    </section>
+  </main>
+  <footer>
+    <span>PROJECT FITZGERALD · FINANCIAL OPERATIONS INTELLIGENCE</span>
+    <a href="{{ '/docs/PROJFITZGERALD_PROGRESS.md' | relative_url }}">打开进度真源 ↗</a>
+  </footer>
+  <script src="{{ '/projfitzgerald/app.js' | relative_url }}" defer></script>
+</body>
+</html>
