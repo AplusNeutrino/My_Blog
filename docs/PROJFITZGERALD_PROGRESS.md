@@ -27,17 +27,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.8.0 initial-round submission sprint / formal PPT-PDF + one-command demo + preflight complete / Streamlit + OpenAI live validation pending",
+    "phase": "FitzSight v0.9.0 runtime/submission resilience complete / offline verified demo + dynamic deck + runtime validators / Streamlit + OpenAI live + portal submission pending",
     "priority": "P0",
     "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.8.0 delivery · based on AplusNeutrino/FitzSight main 10fd594 · DuckDB deployment runtime already validated"
+    "sourceVersion": "FitzSight v0.9.0 delivery · based on AplusNeutrino/FitzSight main 2581fbdd (Release FitzSight v0.8.0) · DuckDB deployment runtime already validated"
   },
   "summary": {
-    "verifiedDone": 56,
-    "inProgress": 12,
-    "todo": 1,
+    "verifiedDone": 61,
+    "inProgress": 8,
+    "todo": 0,
     "blocked": 0,
-    "note": "FitzSight v0.8.0 converts the completed five-intent Agent into initial-round submission assets. Build validation: 59 tests collected; complete non-overlapping groups total 58 passed, 1 skipped; compileall PASS. Five-scenario deterministic benchmark remains 5/5 PASS with 100% scenario pass rate, root-cause accuracy, false-correlation rejection, and evidence coverage; verifier violations 0. Adversarial suite remains 8/8 PASS. v0.8 adds a tested one-command demo launcher with deterministic fallback, submission preflight PASS, and a generated/reviewed 12-slide PPTX/PDF. DuckDB deployment runtime remains validated. OpenAI live API and Streamlit live runtime remain in_progress pending real external runtime evidence."
+    "note": "FitzSight v0.9.0 freezes the five-intent analytical core and strengthens runtime/submission resilience. Build validation: 69 tests collected; complete non-overlapping groups total 68 passed, 1 skipped; compileall PASS. Five-scenario deterministic benchmark remains 5/5 PASS with 100% scenario pass rate, root-cause accuracy, false-correlation rejection and mean evidence coverage; verifier violations 0. Adversarial release gate remains 8/8 PASS. v0.9 closes KPI/trace/chart/Evidence presentation tasks using a pure tested presenter, generates a self-contained offline HTML and H.264 backup video from 5/5 verified Agent runs, adds runtime doctor + real Streamlit/OpenAI validation commands, records deterministic 15-run latency, and corrects active deck/current docs so competition-facing numbers come from fresh verified runs. Final submission preflight PASS with generated CSV=0 and secret hits=0. Streamlit live runtime, OpenAI live planner, actual portal submission/confirmation, final live/local/video completion and timed rehearsal remain in_progress."
   },
   "milestones": [
     {
@@ -335,7 +335,7 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "provider code 与 fake-client integration tests 已通过；build 环境无用户 API credential / live model access，不能宣称真实联网调用已验证"
+          "evidence": "v0.9 OpenAI Responses provider 增加 response/model/token/planning-latency telemetry，live validator 可执行完整 planner→tools→verifier；当前 build environment 无 FITZSIGHT_MODEL/API key，check=status not_run_missing_configuration，保持 in_progress。"
         }
       ]
     },
@@ -449,39 +449,39 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 streamlit_app.py 保持 5 preset workflows；scripts/start_demo.py 已提供 UI launcher；build sandbox 未安装 Streamlit，仍缺真实 runtime smoke test"
+          "evidence": "v0.9 streamlit_app.py 已改为纯 presentation renderer over verified result；runtime validator 已实现。build environment 实际 check=status not_run_dependency_missing（Streamlit 未安装），因此 live runtime 仍未验证。"
         },
         {
           "id": "E2",
           "title": "KPI cards",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 UI source 保持 5-intent KPI cards；deck 已将相同 verified metrics 转为 presentation assets；真实 Streamlit runtime 未验证"
+          "evidence": "v0.9 src/fitzsight/ui/presenter.py：pure presentation layer 从 verified Agent result 生成 KPI cards；tests/test_ui_presenter.py 对 5 workflows 验证每次 5 KPI cards，JSON-safe；不依赖 Streamlit runtime。"
         },
         {
           "id": "E3",
           "title": "Investigation trace",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 UI source 保持 approved AgentPlan investigation trace + verifier outcome；DEMO_RUNBOOK 明确展示 trace 路线；真实 Streamlit runtime 尚未验证"
+          "evidence": "v0.9 pure presenter 生成 approved AgentPlan trace rows + verifier outcome；tests/test_ui_presenter.py 对 5 workflows 验证 trace 非空；Streamlit live rendering 单独由 E1 跟踪。"
         },
         {
           "id": "E4",
           "title": "Charts",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 UI source 保持 5-intent charts；formal PPT/PDF 已生成/视觉 review；Streamlit chart runtime 尚无真实 smoke-test evidence"
+          "evidence": "v0.9 pure presenter 为 5 intents 生成 presentation-only ChartSpec；tests/test_ui_presenter.py 验证每个 workflow chart 非空；业务数值仍来自 verified Agent result。"
         },
         {
           "id": "E5",
           "title": "Evidence cards 与 report",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 UI source 保持 Evidence cards / verified findings / raw metrics；formal deck/demo runbook 已明确 evidence 展示；真实 Streamlit Evidence-card runtime 未验证"
+          "evidence": "v0.9 pure presenter 生成 verified findings / guardrail / Evidence cards，并验证所有 Evidence status=success、presentation JSON-safe；offline HTML 同样展示 verified findings/evidence。"
         },
         {
           "id": "G1",
@@ -510,10 +510,10 @@
         {
           "id": "G4",
           "title": "Demo recording",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.9 submission/FitzSight_Offline_Demo_Backup.mp4：由 5/5 verified deterministic Agent runs 的 offline-demo JSON 生成；H.264 1280x720 30fps，实际约 64s；intro/middle/end representative frames visual review 无明显 clipping/overlap。Live Streamlit screen capture 仍由 E1/R3 跟踪。"
         },
         {
           "id": "G5",
@@ -529,7 +529,7 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.8 backup PDF, submission/SUBMISSION_CHECKLIST.md and scripts/preflight_submission.py 已完成；local submission preflight PASS（required files complete, generated CSV=0, secret hits=0）；实际 GOAI portal upload、confirmation screenshot/email 仍需用户执行，因此不能标 done"
+          "evidence": "v0.9 expanded submission preflight PASS：missing files=0、generated CSV=0、secret hits=0、offline demo 5/5 verified、upload bundle integrity PASS；PPTX/PDF/offline video/upload ZIP hashes recorded。实际 GOAI portal upload/confirmation screenshot/email 仍需用户外部证据。"
         },
         {
           "id": "G7",
@@ -586,7 +586,7 @@
           "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.7 benchmark 记录 deterministic end-to-end latency；live model cost/latency 尚需 OpenAI runtime evidence，保持 in_progress"
+          "evidence": "v0.9 docs/V0.9_DETERMINISTIC_LATENCY.json：SQLite full-Agent 5 workflows × 3 = 15 verified runs；overall mean 292.29ms / p50 300.90ms / p95 343.35ms（build-environment-specific）。OpenAI live provider latency/token/cost 尚无真实调用证据，因此保持 in_progress。"
         },
         {
           "id": "F6",
@@ -602,7 +602,7 @@
           "status": "in_progress",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.8 新增 scripts/start_demo.py、submission PPT/PDF、DEMO_RUNBOOK/PITCH_SPEAKER_NOTES/JUDGE_QA；CLI one-command path 实际运行 verified，auto mode 在无 Streamlit 环境正确 fallback；live Streamlit 与 demo video 仍未完成"
+          "evidence": "v0.9 新增 pure UI presenter、offline HTML/JSON、H.264 backup video、runtime doctor、Streamlit/OpenAI validators、upload convenience bundle 与 expanded preflight；local/offline 路径显著完善。Final Streamlit live rendering 与 portal/video distribution 仍待外部证据。"
         }
       ]
     },
@@ -635,7 +635,7 @@
           "status": "in_progress",
           "priority": "P2",
           "updated": "2026-08-11",
-          "evidence": "v0.8 已具备 local deterministic CLI demo + submitted PPT/PDF offline backup + documented fallback route；live Streamlit runtime 与 recorded video 尚未验证/完成，因此三套 Demo 未达到 done"
+          "evidence": "v0.9 已具备 local deterministic launcher + self-contained offline HTML + H.264 video backup；DuckDB local runtime此前已验证。Live Streamlit path 尚未在 final machine 验证，因此 Live/local/video 三套状态仍未全部 done。"
         },
         {
           "id": "R4",
@@ -643,7 +643,7 @@
           "status": "in_progress",
           "priority": "P2",
           "updated": "2026-08-11",
-          "evidence": "v0.8 submission/DEMO_RUNBOOK.md 已给出约 2m30s demo route；submission/PITCH_SPEAKER_NOTES.md 已提供 12-slide speaker notes；实际 5–8 分钟路演 rehearsal / timing evidence 尚未提供"
+          "evidence": "v0.9 submission/PITCH_REHEARSAL.md 设定 6m30s pitch + 2m20s demo target，并有 12-slide speaker notes / demo runbook；仍缺人工计时 rehearsal 记录，保持 in_progress。"
         },
         {
           "id": "R5",
@@ -651,7 +651,7 @@
           "status": "in_progress",
           "priority": "P2",
           "updated": "2026-08-11",
-          "evidence": "v0.8 submission/JUDGE_QA.md 已覆盖 Agent vs BI、LLM role、hallucination、synthetic data、false correlation、production connector、safety/compliance 等 judge questions；pitch business story 已形成；现场 rehearsal / stability validation 尚未完成"
+          "evidence": "v0.9 Judge Q&A、business story、5-scenario benchmark、8-case adversarial gate、offline fallback 与 submission assets 已齐；最终稳定性/Q&A rehearsal 仍需用户现场计时/演练证据。"
         }
       ]
     }
@@ -728,6 +728,12 @@
       "level": "medium",
       "title": "False correlation / post-hoc narrative",
       "mitigation": "nearby-event falsification benchmark + causal-language verifier；时间邻近不能单独构成 root-cause evidence"
+    },
+    {
+      "id": "RK-13",
+      "level": "high",
+      "title": "Competition-facing metrics drift from current deterministic runtime",
+      "mitigation": "v0.9 pitch deck Slides 4–8 use fresh verified Agent runs in a temporary synthetic dataset; active README/project-summary/pitch docs synchronized; regression test rejects stale net-deposit/customer values."
     }
   ],
   "unknowns": [
@@ -770,7 +776,11 @@
     "D-025 初赛阶段停止无明确收益的 benchmark 扩张；v0.8 优先 judge-facing clarity、runnable demo、submission assets 与 preflight",
     "D-026 正式 PPTX/PDF 只能总结已验证项目状态；不得在 presentation 中引入 repository evidence 不支持的新分析结论；PDF 必须由同一 PPTX 导出并 render-review",
     "D-027 One-command startup 必须保留 deterministic fallback；Streamlit/外部模型不可用时，核心 competition demo 仍可通过 CLI 运行",
-    "D-028 Submission preflight 是本地 release gate，不等于 portal submission success；实际上传、截图、邮件确认继续要求外部证据"
+    "D-028 Submission preflight 是本地 release gate，不等于 portal submission success；实际上传、截图、邮件确认继续要求外部证据",
+    "D-029 UI presentation logic 必须 pure/testable：KPI cards、ChartSpec、trace 与 Evidence cards 只从 verified Agent result 派生；Streamlit 仅作为 renderer，不形成第二条 analytics path",
+    "D-030 Competition-facing numeric claims 必须来自 current verified runtime：pitch-deck builder 使用临时 synthetic dataset fresh-run 生成 Slides 4–8；active submission docs 禁止依赖 stale hardcoded benchmark values",
+    "D-031 Offline HTML/MP4 是 resilience assets，不是 live runtime evidence；其生成要求 5/5 verified deterministic runs，但不能据此关闭 Streamlit/OpenAI live validation",
+    "D-032 Live provider telemetry 可记录 response ID、requested/returned model、token usage 与 measured planning latency；不得输出 API key，也不在无真实调用/可靠 pricing source 时编造 monetary cost"
   ]
 }
 ```
@@ -786,36 +796,42 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.8）
+## 当前实现基线（v0.9）
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 已核验公开代码基线：`v0.7.0` commit `10fd594bc7de1d5f884b12819c89adf5d191e105`（`Release FitzSight v0.7.0`）
-- 本次实现版本：`v0.8.0`
+- 已核验公开代码基线：`v0.8.0` commit `2581fbdd888a6ed3084abd040cfb4dc3c0c7a0fd`（`Release FitzSight v0.8.0`）
+- 本次实现版本：`v0.9.0`
 - DuckDB deployment runtime：此前已验证；`data/generated`；default constrained planner 与 JSON-file planner 均 `verified`；verifier evidence `E0012`；final-answer evidence `E0013`
-- Build tests：`59 tests collected`；完整非重叠分组汇总 `58 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
+- Build tests：`69 tests collected`；完整非重叠分组汇总 `68 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
 - Compile：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
 - Deterministic benchmark：`5/5 PASS`；scenario pass rate `100%`；root-cause scenario accuracy `100%`；false-correlation rejection accuracy `100%`；mean evidence coverage `100%`；verifier violations `0`
 - Adversarial release gate：`8/8 PASS`
-- One-command launcher：`scripts/start_demo.py`；CLI path 实际运行 `verified`；auto mode 在无 Streamlit 环境正确 fallback deterministic CLI
-- Formal presentation：`submission/FitzSight_GOAI_Initial_Round.pptx` + `.pdf`；`12 slides`；PDF 由 LibreOffice 从同一 PPTX 导出，render-review 后未见 clipping/overlap/broken glyph
-- Presentation SHA-256：PPTX `25e11a245cc09017e7a6f710f605cf13a59c457711e19dc900773fc8118553f1`；PDF `41e58215828281891c6138d18a379926f4ad111efb1b599754db656626f43421`
-- Submission preflight：`PASS`；missing required files=`0`；generated CSV packaged=`0`；secret hits=`0`
-- Demo assets：`DEMO_RUNBOOK.md`、`PITCH_SPEAKER_NOTES.md`、`JUDGE_QA.md`、`SUBMISSION_CHECKLIST.md`
-- Streamlit：5 workflows 的 KPI/cards/charts/trace/Evidence code 已完成；**live runtime 未验证**
-- OpenAI Responses planner：代码/fake-client contract 已完成；**live API 未验证**
+- Pure presentation layer：5 workflows 均生成 KPI cards / charts / plan trace / Evidence cards；`tests/test_ui_presenter.py` 与 v0.9 regression tests 通过
+- Current fixed-seed competition metrics：Net Deposit `-$187.8k` / deposits `+$59.2k` / withdrawals `+$246.9k` / top-11 share `91.6%`；Customer High Value `3.7%` customers / `53.7%` deposits
+- Formal presentation：Slides 4–8 由 `scripts/build_pitch_deck.py` fresh verified Agent runs 动态生成；PPTX/PDF 12 pages，最终 PDF 200-DPI render-review 未见 clipping/overlap/broken glyph
+- Final presentation SHA-256：PPTX `d37349c51ff115d7d890a8b49a8596cb058df7e88d517a1559ec392de112378c`；PDF `90628f14c36ceb73de6b50bebea1efe5e0097593a7d5c51a38bc3e4390d3f6b4`
+- Offline demo：HTML/JSON 由 `5/5 verified` Agent runs 生成；`67` evidence records
+- Offline video：H.264 `1280x720` / `30fps` / actual duration about `64s`；intro/middle/end representative frames visual review 通过
+- Deterministic latency：SQLite 15 verified runs；overall mean `292.29ms`、p50 `300.90ms`、p95 `343.35ms`（build-environment-specific）
+- Submission upload convenience ZIP：integrity PASS；SHA-256 `7f70e2f3837da0fb06e00cba88132d7a8128185acd3cead2b7daaa2abd276f4e`
+- Final local submission preflight：`PASS`；missing files=`0`；generated CSV=`0`；secret hits=`0`；offline demo=`5/5 verified`
+- Streamlit live check：`not_run_dependency_missing`；代码/presenter/tests 已完成，但 **final live runtime 未验证**
+- OpenAI live check：`not_run_missing_configuration`；provider/telemetry/tests 已完成，但 **live model/API 未验证**
 - License：**MIT**
 
-## 下一开发切片：FitzSight v0.9 / Runtime + Submission Completion
+## 下一开发切片：FitzSight v0.10 / External Runtime + Portal Closeout
 
-1. 在最终演示环境完成 `Streamlit` live smoke test；真实输出后再关闭 E1–E5 对应 runtime 任务。
-2. 若有稳定可用的 model/API access，再完成 `OpenAI Responses` live planner validation；否则比赛继续使用 deterministic fallback。
-3. 按 `submission/DEMO_RUNBOOK.md` 录制 demo video，并保留 local/offline backup。
-4. 用户在 GOAI portal 完成实际 upload、confirmation screenshot/email；本地 preflight 不代替 portal success。
-5. 对 5–8 分钟 pitch 与 <3 分钟 demo 做计时 rehearsal；使用 `submission/JUDGE_QA.md` 做 Q&A 演练。
-6. 不扩核心 benchmark，除非新场景直接暴露现有安全/评估盲点。
+1. 在最终演示机器执行 `python scripts/validate_streamlit_runtime.py`；只有 health-check PASS 才关闭 E1。
+2. 若有稳定可用的 `OPENAI_API_KEY` + `FITZSIGHT_MODEL`，执行 `python scripts/validate_openai_runtime.py`；无稳定 provider 时继续使用 deterministic fallback，不阻塞初赛 Demo。
+3. 用户在实际 GOAI portal 完成 project introduction、PPT/PDF、repository link 与可选 video 的上传，并保留 confirmation screenshot/email，之后关闭 G6。
+4. 将 live/local/offline HTML/MP4/PPT/PDF 至少复制到第二位置；live Streamlit 验证完成后再关闭 R3。
+5. 按 `submission/PITCH_REHEARSAL.md` 完成 5–8 分钟 pitch 与 <3 分钟 demo 的人工计时记录；完成后关闭 R4/R5。
+6. 初赛提交前不再扩核心 intent/benchmark；只修复会影响可运行性、证据完整性、安全边界或评委理解的问题。
 
 ## 更新日志
+
+- 2026-08-11：FitzSight v0.9 完成 runtime/submission resilience：pure tested UI presenter、5/5 verified offline HTML、H.264 backup video、runtime doctor、Streamlit/OpenAI live validators、provider telemetry、15-run deterministic latency、portal/rehearsal assets 与 upload convenience bundle；active pitch deck/current docs 修复 stale metrics 并改为 fresh verified runtime source；69 tests collected / 68 passed / 1 skipped；final preflight PASS。
 
 - 2026-08-11：依据 Master Plan 建立初始追踪基线。
 - 2026-08-11：发布并验证 FitzSight v0.1 → v0.5；完成 Synthetic Data、deterministic Tool Layer、Evidence/Verifier、CRM/FTD + Net Deposit multi-intent Agent、OpenAI provider adapter 与 Streamlit shell。
