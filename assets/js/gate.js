@@ -71,6 +71,7 @@
   const suggestionsNode = qs("[data-gate-suggestions]");
   const modeToggleButton = qs("[data-gate-mode-toggle]");
   const modeLabelNode = qs("[data-gate-mode-label]");
+  const settingsHealthNode = qs("[data-gate-settings-health]");
 
   const launchGrid = qs("[data-gate-launch-grid]");
   let launchNodes = qsa("[data-gate-launch]");
@@ -262,6 +263,12 @@
     routeOverrides: {},
     customLaunches: [],
     customRouteGroups: [],
+    queryPresets: {},
+    routeGroupOrder: Array.isArray(settingsDefault.route_group_order)
+      ? settingsDefault.route_group_order
+      : [...defaultRouteGroupIds],
+    pinnedRouteGroup: settingsDefault.pinned_route_group || "",
+    contextLaunchHidden: {},
   };
 
   function normalizePreferences(raw = {}) {
@@ -308,9 +315,70 @@
       ...customRouteGroups.map((group) => group.id),
     ];
 
+    const requestedRouteGroupOrder = Array.isArray(raw.routeGroupOrder)
+      ? raw.routeGroupOrder.filter((id, index, array) =>
+          normalizedRouteGroupIds.includes(id) && array.indexOf(id) === index
+        )
+      : [];
+
+    const routeGroupOrder = [
+      ...requestedRouteGroupOrder,
+      ...normalizedRouteGroupIds.filter((id) => !requestedRouteGroupOrder.includes(id)),
+    ];
+
+    const pinnedRouteGroup = normalizedRouteGroupIds.includes(raw.pinnedRouteGroup)
+      ? raw.pinnedRouteGroup
+      : "";
+
     const activeRouteGroup = normalizedRouteGroupIds.includes(raw.activeRouteGroup)
       ? raw.activeRouteGroup
       : preferenceDefaults.activeRouteGroup;
+
+    const rawContextLaunchHidden =
+      raw.contextLaunchHidden &&
+      typeof raw.contextLaunchHidden === "object" &&
+      !Array.isArray(raw.contextLaunchHidden)
+        ? raw.contextLaunchHidden
+        : {};
+
+    const contextLaunchHidden = {};
+
+    normalizedRouteGroupIds.forEach((groupId) => {
+      const hidden = Array.isArray(rawContextLaunchHidden[groupId])
+        ? rawContextLaunchHidden[groupId].filter((id, index, array) =>
+            validLaunchIds.includes(id) && array.indexOf(id) === index
+          )
+        : [];
+
+      if (hidden.length) {
+        contextLaunchHidden[groupId] = hidden;
+      }
+    });
+
+    const rawQueryPresets =
+      raw.queryPresets && typeof raw.queryPresets === "object" && !Array.isArray(raw.queryPresets)
+        ? raw.queryPresets
+        : {};
+
+    const queryPresets = {};
+
+    normalizedRouteGroupIds.forEach((groupId) => {
+      const preset = rawQueryPresets[groupId];
+
+      if (!preset || typeof preset !== "object") {
+        return;
+      }
+
+      const engine = engines[preset.engine] ? preset.engine : "";
+      const placeholder = cleanText(preset.placeholder, 80);
+
+      if (engine || placeholder) {
+        queryPresets[groupId] = {
+          engine,
+          placeholder,
+        };
+      }
+    });
 
     const presentation = raw.presentation === "focus" ? "focus" : "dashboard";
 
@@ -358,6 +426,10 @@
       routeOverrides,
       customLaunches,
       customRouteGroups,
+      queryPresets,
+      routeGroupOrder,
+      pinnedRouteGroup,
+      contextLaunchHidden,
     };
   }
 
@@ -369,10 +441,26 @@
   let preferences = normalizePreferences(storedPreferences);
 
   function allRouteGroups() {
-    return [
+    const groups = [
       ...(Array.isArray(routeGroupsDefault) ? routeGroupsDefault : []),
       ...preferences.customRouteGroups,
     ];
+
+    const byId = new Map(groups.map((group) => [group.id, group]));
+    const orderedIds = [
+      ...preferences.routeGroupOrder.filter((id) => byId.has(id)),
+      ...groups.map((group) => group.id).filter((id) => !preferences.routeGroupOrder.includes(id)),
+    ];
+
+    const effectiveIds =
+      preferences.pinnedRouteGroup && orderedIds.includes(preferences.pinnedRouteGroup)
+        ? [
+            preferences.pinnedRouteGroup,
+            ...orderedIds.filter((id) => id !== preferences.pinnedRouteGroup),
+          ]
+        : orderedIds;
+
+    return effectiveIds.map((id) => byId.get(id)).filter(Boolean);
   }
 
   function savePreferences(next) {
@@ -380,6 +468,7 @@
     writeJson(settingsKey, preferences);
     applyPreferences();
     syncSettingsControls();
+    syncSettingsHealth();
   }
 
   function moduleEnabled(name) {
@@ -460,7 +549,10 @@
       if (node) launchGrid.appendChild(node);
     });
 
-    const hidden = new Set(preferences.hiddenLaunches);
+    const hidden = new Set([
+      ...preferences.hiddenLaunches,
+      ...(preferences.contextLaunchHidden?.[preferences.activeRouteGroup] || []),
+    ]);
 
     launchNodes = qsa("[data-gate-launch]");
     let visibleIndex = 1;
@@ -688,10 +780,41 @@
       bindCustomRouteGroupTab(tab);
     });
 
-    routeGroupIds = allRouteGroups().map((group) => group.id);
+    const effectiveGroups = allRouteGroups();
+    routeGroupIds = effectiveGroups.map((group) => group.id);
+
+    const tabMap = new Map(
+      qsa("[data-gate-route-group-tab]").map((tab) => [
+        tab.dataset.gateRouteGroupTab,
+        tab,
+      ])
+    );
+
+    const panelMap = new Map(
+      qsa("[data-gate-route-group-panel]").map((panel) => [
+        panel.dataset.gateRouteGroupPanel,
+        panel,
+      ])
+    );
+
+    routeGroupIds.forEach((groupId) => {
+      const tab = tabMap.get(groupId);
+      const panel = panelMap.get(groupId);
+
+      if (tab) contextTabsNode.appendChild(tab);
+      if (panel) contextPanelsNode.appendChild(panel);
+    });
+
     routeGroupTabs = qsa("[data-gate-route-group-tab]");
     routeGroupPanels = qsa("[data-gate-route-group-panel]");
     contextRouteNodes = qsa("[data-gate-context-route]");
+
+    routeGroupTabs.forEach((tab) => {
+      tab.classList.toggle(
+        "gate-route-group-pinned",
+        tab.dataset.gateRouteGroupTab === preferences.pinnedRouteGroup
+      );
+    });
 
     app.style.setProperty("--gate-route-group-count", String(Math.max(1, routeGroupIds.length)));
   }
@@ -778,6 +901,7 @@
     applyRouteOverrides();
     applyRouteGroup();
     applyPresentation();
+    syncQueryContext();
   }
 
   applyPreferences();
@@ -1227,12 +1351,42 @@
     });
   }
 
+  function activeQueryPreset() {
+    return preferences.queryPresets?.[preferences.activeRouteGroup] || null;
+  }
+
   function defaultEngine() {
+    const preset = activeQueryPreset();
+    const presetKey = preset?.engine;
+
+    if (presetKey && engines[presetKey]) {
+      return engines[presetKey];
+    }
+
     const key = engines[preferences.defaultSearch]
       ? preferences.defaultSearch
       : preferenceDefaults.defaultSearch;
 
     return engines[key] || Object.values(engines)[0];
+  }
+
+  function syncQueryContext() {
+    if (!searchInput) {
+      return;
+    }
+
+    const group = routeGroupDefinition(preferences.activeRouteGroup);
+    const preset = activeQueryPreset();
+    const engine = defaultEngine();
+
+    searchInput.placeholder =
+      preset?.placeholder ||
+      `Search ${group?.label || "the web"} via ${engine?.label || "Web"}…`;
+
+    if (queryState && !searchInput.value.trim()) {
+      queryState.textContent =
+        `${(group?.label || "GLOBAL").toUpperCase()} · ${(engine?.label || "WEB").toUpperCase()} SEARCH`;
+    }
   }
 
   function buildEngineUrl(engine, query) {
@@ -1357,8 +1511,19 @@
       return true;
     }
 
+    if (verb === "snapshot") {
+      createConfigSnapshot(argument);
+      return true;
+    }
+
     if (verb === "diagnostics") {
       openSettings();
+
+      if (settingsFilterInput) {
+        settingsFilterInput.value = "";
+        filterSettingsSections("");
+      }
+
       window.setTimeout(() => {
         renderDiagnostics();
         document.querySelector("#gate-settings-diagnostics")?.scrollIntoView({ block: "start" });
@@ -1476,6 +1641,7 @@
     { label: "> focus", detail: "Switch to Focus presentation", action: "fill", value: "> focus", code: "CMD" },
     { label: "> dashboard", detail: "Switch to Dashboard presentation", action: "fill", value: "> dashboard", code: "CMD" },
     { label: "> export config", detail: "Download Gate configuration", action: "fill", value: "> export config", code: "CMD" },
+    { label: "> snapshot", detail: "Create a local Gate restore point", action: "fill", value: "> snapshot", code: "CMD" },
     { label: "> diagnostics", detail: "Check local Gate configuration", action: "fill", value: "> diagnostics", code: "CMD" },
     { label: "> repair config", detail: "Normalize local Gate configuration", action: "fill", value: "> repair config", code: "CMD" },
     { label: "> clear recent", detail: "Clear Recent Transits", action: "fill", value: "> clear recent", code: "CMD" },
@@ -1768,7 +1934,7 @@
     const value = searchInput.value.trim();
 
     if (!value) {
-      queryState.textContent = "g / gh / yt / wiki / map / ai";
+      syncQueryContext();
       return;
     }
 
@@ -2077,13 +2243,36 @@
   const customLaunchRole = qs("[data-gate-custom-launch-role]");
   const customLaunchUrl = qs("[data-gate-custom-launch-url]");
   const addCustomLaunchButton = qs("[data-gate-add-custom-launch]");
+  const cancelCustomLaunchButton = qs("[data-gate-cancel-custom-launch]");
   const customLaunchCount = qs("[data-gate-custom-launch-count]");
 
   const customGroupLabel = qs("[data-gate-custom-group-label]");
   const customGroupDetail = qs("[data-gate-custom-group-detail]");
   const addCustomGroupButton = qs("[data-gate-add-custom-group]");
+  const cancelCustomGroupButton = qs("[data-gate-cancel-custom-group]");
   const customGroupCount = qs("[data-gate-custom-group-count]");
   const customGroupList = qs("[data-gate-custom-group-list]");
+
+  const queryPresetGroup = qs("[data-gate-query-preset-group]");
+  const queryPresetEngine = qs("[data-gate-query-preset-engine]");
+  const queryPresetPlaceholder = qs("[data-gate-query-preset-placeholder]");
+  const saveQueryPresetButton = qs("[data-gate-save-query-preset]");
+  const resetQueryPresetButton = qs("[data-gate-reset-query-preset]");
+
+  const contextLaunchGroup = qs("[data-gate-context-launch-group]");
+  const contextLaunchList = qs("[data-gate-context-launch-list]");
+  const resetContextLaunchesButton = qs("[data-gate-reset-context-launches]");
+
+  const routeOrderList = qs("[data-gate-route-order-list]");
+  const unpinRouteGroupButton = qs("[data-gate-unpin-route-group]");
+
+  const settingsFilterInput = qs("[data-gate-settings-filter]");
+  const settingsFilterState = qs("[data-gate-settings-filter-state]");
+  const settingsSections = qsa(".gate-settings-section");
+
+  const snapshotLabel = qs("[data-gate-snapshot-label]");
+  const createSnapshotButton = qs("[data-gate-create-snapshot]");
+  const snapshotList = qs("[data-gate-snapshot-list]");
 
   const diagnosticsSummary = qs("[data-gate-diagnostics-summary]");
   const diagnosticsList = qs("[data-gate-diagnostics-list]");
@@ -2102,6 +2291,9 @@
   const clearNoteButton = qs("[data-gate-clear-note]");
   const resetSettingsButton = qs("[data-gate-reset-settings]");
 
+  const snapshotKey = "neutriverse-gate-config-snapshots-v1";
+  const snapshotLimit = Number(settingsDefault.limits?.config_snapshots) || 5;
+
   let settingsReturnFocus = null;
   let settingsCloseTimer;
 
@@ -2115,6 +2307,28 @@
         settingsStatus.textContent = "LOCAL CONFIGURATION";
       }
     }, 1800);
+  }
+
+  function filterSettingsSections(value = settingsFilterInput?.value || "") {
+    const query = value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    settingsSections.forEach((section) => {
+      const haystack = section.textContent.toLowerCase();
+      const matches = !query || haystack.includes(query);
+
+      section.classList.toggle("is-filtered-out", !matches);
+
+      if (matches) {
+        visibleCount += 1;
+      }
+    });
+
+    if (settingsFilterState) {
+      settingsFilterState.textContent = query
+        ? `${visibleCount} / ${settingsSections.length} MATCH`
+        : "ALL SECTIONS";
+    }
   }
 
   function renderLaunchSettings() {
@@ -2202,6 +2416,13 @@
       controls.append(up, down);
 
       if (node.dataset.gateCustomLaunch === "true") {
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.className = "gate-launch-edit";
+        edit.textContent = "EDIT";
+        edit.setAttribute("aria-label", `编辑 ${strong.textContent}`);
+        edit.addEventListener("click", () => beginEditCustomLaunch(id));
+
         const remove = document.createElement("button");
         remove.type = "button";
         remove.className = "gate-launch-delete";
@@ -2216,10 +2437,14 @@
             hiddenLaunches: preferences.hiddenLaunches.filter((itemId) => itemId !== id),
           });
 
+          if (editingCustomLaunchId === id) {
+            resetCustomLaunchEditor();
+          }
+
           setSettingsStatus("CUSTOM LAUNCH REMOVED");
         });
 
-        controls.appendChild(remove);
+        controls.append(edit, remove);
       }
 
       row.append(visible, label, controls);
@@ -2344,6 +2569,148 @@
     });
   }
 
+  function readSnapshots() {
+    const value = readJson(snapshotKey, []);
+
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
+    return value
+      .filter((item) =>
+        item &&
+        typeof item === "object" &&
+        typeof item.id === "string" &&
+        item.preferences &&
+        typeof item.preferences === "object"
+      )
+      .slice(0, snapshotLimit);
+  }
+
+  function writeSnapshots(items) {
+    writeJson(snapshotKey, items.slice(0, snapshotLimit));
+  }
+
+  function defaultSnapshotLabel(date = new Date()) {
+    return `Snapshot ${new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(date)}`;
+  }
+
+  function createConfigSnapshot(label = snapshotLabel?.value) {
+    const now = new Date();
+    const snapshot = {
+      id: `snapshot-${now.getTime().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      label: cleanText(label, 48) || defaultSnapshotLabel(now),
+      createdAt: now.toISOString(),
+      preferences: normalizePreferences(preferences),
+      currentVector: readVectorOverride(),
+    };
+
+    writeSnapshots([snapshot, ...readSnapshots()]);
+
+    if (snapshotLabel) {
+      snapshotLabel.value = "";
+    }
+
+    renderSnapshotList();
+    setSettingsStatus("CONFIG SNAPSHOT CREATED");
+  }
+
+  function restoreConfigSnapshot(id) {
+    const snapshot = readSnapshots().find((item) => item.id === id);
+
+    if (!snapshot) {
+      setSettingsStatus("SNAPSHOT NOT FOUND");
+      return;
+    }
+
+    if (!window.confirm(`Restore Gate snapshot "${snapshot.label}"?`)) {
+      return;
+    }
+
+    const restored = normalizePreferences(snapshot.preferences);
+    writeJson(settingsKey, restored);
+
+    const vector = normalizeImportedVector(snapshot.currentVector);
+
+    if (vector) {
+      writeJson(vectorKey, vector);
+    } else {
+      storage.remove(vectorKey);
+    }
+
+    window.location.reload();
+  }
+
+  function deleteConfigSnapshot(id) {
+    writeSnapshots(readSnapshots().filter((item) => item.id !== id));
+    renderSnapshotList();
+    setSettingsStatus("CONFIG SNAPSHOT DELETED");
+  }
+
+  function renderSnapshotList() {
+    if (!snapshotList) {
+      return;
+    }
+
+    const snapshots = readSnapshots();
+    snapshotList.replaceChildren();
+
+    if (!snapshots.length) {
+      const empty = document.createElement("div");
+      empty.className = "gate-snapshot-empty";
+      empty.textContent = "NO LOCAL SNAPSHOTS";
+      snapshotList.appendChild(empty);
+      return;
+    }
+
+    snapshots.forEach((snapshot) => {
+      const row = document.createElement("div");
+      row.className = "gate-snapshot-row";
+
+      const text = document.createElement("span");
+      const strong = document.createElement("strong");
+      strong.textContent = snapshot.label;
+
+      const small = document.createElement("small");
+      const date = new Date(snapshot.createdAt);
+      small.textContent = Number.isNaN(date.getTime())
+        ? "LOCAL CONFIGURATION"
+        : new Intl.DateTimeFormat("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          }).format(date).toUpperCase();
+
+      text.append(strong, small);
+
+      const controls = document.createElement("span");
+      controls.className = "gate-snapshot-controls";
+
+      const restore = document.createElement("button");
+      restore.type = "button";
+      restore.textContent = "RESTORE";
+      restore.addEventListener("click", () => restoreConfigSnapshot(snapshot.id));
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "DELETE";
+      remove.addEventListener("click", () => deleteConfigSnapshot(snapshot.id));
+
+      controls.append(restore, remove);
+      row.append(text, controls);
+      snapshotList.appendChild(row);
+    });
+  }
+
   function makeLocalId(prefix, label) {
     const slug = cleanText(label, 32)
       .toLowerCase()
@@ -2355,18 +2722,76 @@
     return `${prefix}-${slug}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 5)}`;
   }
 
+  let editingCustomLaunchId = null;
+  let editingCustomGroupId = null;
+
+  function resetCustomLaunchEditor() {
+    editingCustomLaunchId = null;
+
+    if (customLaunchLabel) customLaunchLabel.value = "";
+    if (customLaunchRole) customLaunchRole.value = "";
+    if (customLaunchUrl) customLaunchUrl.value = "";
+
+    if (addCustomLaunchButton) addCustomLaunchButton.textContent = "ADD QUICK LAUNCH";
+    if (cancelCustomLaunchButton) cancelCustomLaunchButton.hidden = true;
+  }
+
+  function beginEditCustomLaunch(id) {
+    const item = preferences.customLaunches.find((entry) => entry.id === id);
+
+    if (!item) {
+      return;
+    }
+
+    editingCustomLaunchId = id;
+
+    if (customLaunchLabel) customLaunchLabel.value = item.label;
+    if (customLaunchRole) customLaunchRole.value = item.role;
+    if (customLaunchUrl) customLaunchUrl.value = item.url;
+
+    if (addCustomLaunchButton) addCustomLaunchButton.textContent = "SAVE QUICK LAUNCH";
+    if (cancelCustomLaunchButton) cancelCustomLaunchButton.hidden = false;
+
+    customLaunchLabel?.focus();
+  }
+
   function addCustomLaunch() {
     const label = cleanText(customLaunchLabel?.value, 40);
     const role = cleanText(customLaunchRole?.value, 40) || "CUSTOM";
     const url = cleanText(customLaunchUrl?.value, 500);
 
-    if (preferences.customLaunches.length >= customLaunchLimit) {
-      setSettingsStatus("CUSTOM LAUNCH LIMIT REACHED");
+    if (!label || !isSafeRouteUrl(url)) {
+      setSettingsStatus("INVALID CUSTOM LAUNCH");
       return;
     }
 
-    if (!label || !isSafeRouteUrl(url)) {
-      setSettingsStatus("INVALID CUSTOM LAUNCH");
+    if (editingCustomLaunchId) {
+      const exists = preferences.customLaunches.some(
+        (item) => item.id === editingCustomLaunchId
+      );
+
+      if (!exists) {
+        resetCustomLaunchEditor();
+        setSettingsStatus("CUSTOM LAUNCH NOT FOUND");
+        return;
+      }
+
+      savePreferences({
+        ...preferences,
+        customLaunches: preferences.customLaunches.map((item) =>
+          item.id === editingCustomLaunchId
+            ? { ...item, label, role, url }
+            : item
+        ),
+      });
+
+      resetCustomLaunchEditor();
+      setSettingsStatus("CUSTOM LAUNCH UPDATED");
+      return;
+    }
+
+    if (preferences.customLaunches.length >= customLaunchLimit) {
+      setSettingsStatus("CUSTOM LAUNCH LIMIT REACHED");
       return;
     }
 
@@ -2383,22 +2808,24 @@
       launchOrder: [...preferences.launchOrder, item.id],
     });
 
-    if (customLaunchLabel) customLaunchLabel.value = "";
-    if (customLaunchRole) customLaunchRole.value = "";
-    if (customLaunchUrl) customLaunchUrl.value = "";
-
+    resetCustomLaunchEditor();
     setSettingsStatus("CUSTOM LAUNCH ADDED");
   }
 
   function syncRouteGroupSelects(preferredEditId = routeEditGroup?.value) {
     const groups = allRouteGroups();
 
-    [settingRouteGroup, routeEditGroup].forEach((select) => {
+    [settingRouteGroup, routeEditGroup, queryPresetGroup, contextLaunchGroup].forEach((select) => {
       if (!select) return;
 
-      const desired = select === settingRouteGroup
-        ? preferences.activeRouteGroup
-        : preferredEditId;
+      const desired =
+        select === settingRouteGroup
+          ? preferences.activeRouteGroup
+          : select === queryPresetGroup
+            ? (queryPresetGroup?.value || preferences.activeRouteGroup)
+            : select === contextLaunchGroup
+              ? (contextLaunchGroup?.value || preferences.activeRouteGroup)
+              : preferredEditId;
 
       select.replaceChildren();
 
@@ -2412,6 +2839,298 @@
       select.value = groups.some((group) => group.id === desired)
         ? desired
         : (groups[0]?.id || "");
+    });
+  }
+
+  function renderQueryPresetEditor(groupId = queryPresetGroup?.value || preferences.activeRouteGroup) {
+    if (!queryPresetEngine || !queryPresetPlaceholder || !routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const preset = preferences.queryPresets?.[groupId] || {};
+    queryPresetEngine.value = engines[preset.engine] ? preset.engine : "";
+    queryPresetPlaceholder.value = preset.placeholder || "";
+  }
+
+  function saveQueryPreset() {
+    const groupId = queryPresetGroup?.value;
+
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const engine = engines[queryPresetEngine?.value]
+      ? queryPresetEngine.value
+      : "";
+
+    const placeholder = cleanText(queryPresetPlaceholder?.value, 80);
+
+    const nextPresets = {
+      ...preferences.queryPresets,
+    };
+
+    if (!engine && !placeholder) {
+      delete nextPresets[groupId];
+    } else {
+      nextPresets[groupId] = {
+        engine,
+        placeholder,
+      };
+    }
+
+    savePreferences({
+      ...preferences,
+      queryPresets: nextPresets,
+    });
+
+    renderQueryPresetEditor(groupId);
+    setSettingsStatus("QUERY PRESET UPDATED");
+  }
+
+  function resetQueryPreset() {
+    const groupId = queryPresetGroup?.value;
+
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const nextPresets = {
+      ...preferences.queryPresets,
+    };
+
+    delete nextPresets[groupId];
+
+    savePreferences({
+      ...preferences,
+      queryPresets: nextPresets,
+    });
+
+    renderQueryPresetEditor(groupId);
+    setSettingsStatus("QUERY PRESET RESET");
+  }
+
+  function renderContextLaunchSettings(
+    groupId = contextLaunchGroup?.value || preferences.activeRouteGroup
+  ) {
+    if (!contextLaunchList || !routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    contextLaunchList.replaceChildren();
+
+    const globalHidden = new Set(preferences.hiddenLaunches);
+    const contextHidden = new Set(preferences.contextLaunchHidden?.[groupId] || []);
+
+    const nodesById = new Map(
+      qsa("[data-gate-launch]").map((node) => [
+        node.dataset.gateLaunchId || node.dataset.gateCommand,
+        node,
+      ])
+    );
+
+    preferences.launchOrder.forEach((id) => {
+      const node = nodesById.get(id);
+
+      if (!node) {
+        return;
+      }
+
+      const row = document.createElement("label");
+      row.className = "gate-context-launch-row";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = !contextHidden.has(id);
+      checkbox.disabled = globalHidden.has(id);
+      checkbox.setAttribute(
+        "aria-label",
+        `${groupId} 显示 ${node.dataset.gateLabel || id}`
+      );
+
+      checkbox.addEventListener("change", () => {
+        const nextHidden = new Set(preferences.contextLaunchHidden?.[groupId] || []);
+
+        if (checkbox.checked) {
+          nextHidden.delete(id);
+        } else {
+          nextHidden.add(id);
+        }
+
+        const nextContext = {
+          ...preferences.contextLaunchHidden,
+        };
+
+        if (nextHidden.size) {
+          nextContext[groupId] = [...nextHidden];
+        } else {
+          delete nextContext[groupId];
+        }
+
+        savePreferences({
+          ...preferences,
+          contextLaunchHidden: nextContext,
+        });
+
+        if (contextLaunchGroup) {
+          contextLaunchGroup.value = groupId;
+        }
+
+        renderContextLaunchSettings(groupId);
+        setSettingsStatus("CONTEXT LAUNCHES UPDATED");
+      });
+
+      const text = document.createElement("span");
+      const strong = document.createElement("strong");
+      strong.textContent = (node.dataset.gateLabel || id).toUpperCase();
+
+      const small = document.createElement("small");
+      small.textContent = node.querySelector("small")?.textContent || "LAUNCH ROUTE";
+
+      text.append(strong, small);
+
+      const state = document.createElement("span");
+
+      if (globalHidden.has(id)) {
+        state.className = "is-global-hidden";
+        state.textContent = "GLOBAL HIDDEN";
+      } else {
+        state.textContent = contextHidden.has(id) ? "CONTEXT HIDDEN" : "VISIBLE";
+      }
+
+      row.append(checkbox, text, state);
+      contextLaunchList.appendChild(row);
+    });
+  }
+
+  function resetContextLaunchSettings() {
+    const groupId = contextLaunchGroup?.value;
+
+    if (!routeGroupIds.includes(groupId)) {
+      return;
+    }
+
+    const nextContext = {
+      ...preferences.contextLaunchHidden,
+    };
+
+    delete nextContext[groupId];
+
+    savePreferences({
+      ...preferences,
+      contextLaunchHidden: nextContext,
+    });
+
+    if (contextLaunchGroup) {
+      contextLaunchGroup.value = groupId;
+    }
+
+    renderContextLaunchSettings(groupId);
+    setSettingsStatus("CONTEXT LAUNCHES RESET");
+  }
+
+  function renderRouteGroupOrderSettings() {
+    if (!routeOrderList) {
+      return;
+    }
+
+    routeOrderList.replaceChildren();
+
+    const groupsById = new Map(
+      allRouteGroups().map((group) => [group.id, group])
+    );
+
+    preferences.routeGroupOrder.forEach((id, index) => {
+      const group = groupsById.get(id);
+
+      if (!group) {
+        return;
+      }
+
+      const row = document.createElement("div");
+      row.className = "gate-route-order-row";
+
+      const code = document.createElement("span");
+      code.className = "gate-route-order-code";
+      code.textContent = String(index + 1).padStart(2, "0");
+
+      const text = document.createElement("span");
+      const strong = document.createElement("strong");
+      strong.textContent = group.label;
+
+      const small = document.createElement("small");
+      small.textContent =
+        group.id === preferences.pinnedRouteGroup
+          ? `${group.detail || "ROUTES"} · PINNED FIRST`
+          : (group.detail || "ROUTES");
+
+      text.append(strong, small);
+
+      const controls = document.createElement("span");
+      controls.className = "gate-route-order-controls";
+
+      const up = document.createElement("button");
+      up.type = "button";
+      up.textContent = "↑";
+      up.disabled = index === 0;
+      up.setAttribute("aria-label", `上移 ${group.label}`);
+
+      const down = document.createElement("button");
+      down.type = "button";
+      down.textContent = "↓";
+      down.disabled = index === preferences.routeGroupOrder.length - 1;
+      down.setAttribute("aria-label", `下移 ${group.label}`);
+
+      const pin = document.createElement("button");
+      pin.type = "button";
+      pin.textContent = group.id === preferences.pinnedRouteGroup ? "PINNED" : "PIN";
+      pin.classList.toggle("is-pinned", group.id === preferences.pinnedRouteGroup);
+      pin.setAttribute("aria-label", `置顶 ${group.label}`);
+
+      up.addEventListener("click", () => {
+        if (index <= 0) return;
+
+        const order = [...preferences.routeGroupOrder];
+        [order[index - 1], order[index]] = [order[index], order[index - 1]];
+
+        savePreferences({
+          ...preferences,
+          routeGroupOrder: order,
+        });
+
+        setSettingsStatus("ROUTE GROUP ORDER UPDATED");
+      });
+
+      down.addEventListener("click", () => {
+        if (index >= preferences.routeGroupOrder.length - 1) return;
+
+        const order = [...preferences.routeGroupOrder];
+        [order[index + 1], order[index]] = [order[index], order[index + 1]];
+
+        savePreferences({
+          ...preferences,
+          routeGroupOrder: order,
+        });
+
+        setSettingsStatus("ROUTE GROUP ORDER UPDATED");
+      });
+
+      pin.addEventListener("click", () => {
+        savePreferences({
+          ...preferences,
+          pinnedRouteGroup:
+            preferences.pinnedRouteGroup === group.id ? "" : group.id,
+        });
+
+        setSettingsStatus(
+          preferences.pinnedRouteGroup === group.id
+            ? "ROUTE GROUP PINNED"
+            : "ROUTE GROUP UNPINNED"
+        );
+      });
+
+      controls.append(up, down, pin);
+      row.append(code, text, controls);
+      routeOrderList.appendChild(row);
     });
   }
 
@@ -2433,6 +3152,14 @@
       small.textContent = group.detail;
       text.append(strong, small);
 
+      const controls = document.createElement("span");
+      controls.className = "gate-custom-group-controls";
+
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.textContent = "EDIT";
+      edit.addEventListener("click", () => beginEditCustomRouteGroup(group.id));
+
       const remove = document.createElement("button");
       remove.type = "button";
       remove.textContent = "DELETE";
@@ -2446,25 +3173,89 @@
             : preferences.activeRouteGroup,
         });
 
+        if (editingCustomGroupId === group.id) {
+          resetCustomGroupEditor();
+        }
+
         setSettingsStatus("CUSTOM GROUP REMOVED");
       });
 
-      row.append(text, remove);
+      controls.append(edit, remove);
+      row.append(text, controls);
       customGroupList.appendChild(row);
     });
+  }
+
+  function resetCustomGroupEditor() {
+    editingCustomGroupId = null;
+
+    if (customGroupLabel) customGroupLabel.value = "";
+    if (customGroupDetail) customGroupDetail.value = "";
+
+    if (addCustomGroupButton) addCustomGroupButton.textContent = "ADD ROUTE GROUP";
+    if (cancelCustomGroupButton) cancelCustomGroupButton.hidden = true;
+  }
+
+  function beginEditCustomRouteGroup(id) {
+    const group = preferences.customRouteGroups.find((item) => item.id === id);
+
+    if (!group) {
+      return;
+    }
+
+    editingCustomGroupId = id;
+
+    if (customGroupLabel) customGroupLabel.value = group.label;
+    if (customGroupDetail) customGroupDetail.value = group.detail;
+
+    if (addCustomGroupButton) addCustomGroupButton.textContent = "SAVE GROUP NAME";
+    if (cancelCustomGroupButton) cancelCustomGroupButton.hidden = false;
+
+    customGroupLabel?.focus();
   }
 
   function addCustomRouteGroup() {
     const label = cleanText(customGroupLabel?.value, 24);
     const detail = cleanText(customGroupDetail?.value, 40) || "CUSTOM ROUTES";
 
-    if (preferences.customRouteGroups.length >= customRouteGroupLimit) {
-      setSettingsStatus("CUSTOM GROUP LIMIT REACHED");
+    if (!label) {
+      setSettingsStatus("GROUP LABEL REQUIRED");
       return;
     }
 
-    if (!label) {
-      setSettingsStatus("GROUP LABEL REQUIRED");
+    if (editingCustomGroupId) {
+      const exists = preferences.customRouteGroups.some(
+        (group) => group.id === editingCustomGroupId
+      );
+
+      if (!exists) {
+        resetCustomGroupEditor();
+        setSettingsStatus("CUSTOM GROUP NOT FOUND");
+        return;
+      }
+
+      savePreferences({
+        ...preferences,
+        customRouteGroups: preferences.customRouteGroups.map((group) =>
+          group.id === editingCustomGroupId
+            ? { ...group, label, detail }
+            : group
+        ),
+      });
+
+      const editedId = editingCustomGroupId;
+      resetCustomGroupEditor();
+      syncRouteGroupSelects(editedId);
+
+      if (routeEditGroup) routeEditGroup.value = editedId;
+      renderRouteEditor(editedId);
+
+      setSettingsStatus("CUSTOM GROUP RENAMED");
+      return;
+    }
+
+    if (preferences.customRouteGroups.length >= customRouteGroupLimit) {
+      setSettingsStatus("CUSTOM GROUP LIMIT REACHED");
       return;
     }
 
@@ -2485,10 +3276,9 @@
       activeRouteGroup: group.id,
     });
 
-    if (customGroupLabel) customGroupLabel.value = "";
-    if (customGroupDetail) customGroupDetail.value = "";
-
+    resetCustomGroupEditor();
     syncRouteGroupSelects(group.id);
+
     if (routeEditGroup) routeEditGroup.value = group.id;
     renderRouteEditor(group.id);
 
@@ -2668,6 +3458,9 @@
     }
 
     renderCustomGroupList();
+    renderQueryPresetEditor();
+    renderContextLaunchSettings();
+    renderRouteGroupOrderSettings();
 
     settingModuleInputs.forEach((input) => {
       input.checked = moduleEnabled(input.dataset.gateSettingModule);
@@ -2676,6 +3469,8 @@
     renderLaunchSettings();
     renderDashboardSettings();
     renderRouteEditor();
+    renderSnapshotList();
+    filterSettingsSections();
   }
 
   function closeSettings({ restoreFocus = true } = {}) {
@@ -2717,6 +3512,14 @@
   settingsOpenButton?.addEventListener("click", openSettings);
   settingsCloseButton?.addEventListener("click", () => closeSettings());
   settingsBackdrop?.addEventListener("click", () => closeSettings());
+
+  settingsFilterInput?.addEventListener("input", () => {
+    filterSettingsSections(settingsFilterInput.value);
+  });
+
+  createSnapshotButton?.addEventListener("click", () => {
+    createConfigSnapshot();
+  });
 
   settingSearch?.addEventListener("change", () => {
     savePreferences({
@@ -2768,6 +3571,36 @@
 
   addCustomLaunchButton?.addEventListener("click", addCustomLaunch);
   addCustomGroupButton?.addEventListener("click", addCustomRouteGroup);
+
+  cancelCustomLaunchButton?.addEventListener("click", resetCustomLaunchEditor);
+  cancelCustomGroupButton?.addEventListener("click", resetCustomGroupEditor);
+
+  queryPresetGroup?.addEventListener("change", () => {
+    renderQueryPresetEditor(queryPresetGroup.value);
+  });
+
+  saveQueryPresetButton?.addEventListener("click", saveQueryPreset);
+  resetQueryPresetButton?.addEventListener("click", resetQueryPreset);
+
+  contextLaunchGroup?.addEventListener("change", () => {
+    renderContextLaunchSettings(contextLaunchGroup.value);
+  });
+
+  resetContextLaunchesButton?.addEventListener("click", resetContextLaunchSettings);
+
+  unpinRouteGroupButton?.addEventListener("click", () => {
+    if (!preferences.pinnedRouteGroup) {
+      setSettingsStatus("NO PINNED ROUTE GROUP");
+      return;
+    }
+
+    savePreferences({
+      ...preferences,
+      pinnedRouteGroup: "",
+    });
+
+    setSettingsStatus("ROUTE GROUP UNPINNED");
+  });
 
   settingModuleInputs.forEach((input) => {
     input.addEventListener("change", () => {
@@ -2911,6 +3744,53 @@
       issues.push(`Active Route Group is unavailable: ${raw.activeRouteGroup}.`);
     }
 
+    const rawRouteGroupOrder = Array.isArray(raw.routeGroupOrder)
+      ? raw.routeGroupOrder
+      : [];
+
+    if (new Set(rawRouteGroupOrder).size !== rawRouteGroupOrder.length) {
+      issues.push("Route Group order contains duplicate IDs.");
+    }
+
+    rawRouteGroupOrder.forEach((id) => {
+      if (!validGroupIds.includes(id)) {
+        issues.push(`Route Group order contains unknown ID: ${id}.`);
+      }
+    });
+
+    if (raw.pinnedRouteGroup && !validGroupIds.includes(raw.pinnedRouteGroup)) {
+      issues.push(`Pinned Route Group is unavailable: ${raw.pinnedRouteGroup}.`);
+    }
+
+    const rawContextLaunchHidden =
+      raw.contextLaunchHidden &&
+      typeof raw.contextLaunchHidden === "object" &&
+      !Array.isArray(raw.contextLaunchHidden)
+        ? raw.contextLaunchHidden
+        : {};
+
+    Object.entries(rawContextLaunchHidden).forEach(([groupId, hiddenIds]) => {
+      if (!validGroupIds.includes(groupId)) {
+        issues.push(`Context Launch rules reference unknown Route Group: ${groupId}.`);
+        return;
+      }
+
+      if (!Array.isArray(hiddenIds)) {
+        issues.push(`Context Launch rules for ${groupId} are malformed.`);
+        return;
+      }
+
+      if (new Set(hiddenIds).size !== hiddenIds.length) {
+        issues.push(`Context Launch rules for ${groupId} contain duplicate Launch IDs.`);
+      }
+
+      hiddenIds.forEach((id) => {
+        if (!validLaunchIds.includes(id)) {
+          issues.push(`Context Launch rules for ${groupId} contain unknown Launch ID: ${id}.`);
+        }
+      });
+    });
+
     const rawDashboardOrder = Array.isArray(raw.dashboardOrder) ? raw.dashboardOrder : [];
 
     if (new Set(rawDashboardOrder).size !== rawDashboardOrder.length) {
@@ -2920,6 +3800,34 @@
     rawDashboardOrder.forEach((id) => {
       if (!defaultDashboardOrder.includes(id)) {
         issues.push(`Dashboard order contains unknown ID: ${id}.`);
+      }
+    });
+
+    const rawQueryPresets =
+      raw.queryPresets && typeof raw.queryPresets === "object" && !Array.isArray(raw.queryPresets)
+        ? raw.queryPresets
+        : {};
+
+    Object.entries(rawQueryPresets).forEach(([groupId, preset]) => {
+      if (!validGroupIds.includes(groupId)) {
+        issues.push(`Query preset references unknown Route Group: ${groupId}.`);
+        return;
+      }
+
+      if (!preset || typeof preset !== "object" || Array.isArray(preset)) {
+        issues.push(`Query preset for ${groupId} is malformed.`);
+        return;
+      }
+
+      if (preset.engine && !engines[preset.engine]) {
+        issues.push(`Query preset for ${groupId} uses unknown engine: ${preset.engine}.`);
+      }
+
+      if (
+        typeof preset.placeholder === "string" &&
+        preset.placeholder.length > 80
+      ) {
+        issues.push(`Query preset placeholder for ${groupId} exceeds 80 characters.`);
       }
     });
 
@@ -2943,6 +3851,38 @@
     }
   }
 
+  function settingsHealthReport() {
+    const rawState = currentRawPreferences();
+    const report = diagnosePreferences(rawState.raw);
+
+    return {
+      issues: [
+        ...(rawState.parseIssue ? [rawState.parseIssue] : []),
+        ...report.issues,
+      ],
+      repaired: report.repaired,
+    };
+  }
+
+  function syncSettingsHealth() {
+    if (!settingsHealthNode) {
+      return;
+    }
+
+    const report = settingsHealthReport();
+    const warning = report.issues.length > 0;
+
+    settingsHealthNode.dataset.health = warning ? "warning" : "nominal";
+
+    const settingsButton = settingsHealthNode.closest("[data-gate-settings-open]");
+
+    if (settingsButton) {
+      settingsButton.title = warning
+        ? `Gate Settings · ${report.issues.length} configuration issue${report.issues.length === 1 ? "" : "s"}`
+        : "Gate Settings · Configuration nominal";
+    }
+  }
+
   function renderDiagnostics(report = null) {
     if (!diagnosticsSummary || !diagnosticsList) {
       return;
@@ -2962,6 +3902,7 @@
     if (!issues.length) {
       diagnosticsSummary.textContent = "CONFIGURATION NOMINAL";
       summaryBox?.classList.remove("is-warning");
+      syncSettingsHealth();
       return;
     }
 
@@ -2974,6 +3915,8 @@
       item.textContent = issue;
       diagnosticsList.appendChild(item);
     });
+
+    syncSettingsHealth();
   }
 
   function repairCurrentConfig() {
@@ -3004,7 +3947,7 @@
   function gateConfigPayload() {
     return {
       format: "neutriverse-gate-config",
-      version: "3.2",
+      version: "3.4",
       exportedAt: new Date().toISOString(),
       preferences: normalizePreferences(preferences),
       currentVector: readVectorOverride(),
@@ -3120,6 +4063,7 @@
     storage.remove(vectorKey);
     storage.remove(noteKey);
     storage.remove(noteTimeKey);
+    storage.remove(snapshotKey);
 
     window.location.reload();
   });
@@ -3147,6 +4091,7 @@
   });
 
   syncSettingsControls();
+  syncSettingsHealth();
 
   try {
     const importReport = JSON.parse(
@@ -3236,7 +4181,7 @@
       searchInput.blur();
 
       if (suggestionsNode) suggestionsNode.hidden = true;
-      if (queryState) queryState.textContent = "g / gh / yt / wiki / map / ai";
+      syncQueryContext();
     }
   });
 })();

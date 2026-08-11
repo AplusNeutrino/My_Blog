@@ -131,6 +131,15 @@ settings_defaults:
     custom_launches: 8
     custom_route_groups: 4
     routes_per_group: 4
+    config_snapshots: 5
+  query_presets: {}
+  route_group_order:
+  - work
+  - knowledge
+  - media
+  - system
+  pinned_route_group: ''
+  context_launch_hidden: {}
 route_groups:
 - id: work
   label: WORK

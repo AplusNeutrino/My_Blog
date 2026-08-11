@@ -52,6 +52,12 @@ description: "Neutriverse personal transit gate."
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1a1.7 1.7 0 0 0-1.4-1.66 1.7 1.7 0 0 0-1.5.47l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.76 8.2a1.7 1.7 0 0 0-.47-1.5l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.8 4.76a1.7 1.7 0 0 0 1.5-.47l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.1.38.32.72.6 1 .3.28.68.42 1.1.4h.1v4h-.1A1.7 1.7 0 0 0 19.4 15Z"></path>
         </svg>
+        <span
+          class="gate-settings-health"
+          data-gate-settings-health
+          data-health="unknown"
+          aria-hidden="true"
+        ></span>
       </button>
 
       <button
@@ -498,6 +504,19 @@ description: "Neutriverse personal transit gate."
       </button>
     </header>
 
+    <div class="gate-settings-filter">
+      <label>
+        <span>FILTER SETTINGS</span>
+        <input
+          type="search"
+          autocomplete="off"
+          placeholder="Search modules, routes, storage…"
+          data-gate-settings-filter
+        >
+      </label>
+      <span data-gate-settings-filter-state>ALL SECTIONS</span>
+    </div>
+
     <div class="gate-settings-scroll">
       <section class="gate-settings-section" aria-labelledby="gate-settings-query">
         <div class="gate-settings-section-title">
@@ -639,9 +658,14 @@ description: "Neutriverse personal transit gate."
             </label>
           </div>
 
-          <button class="gate-settings-primary" type="button" data-gate-add-custom-launch>
-            ADD QUICK LAUNCH
-          </button>
+          <div class="gate-custom-editor-actions">
+            <button class="gate-settings-primary" type="button" data-gate-add-custom-launch>
+              ADD QUICK LAUNCH
+            </button>
+            <button type="button" data-gate-cancel-custom-launch hidden>
+              CANCEL EDIT
+            </button>
+          </div>
         </div>
       </section>
 
@@ -663,6 +687,75 @@ description: "Neutriverse personal transit gate."
           </select>
         </label>
 
+        <div class="gate-query-preset-editor">
+          <div class="gate-route-editor-head">
+            <span>CONTEXT QUERY PRESET</span>
+            <button type="button" data-gate-reset-query-preset>RESET PRESET</button>
+          </div>
+
+          <div class="gate-custom-create-fields">
+            <label>
+              <span>GROUP</span>
+              <select data-gate-query-preset-group></select>
+            </label>
+
+            <label>
+              <span>DEFAULT SEARCH</span>
+              <select data-gate-query-preset-engine>
+                <option value="">INHERIT GLOBAL</option>
+                {% for engine in gate.search_engines %}
+                  <option value="{{ engine[0] }}">{{ engine[1].label }}</option>
+                {% endfor %}
+              </select>
+            </label>
+
+            <label class="gate-custom-create-wide">
+              <span>PLACEHOLDER</span>
+              <input
+                type="text"
+                maxlength="80"
+                placeholder="Optional context-specific hint…"
+                data-gate-query-preset-placeholder
+              >
+            </label>
+          </div>
+
+          <button class="gate-settings-primary" type="button" data-gate-save-query-preset>
+            SAVE PRESET
+          </button>
+        </div>
+
+        <div class="gate-context-launch-editor">
+          <div class="gate-route-editor-head">
+            <span>CONTEXT LAUNCH VISIBILITY</span>
+            <button type="button" data-gate-reset-context-launches>RESET CONTEXT</button>
+          </div>
+
+          <label class="gate-setting-field">
+            <span>GROUP</span>
+            <select data-gate-context-launch-group></select>
+          </label>
+
+          <div class="gate-context-launch-list" data-gate-context-launch-list></div>
+
+          <p class="gate-settings-footnote">
+            全局隐藏优先；此处只为当前 Route Group 追加隐藏规则。
+          </p>
+        </div>
+
+        <div class="gate-route-order-editor">
+          <div class="gate-route-editor-head">
+            <span>ROUTE GROUP ORDER</span>
+            <button type="button" data-gate-unpin-route-group>UNPIN</button>
+          </div>
+
+          <div class="gate-route-order-list" data-gate-route-order-list></div>
+
+          <p class="gate-settings-footnote">
+            PIN 的 Group 永远显示在 Route Matrix 第一位；其余 Group 按列表顺序排列。
+          </p>
+        </div>
+
         <div class="gate-custom-create gate-custom-group-create">
           <div class="gate-custom-create-head">
             <span>CUSTOM ROUTE GROUP</span>
@@ -680,9 +773,14 @@ description: "Neutriverse personal transit gate."
             </label>
           </div>
 
-          <button class="gate-settings-primary" type="button" data-gate-add-custom-group>
-            ADD ROUTE GROUP
-          </button>
+          <div class="gate-custom-editor-actions">
+            <button class="gate-settings-primary" type="button" data-gate-add-custom-group>
+              ADD ROUTE GROUP
+            </button>
+            <button type="button" data-gate-cancel-custom-group hidden>
+              CANCEL EDIT
+            </button>
+          </div>
 
           <div class="gate-custom-group-list" data-gate-custom-group-list></div>
         </div>
@@ -746,9 +844,41 @@ description: "Neutriverse personal transit gate."
         </div>
       </section>
 
-      <section class="gate-settings-section" aria-labelledby="gate-settings-diagnostics">
+      <section class="gate-settings-section" aria-labelledby="gate-settings-snapshots">
         <div class="gate-settings-section-title">
           <span>08</span>
+          <div>
+            <h3 id="gate-settings-snapshots">CONFIG SNAPSHOTS</h3>
+            <p>为当前浏览器保存最多 5 个 Gate 配置恢复点。</p>
+          </div>
+        </div>
+
+        <div class="gate-snapshot-create">
+          <label class="gate-setting-field">
+            <span>SNAPSHOT LABEL</span>
+            <input
+              type="text"
+              maxlength="48"
+              placeholder="Before homelab changes"
+              data-gate-snapshot-label
+            >
+          </label>
+
+          <button class="gate-settings-primary" type="button" data-gate-create-snapshot>
+            CREATE SNAPSHOT
+          </button>
+        </div>
+
+        <div class="gate-snapshot-list" data-gate-snapshot-list></div>
+
+        <p class="gate-settings-footnote">
+          快照包含 Gate preferences 与 Current Vector；不包含天气坐标、Recent Transits 或 Field Record。
+        </p>
+      </section>
+
+      <section class="gate-settings-section" aria-labelledby="gate-settings-diagnostics">
+        <div class="gate-settings-section-title">
+          <span>09</span>
           <div>
             <h3 id="gate-settings-diagnostics">CONFIG DIAGNOSTICS</h3>
             <p>检查本地配置冲突、无效 URL、重复 ID 与旧数据残留。</p>
@@ -770,7 +900,7 @@ description: "Neutriverse personal transit gate."
 
       <section class="gate-settings-section" aria-labelledby="gate-settings-storage">
         <div class="gate-settings-section-title">
-          <span>09</span>
+          <span>10</span>
           <div>
             <h3 id="gate-settings-storage">LOCAL STORAGE</h3>
             <p>这些操作只影响当前浏览器。</p>

@@ -2904,3 +2904,404 @@
     font-size: clamp(3.8rem, 22vw, 5rem);
   }
 }
+
+
+/* V3.3 · Maintainable local configuration -------------------------------- */
+
+.gate-settings-toggle {
+  position: relative;
+}
+
+.gate-settings-health {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--gate-surface) 78%, transparent);
+  background: var(--gate-muted);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gate-bg) 65%, transparent);
+  pointer-events: none;
+}
+
+.gate-settings-health[data-health="nominal"] {
+  background: var(--gate-accent);
+}
+
+.gate-settings-health[data-health="warning"] {
+  background: var(--gate-signal);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--gate-bg) 70%, transparent),
+    0 0 10px color-mix(in srgb, var(--gate-signal) 28%, transparent);
+}
+
+.gate-custom-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.gate-custom-editor-actions > button:not(.gate-settings-primary) {
+  min-height: 34px;
+  padding: 0 0.58rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.53rem;
+  letter-spacing: 0.055em;
+}
+
+.gate-custom-editor-actions > button:hover,
+.gate-custom-editor-actions > button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 7%, transparent);
+}
+
+.gate-launch-setting-controls .gate-launch-edit,
+.gate-custom-group-controls button {
+  min-height: 30px;
+  padding: 0 0.42rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.5rem;
+}
+
+.gate-launch-setting-controls .gate-launch-edit:hover,
+.gate-launch-setting-controls .gate-launch-edit:focus-visible,
+.gate-custom-group-controls button:hover,
+.gate-custom-group-controls button:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 7%, transparent);
+}
+
+.gate-custom-group-controls {
+  display: flex;
+  gap: 0.32rem;
+}
+
+.gate-query-preset-editor {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-query-preset-editor select {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 0.48rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  outline: none;
+  background: var(--gate-surface-alt);
+  color: var(--gate-text);
+  font-size: 0.59rem;
+}
+
+.gate-query-preset-editor select:focus {
+  border-color: var(--gate-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gate-accent) 10%, transparent);
+}
+
+:root[data-mode="light"] .gate-settings-health,
+:root[data-bs-theme="light"] .gate-settings-health {
+  border-color: color-mix(in srgb, var(--prospero-lapis, #124d68) 68%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--prospero-lapis, #124d68) 68%, transparent);
+}
+
+:root[data-mode="light"] .gate-settings-health[data-health="nominal"],
+:root[data-bs-theme="light"] .gate-settings-health[data-health="nominal"] {
+  background: var(--prospero-teal, #197f93);
+}
+
+:root[data-mode="light"] .gate-settings-health[data-health="warning"],
+:root[data-bs-theme="light"] .gate-settings-health[data-health="warning"] {
+  background: var(--prospero-gold, #ad7d29);
+}
+
+:root[data-mode="light"] .gate-query-preset-editor select,
+:root[data-bs-theme="light"] .gate-query-preset-editor select,
+:root[data-mode="light"] .gate-custom-editor-actions > button:not(.gate-settings-primary),
+:root[data-bs-theme="light"] .gate-custom-editor-actions > button:not(.gate-settings-primary) {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: var(--prospero-surface-2, #e4d7b8);
+  color: var(--prospero-text-primary, #17445a);
+}
+
+:root[data-mode="light"] .gate-query-preset-editor select:focus,
+:root[data-bs-theme="light"] .gate-query-preset-editor select:focus,
+:root[data-mode="light"] .gate-custom-editor-actions > button:hover,
+:root[data-bs-theme="light"] .gate-custom-editor-actions > button:hover {
+  border-color: var(--prospero-teal, #197f93);
+  background: var(--prospero-teal-wash, rgba(25, 127, 147, 0.09));
+}
+
+@media (max-width: 520px) {
+  .gate-custom-editor-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .gate-custom-editor-actions button {
+    width: 100%;
+  }
+
+  .gate-custom-group-controls {
+    flex-direction: column;
+  }
+}
+
+
+/* V3.4 · Context composition / Settings filter / Snapshots ---------------- */
+
+.gate-settings-drawer {
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+}
+
+.gate-settings-filter {
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.65rem;
+  padding: 0.7rem 1.05rem;
+  border-bottom: 1px solid var(--gate-line);
+  background: color-mix(in srgb, var(--gate-surface) 98%, transparent);
+}
+
+.gate-settings-filter label {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.gate-settings-filter label > span,
+.gate-settings-filter > span {
+  color: var(--gate-muted);
+  font-size: 0.49rem;
+  letter-spacing: 0.065em;
+}
+
+.gate-settings-filter input,
+.gate-snapshot-create input {
+  min-width: 0;
+  min-height: 36px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  outline: none;
+  background: var(--gate-surface-alt);
+  color: var(--gate-text);
+  box-shadow: none;
+  font-size: 0.59rem;
+}
+
+.gate-settings-filter input:focus,
+.gate-snapshot-create input:focus {
+  border-color: var(--gate-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gate-accent) 10%, transparent);
+}
+
+.gate-settings-section.is-filtered-out {
+  display: none;
+}
+
+.gate-context-launch-editor,
+.gate-route-order-editor {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-context-launch-list,
+.gate-route-order-list,
+.gate-snapshot-list {
+  display: grid;
+  border-top: 1px solid var(--gate-line);
+}
+
+.gate-context-launch-row,
+.gate-route-order-row,
+.gate-snapshot-row {
+  min-height: 50px;
+  display: grid;
+  align-items: center;
+  gap: 0.65rem;
+  border-bottom: 1px solid var(--gate-line);
+}
+
+.gate-context-launch-row {
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+}
+
+.gate-context-launch-row > input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--gate-accent);
+}
+
+.gate-context-launch-row strong,
+.gate-context-launch-row small,
+.gate-route-order-row strong,
+.gate-route-order-row small,
+.gate-snapshot-row strong,
+.gate-snapshot-row small {
+  display: block;
+}
+
+.gate-context-launch-row strong,
+.gate-route-order-row strong,
+.gate-snapshot-row strong {
+  color: var(--gate-text);
+  font-size: 0.59rem;
+  font-weight: 500;
+}
+
+.gate-context-launch-row small,
+.gate-route-order-row small,
+.gate-snapshot-row small {
+  margin-top: 0.09rem;
+  color: var(--gate-muted);
+  font-size: 0.5rem;
+  line-height: 1.4;
+}
+
+.gate-context-launch-row .is-global-hidden {
+  color: var(--gate-signal);
+  font-size: 0.48rem;
+  letter-spacing: 0.05em;
+}
+
+.gate-route-order-row {
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+}
+
+.gate-route-order-code {
+  color: var(--gate-signal);
+  font-size: 0.54rem;
+  text-align: center;
+}
+
+.gate-route-order-controls,
+.gate-snapshot-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.gate-route-order-controls button,
+.gate-snapshot-controls button,
+.gate-route-editor-head [data-gate-unpin-route-group],
+.gate-route-editor-head [data-gate-reset-context-launches] {
+  min-height: 30px;
+  padding: 0 0.42rem;
+  border: 1px solid var(--gate-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gate-muted);
+  cursor: pointer;
+  font-size: 0.49rem;
+  letter-spacing: 0.04em;
+}
+
+.gate-route-order-controls button:hover,
+.gate-route-order-controls button:focus-visible,
+.gate-snapshot-controls button:hover,
+.gate-snapshot-controls button:focus-visible,
+.gate-route-editor-head [data-gate-unpin-route-group]:hover,
+.gate-route-editor-head [data-gate-unpin-route-group]:focus-visible,
+.gate-route-editor-head [data-gate-reset-context-launches]:hover,
+.gate-route-editor-head [data-gate-reset-context-launches]:focus-visible {
+  border-color: var(--gate-accent);
+  color: var(--gate-text);
+  background: color-mix(in srgb, var(--gate-accent) 7%, transparent);
+}
+
+.gate-route-order-controls button.is-pinned {
+  border-color: var(--gate-signal);
+  color: var(--gate-signal);
+}
+
+.gate-route-group-pinned::after {
+  content: "PIN";
+  margin-left: 0.35rem;
+  color: var(--gate-signal);
+  font-size: 0.46rem;
+  letter-spacing: 0.06em;
+}
+
+.gate-snapshot-create {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.gate-snapshot-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.25rem 0;
+}
+
+.gate-snapshot-empty {
+  padding: 0.8rem 0;
+  color: var(--gate-muted);
+  font-size: 0.54rem;
+}
+
+:root[data-mode="light"] .gate-settings-filter,
+:root[data-bs-theme="light"] .gate-settings-filter {
+  border-bottom-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: color-mix(in srgb, var(--prospero-surface-1, #f8f1dd) 98%, transparent);
+}
+
+:root[data-mode="light"] .gate-settings-filter input,
+:root[data-bs-theme="light"] .gate-settings-filter input,
+:root[data-mode="light"] .gate-snapshot-create input,
+:root[data-bs-theme="light"] .gate-snapshot-create input {
+  border-color: var(--prospero-gold-border-medium, rgba(173, 125, 41, 0.42));
+  background: var(--prospero-surface-2, #e4d7b8);
+  color: var(--prospero-text-primary, #17445a);
+}
+
+:root[data-mode="light"] .gate-settings-filter input:focus,
+:root[data-bs-theme="light"] .gate-settings-filter input:focus,
+:root[data-mode="light"] .gate-snapshot-create input:focus,
+:root[data-bs-theme="light"] .gate-snapshot-create input:focus {
+  border-color: var(--prospero-teal, #197f93);
+  background: var(--prospero-teal-wash, rgba(25, 127, 147, 0.09));
+}
+
+@media (max-width: 520px) {
+  .gate-settings-filter,
+  .gate-snapshot-create {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .gate-settings-filter > span {
+    display: none;
+  }
+
+  .gate-route-order-row,
+  .gate-context-launch-row,
+  .gate-snapshot-row {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0.55rem 0;
+  }
+
+  .gate-context-launch-row > input,
+  .gate-route-order-code {
+    display: none;
+  }
+}
