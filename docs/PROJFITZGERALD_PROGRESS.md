@@ -18,31 +18,30 @@
 9. 每个交付包应保留清晰版本号、Release Notes（如适用）、测试结果和关键验证证据；若当次无法实际运行某项测试，应明确记录“未验证”，不能视为通过。
 
 <!-- TRACKER_DATA_START -->
-```json
-{
+```json{
   "project": {
     "name": "Project Fitzgerald / FitzSight",
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.1.0 已验证 / v0.2 Tool Layer 准备阶段",
+    "phase": "FitzSight v0.2.0 deterministic Tool Layer implemented / deployment and DuckDB runtime validation pending",
     "priority": "P0",
     "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.1.0 · commit 6a3d774 · Master Plan 2026-08-11"
+    "sourceVersion": "FitzSight v0.2.0 delivery · based on AplusNeutrino/FitzSight main 6a3d774"
   },
   "summary": {
-    "verifiedDone": 18,
-    "inProgress": 9,
-    "todo": 33,
+    "verifiedDone": 28,
+    "inProgress": 2,
+    "todo": 31,
     "blocked": 0,
-    "note": "已核验 FitzSight 公开实现仓库 AplusNeutrino/FitzSight 与初始提交 6a3d774。v0.1.0 已部署至 main；用户确认 SHA-256 校验全部通过且 pytest 为 5 passed。当前已完成 Synthetic Data、CRM Routing Change 注入、Python baseline、基础 KPI 与测试；DuckDB/SQL Tool Layer、通用统计工具、Evidence 全链路集成与 Agent 尚未完成。"
+    "note": "FitzSight v0.2.0 deterministic Tool Layer has been implemented and validated in the build environment: 17 passed, 1 skipped, compileall PASS, deterministic benchmark investigation recovered -7.53pp affected FTD change and +29.15min median response shift with 6 evidence records. The sole skipped test is DuckDB-specific because the build environment lacks the dependency; T3 remains in_progress until deployment validation."
   },
   "milestones": [
     {
       "id": "M0",
       "title": "定义、设计与仓库基线",
       "date": "2026-08-11",
-      "status": "in_progress",
+      "status": "done",
       "goal": "冻结项目定位、范围、架构与命名，并建立可持续读取的公开实现仓库",
       "items": [
         {
@@ -136,10 +135,10 @@
         {
           "id": "M0-12",
           "title": "全仓库统一正式命名为 FitzSight",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "正式命名已确认；当前 v0.1.0 中 README/MASTER_PLAN/包描述仍存在 FinSight 文本，需在下一交付包完成全仓库命名清理"
+          "evidence": "v0.2 delivery: implementation snapshot contains no legacy product-name references; package moved to src/fitzsight; pyproject project name=fitzsight; MASTER_PLAN/README/docs normalized to FitzSight"
         }
       ]
     },
@@ -147,7 +146,7 @@
       "id": "M1",
       "title": "数据与基线",
       "date": "2026-08-12",
-      "status": "in_progress",
+      "status": "done",
       "goal": "生成可复现的合成金融经营数据，并在 Agent 之前找回 Ground Truth",
       "items": [
         {
@@ -185,10 +184,10 @@
         {
           "id": "A5",
           "title": "SQL baseline analysis",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "Python/pandas baseline 已完成并找回 Ground Truth；DuckDB/read-only SQL baseline 尚未实现，计划进入 v0.2"
+          "evidence": "v0.2 deterministic investigation executes SQL through ReadOnlySQLTool on the SQLite fallback in build environment and recovers the benchmark; preferred DuckDB runtime validation is tracked separately as T3"
         },
         {
           "id": "A6",
@@ -226,10 +225,10 @@
         {
           "id": "B2",
           "title": "Period comparison",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "analytics/baseline.py 已有 CRM 场景 pre/post comparison；尚需抽象为通用 Tool"
+          "evidence": "src/fitzsight/tools/comparison.py + tests/test_kpi_tools.py; evidence-linked generic PeriodComparisonTool verified"
         },
         {
           "id": "B3",
@@ -242,10 +241,10 @@
         {
           "id": "B4",
           "title": "Statistical tests",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "当前 baseline 已实现 conversion chi-square；尚需通用 statistical-test tool、effect size/CI 与错误处理"
+          "evidence": "src/fitzsight/tools/statistics.py: two-proportion z/chi-square + 95% diff CI, Mann–Whitney U, Welch t; automated tests pass"
         },
         {
           "id": "B5",
@@ -266,34 +265,42 @@
         {
           "id": "D1",
           "title": "Evidence ID 与 registry",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/evidence/registry.py 已有 EvidenceRegistry primitive；尚未接入每次 Tool execution"
+          "evidence": "src/fitzsight/evidence/registry.py + v0.2 Tool integration: sequential Evidence IDs, parameters, result digest, status, payload, lookup"
         },
         {
           "id": "D2",
           "title": "Tool logs",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.2 tool executions are recorded in EvidenceRegistry; SQL execution also records failed calls before raising"
         },
         {
           "id": "T1",
           "title": "Schema / read-only SQL / KPI / comparison / statistics tools",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "KPI 与场景 comparison 已有；Schema Inspector、DuckDB SQL Tool、通用 statistics Tool 尚未完成"
+          "evidence": "Schema Inspector, read-only SQL, KPI, period comparison and statistics Tool interfaces implemented and integration-tested on SQLite fallback; DuckDB-specific runtime validation separated into T3"
         },
         {
           "id": "T2",
           "title": "Unit tests",
+          "status": "done",
+          "priority": "P0",
+          "updated": "2026-08-11",
+          "evidence": "Build-environment pytest: 17 passed, 1 skipped; skipped item is DuckDB backend integration only. compileall PASS. See docs/V0.2_VALIDATION.md"
+        },
+        {
+          "id": "T3",
+          "title": "DuckDB backend runtime integration validation",
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.1.0 用户验证 pytest：5 passed；v0.2 Tool Layer 的新增测试尚未实现"
+          "evidence": "DuckDB backend code is implemented in src/fitzsight/data/store.py, but the build environment lacks the duckdb package and cannot install it; automated DuckDB integration test therefore skipped. User should run pip install -e \".[dev]\", pytest -q, and scripts/investigate.py --backend duckdb after deployment."
         }
       ]
     },
@@ -428,10 +435,10 @@
         {
           "id": "G3",
           "title": "Architecture documentation",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "MASTER_PLAN 含逻辑架构，但独立工程架构文档尚未形成"
+          "evidence": "docs/ARCHITECTURE.md + docs/TOOL_LAYER.md + MASTER_PLAN architecture sections"
         },
         {
           "id": "G4",
@@ -444,10 +451,10 @@
         {
           "id": "G5",
           "title": "README（含 limitations）",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "FitzSight/README.md 已存在并含 Safety/设计原则；尚需统一 FitzSight 命名并增加明确 Limitations 段"
+          "evidence": "README.md updated for FitzSight v0.2 with Quick Start, evidence architecture, SQL safety, Safety/Compliance and explicit Limitations"
         },
         {
           "id": "G6",
@@ -621,9 +628,9 @@
     },
     {
       "id": "RK-07",
-      "level": "medium",
-      "title": "项目命名漂移",
-      "mitigation": "正式产品名固定为 FitzSight；后续交付执行全仓库文本与文档命名检查"
+      "level": "low",
+      "title": "命名回归",
+      "mitigation": "正式产品名固定为 FitzSight；每次交付前 grep 检查维护中内容是否出现旧命名"
     },
     {
       "id": "RK-08",
@@ -663,7 +670,7 @@
 
 | 状态 | 含义 |
 |---|---|
-| `done` | 有明确交付物/验证证据，且已达到该任务当前 Definition of Done |
+| `done` | 有明确交付物/验证证据，且达到该任务当前 Definition of Done |
 | `in_progress` | 已有实现或证据，但尚未达到完整 Definition of Done |
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
@@ -672,80 +679,53 @@
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 分支：`main`
-- 已验证版本：`v0.1.0`
-- 初始提交：`6a3d774`（完整 SHA：`6a3d7742afb740e4e8e421f4603907798f2d2db9`）
-- 初始提交信息：`Initial FitzSight v0.1.0 release`
-- 用户侧文件 SHA-256 校验：**全部通过**
-- 用户侧测试：**5 passed**
-- 当前 Ground Truth baseline：
-  - Affected Europe Team A+B FTD：`23.37% → 15.84%`
-  - 变化：`-7.53 pp`
-  - Median response time：`94.3 → 123.45 min`
-  - Conversion test：`p = 0.00235`
-  - Europe control：`-1.21 pp`，`p = 0.53327`
-- 当前结论：Synthetic Ground Truth 已可在无 Agent 条件下通过 Python baseline 恢复；下一阶段重点是 DuckDB/read-only SQL + Tool Layer + Evidence integration。
+- 当前 GitHub 基线：`main` at `6a3d774`（用户已部署的 v0.1.0）
+- 本次待用户部署交付：**FitzSight v0.2.0**
+- v0.2 Build 环境测试：**17 passed, 1 skipped**
+- `compileall`：**PASS**
+- 唯一 skip：DuckDB backend integration（build 环境无 `duckdb` 包；不视为通过）
+- SQLite fallback 端到端调查：**PASS**
+- Affected FTD：`23.37% → 15.84%`，`-7.53 pp`
+- Europe control：`-1.21 pp`
+- Affected median response time：`+29.15 min`
+- Conversion p-value：`0.002346`
+- Response Mann–Whitney p-value：约 `1.86e-17`
+- Root-cause status：`supported_candidate`
+- Evidence records：`6`
+- Evidence-linked claims：`4`
 
-## 下一开发切片：FitzSight v0.2
+## 当前下一动作
 
-按 P0 顺序：
-
-1. 全仓库正式命名统一：`FinSight → FitzSight`（历史 Git commit 不重写）。
-2. DuckDB data layer。
-3. Schema Inspector。
-4. Read-only SQL Tool（仅允许 SELECT / safe query path）。
-5. 通用 KPI Tool。
-6. Period Comparison Tool。
-7. Statistical Test Tool。
-8. Evidence-wrapped Tool Execution / Tool Logs。
-9. Deterministic Investigation Engine。
-10. 新增对应测试并保持 clean-start 可运行。
-11. **仍然不接 LLM，直到 deterministic investigation 稳定。**
-
-### v0.2 目标验收
+用户部署 v0.2 后优先执行：
 
 ```bash
-python scripts/investigate.py --question "Why did European FTD conversion deteriorate after July 15?"
+pip install -e ".[dev]"
+pytest -q
+python scripts/investigate.py --backend duckdb
 ```
 
-应在**不依赖 LLM 做算术或捏造结论**的情况下输出：
+若 DuckDB test 不再 skip 且 investigation 正常恢复 benchmark，则把 `T3` 从 `in_progress` 更新为 `done`。随后进入剩余 pre-Agent 能力：Contribution Analysis、Anomaly Detection，并准备 LLM Planner/Orchestrator。
 
-- structured investigation plan/result；
-- tool execution trace；
-- evidence IDs；
-- SQL/data references；
-- statistical result；
-- affected vs control comparison；
-- supported/unsupported claim boundary。
+## 固定交付包规则
 
-## 交付包规则
-
-后续每一次交付 ZIP 推荐结构：
+后续每次交付必须采用同包同步：
 
 ```text
 FitzSight_vX.Y.Z_delivery.zip
-├── FitzSight/                       # 当次完整代码/文档快照
-│   ├── README.md
-│   ├── MASTER_PLAN.md
-│   ├── ...
-│   └── RELEASE_NOTES_vX.Y.Z.md
-└── PROJFITZGERALD_PROGRESS.md       # 当次同步更新后的进度真源
+├── FitzSight/
+│   └── 当次完整实现快照
+└── PROJFITZGERALD_PROGRESS.md
 ```
 
-用户负责拆分并部署：
+用户自行拆分部署：
 
-```text
-FitzSight/...
-→ github.com/AplusNeutrino/FitzSight
-
-PROJFITZGERALD_PROGRESS.md
-→ github.com/AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md
-```
+- `FitzSight/...` → `AplusNeutrino/FitzSight`
+- `PROJFITZGERALD_PROGRESS.md` → `AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md`
 
 ## 更新日志
 
-- 2026-08-11：依据 Master Plan 建立初始追踪基线；规划产物 8 项完成，工程与提交任务保持未完成。
-- 2026-08-11：核验 `AplusNeutrino/FitzSight` 已创建并部署 v0.1.0 至 `main`；初始提交 `6a3d774`；用户确认 SHA-256 全通过、`pytest` 为 `5 passed`。
-- 2026-08-11：将仓库创建、Master Plan 上传、最小目录、Synthetic Data、CRM Routing Change、Ground Truth baseline、KPI helpers 等有证据任务同步为 `done/in_progress`；进度汇总更新为 `18 done / 9 in_progress / 33 todo / 0 blocked`。
-- 2026-08-11：正式产品命名固定为 **FitzSight**；新增全仓库命名清理任务 `M0-12`。
-- 2026-08-11：新增长期交付规则：**每次 AI 交付新的 FitzSight 文件包时，必须在同一 ZIP 内附上当次更新后的 `PROJFITZGERALD_PROGRESS.md`，由用户自行分别部署到两个仓库。**
+- 2026-08-11：依据 Master Plan 建立初始追踪基线。
+- 2026-08-11：核验 `AplusNeutrino/FitzSight` v0.1.0 初始提交 `6a3d774`；用户确认 SHA-256 全通过、`pytest` 为 `5 passed`。
+- 2026-08-11：正式产品命名固定为 **FitzSight**；建立“代码交付包必须同步附带进度真源”规则。
+- 2026-08-11：完成 FitzSight v0.2.0 本地交付快照：正式命名清理、AnalyticsStore、Schema Inspector、Read-only SQL、KPI、Period Comparison、Statistics、Evidence 全链路、deterministic investigation、claim-to-evidence mapping、architecture/limitations 文档。
+- 2026-08-11：v0.2 build validation：`17 passed, 1 skipped`、`compileall PASS`；SQLite fallback 端到端调查恢复 benchmark。DuckDB runtime 因 build 环境缺依赖保持 `T3 in_progress`，等待用户部署验证。
