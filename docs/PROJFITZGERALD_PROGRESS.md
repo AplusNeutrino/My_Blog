@@ -24,17 +24,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.2.0 deterministic Tool Layer implemented / deployment and DuckDB runtime validation pending",
+    "phase": "FitzSight v0.3.0 deterministic diagnostics implemented / constrained planner-orchestrator next",
     "priority": "P0",
     "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.2.0 delivery · based on AplusNeutrino/FitzSight main 6a3d774"
+    "sourceVersion": "FitzSight v0.3.0 delivery · based on AplusNeutrino/FitzSight main 9d1290a"
   },
   "summary": {
-    "verifiedDone": 28,
+    "verifiedDone": 30,
     "inProgress": 2,
-    "todo": 31,
+    "todo": 29,
     "blocked": 0,
-    "note": "FitzSight v0.2.0 deterministic Tool Layer has been implemented and validated in the build environment: 17 passed, 1 skipped, compileall PASS, deterministic benchmark investigation recovered -7.53pp affected FTD change and +29.15min median response shift with 6 evidence records. The sole skipped test is DuckDB-specific because the build environment lacks the dependency; T3 remains in_progress until deployment validation."
+    "note": "FitzSight v0.3.0 adds deterministic team-level FTD rate contribution decomposition and robust anomaly detection, integrated into the evidence-linked benchmark investigation. Build validation: 19 passed, 1 skipped; compileall PASS; default SQLite investigation: -7.53pp affected FTD, -1.21pp control, +29.15min response median, Team A then Team B as largest negative contributors, 8 post-change high response-time anomaly days, 10 evidence records, 6 claims. DuckDB-specific runtime validation remains pending evidence."
   },
   "milestones": [
     {
@@ -155,7 +155,7 @@
           "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/data/generator.py；docs/DATA_DICTIONARY.md"
+          "evidence": "src/fitzsight/data/generator.py；docs/DATA_DICTIONARY.md"
         },
         {
           "id": "A2",
@@ -163,7 +163,7 @@
           "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/data/generator.py；固定 seed 20260811；deterministic test 已通过"
+          "evidence": "src/fitzsight/data/generator.py；固定 seed 20260811；deterministic test 已通过"
         },
         {
           "id": "A3",
@@ -179,7 +179,7 @@
           "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/data/scenarios.py + generator.py；场景日期 2026-07-15，Europe Team A/B"
+          "evidence": "src/fitzsight/data/scenarios.py + generator.py；场景日期 2026-07-15，Europe Team A/B"
         },
         {
           "id": "A5",
@@ -203,7 +203,7 @@
           "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/data/scenarios.py；docs/DATA_DICTIONARY.md；_gt 字段被明确限定为 evaluation-only"
+          "evidence": "src/fitzsight/data/scenarios.py；docs/DATA_DICTIONARY.md；_gt 字段被明确限定为 evaluation-only"
         }
       ]
     },
@@ -220,7 +220,7 @@
           "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "src/finsight/analytics/kpis.py：FTD conversion、deposits、withdrawals、net deposits、trading volume"
+          "evidence": "src/fitzsight/analytics/kpis.py：FTD conversion、deposits、withdrawals、net deposits、trading volume"
         },
         {
           "id": "B2",
@@ -233,10 +233,10 @@
         {
           "id": "B3",
           "title": "Contribution analysis",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.3 src/fitzsight/tools/contribution.py + tests/test_contribution.py：symmetric binary-rate decomposition；segment contributions reconstruct aggregate FTD-rate change within floating-point precision；default benchmark ranks Team A/B as largest negative contributors"
         },
         {
           "id": "B4",
@@ -249,10 +249,10 @@
         {
           "id": "B5",
           "title": "Anomaly detection",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": ""
+          "evidence": "v0.3 src/fitzsight/tools/anomaly.py + tests/test_anomaly.py；median/MAD robust baseline integrated into deterministic investigation；default benchmark flags 8 post-change high response-time anomaly days"
         },
         {
           "id": "B6",
@@ -300,7 +300,7 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "DuckDB backend code is implemented in src/fitzsight/data/store.py, but the build environment lacks the duckdb package and cannot install it; automated DuckDB integration test therefore skipped. User should run pip install -e \".[dev]\", pytest -q, and scripts/investigate.py --backend duckdb after deployment."
+          "evidence": "v0.2.0 is deployed to FitzSight main as commit 9d1290a (verified via GitHub). User confirmed deployment completed, but no DuckDB-specific pytest/runtime output was supplied to the tracker; build environment still cannot install duckdb, so T3 remains in_progress under evidence rules."
         }
       ]
     },
@@ -660,7 +660,8 @@
     "D-006 Agent 数量服从任务",
     "D-007 MVP 聚焦 Anomaly Investigation",
     "D-008 正式产品名固定为 FitzSight；FinSight 仅视为早期历史命名，维护中的代码、文档、PPT、包描述与 UI 均应统一为 FitzSight",
-    "D-009 每次 AI 向用户交付新的 FitzSight 代码/文件包时，必须把当次已同步更新的 PROJFITZGERALD_PROGRESS.md 一并放入同一个交付 ZIP；用户随后自行将代码与进度真源分别部署到 FitzSight 与 My_Blog"
+    "D-009 每次 AI 向用户交付新的 FitzSight 代码/文件包时，必须把当次已同步更新的 PROJFITZGERALD_PROGRESS.md 一并放入同一个交付 ZIP；用户随后自行将代码与进度真源分别部署到 FitzSight 与 My_Blog",
+    "D-010 在引入 LLM Planner/Orchestrator 前先完成 deterministic Contribution Analysis 与 Anomaly Detection；LLM 只能编排工具，不负责计算业务数字"
   ]
 }
 ```
@@ -675,54 +676,33 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线
+## 当前实现基线（v0.3）
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 当前 GitHub 基线：`main` at `6a3d774`（用户已部署的 v0.1.0）
-- 本次待用户部署交付：**FitzSight v0.2.0**
-- v0.2 Build 环境测试：**17 passed, 1 skipped**
-- `compileall`：**PASS**
-- 唯一 skip：DuckDB backend integration（build 环境无 `duckdb` 包；不视为通过）
-- SQLite fallback 端到端调查：**PASS**
-- Affected FTD：`23.37% → 15.84%`，`-7.53 pp`
-- Europe control：`-1.21 pp`
-- Affected median response time：`+29.15 min`
-- Conversion p-value：`0.002346`
-- Response Mann–Whitney p-value：约 `1.86e-17`
-- Root-cause status：`supported_candidate`
-- Evidence records：`6`
-- Evidence-linked claims：`4`
+- 已核验公开基线：`v0.2.0` commit `9d1290a5339529c919c9fbbca6740d5326ff3083`
+- 本次待部署交付：`v0.3.0`
+- Build validation：`19 passed, 1 skipped`；`compileall PASS`
+- 唯一 skip：DuckDB-specific integration（当前构建环境无依赖且无包网络）
+- v0.3 新增：Contribution Analysis、Anomaly Detection、增强 deterministic investigation
+- 默认 benchmark：Affected FTD `-7.53 pp`；Control `-1.21 pp`；response median `+29.15 min`；Team A / Team B 为主要负贡献；8 个 post-change high-response anomaly days；10 Evidence records；6 Claims。
 
-## 当前下一动作
+## 下一开发切片：FitzSight v0.4
 
-用户部署 v0.2 后优先执行：
-
-```bash
-pip install -e ".[dev]"
-pytest -q
-python scripts/investigate.py --backend duckdb
-```
-
-若 DuckDB test 不再 skip 且 investigation 正常恢复 benchmark，则把 `T3` 从 `in_progress` 更新为 `done`。随后进入剩余 pre-Agent 能力：Contribution Analysis、Anomaly Detection，并准备 LLM Planner/Orchestrator。
-
-## 固定交付包规则
-
-后续每次交付必须采用同包同步：
-
-```text
-FitzSight_vX.Y.Z_delivery.zip
-├── FitzSight/
-│   └── 当次完整实现快照
-└── PROJFITZGERALD_PROGRESS.md
-```
-
-用户自行拆分部署：
-
-- `FitzSight/...` → `AplusNeutrino/FitzSight`
-- `PROJFITZGERALD_PROGRESS.md` → `AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md`
+1. Constrained Planner / Orchestrator contract。
+2. Structured intent + structured investigation plan。
+3. Allowed-tool registry 与参数 schema。
+4. Deterministic fallback planner，确保无 API 时仍可演示。
+5. LLM（若启用）只负责规划与解释；所有数字必须来自 Tool Evidence。
+6. Verifier：检查 claim 是否有 Evidence ID、数字是否与 payload 一致、因果措辞是否越界。
+7. Unsupported intent 必须显式拒绝或降级，禁止假装完成分析。
+8. 保持 SQL read-only / no `_gt` benchmark leakage / human-review boundary。
 
 ## 更新日志
+
+- 2026-08-11：核验 `AplusNeutrino/FitzSight` 已部署 v0.2.0，main commit `9d1290a`（`Release FitzSight v0.2.0`）。
+- 2026-08-11：完成 FitzSight v0.3.0 deterministic diagnostics：新增 symmetric Contribution Analysis 与 robust Anomaly Detection，并集成核心 investigation；build 验证 `19 passed, 1 skipped`、`compileall PASS`。
+- 2026-08-11：B3 Contribution analysis 与 B5 Anomaly detection 按代码、测试和运行结果标为 `done`；T3 DuckDB runtime validation 因缺少可引用运行输出继续保持 `in_progress`。
 
 - 2026-08-11：依据 Master Plan 建立初始追踪基线。
 - 2026-08-11：核验 `AplusNeutrino/FitzSight` v0.1.0 初始提交 `6a3d774`；用户确认 SHA-256 全通过、`pytest` 为 `5 passed`。
