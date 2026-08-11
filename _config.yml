@@ -237,6 +237,10 @@ exclude:
   - "*.config.js"
   - "package*.json"
 
+# Project Fitzgerald reads this Markdown file directly as its progress source.
+include:
+  - docs/PROJFITZGERALD_PROGRESS.md
+
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
