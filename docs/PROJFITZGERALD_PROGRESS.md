@@ -18,6 +18,7 @@
 9. 每个交付包应保留清晰版本号、Release Notes（如适用）、测试结果和关键验证证据；若当次无法实际运行某项测试，应明确记录“未验证”，不能视为通过。
 10. **Agent 安全边界：** Planner/LLM 输出始终视为不可信输入；只能选择已批准高层 action，不能直接生成或执行 SQL、任意工具参数、高风险金融动作；最终结论必须经过 EvidenceClaimVerifier，验证失败则 fail closed。
 11. **External runtime 证据规则：** OpenAI API、Streamlit、DuckDB 或其他 optional/external runtime 只有在实际依赖可用并有运行输出时才可标记 live validation `done`；mock/compile/code presence 只能证明实现或接口测试，不能替代真实运行证据。
+12. **手动提交边界：** 与比赛提交有关的外部写操作（GOAI portal 打开/填写/上传/最终提交、确认截图/邮件获取等）默认由用户手动完成。AI 只负责本地准备、校验、打包与说明；除非用户针对某个具体外部动作另行明确授权，否则不得主动访问 Gmail、提交平台或执行其他外部写操作。
 
 <!-- TRACKER_DATA_START -->
 ```json
@@ -27,17 +28,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.9.0 runtime/submission resilience complete / offline verified demo + dynamic deck + runtime validators / Streamlit + OpenAI live + portal submission pending",
+    "phase": "FitzSight v0.10.0 operator handoff complete / manual-submission boundary enforced / user takeover packet ready",
     "priority": "P0",
     "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.9.0 delivery · based on AplusNeutrino/FitzSight main 2581fbdd (Release FitzSight v0.8.0) · DuckDB deployment runtime already validated"
+    "sourceVersion": "FitzSight v0.10.0 delivery · based on AplusNeutrino/FitzSight main 5304c5cf (Release FitzSight v0.9.0) · DuckDB deployment runtime already validated"
   },
   "summary": {
-    "verifiedDone": 61,
-    "inProgress": 8,
+    "verifiedDone": 62,
+    "inProgress": 7,
     "todo": 0,
     "blocked": 0,
-    "note": "FitzSight v0.9.0 freezes the five-intent analytical core and strengthens runtime/submission resilience. Build validation: 69 tests collected; complete non-overlapping groups total 68 passed, 1 skipped; compileall PASS. Five-scenario deterministic benchmark remains 5/5 PASS with 100% scenario pass rate, root-cause accuracy, false-correlation rejection and mean evidence coverage; verifier violations 0. Adversarial release gate remains 8/8 PASS. v0.9 closes KPI/trace/chart/Evidence presentation tasks using a pure tested presenter, generates a self-contained offline HTML and H.264 backup video from 5/5 verified Agent runs, adds runtime doctor + real Streamlit/OpenAI validation commands, records deterministic 15-run latency, and corrects active deck/current docs so competition-facing numbers come from fresh verified runs. Final submission preflight PASS with generated CSV=0 and secret hits=0. Streamlit live runtime, OpenAI live planner, actual portal submission/confirmation, final live/local/video completion and timed rehearsal remain in_progress."
+    "note": "FitzSight v0.10.0 completes the local operator handoff layer without performing any external submission. Build validation: 74 tests collected; 73 passed, 1 skipped; compileall PASS. Benchmark regression 5/5 PASS and adversarial suite 8/8 PASS. v0.10 adds an explicit user-manual submission boundary, single-entry START_HERE guide, manual submission/runtime checklists, field map, machine-readable handoff readiness, and portable FitzSight_Manual_Handoff.zip. Local preflight PASS reports external_write_actions_performed=false, portal automation=false, Gmail/email automation=false, and ready_for_user_takeover=true. F7 is now done. G6 remains in_progress and owned by user_manual until actual portal submission/confirmation evidence is provided. Streamlit/OpenAI live runtime and timed human rehearsal remain separate external/manual evidence tasks."
   },
   "milestones": [
     {
@@ -529,7 +530,9 @@
           "status": "in_progress",
           "priority": "P0",
           "updated": "2026-08-11",
-          "evidence": "v0.9 expanded submission preflight PASS：missing files=0、generated CSV=0、secret hits=0、offline demo 5/5 verified、upload bundle integrity PASS；PPTX/PDF/offline video/upload ZIP hashes recorded。实际 GOAI portal upload/confirmation screenshot/email 仍需用户外部证据。"
+          "evidence": "v0.10 已生成 START_HERE_MANUAL / MANUAL_SUBMISSION_CHECKLIST / GOAI_FIELD_MAP / portable FitzSight_Manual_Handoff.zip（SHA-256 a072233574b4ef3ba029a78a5f9473b4a17f433276ae3b3d4cd46643ddb7737c），preflight PASS 且明确 external_write_actions_performed=false、portal automation=false、Gmail/email automation=false。实际 GOAI portal review/upload/final submit 与 confirmation screenshot/email/receipt 由用户手动完成；未提供外部确认前保持 in_progress。",
+          "owner": "user_manual",
+          "executionMode": "manual_only"
         },
         {
           "id": "G7",
@@ -599,10 +602,10 @@
         {
           "id": "F7",
           "title": "UI、视频与部署脚本优化",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P1",
           "updated": "2026-08-11",
-          "evidence": "v0.9 新增 pure UI presenter、offline HTML/JSON、H.264 backup video、runtime doctor、Streamlit/OpenAI validators、upload convenience bundle 与 expanded preflight；local/offline 路径显著完善。Final Streamlit live rendering 与 portal/video distribution 仍待外部证据。"
+          "evidence": "v0.10 完成 operator handoff layer：pure UI/offline/video/runtime validators 维持；新增 build_manual_handoff.py、handoff_readiness.py、START_HERE_MANUAL、manual checklist、runtime checklist、field map 与 portable manual handoff ZIP（SHA-256 a072233574b4ef3ba029a78a5f9473b4a17f433276ae3b3d4cd46643ddb7737c）；preflight/handoff integrity PASS。Live Streamlit 本身仍由 E1/R3 单独跟踪，不再阻塞 F7 的本地优化 DoD。"
         }
       ]
     },
@@ -734,6 +737,12 @@
       "level": "high",
       "title": "Competition-facing metrics drift from current deterministic runtime",
       "mitigation": "v0.9 pitch deck Slides 4–8 use fresh verified Agent runs in a temporary synthetic dataset; active README/project-summary/pitch docs synchronized; regression test rejects stale net-deposit/customer values."
+    },
+    {
+      "id": "RK-14",
+      "level": "high",
+      "title": "外部提交动作越界 / 未经用户授权访问外部账户",
+      "mitigation": "v0.10 固化 user-manual-only submission boundary；自动化默认只做本地 prepare/validate/package，不访问 Gmail、不提交 portal、不执行外部写操作。"
     }
   ],
   "unknowns": [
@@ -780,7 +789,9 @@
     "D-029 UI presentation logic 必须 pure/testable：KPI cards、ChartSpec、trace 与 Evidence cards 只从 verified Agent result 派生；Streamlit 仅作为 renderer，不形成第二条 analytics path",
     "D-030 Competition-facing numeric claims 必须来自 current verified runtime：pitch-deck builder 使用临时 synthetic dataset fresh-run 生成 Slides 4–8；active submission docs 禁止依赖 stale hardcoded benchmark values",
     "D-031 Offline HTML/MP4 是 resilience assets，不是 live runtime evidence；其生成要求 5/5 verified deterministic runs，但不能据此关闭 Streamlit/OpenAI live validation",
-    "D-032 Live provider telemetry 可记录 response ID、requested/returned model、token usage 与 measured planning latency；不得输出 API key，也不在无真实调用/可靠 pricing source 时编造 monetary cost"
+    "D-032 Live provider telemetry 可记录 response ID、requested/returned model、token usage 与 measured planning latency；不得输出 API key，也不在无真实调用/可靠 pricing source 时编造 monetary cost",
+    "D-033 Competition submission 默认 user-manual only：AI/自动化只负责本地准备、校验、hash、render 与 package；不得自行打开/提交 GOAI portal、上传文件、访问 Gmail 获取确认、发送邮件或执行其他外部账户写操作，除非用户对具体动作另行明确授权",
+    "D-034 Final handoff 必须 self-contained/operator-oriented：用户拿到 portable handoff packet 后即可依据 START_HERE、field map、manual checklist、runtime instructions 与已生成资产自行完成外部提交，无需额外代码生成"
   ]
 }
 ```
@@ -796,40 +807,36 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.9）
+## 当前实现基线（v0.10）
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 已核验公开代码基线：`v0.8.0` commit `2581fbdd888a6ed3084abd040cfb4dc3c0c7a0fd`（`Release FitzSight v0.8.0`）
-- 本次实现版本：`v0.9.0`
-- DuckDB deployment runtime：此前已验证；`data/generated`；default constrained planner 与 JSON-file planner 均 `verified`；verifier evidence `E0012`；final-answer evidence `E0013`
-- Build tests：`69 tests collected`；完整非重叠分组汇总 `68 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
+- 已核验公开代码基线：`v0.9.0` commit `5304c5cf3917f344273aa1a2465e81a0a2b74b00`（`Release FitzSight v0.9.0`）
+- 本次实现版本：`v0.10.0`
+- Build tests：`74 tests collected`；完整非重叠分组汇总 `73 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
 - Compile：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
-- Deterministic benchmark：`5/5 PASS`；scenario pass rate `100%`；root-cause scenario accuracy `100%`；false-correlation rejection accuracy `100%`；mean evidence coverage `100%`；verifier violations `0`
+- Deterministic benchmark regression：`5/5 PASS`；scenario/root-cause/false-correlation/evidence coverage 均 `100%`；verifier violations `0`
 - Adversarial release gate：`8/8 PASS`
-- Pure presentation layer：5 workflows 均生成 KPI cards / charts / plan trace / Evidence cards；`tests/test_ui_presenter.py` 与 v0.9 regression tests 通过
-- Current fixed-seed competition metrics：Net Deposit `-$187.8k` / deposits `+$59.2k` / withdrawals `+$246.9k` / top-11 share `91.6%`；Customer High Value `3.7%` customers / `53.7%` deposits
-- Formal presentation：Slides 4–8 由 `scripts/build_pitch_deck.py` fresh verified Agent runs 动态生成；PPTX/PDF 12 pages，最终 PDF 200-DPI render-review 未见 clipping/overlap/broken glyph
-- Final presentation SHA-256：PPTX `d37349c51ff115d7d890a8b49a8596cb058df7e88d517a1559ec392de112378c`；PDF `90628f14c36ceb73de6b50bebea1efe5e0097593a7d5c51a38bc3e4390d3f6b4`
-- Offline demo：HTML/JSON 由 `5/5 verified` Agent runs 生成；`67` evidence records
-- Offline video：H.264 `1280x720` / `30fps` / actual duration about `64s`；intro/middle/end representative frames visual review 通过
-- Deterministic latency：SQLite 15 verified runs；overall mean `292.29ms`、p50 `300.90ms`、p95 `343.35ms`（build-environment-specific）
-- Submission upload convenience ZIP：integrity PASS；SHA-256 `7f70e2f3837da0fb06e00cba88132d7a8128185acd3cead2b7daaa2abd276f4e`
-- Final local submission preflight：`PASS`；missing files=`0`；generated CSV=`0`；secret hits=`0`；offline demo=`5/5 verified`
-- Streamlit live check：`not_run_dependency_missing`；代码/presenter/tests 已完成，但 **final live runtime 未验证**
-- OpenAI live check：`not_run_missing_configuration`；provider/telemetry/tests 已完成，但 **live model/API 未验证**
-- License：**MIT**
+- Manual handoff ZIP：`submission/FitzSight_Manual_Handoff.zip`；integrity `PASS`；`external_submission_performed=false`；`network_actions_performed=false`
+- Handoff readiness：`ready_for_user_takeover=true`；portal copy、PPTX/PDF、offline HTML/video、manual checklist、operator boundary 均已准备
+- Final local preflight：`PASS`；missing files=`0`；generated CSV=`0`；secret hits=`0`；manual handoff ZIP integrity=`true`
+- **Manual submission boundary：** GOAI portal review/upload/final submit、confirmation screenshot/email/receipt 均由用户手动完成；AI 默认不得主动访问 Gmail、提交平台或执行外部写操作
+- DuckDB deployment runtime：此前已验证；default constrained planner 与 JSON-file planner 均 `verified`
+- Streamlit live check：仍需最终演示机器真实 health-check 才能关闭 E1/R3
+- OpenAI live check：仍需用户主动配置稳定 API key/model 并提供真实 validator 输出才可关闭 T4/F5
 
-## 下一开发切片：FitzSight v0.10 / External Runtime + Portal Closeout
+## 下一阶段：User Takeover / External Evidence Only
 
-1. 在最终演示机器执行 `python scripts/validate_streamlit_runtime.py`；只有 health-check PASS 才关闭 E1。
-2. 若有稳定可用的 `OPENAI_API_KEY` + `FITZSIGHT_MODEL`，执行 `python scripts/validate_openai_runtime.py`；无稳定 provider 时继续使用 deterministic fallback，不阻塞初赛 Demo。
-3. 用户在实际 GOAI portal 完成 project introduction、PPT/PDF、repository link 与可选 video 的上传，并保留 confirmation screenshot/email，之后关闭 G6。
-4. 将 live/local/offline HTML/MP4/PPT/PDF 至少复制到第二位置；live Streamlit 验证完成后再关闭 R3。
-5. 按 `submission/PITCH_REHEARSAL.md` 完成 5–8 分钟 pitch 与 <3 分钟 demo 的人工计时记录；完成后关闭 R4/R5。
-6. 初赛提交前不再扩核心 intent/benchmark；只修复会影响可运行性、证据完整性、安全边界或评委理解的问题。
+1. 用户从 `submission/START_HERE_MANUAL.md` 开始；需要提交的文本、PPT/PDF、offline demo/video 与 field map 已全部准备。
+2. GOAI portal 的打开、字段核对、上传、最终提交与确认截图/邮件/receipt **只由用户手动完成**；未收到用户明确指令时 AI 不访问 Gmail/portal。
+3. 最终演示机器运行 `python scripts/runtime_doctor.py` 与 `python scripts/validate_streamlit_runtime.py`；真实 PASS 后关闭 E1/R3。
+4. OpenAI planner 为可选路径；仅在用户主动配置稳定 credential/model 后运行 `python scripts/validate_openai_runtime.py`，并只记录非 secret telemetry。
+5. 用户按 `submission/PITCH_REHEARSAL.md` 完成人工计时与 Q&A/stability rehearsal；完成后再关闭 R4/R5。
+6. 初赛前不再扩核心 intent/benchmark；后续实现仅修复可靠性、证据完整性、安全边界或交接可用性问题。
 
 ## 更新日志
+
+- 2026-08-11：FitzSight v0.10 完成 operator handoff：固化 user-manual-only submission boundary；新增 OPERATOR_BOUNDARY、START_HERE_MANUAL、manual submission/runtime checklist、GOAI field map、build_manual_handoff、handoff_readiness 与 portable manual handoff ZIP；74 tests collected / 73 passed / 1 skipped；5/5 benchmark、8/8 adversarial、compileall 与 preflight 均 PASS；`ready_for_user_takeover=true`；F7 关闭为 done，G6 明确 owner=`user_manual` 且实际 portal/邮件确认仍需用户证据。
 
 - 2026-08-11：FitzSight v0.9 完成 runtime/submission resilience：pure tested UI presenter、5/5 verified offline HTML、H.264 backup video、runtime doctor、Streamlit/OpenAI live validators、provider telemetry、15-run deterministic latency、portal/rehearsal assets 与 upload convenience bundle；active pitch deck/current docs 修复 stale metrics 并改为 fresh verified runtime source；69 tests collected / 68 passed / 1 skipped；final preflight PASS。
 
