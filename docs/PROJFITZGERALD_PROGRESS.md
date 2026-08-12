@@ -1,9 +1,10 @@
 # Project Fitzgerald / FitzSight 进度真源
 
-> 本文件是 `/projfitzgerald` 项目追踪页的唯一数据源。页面会直接读取下方 `TRACKER_DATA` JSON。后续让 AI 更新进度时，只修改本文件；不要直接在网页文件中复制或维护任务状态。
+> 本文件是 `/projfitzgerald` 项目追踪页的**唯一、独立进度真源**。页面直接读取本文件中的 `TRACKER_DATA` JSON；后续项目状态只维护这一份文件，不创建或并行维护第二个进度真源。
 >
 > **实现仓库：** `https://github.com/AplusNeutrino/FitzSight`  
-> **进度真源仓库：** `https://github.com/AplusNeutrino/My_Blog/blob/main/docs/PROJFITZGERALD_PROGRESS.md`
+> **进度真源：** `https://github.com/AplusNeutrino/My_Blog/blob/main/docs/PROJFITZGERALD_PROGRESS.md`  
+> **追踪页：** `https://neutriverse.uk/projfitzgerald/`
 
 ## AI 更新规则
 
@@ -13,12 +14,16 @@
 4. 新任务必须保留唯一 `id`，并归入现有阶段；范围或工作流变更需同时记录到 `decisions`。
 5. 所有核心功能必须满足：可运行、尽量有确定性测试、处理失败状态、输出可见、证据已记录、文档已更新、无 secrets、可从干净环境演示。
 6. **正式产品名固定为 `FitzSight`。** `FinSight` 仅视为项目早期历史命名。后续维护的代码、README、Master Plan、Release Notes、包元数据、UI、PPT、演示文案和新生成文件均必须使用 `FitzSight`；发现仍在使用 `FinSight` 的维护中内容时，应在最近一次交付中统一修正。历史 Git commit 信息不要求重写。
-7. **每次 AI 向用户交付新的 FitzSight 代码/文件包时，必须把当次更新后的 `PROJFITZGERALD_PROGRESS.md` 一并放进同一个 ZIP 交付包。** 进度文件应反映该交付包实际包含并验证过的状态，不能提前把未实现功能标为完成。用户收到 ZIP 后自行将代码内容部署到 `AplusNeutrino/FitzSight`，并将 `PROJFITZGERALD_PROGRESS.md` 部署到 `AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md`。
-8. 每次开始新的实现工作前，优先读取 `My_Blog/docs/PROJFITZGERALD_PROGRESS.md` 判断当前任务，再读取 `AplusNeutrino/FitzSight` 的当前 `main` 分支作为代码基线；如果两者不一致，以可验证代码/测试/提交证据校正进度真源。
+7. **每次 AI 向用户交付新的 FitzSight 代码/文件包时，必须把当次更新后的 `PROJFITZGERALD_PROGRESS.md` 一并放进同一个 ZIP 交付包。** 进度文件应反映该交付包实际包含并验证过的状态，不能提前把未实现功能标为完成。用户收到 ZIP 后自行将代码内容部署到 `AplusNeutrino/FitzSight`，并将本进度文件部署到 `AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md`。
+8. 每次开始新的实现工作前，优先读取 `My_Blog/docs/PROJFITZGERALD_PROGRESS.md` 判断当前任务，再读取 `AplusNeutrino/FitzSight` 当前 `main` 作为代码基线；如果计划文件与代码/测试/提交证据不一致，以可验证实现证据校正本进度真源。
 9. 每个交付包应保留清晰版本号、Release Notes（如适用）、测试结果和关键验证证据；若当次无法实际运行某项测试，应明确记录“未验证”，不能视为通过。
 10. **Agent 安全边界：** Planner/LLM 输出始终视为不可信输入；只能选择已批准高层 action，不能直接生成或执行 SQL、任意工具参数、高风险金融动作；最终结论必须经过 EvidenceClaimVerifier，验证失败则 fail closed。
 11. **External runtime 证据规则：** OpenAI API、Streamlit、DuckDB 或其他 optional/external runtime 只有在实际依赖可用并有运行输出时才可标记 live validation `done`；mock/compile/code presence 只能证明实现或接口测试，不能替代真实运行证据。
 12. **手动提交边界：** 与比赛提交有关的外部写操作（GOAI portal 打开/填写/上传/最终提交、确认截图/邮件获取等）默认由用户手动完成。AI 只负责本地准备、校验、打包与说明；除非用户针对某个具体外部动作另行明确授权，否则不得主动访问 Gmail、提交平台或执行其他外部写操作。
+13. **GOAI 手册对齐规则：** competition-facing 计划、PPT、README、Demo 与评测优先按官方 Boundless Agents 手册的行业场景价值、Agent 闭环、产品体验、技术深度、安全合规、开放复用六维度审查；计划中出现的新能力不等于已实现。
+14. **Implemented vs Blueprint：** RBAC、PII masking、retention、document RAG 等生产能力只有在存在代码/测试/运行证据时才可标 implemented；否则必须写为 planned / production blueprint。
+15. **Competition evidence rule：** 主 PPT / Demo 中的 UI、trace、Evidence、Verifier、benchmark/baseline 结果必须来源于真实运行或可复现实验；不得用手工 mock、猜测 baseline 或未经执行的 live-provider 结果替代。
+16. **单一进度真源规则：** `My_Blog/docs/PROJFITZGERALD_PROGRESS.md` 是 Project Fitzgerald / FitzSight 唯一独立进度真源；不得创建或维护 `*_VALIDATED.md`、副本 tracker 或其他并行状态文件作为第二真源。DuckDB 等 runtime validation 直接记录在本文件的任务 evidence、summary 与更新日志中。
 
 <!-- TRACKER_DATA_START -->
 ```json
@@ -27,18 +32,21 @@
     "name": "Project Fitzgerald / FitzSight",
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
-    "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.11.0 final-machine operations complete / portable presentation kit + one-command readiness / external runtime and human actions remain evidence-gated",
+    "northStar": "让 Brokerage / FinTech Operations Analyst 针对获客、FTD 转化与客户资金流异常提出“为什么这个指标变了？”，由 Agent 在受限权限下自主完成调查、统计验证与证据化解释，最终业务决策保留给人。",
+    "phase": "FitzSight v0.11.0 published / GOAI handbook re-audit complete / v0.12 GOAI Alignment & Evaluation Upgrade planned",
     "priority": "P0",
     "lastUpdated": "2026-08-12",
-    "sourceVersion": "FitzSight v0.11.0 delivery · based on AplusNeutrino/FitzSight main e6bafdbd (Release FitzSight v0.10.0) · DuckDB deployment runtime already validated"
+    "sourceVersion": "FitzSight v0.11.0 published · AplusNeutrino/FitzSight main 272dc3d5dc180bced000bcac289358dba12fdd08 · DuckDB deployment runtime already validated · 2026-08-12 GOAI Boundless Agents handbook re-audit",
+    "primaryPersona": "Brokerage / FinTech Operations Analyst",
+    "positioning": "Evidence-grounded investigation Agent for acquisition, FTD conversion, client-fund-flow and related financial-operations anomalies",
+    "tagline": "Autonomous investigation. Human decision."
   },
   "summary": {
-    "verifiedDone": 62,
+    "verifiedDone": 63,
     "inProgress": 7,
-    "todo": 0,
+    "todo": 11,
     "blocked": 0,
-    "note": "FitzSight v0.11.0 adds a portable final-presentation-machine kit and one-command local readiness check while preserving the user-manual submission boundary. Build validation: 79 tests collected; complete non-overlapping groups total 78 passed, 1 skipped; compileall PASS. Benchmark regression remains 5/5 PASS and adversarial suite 8/8 PASS with 100% root-cause scenario accuracy, false-correlation rejection and mean evidence coverage, verifier violations 0. A fresh extracted final-machine kit was itself executed successfully: local_core_ready=true, deterministic Agent final status verified, submission preflight PASS, manual handoff integrity PASS. Build environment still lacks Streamlit, so live UI remains unvalidated; OpenAI live validation remains explicit opt-in and was not requested. No portal/email/external write actions were performed. Remaining seven roadmap items all require final-machine, provider, portal, or real human rehearsal evidence."
+    "note": "FitzSight v0.11.0 is verified as published on main commit 272dc3d5. The 2026-08-12 official GOAI Boundless Agents handbook re-audit does not roll back existing implementation evidence: 79 tests collected / 78 passed / 1 skipped, compileall PASS, 5/5 deterministic benchmark PASS, 8/8 adversarial PASS, DuckDB deployment runtime already validated, and the final-machine/local/offline handoff remains intact. The re-audit adds a new v0.12 GOAI Alignment & Evaluation Upgrade milestone rather than pretending planned capabilities already exist. Priority gaps are: a narrower Brokerage/FinTech Operations Analyst persona, one flagship bounded-adaptive CRM/FTD investigation, real product-process UI/trace/evidence presentation, holdout + ablation Evaluation v2, lightweight document evidence for the finance “资料理解” criterion, enterprise deployment governance as an explicit blueprint, and consistent “Autonomous investigation. Human decision.” wording. Existing seven external/runtime/human items remain evidence-gated; portal/email submission remains user-manual only."
   },
   "milestones": [
     {
@@ -669,6 +677,122 @@
           "executionMode": "human_rehearsal_required"
         }
       ]
+    },
+    {
+      "id": "M7",
+      "title": "GOAI 手册对齐与 v0.12 评审升级",
+      "date": "2026-08-12 → 2026-08-16",
+      "status": "in_progress",
+      "goal": "以官方 Boundless Agents 手册的行业场景价值 25% / Agent 能力与任务闭环 25% / 产品体验与 Demo 20% / 技术实现深度 15% / 安全合规与可追溯 10% / 开放复用 5% 为直接优化目标，在不扩大核心 intent 的前提下补齐定位、旗舰 Agent Journey、真实产品过程证据与 Evaluation v2。",
+      "items": [
+        {
+          "id": "V12-01",
+          "title": "GOAI 官方手册重审与 gap matrix",
+          "status": "done",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "2026-08-12 依据用户提供的《GOAI 无界应用｜Boundless Agents 参赛手册》§1.3、§5、§8、§9、§10 与附录 C 完成重审；本进度真源记录新增缺口：primary persona 过宽、Agent 动态调查展示不足、PPT 偏结果而非过程、5/5 自建 benchmark 缺少 holdout/ablation 证据、金融“资料理解”展示偏弱、enterprise deployment boundary 与 decision-support 文案需统一。本项只证明审查/规划完成，不把任何尚未实现能力视为 done。"
+        },
+        {
+          "id": "V12-02",
+          "title": "Primary persona / beachhead market 定位冻结",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "competition-facing README / Project Summary / Pitch / Master Plan 统一以 Brokerage / FinTech Operations Analyst 为 primary persona，Regional Operations / Sales Operations Manager 为 secondary user；主业务链明确为 acquisition → FTD conversion → client-fund flows。"
+        },
+        {
+          "id": "V12-03",
+          "title": "Flagship CRM/FTD bounded-adaptive Agent Journey",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "以 CRM/FTD 作为 hero workflow，展示 question → bounded plan → contribution drilldown → latency/statistics → event/document evidence → verifier → answer → follow-up；至少包含 insufficient-evidence 或 tool-failure 分支。后续步骤可由工具结果决定，但所有动作仍必须来自 approved action catalog，禁止 unrestricted SQL/tool autonomy。"
+        },
+        {
+          "id": "V12-04",
+          "title": "真实 UI / trace / Evidence / Verifier 视觉证据进入主叙事",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "主 PPT / Demo 至少展示一张来自真实 verified run 的产品界面或等价截图，可见用户输入、Agent plan/trace、tool/evidence IDs、verifier status、最终 answer/guardrail；禁止以手工 mock 代替运行证据。"
+        },
+        {
+          "id": "V12-05",
+          "title": "Pitch 重构：1 个 hero investigation + 1 个 refusal case",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "主 deck 不再连续平铺 5 个结果型案例；CRM/FTD 作为完整产品/Agent hero，false-correlation 作为“知道什么时候不能证明”的 trust case；Net Deposit 作为 breadth proof，Customer Intelligence / Marketing 移入 appendix。"
+        },
+        {
+          "id": "V12-06",
+          "title": "Evaluation v2：holdout seeds + question paraphrase robustness",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "在不增加大量业务场景的前提下，对至少 hero/refusal 场景使用未参与当前固定 benchmark 展示的 seed / anomaly magnitude / question paraphrase 进行 holdout 测试；报告 intent routing stability、root-cause/support status、evidence coverage、refusal correctness，并明确 benchmark 构造方式与适用范围。"
+        },
+        {
+          "id": "V12-07",
+          "title": "Evaluation v2：architecture ablation / baseline harness",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "形成可复现实验协议，比较至少 Full FitzSight 与去除关键 verifier/evidence gate 的受控 ablation，量化 evidence coverage、unsupported causal claim、unsafe answer/refusal 与 verifier violations。Generic LLM / LLM+SQL baseline 只有在用户显式 opt-in、真实 provider 可用且协议公平时才运行；无真实调用不得填充或推断结果。"
+        },
+        {
+          "id": "V12-08",
+          "title": "轻量级金融资料理解 / Document Evidence",
+          "status": "todo",
+          "priority": "P1",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "使用 synthetic operational documents（如 KPI definition、CRM routing change ticket、operations policy / incident note）补充 structured-data investigation；文档来源/段落 ID 进入 Evidence Registry 并可被 verifier 引用。不为打勾而宣称未实现的大型 RAG / vector database。"
+        },
+        {
+          "id": "V12-09",
+          "title": "Enterprise Deployment Boundary 蓝图",
+          "status": "todo",
+          "priority": "P1",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "新增 production blueprint：identity/RBAC → row/field policy & PII masking → read-only semantic/data layer → FitzSight → evidence/audit log → human analyst；明确当前 PoC 为 synthetic/read-only，RBAC/retention/PII controls 属生产部署要求，不得写成当前已实现。"
+        },
+        {
+          "id": "V12-10",
+          "title": "Decision-support / autonomy 文案一致性清理",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "所有维护中材料把 Question → Data → Analysis → Evidence → Decision 统一改为 Decision Support / Human Decision；统一使用“Autonomous investigation. Human decision.”或等价表述，不得暗示 FitzSight 自动作出投资、AML、信贷、适当性或其他高风险专业决策。"
+        },
+        {
+          "id": "V12-11",
+          "title": "比赛文档全链路同步",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "MASTER_PLAN、README、INITIAL_ROUND_PROJECT_SUMMARY、PITCH_DECK_CONTENT、Architecture/Compliance/Demo/Operator docs 与最终 PPT/PDF 对 persona、hero flow、evaluation、safety wording 和当前 runtime evidence 保持一致；历史 release artifact 可保留历史状态。"
+        },
+        {
+          "id": "V12-12",
+          "title": "GOAI handbook final reviewer gate",
+          "status": "todo",
+          "priority": "P0",
+          "updated": "2026-08-12",
+          "evidence": "",
+          "dod": "发布 v0.12 前逐项核验官方手册：目标用户/痛点/任务闭环、Agent planning/tool/result/verification、真实 Demo 过程、失败/不确定分支、数据来源与模拟逻辑、金融行业边界、第三方依赖、运行/部署/测试证据、PPT/视频/仓库一致性；任何未实现项必须标 planned/blueprint，不得包装为已完成。"
+        }
+      ]
     }
   ],
   "risks": [
@@ -700,7 +824,7 @@
       "id": "RK-05",
       "level": "medium",
       "title": "官方规则更新",
-      "mitigation": "每日检查官网、官方群与邮件"
+      "mitigation": "官方规则以官网/组委会通知为准；用户自行关注官方群/邮件。AI 仅在用户明确要求时查询公开网页，不默认访问 Gmail 或执行外部账户操作。"
     },
     {
       "id": "RK-06",
@@ -718,7 +842,7 @@
       "id": "RK-08",
       "level": "medium",
       "title": "代码包与进度真源不同步",
-      "mitigation": "每次向用户交付代码包时，必须在同一个 ZIP 中附带当次更新后的 PROJFITZGERALD_PROGRESS.md"
+      "mitigation": "每次向用户交付代码包时，必须在同一个 ZIP 中附带唯一进度真源 PROJFITZGERALD_PROGRESS.md；DuckDB/live/runtime 等验证状态直接写入该文件，不维护第二 tracker。"
     },
     {
       "id": "RK-09",
@@ -761,19 +885,60 @@
       "level": "medium",
       "title": "Final presentation machine differs from build environment",
       "mitigation": "v0.11 portable Final Machine Kit + one-command readiness JSON；Streamlit/OpenAI 只有最终机器/真实 provider evidence 才能标 done；失败立即回退 deterministic CLI/offline HTML/video。"
+    },
+    {
+      "id": "RK-16",
+      "level": "high",
+      "title": "Primary persona / first-use scenario 过宽导致行业价值被稀释",
+      "mitigation": "v0.12 统一 primary persona 为 Brokerage / FinTech Operations Analyst；主故事聚焦 acquisition→FTD→client-fund-flow investigation，其他 workflow 作为 breadth/appendix。"
+    },
+    {
+      "id": "RK-17",
+      "level": "high",
+      "title": "评委将 FitzSight 视为固定 analytics pipeline 而非 Agent",
+      "mitigation": "展示 bounded conditional investigation、follow-up 与 failure/insufficient-evidence branch；允许工具结果决定下一批准动作，但继续禁止 arbitrary SQL/tool parameters。"
+    },
+    {
+      "id": "RK-18",
+      "level": "high",
+      "title": "PPT 展示最终分析结果多，真实产品过程证据不足",
+      "mitigation": "主 deck 以真实 verified UI/trace/Evidence/Verifier 截图或等价运行证据为主，明确用户如何开始、Agent 如何推进、失败如何处理、结果如何追溯。"
+    },
+    {
+      "id": "RK-19",
+      "level": "high",
+      "title": "自建 synthetic benchmark 的 5/5 / 100% 指标可信度被质疑",
+      "mitigation": "Evaluation v2 增加 holdout seed/paraphrase robustness 与 architecture ablation；公开 benchmark 构造/ground-truth 定义；Generic LLM baseline 只在真实公平实验后报告。"
+    },
+    {
+      "id": "RK-20",
+      "level": "medium",
+      "title": "AI+金融专项“资料理解”展示相对薄弱",
+      "mitigation": "以 synthetic incident ticket / KPI definition / operations policy 增加 lightweight Document Evidence，source paragraph 进入 Evidence Registry；不虚构未实现 RAG 能力。"
+    },
+    {
+      "id": "RK-21",
+      "level": "medium",
+      "title": "Decision / autonomous 营销语言与金融辅助决策边界冲突",
+      "mitigation": "competition-facing language 统一为 Decision Support / Human Decision；核心口号固定为 Autonomous investigation. Human decision."
+    },
+    {
+      "id": "RK-22",
+      "level": "medium",
+      "title": "Enterprise RBAC / PII / retention 蓝图被误解为当前已实现",
+      "mitigation": "生产部署治理能力仅以 blueprint 标注；当前 implemented claims 继续限定为 synthetic data、read-only analytical path、Evidence/audit boundary 与现有 verifier。"
     }
   ],
   "unknowns": [
-    "团队人数最终限制",
-    "初赛 PPT 页数/大小限制",
-    "项目简介字符限制",
-    "是否必须 public repo",
-    "Demo 视频长度",
-    "决赛路演与答辩时长",
+    "初赛 PPT 页数 / 文件大小 / 模板限制（手册未给具体上限，最终以 portal / 组委会通知为准）",
+    "Demo 视频时长 / 文件大小 / 上传格式（手册未给具体上限）",
+    "初赛 portal 是否提供独立 repo / Demo URL / supplementary material 字段",
+    "复赛在线体验 / 本地部署的具体平台、账号与现场验收环境",
+    "复赛 / 决赛现场网络、依赖安装与测试环境限制",
+    "决赛路演与专家问答精确时长",
     "交通住宿报销标准",
     "官方评委名单",
-    "Boundless handbook",
-    "指定技术/模型合作资源"
+    "指定技术 / 模型合作资源及申请规则"
   ],
   "decisions": [
     "D-001 选择 Boundless Agents",
@@ -812,11 +977,21 @@
     "D-034 Final handoff 必须 self-contained/operator-oriented：用户拿到 portable handoff packet 后即可依据 START_HERE、field map、manual checklist、runtime instructions 与已生成资产自行完成外部提交，无需额外代码生成",
     "D-035 Final-machine 默认检查必须 local/provider-safe：允许 deterministic local checks 与 127.0.0.1 Streamlit health probe；不得默认调用 live model provider，OpenAI 仅通过用户显式 --include-openai opt-in 执行",
     "D-036 Final-machine readiness 与 external submission 是两条独立真源：local demo-ready 不能推断 GOAI portal 已上传/已提交/已确认；外部提交始终按 user-manual evidence 更新",
-    "D-037 Human rehearsal evidence 必须由用户真实演练产生：AI 可生成 timing targets/operator card/recording tool，但代码存在或模拟时长不能关闭 R4/R5"
+    "D-037 Human rehearsal evidence 必须由用户真实演练产生：AI 可生成 timing targets/operator card/recording tool，但代码存在或模拟时长不能关闭 R4/R5",
+    "D-038 v0.12 定位为 GOAI Alignment & Evaluation Upgrade：不新增无明确评分收益的核心 intent，优先优化官方手册权重最高的行业场景价值、Agent 闭环与产品 Demo。",
+    "D-039 Primary persona 固定为 Brokerage / FinTech Operations Analyst；Regional Operations / Sales Operations Manager 为 secondary user；hero business chain 为 acquisition → FTD conversion → client-fund flows。",
+    "D-040 Main competition story 采用 1 hero + 1 refusal：CRM/FTD 展示完整调查闭环，false-correlation 展示证据不足时拒绝因果结论；其他 workflow 作为 breadth proof / appendix。",
+    "D-041 Agent 升级只允许 bounded adaptivity：工具结果可决定下一 approved action / branch，但 planner 继续不能生成任意 SQL、任意 tool parameters 或高风险金融动作。",
+    "D-042 Evaluation v2 优先 holdout seed/paraphrase robustness 与 architecture ablation，而不是继续增加场景数量；Generic LLM baseline 必须基于真实、可复现、公平的 live-provider 实验，未运行不得报告结果。",
+    "D-043 金融“资料理解”采用 lightweight Document Evidence：synthetic operational ticket / KPI definition / policy 文档可进入 Evidence Registry 并绑定 source paragraph；不为比赛形式化堆叠大型 RAG。",
+    "D-044 Enterprise Deployment Boundary 作为 production blueprint：RBAC、row/field policy、PII masking、retention 等未实现治理能力必须明确标 planned，不得与当前 PoC implemented claims 混淆。",
+    "D-045 Competition language 统一为 Decision Support / Human Decision；推荐 tagline：Autonomous investigation. Human decision.；不得使用会暗示自动高风险金融决策的表述。",
+    "D-046 主 PPT / Demo 必须展示真实运行过程证据：UI、plan/trace、tool/evidence、verifier、failure/guardrail；手工 mock 不得替代运行证据。",
+    "D-047 v0.12 的 GOAI 对齐工作不改变 D-033 手动提交边界：GOAI portal / Gmail / final submit / confirmation 仍由用户手动完成，除非用户对具体外部动作另行明确授权。",
+    "D-048 Project Fitzgerald / FitzSight 的唯一独立进度真源保持为 My_Blog/docs/PROJFITZGERALD_PROGRESS.md；DuckDB validation 作为该文件中的 runtime evidence 记录，不单独建立 *_VALIDATED.md 或其他并行 tracker。"
   ]
 }
 ```
-
 <!-- TRACKER_DATA_END -->
 
 ## 状态口径
@@ -828,34 +1003,85 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.11）
+## 当前实现基线（v0.11 已发布 / v0.12 规划重审）
 
 - 正式产品名：**FitzSight**
-- 实现仓库：`AplusNeutrino/FitzSight`
-- 已核验公开代码基线：`v0.10.0` commit `e6bafdbd67ab42dbc2946f807208180f9361adff`（`Release FitzSight v0.10.0`）
-- 本次实现版本：`v0.11.0`
-- Build tests：`79 tests collected`；完整非重叠分组汇总 `78 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
-- Compile：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
-- Deterministic benchmark regression：`5/5 PASS`；root-cause scenario accuracy / false-correlation rejection / evidence coverage 均 `100%`；verifier violations `0`
+- 当前公开实现仓库：`AplusNeutrino/FitzSight`
+- 2026-08-12 已核验公开 `main`：commit `272dc3d5dc180bced000bcac289358dba12fdd08`，message `Release FitzSight v0.11.0`
+- DuckDB deployment runtime：已验证，T3 保持 `done`
+- v0.11 Build tests：`79 tests collected`；完整非重叠分组汇总 `78 passed, 1 skipped`；唯一 skip 为 build sandbox DuckDB-specific integration；既有 deployment runtime 证据不因此回退
+- Compile：`PASS`
+- Deterministic benchmark：`5/5 PASS`
 - Adversarial release gate：`8/8 PASS`
-- 新 Final Machine Kit：portable full local repo snapshot（排除 caches/generated CSV/self archive）+ Windows/POSIX launchers + manual handoff + offline assets；SHA-256 `55fa98046825a55a9bf5a3e760f379a8c0359f95a876f977039ac2fe393ebdea`
-- Final Machine Kit clean extraction 实跑：`local_core_ready=true`；deterministic Agent final status `verified`；submission preflight `PASS`
-- Manual Handoff / Upload Bundle / Final Machine Kit 均通过 ZIP integrity 检查；无 external submission/network build action
-- Manual submission boundary 继续有效：GOAI portal review/upload/final submit、confirmation screenshot/email/receipt 只由用户手动完成；AI 默认不访问 Gmail/portal、不执行外部写操作
-- Streamlit build-environment check：`not_run_dependency_missing`；因此 E1/R3 仍需最终演示机器真实 health-check
-- OpenAI live validation：默认 final-machine check 不调用；仅用户显式 `--include-openai` opt-in；本轮未验证 live provider
-- Rehearsal tooling：新增 machine-readable timing plan、operator card 与 local timing recorder；真实 pitch/demo/Q&A 仍需用户人工演练证据
+- root-cause scenario accuracy / false-correlation rejection / mean evidence coverage：当前固定 benchmark 均 `100%`
+- verifier violations：`0`
+- Final Machine Kit clean extraction：`local_core_ready=true`；deterministic Agent final status `verified`；submission preflight `PASS`
+- Streamlit build-environment live validation：仍未完成，E1/R3 保持 `in_progress`
+- OpenAI live planner：explicit opt-in only；无真实 provider call 证据，T4/F5 保持 `in_progress`
+- GOAI portal / Gmail / final submit / confirmation：**user-manual only**
+- **本次 2026-08-12 更新只完成官方手册重审、计划重构与 tracker 更新；没有把 v0.12 新能力提前标为 implemented。**
 
-## 下一阶段：Final-Machine / Human Evidence Closeout
+## GOAI 官方手册重审结论（2026-08-12）
 
-1. 用户把 `submission/FitzSight_Final_Machine_Kit.zip` 解压到最终演示机器，运行 `RUN_FINAL_CHECKS.bat` 或 `sh RUN_FINAL_CHECKS.sh`；保存 `final_machine_report.json`。
-2. `streamlit_live.passed=true` 后才能关闭 E1，并使 R3 的 Live/local/video 三套状态完整。若失败，直接使用 CLI/offline HTML/MP4 fallback。
-3. OpenAI planner 继续可选；只有用户主动配置稳定 credential/model 并显式运行 `--include-openai` 后，真实 non-secret telemetry 才可关闭 T4/F5。
-4. GOAI portal 的打开、字段核对、上传、最终提交与 confirmation 继续 **user-manual only**；AI 默认不访问 Gmail/portal。
-5. 用户用 `rehearsal_assistant.py` 或其他计时方式完成人工 5–8 分钟 pitch、<3 分钟 demo 与 Q&A/stability rehearsal；真实记录后关闭 R4/R5。
-6. 不再扩核心 intent/benchmark；后续代码只允许修复 final-machine reliability、evidence/safety regression 或 operator handoff 问题。
+官方 Boundless Agents 初赛/跨阶段要求与评审重点对 FitzSight 的直接影响：
+
+| 官方维度 | 权重 | 当前 FitzSight 证据 | 重审后的主要缺口 | v0.12 处理 |
+|---|---:|---|---|---|
+| 行业场景价值 | 25% | 金融运营 KPI 异常调查真实、已有 5 个 synthetic workflows | primary user 过宽，首个强需求岗位与业务链不够锋利 | 固定 Brokerage / FinTech Operations Analyst；主业务链 acquisition → FTD → client-fund flows |
+| Agent 能力与任务闭环 | 25% | constrained planner → deterministic tools → Evidence Registry → Verifier | 当前材料更像安全 workflow，bounded dynamic investigation / follow-up / failure branch 展示不足 | CRM/FTD hero journey 加 conditional drilldown、follow-up、insufficient-evidence/tool-failure branch |
+| 产品体验与 Demo | 20% | Streamlit presenter、offline HTML/video、trace/evidence cards 已有 | 主 PPT 目前平铺多个最终结果，真实产品过程视觉证据不足 | 1 hero + 1 refusal；真实 UI/trace/evidence/verifier 进入主叙事 |
+| 技术实现深度 | 15% | read-only SQL/Python、statistics、decomposition、verifier、DuckDB、tests | 技术不是当前首要短板 | 保持架构，不为“更 Agent”放开 SQL/tool 权限 |
+| 安全、合规、可追溯 | 10% | synthetic-only、fail closed、causal guardrail、no high-impact actions | competition wording 中 Decision/autonomous 需完全一致；production governance 需说明 | “Autonomous investigation. Human decision.”；enterprise boundary 明确 blueprint |
+| 开放 / 复用 | 5% | public repo、MIT、synthetic generator、tests、docs、portable kit | 可进一步说明如何迁移为金融运营调查模板 | 在文档中补配置/迁移边界，不扩新核心 framework |
+
+金融赛题专项强调“资料理解、依据追溯、风险提示、合规意识、避免越权决策”。FitzSight 后四项较强；v0.12 只补一个轻量、可验证的 synthetic operational-document evidence path，不为了形式完整而临时堆叠大型 RAG。
+
+官方手册已明确并从 `unknowns` 移除的事项：
+- 团队可个人参赛；组队人数不超过 3 人；
+- 初赛作品简介为 500 字以内；
+- 初赛方案 PPT/PDF 必交，Demo/原型与代码包可选；
+- 复赛起 Demo、代码/等价工程材料、数据来源与合规说明进入必交范围；
+- 开源并非初赛强制，但复赛/决赛需评审可访问的代码或等价工程材料；
+- 模拟数据允许，但必须说明模拟逻辑、字段含义和适用边界。
+
+## v0.12 — GOAI Alignment & Evaluation Upgrade
+
+P0 顺序：
+
+1. **定位冻结**：Primary persona 改为 Brokerage / FinTech Operations Analyst；secondary user 保留 Regional Operations / Sales Operations Manager；五个 workflow 不再等权展示。
+2. **Hero Agent Journey**：以 CRM/FTD 为唯一旗舰调查，加入 bounded conditional drilldown、follow-up 与 failure/insufficient-evidence branch；绝不改成 unrestricted SQL Agent。
+3. **产品证据进入主 deck**：主 PPT 展示真实 UI / Agent plan / tool execution / Evidence ID / Verifier / final guardrail，证明系统“如何运行”而不只展示最终数字。
+4. **叙事压缩为 1+1**：CRM/FTD = investigation hero；False Correlation = refusal/trust hero；Net Deposit = breadth proof；Customer Intelligence / Marketing = appendix。
+5. **Evaluation v2**：优先 holdout seeds / anomaly magnitude / question paraphrases + architecture ablation，回答“这套 architecture 为什么有效”，而不是把 5 个场景简单扩成更多场景。
+6. **金融资料理解补强**：只增加轻量 synthetic document evidence（KPI definition / routing ticket / operations policy / incident note）与 source-paragraph Evidence；不虚构大型 RAG。
+7. **Enterprise deployment blueprint**：RBAC、row/field policy、PII masking、retention、audit 只作为生产部署边界说明；未实现部分明确标 planned。
+8. **语言统一**：`Question → Data → Analysis → Evidence → Decision Support`；推荐 tagline：`Autonomous investigation. Human decision.`
+9. **全仓库比赛文档同步**：MASTER_PLAN / README / Project Summary / Pitch / Architecture / Compliance / Demo / Operator assets 对齐同一 persona、hero story、evaluation 和 safety wording。
+10. **最终 handbook reviewer gate**：逐项核验官方要求及附录 Demo checklist，确保 PPT、视频、仓库、说明文档和现场展示一致。
+
+保持不变的边界：
+- 不新增无明确评分收益的第六个核心 intent；
+- 不为了“多轮/Agent”表现而允许 LLM 生成任意 SQL 或任意 tool arguments；
+- 不把 synthetic benchmark 说成真实客户效果；
+- 不把 enterprise blueprint 说成已实现 production control；
+- 不在未实际调用前报告 Generic LLM/OpenAI baseline、token cost 或 provider latency；
+- GOAI portal / Gmail / final submit / confirmation 仍由用户手动完成。
+
+## 仍需外部 / 人工证据的既有任务
+
+1. 最终演示机器 Streamlit live health-check：成功后关闭 E1，并完成 R3 的 Live/local/video 三套闭环。
+2. OpenAI planner 继续可选：只有用户显式 opt-in + 稳定 credential/model + 真实运行输出后才能关闭 T4；对应 live-provider latency/token/cost 才能更新 F5。
+3. GOAI portal review/upload/final submit/confirmation：G6 继续 `owner=user_manual` / `manual_only`。
+4. 用户真实完成人工 pitch/demo/Q&A rehearsal 后，才可关闭 R4/R5。
+5. v0.12 文档/代码工作不得用任何上述外部任务“尚未完成”作为理由虚构验证结果。
 
 ## 更新日志
+
+- 2026-08-12：纠正进度真源文件名误记。确认 `AplusNeutrino/My_Blog/docs/PROJFITZGERALD_PROGRESS.md` 继续作为 Project Fitzgerald / FitzSight 的唯一、独立进度真源，并由 `/projfitzgerald/` 追踪页读取。先前提及的 `*_DUCKDB_VALIDATED.md` 不再作为规划文件或第二 tracker；DuckDB runtime validation 继续作为本文件中的既有 evidence 保留。本次仅纠正真源约定，不改变 v0.11/v0.12 任务完成状态或验证计数。
+
+
+- 2026-08-12：依据官方《GOAI 无界应用｜Boundless Agents 参赛手册》与既有 v0.11 实现证据完成一次 competition-alignment 重审。确认当前最大缺口不在核心技术，而在 primary persona、Agent 动态调查展示、真实产品过程、benchmark 泛化/ablation 可信度、金融资料理解与 enterprise deployment boundary。新增 M7 / V12-01→V12-12；V12-01（手册重审与 gap matrix）有本文件作为证据标 `done`，其余 11 项保持 `todo`，不提前宣称实现。总计更新为 63 done / 7 in_progress / 11 todo / 0 blocked。同时统一后续方向为“Autonomous investigation. Human decision.”，并保留 user-manual-only submission boundary。
+
 
 - 2026-08-12：FitzSight v0.11 完成 final-machine operations：新增 portable Final Machine Kit、Windows/POSIX launchers、one-command final_machine_check、explicit-opt-in OpenAI validation boundary、rehearsal timing recorder/plan/operator card；79 tests collected / 78 passed / 1 skipped；5/5 benchmark、8/8 adversarial、compileall、preflight、handoff/kit integrity 均 PASS；clean extracted kit 实跑 `local_core_ready=true` 且 deterministic Agent `verified`；剩余 7 项全部保持 external/runtime/human evidence-gated。
 
