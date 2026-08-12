@@ -32,17 +32,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让 Brokerage / FinTech Operations Analyst 提出“为什么这个经营指标变了？”，由 Agent 在受限工具边界内自主调查并生成可验证的 decision support，最终业务决策由人完成。",
-    "phase": "FitzSight v0.12.0 delivery built / GOAI alignment core implemented / formal deck regeneration + final handbook gate pending",
+    "phase": "FitzSight v0.12.0 published / v0.12.1 formal deck + GOAI final reviewer gate complete / external runtime + human actions remain evidence-gated",
     "priority": "P0",
     "lastUpdated": "2026-08-12",
-    "sourceVersion": "FitzSight v0.12.0 delivery · based on AplusNeutrino/FitzSight main 272dc3d5dc180bced000bcac289358dba12fdd08 · delivery not yet published · DuckDB prior deployment runtime validated"
+    "sourceVersion": "FitzSight v0.12.1 delivery · based on published AplusNeutrino/FitzSight main 04f196e74495d345fa7bc979d7447070c56e4020 (Release FitzSight v0.12.0) · My_Blog progress commit 9fe230c1ca8c0b457b4d67df35686aa4efcacca6 · v0.12.1 not yet published"
   },
   "summary": {
-    "verifiedDone": 71,
-    "inProgress": 9,
-    "todo": 1,
+    "verifiedDone": 74,
+    "inProgress": 7,
+    "todo": 0,
     "blocked": 0,
-    "note": "FitzSight v0.12.0 delivery is built on the verified public main baseline 272dc3d5. This round completes the primary Brokerage/FinTech Operations Analyst positioning, bounded-adaptive CRM/FTD hero with a tested fail-closed event-tool branch, runtime-derived hero product-process evidence, synthetic source/paragraph document evidence, holdout seed/question-paraphrase evaluation, controlled no-verifier-gate ablation, enterprise deployment boundary, and Human Decision wording. Validation: 85 tests collected / 84 passed / 1 skipped / 0 failed; compileall PASS; fixed benchmark 5/5 PASS; adversarial 8/8 PASS; holdout routing/verification/evidence coverage/refusal correctness all 100%, with supported-candidate rate 75% because one unseen CRM seed correctly returned insufficient_evidence. Local release gates also PASS: submission preflight PASS, handoff ready_for_user_takeover=true, final-machine local_core_ready=true, deterministic Agent smoke verified. Formal PPT/PDF regeneration to the v0.12 one-hero + one-refusal narrative and dependent full asset sync remain in_progress; final handbook reviewer gate remains todo. Streamlit live and OpenAI live are not validated in this sandbox. No GitHub publish, GOAI portal, Gmail, or other external write action was performed."
+    "note": "FitzSight v0.12.0 is verified as published on main commit 04f196e7 and the unique My_Blog progress source was updated in commit 9fe230c1. v0.12.1 completes the remaining local GOAI-alignment work: formal 12-slide PPTX/PDF regenerated as one CRM/FTD hero + one false-correlation refusal, real runtime-derived hero trace/answer evidence embedded, tested failure/insufficient-evidence branch shown, competition-facing docs/operator assets synchronized, and the official six-dimension GOAI reviewer gate completed without exceeding implementation evidence. Validation: 87 tests collected / 86 passed / 1 skipped / 0 failed; compileall PASS; v0.12.1 fixed benchmark 5/5 PASS; adversarial 8/8 PASS; slide overflow test PASS; same-source PDF rendered as 12 pages; local submission preflight PASS; handoff ready_for_user_takeover=true; final-machine local_core_ready=true with deterministic Agent smoke verified. The seven remaining in-progress items require Streamlit/OpenAI live runtime, portal confirmation, or real human rehearsal evidence; none are closed by presentation generation."
   },
   "milestones": [
     {
@@ -678,7 +678,7 @@
       "id": "M7",
       "title": "GOAI 手册对齐与 v0.12 评审升级",
       "date": "2026-08-12 → 2026-08-17",
-      "status": "in_progress",
+      "status": "done",
       "goal": "以官方六维评分为约束，冻结 beachhead persona，强化真实 Agent Journey / product evidence / evaluation credibility / enterprise boundary，同时不超过真实实现范围",
       "items": [
         {
@@ -716,10 +716,10 @@
         {
           "id": "V12-05",
           "title": "Pitch 1 hero + 1 refusal narrative",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-12",
-          "evidence": "docs/PITCH_DECK_CONTENT.md 已改为 CRM hero + false-correlation refusal + breadth appendix/source；但 committed formal PPTX/PDF 与 build_pitch_deck.py 尚未按 v0.12 narrative 重新生成/视觉复核，故不能 done。"
+          "evidence": "v0.12.1 scripts/build_pitch_deck.py regenerated formal 12-slide PPTX/PDF as 1 CRM/FTD hero + 1 false-correlation refusal; runtime-derived FitzSight_Hero_Run_Trace/Answer images embedded; slides_test PASS (no canvas overflow); PDF 12 pages render-reviewed. PPTX SHA-256 6ede0712f14642aee88e10b9e3ff56e9413ce36b45ea12f53c4328ee4298090a; PDF SHA-256 914da2589b253efcaf2e35872009c13efee8e1209ef0698f355e941ad904caab."
         },
         {
           "id": "V12-06",
@@ -764,18 +764,18 @@
         {
           "id": "V12-11",
           "title": "Full competition asset synchronization",
-          "status": "in_progress",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-12",
-          "evidence": "README/Master Plan/Project Summary/Pitch source/Architecture/Compliance/UI Demo/Demo Runbook 已同步；正式 PPTX/PDF 尚未重新构建和 render-review，因此 full asset sync 仍 in_progress。; local v0.12 submission preflight PASS, handoff ready_for_user_takeover=true and final-machine local_core_ready=true, but formal PPT/PDF regeneration is still pending, so full asset synchronization remains in_progress"
+          "evidence": "v0.12.1 synchronized README/MASTER_PLAN/IMPLEMENTATION_STATUS/PROJECT_PROGRESS, Project Summary, Pitch source, Architecture/Compliance/UI Demo, speaker notes, Demo Runbook/video/rehearsal/operator/Judge Q&A/portal/field-map/checklist assets; upload/manual-handoff/final-machine packages rebuilt from synchronized formal deck. Streamlit/OpenAI live and portal/human evidence remain separate."
         },
         {
           "id": "V12-12",
           "title": "Final GOAI handbook reviewer gate",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "updated": "2026-08-12",
-          "evidence": "需在 formal v0.12 PPT/PDF regeneration 后按官方六维再次逐项 reviewer gate；本轮未提前标完成。"
+          "evidence": "docs/V0.12.1_GOAI_REVIEWER_GATE.md audits current package against official handbook: industry value 25%, Agent loop 25%, product/Demo 20%, technical depth 15%, safety/compliance/traceability 10%, open/reuse 5%, plus AI+Finance document understanding/evidence trace/risk/compliance/no-overstep checks. Gate PASS for prepared package; live Streamlit/OpenAI, portal and human rehearsal explicitly remain unverified."
         }
       ]
     }
@@ -989,39 +989,39 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.12.0 delivery）
+## 当前实现基线（v0.12.0 已发布 / v0.12.1 本地交付）
 
 - 正式产品名：**FitzSight**
 - 唯一进度真源：本文件；tracker：`https://neutriverse.uk/projfitzgerald/`
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 本轮开发前核验的公开 `main`：commit `272dc3d5dc180bced000bcac289358dba12fdd08`，message `Release FitzSight v0.11.0`；GitHub 未发现比该 commit 更新的已部署实现。
-- 本次本地交付版本：`v0.12.0`；**尚未由用户发布到 GitHub**。
-- Build tests：`85 tests collected`；完整非重叠分组汇总 `84 passed, 1 skipped, 0 failed`；唯一 skip 为 build sandbox DuckDB-specific integration test。
-- Compile：`python -m compileall -q src scripts streamlit_app.py` → `PASS`。
-- Fixed benchmark regression：`5/5 PASS`；root-cause scenario accuracy / false-correlation rejection / mean evidence coverage 均 `100%`；verifier violations `0`。
-- Adversarial gate：`8/8 PASS`。
-- Holdout v2：2 unseen seeds × 4 question paraphrase cases = `8` runs；intent routing `100%`、verification `100%`、evidence coverage `100%`、false-correlation refusal correctness `100%`；supported-candidate rate `75%`，因为 seed 20260831 的 CRM case 正确 fail-closed 为 `insufficient_evidence`。
-- Architecture ablation：Full FitzSight adversarial refusal `100%` / unsafe output `0%`；no-verifier-gate ablation adversarial unsafe output `100%` / emitted evidence coverage `66.7%`。该结果是 controlled architecture ablation，不是 Generic LLM baseline。
-- CRM hero：bounded result-driven `contribution → anomaly → event → document` branch；branch decision 进入 Evidence Registry；event-tool failure 分支真实测试后 root cause 变为 `insufficient_evidence`。
-- Document Evidence：3 个固定 synthetic operational document paragraphs；hero 使用 `CRM-CHANGE-2026-0715#p1`；无 arbitrary filesystem/network/vector retrieval。
-- Runtime-derived hero evidence：`docs/V0.12_HERO_RUN.json` + `submission/FitzSight_Hero_Run_Evidence.html/.png`；包含 input、execution trace、branch rationale、Evidence IDs、Verifier、guardrail、approved follow-up。
-- Local release readiness：`docs/V0.12_SUBMISSION_PREFLIGHT.json` = `PASS`；`docs/V0.12_HANDOFF_READINESS.json` = `ready_for_user_takeover=true`；`docs/V0.12_FINAL_MACHINE_READINESS.json` = `local_core_ready=true` 且 deterministic Agent smoke `verified`。
-- Internal v0.12 handoff SHA-256：`FitzSight_Manual_Handoff.zip` = `30e503d99277a9b59b113fd499a553cbc063b979335e8818efd3170fb19547e3`；`FitzSight_Final_Machine_Kit.zip` = `4d110d19a2ab7a39a5ff0433ba0ed25391cadc7473f6d9683ffec32c4ace20f8`。
-- 正式 PPT/PDF：**未按 v0.12 narrative 重新生成**；`docs/PITCH_DECK_CONTENT.md` 已更新，因此 V12-05 / V12-11 保持 `in_progress`。
-- Streamlit live：本 sandbox dependency missing，**未验证**；不能把 UI code/test 当 live PASS。
-- OpenAI live：未请求、未调用，**未验证**；无 live provider latency/cost claim。
-- External writes：未执行 GitHub publish、GOAI portal、Gmail/confirmation 或其他外部账户写操作。
+- 本轮开发前已核验公开 `main`：commit `04f196e74495d345fa7bc979d7447070c56e4020`，message `Release FitzSight v0.12.0`。
+- My_Blog 唯一进度真源已核验对应发布提交：`9fe230c1ca8c0b457b4d67df35686aa4efcacca6`，message `Update FitzSight progress for v0.12.0`。
+- 本次本地交付版本：`v0.12.1`；**尚未由用户发布到 GitHub**。
+- Build tests：`87 tests collected`；完整非重叠分组汇总 `86 passed, 1 skipped, 0 failed`；唯一 skip 为 build sandbox DuckDB-specific integration test。
+- Compile：`PASS`。
+- v0.12.1 fixed benchmark regression：`5/5 PASS`；root-cause scenario accuracy / false-correlation rejection / mean evidence coverage 均 `100%`；verifier violations `0`。
+- v0.12.1 adversarial gate：`8/8 PASS`。
+- Evaluation v2（核心实现未改）：8 holdout runs routing/verification/evidence coverage `100%`；false-correlation refusal `100%`；supported-candidate `75%`，保留 1 个正确 `insufficient_evidence` CRM unseen seed。
+- Formal Deck：12 slides；1 CRM/FTD hero + 1 false-correlation refusal；真实 runtime-derived trace/answer Evidence 进入主叙事；`slides_test.py` = PASS，无 canvas overflow；same-source PDF = 12 pages 并 render-review PASS。
+- Formal deck hashes：PPTX `6ede0712f14642aee88e10b9e3ff56e9413ce36b45ea12f53c4328ee4298090a`；PDF `914da2589b253efcaf2e35872009c13efee8e1209ef0698f355e941ad904caab`。
+- GOAI final reviewer gate：`docs/V0.12.1_GOAI_REVIEWER_GATE.md` = PASS；按官方六维和 AI+金融资料理解/依据追溯/风险提示/合规/避免越权逐项核验。
+- Local release readiness：submission preflight `PASS`；handoff `ready_for_user_takeover=true`；final-machine `local_core_ready=true`；deterministic Agent smoke `verified`。
+- Streamlit live：**未验证**；本轮 final-machine report 使用 provider-safe/local path，不能把 UI code/PPT 当 live PASS。
+- OpenAI live：未请求、未调用，**未验证**；无 live provider latency/token/cost claim。
+- GOAI portal / Gmail / final submit / confirmation：**user-manual only，未执行**。
+- Human pitch/demo/Q&A rehearsal：仍需要用户真实计时与稳定性证据。
 
-## 下一阶段：Formal Deck Regeneration → Handbook Gate
+## 下一阶段：External Runtime + Human Evidence Closure
 
-1. 按 `docs/PITCH_DECK_CONTENT.md` 把 formal deck/build script 变成 **1 hero + 1 refusal**，把其他 workflow 压缩为 breadth/appendix。
-2. 将真实 `submission/FitzSight_Hero_Run_Evidence.png` 或等价真实 product-process screenshot 放进主 deck，并保持 numeric claims 只来自 current verified runtime。
-3. 重新生成同源 PPTX/PDF，做 render/visual QA，更新 hashes；完成后关闭 V12-05。
-4. 同步 submission copy / speaker notes / rehearsal assets / upload bundle 等依赖 formal deck 的资产，关闭 V12-11。
-5. 按 GOAI 官方六维做最终 reviewer gate，重点检查 persona、Agent task loop、product evidence、evaluation credibility、safety/traceability、open/reuse，关闭 V12-12。
-6. Streamlit/OpenAI live runtime、portal/rehearsal 继续遵守真实 runtime / user-manual evidence rules；本地 deterministic final-machine core 已通过，但不能据此提前关闭 live/human/external tasks。
+1. 最终演示机器运行 Streamlit live health-check；真实 PASS 后关闭 E1，并完成 R3 的 Live/local/video 三套闭环。
+2. OpenAI planner 保持 explicit opt-in；只有真实 provider call 才能关闭 T4，并据真实 telemetry 更新 F5。
+3. 用户真实执行 pitch/demo/Q&A rehearsal 后关闭 R4/R5。
+4. GOAI portal review/upload/final submit/confirmation 继续由用户手动完成并以实际凭证更新 G6。
+5. 不再新增无明确评分收益的核心 intent；后续代码工作只围绕最终机器稳定性或有证据的新评审需求。
 
 ## 更新日志
+- 2026-08-12：核验用户已发布 v0.12.0：FitzSight main=`04f196e74495d345fa7bc979d7447070c56e4020`，My_Blog progress commit=`9fe230c1ca8c0b457b4d67df35686aa4efcacca6`。在该真实 published baseline 上构建 v0.12.1：formal 12-slide PPTX/PDF 重构为 1 CRM/FTD hero + 1 false-correlation refusal，嵌入 runtime-derived hero trace/answer Evidence，加入 tested failure branch 与 Evaluation v2；同步 competition docs/operator assets，完成官方 GOAI 六维 final reviewer gate。87 collected / 86 passed / 1 skipped / 0 failed；compileall、5/5 benchmark、8/8 adversarial、slides overflow、12-page PDF render、preflight、handoff、local final-machine deterministic smoke 均 PASS。V12-05/V12-11/V12-12 关闭；M7 done；总计 74 done / 7 in_progress / 0 todo / 0 blocked。剩余 7 项均继续要求真实 Streamlit/OpenAI/portal/human evidence。
+
 
 - 2026-08-12：FitzSight v0.12.0 delivery 基于已核验 `main` 272dc3d5 构建：完成 primary persona/beachhead freeze、bounded-adaptive CRM hero + event dependency fail-closed branch、approved follow-up、source-addressable synthetic document evidence、runtime-derived hero process evidence、holdout seed/paraphrase evaluation、controlled verifier-gate ablation、enterprise deployment boundary 与 Human Decision wording；85 collected / 84 passed / 1 skipped / 0 failed；compileall、5/5 benchmark、8/8 adversarial PASS；local submission preflight PASS、handoff `ready_for_user_takeover=true`、final-machine `local_core_ready=true` 且 deterministic Agent smoke `verified`。正式 PPT/PDF 尚未按 v0.12 narrative regenerate，因此 V12-05/V12-11 仍 in_progress；V12-12 final handbook gate 仍 todo。Streamlit/OpenAI live 仍未验证；无 GitHub/GOAI/Gmail/external write。
 - 2026-08-12：GOAI Boundless Agents handbook re-audit 创建 M7/v0.12 backlog，并将公开 FitzSight main 校正为 v0.11.0 commit 272dc3d5；V12-01 done，其余待实现。
