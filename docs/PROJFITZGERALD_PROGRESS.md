@@ -28,17 +28,17 @@
     "subtitle": "Financial Operations Intelligence Agent",
     "track": "GOAI 2026 · Boundless Agents · AI+金融",
     "northStar": "让金融业务管理者提出‘为什么这个指标变了？’，由 Agent 自主完成数据调查、统计验证与证据化解释。",
-    "phase": "FitzSight v0.10.0 operator handoff complete / manual-submission boundary enforced / user takeover packet ready",
+    "phase": "FitzSight v0.11.0 final-machine operations complete / portable presentation kit + one-command readiness / external runtime and human actions remain evidence-gated",
     "priority": "P0",
-    "lastUpdated": "2026-08-11",
-    "sourceVersion": "FitzSight v0.10.0 delivery · based on AplusNeutrino/FitzSight main 5304c5cf (Release FitzSight v0.9.0) · DuckDB deployment runtime already validated"
+    "lastUpdated": "2026-08-12",
+    "sourceVersion": "FitzSight v0.11.0 delivery · based on AplusNeutrino/FitzSight main e6bafdbd (Release FitzSight v0.10.0) · DuckDB deployment runtime already validated"
   },
   "summary": {
     "verifiedDone": 62,
     "inProgress": 7,
     "todo": 0,
     "blocked": 0,
-    "note": "FitzSight v0.10.0 completes the local operator handoff layer without performing any external submission. Build validation: 74 tests collected; 73 passed, 1 skipped; compileall PASS. Benchmark regression 5/5 PASS and adversarial suite 8/8 PASS. v0.10 adds an explicit user-manual submission boundary, single-entry START_HERE guide, manual submission/runtime checklists, field map, machine-readable handoff readiness, and portable FitzSight_Manual_Handoff.zip. Local preflight PASS reports external_write_actions_performed=false, portal automation=false, Gmail/email automation=false, and ready_for_user_takeover=true. F7 is now done. G6 remains in_progress and owned by user_manual until actual portal submission/confirmation evidence is provided. Streamlit/OpenAI live runtime and timed human rehearsal remain separate external/manual evidence tasks."
+    "note": "FitzSight v0.11.0 adds a portable final-presentation-machine kit and one-command local readiness check while preserving the user-manual submission boundary. Build validation: 79 tests collected; complete non-overlapping groups total 78 passed, 1 skipped; compileall PASS. Benchmark regression remains 5/5 PASS and adversarial suite 8/8 PASS with 100% root-cause scenario accuracy, false-correlation rejection and mean evidence coverage, verifier violations 0. A fresh extracted final-machine kit was itself executed successfully: local_core_ready=true, deterministic Agent final status verified, submission preflight PASS, manual handoff integrity PASS. Build environment still lacks Streamlit, so live UI remains unvalidated; OpenAI live validation remains explicit opt-in and was not requested. No portal/email/external write actions were performed. Remaining seven roadmap items all require final-machine, provider, portal, or real human rehearsal evidence."
   },
   "milestones": [
     {
@@ -335,8 +335,10 @@
           "title": "OpenAI Responses planner live runtime validation",
           "status": "in_progress",
           "priority": "P0",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 OpenAI Responses provider 增加 response/model/token/planning-latency telemetry，live validator 可执行完整 planner→tools→verifier；当前 build environment 无 FITZSIGHT_MODEL/API key，check=status not_run_missing_configuration，保持 in_progress。"
+          "updated": "2026-08-12",
+          "evidence": "v0.11 final_machine_check 默认不调用 OpenAI；仅用户显式传入 --include-openai 且主动配置稳定 API key/model 时才执行 live validator。build environment 未进行 live provider call，T4 保持 in_progress。",
+          "owner": "user_runtime_manual",
+          "executionMode": "explicit_opt_in_only"
         }
       ]
     },
@@ -449,8 +451,10 @@
           "title": "Streamlit chat / question input",
           "status": "in_progress",
           "priority": "P0",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 streamlit_app.py 已改为纯 presentation renderer over verified result；runtime validator 已实现。build environment 实际 check=status not_run_dependency_missing（Streamlit 未安装），因此 live runtime 仍未验证。"
+          "updated": "2026-08-12",
+          "evidence": "v0.11 新增 portable Final Machine Kit + final_machine_check；已在 clean extracted kit 中验证 local_core_ready=true。build environment Streamlit dependency 仍缺失，live health check status=not_run_dependency_missing，因此 E1 保持 in_progress，需最终演示机器真实 PASS。",
+          "owner": "user_runtime_manual",
+          "executionMode": "final_machine_manual_validation"
         },
         {
           "id": "E2",
@@ -529,8 +533,8 @@
           "title": "提交、截图、邮件确认与备份 PDF",
           "status": "in_progress",
           "priority": "P0",
-          "updated": "2026-08-11",
-          "evidence": "v0.10 已生成 START_HERE_MANUAL / MANUAL_SUBMISSION_CHECKLIST / GOAI_FIELD_MAP / portable FitzSight_Manual_Handoff.zip（SHA-256 a072233574b4ef3ba029a78a5f9473b4a17f433276ae3b3d4cd46643ddb7737c），preflight PASS 且明确 external_write_actions_performed=false、portal automation=false、Gmail/email automation=false。实际 GOAI portal review/upload/final submit 与 confirmation screenshot/email/receipt 由用户手动完成；未提供外部确认前保持 in_progress。",
+          "updated": "2026-08-12",
+          "evidence": "v0.11 继续维持 user-manual-only submission boundary；manual handoff ZIP（SHA-256 cf455c4a646a105be49fc883900529c2ad8e1ae36e5df69bc4544dfe6a6383e3）、upload bundle、PPT/PDF、offline HTML/video、field map、Final Machine Kit 均已准备并 integrity PASS。实际 GOAI portal review/upload/final submit 与 confirmation screenshot/email/receipt 仍只由用户手动完成，未提供外部确认前保持 in_progress。",
           "owner": "user_manual",
           "executionMode": "manual_only"
         },
@@ -588,8 +592,10 @@
           "title": "Latency / cost measurement",
           "status": "in_progress",
           "priority": "P1",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 docs/V0.9_DETERMINISTIC_LATENCY.json：SQLite full-Agent 5 workflows × 3 = 15 verified runs；overall mean 292.29ms / p50 300.90ms / p95 343.35ms（build-environment-specific）。OpenAI live provider latency/token/cost 尚无真实调用证据，因此保持 in_progress。"
+          "updated": "2026-08-12",
+          "evidence": "v0.9 deterministic SQLite latency snapshot 已存在；v0.11 final-machine tooling 保留 provider telemetry，但 OpenAI live provider 未实际调用，因此真实 provider latency/token/cost 仍无证据，F5 保持 in_progress。",
+          "owner": "user_runtime_manual",
+          "executionMode": "live_provider_evidence_required"
         },
         {
           "id": "F6",
@@ -637,24 +643,30 @@
           "title": "Live / local / video 三套 Demo",
           "status": "in_progress",
           "priority": "P2",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 已具备 local deterministic launcher + self-contained offline HTML + H.264 video backup；DuckDB local runtime此前已验证。Live Streamlit path 尚未在 final machine 验证，因此 Live/local/video 三套状态仍未全部 done。"
+          "updated": "2026-08-12",
+          "evidence": "v0.11 新增 FitzSight_Final_Machine_Kit.zip（SHA-256 55fa98046825a55a9bf5a3e760f379a8c0359f95a876f977039ac2fe393ebdea），包含 full local repo snapshot、Windows/POSIX launchers、manual handoff、offline HTML/video；将 kit 解压到全新目录后，final_machine_check 实跑 local_core_ready=true、deterministic Agent verified、preflight PASS。Local + video fallback 已验证；Live Streamlit 仍需最终机器真实 health-check，故保持 in_progress。",
+          "owner": "user_runtime_manual",
+          "executionMode": "final_machine_live_validation"
         },
         {
           "id": "R4",
           "title": "5–8 分钟路演与 <3 分钟演示",
           "status": "in_progress",
           "priority": "P2",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 submission/PITCH_REHEARSAL.md 设定 6m30s pitch + 2m20s demo target，并有 12-slide speaker notes / demo runbook；仍缺人工计时 rehearsal 记录，保持 in_progress。"
+          "updated": "2026-08-12",
+          "evidence": "v0.11 新增 REHEARSAL_PLAN.json、REHEARSAL_OPERATOR_CARD.md 与 rehearsal_assistant.py；脚本可本地记录 pitch/demo/Q&A 实测时长并按 5–8min / <3min 门槛判定。代码/干跑不等于真实演练，仍需用户人工计时证据后才能 done。",
+          "owner": "user_manual",
+          "executionMode": "human_rehearsal_required"
         },
         {
           "id": "R5",
           "title": "Q&A、稳定性与 business story",
           "status": "in_progress",
           "priority": "P2",
-          "updated": "2026-08-11",
-          "evidence": "v0.9 Judge Q&A、business story、5-scenario benchmark、8-case adversarial gate、offline fallback 与 submission assets 已齐；最终稳定性/Q&A rehearsal 仍需用户现场计时/演练证据。"
+          "updated": "2026-08-12",
+          "evidence": "v0.11 final-machine checklist + compact rehearsal operator card + existing JUDGE_QA/business story/offline fallback 已整合到 portable kit；但最终 Q&A/stability rehearsal 必须用户真实进行并提供结果，因此保持 in_progress。",
+          "owner": "user_manual",
+          "executionMode": "human_rehearsal_required"
         }
       ]
     }
@@ -743,6 +755,12 @@
       "level": "high",
       "title": "外部提交动作越界 / 未经用户授权访问外部账户",
       "mitigation": "v0.10 固化 user-manual-only submission boundary；自动化默认只做本地 prepare/validate/package，不访问 Gmail、不提交 portal、不执行外部写操作。"
+    },
+    {
+      "id": "RK-15",
+      "level": "medium",
+      "title": "Final presentation machine differs from build environment",
+      "mitigation": "v0.11 portable Final Machine Kit + one-command readiness JSON；Streamlit/OpenAI 只有最终机器/真实 provider evidence 才能标 done；失败立即回退 deterministic CLI/offline HTML/video。"
     }
   ],
   "unknowns": [
@@ -791,7 +809,10 @@
     "D-031 Offline HTML/MP4 是 resilience assets，不是 live runtime evidence；其生成要求 5/5 verified deterministic runs，但不能据此关闭 Streamlit/OpenAI live validation",
     "D-032 Live provider telemetry 可记录 response ID、requested/returned model、token usage 与 measured planning latency；不得输出 API key，也不在无真实调用/可靠 pricing source 时编造 monetary cost",
     "D-033 Competition submission 默认 user-manual only：AI/自动化只负责本地准备、校验、hash、render 与 package；不得自行打开/提交 GOAI portal、上传文件、访问 Gmail 获取确认、发送邮件或执行其他外部账户写操作，除非用户对具体动作另行明确授权",
-    "D-034 Final handoff 必须 self-contained/operator-oriented：用户拿到 portable handoff packet 后即可依据 START_HERE、field map、manual checklist、runtime instructions 与已生成资产自行完成外部提交，无需额外代码生成"
+    "D-034 Final handoff 必须 self-contained/operator-oriented：用户拿到 portable handoff packet 后即可依据 START_HERE、field map、manual checklist、runtime instructions 与已生成资产自行完成外部提交，无需额外代码生成",
+    "D-035 Final-machine 默认检查必须 local/provider-safe：允许 deterministic local checks 与 127.0.0.1 Streamlit health probe；不得默认调用 live model provider，OpenAI 仅通过用户显式 --include-openai opt-in 执行",
+    "D-036 Final-machine readiness 与 external submission 是两条独立真源：local demo-ready 不能推断 GOAI portal 已上传/已提交/已确认；外部提交始终按 user-manual evidence 更新",
+    "D-037 Human rehearsal evidence 必须由用户真实演练产生：AI 可生成 timing targets/operator card/recording tool，但代码存在或模拟时长不能关闭 R4/R5"
   ]
 }
 ```
@@ -807,34 +828,36 @@
 | `todo` | 尚无开始证据 |
 | `blocked` | 已开始但被明确外部条件阻塞 |
 
-## 当前实现基线（v0.10）
+## 当前实现基线（v0.11）
 
 - 正式产品名：**FitzSight**
 - 实现仓库：`AplusNeutrino/FitzSight`
-- 已核验公开代码基线：`v0.9.0` commit `5304c5cf3917f344273aa1a2465e81a0a2b74b00`（`Release FitzSight v0.9.0`）
-- 本次实现版本：`v0.10.0`
-- Build tests：`74 tests collected`；完整非重叠分组汇总 `73 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
+- 已核验公开代码基线：`v0.10.0` commit `e6bafdbd67ab42dbc2946f807208180f9361adff`（`Release FitzSight v0.10.0`）
+- 本次实现版本：`v0.11.0`
+- Build tests：`79 tests collected`；完整非重叠分组汇总 `78 passed, 1 skipped`；唯一 skip 为 build sandbox 缺少 DuckDB
 - Compile：`python -m compileall -q src scripts tests streamlit_app.py` → `PASS`
-- Deterministic benchmark regression：`5/5 PASS`；scenario/root-cause/false-correlation/evidence coverage 均 `100%`；verifier violations `0`
+- Deterministic benchmark regression：`5/5 PASS`；root-cause scenario accuracy / false-correlation rejection / evidence coverage 均 `100%`；verifier violations `0`
 - Adversarial release gate：`8/8 PASS`
-- Manual handoff ZIP：`submission/FitzSight_Manual_Handoff.zip`；integrity `PASS`；`external_submission_performed=false`；`network_actions_performed=false`
-- Handoff readiness：`ready_for_user_takeover=true`；portal copy、PPTX/PDF、offline HTML/video、manual checklist、operator boundary 均已准备
-- Final local preflight：`PASS`；missing files=`0`；generated CSV=`0`；secret hits=`0`；manual handoff ZIP integrity=`true`
-- **Manual submission boundary：** GOAI portal review/upload/final submit、confirmation screenshot/email/receipt 均由用户手动完成；AI 默认不得主动访问 Gmail、提交平台或执行外部写操作
-- DuckDB deployment runtime：此前已验证；default constrained planner 与 JSON-file planner 均 `verified`
-- Streamlit live check：仍需最终演示机器真实 health-check 才能关闭 E1/R3
-- OpenAI live check：仍需用户主动配置稳定 API key/model 并提供真实 validator 输出才可关闭 T4/F5
+- 新 Final Machine Kit：portable full local repo snapshot（排除 caches/generated CSV/self archive）+ Windows/POSIX launchers + manual handoff + offline assets；SHA-256 `55fa98046825a55a9bf5a3e760f379a8c0359f95a876f977039ac2fe393ebdea`
+- Final Machine Kit clean extraction 实跑：`local_core_ready=true`；deterministic Agent final status `verified`；submission preflight `PASS`
+- Manual Handoff / Upload Bundle / Final Machine Kit 均通过 ZIP integrity 检查；无 external submission/network build action
+- Manual submission boundary 继续有效：GOAI portal review/upload/final submit、confirmation screenshot/email/receipt 只由用户手动完成；AI 默认不访问 Gmail/portal、不执行外部写操作
+- Streamlit build-environment check：`not_run_dependency_missing`；因此 E1/R3 仍需最终演示机器真实 health-check
+- OpenAI live validation：默认 final-machine check 不调用；仅用户显式 `--include-openai` opt-in；本轮未验证 live provider
+- Rehearsal tooling：新增 machine-readable timing plan、operator card 与 local timing recorder；真实 pitch/demo/Q&A 仍需用户人工演练证据
 
-## 下一阶段：User Takeover / External Evidence Only
+## 下一阶段：Final-Machine / Human Evidence Closeout
 
-1. 用户从 `submission/START_HERE_MANUAL.md` 开始；需要提交的文本、PPT/PDF、offline demo/video 与 field map 已全部准备。
-2. GOAI portal 的打开、字段核对、上传、最终提交与确认截图/邮件/receipt **只由用户手动完成**；未收到用户明确指令时 AI 不访问 Gmail/portal。
-3. 最终演示机器运行 `python scripts/runtime_doctor.py` 与 `python scripts/validate_streamlit_runtime.py`；真实 PASS 后关闭 E1/R3。
-4. OpenAI planner 为可选路径；仅在用户主动配置稳定 credential/model 后运行 `python scripts/validate_openai_runtime.py`，并只记录非 secret telemetry。
-5. 用户按 `submission/PITCH_REHEARSAL.md` 完成人工计时与 Q&A/stability rehearsal；完成后再关闭 R4/R5。
-6. 初赛前不再扩核心 intent/benchmark；后续实现仅修复可靠性、证据完整性、安全边界或交接可用性问题。
+1. 用户把 `submission/FitzSight_Final_Machine_Kit.zip` 解压到最终演示机器，运行 `RUN_FINAL_CHECKS.bat` 或 `sh RUN_FINAL_CHECKS.sh`；保存 `final_machine_report.json`。
+2. `streamlit_live.passed=true` 后才能关闭 E1，并使 R3 的 Live/local/video 三套状态完整。若失败，直接使用 CLI/offline HTML/MP4 fallback。
+3. OpenAI planner 继续可选；只有用户主动配置稳定 credential/model 并显式运行 `--include-openai` 后，真实 non-secret telemetry 才可关闭 T4/F5。
+4. GOAI portal 的打开、字段核对、上传、最终提交与 confirmation 继续 **user-manual only**；AI 默认不访问 Gmail/portal。
+5. 用户用 `rehearsal_assistant.py` 或其他计时方式完成人工 5–8 分钟 pitch、<3 分钟 demo 与 Q&A/stability rehearsal；真实记录后关闭 R4/R5。
+6. 不再扩核心 intent/benchmark；后续代码只允许修复 final-machine reliability、evidence/safety regression 或 operator handoff 问题。
 
 ## 更新日志
+
+- 2026-08-12：FitzSight v0.11 完成 final-machine operations：新增 portable Final Machine Kit、Windows/POSIX launchers、one-command final_machine_check、explicit-opt-in OpenAI validation boundary、rehearsal timing recorder/plan/operator card；79 tests collected / 78 passed / 1 skipped；5/5 benchmark、8/8 adversarial、compileall、preflight、handoff/kit integrity 均 PASS；clean extracted kit 实跑 `local_core_ready=true` 且 deterministic Agent `verified`；剩余 7 项全部保持 external/runtime/human evidence-gated。
 
 - 2026-08-11：FitzSight v0.10 完成 operator handoff：固化 user-manual-only submission boundary；新增 OPERATOR_BOUNDARY、START_HERE_MANUAL、manual submission/runtime checklist、GOAI field map、build_manual_handoff、handoff_readiness 与 portable manual handoff ZIP；74 tests collected / 73 passed / 1 skipped；5/5 benchmark、8/8 adversarial、compileall 与 preflight 均 PASS；`ready_for_user_takeover=true`；F7 关闭为 done，G6 明确 owner=`user_manual` 且实际 portal/邮件确认仍需用户证据。
 
