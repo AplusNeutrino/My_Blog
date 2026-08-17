@@ -22,13 +22,12 @@ status_items、roadmap_items 和 signal_items 的格式：
 <span class="nv-blue"><strong>欢迎所有的你。</strong></span>{% endcapture %}
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
-{% assign about_now_title = 'Neutrino状态监控' %}
-{% capture about_now_summary %}入职了，努力做到每周固定通关一部独立游戏。
-洛丽塔读完了，或许会写一篇repo。{% endcapture %}
-{% assign about_now_updated = '更新于 2026-08-10' %}
-{% assign signal_items = 'focus|中间层维护||load|72%||mode|FULL OUTPUT||sync|2026-06-22' | split: '||' %}
-{% assign status_items = '学|CS技能复健||写|记录各种体验||做|VB各种小玩具||态|控制心情' | split: '||' %}
-{% assign roadmap_items = '现在|调整完善计划表||短期|CS专业知识复健||长期|品鉴更多电动' | split: '||' %}
+{% assign about_now_title = 'Neutrino 状态监控' %}
+{% capture about_now_summary %}全力备战软考系统分析师中。正在品鉴《无敌号》。{% endcapture %}
+{% assign about_now_updated = '更新于 2026-08-17' %}
+{% assign signal_items = 'focus|软考备战中||load|03%||mode|SAVING MODE||sync|2026-08-17' | split: '||' %}
+{% assign status_items = '学|软考好多东西||写|继续写游戏REPO||做|VB一个竞赛小玩具||态|保持健身' | split: '||' %}
+{% assign roadmap_items = '现在|入职环境调节||短期|构筑稳定生活流||长期|实现时/财自由' | split: '||' %}
 {% assign reading_stack_items = '《迷雾之子》|2026/05/02||《大师与玛格丽特》|2025/12/25||《阿特拉斯耸耸肩》|2025/11/21||《无限近似于青色的蓝》|2025/04/03||《诺瓦利斯作品选集》|2026/02/06||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 {% assign visual_stack_items = '《纽约提喻法》|2025/03/05||《Amadeus》|2025/04/04||《挽救计划》|2026/03/23||《全金属外壳》|2026/01/26||《斯巴达克斯》|2026/01/26||待记录|----/--/--||待记录|----/--/--||待记录|----/--/--' | split: '||' %}
 
