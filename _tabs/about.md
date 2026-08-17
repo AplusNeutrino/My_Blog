@@ -23,7 +23,8 @@ status_items、roadmap_items 和 signal_items 的格式：
 
 {% assign about_now_kicker = 'PERSONAL ORBIT' %}
 {% assign about_now_title = 'Neutrino 状态监控' %}
-{% capture about_now_summary %}全力备战软考系统分析师中。正在品鉴《无敌号》。{% endcapture %}
+{% capture about_now_summary %}全力备战软考系统分析师中。
+正在品鉴《无敌号》。{% endcapture %}
 {% assign about_now_updated = '更新于 2026-08-17' %}
 {% assign signal_items = 'focus|软考备战中||load|03%||mode|SAVING MODE||sync|2026-08-17' | split: '||' %}
 {% assign status_items = '学|软考好多东西||写|继续写游戏REPO||做|VB一个竞赛小玩具||态|保持健身' | split: '||' %}
