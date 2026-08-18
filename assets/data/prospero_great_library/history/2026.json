@@ -1,0 +1,4950 @@
+{
+  "schema_version": 1,
+  "year": "2026",
+  "events": [
+    {
+      "id": "evt_007b1e9d2e511691",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9be5896f5a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life Deathmatch: Source"
+      }
+    },
+    {
+      "id": "evt_0095a4e1297acfaf",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ea3199dfb3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Papers, Please"
+      }
+    },
+    {
+      "id": "evt_017cd96df79530b8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:531f5d41b5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Monster Hunter Wilds Beta test"
+      }
+    },
+    {
+      "id": "evt_017fd6f8b5f44abb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:09587daeb0",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Counter-Strike: Condition Zero"
+      }
+    },
+    {
+      "id": "evt_0226623eab2a3598",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0a3a054637",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "東方憑依華　～ Antinomy of Common Flowers."
+      }
+    },
+    {
+      "id": "evt_027d7770ad47e8ca",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:ac1c70b7a9",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Tatami Galaxy (四叠半神话大系)"
+      }
+    },
+    {
+      "id": "evt_03482154e81554f4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ae8a750e4f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Strike Force Heroes"
+      }
+    },
+    {
+      "id": "evt_036959b87ab0a4e8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:00f0b96a3f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Wallpaper Engine"
+      }
+    },
+    {
+      "id": "evt_03ca3b8e74e0ed86",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:085eff00c1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mirror News Center"
+      }
+    },
+    {
+      "id": "evt_03e773941d2ed1cd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3b623b3a54",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "For The King II Closed Beta"
+      }
+    },
+    {
+      "id": "evt_04ed6fc580349e78",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f80f7896f1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Walking Dead"
+      }
+    },
+    {
+      "id": "evt_05581e6a2de9a06e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d6b0bbde20",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Kingdom Come: Deliverance"
+      }
+    },
+    {
+      "id": "evt_05bb277e932bb1a2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c594273c47",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "METAL GEAR SOLID V: THE PHANTOM PAIN"
+      }
+    },
+    {
+      "id": "evt_06783f3802e750d3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0998326da0",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Intravenous"
+      }
+    },
+    {
+      "id": "evt_06829ff65edb5769",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:f9482e2b34",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2061太空漫游"
+      }
+    },
+    {
+      "id": "evt_068dc980828288c2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:015e9f8760",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Disco Elysium"
+      }
+    },
+    {
+      "id": "evt_07a4991613f2dcc2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ef26bedc57",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "FALL IN LABYRINTH"
+      }
+    },
+    {
+      "id": "evt_07e341e260850a49",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0a5950f39b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer 40,000: Gladius - Relics of War"
+      }
+    },
+    {
+      "id": "evt_07ee8f4789b49238",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a09e7a3f6d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "BioShock Infinite"
+      }
+    },
+    {
+      "id": "evt_08075f061be22927",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4f9c31a8b7",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "美丽新世界"
+      }
+    },
+    {
+      "id": "evt_094736361bce8c99",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:76dcae22ec",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mafia II: Definitive Edition"
+      }
+    },
+    {
+      "id": "evt_09640b6008cac2f9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1d88eb452e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Teamfight Manager"
+      }
+    },
+    {
+      "id": "evt_09a17e720be8e7c7",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:6d76c46374",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Pulp Fiction"
+      }
+    },
+    {
+      "id": "evt_0c153f5d70eae27e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0d0e6f48b3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Coffin of Andy and Leyley"
+      }
+    },
+    {
+      "id": "evt_0c2da88bc4cc2b80",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1057e6aba4",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Shotgun King: The Final Checkmate"
+      }
+    },
+    {
+      "id": "evt_0c6d77cf8c03472b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d767fc60da",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "ChillPulse"
+      }
+    },
+    {
+      "id": "evt_0d02d18521f2aae5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:aacb853740",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Odyssey"
+      }
+    },
+    {
+      "id": "evt_0d3a649d432d5d0e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:bd90cc2af3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国：基地七部曲"
+      }
+    },
+    {
+      "id": "evt_0f5ddeb9f42774d4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:04ef4fc7de",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Stardew Valley"
+      }
+    },
+    {
+      "id": "evt_1010eb1c752746bb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c08c39550b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Heavy Rain"
+      }
+    },
+    {
+      "id": "evt_11a21efda3fc4baa",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:61d8b33874",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "新疆域"
+      }
+    },
+    {
+      "id": "evt_12098e1ecf994d7a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:908440f23b",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "少年"
+      }
+    },
+    {
+      "id": "evt_129cf4f84269c508",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:da5cc4ed1f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Darkest Hour: Europe '44-'45"
+      }
+    },
+    {
+      "id": "evt_13572ac5d3da2d8e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b35077d93e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Unepic"
+      }
+    },
+    {
+      "id": "evt_139ce62999b5c420",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:994115a8f6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Yakuza: Like a Dragon"
+      }
+    },
+    {
+      "id": "evt_13b123f7be3dd82d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:252e5755b9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "星礼研究所 | Sighchology Research Lab"
+      }
+    },
+    {
+      "id": "evt_13ba804928f8049c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1fe717e7f4",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Red Orchestra: Ostfront 41-45"
+      }
+    },
+    {
+      "id": "evt_1658d8833ea9f07a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:cd103c9b74",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Fable - The Lost Chapters"
+      }
+    },
+    {
+      "id": "evt_170551da953d449c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b56eb1bc3e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Stanley Parable"
+      }
+    },
+    {
+      "id": "evt_171a99c4379a3952",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:4f76e94588",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mirror 2: Project X"
+      }
+    },
+    {
+      "id": "evt_17b9208f63acdcc6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:67d682b8aa",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "机器人短篇全集"
+      }
+    },
+    {
+      "id": "evt_17f6ce15f54ef9bb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:0a3e0f1602",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "罪与罚"
+      }
+    },
+    {
+      "id": "evt_1838399d307cffb5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:411254760a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Monster Hunter: World"
+      }
+    },
+    {
+      "id": "evt_1849f1030a23fb47",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5b280c00c2",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Project Wingman"
+      }
+    },
+    {
+      "id": "evt_198b017868f2289d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7aa0338ccf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Bookwalker"
+      }
+    },
+    {
+      "id": "evt_19b2cf0f8e6f4a3e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b6aa00a4da",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Final Station"
+      }
+    },
+    {
+      "id": "evt_1a51b8c8e905060a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:ad2fdae7dd",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "永恒的终结"
+      }
+    },
+    {
+      "id": "evt_1af4d0e0c8573929",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:1ef04bd6a7",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Full Metal Jacket"
+      }
+    },
+    {
+      "id": "evt_1b0657358d19ca2d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:6b900a7a57",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Oppenheimer"
+      }
+    },
+    {
+      "id": "evt_1c10ae8e7c8d518b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:baf08d8c9d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Detroit: Become Human"
+      }
+    },
+    {
+      "id": "evt_1c296ed55815e87c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c171d77814",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Witcher 3: Wild Hunt"
+      }
+    },
+    {
+      "id": "evt_1f5906d3299b9b9b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:a2815bad91",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2010"
+      }
+    },
+    {
+      "id": "evt_200d463ae7ea7886",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6b96141bb3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "神圣的数"
+      }
+    },
+    {
+      "id": "evt_20f8c7d4c6f877ff",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:de20d0ef84",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "哈姆莱特"
+      }
+    },
+    {
+      "id": "evt_2109a55c2ff8f6ae",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a95e0c6733",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ 4 Tiberian Twilight"
+      }
+    },
+    {
+      "id": "evt_21d3a3a804587dda",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:6f8a00a178",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"
+      }
+    },
+    {
+      "id": "evt_224d02ea907c74ec",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:82a7e18c2c",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "罗生门"
+      }
+    },
+    {
+      "id": "evt_22b53fb696885b41",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:3ae89897e7",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2001: A Space Odyssey"
+      }
+    },
+    {
+      "id": "evt_2429bd2668d42c6f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:358bce8a3a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2001太空漫游"
+      }
+    },
+    {
+      "id": "evt_2524ab94a4f258eb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:c78572c735",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Dark Knight Rises"
+      }
+    },
+    {
+      "id": "evt_255d13e57a075f39",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3ecd434052",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Forgotten City"
+      }
+    },
+    {
+      "id": "evt_25815aa25e79ef9b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:56c71f977e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Liar's Bar"
+      }
+    },
+    {
+      "id": "evt_263f78d0b4d61049",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:558e7400a9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Battlefield™ 6 Open Beta"
+      }
+    },
+    {
+      "id": "evt_264eaa323f67372e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:75ba5b8b28",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Celeste"
+      }
+    },
+    {
+      "id": "evt_27401428e6d7fd7e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3810d998cb",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Counter-Strike"
+      }
+    },
+    {
+      "id": "evt_27d77cc949a0aa0f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:1f834640d3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "城市与群星"
+      }
+    },
+    {
+      "id": "evt_27f50073cb640ce4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:4adb8f1ec7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Metro 2033 Redux"
+      }
+    },
+    {
+      "id": "evt_28271e18ab994b59",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f5e5edfd2c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mini Cozy Room: Lo-Fi"
+      }
+    },
+    {
+      "id": "evt_28dab8ffbe6f8145",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:eac5c34d9b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Ruins Seeker"
+      }
+    },
+    {
+      "id": "evt_28dec4fa3bac205c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:2da4e2bc1d",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "双星"
+      }
+    },
+    {
+      "id": "evt_292fd669dac7fa71",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0c270429fc",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "World of Warships"
+      }
+    },
+    {
+      "id": "evt_2aa658143a343ebd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f79751640c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Citizen Sleeper"
+      }
+    },
+    {
+      "id": "evt_2b12a4b652020870",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ca48163f50",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Headsnatchers"
+      }
+    },
+    {
+      "id": "evt_2c0f5061085b5684",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a5c5071fdb",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "ACE COMBAT™7: SKIES UNKNOWN"
+      }
+    },
+    {
+      "id": "evt_2cfc988b4a4f1a2b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:2ed08276ce",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Deep Rock Galactic"
+      }
+    },
+    {
+      "id": "evt_2e5b0bdc8ffff481",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:2d6f78465c",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Lion King"
+      }
+    },
+    {
+      "id": "evt_2fe22205950763ee",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ce9fc0845d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "STEINS;GATE"
+      }
+    },
+    {
+      "id": "evt_304cd1db77b6d251",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:90a26718c9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mafia III: Definitive Edition"
+      }
+    },
+    {
+      "id": "evt_30611e8b631eaed2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a9da964b48",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Total War: SHOGUN 2"
+      }
+    },
+    {
+      "id": "evt_307b975fb56cba03",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:ec8e00a103",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Goblet of Fire"
+      }
+    },
+    {
+      "id": "evt_30de9c23f1ac792c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:850399f0fa",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Hobo: Tough Life"
+      }
+    },
+    {
+      "id": "evt_31f22a2cf09f1d7a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:486abb2f88",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "少有人走的路"
+      }
+    },
+    {
+      "id": "evt_31ffe469377f0194",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ed9c4f855f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Battlefleet Gothic: Armada 2"
+      }
+    },
+    {
+      "id": "evt_3251a42993e639c0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:61c3614a58",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Glyphica: Typing Survival"
+      }
+    },
+    {
+      "id": "evt_32a53f6290d08633",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:6ec535b3e9",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Phantom of the Opera"
+      }
+    },
+    {
+      "id": "evt_32d3b3aae8f2c45b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6967db9066",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "东方快车谋杀案"
+      }
+    },
+    {
+      "id": "evt_335a5b0eda478598",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:749a2a0e61",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life 2: Deathmatch"
+      }
+    },
+    {
+      "id": "evt_33b7e047af37d232",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1b4a8c06b3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Sakuya Izayoi Gives You Advice And Dabs"
+      }
+    },
+    {
+      "id": "evt_348c2c6a204f84da",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5c00291544",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tiny Troopers"
+      }
+    },
+    {
+      "id": "evt_34c311eb681b112b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a50f357e6b",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "人类群星闪耀时"
+      }
+    },
+    {
+      "id": "evt_35004bbed92edf89",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:cd768bf038",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "摇滚红与黑"
+      }
+    },
+    {
+      "id": "evt_3578d8d889ae407e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e24192e437",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer 3: Tiberium Wars™"
+      }
+    },
+    {
+      "id": "evt_35bd5e4dd9bfcf2a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:7f56a97165",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "东方快车谋杀案"
+      }
+    },
+    {
+      "id": "evt_35fd564c012c3636",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e85800a250",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "雾都孤儿"
+      }
+    },
+    {
+      "id": "evt_36f8c11e22be630e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4c6a95831f",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "双城记"
+      }
+    },
+    {
+      "id": "evt_37a47fc5c93f0263",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:fc41b9ea8c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Expendabros"
+      }
+    },
+    {
+      "id": "evt_3952b79884c2ca1b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:68be3cec83",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Prisoner of Azkaban"
+      }
+    },
+    {
+      "id": "evt_396328fe1e87711e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:4b530eece5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tomb Raider"
+      }
+    },
+    {
+      "id": "evt_3a4b1cc32a6c98a1",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:2d3fe93bc1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Soundpad"
+      }
+    },
+    {
+      "id": "evt_3a5b21eaba5029fe",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:35b98dc0a8",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "骆驼祥子"
+      }
+    },
+    {
+      "id": "evt_3a70026ea83c2120",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:08687eaa1b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "7 Days to Die"
+      }
+    },
+    {
+      "id": "evt_3b8476043f53b4ed",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:89267b89b6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Helltaker"
+      }
+    },
+    {
+      "id": "evt_3b8f820523eeca6a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c0fca6e4c7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Holdfast: Nations At War - Testing Branch"
+      }
+    },
+    {
+      "id": "evt_3c4a3c924871b441",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:79b224cb0a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "神秘岛"
+      }
+    },
+    {
+      "id": "evt_3e62b539b71a195f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a4f732612f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Rising Storm 2: Vietnam"
+      }
+    },
+    {
+      "id": "evt_3e7a9c98f4c1f7c5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6e3545a33d",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国：机器人五部曲"
+      }
+    },
+    {
+      "id": "evt_3f76b705919ad79e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e2cca66385",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "脑髓地狱"
+      }
+    },
+    {
+      "id": "evt_3fe466bd4d401551",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:968cc06fa6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Precipice"
+      }
+    },
+    {
+      "id": "evt_402929ab8ef0e922",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:21fe6922a5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "RPG Maker MZ"
+      }
+    },
+    {
+      "id": "evt_407998d37b37c861",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:645b9e22db",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer: Vermintide 2"
+      }
+    },
+    {
+      "id": "evt_40abdb35e9a960de",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:2aad34cc97",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "额尔古纳河右岸"
+      }
+    },
+    {
+      "id": "evt_40cbb9cd82522c35",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4e1de56248",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2010太空漫游"
+      }
+    },
+    {
+      "id": "evt_40ec9b6088d5057e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:eb8971eda2",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tenet"
+      }
+    },
+    {
+      "id": "evt_4111374d0192bc08",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:8cfc7db066",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国：帝国三部曲"
+      }
+    },
+    {
+      "id": "evt_419cb443622f5611",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:d9d86aa6dd",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国15：苍穹一粟"
+      }
+    },
+    {
+      "id": "evt_4241b84149193887",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:50bed853b3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "神的九十亿个名字"
+      }
+    },
+    {
+      "id": "evt_43acfba123aa5533",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6822315b65",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国2：基地与帝国"
+      }
+    },
+    {
+      "id": "evt_445794ed98a8542c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:bd87695103",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Fight Club"
+      }
+    },
+    {
+      "id": "evt_456c412f867a6ff6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:48bd924a8b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mýrdalssandur, Iceland"
+      }
+    },
+    {
+      "id": "evt_456eb093ff61d0fc",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9c2f2f3ee3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "HELLDIVERS™ 2"
+      }
+    },
+    {
+      "id": "evt_45a07d5b574a5f10",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c4122197b3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "BioShock Remastered"
+      }
+    },
+    {
+      "id": "evt_4745a5bd7c902d5b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:9d20569528",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "呼啸山庄"
+      }
+    },
+    {
+      "id": "evt_47b82b2e68666414",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:61b656bf79",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™: Renegade"
+      }
+    },
+    {
+      "id": "evt_481d30c0b7a3ffed",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4a3afb93c0",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "双城记"
+      }
+    },
+    {
+      "id": "evt_487dca1341f07d25",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:9efe232878",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Greed of Man"
+      }
+    },
+    {
+      "id": "evt_48bed51a0229a892",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:da863feb8b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Touhou Kouryudou ~ Unconnected Marketeers."
+      }
+    },
+    {
+      "id": "evt_494e950f83eb4423",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ead56817f6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Keep Driving"
+      }
+    },
+    {
+      "id": "evt_4a2c280ba66455b9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:befc672549",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Fences 3"
+      }
+    },
+    {
+      "id": "evt_4a7ca08a3d9cc2f4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b38ef22b6d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "S4U: CITYPUNK 2011 AND LOVE PUNCH"
+      }
+    },
+    {
+      "id": "evt_4aa8d7e04e59b353",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c1cad5a892",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Spirit City: Lofi Sessions"
+      }
+    },
+    {
+      "id": "evt_4b710c3e51467987",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:6b7621b38f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ Tiberian Sun™ and Firestorm™"
+      }
+    },
+    {
+      "id": "evt_4db75f71faf7beae",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:90b5657dde",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "少年维特的烦恼"
+      }
+    },
+    {
+      "id": "evt_4e094c6f15ce65c6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:99613fe229",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "莫泊桑短篇小说选"
+      }
+    },
+    {
+      "id": "evt_506e576a60c5bdb3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:de8cf66f29",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer Age of Sigmar: Realms of Ruin"
+      }
+    },
+    {
+      "id": "evt_51340147163d40cf",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:679961e872",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ Red Alert™ 3 - Uprising"
+      }
+    },
+    {
+      "id": "evt_514b0b416c9d97d6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:60f1c4fa30",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life"
+      }
+    },
+    {
+      "id": "evt_517b616988a0db39",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:3b2ca0ef43",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "海底两万里"
+      }
+    },
+    {
+      "id": "evt_5196b8a38d72bc6b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:77d8b7f97c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Senren＊Banka"
+      }
+    },
+    {
+      "id": "evt_5244f67d31ab9566",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:68338fd57c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "SYNDUALITY Echo of Ada"
+      }
+    },
+    {
+      "id": "evt_529516e698b64371",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7fce1670c7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "DEFCON Beta Demo"
+      }
+    },
+    {
+      "id": "evt_53ac0b39e11b185d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:ca7e32bee9",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Akagi"
+      }
+    },
+    {
+      "id": "evt_54ce7438ccb58f91",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3881c8beaf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "RPG Maker XP"
+      }
+    },
+    {
+      "id": "evt_56602202fbbdef41",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:17503c9cbd",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "三国演义"
+      }
+    },
+    {
+      "id": "evt_5677476c474d492e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:a692562ade",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Source Code"
+      }
+    },
+    {
+      "id": "evt_571790ae24da2eed",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:838b48a2e3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Wargame: Red Dragon"
+      }
+    },
+    {
+      "id": "evt_571bbaf56bf7c120",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3ad16daad7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Idle Champions of the Forgotten Realms"
+      }
+    },
+    {
+      "id": "evt_57445ad768aeed6e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:d0727d217d",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "童年的终结"
+      }
+    },
+    {
+      "id": "evt_58287be32ee2da0d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e0c7163d59",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Lara Croft and the Temple of Osiris"
+      }
+    },
+    {
+      "id": "evt_58a1c4ac3b0b9617",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:dd86bfe15c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Across the Obelisk"
+      }
+    },
+    {
+      "id": "evt_59c5f731a64199fe",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0a7d9bdcac",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Invincible"
+      }
+    },
+    {
+      "id": "evt_5aa6616595ebdea7",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:38d7cd01af",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "“太空漫游”四部曲"
+      }
+    },
+    {
+      "id": "evt_5abeedb8c1218387",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d30496f243",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life: Opposing Force"
+      }
+    },
+    {
+      "id": "evt_5c5f7f71543a9af0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1dfb18a71d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "GUILTY GEAR -STRIVE-"
+      }
+    },
+    {
+      "id": "evt_5cdbb23b5ead8684",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:34ea764fd6",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "八十天环游地球"
+      }
+    },
+    {
+      "id": "evt_5cfb4e06408ff2fa",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ebff23c6d5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Beholder"
+      }
+    },
+    {
+      "id": "evt_5d11202920f7b555",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1afeffe82d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer 40,000: Darktide"
+      }
+    },
+    {
+      "id": "evt_5d23ae5461c1c0c8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f10470401b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Desktop Dungeons"
+      }
+    },
+    {
+      "id": "evt_5f61daf63d73bc4a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:cd848a2b50",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Night is Short, Walk on Girl"
+      }
+    },
+    {
+      "id": "evt_5f67679cd6f862f8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:60b8eead18",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "与罗摩相会"
+      }
+    },
+    {
+      "id": "evt_5f9d1ed1842398e1",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f30da4ca4a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Total War: NAPOLEON - Definitive Edition"
+      }
+    },
+    {
+      "id": "evt_600144f9c1fb64f5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:cca17b11e5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Team Fortress Classic"
+      }
+    },
+    {
+      "id": "evt_6148a44cefe10e6b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7db09f39e3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Stanley Parable: Ultra Deluxe"
+      }
+    },
+    {
+      "id": "evt_6189e1a428fe6344",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f5d18357cf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "BioShock 2 Remastered"
+      }
+    },
+    {
+      "id": "evt_61f2f9c22dc59826",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:ff747cc3c2",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Paths of Glory"
+      }
+    },
+    {
+      "id": "evt_620e6ba139a3e2db",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e5811c64d6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mare Nostrum"
+      }
+    },
+    {
+      "id": "evt_62477dd6cf828cef",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:2c021de47e",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Wandering Earth Ⅱ"
+      }
+    },
+    {
+      "id": "evt_62b8c42710789587",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:070618ee29",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Finding Paradise"
+      }
+    },
+    {
+      "id": "evt_64241a378e67693d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:d0a7d6e784",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "哈利·波特"
+      }
+    },
+    {
+      "id": "evt_6434b91a8dc8c691",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ba31e9520c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Company of Heroes 2"
+      }
+    },
+    {
+      "id": "evt_64f453a3a569f9b1",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5133272029",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™: Generals"
+      }
+    },
+    {
+      "id": "evt_6504c798f7ef35a3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:84d2b8e956",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Araka~JK Exorcist Horror RPG"
+      }
+    },
+    {
+      "id": "evt_6512af030c77253b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9c4eaff730",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "PUBG: BATTLEGROUNDS"
+      }
+    },
+    {
+      "id": "evt_659614568ff7c1c3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:c75c1e856a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国7 ：基地与地球"
+      }
+    },
+    {
+      "id": "evt_65c2a6f85a905c02",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:2e90954481",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Ricochet"
+      }
+    },
+    {
+      "id": "evt_661a91bb7d885961",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:06ea0e6bba",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "遥远的地球之歌"
+      }
+    },
+    {
+      "id": "evt_6655166752ea31b5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:2bf3cce808",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "地心游记"
+      }
+    },
+    {
+      "id": "evt_66fd41d0191ad23f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:ab7e33ecae",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "天堂的喷泉"
+      }
+    },
+    {
+      "id": "evt_6709b8eaf2a12a65",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ff5a658e51",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Need for Speed™ Heat "
+      }
+    },
+    {
+      "id": "evt_6972fd4198246a60",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f2dcf153b9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "UNO"
+      }
+    },
+    {
+      "id": "evt_6a8f12cef8a0c26e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0ee438f94a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer 40,000: Rogue Trader"
+      }
+    },
+    {
+      "id": "evt_6ae5da4a8b77395d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:df1cff91d3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "DAVE THE DIVER"
+      }
+    },
+    {
+      "id": "evt_6b2af8b1f516897d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e1bed5c490",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "尼罗河上的惨案"
+      }
+    },
+    {
+      "id": "evt_6c180cccda20446c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:23f1f2d476",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2001：太空漫游"
+      }
+    },
+    {
+      "id": "evt_6c978fdee7d68ab6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:948ffb13c2",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Shadowverse: Worlds Beyond"
+      }
+    },
+    {
+      "id": "evt_6d156533ad28bc5b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:16cf20f925",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Left 4 Dead"
+      }
+    },
+    {
+      "id": "evt_6d24c118974eb7c5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f2ccdfc365",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Drawful 2"
+      }
+    },
+    {
+      "id": "evt_6da8a14750d88457",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e5ce556bb2",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Trailmakers"
+      }
+    },
+    {
+      "id": "evt_6dbd0d7e9c31e570",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:318ae81896",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Buddy Simulator 1984"
+      }
+    },
+    {
+      "id": "evt_6e50a41d4c9cd054",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6c030b30bf",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "呐喊"
+      }
+    },
+    {
+      "id": "evt_6e762dd122ac43e6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:4f1105376c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Wizardry Variants Daphne"
+      }
+    },
+    {
+      "id": "evt_6eb342233799f074",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:22f7958c6c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Day of Defeat"
+      }
+    },
+    {
+      "id": "evt_6f9d22737bc118e5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5faa0d55c3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Battlefield™ V"
+      }
+    },
+    {
+      "id": "evt_6fc4dc1037100a4c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:1286055019",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "上帝掷骰子吗"
+      }
+    },
+    {
+      "id": "evt_6fe28a97f976aee1",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3ec01fe3d6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "VRChat"
+      }
+    },
+    {
+      "id": "evt_7052b07cde23319b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:d23de0030a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "十五岁的小船长"
+      }
+    },
+    {
+      "id": "evt_70b04e4309f7ff0f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0c099a199b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Red Dead Redemption 2"
+      }
+    },
+    {
+      "id": "evt_72938fecd6420c73",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:6f5e2f6308",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "A Bird Story"
+      }
+    },
+    {
+      "id": "evt_737e20bca06a969b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:63e7138d4b",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Dunkirk"
+      }
+    },
+    {
+      "id": "evt_741b3d441fc81428",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5c1ec6e362",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Live2DViewerEX"
+      }
+    },
+    {
+      "id": "evt_7427b61722d58fda",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b6381f3f9e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Idle Spiral"
+      }
+    },
+    {
+      "id": "evt_74cdf833af9c7b5a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:06c800c7c5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Pentiment"
+      }
+    },
+    {
+      "id": "evt_7629560aded3c61c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f1f4976c15",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Magical Girl Witch Trials"
+      }
+    },
+    {
+      "id": "evt_77f23c2050eb243a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a0af3c71a0",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Day of Defeat: Source"
+      }
+    },
+    {
+      "id": "evt_7b52518372f7185e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:99df0a1b96",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Brotato"
+      }
+    },
+    {
+      "id": "evt_7b6bc92cf5982aaf",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:088a384115",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ Red Alert™ 3"
+      }
+    },
+    {
+      "id": "evt_7d13a7a464bdd859",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f5699024a1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Streets of Rogue"
+      }
+    },
+    {
+      "id": "evt_7d5273eef9bd51f4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:679de5f222",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Cities: Skylines"
+      }
+    },
+    {
+      "id": "evt_7d9f18de94d16018",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ae1a8779cf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Rusty Lake Hotel"
+      }
+    },
+    {
+      "id": "evt_7e241a560f1555fa",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:702de9d952",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "NEEDY STREAMER OVERLOAD"
+      }
+    },
+    {
+      "id": "evt_7e84c3d8ca9677b6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9fb4e612f5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "POSTAL 2"
+      }
+    },
+    {
+      "id": "evt_7f1e117a1138d59f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:dd84f4aa3b",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "1984"
+      }
+    },
+    {
+      "id": "evt_7fa6e30f6ab6b37e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:59841181ce",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "无人生还"
+      }
+    },
+    {
+      "id": "evt_7fb0f9e999667a85",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b23d8e3a09",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "ANIMAL WELL"
+      }
+    },
+    {
+      "id": "evt_7fc0524951ec6ae2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e7d6ea9448",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "STEINS;GATE 0"
+      }
+    },
+    {
+      "id": "evt_801d33d7377ffc1a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:dc1ffd230c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mafia II (Classic)"
+      }
+    },
+    {
+      "id": "evt_8038defe011c659e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:81139ec17c",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Memento"
+      }
+    },
+    {
+      "id": "evt_80d1c8f5f0fa22d2",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a5f73c16e7",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "平凡的世界（全三部）"
+      }
+    },
+    {
+      "id": "evt_80ef58a206ab1f13",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:471d73c2fd",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Melvor Idle"
+      }
+    },
+    {
+      "id": "evt_814c59635f98a2ff",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c06f299eb9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer: End Times - Vermintide"
+      }
+    },
+    {
+      "id": "evt_81c66036aa0e72d5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:c59a84ea31",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Perfect Blue"
+      }
+    },
+    {
+      "id": "evt_825a75f234d31283",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:83e5595601",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "DEAD OR ALIVE Xtreme Venus Vacation"
+      }
+    },
+    {
+      "id": "evt_83e87ea97e9eaabe",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:373c6133c9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "東方剛欲異聞　～ 水没した沈愁地獄"
+      }
+    },
+    {
+      "id": "evt_840ac6f84a042e4f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b996e89fd4",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer 40,000: Space Marine 2"
+      }
+    },
+    {
+      "id": "evt_8426c8f1e177f478",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:f1423a6060",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "痴人之爱"
+      }
+    },
+    {
+      "id": "evt_8447140e24578b92",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e276d9f5d7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Spell Brigade"
+      }
+    },
+    {
+      "id": "evt_84dc269473db7dd3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:79661cffcf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life 2"
+      }
+    },
+    {
+      "id": "evt_8613cc8b1afbb499",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:49e2d49a78",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Little Nightmares Enhanced Edition"
+      }
+    },
+    {
+      "id": "evt_86fa553ec781d673",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d7892c04d7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Chivalry 2"
+      }
+    },
+    {
+      "id": "evt_86fd13856077548e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:800edc8cf5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Just a To the Moon Series Beach Episode"
+      }
+    },
+    {
+      "id": "evt_875ba114a7c3cd79",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:33fd2c9e97",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "球状闪电"
+      }
+    },
+    {
+      "id": "evt_881d22900829c61f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:8ebb88f12d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Skillshot City"
+      }
+    },
+    {
+      "id": "evt_881d7db01044f3f3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1e68efbf59",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Metro 2033"
+      }
+    },
+    {
+      "id": "evt_89c8740e2f5fa0e4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9e9bab47eb",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Planet Zoo"
+      }
+    },
+    {
+      "id": "evt_89c98e22f07bdfd3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:efd61e6f05",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tom Clancy's Rainbow Six Siege"
+      }
+    },
+    {
+      "id": "evt_89efe9f6e72490ed",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b9d1839d13",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Deathmatch Classic"
+      }
+    },
+    {
+      "id": "evt_8a26199fccd21d9b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a02393c768",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Draw & Guess"
+      }
+    },
+    {
+      "id": "evt_8b2a666e9fa58a97",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:adc2616259",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ Generals Zero Hour"
+      }
+    },
+    {
+      "id": "evt_8c73b647a2b81d5f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:560812a736",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Order of the Phoenix"
+      }
+    },
+    {
+      "id": "evt_8db8266cdd942777",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:108c1e3691",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "GWENT: Rogue Mage (Single-Player Expansion)"
+      }
+    },
+    {
+      "id": "evt_8dd928e15b66877b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e4c01e9c9f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Kagura Survivors: Endless Night"
+      }
+    },
+    {
+      "id": "evt_8de7865e62f32689",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:0b1ffcbec5",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Eyes Wide Shut"
+      }
+    },
+    {
+      "id": "evt_8e2dbe76d327e847",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:ba59fb26a1",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Superman: Red Son"
+      }
+    },
+    {
+      "id": "evt_8e49312765e09fa0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:fce4c4a978",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "What Remains of Edith Finch"
+      }
+    },
+    {
+      "id": "evt_8fa672160912219c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:bfc3465b1a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "GWENT: The Witcher Card Game"
+      }
+    },
+    {
+      "id": "evt_904156a1463dd113",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:202e9019ab",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国9：钢穴"
+      }
+    },
+    {
+      "id": "evt_909e1fed82a63139",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:846490eddd",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ Remastered Collection"
+      }
+    },
+    {
+      "id": "evt_91533f505a86d4ae",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d0df6c3031",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Baldur's Gate 3"
+      }
+    },
+    {
+      "id": "evt_92a1ffe97c0523e4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:49573e94da",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tap Ninja"
+      }
+    },
+    {
+      "id": "evt_92b855a46ab38ccb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:83e0d2263c",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Deathly Hallows: Part 2"
+      }
+    },
+    {
+      "id": "evt_936279320a0d9c0c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:7206306136",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "童年 在人间 我的大学"
+      }
+    },
+    {
+      "id": "evt_936356375454040f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a4e3d58bce",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "唐吉诃德"
+      }
+    },
+    {
+      "id": "evt_9396cb6419909ebe",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:79b6cbd20e",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "了不起的盖茨比"
+      }
+    },
+    {
+      "id": "evt_93c32542975826e6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e61239b604",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Graveyard Keeper"
+      }
+    },
+    {
+      "id": "evt_944061d23f642d91",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:87623af9c3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Stellaris"
+      }
+    },
+    {
+      "id": "evt_94698f8b8635a413",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:94262c584a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Binding of Isaac: Rebirth"
+      }
+    },
+    {
+      "id": "evt_97654bf4860cd439",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d9f8ba5617",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Moonlighter"
+      }
+    },
+    {
+      "id": "evt_98e3c859cf317406",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:540e50661f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer 3: Kane's Wrath™"
+      }
+    },
+    {
+      "id": "evt_992deb815015206e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ae5fadcd0b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Planet Coaster"
+      }
+    },
+    {
+      "id": "evt_999b5df75d0ea575",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:269491d4f1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Thronebreaker: The Witcher Tales"
+      }
+    },
+    {
+      "id": "evt_9b90ec83288484e5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4a12a62991",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "人类简史"
+      }
+    },
+    {
+      "id": "evt_9ce316795fe33553",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:5e2478dec7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer™ and The Covert Operations™"
+      }
+    },
+    {
+      "id": "evt_9d5324393eae5e76",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9eae118807",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Verdun"
+      }
+    },
+    {
+      "id": "evt_9f3aa4896b295851",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:da8ca453de",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "小妇人"
+      }
+    },
+    {
+      "id": "evt_9f658f4ea7b18d72",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:cbebe8b859",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "从地球到月球"
+      }
+    },
+    {
+      "id": "evt_9fa71b18b018ea0a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:b83906d15d",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国6 ：基地边缘"
+      }
+    },
+    {
+      "id": "evt_a0a45e6a2e4195d1",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:902924015e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Forest"
+      }
+    },
+    {
+      "id": "evt_a1189003a906de43",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:4f33b7a24e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Radio Commander"
+      }
+    },
+    {
+      "id": "evt_a1c9eb679e27b835",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:cd84e153bc",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "鲁滨孙历险记"
+      }
+    },
+    {
+      "id": "evt_a1d3ccf11bb7fa4a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:561ff97da4",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Half-Blood Prince"
+      }
+    },
+    {
+      "id": "evt_a326d682286c1a67",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:8f584b0c4d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Z.A.T.O. // I Love the World and Everything In It"
+      }
+    },
+    {
+      "id": "evt_a3398fa7fd240e9d",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a2e8c8edfc",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Outer Wilds"
+      }
+    },
+    {
+      "id": "evt_a42d3524bc3cb7b9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:14d186c89f",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "环绕月球"
+      }
+    },
+    {
+      "id": "evt_a4ae11c823710dce",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4d7273e08f",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国 4：基地前奏"
+      }
+    },
+    {
+      "id": "evt_a5751d35ed597c0c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4022ea5a9a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国3 ：第二基地"
+      }
+    },
+    {
+      "id": "evt_a7cccf10afa1488a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:245cb6cffe",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "BioShock 2"
+      }
+    },
+    {
+      "id": "evt_a8ce2276ad4ac812",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:67ee807f1d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "SpaceEngine"
+      }
+    },
+    {
+      "id": "evt_a9e86f0285481b52",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:8e52605138",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "拉玛迷境"
+      }
+    },
+    {
+      "id": "evt_aa2285bf99db5f7a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:110050f33f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "DEFCON"
+      }
+    },
+    {
+      "id": "evt_aa67221493c3c0ca",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:dac4a0e4e5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "STEINS;GATE ELITE"
+      }
+    },
+    {
+      "id": "evt_aabb81c89c1f54da",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a5759cbd77",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "心"
+      }
+    },
+    {
+      "id": "evt_ab7eb8950aa79eaa",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c9401efcf7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "For The King"
+      }
+    },
+    {
+      "id": "evt_abacbccfa1ef2b35",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:70319dcb61",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2012"
+      }
+    },
+    {
+      "id": "evt_abc07fa01b224e94",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:942c84fbf2",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "时间简史"
+      }
+    },
+    {
+      "id": "evt_acac6a16ca3ade47",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:6290471cf7",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "3001：太空漫游"
+      }
+    },
+    {
+      "id": "evt_acaf9f918de40b01",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:898936c355",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "神们自己"
+      }
+    },
+    {
+      "id": "evt_acb08e100559a33a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c297d104a8",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "PAYDAY 2"
+      }
+    },
+    {
+      "id": "evt_aef9083d4662fcf7",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:513fbc2bd6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Rising Storm/Red Orchestra 2 Multiplayer"
+      }
+    },
+    {
+      "id": "evt_af3f2a1d8252dc9f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d7ca0dc00c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Risk of Rain 2"
+      }
+    },
+    {
+      "id": "evt_b01b9cb6d8e6ca33",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:1df6e98a36",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Project Hail Mary"
+      }
+    },
+    {
+      "id": "evt_b0e1574542623e13",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:ca273b031f",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Batman Begins"
+      }
+    },
+    {
+      "id": "evt_b174361abfdb5acd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:2696e12a4f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Black Myth: Wukong"
+      }
+    },
+    {
+      "id": "evt_b2407d58c907a35c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:37e7111929",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Mirror Lied"
+      }
+    },
+    {
+      "id": "evt_b25b656ee4720f6b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c8b48934f4",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "METAL GEAR SOLID V: GROUND ZEROES"
+      }
+    },
+    {
+      "id": "evt_b27a138ca54547d0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3a50de7ed7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Superliminal"
+      }
+    },
+    {
+      "id": "evt_b3d3bfa5c88be205",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:79b9d2a156",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "100% Orange Juice"
+      }
+    },
+    {
+      "id": "evt_b3ed1483336af4b5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:dfd63716a6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Sid Meier's Civilization VI"
+      }
+    },
+    {
+      "id": "evt_b3ff26ba5b479f65",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:9f5ac446e0",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国10：裸阳"
+      }
+    },
+    {
+      "id": "evt_b40a39541a059839",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:96b9c0ece6",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "气球上的五星期"
+      }
+    },
+    {
+      "id": "evt_b44629c1c6e74b0a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:68162abeff",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "了不起的盖茨比"
+      }
+    },
+    {
+      "id": "evt_b459c8f2240e5040",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:203b800bb3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Explore Fushimi Inari"
+      }
+    },
+    {
+      "id": "evt_b499e568a4e2eec4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e71cd0c414",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tannenberg"
+      }
+    },
+    {
+      "id": "evt_b506e2d245aa732e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a2a2577de2",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Counter-Strike: Source"
+      }
+    },
+    {
+      "id": "evt_b50f6a8791828f72",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:48f9e41eaf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer: Red Alert™, Counterstrike™ and The Aftermath™"
+      }
+    },
+    {
+      "id": "evt_b51eaf970219f09a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:4b5b045394",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "3001太空漫游"
+      }
+    },
+    {
+      "id": "evt_b598c63d499d5e01",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:0d39a68917",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "巴黎圣母院"
+      }
+    },
+    {
+      "id": "evt_b66bfd1e6e086a9b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:8720cdf8f1",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "远大前程"
+      }
+    },
+    {
+      "id": "evt_b717a03d49bb25af",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:35b2c75567",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tabletop Simulator"
+      }
+    },
+    {
+      "id": "evt_b73a007ebb2514ec",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:fc930fb955",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "BioShock"
+      }
+    },
+    {
+      "id": "evt_b749718cde4843a3",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "drama:d615318d6e",
+      "category": "drama",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Kaiji (赌博默示录)"
+      }
+    },
+    {
+      "id": "evt_b7e1667154802608",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0454154dc9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Left 4 Dead 2"
+      }
+    },
+    {
+      "id": "evt_b81d976ce79c82e0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:41dc21f20b",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "地光"
+      }
+    },
+    {
+      "id": "evt_b850a5a0aad4dd71",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7b962ada59",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Cyberpunk 2077"
+      }
+    },
+    {
+      "id": "evt_b89ddedc340a9acb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e52a003719",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "痴人之爱"
+      }
+    },
+    {
+      "id": "evt_b8f11362a5f6072f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:cafdd93dd1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tom Clancy's Rainbow Six Siege - Test Server"
+      }
+    },
+    {
+      "id": "evt_b91de43d614c1b14",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:cacc332f1c",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "动物农场"
+      }
+    },
+    {
+      "id": "evt_bad48de06c48f9a7",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:0837520e3c",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Touhou Blooming Chaos 2"
+      }
+    },
+    {
+      "id": "evt_baefc28cb33e37fb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7eb428a315",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "gogh: Focus with Your Avatar"
+      }
+    },
+    {
+      "id": "evt_bd0f6d15f4c7c116",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:10cadbccfd",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Birdwatching Notebook"
+      }
+    },
+    {
+      "id": "evt_be2507daa4d73422",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c7c673b1e5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Warhammer 40,000: Boltgun"
+      }
+    },
+    {
+      "id": "evt_bf6864140efe5354",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:bb550febce",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Beginner's Guide"
+      }
+    },
+    {
+      "id": "evt_bffea86eb4a071fb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:fff4c90e84",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Counter-Strike 2"
+      }
+    },
+    {
+      "id": "evt_c067d16de0e4ea5e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:205ee7ac4d",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Matrix"
+      }
+    },
+    {
+      "id": "evt_c0b99d807fa5de15",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:42bb1e0fdd",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Party Club"
+      }
+    },
+    {
+      "id": "evt_c0f40b87872d26ad",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e302e83e32",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "德米安"
+      }
+    },
+    {
+      "id": "evt_c1a9690d14ea50d5",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3a23d47482",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "3D Math - Ultra"
+      }
+    },
+    {
+      "id": "evt_c28fe017f3040efc",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:1db1cef750",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Batman"
+      }
+    },
+    {
+      "id": "evt_c32afcbf3f95ede8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b24429cbb8",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life: Source"
+      }
+    },
+    {
+      "id": "evt_c3470e336b8e7346",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:49d1ef770a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "STEINS;GATE: Linear Bounded Phenogram"
+      }
+    },
+    {
+      "id": "evt_c3f04f1fde1a15cc",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:deb0d12b57",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Deliver Us The Moon"
+      }
+    },
+    {
+      "id": "evt_c5d31a929f51aee6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:7dd05ed6f4",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "红字"
+      }
+    },
+    {
+      "id": "evt_c674272cb621c2e0",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:092e5c9fb3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "千子"
+      }
+    },
+    {
+      "id": "evt_c6c4c75bf2d9b41e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:352973e44d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Gensokyo Night Festival"
+      }
+    },
+    {
+      "id": "evt_c6e1a1371e88eeb8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:bddd57097a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tempest of the Heavens and Earth"
+      }
+    },
+    {
+      "id": "evt_c70be712375a1d96",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e3e0ab633a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "罗生门"
+      }
+    },
+    {
+      "id": "evt_c7f84956b286bd04",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:fcd05c39cf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "PC Building Simulator"
+      }
+    },
+    {
+      "id": "evt_c8ea742cc5fb18f8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e6d860f494",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Don't Starve Together"
+      }
+    },
+    {
+      "id": "evt_c93e2df5e72f8a63",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:29fa094084",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Justice League: The Flashpoint Paradox"
+      }
+    },
+    {
+      "id": "evt_c985e319e422189c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:7f6cb4529a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Flying Red Barrel - The Diary of a Little Aviator"
+      }
+    },
+    {
+      "id": "evt_ca212caef1fbda12",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:8fb8d2dc45",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "飘"
+      }
+    },
+    {
+      "id": "evt_ca5791a4400d00e9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:6a92099c51",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Great Ace Attorney Chronicles"
+      }
+    },
+    {
+      "id": "evt_cafcec3bb1b7c8be",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:991c345209",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "拉玛真相"
+      }
+    },
+    {
+      "id": "evt_cb4eb9e7b42ba594",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ab92d889c7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Portal"
+      }
+    },
+    {
+      "id": "evt_ccdf849fc404d43b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:bd9bed08f3",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Deathly Hallows: Part 1"
+      }
+    },
+    {
+      "id": "evt_cd71b3003661d177",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:ecac75abd6",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2010：太空漫游"
+      }
+    },
+    {
+      "id": "evt_cdb72215a903d6fa",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:400fba7c3d",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "INU-OH"
+      }
+    },
+    {
+      "id": "evt_ce399b37e3f12991",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:86418ed6a1",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "汤姆·索亚历险记"
+      }
+    },
+    {
+      "id": "evt_d032862d837fa75b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1044f42d56",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Ultimate Epic Battle Simulator"
+      }
+    },
+    {
+      "id": "evt_d03945a5152d8f4a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e5872af906",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Muse Dash"
+      }
+    },
+    {
+      "id": "evt_d0f9fbe3e15e1bc8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:6dc474e68b",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Little Nightmares"
+      }
+    },
+    {
+      "id": "evt_d1e62bdebb24b059",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:63b0dce773",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mirror"
+      }
+    },
+    {
+      "id": "evt_d2009bb9c499a145",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:3d36ffa7dc",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Broforce"
+      }
+    },
+    {
+      "id": "evt_d265b159692763a4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a49558cebb",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "RUNNING WITH RIFLES"
+      }
+    },
+    {
+      "id": "evt_d28e8fe43a8b35a6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:bfd8e9e5e1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Command & Conquer: Red Alert™ 2 and Yuri’s Revenge™"
+      }
+    },
+    {
+      "id": "evt_d3406ed05c010bbc",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:ffb3cd78c8",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "三体全集"
+      }
+    },
+    {
+      "id": "evt_d3ace81911a5e23e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:7654b935a5",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "在人间"
+      }
+    },
+    {
+      "id": "evt_d3eba217048b26f8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:aa95548af3",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Bongo Cat"
+      }
+    },
+    {
+      "id": "evt_d47adb194a759c96",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:781016f2c4",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Like a Dragon: Ishin!"
+      }
+    },
+    {
+      "id": "evt_d48ce67eff4a9eab",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:334e690aa6",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Boundary"
+      }
+    },
+    {
+      "id": "evt_d67c29ce8a5d8a87",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:6c15e2a87e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Kenshi"
+      }
+    },
+    {
+      "id": "evt_d72cc2bc9e78b170",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:d6357bae0e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Touhou Luna Nights"
+      }
+    },
+    {
+      "id": "evt_d72fe343cb930763",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:60c15eac40",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "007 First Light"
+      }
+    },
+    {
+      "id": "evt_d78c34fd5a95c49c",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:f414e82d30",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "幻想数学大战1"
+      }
+    },
+    {
+      "id": "evt_d863cdd650b817bd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:0d9e691cd9",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "遥远地球之歌"
+      }
+    },
+    {
+      "id": "evt_da0754cbf4c61568",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b5150c8c62",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Tap Tap Loot"
+      }
+    },
+    {
+      "id": "evt_ddacc8a65228eebb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:2499e97edc",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Sims™ 4"
+      }
+    },
+    {
+      "id": "evt_dec1785fb97a6bbd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:779b3b440a",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "月海沉船"
+      }
+    },
+    {
+      "id": "evt_e129f2b4fb6bf3cc",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:60567cb871",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Spartacus"
+      }
+    },
+    {
+      "id": "evt_e2f0abdb7c2c1d22",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:15b5a6df1f",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Chill with You Lo-Fi Story"
+      }
+    },
+    {
+      "id": "evt_e4358e1050f684c4",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e30869f4a1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Slay the Spire"
+      }
+    },
+    {
+      "id": "evt_e5bd9323840ab749",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:8038235d7a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The LEGO® NINJAGO® Movie Video Game"
+      }
+    },
+    {
+      "id": "evt_e6a4c461f38e0618",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:b72dbd482a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Void Crew"
+      }
+    },
+    {
+      "id": "evt_e75fc7a2c897f97e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:bcb1186909",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Prestige"
+      }
+    },
+    {
+      "id": "evt_e7b3c13be0855dd9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:2c3280b21e",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "悲惨世界（上中下）"
+      }
+    },
+    {
+      "id": "evt_e81d3692e2660736",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:dfde3bfe25",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Titanfall® 2"
+      }
+    },
+    {
+      "id": "evt_e86439cd79305e78",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:e68b7f01d5",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "秘封旅行 ~Secret Sealing Travel"
+      }
+    },
+    {
+      "id": "evt_e9b301c9ea4f1c00",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:35902a39f1",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "雀魂麻将(MahjongSoul)"
+      }
+    },
+    {
+      "id": "evt_ea9f46f48a5e8604",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:644d6b0fce",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Lethal Company"
+      }
+    },
+    {
+      "id": "evt_ed7c1a324404c4fb",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a66f4ef8fb",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "与拉玛相会"
+      }
+    },
+    {
+      "id": "evt_ed8299f126f2fe67",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:a34cae8a0e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Counter-Strike: Condition Zero Deleted Scenes"
+      }
+    },
+    {
+      "id": "evt_edee8875b6a1153a",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:908f6fb24a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Portal 2"
+      }
+    },
+    {
+      "id": "evt_ee31109a7fcec16b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:56ddab5305",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Desktop Mate"
+      }
+    },
+    {
+      "id": "evt_ee838c92e6ec9f3e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:f0d2657a32",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "全球通史(上)"
+      }
+    },
+    {
+      "id": "evt_eea4b47d6046640b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:a1a0d214b1",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "The Flash"
+      }
+    },
+    {
+      "id": "evt_ef7fd8651c5309bd",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:f37d64553e",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Demons' Timeline"
+      }
+    },
+    {
+      "id": "evt_ef9deddb177ccd4f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:18e1ff4dbc",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "悲惨世界"
+      }
+    },
+    {
+      "id": "evt_efa8b9f99a603597",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:80933f48d0",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Total War: WARHAMMER III"
+      }
+    },
+    {
+      "id": "evt_effff95f9cd02f52",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:48e55e1106",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "To the Moon"
+      }
+    },
+    {
+      "id": "evt_f1122f67b5a1dc49",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:70f3f8e2e2",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国1：基地"
+      }
+    },
+    {
+      "id": "evt_f16e3159f54a71e9",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:c412dc59db",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Impostor Factory"
+      }
+    },
+    {
+      "id": "evt_f185c06d9cb3f18e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:47d3e3eb92",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "HELLION"
+      }
+    },
+    {
+      "id": "evt_f24a5f2ddf837141",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:b99eea1d41",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Harry Potter and the Chamber of Secrets"
+      }
+    },
+    {
+      "id": "evt_f2d5108d4eede0bf",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:cbfb1314ef",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Touhou Big Big Battle"
+      }
+    },
+    {
+      "id": "evt_f3313ca5c8e16872",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9fd3b35cb0",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Dark and Darker"
+      }
+    },
+    {
+      "id": "evt_f4002e170722312b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:e951606485",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "格兰特船长的儿女"
+      }
+    },
+    {
+      "id": "evt_f41639c1abcd0b2e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:72c1944b8d",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "心"
+      }
+    },
+    {
+      "id": "evt_f52d8b41f6d84393",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:548b809f07",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "银河帝国5：迈向基地"
+      }
+    },
+    {
+      "id": "evt_f5541d29aa370cbf",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:189a9eceda",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Mafia: Definitive Edition"
+      }
+    },
+    {
+      "id": "evt_f60943327ea35e65",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:837bd53cd7",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Holdfast: Nations At War"
+      }
+    },
+    {
+      "id": "evt_f628d3ba70d6bca6",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:8415654eb9",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "KARDS - The WWII Card Game"
+      }
+    },
+    {
+      "id": "evt_f6f81ef05d425553",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:13b307dbb3",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "无人生还"
+      }
+    },
+    {
+      "id": "evt_f73c213562e90e2b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:8304449731",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "2061：太空漫游"
+      }
+    },
+    {
+      "id": "evt_f7e6711cf556761f",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:78b17a4575",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "野性的呼唤"
+      }
+    },
+    {
+      "id": "evt_f8321370fcfb5738",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:99ba468cf9",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Lolita"
+      }
+    },
+    {
+      "id": "evt_f8ccc009f6f80119",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:1ad4c142bf",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "HITMAN™ 2"
+      }
+    },
+    {
+      "id": "evt_f976afb807539fda",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:ff1b00462a",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "IdleOn - The Incremental MMO"
+      }
+    },
+    {
+      "id": "evt_f9b832443b016284",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:9c337e098f",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "拉玛2号"
+      }
+    },
+    {
+      "id": "evt_fa5ba44d905f64f8",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:de78a96f64",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "君主论"
+      }
+    },
+    {
+      "id": "evt_fbcba40854a58d1e",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:c34026984b",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "机器岛（上下）"
+      }
+    },
+    {
+      "id": "evt_fe316ac53dcd7e7b",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:9d950c17bc",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Half-Life: Blue Shift"
+      }
+    },
+    {
+      "id": "evt_feb57ad55b4574db",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "movie:74a36e669e",
+      "category": "movie",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "Synecdoche, New York"
+      }
+    },
+    {
+      "id": "evt_ff2e0884ef4c2082",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:9be22b7e22",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "瓦尔登湖"
+      }
+    },
+    {
+      "id": "evt_ff8886e215b07497",
+      "observed_at": "2026-08-18T06:27:32Z",
+      "local_date": "2026-08-18",
+      "entity_id": "book:a3b7ba6f83",
+      "category": "book",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "雪国（2022）"
+      }
+    }
+  ]
+}
