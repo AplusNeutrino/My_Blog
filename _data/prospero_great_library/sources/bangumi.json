@@ -1,11 +1,168 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-08-18T06:37:10Z",
-  "last_success_at": "2026-08-18T06:37:10Z",
+  "fetched_at": "2026-08-18T07:20:46Z",
+  "last_success_at": "2026-08-18T07:20:46Z",
   "adapter_version": "0.1.0-alpha.2",
-  "record_count": 418,
+  "record_count": 389,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "551918",
+      "category_hint": "anime",
+      "title": "飙马野郎 JOJO的奇妙冒险 第一赛段",
+      "title_original": "スティール・ボール・ラン ジョジョの奇妙な冒険 1st STAGE",
+      "alternate_titles": [
+        "スティール・ボール・ラン ジョジョの奇妙な冒険 1st STAGE"
+      ],
+      "year": 2026,
+      "release_date": "2026-03-19",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/31/06/551918_k5ppS.jpg",
+      "summary": "1890年のアメリカ。総距離約4,000マイル、賞金総額5,000万ドル、\r\n人類史上初の乗馬による北米大陸横断レース「スティール・ボール・ラン」が開催されようとしていた。\r\n\r\nかつて天才騎手と呼ばれながらも、半身不随となり、失意の中にい",
+      "status": "completed",
+      "rating": {
+        "value": 7.0,
+        "scale": 10.0,
+        "normalized_10": 7.0,
+        "source": "bangumi"
+      },
+      "progress": {
+        "current": 1,
+        "total": 1,
+        "unit": "episode",
+        "percent": 100.0,
+        "source": "bangumi"
+      },
+      "tags": [],
+      "identifiers": {
+        "bangumi_subject_id": 551918
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/551918"
+      },
+      "telemetry": {},
+      "updated_at": "2026-08-18T15:15:31+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null
+      }
+    },
+    {
+      "source": "bangumi",
+      "source_id": "69103",
+      "category_hint": "anime",
+      "title": "上课小动作",
+      "title_original": "となりの関くん",
+      "alternate_titles": [
+        "となりの関くん"
+      ],
+      "year": 2014,
+      "release_date": "2014-01-05",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/53/47/69103_1lq04.jpg",
+      "summary": "在学校的某一班。位于最后排窗旁座位的关君，在上课中尽情享受名为“小动作（内職）”的个人乐。 将棋围棋、骨牌、棒倒等，甚至班级内的邮局、与猫嬉戏，在课堂进行着超越个人娱乐的行为。\r\n坐在关君旁边的女学生—横井留美，对关君的奇怪行动完全没有办法",
+      "status": "on_hold",
+      "rating": null,
+      "progress": {
+        "current": 0,
+        "total": 21,
+        "unit": "episode",
+        "percent": 0.0,
+        "source": "bangumi"
+      },
+      "tags": [],
+      "identifiers": {
+        "bangumi_subject_id": 69103
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/69103"
+      },
+      "telemetry": {},
+      "updated_at": "2026-08-18T15:15:23+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null
+      }
+    },
+    {
+      "source": "bangumi",
+      "source_id": "292298",
+      "category_hint": "anime",
+      "title": "影之诗",
+      "title_original": "シャドウバース",
+      "alternate_titles": [
+        "シャドウバース"
+      ],
+      "year": 2020,
+      "release_date": "2020-04-07",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/f6/f3/292298_7f9lg.jpg",
+      "summary": "就学于天青学园的少年，龙崎阳羽。他因为出乎意料的原因得到了神秘的手机。手机中有着超人气电子卡牌游戏《影之诗》。与对手们相遇，挑战大赛，与同伴间的牵绊。通过影之诗收获的东西，促成了希罗的“进化”。",
+      "status": "dropped",
+      "rating": null,
+      "progress": {
+        "current": 8,
+        "total": 48,
+        "unit": "episode",
+        "percent": 16.67,
+        "source": "bangumi"
+      },
+      "tags": [],
+      "identifiers": {
+        "bangumi_subject_id": 292298
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/292298"
+      },
+      "telemetry": {},
+      "updated_at": "2026-08-18T15:15:13+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null
+      }
+    },
+    {
+      "source": "bangumi",
+      "source_id": "9622",
+      "category_hint": "anime",
+      "title": "机动战士Z高达",
+      "title_original": "機動戦士Ζガンダム",
+      "alternate_titles": [
+        "機動戦士Ζガンダム"
+      ],
+      "year": 1985,
+      "release_date": "1985-03-02",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/97/c8/9622_2P229.jpg",
+      "summary": "　　0084年，吉翁残党迪拉兹之乱终告完结，然而，联邦政府的统治仍呈现极不稳定的局面，尤其当联邦议会发布维持地球圈现状的政策决议后，反对派呼声日益高涨。虽然在加米托夫准将领导的提坦斯之铁腕下，地球圈尚未发生大规模冲突，但空气中的紧张气息已接",
+      "status": "on_hold",
+      "rating": null,
+      "progress": {
+        "current": 8,
+        "total": 50,
+        "unit": "episode",
+        "percent": 16.0,
+        "source": "bangumi"
+      },
+      "tags": [],
+      "identifiers": {
+        "bangumi_subject_id": 9622
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/9622"
+      },
+      "telemetry": {},
+      "updated_at": "2026-08-18T15:15:05+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "646525",
@@ -1126,80 +1283,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "396642",
-      "category_hint": "game",
-      "title": "诺瓦莱岛：被咬到就完了",
-      "title_original": "ノロワレ島 ～ 噛まれたらもうおしまい ～",
-      "alternate_titles": [
-        "ノロワレ島 ～ 噛まれたらもうおしまい ～"
-      ],
-      "year": 2022,
-      "release_date": "2022-08-12",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/59/33/396642_bUXGg.jpg",
-      "summary": "合宿先の孤島で始まる生存サバイバル\r\nオカルト研究部は合宿先にとある孤島を選んだ。\r\n長い航海が終わり孤島に着くと大きな牙を持つ化け物の集団に襲われた。\r\n散り散りになる親友、仲間・・・・・。\r\n彼女達はこの孤島から無事脱出できるだろうか。",
-      "status": "in_progress",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 396642
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/396642"
-      },
-      "telemetry": {},
-      "updated_at": "2026-05-17T12:20:28+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "294069",
-      "category_hint": "game",
-      "title": "希梨绘的异世界漂流记",
-      "title_original": "キリエの異界漂流記",
-      "alternate_titles": [
-        "キリエの異界漂流記"
-      ],
-      "year": 2019,
-      "release_date": "2019-03-15",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/27/d0/294069_NxyQN.jpg",
-      "summary": "◆あらすじ\r\n\r\nとある対魔機関に所属している学生のキリエ。\r\n修学旅行中、キリエのクラスは神隠しに遭い異空間に閉じ込められる。\r\n襲い来る異形の化け物...そして情欲に流された同級生や先生達。\r\nキリエ達は無事に異空間から脱出できるだろう",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 294069
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/294069"
-      },
-      "telemetry": {},
-      "updated_at": "2026-05-17T12:19:36+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "69649",
       "category_hint": "book",
       "title": "文豪野犬",
@@ -2293,43 +2376,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "220331",
-      "category_hint": "game",
-      "title": "奴隶之剑",
-      "title_original": "Slave's Sword～自由都市編～",
-      "alternate_titles": [
-        "Slave's Sword～自由都市編～"
-      ],
-      "year": 2017,
-      "release_date": "2017-01-20",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/ad/8d/220331_xU3bQ.jpg",
-      "summary": "大陸最大の帝国”マルドニア帝国”の騎士として育ったルナは、\r\n日に日に激しくなる帝国内の貧富の差と、帝国の侵略行為に\r\n疑問を感じ、その身分と名家の富を捨て、一切の階級が存在しない\r\n”自由都市セルウェイ”へと身を寄せる。\r\n\r\n \r\n\r\n",
-      "status": "dropped",
-      "rating": {
-        "value": 5.0,
-        "scale": 10.0,
-        "normalized_10": 5.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 220331
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/220331"
-      },
-      "telemetry": {},
-      "updated_at": "2026-05-04T16:52:26+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "151955",
       "category_hint": "game",
       "title": "OPUS：地球计划",
@@ -2391,44 +2437,6 @@
       "telemetry": {},
       "updated_at": "2026-05-03T08:58:04+08:00",
       "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "292298",
-      "category_hint": "anime",
-      "title": "影之诗",
-      "title_original": "シャドウバース",
-      "alternate_titles": [
-        "シャドウバース"
-      ],
-      "year": 2020,
-      "release_date": "2020-04-07",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/f6/f3/292298_7f9lg.jpg",
-      "summary": "就学于天青学园的少年，龙崎阳羽。他因为出乎意料的原因得到了神秘的手机。手机中有着超人气电子卡牌游戏《影之诗》。与对手们相遇，挑战大赛，与同伴间的牵绊。通过影之诗收获的东西，促成了希罗的“进化”。",
-      "status": "in_progress",
-      "rating": null,
-      "progress": {
-        "current": 8,
-        "total": 48,
-        "unit": "episode",
-        "percent": 16.67,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 292298
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/292298"
-      },
-      "telemetry": {},
-      "updated_at": "2026-05-02T11:53:29+08:00",
-      "raw_type": 2,
       "extra": {
         "comment": null,
         "private": false,
@@ -2507,79 +2515,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "69103",
-      "category_hint": "anime",
-      "title": "上课小动作",
-      "title_original": "となりの関くん",
-      "alternate_titles": [
-        "となりの関くん"
-      ],
-      "year": 2014,
-      "release_date": "2014-01-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/53/47/69103_1lq04.jpg",
-      "summary": "在学校的某一班。位于最后排窗旁座位的关君，在上课中尽情享受名为“小动作（内職）”的个人乐。 将棋围棋、骨牌、棒倒等，甚至班级内的邮局、与猫嬉戏，在课堂进行着超越个人娱乐的行为。\r\n坐在关君旁边的女学生—横井留美，对关君的奇怪行动完全没有办法",
-      "status": "in_progress",
-      "rating": null,
-      "progress": {
-        "current": 0,
-        "total": 21,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 69103
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/69103"
-      },
-      "telemetry": {},
-      "updated_at": "2026-04-20T11:14:28+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "548590",
-      "category_hint": "game",
-      "title": "Look Outside",
-      "title_original": null,
-      "alternate_titles": [],
-      "year": 2025,
-      "release_date": "2025-03-21",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/70/bf/548590_4A931.jpg",
-      "summary": "Look Outside is a survival horror RPG set in a single apartment building. A mysterious event turns anyone who looks out ",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 548590
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/548590"
-      },
-      "telemetry": {},
-      "updated_at": "2026-04-13T23:47:52+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
         "platform": null
       }
     },
@@ -3394,49 +3329,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "551918",
-      "category_hint": "anime",
-      "title": "飙马野郎 JOJO的奇妙冒险 第一赛段",
-      "title_original": "スティール・ボール・ラン ジョジョの奇妙な冒険 1st STAGE",
-      "alternate_titles": [
-        "スティール・ボール・ラン ジョジョの奇妙な冒険 1st STAGE"
-      ],
-      "year": 2026,
-      "release_date": "2026-03-19",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/31/06/551918_k5ppS.jpg",
-      "summary": "1890年のアメリカ。総距離約4,000マイル、賞金総額5,000万ドル、\r\n人類史上初の乗馬による北米大陸横断レース「スティール・ボール・ラン」が開催されようとしていた。\r\n\r\nかつて天才騎手と呼ばれながらも、半身不随となり、失意の中にい",
-      "status": "in_progress",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 1,
-        "total": 1,
-        "unit": "episode",
-        "percent": 100.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 551918
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/551918"
-      },
-      "telemetry": {},
-      "updated_at": "2026-03-21T22:11:00+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "4035",
       "category_hint": "anime",
       "title": "摇滚新乐团",
@@ -3899,44 +3791,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "9622",
-      "category_hint": "anime",
-      "title": "机动战士Z高达",
-      "title_original": "機動戦士Ζガンダム",
-      "alternate_titles": [
-        "機動戦士Ζガンダム"
-      ],
-      "year": 1985,
-      "release_date": "1985-03-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/97/c8/9622_2P229.jpg",
-      "summary": "　　0084年，吉翁残党迪拉兹之乱终告完结，然而，联邦政府的统治仍呈现极不稳定的局面，尤其当联邦议会发布维持地球圈现状的政策决议后，反对派呼声日益高涨。虽然在加米托夫准将领导的提坦斯之铁腕下，地球圈尚未发生大规模冲突，但空气中的紧张气息已接",
-      "status": "in_progress",
-      "rating": null,
-      "progress": {
-        "current": 8,
-        "total": 50,
-        "unit": "episode",
-        "percent": 16.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 9622
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/9622"
-      },
-      "telemetry": {},
-      "updated_at": "2025-10-19T00:00:09+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "3774",
       "category_hint": "anime",
       "title": "轻音少女 第二季",
@@ -4013,41 +3867,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "104779",
-      "category_hint": "game",
-      "title": "腐界に眠る王女のアバドーン",
-      "title_original": null,
-      "alternate_titles": [],
-      "year": 2014,
-      "release_date": "2014-05-03",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/99/96/104779_Fne9f.jpg",
-      "summary": "暗い森にひっそりとたたずむ今は誰も住んでいない「綾小路邸」\r\n家の持ち主である綾小路の友人であり大学教授である山之辺は\r\n古くからあるこの屋敷に興味を抱き、綾小路の許可を得て\r\n助手を連れ探索へとやってくる\r\n\r\nそこで起こる恐怖の現象の数",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 104779
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/104779"
-      },
-      "telemetry": {},
-      "updated_at": "2025-10-07T02:28:44+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "1015",
       "category_hint": "anime",
       "title": "机动战士高达0080 口袋里的战争",
@@ -4091,49 +3910,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "126442",
-      "category_hint": "movie",
-      "title": "大时代",
-      "title_original": "大時代",
-      "alternate_titles": [
-        "大時代"
-      ],
-      "year": 1992,
-      "release_date": "1992-10-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/f9/9a/126442_Zg19j.jpg",
-      "summary": "劇集講述丁蟹與方進新兩代人的恩怨，交織以方展博與龍紀文、阮梅之間的微妙三角戀愛。展博最後成為股票市場的高手，在股票市場上與丁家決一死戰。\r\n\r\n《大時代》以香港六十年代到九十年代之金融市場為主線背景，並以兩個家庭兩代之間的恩怨情仇為主幹而開",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 40,
-        "total": 40,
-        "unit": "episode",
-        "percent": 100.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 126442
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/126442"
-      },
-      "telemetry": {},
-      "updated_at": "2025-09-28T19:56:32+08:00",
-      "raw_type": 6,
-      "extra": {
-        "comment": "剧本中实际炒股内容比想象中少，但结构严丝合缝，人物塑造质量高",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "50",
       "category_hint": "anime",
       "title": "机动战士高达",
@@ -4172,43 +3948,6 @@
       "extra": {
         "comment": "确实是一部有趣的作品",
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "437487",
-      "category_hint": "game",
-      "title": "潜龙谍影Δ：食蛇者",
-      "title_original": "METAL GEAR SOLID Δ: SNAKE EATER",
-      "alternate_titles": [
-        "METAL GEAR SOLID Δ: SNAKE EATER"
-      ],
-      "year": 2025,
-      "release_date": "2025-08-28",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/25/ab/437487_izCOO.jpg",
-      "summary": "全部故事的起点\r\n\r\n以2004年推出的「METAL GEAR SOLID 3 SNAKE EATER」为范本的重制版作品。\r\n在维持原作剧情与世界观的同时，透过最新的画面与富立体感的音效表现，享受在丛林中的极致求生匿踪动作体验。\r\n\r\n一",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 437487
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/437487"
-      },
-      "telemetry": {},
-      "updated_at": "2025-09-08T01:44:30+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": "情怀感是有的，喜欢世纪初作品的各种巧思",
-        "private": true,
         "platform": null
       }
     },
@@ -5162,300 +4901,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "183739",
-      "category_hint": "game",
-      "title": "魔王伊丽丝的逆袭",
-      "title_original": "魔王イリスの逆襲",
-      "alternate_titles": [
-        "魔王イリスの逆襲"
-      ],
-      "year": 2016,
-      "release_date": "2016-05-06",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/38/5e/183739_dZ7hH.jpg",
-      "summary": "世界を支配しようと企んでいた魔王イブリースだったが、\r\n勇者に敗れて弱体化し、少女のような姿になってしまう。\r\n密かに復讐を誓う魔王。\r\n\r\n彼女は名をイリスと変えて、力を取り戻す旅に出る。\r\nその前に立ちはだかる、欲望に塗れた人間たちと\r",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 183739
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/183739"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T02:01:42+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "102256",
-      "category_hint": "game",
-      "title": "淫乱勇者赛菲的RPG～为了拯救世界的工口冒险！？～",
-      "title_original": "淫乱勇者セフィのRPG ～世界を救うエッチな冒険 !?～",
-      "alternate_titles": [
-        "淫乱勇者セフィのRPG ～世界を救うエッチな冒険 !?～"
-      ],
-      "year": 2013,
-      "release_date": "2013-02-09",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/68/e5/102256_wz7W7.jpg",
-      "summary": "セックスをして強くなる勇者が誕生!?\r\n不思議な魔物「ポコ」によって無理やり勇者としての\r\n力を与えられた女の子の魔王討伐劇!!\r\n■勇者は精液を集めて強くなるんだ!\r\n\r\n平凡に生き、平凡に毎日を過ごす女の子「セフィ」\r\nある日、散歩をし",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 102256
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/102256"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T02:01:19+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "294661",
-      "category_hint": "game",
-      "title": "FALL IN LABYRINTH -隶属的少女们-",
-      "title_original": "フォーリン・ラビリンス -隷属の少女たち-",
-      "alternate_titles": [
-        "フォーリン・ラビリンス -隷属の少女たち-"
-      ],
-      "year": 2019,
-      "release_date": "2019-11-10",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/69/ad/294661_DwDOZ.jpg",
-      "summary": "冒険者であるあなたは、密航した船に揺られていた。\r\n\r\n東西帝国交易要衝の島、『ヴェリアプール』へやってくる人間の目的は大きく二つしかない。\r\nひとつは、無限のアイテムが発掘される奇妙なダンジョン『ラビリントス』。\r\nもうひとつは、『ラビリ",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 294661
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/294661"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T02:00:48+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "404256",
-      "category_hint": "game",
-      "title": "乡间拾趣夏日谈",
-      "title_original": "なつのさがしもの",
-      "alternate_titles": [
-        "なつのさがしもの"
-      ],
-      "year": 2023,
-      "release_date": "2023-10-01",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/7f/a2/404256_oy7lS.jpg",
-      "summary": "男主被父亲开车带到了乡下的小姨家里渡过暑假生活。\r\n因为长相可爱，所以一家子人对男主没有丝毫防备心~\r\n小姨直接跟男主同睡一张床，表妹和小姨甚至和他一起洗澡。\r\n邻家的小女孩甚至以为男主是女的，和他在山里分享女孩的秘密…\r\n在乡下自由探索的",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 404256
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/404256"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:59:36+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "392037",
-      "category_hint": "game",
-      "title": "淫习的幽世村~绝对不能曝光女性身分的时间~",
-      "title_original": "淫習のカクリヨ村～メスバレ厳禁モラトリアム～",
-      "alternate_titles": [
-        "淫習のカクリヨ村～メスバレ厳禁モラトリアム～"
-      ],
-      "year": 2022,
-      "release_date": "2022-11-29",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/b6/19/392037_g477P.jpg",
-      "summary": "絶対に女だとバレてはいけない淫習村に迷い込んだ二人……\r\n\r\n夏。\r\n狂ったように生い茂る青々とした草木。\r\n陽光を反射して白亜に光る砂利道。\r\n城門のように威圧する積乱雲。\r\nそして何より、不気味なほどに底抜けた青い空。\r\n\r\n夏。\r\n視",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 392037
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/392037"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:59:27+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "292568",
-      "category_hint": "game",
-      "title": "蒸汽都市的侦探少女",
-      "title_original": "蒸気都市の探偵少女",
-      "alternate_titles": [
-        "蒸気都市の探偵少女"
-      ],
-      "year": 2019,
-      "release_date": "2019-04-20",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/9e/2a/292568_44AIB.jpg",
-      "summary": "チャールズ・バベッジが階差機関と解析機関を発明したIFの世界。\r\n蒸気都市ロンドンに住んでいるソフィーは、父親の不在を機に探偵としての活動を始めた。\r\n\r\n世間を賑わせる怪盗や、ギャングの抗争。さらにはエッチな依頼や娼館働きまで。\r\nソフィ",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 292568
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/292568"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:59:21+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "317554",
-      "category_hint": "game",
-      "title": "Alice In Cradle",
-      "title_original": null,
-      "alternate_titles": [],
-      "year": null,
-      "release_date": null,
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/63/65/317554_YpjlE.jpg",
-      "summary": "Alice In Cradleとは「 KAWAISOU is KAWAII 」かわいそうはかわいいのモットー\r\nひなゆあ、橋野みずは開発のソフトめなリョナと異種姦メインの成人向け探索型2DACTゲーム。",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 317554
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/317554"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:58:41+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "220338",
-      "category_hint": "game",
-      "title": "阿尔卑斯与危险森林",
-      "title_original": "アルプスと危険な森",
-      "alternate_titles": [
-        "アルプスと危険な森"
-      ],
-      "year": 2017,
-      "release_date": "2017-07-29",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/a1/08/220338_78aoJ.jpg",
-      "summary": "知恵とテクニックで女の子を魔の森から救い出せ！！\r\n\r\n非力な女の子アルプスを操作し、森の出口を目指すアクションゲームです。\r\n\r\n操作はシンプルで、軽い謎解きをしつつ進んでいきます。\r\n\r\nアルプスは戦闘能力を持たないので\r\n迫り来る脅威",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 220338
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/220338"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:58:36+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
         "platform": null
       }
     },
@@ -9361,80 +8806,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "321956",
-      "category_hint": "game",
-      "title": "圣骑士莉卡物语 白翼与淫翼姐妹",
-      "title_original": "聖騎士リッカの物語 白翼と淫翼の姉妹",
-      "alternate_titles": [
-        "聖騎士リッカの物語 白翼と淫翼の姉妹"
-      ],
-      "year": 2021,
-      "release_date": "2021-12-25",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/f2/6b/321956_z057a.jpg",
-      "summary": "此为受神选上的少女「莉卡」透过魔法力量变身为骑士和怪物战斗的3D横版动作游戏。\r\n莉卡被特定的敌人抓到或战败的话就会沦落色色的下场。\r\n\r\n游戏整体构成为关卡通关型。在动作游戏画面的前后会进入事件演出。\r\n在关卡之间可以强化变身圣骑士莉卡的",
-      "status": "completed",
-      "rating": {
-        "value": 6.0,
-        "scale": 10.0,
-        "normalized_10": 6.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 321956
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/321956"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:12:58+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "102714",
-      "category_hint": "game",
-      "title": "献给精灵神的祭品巫女供牺姬菲娜的冒险之旅",
-      "title_original": "プリンセスサクリファイス ～供犠姫フィーナの冒険～",
-      "alternate_titles": [
-        "プリンセスサクリファイス ～供犠姫フィーナの冒険～"
-      ],
-      "year": 2013,
-      "release_date": "2013-11-09",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/aa/5d/102714_ujX77.jpg",
-      "summary": "========================================================\r\n　　剣と魔法。すなわち、暴力と怪奇の時代。\r\n　　創造神は遙か昔に去り、人間を救いはしない。\r\n\r\n　　地上に残るのは、気ま",
-      "status": "completed",
-      "rating": {
-        "value": 9.0,
-        "scale": 10.0,
-        "normalized_10": 9.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 102714
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/102714"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T01:12:10+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": "唯一神，里界启蒙作品",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "216894",
       "category_hint": "game",
       "title": "地铁：离乡",
@@ -11590,41 +10961,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "267764",
-      "category_hint": "game",
-      "title": "BLACKSOULSII -愛しき貴方へ贈る不思議の国-",
-      "title_original": null,
-      "alternate_titles": [],
-      "year": 2018,
-      "release_date": "2018-11-10",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/68/9a/267764_hhhhN.jpg",
-      "summary": "…咖哒咖哒……咖哒咖哒………又来了。\r\n耳边奏响起，时钟的指针刻印在脑中的声音\r\n肉也好、骨也好、都被卷入齿轮变化为血之块。\r\n「XXX先生。我爱你」\r\n听到了那位少女的声音。\r\n必须快点找到我心爱的爱丽丝才行\r\n…但是、不知道为什么。\r\n",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": null,
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 267764
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/267764"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T00:57:46+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": "整体完成度很高，相关要素丰满",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "195573",
       "category_hint": "game",
       "title": "荒野大镖客：救赎2",
@@ -12075,49 +11411,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "426815",
-      "category_hint": "anime",
-      "title": "文豪野犬 第五季",
-      "title_original": "文豪ストレイドッグス 第5シーズン",
-      "alternate_titles": [
-        "文豪ストレイドッグス 第5シーズン"
-      ],
-      "year": 2023,
-      "release_date": "2023-07-12",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/10/b4/426815_WHFN2.jpg",
-      "summary": "天空カジノで摘発された硬貨型爆弾。\r\nその１枚が街で爆発し、混乱の中で終末が幕を開けた。\r\n卑劣なる賊の名は――《武装探偵社》。\r\n\r\n《天人五衰》の張り巡らせた醜悪な罠に掛かった中島敦たちは、\r\n現実を改変する「頁」の力によって、\r\n世界",
-      "status": "completed",
-      "rating": {
-        "value": 5.0,
-        "scale": 10.0,
-        "normalized_10": 5.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 11,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 426815
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/426815"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T00:47:06+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "可能唯一的优点就是比漫画出的快了",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "209408",
       "category_hint": "anime",
       "title": "狂赌之渊",
@@ -12346,49 +11639,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "12317",
-      "category_hint": "anime",
-      "title": "赌博默示录 破戒录篇",
-      "title_original": "逆境無頼カイジ 破戒録篇",
-      "alternate_titles": [
-        "逆境無頼カイジ 破戒録篇"
-      ],
-      "year": 2011,
-      "release_date": "2011-04-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/ba/ca/12317_Qqy2H.jpg",
-      "summary": "       赌博，是一种使人觉得非常刺激又使人着迷的活动，虽然很多人都知道赌博是不好，疯狂的赌博更会使人倾家荡产，令人陷入绝望的深渊。对很多人来说，赌博完全是天堂与地狱的直通车，是希望还是绝望很多时候都是靠个人的运气。而在知名漫画家福本伸",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 26,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 12317
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/12317"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T07:07:18+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "后半程稍有拖沓扣分了",
-        "private": true,
         "platform": null
       }
     },
@@ -12802,47 +12052,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "454684",
-      "category_hint": "anime",
-      "title": "BanG Dream! Ave Mujica",
-      "title_original": null,
-      "alternate_titles": [],
-      "year": 2025,
-      "release_date": "2025-01-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/77/c3/454684_ZH5tU.jpg",
-      "summary": " 「言ったでしょう？残りの人生、わたくしに下さいと」\r\n\r\n豊川祥子がメンバーを招き入れたバンド・Ave Mujicaは、\r\nライブやメディア露出など、商業的な成功を収めていた。\r\n\r\n運命をともにすると誓った仲間も、生まれ育った家も失った",
-      "status": "completed",
-      "rating": {
-        "value": 6.0,
-        "scale": 10.0,
-        "normalized_10": 6.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 13,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 454684
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/454684"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:52:41+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "428735",
       "category_hint": "anime",
       "title": "BanG Dream! It's MyGO!!!!!",
@@ -12922,135 +12131,6 @@
       "extra": {
         "comment": "氛围塑造和观感满分",
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "378862",
-      "category_hint": "anime",
-      "title": "别当欧尼酱了！",
-      "title_original": "お兄ちゃんはおしまい！",
-      "alternate_titles": [
-        "お兄ちゃんはおしまい！"
-      ],
-      "year": 2023,
-      "release_date": "2023-01-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/7e/ca/378862_24TnR.jpg",
-      "summary": "某天，家里蹲的啃老族绪山真寻一觉醒来发现自己变成了“女孩子”！？正当真寻不知道镜子里的美少女是自己而陷入混乱的时候，跳级进入大学的科学家妹妹绪山美波里出现了。她透露在饮料里加了一种奇怪的药物！\r\n真寻最近2年一直疯狂宅家玩小黄游，偶尔不得已",
-      "status": "completed",
-      "rating": {
-        "value": 6.0,
-        "scale": 10.0,
-        "normalized_10": 6.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 12,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 378862
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/378862"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:50:49+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "结尾稍逊一筹",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "43558",
-      "category_hint": "anime",
-      "title": "JOJO的奇妙冒险",
-      "title_original": "ジョジョの奇妙な冒険",
-      "alternate_titles": [
-        "ジョジョの奇妙な冒険"
-      ],
-      "year": 2012,
-      "release_date": "2012-10-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/23/5d/43558_ECoSc.jpg",
-      "summary": "在古代墨西哥繁盛一时的太阳的子民阿兹特克，他们流传着一枚奇妙的「石鬼面」。那是一枚奇迹的面具，能让人拥有一种力量，能获得永远的生命并成为真正的掌控者。然而从某个时候开始，就从历史中消失了踪影。\r\n\r\n时光飞逝，来到了19世纪末的英国。在这个",
-      "status": "completed",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 26,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 43558
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/43558"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:50:04+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "7分是加上后半段的得分",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "2582",
-      "category_hint": "anime",
-      "title": "玲音",
-      "title_original": "Serial Experiments Lain",
-      "alternate_titles": [
-        "Serial Experiments Lain"
-      ],
-      "year": 1998,
-      "release_date": "1998-07-06",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/7e/83/2582_9JJ3u.jpg",
-      "summary": "岩仓玲音的同学四方田千砂自杀了。没有任何前兆的自杀事件让同学们不知所措，一周后，玲音收到了千砂的短信。明明已死的千砂居然以手机短信和玲音开始了交流。回到家，玲音用爸爸给她的电脑开始与千砂联系。当谈及为何自杀时，千砂回答说“因为我已经不需要身",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 13,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 2582
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/2582"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:48:49+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "风味喜欢",
-        "private": true,
         "platform": null
       }
     },
@@ -14112,49 +13192,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "309311",
-      "category_hint": "anime",
-      "title": "赛博浪客",
-      "title_original": "Cyberpunk: Edgerunners",
-      "alternate_titles": [
-        "Cyberpunk: Edgerunners"
-      ],
-      "year": 2022,
-      "release_date": "2022-09-13",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/39/83/309311_dJU58.jpg",
-      "summary": "《赛博朋克：浪客》是与《赛博朋克2077》共享同一世界观的原创动画项目，为一部十集的独立故事剧集，讲述了一名街头小子尝试在技术高度繁荣、人体改造盛行的未来城市中挣扎求生的故事。冒着失去一切的风险，他选择成为一名浪客 —— 游走于法外的雇佣兵",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 10,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 309311
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/309311"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:42:00+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "情感到位",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "276",
       "category_hint": "anime",
       "title": "幸运星",
@@ -14307,49 +13344,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "793",
-      "category_hint": "anime",
-      "title": "Code Geass 反叛的鲁路修",
-      "title_original": "コードギアス 反逆のルルーシュ",
-      "alternate_titles": [
-        "コードギアス 反逆のルルーシュ"
-      ],
-      "year": 2006,
-      "release_date": "2006-10-05",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/da/8c/793_3y432.jpg",
-      "summary": "2010年，超级大国“布里塔尼亚帝国”（Britannia）为了夺取日本的地下资源而侵略日本，在布里塔尼亚帝国强大的兵器Knightmare进攻下，日本在不到一个月的时间内被征服。日本被剥夺了自由、权利甚至是国家的名字，布里塔尼亚帝国将“日",
-      "status": "completed",
-      "rating": {
-        "value": 9.0,
-        "scale": 10.0,
-        "normalized_10": 9.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 25,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 793
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/793"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:40:28+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "有缺陷的优秀作",
-        "private": true,
         "platform": null
       }
     },
@@ -14667,51 +13661,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "841",
-      "category_hint": "anime",
-      "title": "红辣椒",
-      "title_original": "パプリカ",
-      "alternate_titles": [
-        "パプリカ"
-      ],
-      "year": 2006,
-      "release_date": "2006-11-25",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/02/a3/841_P6wS5.jpg",
-      "summary": "29岁的千叶敦子博士是一个非常有魅力的美女，同时她还是一位谦逊有礼的精神治疗医师，专门研究这项领域中的一些边缘学科。最近，她所在的实验室发明了一种名叫PT的全新心理疾病治疗方法，通过一种非常厉害的装置“DC-MINI”，从梦境中寻找隐藏在患",
-      "status": "completed",
-      "rating": {
-        "value": 9.0,
-        "scale": 10.0,
-        "normalized_10": 9.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 1,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [
-        "今敏"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 841
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/841"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:39:22+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "非常华丽的作品",
-        "private": true,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "325285",
       "category_hint": "anime",
       "title": "奇巧计程车",
@@ -14912,49 +13861,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "216371",
-      "category_hint": "anime",
-      "title": "莉兹与青鸟",
-      "title_original": "リズと青い鳥",
-      "alternate_titles": [
-        "リズと青い鳥"
-      ],
-      "year": 2018,
-      "release_date": "2018-04-21",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/1d/35/216371_5926R.jpg",
-      "summary": "铠塚霙，高中3年级，双簧管演奏者。\r\n伞木希美，高中3年级，长笛演奏者。\r\n\r\n初中时，是希美牵起了霙的手，带领她走出了孤独。\r\n自那以后，希美就占据了霙的整个世界。\r\n只有与希美在一起的生活，才令霙感到幸福。\r\n可在高中一年级，希美一度退",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 0,
-        "total": 1,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [],
-      "identifiers": {
-        "bangumi_subject_id": 216371
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/216371"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:37:38+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "真正的百合艺术品",
-        "private": true,
         "platform": null
       }
     },
@@ -15332,52 +14238,6 @@
       "extra": {
         "comment": null,
         "private": false,
-        "platform": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "298",
-      "category_hint": "anime",
-      "title": "天空之城",
-      "title_original": "天空の城ラピュタ",
-      "alternate_titles": [
-        "天空の城ラピュタ"
-      ],
-      "year": 1986,
-      "release_date": "1986-08-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/26/e3/298_WFVhX.jpg",
-      "summary": "　　在过去的历史之中，传说着曾有人类以高科技创造了可飞行于天空的城市——拉普达。虽多数认为这是虚构幻想出来的事物，但仍有相信飞行城市存在而试图寻找出的人们。\r\n　　某一日晚上，搭载众多旅客的飞行客船突遭到空中海盗团的袭击和入侵，空中海盗的目",
-      "status": "completed",
-      "rating": {
-        "value": 8.0,
-        "scale": 10.0,
-        "normalized_10": 8.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 1,
-        "total": 1,
-        "unit": "episode",
-        "percent": 100.0,
-        "source": "bangumi"
-      },
-      "tags": [
-        "宮崎駿",
-        "吉卜力"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 298
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/298"
-      },
-      "telemetry": {},
-      "updated_at": "2024-08-06T14:18:54+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "优秀的作品，蒸汽朋克的震撼感扑面而来。\r\n所谓的大地，应该就是与孤悬于天空的达摩克里斯相对的人民吧",
-        "private": true,
         "platform": null
       }
     },

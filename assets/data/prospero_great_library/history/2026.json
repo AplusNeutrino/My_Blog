@@ -11878,6 +11878,77 @@
       "data": {
         "title": "玲音"
       }
+    },
+    {
+      "id": "evt_642362e7d03d56d8",
+      "observed_at": "2026-08-18T07:20:46Z",
+      "local_date": "2026-08-18",
+      "entity_id": "game:aa95548af3",
+      "category": "game",
+      "event": "steam_playtime_delta",
+      "source": "steam",
+      "data": {
+        "title": "Bongo Cat",
+        "from_minutes": 34767,
+        "to_minutes": 34829,
+        "delta_minutes": 62
+      }
+    },
+    {
+      "id": "evt_80e85c636ec8b813",
+      "observed_at": "2026-08-18T07:20:46Z",
+      "local_date": "2026-08-18",
+      "entity_id": "anime:5e2a37a2e0",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "影之诗",
+        "from": "in_progress",
+        "to": "dropped"
+      }
+    },
+    {
+      "id": "evt_932af8b430d94da8",
+      "observed_at": "2026-08-18T07:20:46Z",
+      "local_date": "2026-08-18",
+      "entity_id": "anime:f5c973bcaa",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "上课小动作",
+        "from": "in_progress",
+        "to": "on_hold"
+      }
+    },
+    {
+      "id": "evt_b0766ca6ccd692b0",
+      "observed_at": "2026-08-18T07:20:46Z",
+      "local_date": "2026-08-18",
+      "entity_id": "anime:ff853b6cc7",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "机动战士Z高达",
+        "from": "in_progress",
+        "to": "on_hold"
+      }
+    },
+    {
+      "id": "evt_dde5cde293a6ed48",
+      "observed_at": "2026-08-18T07:20:46Z",
+      "local_date": "2026-08-18",
+      "entity_id": "anime:1842b0d04d",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "飙马野郎 JOJO的奇妙冒险 第一赛段",
+        "from": "in_progress",
+        "to": "completed"
+      }
     }
   ]
 }

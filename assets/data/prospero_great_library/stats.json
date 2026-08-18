@@ -1,35 +1,35 @@
 {
-  "total_items": 757,
+  "total_items": 728,
   "by_category": {
-    "game": 406,
-    "anime": 140,
-    "movie": 57,
+    "anime": 129,
+    "game": 389,
+    "movie": 56,
     "book": 150,
     "drama": 4
   },
   "by_status": {
-    "completed": 408,
-    "in_progress": 16,
-    "wishlist": 129,
-    "on_hold": 11,
-    "dropped": 4
+    "completed": 382,
+    "on_hold": 13,
+    "dropped": 4,
+    "in_progress": 11,
+    "wishlist": 129
   },
   "rating_distribution": {
     "3": 2,
-    "5": 9,
-    "6": 39,
-    "7": 102,
-    "8": 64,
-    "9": 16,
+    "5": 7,
+    "6": 36,
+    "7": 91,
+    "8": 54,
+    "9": 13,
     "10": 4
   },
   "steam": {
-    "lifetime_playtime_minutes": 335202,
+    "lifetime_playtime_minutes": 335264,
     "ranking": [
       {
         "id": "game:aa95548af3",
         "title": "Bongo Cat",
-        "minutes": 34767
+        "minutes": 34829
       },
       {
         "id": "game:bfc3465b1a",
@@ -927,6 +927,8 @@
         "minutes": 1
       }
     ],
-    "observed_playtime_by_year_minutes": {}
+    "observed_playtime_by_year_minutes": {
+      "2026": 62
+    }
   }
 }
