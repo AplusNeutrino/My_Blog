@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Sync Prospero Great Library
-        uses: AplusNeutrino/Prospero_Great_Library@f3f09f0106753d1dc442e2671ca493ffd20701d8
+        uses: AplusNeutrino/Prospero_Great_Library@115c7f2573033170d7ab72f0b3c18958899cb5dd
         env:
           BANGUMI_ACCESS_TOKEN: ${{ secrets.BANGUMI_ACCESS_TOKEN }}
           NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}

@@ -261,6 +261,7 @@ prospero_great_library:
       enabled: true
       username: "neutrino_x"
       base_url: "https://api.bgm.tv"
+      hide_private_collections: true
 
     neodb:
       enabled: true
