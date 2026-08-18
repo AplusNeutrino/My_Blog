@@ -6,6 +6,7 @@ on:
     - cron: "17 18 * * *" # 02:17 Asia/Shanghai (UTC+8)
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -29,10 +30,12 @@ jobs:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
 
       - name: Persist generated library state
+        id: persist
         shell: bash
         run: |
           if [ -z "$(git status --porcelain -- _data/prospero_great_library assets/data/prospero_great_library)" ]; then
             echo "No PGL data changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -41,3 +44,10 @@ jobs:
           git commit -m "chore(pgl): sync personal library [$(date -u +%F)]"
           git pull --rebase
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy updated library
+        if: steps.persist.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages-deploy.yml --ref main
