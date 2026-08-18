@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "year": "2026",
+  "events": [
+    {
+      "id": "evt_f573611bc252838a",
+      "observed_at": "2026-08-18T18:54:45Z",
+      "local_date": "2026-08-19",
+      "entity_id": "game:aa95548af3",
+      "category": "game",
+      "event": "steam_playtime_delta",
+      "source": "steam",
+      "data": {
+        "title": "Bongo Cat",
+        "from_minutes": 34829,
+        "to_minutes": 34969,
+        "delta_minutes": 140
+      }
+    }
+  ]
+}

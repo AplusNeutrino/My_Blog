@@ -24,12 +24,12 @@
     "10": 4
   },
   "steam": {
-    "lifetime_playtime_minutes": 335264,
+    "lifetime_playtime_minutes": 335404,
     "ranking": [
       {
         "id": "game:aa95548af3",
         "title": "Bongo Cat",
-        "minutes": 34829
+        "minutes": 34969
       },
       {
         "id": "game:bfc3465b1a",
@@ -927,6 +927,8 @@
         "minutes": 1
       }
     ],
-    "observed_playtime_by_year_minutes": {}
+    "observed_playtime_by_year_minutes": {
+      "2026": 140
+    }
   }
 }
