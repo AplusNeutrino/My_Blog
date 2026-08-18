@@ -1,21 +1,20 @@
 {
-  "last_run": "2026-08-18T06:27:32Z",
-  "overall": "degraded",
+  "last_run": "2026-08-18T06:37:10Z",
+  "overall": "ok",
   "sources": {
     "bangumi": {
-      "status": "stale",
-      "last_success": null,
-      "record_count": 0,
-      "error": "Unexpected Bangumi collections response"
+      "status": "ok",
+      "last_success": "2026-08-18T06:37:10Z",
+      "record_count": 418
     },
     "neodb": {
       "status": "ok",
-      "last_success": "2026-08-18T06:27:32Z",
+      "last_success": "2026-08-18T06:37:10Z",
       "record_count": 155
     },
     "steam": {
       "status": "ok",
-      "last_success": "2026-08-18T06:27:32Z",
+      "last_success": "2026-08-18T06:37:10Z",
       "record_count": 257
     }
   }

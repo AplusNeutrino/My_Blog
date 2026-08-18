@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "steam",
-  "fetched_at": "2026-08-18T06:27:32Z",
-  "last_success_at": "2026-08-18T06:27:32Z",
+  "fetched_at": "2026-08-18T06:37:10Z",
+  "last_success_at": "2026-08-18T06:37:10Z",
   "adapter_version": "0.1.0-alpha.2",
   "record_count": 257,
   "records": [
