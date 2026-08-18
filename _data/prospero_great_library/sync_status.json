@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-18T07:20:46Z",
+  "last_run": "2026-08-18T07:35:58Z",
   "overall": "ok",
   "sources": {
     "bangumi": {
       "status": "ok",
-      "last_success": "2026-08-18T07:20:46Z",
-      "record_count": 389,
-      "private_hidden_count": 29
+      "last_success": "2026-08-18T07:35:58Z",
+      "record_count": 368,
+      "private_hidden_count": 50
     },
     "neodb": {
       "status": "ok",
-      "last_success": "2026-08-18T07:20:46Z",
+      "last_success": "2026-08-18T07:35:58Z",
       "record_count": 155,
       "private_hidden_count": 0
     },
     "steam": {
       "status": "ok",
-      "last_success": "2026-08-18T07:20:46Z",
+      "last_success": "2026-08-18T07:35:58Z",
       "record_count": 257,
       "private_hidden_count": 0
     }

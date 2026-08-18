@@ -4,7 +4,7 @@
       "source": "steam",
       "source_id": "500",
       "title": "Left 4 Dead",
-      "candidate_group": 226,
+      "candidate_group": 207,
       "confidence": 0.8706,
       "method": "fuzzy_title"
     },
@@ -12,7 +12,7 @@
       "source": "steam",
       "source_id": "17480",
       "title": "Command & Conquer™ Red Alert™ 3",
-      "candidate_group": 174,
+      "candidate_group": 156,
       "confidence": 0.8344,
       "method": "fuzzy_title"
     },
@@ -20,7 +20,7 @@
       "source": "steam",
       "source_id": "24800",
       "title": "Command & Conquer™ Red Alert™ 3 - Uprising",
-      "candidate_group": 173,
+      "candidate_group": 155,
       "confidence": 0.8614,
       "method": "fuzzy_title"
     },
@@ -28,7 +28,7 @@
       "source": "steam",
       "source_id": "360430",
       "title": "Mafia III: Definitive Edition",
-      "candidate_group": 194,
+      "candidate_group": 175,
       "confidence": 0.9186,
       "method": "fuzzy_title"
     },
@@ -36,7 +36,7 @@
       "source": "steam",
       "source_id": "379430",
       "title": "Kingdom Come: Deliverance",
-      "candidate_group": 284,
+      "candidate_group": 263,
       "confidence": 0.8842,
       "method": "fuzzy_title"
     },
@@ -44,7 +44,7 @@
       "source": "steam",
       "source_id": "502500",
       "title": "ACE COMBAT™7: SKIES UNKNOWN",
-      "candidate_group": 193,
+      "candidate_group": 174,
       "confidence": 0.8842,
       "method": "fuzzy_title"
     },
@@ -52,7 +52,7 @@
       "source": "steam",
       "source_id": "1237970",
       "title": "Titanfall® 2",
-      "candidate_group": 275,
+      "candidate_group": 254,
       "confidence": 0.878,
       "method": "fuzzy_title"
     },
@@ -60,7 +60,7 @@
       "source": "steam",
       "source_id": "1238810",
       "title": "Battlefield™ V",
-      "candidate_group": 219,
+      "candidate_group": 200,
       "confidence": 0.8344,
       "method": "fuzzy_title"
     },
@@ -68,7 +68,7 @@
       "source": "steam",
       "source_id": "2732960",
       "title": "Command & Conquer™ Generals Zero Hour",
-      "candidate_group": 233,
+      "candidate_group": 214,
       "confidence": 0.9024,
       "method": "fuzzy_title"
     }
