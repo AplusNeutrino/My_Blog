@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-08-18T18:54:45Z",
-  "last_success_at": "2026-08-18T18:54:45Z",
-  "adapter_version": "0.1.0-alpha.2",
+  "fetched_at": "2026-08-19T01:21:02Z",
+  "last_success_at": "2026-08-19T01:21:02Z",
+  "adapter_version": "0.1.0-alpha.4",
   "record_count": 155,
   "records": [
     {
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.8,
-        "community_rating_count": 266,
+        "community_rating_count": 267,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }

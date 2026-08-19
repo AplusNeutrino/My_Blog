@@ -16,6 +16,36 @@
         "to_minutes": 34969,
         "delta_minutes": 140
       }
+    },
+    {
+      "id": "evt_baa15723111255b7",
+      "observed_at": "2026-08-19T01:21:02Z",
+      "local_date": "2026-08-19",
+      "entity_id": "game:aa95548af3",
+      "category": "game",
+      "event": "steam_playtime_delta",
+      "source": "steam",
+      "data": {
+        "title": "Bongo Cat",
+        "from_minutes": 34969,
+        "to_minutes": 35010,
+        "delta_minutes": 41
+      }
+    },
+    {
+      "id": "evt_fddb2fb44a65c7a8",
+      "observed_at": "2026-08-19T01:21:02Z",
+      "local_date": "2026-08-19",
+      "entity_id": "game:35902a39f1",
+      "category": "game",
+      "event": "steam_playtime_delta",
+      "source": "steam",
+      "data": {
+        "title": "雀魂麻将(MahjongSoul)",
+        "from_minutes": 13347,
+        "to_minutes": 13348,
+        "delta_minutes": 1
+      }
     }
   ]
 }

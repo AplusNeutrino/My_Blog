@@ -1,4 +1,5 @@
 {
+  "stats_schema_version": 2,
   "total_items": 707,
   "by_category": {
     "anime": 129,
@@ -23,13 +24,374 @@
     "9": 13,
     "10": 4
   },
+  "rating_curve_distribution": {
+    "bin_size": 0.5,
+    "bins": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0,
+      4.5,
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0
+    ],
+    "scopes": {
+      "all": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        5,
+        0,
+        34,
+        0,
+        84,
+        0,
+        51,
+        0,
+        13,
+        0,
+        4
+      ],
+      "book": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        5,
+        0,
+        21,
+        0,
+        11,
+        0,
+        3,
+        0,
+        2
+      ],
+      "comic": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "movie": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        4,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "drama": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "anime": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        0,
+        12,
+        0,
+        19,
+        0,
+        16,
+        0,
+        5,
+        0,
+        0
+      ],
+      "game": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        16,
+        0,
+        40,
+        0,
+        22,
+        0,
+        5,
+        0,
+        1
+      ],
+      "music": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "navigation": {
+    "default_by_category": {
+      "book": 146,
+      "comic": 0,
+      "movie": 48,
+      "drama": 4,
+      "anime": 63,
+      "game": 117,
+      "music": 0
+    },
+    "default_total": 378,
+    "wishlist_by_category": {
+      "book": 3,
+      "comic": 0,
+      "movie": 8,
+      "drama": 0,
+      "anime": 62,
+      "game": 50,
+      "music": 0
+    },
+    "wishlist_total": 123,
+    "other_status_by_category": {
+      "on_hold": {
+        "book": 1,
+        "comic": 0,
+        "movie": 0,
+        "drama": 0,
+        "anime": 3,
+        "game": 9,
+        "music": 0
+      },
+      "dropped": {
+        "book": 0,
+        "comic": 0,
+        "movie": 0,
+        "drama": 0,
+        "anime": 1,
+        "game": 3,
+        "music": 0
+      }
+    }
+  },
+  "current_activity": [
+    {
+      "entity_id": "anime:165babd92d",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "anime:246ab30094",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "anime:4f7f75015e",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "book:571e93287c",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "book:870343b517",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:00b3a1b0c3",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:1afeffe82d",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 117
+    },
+    {
+      "entity_id": "game:2945907362",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:758dd2831b",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:c2836463dd",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:e4efa3b28e",
+      "reason": "in_progress",
+      "last_activity": "2026-08-18T06:37:10Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "game:aa95548af3",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-19T01:08:55Z",
+      "recent_playtime_minutes": 3416
+    },
+    {
+      "entity_id": "game:35902a39f1",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-19T00:28:44Z",
+      "recent_playtime_minutes": 155
+    },
+    {
+      "entity_id": "game:0a7d9bdcac",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-17T15:22:48Z",
+      "recent_playtime_minutes": 208
+    },
+    {
+      "entity_id": "game:00f0b96a3f",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-16T04:35:17Z",
+      "recent_playtime_minutes": 741
+    },
+    {
+      "entity_id": "game:c594273c47",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-16T04:04:26Z",
+      "recent_playtime_minutes": 420
+    },
+    {
+      "entity_id": "game:ed9c4f855f",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-14T12:57:32Z",
+      "recent_playtime_minutes": 21
+    },
+    {
+      "entity_id": "game:9c2f2f3ee3",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-13T13:35:09Z",
+      "recent_playtime_minutes": 284
+    },
+    {
+      "entity_id": "game:f37d64553e",
+      "reason": "steam_recent",
+      "last_activity": "2026-08-08T14:32:24Z",
+      "recent_playtime_minutes": 420
+    }
+  ],
   "steam": {
-    "lifetime_playtime_minutes": 335404,
+    "lifetime_playtime_minutes": 335446,
     "ranking": [
       {
         "id": "game:aa95548af3",
         "title": "Bongo Cat",
-        "minutes": 34969
+        "minutes": 35010
       },
       {
         "id": "game:bfc3465b1a",
@@ -49,7 +411,7 @@
       {
         "id": "game:35902a39f1",
         "title": "雀魂麻将(MahjongSoul)",
-        "minutes": 13347
+        "minutes": 13348
       },
       {
         "id": "game:d0df6c3031",
@@ -928,7 +1290,7 @@
       }
     ],
     "observed_playtime_by_year_minutes": {
-      "2026": 140
+      "2026": 182
     }
   }
 }
