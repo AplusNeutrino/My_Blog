@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "pgl_version": "0.1.0-alpha.5",
+  "pgl_version": "0.1.0-alpha.6",
   "adapter": "chirpy",
-  "installed_at": "2026-08-19T02:19:28.432782Z",
+  "installed_at": "2026-08-19T03:16:27.697431Z",
   "managed": {
     "_data/pgl_locales/en.yml": {
-      "sha256": "be0a25e255311ab4c0adf7757d32b5013ea2b4d9dcabe78ceac1ed7a158b64ab"
+      "sha256": "893681bd6e2beeb76724567340b983d78589233467f79a5622cd5c7c58f07a46"
     },
     "_data/pgl_locales/zh-CN.yml": {
-      "sha256": "220f34fa7063c1805c7207c696ea19291ca6de46f09d435285f66a17f52f0bc0"
+      "sha256": "9d2c8df69977b06d8709d64ec9c23949c9db1de4b0f6b4cfd941f7af1ac0fad4"
     },
     "_includes/pgl/card.html": {
       "sha256": "c597080c8ec622fc9ab9c8503c61fa6fde0173bc7a71ffc693ddb8dd69785347"
@@ -26,10 +26,10 @@
       "sha256": "3e096c3d0aecb05458ec9d15b221e5ac3c3a10f5328fe7f6b89b2113f983cb7e"
     },
     "_includes/pgl/header.html": {
-      "sha256": "c7b8d85acb26aa8e9b2caa1237b150c039fd53be80c6cafa316a3de4376aec96"
+      "sha256": "89ed61e427f3f9a5a81765f5e3c0b6b458ce8fcd88c310f0f0e0f50cf4686c5c"
     },
     "_includes/pgl/library.html": {
-      "sha256": "19c0a79d5e9f6ed0bc27272078e8e4dbee5241d86d5ee87db3cf037af7f403a2"
+      "sha256": "d97750367c883a85ed9ccac2dfa3823213bf5511577f27dd265f461ad4efeb27"
     },
     "_includes/pgl/pagination.html": {
       "sha256": "b6a15f6284c958c4e433c253abf2f559021dc73479157383bec21b13964c7b58"
@@ -38,10 +38,10 @@
       "sha256": "79ffa9f454f52ae566c8fe52962e5c5040534bcef87f4298ff9ef97ffc4d6b7d"
     },
     "_includes/pgl/rating-chart.html": {
-      "sha256": "b972023e8ae63571cdfc8acbe091646152ee0303b7bf5f9cc286852140d455d7"
+      "sha256": "95622abcd89142166b7367c68ed17adeedcac1104c8703f485b995cb6968fcd5"
     },
     "_includes/pgl/stats.html": {
-      "sha256": "058706b1f26080152c9a96b2f26b7ec13c7114d053e9a7c8379caf55de86f559"
+      "sha256": "51a8495ca978114b1bdb72297b48adc5126d59e8584ddd495ff51b4889d8ef03"
     },
     "_includes/pgl/view-toolbar.html": {
       "sha256": "19118e130fd07f6e2f4943b6b11fb8f07412d6ff99c9f2d24bf0577c746ae197"
@@ -54,6 +54,12 @@
     },
     "assets/pgl/pgl-chirpy.css": {
       "sha256": "f3aa53190e41ba7c62d5609dcd1f828ca0ec9d5b8747d32997ef7fe91e4d43c9"
+    },
+    "assets/pgl/pgl-polish.css": {
+      "sha256": "09acd3a22eddc54ac015cc9f6cf464c55c4e816a570947612a9b3f2edf72af23"
+    },
+    "assets/pgl/pgl-rating-polish.js": {
+      "sha256": "a83c8279d6e38c25b7047a86c55b901695b2e4deb71f2e46eaff04d2193a7aa7"
     },
     "assets/pgl/pgl.css": {
       "sha256": "4cd345d86a5e6202d8b9cd3a77d57a796e94c71f4c842b48b9223a28580f1d3b"
