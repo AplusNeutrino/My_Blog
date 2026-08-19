@@ -1,11 +1,12 @@
 {
   "stats_schema_version": 2,
-  "total_items": 707,
+  "total_items": 518,
   "by_category": {
-    "anime": 129,
-    "game": 368,
+    "anime": 120,
+    "game": 188,
     "movie": 56,
-    "book": 150,
+    "book": 124,
+    "comic": 26,
     "drama": 4
   },
   "by_status": {
@@ -25,50 +26,30 @@
     "10": 4
   },
   "rating_curve_distribution": {
-    "bin_size": 0.5,
+    "bin_size": 1,
     "bins": [
-      0.5,
-      1.0,
-      1.5,
-      2.0,
-      2.5,
-      3.0,
-      3.5,
-      4.0,
-      4.5,
-      5.0,
-      5.5,
-      6.0,
-      6.5,
-      7.0,
-      7.5,
-      8.0,
-      8.5,
-      9.0,
-      9.5,
-      10.0
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
     ],
     "scopes": {
       "all": [
         0,
         0,
-        0,
-        0,
-        0,
         2,
         0,
-        0,
-        0,
         5,
-        0,
         34,
-        0,
         84,
-        0,
         51,
-        0,
         13,
-        0,
         4
       ],
       "book": [
@@ -77,43 +58,23 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
         1,
-        0,
-        5,
-        0,
-        21,
-        0,
-        11,
-        0,
-        3,
-        0,
-        2
+        13,
+        4,
+        2,
+        1
       ],
       "comic": [
         0,
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        1,
+        4,
+        8,
+        7,
+        1,
+        1
       ],
       "movie": [
         0,
@@ -121,33 +82,13 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
-        0,
         4,
-        0,
         2,
-        0,
-        0,
         0,
         1
       ],
       "drama": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -162,58 +103,28 @@
       "anime": [
         0,
         0,
-        0,
-        0,
-        0,
         1,
         0,
-        0,
-        0,
         3,
-        0,
-        12,
-        0,
+        10,
         19,
-        0,
         16,
-        0,
         5,
-        0,
         0
       ],
       "game": [
         0,
         0,
-        0,
-        0,
-        0,
         1,
         0,
-        0,
-        0,
         1,
-        0,
-        16,
-        0,
+        18,
         40,
-        0,
         22,
-        0,
         5,
-        0,
         1
       ],
       "music": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -229,29 +140,29 @@
   },
   "navigation": {
     "default_by_category": {
-      "book": 146,
-      "comic": 0,
+      "book": 124,
+      "comic": 22,
       "movie": 48,
       "drama": 4,
-      "anime": 63,
-      "game": 117,
+      "anime": 61,
+      "game": 119,
       "music": 0
     },
     "default_total": 378,
     "wishlist_by_category": {
-      "book": 3,
-      "comic": 0,
+      "book": 0,
+      "comic": 3,
       "movie": 8,
       "drama": 0,
-      "anime": 62,
-      "game": 50,
+      "anime": 56,
+      "game": 56,
       "music": 0
     },
     "wishlist_total": 123,
     "other_status_by_category": {
       "on_hold": {
-        "book": 1,
-        "comic": 0,
+        "book": 0,
+        "comic": 1,
         "movie": 0,
         "drama": 0,
         "anime": 3,
@@ -263,1034 +174,94 @@
         "comic": 0,
         "movie": 0,
         "drama": 0,
-        "anime": 1,
-        "game": 3,
+        "anime": 0,
+        "game": 4,
         "music": 0
       }
     }
   },
   "current_activity": [
     {
-      "entity_id": "anime:165babd92d",
-      "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
-      "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "anime:246ab30094",
-      "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
-      "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "anime:4f7f75015e",
-      "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
-      "recent_playtime_minutes": 0
-    },
-    {
       "entity_id": "book:571e93287c",
+      "category": "book",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "book:870343b517",
+      "category": "comic",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "anime:165babd92d",
+      "category": "anime",
+      "reason": "in_progress",
+      "last_activity": "2026-08-19T02:23:23Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "anime:246ab30094",
+      "category": "anime",
+      "reason": "in_progress",
+      "last_activity": "2026-08-19T02:23:23Z",
+      "recent_playtime_minutes": 0
+    },
+    {
+      "entity_id": "anime:4f7f75015e",
+      "category": "anime",
+      "reason": "in_progress",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:00b3a1b0c3",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:1afeffe82d",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
-      "recent_playtime_minutes": 117
+      "last_activity": "2026-08-19T02:23:23Z",
+      "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:2945907362",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:758dd2831b",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:c2836463dd",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
     },
     {
       "entity_id": "game:e4efa3b28e",
+      "category": "game",
       "reason": "in_progress",
-      "last_activity": "2026-08-18T06:37:10Z",
+      "last_activity": "2026-08-19T02:23:23Z",
       "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "game:aa95548af3",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-19T01:08:55Z",
-      "recent_playtime_minutes": 3416
-    },
-    {
-      "entity_id": "game:35902a39f1",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-19T00:28:44Z",
-      "recent_playtime_minutes": 155
-    },
-    {
-      "entity_id": "game:0a7d9bdcac",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-17T15:22:48Z",
-      "recent_playtime_minutes": 208
-    },
-    {
-      "entity_id": "game:00f0b96a3f",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-16T04:35:17Z",
-      "recent_playtime_minutes": 741
-    },
-    {
-      "entity_id": "game:c594273c47",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-16T04:04:26Z",
-      "recent_playtime_minutes": 420
-    },
-    {
-      "entity_id": "game:ed9c4f855f",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-14T12:57:32Z",
-      "recent_playtime_minutes": 21
-    },
-    {
-      "entity_id": "game:9c2f2f3ee3",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-13T13:35:09Z",
-      "recent_playtime_minutes": 284
-    },
-    {
-      "entity_id": "game:f37d64553e",
-      "reason": "steam_recent",
-      "last_activity": "2026-08-08T14:32:24Z",
-      "recent_playtime_minutes": 420
     }
   ],
   "steam": {
-    "lifetime_playtime_minutes": 335446,
-    "ranking": [
-      {
-        "id": "game:aa95548af3",
-        "title": "Bongo Cat",
-        "minutes": 35010
-      },
-      {
-        "id": "game:bfc3465b1a",
-        "title": "巫师之昆特牌",
-        "minutes": 31602
-      },
-      {
-        "id": "game:645b9e22db",
-        "title": "战锤：末世鼠疫2",
-        "minutes": 21219
-      },
-      {
-        "id": "game:411254760a",
-        "title": "Monster Hunter: World",
-        "minutes": 17885
-      },
-      {
-        "id": "game:35902a39f1",
-        "title": "雀魂麻将(MahjongSoul)",
-        "minutes": 13348
-      },
-      {
-        "id": "game:d0df6c3031",
-        "title": "博德之门3",
-        "minutes": 11279
-      },
-      {
-        "id": "game:1afeffe82d",
-        "title": "战锤40K：暗潮",
-        "minutes": 10468
-      },
-      {
-        "id": "game:948ffb13c2",
-        "title": "Shadowverse: Worlds Beyond",
-        "minutes": 9626
-      },
-      {
-        "id": "game:c171d77814",
-        "title": "巫师3：狂猎",
-        "minutes": 8986
-      },
-      {
-        "id": "game:2ed08276ce",
-        "title": "深岩银河",
-        "minutes": 8749
-      },
-      {
-        "id": "game:0c270429fc",
-        "title": "战舰世界",
-        "minutes": 7842
-      },
-      {
-        "id": "game:b5150c8c62",
-        "title": "Tap Tap Loot",
-        "minutes": 7592
-      },
-      {
-        "id": "game:c594273c47",
-        "title": "潜龙谍影5 幻痛",
-        "minutes": 7394
-      },
-      {
-        "id": "game:ce9fc0845d",
-        "title": "命运石之门",
-        "minutes": 7155
-      },
-      {
-        "id": "game:471d73c2fd",
-        "title": "梅尔沃放置",
-        "minutes": 6804
-      },
-      {
-        "id": "game:dfd63716a6",
-        "title": "文明6",
-        "minutes": 6735
-      },
-      {
-        "id": "game:dfde3bfe25",
-        "title": "Titanfall® 2",
-        "minutes": 6705
-      },
-      {
-        "id": "game:7b962ada59",
-        "title": "赛博朋克 2077",
-        "minutes": 6100
-      },
-      {
-        "id": "game:e7d6ea9448",
-        "title": "命运石之门 0",
-        "minutes": 5489
-      },
-      {
-        "id": "game:0454154dc9",
-        "title": "求生之路2",
-        "minutes": 5249
-      },
-      {
-        "id": "game:d7ca0dc00c",
-        "title": "雨中冒险2",
-        "minutes": 4266
-      },
-      {
-        "id": "game:80933f48d0",
-        "title": "全面战争：战锤3",
-        "minutes": 4222
-      },
-      {
-        "id": "game:dd86bfe15c",
-        "title": "横跨方尖碑",
-        "minutes": 4078
-      },
-      {
-        "id": "game:efd61e6f05",
-        "title": "彩虹六号：围攻",
-        "minutes": 3869
-      },
-      {
-        "id": "game:d7892c04d7",
-        "title": "骑士精神2",
-        "minutes": 3389
-      },
-      {
-        "id": "game:c1cad5a892",
-        "title": "Spirit City: Lofi Sessions",
-        "minutes": 3048
-      },
-      {
-        "id": "game:a2e8c8edfc",
-        "title": "星际拓荒",
-        "minutes": 2989
-      },
-      {
-        "id": "game:a5c5071fdb",
-        "title": "ACE COMBAT™7: SKIES UNKNOWN",
-        "minutes": 2839
-      },
-      {
-        "id": "game:6a92099c51",
-        "title": "The Great Ace Attorney Chronicles",
-        "minutes": 2729
-      },
-      {
-        "id": "game:00f0b96a3f",
-        "title": "Wallpaper Engine",
-        "minutes": 2648
-      },
-      {
-        "id": "game:04ef4fc7de",
-        "title": "星露谷物语",
-        "minutes": 2628
-      },
-      {
-        "id": "game:83e5595601",
-        "title": "DEAD OR ALIVE Xtreme Venus Vacation",
-        "minutes": 2308
-      },
-      {
-        "id": "game:c9401efcf7",
-        "title": "为了吾王",
-        "minutes": 2304
-      },
-      {
-        "id": "game:5c1ec6e362",
-        "title": "Live2DViewerEX",
-        "minutes": 2213
-      },
-      {
-        "id": "game:d767fc60da",
-        "title": "ChillPulse",
-        "minutes": 2196
-      },
-      {
-        "id": "game:f5e5edfd2c",
-        "title": "Mini Cozy Room: Lo-Fi",
-        "minutes": 2193
-      },
-      {
-        "id": "game:b6381f3f9e",
-        "title": "Idle Spiral",
-        "minutes": 2092
-      },
-      {
-        "id": "game:e6d860f494",
-        "title": "饥荒 联机版",
-        "minutes": 2088
-      },
-      {
-        "id": "game:015e9f8760",
-        "title": "极乐迪斯科",
-        "minutes": 2035
-      },
-      {
-        "id": "game:79b9d2a156",
-        "title": "100% Orange Juice",
-        "minutes": 2015
-      },
-      {
-        "id": "game:b35077d93e",
-        "title": "厕所穿越记",
-        "minutes": 1875
-      },
-      {
-        "id": "game:e68b7f01d5",
-        "title": "秘封旅行 ~Secret Sealing Travel",
-        "minutes": 1644
-      },
-      {
-        "id": "game:781016f2c4",
-        "title": "Like a Dragon: Ishin!",
-        "minutes": 1580
-      },
-      {
-        "id": "game:f1f4976c15",
-        "title": "Magical Girl Witch Trials",
-        "minutes": 1472
-      },
-      {
-        "id": "game:908f6fb24a",
-        "title": "传送门2",
-        "minutes": 1346
-      },
-      {
-        "id": "game:b996e89fd4",
-        "title": "Warhammer 40,000: Space Marine 2",
-        "minutes": 1268
-      },
-      {
-        "id": "game:189a9eceda",
-        "title": "四海兄弟 最终版",
-        "minutes": 1216
-      },
-      {
-        "id": "game:10cadbccfd",
-        "title": "Birdwatching Notebook",
-        "minutes": 1196
-      },
-      {
-        "id": "game:269491d4f1",
-        "title": "巫师之昆特牌：王权的陨落",
-        "minutes": 1182
-      },
-      {
-        "id": "game:9c2f2f3ee3",
-        "title": "HELLDIVERS™ 2",
-        "minutes": 1161
-      },
-      {
-        "id": "game:e30869f4a1",
-        "title": "杀戮尖塔",
-        "minutes": 1149
-      },
-      {
-        "id": "game:902924015e",
-        "title": "森林",
-        "minutes": 1095
-      },
-      {
-        "id": "game:76dcae22ec",
-        "title": "四海兄弟II 最终版",
-        "minutes": 1015
-      },
-      {
-        "id": "game:77d8b7f97c",
-        "title": "Senren＊Banka",
-        "minutes": 939
-      },
-      {
-        "id": "game:60c15eac40",
-        "title": "007 初露锋芒",
-        "minutes": 902
-      },
-      {
-        "id": "game:08687eaa1b",
-        "title": "七日杀",
-        "minutes": 856
-      },
-      {
-        "id": "game:0a3a054637",
-        "title": "東方憑依華　～ Antinomy of Common Flowers.",
-        "minutes": 853
-      },
-      {
-        "id": "game:3d36ffa7dc",
-        "title": "武装兄弟连",
-        "minutes": 844
-      },
-      {
-        "id": "game:7eb428a315",
-        "title": "gogh: Focus with Your Avatar",
-        "minutes": 752
-      },
-      {
-        "id": "game:ef26bedc57",
-        "title": "FALL IN LABYRINTH",
-        "minutes": 718
-      },
-      {
-        "id": "game:eac5c34d9b",
-        "title": "Ruins Seeker",
-        "minutes": 690
-      },
-      {
-        "id": "game:2d3fe93bc1",
-        "title": "Soundpad",
-        "minutes": 688
-      },
-      {
-        "id": "game:9eae118807",
-        "title": "凡尔登战役",
-        "minutes": 673
-      },
-      {
-        "id": "game:b6aa00a4da",
-        "title": "最后一站",
-        "minutes": 667
-      },
-      {
-        "id": "game:558e7400a9",
-        "title": "Battlefield™ 6 Open Beta",
-        "minutes": 652
-      },
-      {
-        "id": "game:b72dbd482a",
-        "title": "Void Crew",
-        "minutes": 637
-      },
-      {
-        "id": "game:c297d104a8",
-        "title": "收获日2",
-        "minutes": 631
-      },
-      {
-        "id": "game:f79751640c",
-        "title": "深空梦里人",
-        "minutes": 612
-      },
-      {
-        "id": "game:334e690aa6",
-        "title": "Boundary",
-        "minutes": 574
-      },
-      {
-        "id": "game:108c1e3691",
-        "title": "GWENT: Rogue Mage (Single-Player Expansion)",
-        "minutes": 570
-      },
-      {
-        "id": "game:3ad16daad7",
-        "title": "Idle Champions of the Forgotten Realms",
-        "minutes": 562
-      },
-      {
-        "id": "game:ed9c4f855f",
-        "title": "Battlefleet Gothic: Armada 2",
-        "minutes": 518
-      },
-      {
-        "id": "game:d6357bae0e",
-        "title": "东方月神夜",
-        "minutes": 507
-      },
-      {
-        "id": "game:1d88eb452e",
-        "title": "Teamfight Manager",
-        "minutes": 507
-      },
-      {
-        "id": "game:3ecd434052",
-        "title": "遗忘之城",
-        "minutes": 473
-      },
-      {
-        "id": "game:f37d64553e",
-        "title": "未确定事件的观察者",
-        "minutes": 420
-      },
-      {
-        "id": "game:8f584b0c4d",
-        "title": "Z.A.T.O. // I Love the World and Everything In It",
-        "minutes": 411
-      },
-      {
-        "id": "game:0d0e6f48b3",
-        "title": "The Coffin of Andy and Leyley",
-        "minutes": 404
-      },
-      {
-        "id": "game:679de5f222",
-        "title": "城市：天际线",
-        "minutes": 401
-      },
-      {
-        "id": "game:ead56817f6",
-        "title": "Keep Driving",
-        "minutes": 352
-      },
-      {
-        "id": "game:15b5a6df1f",
-        "title": "Chill with You Lo-Fi Story",
-        "minutes": 352
-      },
-      {
-        "id": "game:5b280c00c2",
-        "title": "僚机计划",
-        "minutes": 336
-      },
-      {
-        "id": "game:ea3199dfb3",
-        "title": "Papers, Please",
-        "minutes": 330
-      },
-      {
-        "id": "game:a9da964b48",
-        "title": "幕府将军2：全面战争",
-        "minutes": 322
-      },
-      {
-        "id": "game:9c4eaff730",
-        "title": "PUBG: BATTLEGROUNDS",
-        "minutes": 306
-      },
-      {
-        "id": "game:49d1ef770a",
-        "title": "STEINS;GATE: Linear Bounded Phenogram",
-        "minutes": 303
-      },
-      {
-        "id": "game:3a50de7ed7",
-        "title": "超阈限空间",
-        "minutes": 299
-      },
-      {
-        "id": "game:a02393c768",
-        "title": "Draw & Guess",
-        "minutes": 276
-      },
-      {
-        "id": "game:5faa0d55c3",
-        "title": "Battlefield™ V",
-        "minutes": 264
-      },
-      {
-        "id": "game:ab92d889c7",
-        "title": "传送门",
-        "minutes": 234
-      },
-      {
-        "id": "game:2696e12a4f",
-        "title": "Black Myth: Wukong",
-        "minutes": 234
-      },
-      {
-        "id": "game:c412dc59db",
-        "title": "影子工厂",
-        "minutes": 226
-      },
-      {
-        "id": "game:1057e6aba4",
-        "title": "Shotgun King: The Final Checkmate",
-        "minutes": 222
-      },
-      {
-        "id": "game:7db09f39e3",
-        "title": "The Stanley Parable: Ultra Deluxe",
-        "minutes": 221
-      },
-      {
-        "id": "game:644d6b0fce",
-        "title": "Lethal Company",
-        "minutes": 217
-      },
-      {
-        "id": "game:0a7d9bdcac",
-        "title": "The Invincible",
-        "minutes": 208
-      },
-      {
-        "id": "game:203b800bb3",
-        "title": "Explore Fushimi Inari",
-        "minutes": 204
-      },
-      {
-        "id": "game:ff5a658e51",
-        "title": "Need for Speed™ Heat ",
-        "minutes": 203
-      },
-      {
-        "id": "game:1dfb18a71d",
-        "title": "罪恶装备 -奋战-",
-        "minutes": 187
-      },
-      {
-        "id": "game:fcd05c39cf",
-        "title": "PC Building Simulator",
-        "minutes": 182
-      },
-      {
-        "id": "game:846490eddd",
-        "title": "Command & Conquer™ Remastered Collection",
-        "minutes": 177
-      },
-      {
-        "id": "game:a49558cebb",
-        "title": "小兵步枪",
-        "minutes": 173
-      },
-      {
-        "id": "game:cbfb1314ef",
-        "title": "Touhou Big Big Battle",
-        "minutes": 170
-      },
-      {
-        "id": "game:67ee807f1d",
-        "title": "SpaceEngine",
-        "minutes": 154
-      },
-      {
-        "id": "game:56ddab5305",
-        "title": "Desktop Mate",
-        "minutes": 154
-      },
-      {
-        "id": "game:f30da4ca4a",
-        "title": "Total War: NAPOLEON - Definitive Edition",
-        "minutes": 153
-      },
-      {
-        "id": "game:4f76e94588",
-        "title": "Mirror 2: Project X",
-        "minutes": 153
-      },
-      {
-        "id": "game:800edc8cf5",
-        "title": "Just a To the Moon Series Beach Episode",
-        "minutes": 150
-      },
-      {
-        "id": "game:c8b48934f4",
-        "title": "潜龙谍影5 原爆点",
-        "minutes": 148
-      },
-      {
-        "id": "game:bddd57097a",
-        "title": "Tempest of the Heavens and Earth",
-        "minutes": 136
-      },
-      {
-        "id": "game:373c6133c9",
-        "title": "東方剛欲異聞　～ 水没した沈愁地獄",
-        "minutes": 136
-      },
-      {
-        "id": "game:4f1105376c",
-        "title": "Wizardry Variants Daphne",
-        "minutes": 135
-      },
-      {
-        "id": "game:da863feb8b",
-        "title": "Touhou Kouryudou ~ Unconnected Marketeers.",
-        "minutes": 133
-      },
-      {
-        "id": "game:fce4c4a978",
-        "title": "艾迪芬奇的记忆",
-        "minutes": 132
-      },
-      {
-        "id": "game:ff1b00462a",
-        "title": "IdleOn - The Incremental MMO",
-        "minutes": 130
-      },
-      {
-        "id": "game:837bd53cd7",
-        "title": "Holdfast: Nations At War",
-        "minutes": 119
-      },
-      {
-        "id": "game:e276d9f5d7",
-        "title": "The Spell Brigade",
-        "minutes": 118
-      },
-      {
-        "id": "game:e71cd0c414",
-        "title": "Tannenberg",
-        "minutes": 116
-      },
-      {
-        "id": "game:838b48a2e3",
-        "title": "战争游戏：红龙",
-        "minutes": 115
-      },
-      {
-        "id": "game:352973e44d",
-        "title": "Gensokyo Night Festival",
-        "minutes": 106
-      },
-      {
-        "id": "game:6f5e2f6308",
-        "title": "鸟的故事",
-        "minutes": 89
-      },
-      {
-        "id": "game:21fe6922a5",
-        "title": "RPG Maker MZ",
-        "minutes": 89
-      },
-      {
-        "id": "game:531f5d41b5",
-        "title": "Monster Hunter Wilds Beta test",
-        "minutes": 87
-      },
-      {
-        "id": "game:1044f42d56",
-        "title": "Ultimate Epic Battle Simulator",
-        "minutes": 85
-      },
-      {
-        "id": "game:c7c673b1e5",
-        "title": "Warhammer 40,000: Boltgun",
-        "minutes": 85
-      },
-      {
-        "id": "game:e5872af906",
-        "title": "Muse Dash",
-        "minutes": 82
-      },
-      {
-        "id": "game:8415654eb9",
-        "title": "KARDS - The WWII Card Game",
-        "minutes": 79
-      },
-      {
-        "id": "game:3ec01fe3d6",
-        "title": "VRChat",
-        "minutes": 77
-      },
-      {
-        "id": "game:8038235d7a",
-        "title": "The LEGO® NINJAGO® Movie Video Game",
-        "minutes": 72
-      },
-      {
-        "id": "game:702de9d952",
-        "title": "NEEDY STREAMER OVERLOAD",
-        "minutes": 70
-      },
-      {
-        "id": "game:fff4c90e84",
-        "title": "Counter-Strike 2",
-        "minutes": 66
-      },
-      {
-        "id": "game:a4f732612f",
-        "title": "Rising Storm 2: Vietnam",
-        "minutes": 61
-      },
-      {
-        "id": "game:f2dcf153b9",
-        "title": "优诺",
-        "minutes": 58
-      },
-      {
-        "id": "game:088a384115",
-        "title": "Command & Conquer™ Red Alert™ 3",
-        "minutes": 54
-      },
-      {
-        "id": "game:b23d8e3a09",
-        "title": "动物井",
-        "minutes": 52
-      },
-      {
-        "id": "game:fc41b9ea8c",
-        "title": "The Expendabros",
-        "minutes": 51
-      },
-      {
-        "id": "game:b38ef22b6d",
-        "title": "S4U: CITYPUNK 2011 AND LOVE PUNCH",
-        "minutes": 51
-      },
-      {
-        "id": "game:bb550febce",
-        "title": "The Beginner's Guide",
-        "minutes": 50
-      },
-      {
-        "id": "game:9fd3b35cb0",
-        "title": "Dark and Darker",
-        "minutes": 50
-      },
-      {
-        "id": "game:60f1c4fa30",
-        "title": "半衰期",
-        "minutes": 49
-      },
-      {
-        "id": "game:c06f299eb9",
-        "title": "战锤：末世鼠疫",
-        "minutes": 47
-      },
-      {
-        "id": "game:110050f33f",
-        "title": "DEFCON",
-        "minutes": 45
-      },
-      {
-        "id": "game:99df0a1b96",
-        "title": "Brotato",
-        "minutes": 45
-      },
-      {
-        "id": "game:48bd924a8b",
-        "title": "Mýrdalssandur, Iceland",
-        "minutes": 39
-      },
-      {
-        "id": "game:4f33b7a24e",
-        "title": "Radio Commander",
-        "minutes": 37
-      },
-      {
-        "id": "game:adc2616259",
-        "title": "Command & Conquer™ Generals Zero Hour",
-        "minutes": 36
-      },
-      {
-        "id": "game:56c71f977e",
-        "title": "Liar's Bar",
-        "minutes": 35
-      },
-      {
-        "id": "game:ba31e9520c",
-        "title": "Company of Heroes 2",
-        "minutes": 32
-      },
-      {
-        "id": "game:0837520e3c",
-        "title": "Touhou Blooming Chaos 2",
-        "minutes": 31
-      },
-      {
-        "id": "game:e4c01e9c9f",
-        "title": "Kagura Survivors: Endless Night",
-        "minutes": 30
-      },
-      {
-        "id": "game:deb0d12b57",
-        "title": "Deliver Us The Moon",
-        "minutes": 29
-      },
-      {
-        "id": "game:de8cf66f29",
-        "title": "Warhammer Age of Sigmar: Realms of Ruin",
-        "minutes": 29
-      },
-      {
-        "id": "game:3810d998cb",
-        "title": "Counter-Strike",
-        "minutes": 23
-      },
-      {
-        "id": "game:2499e97edc",
-        "title": "The Sims™ 4",
-        "minutes": 23
-      },
-      {
-        "id": "game:6c15e2a87e",
-        "title": "剑士",
-        "minutes": 21
-      },
-      {
-        "id": "game:37e7111929",
-        "title": "The Mirror Lied",
-        "minutes": 21
-      },
-      {
-        "id": "game:89267b89b6",
-        "title": "地狱把妹王",
-        "minutes": 19
-      },
-      {
-        "id": "game:b56eb1bc3e",
-        "title": "史丹利的寓言",
-        "minutes": 19
-      },
-      {
-        "id": "game:f5699024a1",
-        "title": "Streets of Rogue",
-        "minutes": 18
-      },
-      {
-        "id": "game:61c3614a58",
-        "title": "Glyphica: Typing Survival",
-        "minutes": 18
-      },
-      {
-        "id": "game:8ebb88f12d",
-        "title": "Skillshot City",
-        "minutes": 16
-      },
-      {
-        "id": "game:49573e94da",
-        "title": "Tap Ninja",
-        "minutes": 16
-      },
-      {
-        "id": "game:35b2c75567",
-        "title": "Tabletop Simulator",
-        "minutes": 15
-      },
-      {
-        "id": "game:7f6cb4529a",
-        "title": "Flying Red Barrel - The Diary of a Little Aviator",
-        "minutes": 15
-      },
-      {
-        "id": "game:df1cff91d3",
-        "title": "DAVE THE DIVER",
-        "minutes": 15
-      },
-      {
-        "id": "game:1b4a8c06b3",
-        "title": "Sakuya Izayoi Gives You Advice And Dabs",
-        "minutes": 14
-      },
-      {
-        "id": "game:f10470401b",
-        "title": "Desktop Dungeons",
-        "minutes": 13
-      },
-      {
-        "id": "game:085eff00c1",
-        "title": "Mirror News Center",
-        "minutes": 13
-      },
-      {
-        "id": "game:850399f0fa",
-        "title": "Hobo: Tough Life",
-        "minutes": 12
-      },
-      {
-        "id": "game:e5ce556bb2",
-        "title": "机械制造者",
-        "minutes": 11
-      },
-      {
-        "id": "game:252e5755b9",
-        "title": "星礼研究所 | Sighchology Research Lab",
-        "minutes": 6
-      },
-      {
-        "id": "game:3a23d47482",
-        "title": "3D Math - Ultra",
-        "minutes": 4
-      },
-      {
-        "id": "game:0a5950f39b",
-        "title": "Warhammer 40,000: Gladius - Relics of War",
-        "minutes": 3
-      },
-      {
-        "id": "game:48e55e1106",
-        "title": "去月球",
-        "minutes": 1
-      },
-      {
-        "id": "game:070618ee29",
-        "title": "寻找天堂",
-        "minutes": 1
-      },
-      {
-        "id": "game:f2ccdfc365",
-        "title": "Drawful 2",
-        "minutes": 1
-      },
-      {
-        "id": "game:befc672549",
-        "title": "Fences 3",
-        "minutes": 1
-      },
-      {
-        "id": "game:968cc06fa6",
-        "title": "Precipice",
-        "minutes": 1
-      },
-      {
-        "id": "game:318ae81896",
-        "title": "Buddy Simulator 1984",
-        "minutes": 1
-      },
-      {
-        "id": "game:84d2b8e956",
-        "title": "Araka~JK Exorcist Horror RPG",
-        "minutes": 1
-      }
-    ],
-    "observed_playtime_by_year_minutes": {
-      "2026": 182
-    }
+    "lifetime_playtime_minutes": 0,
+    "ranking": [],
+    "observed_playtime_by_year_minutes": {}
   }
 }

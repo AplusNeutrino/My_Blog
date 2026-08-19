@@ -3,48 +3,493 @@
   "year": "2026",
   "events": [
     {
-      "id": "evt_f573611bc252838a",
-      "observed_at": "2026-08-18T18:54:45Z",
+      "id": "evt_02af707399c2d076",
+      "observed_at": "2026-08-19T02:23:23Z",
       "local_date": "2026-08-19",
-      "entity_id": "game:aa95548af3",
+      "entity_id": "anime:79dab4de4f",
       "category": "game",
-      "event": "steam_playtime_delta",
-      "source": "steam",
+      "event": "category_changed",
+      "source": null,
       "data": {
-        "title": "Bongo Cat",
-        "from_minutes": 34829,
-        "to_minutes": 34969,
-        "delta_minutes": 140
+        "title": "Little Busters! 〜Refrain〜",
+        "from": "anime",
+        "to": "game"
       }
     },
     {
-      "id": "evt_baa15723111255b7",
-      "observed_at": "2026-08-19T01:21:02Z",
+      "id": "evt_0912abce21d0113c",
+      "observed_at": "2026-08-19T02:23:23Z",
       "local_date": "2026-08-19",
-      "entity_id": "game:aa95548af3",
+      "entity_id": "anime:adc7e53513",
       "category": "game",
-      "event": "steam_playtime_delta",
-      "source": "steam",
+      "event": "category_changed",
+      "source": null,
       "data": {
-        "title": "Bongo Cat",
-        "from_minutes": 34969,
-        "to_minutes": 35010,
-        "delta_minutes": 41
+        "title": "尼尔：自动人形 Ver1.1a",
+        "from": "anime",
+        "to": "game"
       }
     },
     {
-      "id": "evt_fddb2fb44a65c7a8",
-      "observed_at": "2026-08-19T01:21:02Z",
+      "id": "evt_0fac0abcfeb9c3a2",
+      "observed_at": "2026-08-19T02:23:23Z",
       "local_date": "2026-08-19",
-      "entity_id": "game:35902a39f1",
-      "category": "game",
-      "event": "steam_playtime_delta",
-      "source": "steam",
+      "entity_id": "book:3b9528a95c",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
       "data": {
-        "title": "雀魂麻将(MahjongSoul)",
-        "from_minutes": 13347,
-        "to_minutes": 13348,
-        "delta_minutes": 1
+        "title": "暗麻的玛米亚",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_137497fb9694b762",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:d072b56a52",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "雀魂 X 银魂 联动动画PV",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_1bb9ed456ce53b01",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:545a68565e",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "JoJo的奇妙冒险 第七部 飙马野郎",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_25d84667bb8cf4b5",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:c2df613af9",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "中间管理录利根川",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_2cb9869d135f50ec",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:332f1a2dd5",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "天·天和街浪子",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_3296bc26c95808aa",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:e304fb20ef",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "宝石之国",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_3a89aa9f6b97871d",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:bca5f3366a",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博堕天录 和也篇",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_449d5ce1bf369c18",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:870343b517",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "一日出行录班长",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_477dd68574fdc608",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:441fa9530f",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "命运石之门 0",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_58fc7114e7bdaf3a",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:56a742c19f",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "Destiny Unchain Online ~在游戏里化身吸血鬼少女，获得『赤红魔王』称号~",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_64868d07f2a047ef",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:9bde1be9ef",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "历史之眼",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_69b299e97057cac5",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:261c43b522",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博堕天录 One Poker篇",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_7a356050f9f2923a",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:85305be18a",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "游戏人生 零",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_7c07b5c2add9d6e9",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:2e7d6cc4e6",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "硬汉⇔萝莉",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_7f835fdef6022820",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:5e2a37a2e0",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "影之诗",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_83e2a4e5aad78bb6",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:92ab806aed",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "最强传说黑泽",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_8583224368c3968a",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:649b2ccf7d",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博堕天录 24亿元脱出篇",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_91e804c9e04a504e",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:c29dbb2ecc",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "文豪野犬",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_9235258459a35a30",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:fad1371d92",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "上京生活录一条",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_9ea90941439334cb",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:963139d8f0",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "FX战士久留美",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_9ec3a901dd31a2e4",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:34b20985cc",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博堕天录",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_a5c22bddf3fd9797",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:7a3977d7cd",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "NEEDY GIRL OVERDOSE -OVERTURE-",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_a75dca52d6542439",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:05c69c86a6",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "别当欧尼酱了！",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_a7be0c44c970f4bc",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:b3520ba9b6",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "BanG Dream! 第二季",
+        "from": "anime",
+        "to": "game"
+      }
+    },
+    {
+      "id": "evt_b4d4e6332acda328",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:6a76b9ab5a",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博霸王传 零",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_b7011e7c1a8971ed",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:3946eaaf3a",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博破戒录",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_d4a29ce1184f8397",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:c3fcc43da9",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "斗牌传说",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_d8747e605d24f2f4",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:eee77b4bcb",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "银与金",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_dc5a09ad51b46302",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:a74205788e",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "文豪野犬外传 绫辻行人VS京极夏彦",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_e11f56c122beaf80",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:91b6c2d917",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "无赖传涯",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_ed02892d9c0b7242",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:956626d049",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "赌博默示录",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_f7d86900e6bd9699",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "book:3b71417b27",
+      "category": "comic",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "最强传说黑沢",
+        "from": "book",
+        "to": "comic"
+      }
+    },
+    {
+      "id": "evt_ff1b016a6c4e24c3",
+      "observed_at": "2026-08-19T02:23:23Z",
+      "local_date": "2026-08-19",
+      "entity_id": "anime:6487260265",
+      "category": "game",
+      "event": "category_changed",
+      "source": null,
+      "data": {
+        "title": "命运石之门",
+        "from": "anime",
+        "to": "game"
       }
     }
   ]
