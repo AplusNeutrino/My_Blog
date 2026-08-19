@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-08-19T02:23:23Z",
-  "last_success_at": "2026-08-19T02:23:23Z",
-  "adapter_version": "0.1.0-alpha.5",
+  "fetched_at": "2026-08-19T03:19:48Z",
+  "last_success_at": "2026-08-19T03:19:48Z",
+  "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
     {
