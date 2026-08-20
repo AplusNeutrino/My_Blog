@@ -491,6 +491,50 @@
         "from": "anime",
         "to": "game"
       }
+    },
+    {
+      "id": "evt_7fb75429c686d0ad",
+      "observed_at": "2026-08-20T18:57:50Z",
+      "local_date": "2026-08-21",
+      "entity_id": "anime:4f7f75015e",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "无头骑士异闻录",
+        "from": "in_progress",
+        "to": "on_hold"
+      }
+    },
+    {
+      "id": "evt_81ba3d0ff42a9bd8",
+      "observed_at": "2026-08-20T18:57:50Z",
+      "local_date": "2026-08-21",
+      "entity_id": "book:571e93287c",
+      "category": "book",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "记录的地平线",
+        "from": "in_progress",
+        "to": "completed"
+      }
+    },
+    {
+      "id": "evt_d149992095178ccd",
+      "observed_at": "2026-08-20T18:57:50Z",
+      "local_date": "2026-08-21",
+      "entity_id": "anime:4f7f75015e",
+      "category": "anime",
+      "event": "progress_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "无头骑士异闻录",
+        "from": 0,
+        "to": 1,
+        "total": 26,
+        "unit": "episode"
+      }
     }
   ]
 }
