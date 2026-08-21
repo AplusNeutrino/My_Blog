@@ -203,6 +203,13 @@
       "recent_playtime_minutes": 0
     },
     {
+      "entity_id": "game:2945907362",
+      "category": "game",
+      "reason": "in_progress",
+      "last_activity": "2026-08-21T18:54:08Z",
+      "recent_playtime_minutes": 0
+    },
+    {
       "entity_id": "game:758dd2831b",
       "category": "game",
       "reason": "in_progress",
@@ -218,13 +225,6 @@
     },
     {
       "entity_id": "game:1afeffe82d",
-      "category": "game",
-      "reason": "in_progress",
-      "last_activity": "2026-08-19T02:23:23Z",
-      "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "game:2945907362",
       "category": "game",
       "reason": "in_progress",
       "last_activity": "2026-08-19T02:23:23Z",
