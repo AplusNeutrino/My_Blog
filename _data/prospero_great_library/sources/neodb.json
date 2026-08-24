@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-08-23T18:46:42Z",
-  "last_success_at": "2026-08-23T18:46:42Z",
+  "fetched_at": "2026-08-24T18:57:58Z",
+  "last_success_at": "2026-08-24T18:57:58Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -16,7 +16,7 @@
       "year": null,
       "release_date": null,
       "cover_url": "https://neodb.social/m/item/doubanmovie/2026/08/23/da5df2a8-ab85-4ded-8a05-9df5d8e7d685.webp",
-      "summary": "改编自同名荷马史诗，讲述奥德修斯（马特·达蒙 饰）的故事，以及他在特洛伊战争后10年的回家之旅。",
+      "summary": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
       "status": "wishlist",
       "rating": null,
       "progress": null,
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.8,
-        "community_rating_count": 319,
+        "community_rating_count": 326,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }
@@ -69,7 +69,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.0,
-        "community_rating_count": 758,
+        "community_rating_count": 763,
         "comment_text": null,
         "api_url": "/api/movie/0p2zNbJGVlkmWckcdSLhRL"
       }
@@ -393,7 +393,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.1,
-        "community_rating_count": 1420,
+        "community_rating_count": 1421,
         "comment_text": null,
         "api_url": "/api/movie/0L9DTwNiUGCwSn5kIXzWJX"
       }
@@ -2011,7 +2011,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.8,
-        "community_rating_count": 1231,
+        "community_rating_count": 1232,
         "comment_text": null,
         "api_url": "/api/movie/6cDZwOtvGwKV2ywEkPvuMW"
       }
@@ -2142,8 +2142,8 @@
       "raw_type": "book",
       "extra": {
         "raw_collection_status": "complete",
-        "community_rating": null,
-        "community_rating_count": 4,
+        "community_rating": 5.6,
+        "community_rating_count": 5,
         "comment_text": null,
         "api_url": "/api/book/1D52hxulcgFTPLOQ5uGauu"
       }
@@ -2535,7 +2535,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 410,
+        "community_rating_count": 411,
         "comment_text": null,
         "api_url": "/api/movie/4bGPeRLWa56Fvpr0uhOYVD"
       }
@@ -4495,7 +4495,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 1876,
+        "community_rating_count": 1877,
         "comment_text": null,
         "api_url": "/api/movie/56Z9VAwpYIGpj65EHGkoBA"
       }
@@ -4559,7 +4559,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 1903,
+        "community_rating_count": 1904,
         "comment_text": null,
         "api_url": "/api/movie/5CI5m5EoxnKbgZOzQF75tN"
       }
@@ -4591,7 +4591,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.9,
-        "community_rating_count": 2175,
+        "community_rating_count": 2176,
         "comment_text": null,
         "api_url": "/api/movie/1QgmUXvlmFRCUuSV6GnJZg"
       }
@@ -4691,7 +4691,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 2417,
+        "community_rating_count": 2418,
         "comment_text": null,
         "api_url": "/api/movie/0TedD5jkKhyavhtwJkqOxi"
       }
