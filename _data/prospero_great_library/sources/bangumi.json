@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-08-28T02:09:41Z",
-  "last_success_at": "2026-08-28T02:09:41Z",
+  "fetched_at": "2026-08-29T01:44:33Z",
+  "last_success_at": "2026-08-29T01:44:33Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 368,
   "records": [
@@ -415,9 +415,9 @@
         "悬疑",
         "2026",
         "全年龄",
-        "STEAM",
         "Galgame",
-        "轻科幻"
+        "轻科幻",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 646525
@@ -440,9 +440,9 @@
           "悬疑",
           "2026",
           "全年龄",
-          "STEAM",
           "Galgame",
-          "轻科幻"
+          "轻科幻",
+          "STEAM"
         ],
         "book_category": null
       }
@@ -2218,16 +2218,16 @@
         "source": "bangumi"
       },
       "tags": [
-        "猎魔人",
         "小说",
+        "猎魔人",
         "巫师",
         "奇幻",
         "The_Witcher",
         "波兰",
         "欧美",
-        "Witcher",
-        "硬奇幻",
-        "西方文学"
+        "奇幻小说",
+        "单卷",
+        "Witcher"
       ],
       "identifiers": {
         "bangumi_subject_id": 287007
@@ -2243,16 +2243,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "猎魔人",
           "小说",
+          "猎魔人",
           "巫师",
           "奇幻",
           "The_Witcher",
           "波兰",
           "欧美",
-          "Witcher",
-          "硬奇幻",
-          "西方文学"
+          "奇幻小说",
+          "单卷",
+          "Witcher"
         ],
         "book_category": null
       }
@@ -3256,7 +3256,7 @@
         "PC",
         "骚话王历险记",
         "kemco",
-        "STEAM"
+        "ADV"
       ],
       "identifiers": {
         "bangumi_subject_id": 215470
@@ -3281,7 +3281,7 @@
           "PC",
           "骚话王历险记",
           "kemco",
-          "STEAM"
+          "ADV"
         ],
         "book_category": null
       }
@@ -3542,7 +3542,7 @@
         "漫画改",
         "弥留之国的爱丽丝",
         "悬疑",
-        "山﨑賢人"
+        "日本"
       ],
       "identifiers": {
         "bangumi_subject_id": 286617
@@ -3567,7 +3567,7 @@
           "漫画改",
           "弥留之国的爱丽丝",
           "悬疑",
-          "山﨑賢人"
+          "日本"
         ],
         "book_category": null
       }
@@ -3597,8 +3597,8 @@
         "乙女向",
         "游戏性",
         "童年",
-        "Galgame",
-        "1991"
+        "SIM",
+        "Galgame"
       ],
       "identifiers": {
         "bangumi_subject_id": 9545
@@ -3622,8 +3622,8 @@
           "乙女向",
           "游戏性",
           "童年",
-          "Galgame",
-          "1991"
+          "SIM",
+          "Galgame"
         ],
         "book_category": null
       }
@@ -3949,8 +3949,8 @@
         "SUNRISE",
         "2013",
         "我愿用一生节操换银他妈永不完结",
-        "银他妈不完结",
         "搞笑",
+        "银他妈不完结",
         "杉田智和",
         "动画史上绝无仅有的神作",
         "漫画改"
@@ -3974,8 +3974,8 @@
           "SUNRISE",
           "2013",
           "我愿用一生节操换银他妈永不完结",
-          "银他妈不完结",
           "搞笑",
+          "银他妈不完结",
           "杉田智和",
           "动画史上绝无仅有的神作",
           "漫画改"
@@ -4257,10 +4257,10 @@
         "总集篇",
         "日本",
         "OVA",
-        "地雷妹",
         "GAL改",
-        "中島政興",
-        "DÉ_DÉ_MOUSE"
+        "地雷妹",
+        "Yostar_Pictures",
+        "未发售"
       ],
       "identifiers": {
         "bangumi_subject_id": 620918
@@ -4282,10 +4282,10 @@
           "总集篇",
           "日本",
           "OVA",
-          "地雷妹",
           "GAL改",
-          "中島政興",
-          "DÉ_DÉ_MOUSE"
+          "地雷妹",
+          "Yostar_Pictures",
+          "未发售"
         ],
         "book_category": null
       }
@@ -4444,13 +4444,13 @@
       "tags": [
         "剧场版",
         "2026",
-        "BNPictures",
         "漫画改",
+        "BNPictures",
         "银魂",
         "漫改",
         "日本",
-        "安藤尚也",
         "空知英秋",
+        "安藤尚也",
         "銀魂"
       ],
       "identifiers": {
@@ -4469,13 +4469,13 @@
         "subject_tags": [
           "剧场版",
           "2026",
-          "BNPictures",
           "漫画改",
+          "BNPictures",
           "银魂",
           "漫改",
           "日本",
-          "安藤尚也",
           "空知英秋",
+          "安藤尚也",
           "銀魂"
         ],
         "book_category": null
@@ -5523,8 +5523,8 @@
         "任天堂",
         "JRPG",
         "糸井重里",
-        "nintendo",
         "2006",
+        "nintendo",
         "meta",
         "老娘3",
         "HAL研究所"
@@ -5548,8 +5548,8 @@
           "任天堂",
           "JRPG",
           "糸井重里",
-          "nintendo",
           "2006",
+          "nintendo",
           "meta",
           "老娘3",
           "HAL研究所"
@@ -7575,8 +7575,8 @@
         "历史",
         "战争",
         "2003",
-        "古希腊",
         "青年漫画",
+        "古希腊",
         "坑",
         "军事",
         "传记"
@@ -7600,8 +7600,8 @@
           "历史",
           "战争",
           "2003",
-          "古希腊",
           "青年漫画",
+          "古希腊",
           "坑",
           "军事",
           "传记"
@@ -7705,8 +7705,8 @@
         "大武政夫",
         "性转",
         "萝莉",
-        "原创",
         "2023",
+        "原创",
         "战斗",
         "日本",
         "TS"
@@ -7730,8 +7730,8 @@
           "大武政夫",
           "性转",
           "萝莉",
-          "原创",
           "2023",
+          "原创",
           "战斗",
           "日本",
           "TS"
@@ -7772,9 +7772,9 @@
         "2022",
         "战斗",
         "ヤチモト",
-        "Ts百合",
         "resn",
-        "百合"
+        "百合",
+        "奇幻"
       ],
       "identifiers": {
         "bangumi_subject_id": 392799
@@ -7797,9 +7797,9 @@
           "2022",
           "战斗",
           "ヤチモト",
-          "Ts百合",
           "resn",
-          "百合"
+          "百合",
+          "奇幻"
         ],
         "book_category": null
       }
@@ -10895,8 +10895,8 @@
       },
       "progress": null,
       "tags": [
-        "SEGA",
         "如龙",
+        "SEGA",
         "2023",
         "ACT",
         "PS5",
@@ -10920,8 +10920,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "SEGA",
           "如龙",
+          "SEGA",
           "2023",
           "ACT",
           "PS5",
@@ -12730,10 +12730,10 @@
         "SIM",
         "烧脑",
         "2021",
-        "解谜",
         "PUZ",
+        "解谜",
         "游戏",
-        "单机游戏"
+        "手搓CPU"
       ],
       "identifiers": {
         "bangumi_subject_id": 434205
@@ -12755,10 +12755,10 @@
           "SIM",
           "烧脑",
           "2021",
-          "解谜",
           "PUZ",
+          "解谜",
           "游戏",
-          "单机游戏"
+          "手搓CPU"
         ],
         "book_category": null
       }
@@ -12781,8 +12781,8 @@
       "progress": null,
       "tags": [
         "上海アリス幻樂団",
-        "STG",
         "東方Project",
+        "STG",
         "ZUN",
         "東方",
         "TH13",
@@ -12806,8 +12806,8 @@
         "platform": null,
         "subject_tags": [
           "上海アリス幻樂団",
-          "STG",
           "東方Project",
+          "STG",
           "ZUN",
           "東方",
           "TH13",
@@ -12830,7 +12830,7 @@
       ],
       "year": 2014,
       "release_date": "2014-04-18",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/02/83/109106_lHM2J.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/02/83/109106_0GB07.jpg",
       "summary": "《战争游戏：红龙》作为该系列的第三部作品，开发商的野心也变得更大。游戏与《战争游戏：空地一体战》类似，加入了许多新的特性。并且新作首次将战场搬离欧洲，转战到了1975年到1991年的东北亚。该作还加入了5个新的国家，其中就包括中国和朝鲜，整",
       "status": "completed",
       "rating": null,
@@ -14492,7 +14492,7 @@
       ],
       "year": 2011,
       "release_date": "2011-11-01",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/49/12/29340_i0X8i.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/49/12/29340_uLl5L.jpg",
       "summary": "===剧透注意===\r\n\r\n在《去月球》的世界里，存在着借由改变记忆为弥留之际的人们完成愿望的服务。由于这种人工记忆是永久的，在病人醒来的时候会与病人的真实记忆产生冲突，也因此这种技术只能对临死的人实施。\r\n\r\n故事开始于提供这项服务的西格",
       "status": "completed",
       "rating": {
@@ -17175,8 +17175,8 @@
         "PC",
         "探索",
         "神作",
-        "STEAM",
-        "AVG"
+        "AVG",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17199,8 +17199,8 @@
           "PC",
           "探索",
           "神作",
-          "STEAM",
           "AVG",
+          "STEAM",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -20415,8 +20415,8 @@
       "tags": [
         "京阿尼",
         "吐槽",
-        "LUCKY☆STAR",
         "日常",
+        "LUCKY☆STAR",
         "脑残星",
         "≡ω≡",
         "幸运星",
@@ -20440,8 +20440,8 @@
         "subject_tags": [
           "京阿尼",
           "吐槽",
-          "LUCKY☆STAR",
           "日常",
+          "LUCKY☆STAR",
           "脑残星",
           "≡ω≡",
           "幸运星",
@@ -20795,8 +20795,8 @@
         "轻百合",
         "CloverWorks",
         "日常",
-        "漫画改",
         "乐队题材",
+        "漫画改",
         "2022年10月",
         "搞笑",
         "TV"
@@ -20820,8 +20820,8 @@
           "轻百合",
           "CloverWorks",
           "日常",
-          "漫画改",
           "乐队题材",
+          "漫画改",
           "2022年10月",
           "搞笑",
           "TV"
