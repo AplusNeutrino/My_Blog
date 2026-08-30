@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-08-29T20:53:26Z",
-  "last_success_at": "2026-08-29T20:53:26Z",
+  "fetched_at": "2026-08-30T21:02:10Z",
+  "last_success_at": "2026-08-30T21:02:10Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 368,
   "records": [
@@ -415,9 +415,9 @@
         "2026",
         "悬疑",
         "全年龄",
-        "STEAM",
         "Galgame",
-        "轻科幻"
+        "轻科幻",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 646525
@@ -440,9 +440,9 @@
           "2026",
           "悬疑",
           "全年龄",
-          "STEAM",
           "Galgame",
-          "轻科幻"
+          "轻科幻",
+          "STEAM"
         ],
         "book_category": null
       }
@@ -458,7 +458,7 @@
       ],
       "year": 2026,
       "release_date": "2026-07-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_coPXm.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_KxOZV.jpg",
       "summary": "「哔呀啊啊啊啊——！！！」\r\n\r\n为了乐团出道而突然集结的团员们！\r\n虽然每个人都拥有耀眼夺目的个性与实力，但现在的她们根本无法进行任何乐团活动。\r\n这群女孩，以及这个乐团，究竟能不能顺利存活下去呢！？\r\n\r\n「奋力挣扎吧，哪怕乐声止息。」",
       "status": "in_progress",
       "rating": {
@@ -3256,7 +3256,7 @@
         "PC",
         "骚话王历险记",
         "kemco",
-        "STEAM"
+        "ADV"
       ],
       "identifiers": {
         "bangumi_subject_id": 215470
@@ -3281,7 +3281,7 @@
           "PC",
           "骚话王历险记",
           "kemco",
-          "STEAM"
+          "ADV"
         ],
         "book_category": null
       }
@@ -3828,8 +3828,8 @@
         "PC",
         "AVG",
         "iOS",
-        "2015",
         "Android",
+        "2015",
         "STEAM"
       ],
       "identifiers": {
@@ -3853,8 +3853,8 @@
           "PC",
           "AVG",
           "iOS",
-          "2015",
           "Android",
+          "2015",
           "STEAM"
         ],
         "book_category": null
@@ -5840,8 +5840,8 @@
         "PSV",
         "ACT",
         "朧村正",
-        "Vanillaware",
         "香草社",
+        "Vanillaware",
         "和风",
         "RPG",
         "沢城みゆき",
@@ -5865,8 +5865,8 @@
           "PSV",
           "ACT",
           "朧村正",
-          "Vanillaware",
           "香草社",
+          "Vanillaware",
           "和风",
           "RPG",
           "沢城みゆき",
@@ -7020,9 +7020,9 @@
         "SquareEnix",
         "游戏",
         "NS",
-        "PS4",
-        "通关",
-        "非galgame"
+        "fantasy",
+        "final",
+        "iOS"
       ],
       "identifiers": {
         "bangumi_subject_id": 489880
@@ -7045,9 +7045,9 @@
           "SquareEnix",
           "游戏",
           "NS",
-          "PS4",
-          "通关",
-          "非galgame"
+          "fantasy",
+          "final",
+          "iOS"
         ],
         "book_category": null
       }
@@ -7082,8 +7082,8 @@
         "NS",
         "游戏",
         "STEAM",
-        "2021",
-        "iOS"
+        "Android",
+        "PS4"
       ],
       "identifiers": {
         "bangumi_subject_id": 489877
@@ -7107,8 +7107,8 @@
           "NS",
           "游戏",
           "STEAM",
-          "2021",
-          "iOS"
+          "Android",
+          "PS4"
         ],
         "book_category": null
       }
@@ -7774,7 +7774,7 @@
         "ヤチモト",
         "resn",
         "百合",
-        "奇幻"
+        "Ts百合"
       ],
       "identifiers": {
         "bangumi_subject_id": 392799
@@ -7799,7 +7799,7 @@
           "ヤチモト",
           "resn",
           "百合",
-          "奇幻"
+          "Ts百合"
         ],
         "book_category": null
       }
@@ -12733,7 +12733,7 @@
         "PUZ",
         "解谜",
         "游戏",
-        "手搓CPU"
+        "数字电路"
       ],
       "identifiers": {
         "bangumi_subject_id": 434205
@@ -12758,7 +12758,7 @@
           "PUZ",
           "解谜",
           "游戏",
-          "手搓CPU"
+          "数字电路"
         ],
         "book_category": null
       }
@@ -12831,7 +12831,7 @@
       "year": 2014,
       "release_date": "2014-04-18",
       "cover_url": "https://lain.bgm.tv/pic/cover/l/02/83/109106_0GB07.jpg",
-      "summary": "《战争游戏：红龙》作为该系列的第三部作品，开发商的野心也变得更大。游戏与《战争游戏：空地一体战》类似，加入了许多新的特性。并且新作首次将战场搬离欧洲，转战到了1975年到1991年的东北亚。该作还加入了5个新的国家，其中就包括中国和朝鲜，整",
+      "summary": "《战争游戏：红龙》（英语：Wargame: Red Dragon）是一款由Eugen Systems制作、Focus Home Interactive发行的即时战略游戏，战争游戏系列游戏的第三部。前两部分别为《战争游戏：欧洲扩张》和《战争游",
       "status": "completed",
       "rating": null,
       "progress": null,
@@ -14046,8 +14046,8 @@
         "ZUN",
         "东方Project",
         "丧心病狂",
-        "东方",
         "PC",
+        "东方",
         "同人",
         "东方干zun传"
       ],
@@ -14071,8 +14071,8 @@
           "ZUN",
           "东方Project",
           "丧心病狂",
-          "东方",
           "PC",
+          "东方",
           "同人",
           "东方干zun传"
         ],
@@ -17175,8 +17175,8 @@
         "PC",
         "探索",
         "神作",
-        "AVG",
-        "STEAM"
+        "STEAM",
+        "AVG"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17199,8 +17199,8 @@
           "PC",
           "探索",
           "神作",
-          "AVG",
           "STEAM",
+          "AVG",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -18133,8 +18133,8 @@
         "剧场版",
         "名侦探柯南",
         "2023",
-        "灰原哀",
         "原创",
+        "灰原哀",
         "TMS",
         "推理",
         "柯南",
@@ -18158,8 +18158,8 @@
           "剧场版",
           "名侦探柯南",
           "2023",
-          "灰原哀",
           "原创",
+          "灰原哀",
           "TMS",
           "推理",
           "柯南",
@@ -20921,8 +20921,8 @@
       "tags": [
         "推理",
         "死亡笔记",
-        "小畑健",
         "智斗",
+        "小畑健",
         "MADHouse",
         "TV",
         "2006",
@@ -20946,8 +20946,8 @@
         "subject_tags": [
           "推理",
           "死亡笔记",
-          "小畑健",
           "智斗",
+          "小畑健",
           "MADHouse",
           "TV",
           "2006",
