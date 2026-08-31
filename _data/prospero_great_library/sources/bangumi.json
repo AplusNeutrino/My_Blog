@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-08-30T21:02:10Z",
-  "last_success_at": "2026-08-30T21:02:10Z",
+  "fetched_at": "2026-08-31T22:48:29Z",
+  "last_success_at": "2026-08-31T22:48:29Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 368,
   "records": [
@@ -1019,7 +1019,7 @@
       ],
       "year": 1997,
       "release_date": "1997-12-12",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/17/a8/446982_1HR5O.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/17/a8/446982_40wNf.jpg",
       "summary": "英国海军的德文郡号军舰在中国领海内被遭到不明鱼雷攻击沉没。为了查明情况，英国海军决定动用武力，派出军舰前往出事海域进行反击。然而却被秘密情报负责人M（朱迪·丹奇 Judi Dench 饰）阻止，并派出代号007的情报员詹姆斯·邦德（皮尔斯·",
       "status": "completed",
       "rating": null,
@@ -1079,7 +1079,7 @@
       ],
       "year": 1999,
       "release_date": "1999-11-19",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/c8/1f/446984_H7HY7.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/c8/1f/446984_t2gOd.jpg",
       "summary": "这次007（皮尔斯·布鲁斯南 Pierce Brosnan 饰）对手是臭名昭著的国际恐怖分子雷纳德（罗伯特•卡莱尔 Robert Carlyle 饰）。为了垄断石油供给权，雷纳德杀害了石油大亨罗伯爵士，当然他也不会放过罗伯爵士的继承人——美",
       "status": "completed",
       "rating": null,
@@ -1439,7 +1439,7 @@
       ],
       "year": 1995,
       "release_date": "1995-11-17",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/85/0b/339041_r99oP.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/85/0b/339041_HzfNX.jpg",
       "summary": "Years after a friend and fellow 00 agent is killed on a joint mission, a secret space based weapons program known as \"Go",
       "status": "completed",
       "rating": {
@@ -7082,8 +7082,8 @@
         "NS",
         "游戏",
         "STEAM",
-        "Android",
-        "PS4"
+        "PS4",
+        "2021"
       ],
       "identifiers": {
         "bangumi_subject_id": 489877
@@ -7107,8 +7107,8 @@
           "NS",
           "游戏",
           "STEAM",
-          "Android",
-          "PS4"
+          "PS4",
+          "2021"
         ],
         "book_category": null
       }
@@ -8933,8 +8933,8 @@
         "萩原天晴",
         "讲谈社",
         "连载中",
-        "逆境无赖外传",
-        "外传"
+        "外传",
+        "恶搞"
       ],
       "identifiers": {
         "bangumi_subject_id": 248607
@@ -8958,8 +8958,8 @@
           "萩原天晴",
           "讲谈社",
           "连载中",
-          "逆境无赖外传",
-          "外传"
+          "外传",
+          "恶搞"
         ],
         "book_category": null
       }
@@ -12379,14 +12379,14 @@
       "progress": null,
       "tags": [
         "上海アリス幻樂団",
-        "東方",
         "STG",
+        "東方",
         "ZUN",
         "東方Project",
         "弹幕",
         "快感拍摄STG",
-        "东方",
         "PC",
+        "东方",
         "东方Project"
       ],
       "identifiers": {
@@ -12404,14 +12404,14 @@
         "platform": null,
         "subject_tags": [
           "上海アリス幻樂団",
-          "東方",
           "STG",
+          "東方",
           "ZUN",
           "東方Project",
           "弹幕",
           "快感拍摄STG",
-          "东方",
           "PC",
+          "东方",
           "东方Project"
         ],
         "book_category": null
@@ -12781,8 +12781,8 @@
       "progress": null,
       "tags": [
         "上海アリス幻樂団",
-        "東方Project",
         "STG",
+        "東方Project",
         "ZUN",
         "東方",
         "TH13",
@@ -12806,8 +12806,8 @@
         "platform": null,
         "subject_tags": [
           "上海アリス幻樂団",
-          "東方Project",
           "STG",
+          "東方Project",
           "ZUN",
           "東方",
           "TH13",
@@ -14049,7 +14049,7 @@
         "PC",
         "东方",
         "同人",
-        "东方干zun传"
+        "2015"
       ],
       "identifiers": {
         "bangumi_subject_id": 131875
@@ -14074,7 +14074,7 @@
           "PC",
           "东方",
           "同人",
-          "东方干zun传"
+          "2015"
         ],
         "book_category": null
       }
@@ -16468,8 +16468,8 @@
         "巧舟",
         "逆转裁判",
         "Capcom",
-        "3DS",
         "AVG",
+        "3DS",
         "推理",
         "大逆转裁判",
         "2017",
@@ -16493,8 +16493,8 @@
           "巧舟",
           "逆转裁判",
           "Capcom",
-          "3DS",
           "AVG",
+          "3DS",
           "推理",
           "大逆转裁判",
           "2017",
@@ -17175,8 +17175,8 @@
         "PC",
         "探索",
         "神作",
-        "STEAM",
-        "AVG"
+        "AVG",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17199,8 +17199,8 @@
           "PC",
           "探索",
           "神作",
-          "STEAM",
           "AVG",
+          "STEAM",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -18133,8 +18133,8 @@
         "剧场版",
         "名侦探柯南",
         "2023",
-        "原创",
         "灰原哀",
+        "原创",
         "TMS",
         "推理",
         "柯南",
@@ -18158,8 +18158,8 @@
           "剧场版",
           "名侦探柯南",
           "2023",
-          "原创",
           "灰原哀",
+          "原创",
           "TMS",
           "推理",
           "柯南",
@@ -18899,8 +18899,8 @@
         "新房昭之",
         "SHAFT",
         "虚渊玄",
-        "魔法少女小圆",
         "原创",
+        "魔法少女小圆",
         "百合",
         "魔法少女",
         "梶浦由記",
@@ -18924,8 +18924,8 @@
           "新房昭之",
           "SHAFT",
           "虚渊玄",
-          "魔法少女小圆",
           "原创",
+          "魔法少女小圆",
           "百合",
           "魔法少女",
           "梶浦由記",

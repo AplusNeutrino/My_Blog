@@ -1,17 +1,18 @@
 {
-  "last_run": "2026-08-30T21:02:10Z",
+  "last_run": "2026-08-31T22:48:29Z",
   "overall": "degraded",
   "sources": {
     "bangumi": {
       "status": "ok",
-      "last_success": "2026-08-30T21:02:10Z",
+      "last_success": "2026-08-31T22:48:29Z",
       "record_count": 368,
       "private_filter_applied": true
     },
     "neodb": {
-      "status": "ok",
+      "status": "stale",
       "last_success": "2026-08-30T21:02:10Z",
-      "record_count": 155
+      "record_count": 155,
+      "error": "neodb request failed: Server error '502 Bad Gateway' for url 'https://neodb.social/api/me/shelf/wishlist?page=1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
     },
     "steam": {
       "status": "privacy_boundary_unavailable",
