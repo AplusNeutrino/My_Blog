@@ -535,6 +535,18 @@
         "total": 26,
         "unit": "episode"
       }
+    },
+    {
+      "id": "evt_65b1892db4aac501",
+      "observed_at": "2026-09-01T21:00:06Z",
+      "local_date": "2026-09-02",
+      "entity_id": "anime:4022a17d82",
+      "category": "anime",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "少女☆歌剧 Revue Starlight"
+      }
     }
   ]
 }

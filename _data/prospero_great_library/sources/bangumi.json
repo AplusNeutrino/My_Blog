@@ -1,11 +1,78 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-08-31T22:48:29Z",
-  "last_success_at": "2026-08-31T22:48:29Z",
+  "fetched_at": "2026-09-01T21:00:06Z",
+  "last_success_at": "2026-09-01T21:00:06Z",
   "adapter_version": "0.1.0-alpha.6",
-  "record_count": 368,
+  "record_count": 369,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "214265",
+      "category_hint": "anime",
+      "title": "少女☆歌剧 Revue Starlight",
+      "title_original": "少女☆歌劇 レヴュースタァライト",
+      "alternate_titles": [
+        "少女☆歌劇 レヴュースタァライト"
+      ],
+      "year": 2018,
+      "release_date": "2018-07-12",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/ca/48/214265_uHAIG.jpg",
+      "summary": "“舞台少女”——以未来的舞台女演员为目标，光芒四溢的少女们。\r\n某天，她们收到了一封邮件。“请去取得吧你所希望的那颗星”为了摘取闪耀的星星，而聚集于选拔会场的9名舞台少女。\r\n追求光芒的心意、执着、命运——在舞台上交错。\r\n现在，正是拉开R",
+      "status": "completed",
+      "rating": {
+        "value": 7.0,
+        "scale": 10.0,
+        "normalized_10": 7.0,
+        "source": "bangumi"
+      },
+      "progress": {
+        "current": 12,
+        "total": 12,
+        "unit": "episode",
+        "percent": 100.0,
+        "source": "bangumi"
+      },
+      "tags": [
+        "原创",
+        "百合",
+        "2018年7月",
+        "TV",
+        "歌剧",
+        "少女☆歌剧",
+        "舞台",
+        "战斗",
+        "古川知宏",
+        "2018"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 214265
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/214265"
+      },
+      "telemetry": {},
+      "updated_at": "2026-09-01T23:05:54+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": "优秀的演出，但没有太get到剧情",
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "原创",
+          "百合",
+          "2018年7月",
+          "TV",
+          "歌剧",
+          "少女☆歌剧",
+          "舞台",
+          "战斗",
+          "古川知宏",
+          "2018"
+        ],
+        "book_category": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "42872",
@@ -412,11 +479,11 @@
         "AVG",
         "独立游戏",
         "PC",
-        "2026",
         "悬疑",
+        "2026",
         "全年龄",
-        "Galgame",
         "轻科幻",
+        "Galgame",
         "STEAM"
       ],
       "identifiers": {
@@ -437,11 +504,11 @@
           "AVG",
           "独立游戏",
           "PC",
-          "2026",
           "悬疑",
+          "2026",
           "全年龄",
-          "Galgame",
           "轻科幻",
+          "Galgame",
           "STEAM"
         ],
         "book_category": null
@@ -3949,8 +4016,8 @@
         "SUNRISE",
         "2013",
         "我愿用一生节操换银他妈永不完结",
-        "银他妈不完结",
         "搞笑",
+        "银他妈不完结",
         "杉田智和",
         "动画史上绝无仅有的神作",
         "漫画改"
@@ -3974,8 +4041,8 @@
           "SUNRISE",
           "2013",
           "我愿用一生节操换银他妈永不完结",
-          "银他妈不完结",
           "搞笑",
+          "银他妈不完结",
           "杉田智和",
           "动画史上绝无仅有的神作",
           "漫画改"
@@ -4389,7 +4456,7 @@
         "游戏改",
         "CM",
         "BNPictures",
-        "2025年10月"
+        "原创"
       ],
       "identifiers": {
         "bangumi_subject_id": 591455
@@ -4414,7 +4481,7 @@
           "游戏改",
           "CM",
           "BNPictures",
-          "2025年10月"
+          "原创"
         ],
         "book_category": null
       }
@@ -7705,8 +7772,8 @@
         "大武政夫",
         "性转",
         "萝莉",
-        "2023",
         "原创",
+        "2023",
         "战斗",
         "日本",
         "TS"
@@ -7730,8 +7797,8 @@
           "大武政夫",
           "性转",
           "萝莉",
-          "2023",
           "原创",
+          "2023",
           "战斗",
           "日本",
           "TS"
@@ -10428,8 +10495,8 @@
         "STEAM",
         "独立游戏",
         "多人",
-        "2014",
         "Klei",
+        "2014",
         "ACT",
         "休闲游戏"
       ],
@@ -10453,8 +10520,8 @@
           "STEAM",
           "独立游戏",
           "多人",
-          "2014",
           "Klei",
+          "2014",
           "ACT",
           "休闲游戏"
         ],
@@ -10775,10 +10842,10 @@
       "tags": [
         "黑手党",
         "PC",
-        "mafia",
         "射击",
-        "TPS",
         "剧情",
+        "mafia",
+        "TPS",
         "2020",
         "美国",
         "STEAM",
@@ -10800,10 +10867,10 @@
         "subject_tags": [
           "黑手党",
           "PC",
-          "mafia",
           "射击",
-          "TPS",
           "剧情",
+          "mafia",
+          "TPS",
           "2020",
           "美国",
           "STEAM",
@@ -12384,9 +12451,9 @@
         "ZUN",
         "東方Project",
         "弹幕",
-        "快感拍摄STG",
-        "PC",
         "东方",
+        "PC",
+        "快感拍摄STG",
         "东方Project"
       ],
       "identifiers": {
@@ -12409,9 +12476,9 @@
           "ZUN",
           "東方Project",
           "弹幕",
-          "快感拍摄STG",
-          "PC",
           "东方",
+          "PC",
+          "快感拍摄STG",
           "东方Project"
         ],
         "book_category": null
@@ -13649,8 +13716,8 @@
         "PS3",
         "R星",
         "荒野大镖客",
-        "ACT",
         "Xbox360",
+        "ACT",
         "2010",
         "西部沙箱",
         "开放世界",
@@ -13674,8 +13741,8 @@
           "PS3",
           "R星",
           "荒野大镖客",
-          "ACT",
           "Xbox360",
+          "ACT",
           "2010",
           "西部沙箱",
           "开放世界",
@@ -17175,8 +17242,8 @@
         "PC",
         "探索",
         "神作",
-        "AVG",
-        "STEAM"
+        "STEAM",
+        "AVG"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17199,8 +17266,8 @@
           "PC",
           "探索",
           "神作",
-          "AVG",
           "STEAM",
+          "AVG",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -18899,8 +18966,8 @@
         "新房昭之",
         "SHAFT",
         "虚渊玄",
-        "原创",
         "魔法少女小圆",
+        "原创",
         "百合",
         "魔法少女",
         "梶浦由記",
@@ -18924,8 +18991,8 @@
           "新房昭之",
           "SHAFT",
           "虚渊玄",
-          "原创",
           "魔法少女小圆",
+          "原创",
           "百合",
           "魔法少女",
           "梶浦由記",
