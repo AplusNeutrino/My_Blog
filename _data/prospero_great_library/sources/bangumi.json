@@ -1,11 +1,78 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-02T21:00:24Z",
-  "last_success_at": "2026-09-02T21:00:24Z",
+  "fetched_at": "2026-09-03T20:59:43Z",
+  "last_success_at": "2026-09-03T20:59:43Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 369,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "583729",
+      "category_hint": "anime",
+      "title": "BanG Dream! YUME∞MITA",
+      "title_original": "BanG Dream! ゆめ∞みた",
+      "alternate_titles": [
+        "BanG Dream! ゆめ∞みた"
+      ],
+      "year": 2026,
+      "release_date": "2026-07-02",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_KxOZV.jpg",
+      "summary": "「哔呀啊啊啊啊——！！！」\r\n\r\n为了乐团出道而突然集结的团员们！\r\n虽然每个人都拥有耀眼夺目的个性与实力，但现在的她们根本无法进行任何乐团活动。\r\n这群女孩，以及这个乐团，究竟能不能顺利存活下去呢！？\r\n\r\n「奋力挣扎吧，哪怕乐声止息。」",
+      "status": "in_progress",
+      "rating": {
+        "value": 7.0,
+        "scale": 10.0,
+        "normalized_10": 7.0,
+        "source": "bangumi"
+      },
+      "progress": {
+        "current": 12,
+        "total": 13,
+        "unit": "episode",
+        "percent": 92.31,
+        "source": "bangumi"
+      },
+      "tags": [
+        "原创",
+        "2026年7月",
+        "BanGDream",
+        "乐队",
+        "音乐",
+        "TV",
+        "百合",
+        "日本",
+        "2026",
+        "NICHICALINE"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 583729
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/583729"
+      },
+      "telemetry": {},
+      "updated_at": "2026-09-03T22:28:25+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": "机动战士高达47周年最佳献礼作品",
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "原创",
+          "2026年7月",
+          "BanGDream",
+          "乐队",
+          "音乐",
+          "TV",
+          "百合",
+          "日本",
+          "2026",
+          "NICHICALINE"
+        ],
+        "book_category": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "214265",
@@ -479,11 +546,11 @@
         "AVG",
         "独立游戏",
         "PC",
-        "2026",
         "悬疑",
+        "2026",
         "全年龄",
-        "轻科幻",
         "Galgame",
+        "轻科幻",
         "STEAM"
       ],
       "identifiers": {
@@ -504,79 +571,12 @@
           "AVG",
           "独立游戏",
           "PC",
-          "2026",
           "悬疑",
-          "全年龄",
-          "轻科幻",
-          "Galgame",
-          "STEAM"
-        ],
-        "book_category": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "583729",
-      "category_hint": "anime",
-      "title": "BanG Dream! YUME∞MITA",
-      "title_original": "BanG Dream! ゆめ∞みた",
-      "alternate_titles": [
-        "BanG Dream! ゆめ∞みた"
-      ],
-      "year": 2026,
-      "release_date": "2026-07-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_KxOZV.jpg",
-      "summary": "「哔呀啊啊啊啊——！！！」\r\n\r\n为了乐团出道而突然集结的团员们！\r\n虽然每个人都拥有耀眼夺目的个性与实力，但现在的她们根本无法进行任何乐团活动。\r\n这群女孩，以及这个乐团，究竟能不能顺利存活下去呢！？\r\n\r\n「奋力挣扎吧，哪怕乐声止息。」",
-      "status": "in_progress",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 8,
-        "total": 13,
-        "unit": "episode",
-        "percent": 61.54,
-        "source": "bangumi"
-      },
-      "tags": [
-        "原创",
-        "2026年7月",
-        "BanGDream",
-        "乐队",
-        "音乐",
-        "TV",
-        "百合",
-        "日本",
-        "2026",
-        "NICHICALINE"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 583729
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/583729"
-      },
-      "telemetry": {},
-      "updated_at": "2026-08-06T23:09:58+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null,
-        "subject_tags": [
-          "原创",
-          "2026年7月",
-          "BanGDream",
-          "乐队",
-          "音乐",
-          "TV",
-          "百合",
-          "日本",
           "2026",
-          "NICHICALINE"
+          "全年龄",
+          "Galgame",
+          "轻科幻",
+          "STEAM"
         ],
         "book_category": null
       }
@@ -605,8 +605,8 @@
       },
       "tags": [
         "历史",
-        "2026年7月",
         "漫画改",
+        "2026年7月",
         "ScienceSARU",
         "山田尚子",
         "TV",
@@ -630,8 +630,8 @@
         "platform": null,
         "subject_tags": [
           "历史",
-          "2026年7月",
           "漫画改",
+          "2026年7月",
           "ScienceSARU",
           "山田尚子",
           "TV",
@@ -672,7 +672,7 @@
         "全年龄",
         "PC",
         "ADV",
-        "第五大同人奇迹"
+        "百合"
       ],
       "identifiers": {
         "bangumi_subject_id": 280440
@@ -697,7 +697,7 @@
           "全年龄",
           "PC",
           "ADV",
-          "第五大同人奇迹"
+          "百合"
         ],
         "book_category": null
       }
@@ -2103,7 +2103,7 @@
         "绝对神作",
         "Clover",
         "PS3",
-        "天照"
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 1536
@@ -2128,7 +2128,7 @@
           "绝对神作",
           "Clover",
           "PS3",
-          "天照"
+          "PC"
         ],
         "book_category": null
       }
@@ -2285,16 +2285,16 @@
         "source": "bangumi"
       },
       "tags": [
-        "小说",
         "猎魔人",
-        "巫师",
+        "小说",
         "奇幻",
+        "巫师",
         "The_Witcher",
         "波兰",
         "欧美",
-        "奇幻小说",
-        "单卷",
-        "Witcher"
+        "文学",
+        "冒险",
+        "架空世界"
       ],
       "identifiers": {
         "bangumi_subject_id": 287007
@@ -2310,16 +2310,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "小说",
           "猎魔人",
-          "巫师",
+          "小说",
           "奇幻",
+          "巫师",
           "The_Witcher",
           "波兰",
           "欧美",
-          "奇幻小说",
-          "单卷",
-          "Witcher"
+          "文学",
+          "冒险",
+          "架空世界"
         ],
         "book_category": null
       }
@@ -3323,7 +3323,7 @@
         "PC",
         "骚话王历险记",
         "kemco",
-        "ADV"
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 215470
@@ -3348,7 +3348,7 @@
           "PC",
           "骚话王历险记",
           "kemco",
-          "ADV"
+          "STEAM"
         ],
         "book_category": null
       }
@@ -5410,8 +5410,8 @@
         "合金装备",
         "Konami",
         "PS4",
-        "小岛秀夫",
         "ACT",
+        "小岛秀夫",
         "PC",
         "2015",
         "MGS",
@@ -5435,8 +5435,8 @@
           "合金装备",
           "Konami",
           "PS4",
-          "小岛秀夫",
           "ACT",
+          "小岛秀夫",
           "PC",
           "2015",
           "MGS",
@@ -7900,13 +7900,13 @@
         "漫画",
         "搞笑",
         "2021",
+        "讲谈社",
         "福本伸行",
         "青年",
-        "讲谈社",
-        "萩原天晴",
-        "网络",
-        "打工人",
-        "连载中"
+        "眼高手低",
+        "现实",
+        "青年漫",
+        "打工人"
       ],
       "identifiers": {
         "bangumi_subject_id": 333688
@@ -7925,13 +7925,13 @@
           "漫画",
           "搞笑",
           "2021",
+          "讲谈社",
           "福本伸行",
           "青年",
-          "讲谈社",
-          "萩原天晴",
-          "网络",
-          "打工人",
-          "连载中"
+          "眼高手低",
+          "现实",
+          "青年漫",
+          "打工人"
         ],
         "book_category": null
       }
@@ -8803,8 +8803,8 @@
         "智斗",
         "心理",
         "心理描写",
-        "黑暗",
         "1996",
+        "黑暗",
         "赌博默示录",
         "講談社"
       ],
@@ -8828,8 +8828,8 @@
           "智斗",
           "心理",
           "心理描写",
-          "黑暗",
           "1996",
+          "黑暗",
           "赌博默示录",
           "講談社"
         ],
@@ -10962,8 +10962,8 @@
       },
       "progress": null,
       "tags": [
-        "如龙",
         "SEGA",
+        "如龙",
         "2023",
         "ACT",
         "PS5",
@@ -10987,8 +10987,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "如龙",
           "SEGA",
+          "如龙",
           "2023",
           "ACT",
           "PS5",
@@ -12160,11 +12160,11 @@
         "全面战争",
         "RTS",
         "战锤",
-        "2022",
         "大战略",
-        "东格玛",
+        "2022",
         "英国",
-        "策略"
+        "东格玛",
+        "CA"
       ],
       "identifiers": {
         "bangumi_subject_id": 327292
@@ -12185,11 +12185,11 @@
           "全面战争",
           "RTS",
           "战锤",
-          "2022",
           "大战略",
-          "东格玛",
+          "2022",
           "英国",
-          "策略"
+          "东格玛",
+          "CA"
         ],
         "book_category": null
       }
@@ -12797,10 +12797,10 @@
         "SIM",
         "烧脑",
         "2021",
-        "PUZ",
         "解谜",
+        "PUZ",
         "游戏",
-        "数字电路"
+        "单机游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 434205
@@ -12822,10 +12822,10 @@
           "SIM",
           "烧脑",
           "2021",
-          "PUZ",
           "解谜",
+          "PUZ",
           "游戏",
-          "数字电路"
+          "单机游戏"
         ],
         "book_category": null
       }
@@ -13944,10 +13944,10 @@
         "PC",
         "2013",
         "meta",
-        "公路",
         "美国",
-        "实验性游戏",
+        "公路",
         "游戏",
+        "实验性游戏",
         "像素风"
       ],
       "identifiers": {
@@ -13969,10 +13969,10 @@
           "PC",
           "2013",
           "meta",
-          "公路",
           "美国",
-          "实验性游戏",
+          "公路",
           "游戏",
+          "实验性游戏",
           "像素风"
         ],
         "book_category": null
@@ -16306,8 +16306,8 @@
         "独立游戏",
         "解谜",
         "类银河战士恶魔城",
-        "PC",
         "像素风",
+        "PC",
         "2024",
         "横版",
         "Metroidvania",
@@ -16331,8 +16331,8 @@
           "独立游戏",
           "解谜",
           "类银河战士恶魔城",
-          "PC",
           "像素风",
+          "PC",
           "2024",
           "横版",
           "Metroidvania",
@@ -17242,8 +17242,8 @@
         "PC",
         "探索",
         "神作",
-        "STEAM",
-        "AVG"
+        "AVG",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17266,8 +17266,8 @@
           "PC",
           "探索",
           "神作",
-          "STEAM",
           "AVG",
+          "STEAM",
           "世纪第一探索Game"
         ],
         "book_category": null

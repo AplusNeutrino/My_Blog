@@ -547,6 +547,22 @@
       "data": {
         "title": "少女☆歌剧 Revue Starlight"
       }
+    },
+    {
+      "id": "evt_bbe54bf474b5cad9",
+      "observed_at": "2026-09-03T20:59:43Z",
+      "local_date": "2026-09-04",
+      "entity_id": "anime:165babd92d",
+      "category": "anime",
+      "event": "progress_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "BanG Dream! YUME∞MITA",
+        "from": 8,
+        "to": 12,
+        "total": 13,
+        "unit": "episode"
+      }
     }
   ]
 }

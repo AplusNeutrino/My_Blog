@@ -10,10 +10,10 @@
     "drama": 4
   },
   "by_status": {
+    "in_progress": 9,
     "completed": 369,
     "on_hold": 14,
     "dropped": 4,
-    "in_progress": 9,
     "wishlist": 123
   },
   "rating_distribution": {
@@ -192,7 +192,7 @@
       "entity_id": "anime:165babd92d",
       "category": "anime",
       "reason": "in_progress",
-      "last_activity": "2026-08-30T21:02:10Z",
+      "last_activity": "2026-09-03T20:59:43Z",
       "recent_playtime_minutes": 0
     },
     {
