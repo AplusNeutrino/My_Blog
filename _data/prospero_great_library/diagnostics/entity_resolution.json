@@ -3,15 +3,15 @@
   "auto_merged": [
     {
       "source": "neodb",
-      "source_id": "2iHkQLPHBaByMS25XkFyEp",
-      "confidence": 0.955,
-      "method": "exact_title"
-    },
-    {
-      "source": "neodb",
       "source_id": "6cDZwOtvGwKV2ywEkPvuMW",
       "confidence": 1.0,
       "method": "id:bangumi_subject_id"
+    },
+    {
+      "source": "neodb",
+      "source_id": "2iHkQLPHBaByMS25XkFyEp",
+      "confidence": 0.955,
+      "method": "exact_title"
     },
     {
       "source": "neodb",
