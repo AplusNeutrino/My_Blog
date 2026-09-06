@@ -1,8 +1,8 @@
 {
   "stats_schema_version": 2,
-  "total_items": 519,
+  "total_items": 520,
   "by_category": {
-    "anime": 121,
+    "anime": 122,
     "book": 124,
     "game": 188,
     "movie": 56,
@@ -10,8 +10,8 @@
     "drama": 4
   },
   "by_status": {
+    "completed": 370,
     "in_progress": 9,
-    "completed": 369,
     "on_hold": 14,
     "dropped": 4,
     "wishlist": 123
@@ -19,7 +19,7 @@
   "rating_distribution": {
     "3": 2,
     "5": 5,
-    "6": 35,
+    "6": 36,
     "7": 85,
     "8": 52,
     "9": 13,
@@ -46,7 +46,7 @@
         2,
         0,
         5,
-        34,
+        35,
         85,
         51,
         13,
@@ -106,7 +106,7 @@
         1,
         0,
         3,
-        10,
+        11,
         20,
         16,
         5,
@@ -144,11 +144,11 @@
       "comic": 22,
       "movie": 48,
       "drama": 4,
-      "anime": 61,
+      "anime": 62,
       "game": 119,
       "music": 0
     },
-    "default_total": 378,
+    "default_total": 379,
     "wishlist_by_category": {
       "book": 0,
       "comic": 3,
@@ -185,7 +185,7 @@
       "entity_id": "book:870343b517",
       "category": "comic",
       "reason": "in_progress",
-      "last_activity": "2026-08-31T22:48:29Z",
+      "last_activity": "2026-09-06T20:22:23Z",
       "recent_playtime_minutes": 0
     },
     {
