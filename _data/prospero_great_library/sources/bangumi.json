@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-06T20:22:23Z",
-  "last_success_at": "2026-09-06T20:22:23Z",
+  "fetched_at": "2026-09-07T21:29:13Z",
+  "last_success_at": "2026-09-07T21:29:13Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 370,
   "records": [
@@ -613,12 +613,12 @@
         "AVG",
         "独立游戏",
         "PC",
-        "2026",
         "悬疑",
+        "2026",
         "全年龄",
-        "轻科幻",
+        "Galgame",
         "STEAM",
-        "Galgame"
+        "轻科幻"
       ],
       "identifiers": {
         "bangumi_subject_id": 646525
@@ -638,12 +638,12 @@
           "AVG",
           "独立游戏",
           "PC",
-          "2026",
           "悬疑",
+          "2026",
           "全年龄",
-          "轻科幻",
+          "Galgame",
           "STEAM",
-          "Galgame"
+          "轻科幻"
         ],
         "book_category": null
       }
@@ -5977,8 +5977,8 @@
         "Vanillaware",
         "香草社",
         "和风",
-        "RPG",
         "沢城みゆき",
+        "RPG",
         "ARPG",
         "DLC业界良心"
       ],
@@ -6002,8 +6002,8 @@
           "Vanillaware",
           "香草社",
           "和风",
-          "RPG",
           "沢城みゆき",
+          "RPG",
           "ARPG",
           "DLC业界良心"
         ],
@@ -11625,8 +11625,8 @@
         "RPG",
         "RPGMaker",
         "freebirdgames",
-        "2014",
         "高瞰",
+        "2014",
         "freebird"
       ],
       "identifiers": {
@@ -11650,8 +11650,8 @@
           "RPG",
           "RPGMaker",
           "freebirdgames",
-          "2014",
           "高瞰",
+          "2014",
           "freebird"
         ],
         "book_category": null
@@ -13783,12 +13783,12 @@
         "PS3",
         "R星",
         "荒野大镖客",
-        "Xbox360",
         "ACT",
+        "Xbox360",
         "2010",
         "西部沙箱",
-        "开放世界",
-        "荒野大镖客：救赎"
+        "PC",
+        "开放世界"
       ],
       "identifiers": {
         "bangumi_subject_id": 3504
@@ -13808,12 +13808,12 @@
           "PS3",
           "R星",
           "荒野大镖客",
-          "Xbox360",
           "ACT",
+          "Xbox360",
           "2010",
           "西部沙箱",
-          "开放世界",
-          "荒野大镖客：救赎"
+          "PC",
+          "开放世界"
         ],
         "book_category": null
       }
@@ -15858,8 +15858,8 @@
         "Portal",
         "STEAM",
         "第一人称冒险",
-        "传送门",
         "2007",
+        "传送门",
         "PUZ"
       ],
       "identifiers": {
@@ -15883,8 +15883,8 @@
           "Portal",
           "STEAM",
           "第一人称冒险",
-          "传送门",
           "2007",
+          "传送门",
           "PUZ"
         ],
         "book_category": null
@@ -17309,8 +17309,8 @@
         "PC",
         "探索",
         "神作",
-        "AVG",
-        "STEAM"
+        "STEAM",
+        "AVG"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17333,8 +17333,8 @@
           "PC",
           "探索",
           "神作",
-          "AVG",
           "STEAM",
+          "AVG",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -17368,8 +17368,8 @@
         "SquareEnix",
         "网游",
         "最终幻想",
-        "2010",
         "RPG",
+        "2010",
         "Online",
         "Square-Enix"
       ],
@@ -17393,8 +17393,8 @@
           "SquareEnix",
           "网游",
           "最终幻想",
-          "2010",
           "RPG",
+          "2010",
           "Online",
           "Square-Enix"
         ],
@@ -18267,8 +18267,8 @@
         "剧场版",
         "名侦探柯南",
         "2023",
-        "原创",
         "灰原哀",
+        "原创",
         "TMS",
         "推理",
         "柯南",
@@ -18292,8 +18292,8 @@
           "剧场版",
           "名侦探柯南",
           "2023",
-          "原创",
           "灰原哀",
+          "原创",
           "TMS",
           "推理",
           "柯南",
