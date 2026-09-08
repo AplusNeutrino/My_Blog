@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-07T21:29:13Z",
-  "last_success_at": "2026-09-07T21:29:13Z",
+  "fetched_at": "2026-09-08T21:07:10Z",
+  "last_success_at": "2026-09-08T21:07:10Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 370,
   "records": [
@@ -613,8 +613,8 @@
         "AVG",
         "独立游戏",
         "PC",
-        "悬疑",
         "2026",
+        "悬疑",
         "全年龄",
         "Galgame",
         "STEAM",
@@ -638,8 +638,8 @@
           "AVG",
           "独立游戏",
           "PC",
-          "悬疑",
           "2026",
+          "悬疑",
           "全年龄",
           "Galgame",
           "STEAM",
@@ -3959,11 +3959,11 @@
         "解谜",
         "手游",
         "国产",
-        "PC",
         "AVG",
+        "PC",
         "iOS",
-        "Android",
         "2015",
+        "Android",
         "STEAM"
       ],
       "identifiers": {
@@ -3984,11 +3984,11 @@
           "解谜",
           "手游",
           "国产",
-          "PC",
           "AVG",
+          "PC",
           "iOS",
-          "Android",
           "2015",
+          "Android",
           "STEAM"
         ],
         "book_category": null
@@ -4969,8 +4969,8 @@
         "骗人的...抚额苦笑",
         "2008",
         "JUMP",
-        "藤田阳一",
         "2009",
+        "藤田阳一",
         "热血",
         "搞笑"
       ],
@@ -4994,8 +4994,8 @@
           "骗人的...抚额苦笑",
           "2008",
           "JUMP",
-          "藤田阳一",
           "2009",
+          "藤田阳一",
           "热血",
           "搞笑"
         ],
@@ -5974,8 +5974,8 @@
         "PSV",
         "ACT",
         "朧村正",
-        "Vanillaware",
         "香草社",
+        "Vanillaware",
         "和风",
         "沢城みゆき",
         "RPG",
@@ -5999,8 +5999,8 @@
           "PSV",
           "ACT",
           "朧村正",
-          "Vanillaware",
           "香草社",
+          "Vanillaware",
           "和风",
           "沢城みゆき",
           "RPG",
@@ -11443,8 +11443,8 @@
         "妹",
         "恐怖",
         "RPGMaker",
-        "血腥",
-        "黑暗"
+        "黑暗",
+        "血腥"
       ],
       "identifiers": {
         "bangumi_subject_id": 430386
@@ -11468,8 +11468,8 @@
           "妹",
           "恐怖",
           "RPGMaker",
-          "血腥",
-          "黑暗"
+          "黑暗",
+          "血腥"
         ],
         "book_category": null
       }
@@ -13207,8 +13207,8 @@
         "命令与征服",
         "童年",
         "即时战略",
-        "神作",
-        "美国"
+        "美国",
+        "绝命"
       ],
       "identifiers": {
         "bangumi_subject_id": 44621
@@ -13232,8 +13232,8 @@
           "命令与征服",
           "童年",
           "即时战略",
-          "神作",
-          "美国"
+          "美国",
+          "绝命"
         ],
         "book_category": null
       }
@@ -13724,15 +13724,15 @@
       "progress": null,
       "tags": [
         "RTS",
-        "C&C",
         "westwood",
+        "C&C",
         "经典",
         "PC",
         "神作",
         "即时战略",
         "命令与征服",
-        "MS-DOS",
-        "欧美系"
+        "DOS",
+        "MS-DOS"
       ],
       "identifiers": {
         "bangumi_subject_id": 18802
@@ -13749,15 +13749,15 @@
         "platform": null,
         "subject_tags": [
           "RTS",
-          "C&C",
           "westwood",
+          "C&C",
           "经典",
           "PC",
           "神作",
           "即时战略",
           "命令与征服",
-          "MS-DOS",
-          "欧美系"
+          "DOS",
+          "MS-DOS"
         ],
         "book_category": null
       }
@@ -13783,12 +13783,12 @@
         "PS3",
         "R星",
         "荒野大镖客",
-        "ACT",
         "Xbox360",
+        "ACT",
         "2010",
         "西部沙箱",
-        "PC",
-        "开放世界"
+        "开放世界",
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 3504
@@ -13808,12 +13808,12 @@
           "PS3",
           "R星",
           "荒野大镖客",
-          "ACT",
           "Xbox360",
+          "ACT",
           "2010",
           "西部沙箱",
-          "PC",
-          "开放世界"
+          "开放世界",
+          "PC"
         ],
         "book_category": null
       }
@@ -14356,7 +14356,7 @@
         "高难度",
         "ACT",
         "核心向",
-        "RPG"
+        "神作"
       ],
       "identifiers": {
         "bangumi_subject_id": 2247
@@ -14381,7 +14381,7 @@
           "高难度",
           "ACT",
           "核心向",
-          "RPG"
+          "神作"
         ],
         "book_category": null
       }
@@ -17309,8 +17309,8 @@
         "PC",
         "探索",
         "神作",
-        "STEAM",
-        "AVG"
+        "AVG",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17333,8 +17333,8 @@
           "PC",
           "探索",
           "神作",
-          "STEAM",
           "AVG",
+          "STEAM",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -17368,8 +17368,8 @@
         "SquareEnix",
         "网游",
         "最终幻想",
-        "RPG",
         "2010",
+        "RPG",
         "Online",
         "Square-Enix"
       ],
@@ -17393,8 +17393,8 @@
           "SquareEnix",
           "网游",
           "最终幻想",
-          "RPG",
           "2010",
+          "RPG",
           "Online",
           "Square-Enix"
         ],
@@ -19486,8 +19486,8 @@
         "奥斯卡",
         "小说改",
         "俄罗斯",
-        "剧场版",
-        "艺术动画"
+        "艺术动画",
+        "剧场版"
       ],
       "identifiers": {
         "bangumi_subject_id": 1984
@@ -19511,8 +19511,8 @@
           "奥斯卡",
           "小说改",
           "俄罗斯",
-          "剧场版",
-          "艺术动画"
+          "艺术动画",
+          "剧场版"
         ],
         "book_category": null
       }
