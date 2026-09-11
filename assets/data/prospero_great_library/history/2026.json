@@ -575,6 +575,50 @@
       "data": {
         "title": "剧场版 少女☆歌剧 Revue Starlight"
       }
+    },
+    {
+      "id": "evt_bac38719cd33fd43",
+      "observed_at": "2026-09-11T20:55:54Z",
+      "local_date": "2026-09-12",
+      "entity_id": "anime:165babd92d",
+      "category": "anime",
+      "event": "progress_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "BanG Dream! YUME∞MITA",
+        "from": 12,
+        "to": 13,
+        "total": 13,
+        "unit": "episode"
+      }
+    },
+    {
+      "id": "evt_e01989e820f1d0b1",
+      "observed_at": "2026-09-11T20:55:54Z",
+      "local_date": "2026-09-12",
+      "entity_id": "game:49fc0ab748",
+      "category": "game",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "Ruina 废都物语",
+        "from": "wishlist",
+        "to": "completed"
+      }
+    },
+    {
+      "id": "evt_eceb4f028c575e7f",
+      "observed_at": "2026-09-11T20:55:54Z",
+      "local_date": "2026-09-12",
+      "entity_id": "game:49fc0ab748",
+      "category": "game",
+      "event": "rating_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "Ruina 废都物语",
+        "from": null,
+        "to": 8.0
+      }
     }
   ]
 }

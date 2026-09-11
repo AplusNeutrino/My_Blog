@@ -1,11 +1,139 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-10T20:49:33Z",
-  "last_success_at": "2026-09-10T20:49:33Z",
+  "fetched_at": "2026-09-11T20:55:54Z",
+  "last_success_at": "2026-09-11T20:55:54Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 370,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "583729",
+      "category_hint": "anime",
+      "title": "BanG Dream! YUME∞MITA",
+      "title_original": "BanG Dream! ゆめ∞みた",
+      "alternate_titles": [
+        "BanG Dream! ゆめ∞みた"
+      ],
+      "year": 2026,
+      "release_date": "2026-07-02",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_KxOZV.jpg",
+      "summary": "「哔呀啊啊啊啊——！！！」\r\n\r\n为了乐团出道而突然集结的团员们！\r\n虽然每个人都拥有耀眼夺目的个性与实力，但现在的她们根本无法进行任何乐团活动。\r\n这群女孩，以及这个乐团，究竟能不能顺利存活下去呢！？\r\n\r\n「奋力挣扎吧，哪怕乐声止息。」",
+      "status": "in_progress",
+      "rating": {
+        "value": 7.0,
+        "scale": 10.0,
+        "normalized_10": 7.0,
+        "source": "bangumi"
+      },
+      "progress": {
+        "current": 13,
+        "total": 13,
+        "unit": "episode",
+        "percent": 100.0,
+        "source": "bangumi"
+      },
+      "tags": [
+        "原创",
+        "2026年7月",
+        "BanGDream",
+        "乐队",
+        "音乐",
+        "TV",
+        "百合",
+        "日本",
+        "2026",
+        "NICHICALINE"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 583729
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/583729"
+      },
+      "telemetry": {},
+      "updated_at": "2026-09-11T23:12:22+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": "机动战士高达47周年最佳献礼作品",
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "原创",
+          "2026年7月",
+          "BanGDream",
+          "乐队",
+          "音乐",
+          "TV",
+          "百合",
+          "日本",
+          "2026",
+          "NICHICALINE"
+        ],
+        "book_category": null
+      }
+    },
+    {
+      "source": "bangumi",
+      "source_id": "51361",
+      "category_hint": "game",
+      "title": "Ruina 废都物语",
+      "title_original": "Ruina 廃都の物語",
+      "alternate_titles": [
+        "Ruina 廃都の物語"
+      ],
+      "year": 2008,
+      "release_date": "2008-12-24",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/45/81/51361_XmOkO.jpg",
+      "summary": "町の近くの森で見つけた、不思議な洞窟の入り口。\r\n主人公は何者かの声に誘われるかのように、洞窟の奥を目指し始めた。\r\n\r\nそして、世界は物語に侵食されてゆく――。\r\n\r\n\r\nやたらと大きくなる話のスケール。\r\nでもやる事はずっとダンジョン潜",
+      "status": "completed",
+      "rating": {
+        "value": 8.0,
+        "scale": 10.0,
+        "normalized_10": 8.0,
+        "source": "bangumi"
+      },
+      "progress": null,
+      "tags": [
+        "RPG",
+        "独立游戏",
+        "PC",
+        "RPGMaker",
+        "同人",
+        "艺术品",
+        "2008",
+        "奇幻",
+        "小型游戏",
+        "Runia"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 51361
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/51361"
+      },
+      "telemetry": {},
+      "updated_at": "2026-09-11T21:47:57+08:00",
+      "raw_type": 4,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "RPG",
+          "独立游戏",
+          "PC",
+          "RPGMaker",
+          "同人",
+          "艺术品",
+          "2008",
+          "奇幻",
+          "小型游戏",
+          "Runia"
+        ],
+        "book_category": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "294135",
@@ -69,73 +197,6 @@
           "KINEMACITRUS",
           "少女☆歌劇レヴュースタァライト",
           "少女歌剧"
-        ],
-        "book_category": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "583729",
-      "category_hint": "anime",
-      "title": "BanG Dream! YUME∞MITA",
-      "title_original": "BanG Dream! ゆめ∞みた",
-      "alternate_titles": [
-        "BanG Dream! ゆめ∞みた"
-      ],
-      "year": 2026,
-      "release_date": "2026-07-02",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/1c/e4/583729_KxOZV.jpg",
-      "summary": "「哔呀啊啊啊啊——！！！」\r\n\r\n为了乐团出道而突然集结的团员们！\r\n虽然每个人都拥有耀眼夺目的个性与实力，但现在的她们根本无法进行任何乐团活动。\r\n这群女孩，以及这个乐团，究竟能不能顺利存活下去呢！？\r\n\r\n「奋力挣扎吧，哪怕乐声止息。」",
-      "status": "in_progress",
-      "rating": {
-        "value": 7.0,
-        "scale": 10.0,
-        "normalized_10": 7.0,
-        "source": "bangumi"
-      },
-      "progress": {
-        "current": 12,
-        "total": 13,
-        "unit": "episode",
-        "percent": 92.31,
-        "source": "bangumi"
-      },
-      "tags": [
-        "原创",
-        "2026年7月",
-        "BanGDream",
-        "乐队",
-        "音乐",
-        "TV",
-        "百合",
-        "日本",
-        "2026",
-        "NICHICALINE"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 583729
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/583729"
-      },
-      "telemetry": {},
-      "updated_at": "2026-09-03T22:28:25+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": "机动战士高达47周年最佳献礼作品",
-        "private": false,
-        "platform": null,
-        "subject_tags": [
-          "原创",
-          "2026年7月",
-          "BanGDream",
-          "乐队",
-          "音乐",
-          "TV",
-          "百合",
-          "日本",
-          "2026",
-          "NICHICALINE"
         ],
         "book_category": null
       }
@@ -2170,7 +2231,7 @@
         "绝对神作",
         "Clover",
         "PS3",
-        "PC"
+        "天照"
       ],
       "identifiers": {
         "bangumi_subject_id": 1536
@@ -2195,7 +2256,7 @@
           "绝对神作",
           "Clover",
           "PS3",
-          "PC"
+          "天照"
         ],
         "book_category": null
       }
@@ -4014,13 +4075,13 @@
         "RPG",
         "PC",
         "Galgame",
+        "小黄油",
+        "游戏",
         "futa",
         "月の水企画",
-        "游戏性",
-        "小黄油",
-        "拔作",
-        "游戏",
-        "百合"
+        "萝莉",
+        "百合",
+        "拔作"
       ],
       "identifiers": {
         "bangumi_subject_id": 378105
@@ -4039,13 +4100,13 @@
           "RPG",
           "PC",
           "Galgame",
+          "小黄油",
+          "游戏",
           "futa",
           "月の水企画",
-          "游戏性",
-          "小黄油",
-          "拔作",
-          "游戏",
-          "百合"
+          "萝莉",
+          "百合",
+          "拔作"
         ],
         "book_category": null
       }
@@ -4846,9 +4907,9 @@
         "2014",
         "OAD",
         "JUMP",
-        "漫画改",
         "银他妈",
-        "杉田智和"
+        "漫画改",
+        "热血"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -4871,9 +4932,9 @@
           "2014",
           "OAD",
           "JUMP",
-          "漫画改",
           "银他妈",
-          "杉田智和"
+          "漫画改",
+          "热血"
         ],
         "book_category": null
       }
@@ -4970,8 +5031,8 @@
         "2008",
         "JUMP",
         "2009",
-        "藤田阳一",
         "热血",
+        "藤田阳一",
         "搞笑"
       ],
       "identifiers": {
@@ -4995,8 +5056,8 @@
           "2008",
           "JUMP",
           "2009",
-          "藤田阳一",
           "热血",
+          "藤田阳一",
           "搞笑"
         ],
         "book_category": null
@@ -8351,8 +8412,8 @@
         "竹書房",
         "智斗",
         "1989",
-        "天·天和通りの快男児",
         "赤木茂",
+        "天·天和通りの快男児",
         "日本漫画"
       ],
       "identifiers": {
@@ -8376,8 +8437,8 @@
           "竹書房",
           "智斗",
           "1989",
-          "天·天和通りの快男児",
           "赤木茂",
+          "天·天和通りの快男児",
           "日本漫画"
         ],
         "book_category": null
@@ -8870,8 +8931,8 @@
         "智斗",
         "心理",
         "心理描写",
-        "黑暗",
         "1996",
+        "黑暗",
         "赌博默示录",
         "講談社"
       ],
@@ -8895,8 +8956,8 @@
           "智斗",
           "心理",
           "心理描写",
-          "黑暗",
           "1996",
+          "黑暗",
           "赌博默示录",
           "講談社"
         ],
@@ -14183,7 +14244,7 @@
         "PC",
         "东方",
         "同人",
-        "2015"
+        "东方干zun传"
       ],
       "identifiers": {
         "bangumi_subject_id": 131875
@@ -14208,7 +14269,7 @@
           "PC",
           "东方",
           "同人",
-          "2015"
+          "东方干zun传"
         ],
         "book_category": null
       }
@@ -15858,8 +15919,8 @@
         "Portal",
         "STEAM",
         "第一人称冒险",
-        "2007",
         "传送门",
+        "2007",
         "PUZ"
       ],
       "identifiers": {
@@ -15883,8 +15944,8 @@
           "Portal",
           "STEAM",
           "第一人称冒险",
-          "2007",
           "传送门",
+          "2007",
           "PUZ"
         ],
         "book_category": null
@@ -17108,62 +17169,6 @@
     },
     {
       "source": "bangumi",
-      "source_id": "51361",
-      "category_hint": "game",
-      "title": "Ruina 废都物语",
-      "title_original": "Ruina 廃都の物語",
-      "alternate_titles": [
-        "Ruina 廃都の物語"
-      ],
-      "year": 2008,
-      "release_date": "2008-12-24",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/45/81/51361_XmOkO.jpg",
-      "summary": "町の近くの森で見つけた、不思議な洞窟の入り口。\r\n主人公は何者かの声に誘われるかのように、洞窟の奥を目指し始めた。\r\n\r\nそして、世界は物語に侵食されてゆく――。\r\n\r\n\r\nやたらと大きくなる話のスケール。\r\nでもやる事はずっとダンジョン潜",
-      "status": "wishlist",
-      "rating": null,
-      "progress": null,
-      "tags": [
-        "RPG",
-        "独立游戏",
-        "PC",
-        "RPGMaker",
-        "同人",
-        "艺术品",
-        "2008",
-        "奇幻",
-        "小型游戏",
-        "Runia"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 51361
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/51361"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-27T00:56:51+08:00",
-      "raw_type": 4,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null,
-        "subject_tags": [
-          "RPG",
-          "独立游戏",
-          "PC",
-          "RPGMaker",
-          "同人",
-          "艺术品",
-          "2008",
-          "奇幻",
-          "小型游戏",
-          "Runia"
-        ],
-        "book_category": null
-      }
-    },
-    {
-      "source": "bangumi",
       "source_id": "3154",
       "category_hint": "game",
       "title": "命运石之门",
@@ -18267,8 +18272,8 @@
         "剧场版",
         "名侦探柯南",
         "2023",
-        "原创",
         "灰原哀",
+        "原创",
         "TMS",
         "推理",
         "柯南",
@@ -18292,8 +18297,8 @@
           "剧场版",
           "名侦探柯南",
           "2023",
-          "原创",
           "灰原哀",
+          "原创",
           "TMS",
           "推理",
           "柯南",
@@ -20277,7 +20282,7 @@
       ],
       "year": 2008,
       "release_date": "2008-06-27",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/4d/a0/1104_15bXc.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/4d/a0/1104_iIpHU.jpg",
       "summary": "“WALL· E”是Waste Allocation Load Lifters - Earth（地球废品分装员）的缩写，这种职业出现在2700年，因为地球的垃圾多到爆炸，整个星球几乎被垃圾掩埋了，罪魁祸首-人类-只得移居到太空船上，并且请一",
       "status": "completed",
       "rating": {
