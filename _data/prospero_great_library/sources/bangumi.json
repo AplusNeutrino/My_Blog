@@ -1,11 +1,73 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-14T21:47:41Z",
-  "last_success_at": "2026-09-14T21:47:41Z",
+  "fetched_at": "2026-09-15T21:17:58Z",
+  "last_success_at": "2026-09-15T21:17:58Z",
   "adapter_version": "0.1.0-alpha.6",
-  "record_count": 370,
+  "record_count": 371,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "3893",
+      "category_hint": "anime",
+      "title": "原罪的卡辛",
+      "title_original": "キャシャーンSins",
+      "alternate_titles": [
+        "キャシャーンSins"
+      ],
+      "year": 2008,
+      "release_date": "2008-10-02",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/e8/d6/3893_99KzX.jpg",
+      "summary": "卡辛杀死了名为月亮的太阳——少女露娜，使世界逐步走向毁灭，万物无法修复，只有带来毁灭的卡辛自身保有永生不死，却失去记忆。于是卡辛展开一场赎罪、追寻的漫长旅程，就算本性善良，但所经之处却不断着的轮回着杀戮与死亡。",
+      "status": "wishlist",
+      "rating": null,
+      "progress": {
+        "current": 0,
+        "total": 24,
+        "unit": "episode",
+        "percent": 0.0,
+        "source": "bangumi"
+      },
+      "tags": [
+        "MADHouse",
+        "TV",
+        "2008",
+        "原创",
+        "山内重保",
+        "科幻",
+        "内涵",
+        "机器人",
+        "2008年10月",
+        "毁灭系"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 3893
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/3893"
+      },
+      "telemetry": {},
+      "updated_at": "2026-09-15T12:16:51+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": null,
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "MADHouse",
+          "TV",
+          "2008",
+          "原创",
+          "山内重保",
+          "科幻",
+          "内涵",
+          "机器人",
+          "2008年10月",
+          "毁灭系"
+        ],
+        "book_category": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "583729",
@@ -735,8 +797,8 @@
         "历史",
         "漫画改",
         "2026年7月",
-        "ScienceSARU",
         "山田尚子",
+        "ScienceSARU",
         "TV",
         "2026",
         "日本",
@@ -760,8 +822,8 @@
           "历史",
           "漫画改",
           "2026年7月",
-          "ScienceSARU",
           "山田尚子",
+          "ScienceSARU",
           "TV",
           "2026",
           "日本",
@@ -800,7 +862,7 @@
         "全年龄",
         "PC",
         "ADV",
-        "第五大同人奇迹"
+        "百合"
       ],
       "identifiers": {
         "bangumi_subject_id": 280440
@@ -825,7 +887,7 @@
           "全年龄",
           "PC",
           "ADV",
-          "第五大同人奇迹"
+          "百合"
         ],
         "book_category": null
       }
@@ -2420,9 +2482,9 @@
         "The_Witcher",
         "波兰",
         "欧美",
-        "文学",
-        "冒险",
-        "架空世界"
+        "战争",
+        "奇幻小说",
+        "单卷"
       ],
       "identifiers": {
         "bangumi_subject_id": 287007
@@ -2445,9 +2507,9 @@
           "The_Witcher",
           "波兰",
           "欧美",
-          "文学",
-          "冒险",
-          "架空世界"
+          "战争",
+          "奇幻小说",
+          "单卷"
         ],
         "book_category": null
       }
@@ -4907,9 +4969,9 @@
         "2014",
         "OAD",
         "JUMP",
-        "银他妈",
         "漫画改",
-        "热血"
+        "银他妈",
+        "杉田智和"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -4932,9 +4994,9 @@
           "2014",
           "OAD",
           "JUMP",
-          "银他妈",
           "漫画改",
-          "热血"
+          "银他妈",
+          "杉田智和"
         ],
         "book_category": null
       }
@@ -5538,8 +5600,8 @@
         "合金装备",
         "Konami",
         "PS4",
-        "ACT",
         "小岛秀夫",
+        "ACT",
         "PC",
         "2015",
         "MGS",
@@ -5563,8 +5625,8 @@
           "合金装备",
           "Konami",
           "PS4",
-          "ACT",
           "小岛秀夫",
+          "ACT",
           "PC",
           "2015",
           "MGS",
@@ -6725,8 +6787,8 @@
         "TV",
         "原创",
         "1981",
-        "高桥良辅",
         "萝卜",
+        "高桥良辅",
         "科幻",
         "神田武幸",
         "真实系",
@@ -6750,8 +6812,8 @@
           "TV",
           "原创",
           "1981",
-          "高桥良辅",
           "萝卜",
+          "高桥良辅",
           "科幻",
           "神田武幸",
           "真实系",
@@ -7278,7 +7340,7 @@
         "游戏",
         "STEAM",
         "PS4",
-        "2021"
+        "Android"
       ],
       "identifiers": {
         "bangumi_subject_id": 489877
@@ -7303,7 +7365,7 @@
           "游戏",
           "STEAM",
           "PS4",
-          "2021"
+          "Android"
         ],
         "book_category": null
       }
@@ -9958,16 +10020,16 @@
       "rating": null,
       "progress": null,
       "tags": [
-        "游戏",
-        "PS3",
         "Windows",
+        "PS3",
         "休闲",
-        "CAG",
-        "PSP",
+        "游戏",
+        "Xbox360",
+        "Wii",
+        "NDS",
         "PS5",
-        "XboxOne",
-        "2016",
-        "Symbian"
+        "PSP",
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 552586
@@ -9983,16 +10045,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "游戏",
-          "PS3",
           "Windows",
+          "PS3",
           "休闲",
-          "CAG",
-          "PSP",
+          "游戏",
+          "Xbox360",
+          "Wii",
+          "NDS",
           "PS5",
-          "XboxOne",
-          "2016",
-          "Symbian"
+          "PSP",
+          "PC"
         ],
         "book_category": null
       }
@@ -12623,7 +12685,7 @@
       ],
       "year": 2011,
       "release_date": "2011-03-15",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/0d/d4/12455_BpEBE.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/0d/d4/12455_S77wd.jpg",
       "summary": "　　全面战争：幕府将军2（Total War: Shogun 2）（原名幕府将军2：全面战争）是由Creative Assembly开发的回合制即时战略，是全面战争系列的第七作。\r\n　　《幕府将军2》的游戏时代设定在十五世纪的日本战国时代，",
       "status": "completed",
       "rating": null,
@@ -12785,12 +12847,12 @@
       "source_id": "36643",
       "category_hint": "game",
       "title": "全面战争:幕府将军2 武家之殇",
-      "title_original": "Total War: Shogun 2 Fall of the Samurai",
+      "title_original": "Total War: Shogun 2 - Fall of the Samurai",
       "alternate_titles": [
-        "Total War: Shogun 2 Fall of the Samurai"
+        "Total War: Shogun 2 - Fall of the Samurai"
       ],
       "year": 2012,
-      "release_date": "2012-03-23",
+      "release_date": "2012-03-22",
       "cover_url": "https://lain.bgm.tv/pic/cover/l/84/9b/36643_bmcl1.jpg",
       "summary": "　　作为的独立资料片,武家之殇将引领玩家前往400年后的工业革命时期,体验传统古国与西方列强;天皇制度与幕府制度两大极端冲突下的日本.\r\n　　玩家将面临一个冷热兵器并存的时代,当幕府专制不再合宜,武士制度面临衰落,在英,美,法三国列强以及内",
       "status": "completed",
@@ -14987,8 +15049,8 @@
         "皇牌空战",
         "NAMCO",
         "STG",
-        "NBGI",
         "2004",
+        "NBGI",
         "单机",
         "视频通关",
         "游戏",
@@ -15012,8 +15074,8 @@
           "皇牌空战",
           "NAMCO",
           "STG",
-          "NBGI",
           "2004",
+          "NBGI",
           "单机",
           "视频通关",
           "游戏",
@@ -16778,8 +16840,8 @@
         "JRPG",
         "RPG",
         "persona",
-        "2016",
         "时髦",
+        "2016",
         "SEGA",
         "ペルソナ"
       ],
@@ -16803,8 +16865,8 @@
           "JRPG",
           "RPG",
           "persona",
-          "2016",
           "时髦",
+          "2016",
           "SEGA",
           "ペルソナ"
         ],

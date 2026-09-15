@@ -619,6 +619,18 @@
         "from": null,
         "to": 8.0
       }
+    },
+    {
+      "id": "evt_aaf621282add7449",
+      "observed_at": "2026-09-15T21:17:58Z",
+      "local_date": "2026-09-16",
+      "entity_id": "anime:9a29b76cd8",
+      "category": "anime",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "原罪的卡辛"
+      }
     }
   ]
 }
