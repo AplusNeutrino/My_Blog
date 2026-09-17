@@ -185,7 +185,7 @@
       "entity_id": "book:870343b517",
       "category": "comic",
       "reason": "in_progress",
-      "last_activity": "2026-09-06T20:22:23Z",
+      "last_activity": "2026-09-17T21:19:27Z",
       "recent_playtime_minutes": 0
     },
     {
@@ -203,17 +203,17 @@
       "recent_playtime_minutes": 0
     },
     {
+      "entity_id": "game:758dd2831b",
+      "category": "game",
+      "reason": "in_progress",
+      "last_activity": "2026-09-17T21:19:27Z",
+      "recent_playtime_minutes": 0
+    },
+    {
       "entity_id": "game:2945907362",
       "category": "game",
       "reason": "in_progress",
       "last_activity": "2026-09-16T21:15:39Z",
-      "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "game:758dd2831b",
-      "category": "game",
-      "reason": "in_progress",
-      "last_activity": "2026-09-15T21:17:58Z",
       "recent_playtime_minutes": 0
     },
     {
