@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-17T21:19:27Z",
-  "last_success_at": "2026-09-17T21:19:27Z",
+  "fetched_at": "2026-09-18T20:52:30Z",
+  "last_success_at": "2026-09-18T20:52:30Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -862,7 +862,7 @@
         "全年龄",
         "PC",
         "ADV",
-        "百合"
+        "第五大同人奇迹"
       ],
       "identifiers": {
         "bangumi_subject_id": 280440
@@ -887,7 +887,7 @@
           "全年龄",
           "PC",
           "ADV",
-          "百合"
+          "第五大同人奇迹"
         ],
         "book_category": null
       }
@@ -4082,8 +4082,8 @@
         "解谜",
         "手游",
         "国产",
-        "AVG",
         "PC",
+        "AVG",
         "iOS",
         "2015",
         "Android",
@@ -4107,8 +4107,8 @@
           "解谜",
           "手游",
           "国产",
-          "AVG",
           "PC",
+          "AVG",
           "iOS",
           "2015",
           "Android",
@@ -4265,8 +4265,8 @@
         "神谷盛治",
         "巨乳",
         "横版",
-        "香草社",
-        "RPG"
+        "RPG",
+        "香草社"
       ],
       "identifiers": {
         "bangumi_subject_id": 30078
@@ -4290,8 +4290,8 @@
           "神谷盛治",
           "巨乳",
           "横版",
-          "香草社",
-          "RPG"
+          "RPG",
+          "香草社"
         ],
         "book_category": null
       }
@@ -4516,8 +4516,8 @@
         "OVA",
         "GAL改",
         "地雷妹",
-        "YostarPictures",
-        "未发售"
+        "原口沙輔",
+        "Aiobahn"
       ],
       "identifiers": {
         "bangumi_subject_id": 620918
@@ -4541,8 +4541,8 @@
           "OVA",
           "GAL改",
           "地雷妹",
-          "YostarPictures",
-          "未发售"
+          "原口沙輔",
+          "Aiobahn"
         ],
         "book_category": null
       }
@@ -6097,13 +6097,13 @@
         "PSV",
         "ACT",
         "朧村正",
-        "香草社",
         "Vanillaware",
+        "香草社",
         "和风",
-        "沢城みゆき",
         "RPG",
-        "ARPG",
-        "DLC业界良心"
+        "沢城みゆき",
+        "DLC业界良心",
+        "ARPG"
       ],
       "identifiers": {
         "bangumi_subject_id": 49209
@@ -6122,13 +6122,13 @@
           "PSV",
           "ACT",
           "朧村正",
-          "香草社",
           "Vanillaware",
+          "香草社",
           "和风",
-          "沢城みゆき",
           "RPG",
-          "ARPG",
-          "DLC业界良心"
+          "沢城みゆき",
+          "DLC业界良心",
+          "ARPG"
         ],
         "book_category": null
       }
@@ -11215,8 +11215,8 @@
         "拆迁",
         "STEAM",
         "2015",
-        "核心向",
         "网游",
+        "核心向",
         "素质游戏"
       ],
       "identifiers": {
@@ -11240,8 +11240,8 @@
           "拆迁",
           "STEAM",
           "2015",
-          "核心向",
           "网游",
+          "核心向",
           "素质游戏"
         ],
         "book_category": null
@@ -12985,12 +12985,12 @@
         "独立游戏",
         "PC",
         "SIM",
+        "解谜",
         "2021",
         "烧脑",
-        "解谜",
         "PUZ",
         "游戏",
-        "数字电路"
+        "单机游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 434205
@@ -13010,12 +13010,12 @@
           "独立游戏",
           "PC",
           "SIM",
+          "解谜",
           "2021",
           "烧脑",
-          "解谜",
           "PUZ",
           "游戏",
-          "数字电路"
+          "单机游戏"
         ],
         "book_category": null
       }
@@ -13681,8 +13681,8 @@
         "解放军",
         "DICE",
         "战地",
-        "战地2",
-        "军事游戏"
+        "军事游戏",
+        "战地2"
       ],
       "identifiers": {
         "bangumi_subject_id": 607
@@ -13706,8 +13706,8 @@
           "解放军",
           "DICE",
           "战地",
-          "战地2",
-          "军事游戏"
+          "军事游戏",
+          "战地2"
         ],
         "book_category": null
       }
@@ -14479,7 +14479,7 @@
         "高难度",
         "ACT",
         "核心向",
-        "RPG"
+        "神作"
       ],
       "identifiers": {
         "bangumi_subject_id": 2247
@@ -14504,7 +14504,7 @@
           "高难度",
           "ACT",
           "核心向",
-          "RPG"
+          "神作"
         ],
         "book_category": null
       }
@@ -16383,8 +16383,8 @@
         "NaughtyDog",
         "ACT",
         "板砖在手天下我有",
-        "神作",
         "满分",
+        "神作",
         "TPS"
       ],
       "identifiers": {
@@ -16408,8 +16408,8 @@
           "NaughtyDog",
           "ACT",
           "板砖在手天下我有",
-          "神作",
           "满分",
+          "神作",
           "TPS"
         ],
         "book_category": null
