@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-18T20:52:30Z",
-  "last_success_at": "2026-09-18T20:52:30Z",
+  "fetched_at": "2026-09-19T20:36:53Z",
+  "last_success_at": "2026-09-19T20:36:53Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -361,11 +361,11 @@
         "网游",
         "奇幻",
         "记录的地平线",
-        "异世界",
         "天闻角川",
+        "异世界",
         "Enterbrain",
         "设绘",
-        "系列"
+        "妹控狂魔"
       ],
       "identifiers": {
         "bangumi_subject_id": 42872
@@ -386,11 +386,11 @@
           "网游",
           "奇幻",
           "记录的地平线",
-          "异世界",
           "天闻角川",
+          "异世界",
           "Enterbrain",
           "设绘",
-          "系列"
+          "妹控狂魔"
         ],
         "book_category": null
       }
@@ -736,11 +736,11 @@
         "AVG",
         "独立游戏",
         "悬疑",
-        "PC",
         "2026",
+        "PC",
         "全年龄",
-        "Galgame",
         "STEAM",
+        "Galgame",
         "轻科幻"
       ],
       "identifiers": {
@@ -761,11 +761,11 @@
           "AVG",
           "独立游戏",
           "悬疑",
-          "PC",
           "2026",
+          "PC",
           "全年龄",
-          "Galgame",
           "STEAM",
+          "Galgame",
           "轻科幻"
         ],
         "book_category": null
@@ -862,7 +862,7 @@
         "全年龄",
         "PC",
         "ADV",
-        "第五大同人奇迹"
+        "百合"
       ],
       "identifiers": {
         "bangumi_subject_id": 280440
@@ -887,7 +887,7 @@
           "全年龄",
           "PC",
           "ADV",
-          "第五大同人奇迹"
+          "百合"
         ],
         "book_category": null
       }
@@ -2392,7 +2392,7 @@
       "source": "bangumi",
       "source_id": "287008",
       "category_hint": "book",
-      "title": "猎魔人 卷八：风暴季节",
+      "title": "猎魔人 卷八 风暴季节",
       "title_original": "Sezon burz",
       "alternate_titles": [
         "Sezon burz"
@@ -2458,10 +2458,10 @@
       "alternate_titles": [
         "Pani Jeziora"
       ],
-      "year": 1998,
-      "release_date": "1998-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/e8/7d/287007_2W9Oj.jpg",
-      "summary": "《湖中仙女》（波兰文：Pani Jeziora，The Lady of the Lake ），作者安杰伊·萨普科夫斯基，1998年于波兰首次出版。这是猎魔人系列小说中的第七部，也是长篇小说中的第五部。\r\n\r\n\r\n小说的开始于希瑞在一个未知世",
+      "summary": "《湖中仙女》（波兰文：Pani Jeziora，The Lady of the Lake ），作者安杰伊·萨普科夫斯基，1998年于波兰首次出版。这是猎魔人系列小说中的第七部，也是长篇小说中的第五部。",
       "status": "completed",
       "rating": {
         "value": 7.0,
@@ -2523,10 +2523,10 @@
       "alternate_titles": [
         "Wieża Jaskółki"
       ],
-      "year": 1997,
-      "release_date": "1997-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/02/cb/287006_f1J6z.jpg",
-      "summary": "《雨燕之塔》（波兰文：Wieża Jaskółki,The Tower of the Swallow ），作者安杰伊·萨普科夫斯基，1997年于波兰首次出版。这是猎魔人系列小说中的第六部，也是长篇小说中的第四部。\r\n\r\n维索戈塔是一个老哲学",
+      "summary": "《雨燕之塔》（波兰文：Wieża Jaskółki,The Tower of the Swallow ），作者安杰伊·萨普科夫斯基，1997年于波兰首次出版。这是猎魔人系列小说中的第六部，也是长篇小说中的第四部。",
       "status": "completed",
       "rating": {
         "value": 7.0,
@@ -2653,8 +2653,8 @@
       "alternate_titles": [
         "Czas pogardy"
       ],
-      "year": 1995,
-      "release_date": "1995-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/22/4e/218026_0001P.jpg",
       "summary": "《轻蔑时代》（波兰文：Czas pogardy，Time of Contempt）是安杰伊·萨普科夫斯基所著“猎魔人”系列的第二部长篇小说，在整个系列中是第四部。本书最初由波兰出版商SuperNOWA于1995年在波兰发行，故事接续上一部《",
       "status": "completed",
@@ -2718,8 +2718,8 @@
       "alternate_titles": [
         "Krew elfów"
       ],
-      "year": 1995,
-      "release_date": "1995-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/a6/40/218025_Z8vb4.jpg",
       "summary": "《精灵之血》（Krew elfów, Blood of Elves）是安杰伊·萨普科夫斯基所著“猎魔人”系列的第一部长篇小说。《精灵之血》的故事接续短篇小说集《宿命之剑》，它的下一部是长篇小说《轻蔑时代》。",
       "status": "completed",
@@ -2783,8 +2783,8 @@
       "alternate_titles": [
         "Miecz przeznaczenia"
       ],
-      "year": 1993,
-      "release_date": "1993-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/6d/16/218024_E288z.jpg",
       "summary": "《宿命之剑》（Miecz przeznaczenia, Sword of Destiny）是安杰伊·萨普科夫斯基所著的短篇小说集，在“猎魔人”系列小说中按照整个故事脉络是第二部，但其首次出版于1992年，早于《白狼崛起》。其中有数篇小说最先",
       "status": "completed",
@@ -2848,8 +2848,8 @@
       "alternate_titles": [
         "Ostatnie życzenie"
       ],
-      "year": 1993,
-      "release_date": "1993-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/47/ad/218022_43V1s.jpg",
       "summary": "利维亚的杰洛特于一次战斗中受伤，在艾尔兰德的梅里泰莉神殿中休养。在此期间他回忆了近期经历过的几件大事，每一件都单独成为一个相对完整的故事。\r\n\r\n小说集《白狼崛起》收录了以下七篇短篇小说，其中包括串联全书的《理性之声》。\r\n\r\n•理性之声（",
       "status": "completed",
@@ -2913,8 +2913,8 @@
       "alternate_titles": [
         "Wiedźmin"
       ],
-      "year": 1992,
-      "release_date": "1992-01-01",
+      "year": null,
+      "release_date": null,
       "cover_url": "https://lain.bgm.tv/pic/cover/l/6d/e2/218023_W7m3N.jpg",
       "summary": "猎魔人系列（波兰语：Cykl wiedźmiński，英语：Witcher series）是由波兰作家安杰伊·萨普科夫斯基所著的十五则短篇、五部曲长篇以及一部独立长篇奇幻小说，讲述了猎魔人利维亚的杰洛特的故事，并构筑了一个庞大纷繁的奇幻架空",
       "status": "completed",
@@ -3906,10 +3906,10 @@
         "谢拉卡姗娜",
         "国产",
         "JRPG",
+        "独立游戏",
         "游戏",
-        "阿宅会议",
-        "OZ",
-        "独立游戏"
+        "同人游戏",
+        "OZ"
       ],
       "identifiers": {
         "bangumi_subject_id": 144286
@@ -3931,10 +3931,10 @@
           "谢拉卡姗娜",
           "国产",
           "JRPG",
+          "独立游戏",
           "游戏",
-          "阿宅会议",
-          "OZ",
-          "独立游戏"
+          "同人游戏",
+          "OZ"
         ],
         "book_category": null
       }
@@ -4457,7 +4457,7 @@
         "ACECOOL",
         "偶像",
         "电影",
-        "2020-2029"
+        "动画电影"
       ],
       "identifiers": {
         "bangumi_subject_id": 540411
@@ -4482,7 +4482,7 @@
           "ACECOOL",
           "偶像",
           "电影",
-          "2020-2029"
+          "动画电影"
         ],
         "book_category": null
       }
@@ -4704,8 +4704,8 @@
         "漫画改",
         "BNPictures",
         "银魂",
-        "漫改",
         "日本",
+        "漫改",
         "安藤尚也",
         "空知英秋",
         "搞笑"
@@ -4729,8 +4729,8 @@
           "漫画改",
           "BNPictures",
           "银魂",
-          "漫改",
           "日本",
+          "漫改",
           "安藤尚也",
           "空知英秋",
           "搞笑"
@@ -5093,8 +5093,8 @@
         "2008",
         "JUMP",
         "2009",
-        "藤田阳一",
         "热血",
+        "藤田阳一",
         "搞笑"
       ],
       "identifiers": {
@@ -5118,8 +5118,8 @@
           "2008",
           "JUMP",
           "2009",
-          "藤田阳一",
           "热血",
+          "藤田阳一",
           "搞笑"
         ],
         "book_category": null
@@ -6102,8 +6102,8 @@
         "和风",
         "RPG",
         "沢城みゆき",
-        "DLC业界良心",
-        "ARPG"
+        "ARPG",
+        "DLC业界良心"
       ],
       "identifiers": {
         "bangumi_subject_id": 49209
@@ -6127,8 +6127,8 @@
           "和风",
           "RPG",
           "沢城みゆき",
-          "DLC业界良心",
-          "ARPG"
+          "ARPG",
+          "DLC业界良心"
         ],
         "book_category": null
       }
@@ -8282,8 +8282,8 @@
         "心理",
         "智斗",
         "悬疑",
-        "斗智",
         "2007",
+        "斗智",
         "漫画系列",
         "数学",
         "講談社"
@@ -8307,8 +8307,8 @@
           "心理",
           "智斗",
           "悬疑",
-          "斗智",
           "2007",
+          "斗智",
           "漫画系列",
           "数学",
           "講談社"
@@ -8344,9 +8344,9 @@
         "无赖",
         "周刊少年magazine",
         "孤立せよ",
-        "マンガ",
-        "中篇",
-        "涯！"
+        "涯！",
+        "人性",
+        "日本漫画"
       ],
       "identifiers": {
         "bangumi_subject_id": 16324
@@ -8369,9 +8369,9 @@
           "无赖",
           "周刊少年magazine",
           "孤立せよ",
-          "マンガ",
-          "中篇",
-          "涯！"
+          "涯！",
+          "人性",
+          "日本漫画"
         ],
         "book_category": null
       }
@@ -8471,8 +8471,8 @@
         "福本伸行",
         "赌博",
         "麻将",
-        "竹書房",
         "智斗",
+        "竹書房",
         "1989",
         "赤木茂",
         "天·天和通りの快男児",
@@ -8496,8 +8496,8 @@
           "福本伸行",
           "赌博",
           "麻将",
-          "竹書房",
           "智斗",
+          "竹書房",
           "1989",
           "赤木茂",
           "天·天和通りの快男児",
@@ -8800,8 +8800,8 @@
         "2004",
         "講談社",
         "人性",
-        "週刊ヤングマガジン",
-        "斗智"
+        "斗智",
+        "週刊ヤングマガジン"
       ],
       "identifiers": {
         "bangumi_subject_id": 16316
@@ -8825,8 +8825,8 @@
           "2004",
           "講談社",
           "人性",
-          "週刊ヤングマガジン",
-          "斗智"
+          "斗智",
+          "週刊ヤングマガジン"
         ],
         "book_category": null
       }
@@ -8862,8 +8862,8 @@
         "赌博",
         "智斗",
         "心理",
-        "黑暗",
         "2000",
+        "黑暗",
         "講談社",
         "人性",
         "週刊ヤングマガジン"
@@ -8887,8 +8887,8 @@
           "赌博",
           "智斗",
           "心理",
-          "黑暗",
           "2000",
+          "黑暗",
           "講談社",
           "人性",
           "週刊ヤングマガジン"
@@ -12103,14 +12103,14 @@
       "tags": [
         "卡牌",
         "PC",
-        "RPG",
         "昆特牌",
         "巫师",
-        "CDProject",
+        "RPG",
         "STEAM",
+        "CDProject",
         "多结局",
         "2018",
-        "PS4"
+        "GOG"
       ],
       "identifiers": {
         "bangumi_subject_id": 264568
@@ -12128,14 +12128,14 @@
         "subject_tags": [
           "卡牌",
           "PC",
-          "RPG",
           "昆特牌",
           "巫师",
-          "CDProject",
+          "RPG",
           "STEAM",
+          "CDProject",
           "多结局",
           "2018",
-          "PS4"
+          "GOG"
         ],
         "book_category": null
       }
@@ -13157,8 +13157,8 @@
         "パイオニアLDC",
         "1998",
         "游戏",
-        "“GamePlayer”",
-        "云过"
+        "云过",
+        "ps1"
       ],
       "identifiers": {
         "bangumi_subject_id": 145972
@@ -13182,8 +13182,8 @@
           "パイオニアLDC",
           "1998",
           "游戏",
-          "“GamePlayer”",
-          "云过"
+          "云过",
+          "ps1"
         ],
         "book_category": null
       }
@@ -13906,8 +13906,8 @@
         "PS3",
         "R星",
         "荒野大镖客",
-        "Xbox360",
         "ACT",
+        "Xbox360",
         "2010",
         "西部沙箱",
         "开放世界",
@@ -13931,8 +13931,8 @@
           "PS3",
           "R星",
           "荒野大镖客",
-          "Xbox360",
           "ACT",
+          "Xbox360",
           "2010",
           "西部沙箱",
           "开放世界",
@@ -15808,8 +15808,8 @@
         "第一人称射击",
         "经典",
         "半条命",
-        "1998",
         "STEAM",
+        "1998",
         "神作"
       ],
       "identifiers": {
@@ -15833,8 +15833,8 @@
           "第一人称射击",
           "经典",
           "半条命",
-          "1998",
           "STEAM",
+          "1998",
           "神作"
         ],
         "book_category": null
@@ -16383,8 +16383,8 @@
         "NaughtyDog",
         "ACT",
         "板砖在手天下我有",
-        "满分",
         "神作",
+        "满分",
         "TPS"
       ],
       "identifiers": {
@@ -16408,8 +16408,8 @@
           "NaughtyDog",
           "ACT",
           "板砖在手天下我有",
-          "满分",
           "神作",
+          "满分",
           "TPS"
         ],
         "book_category": null
