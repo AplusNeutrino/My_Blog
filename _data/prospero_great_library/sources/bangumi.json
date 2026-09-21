@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-20T20:46:33Z",
-  "last_success_at": "2026-09-20T20:46:33Z",
+  "fetched_at": "2026-09-21T21:57:04Z",
+  "last_success_at": "2026-09-21T21:57:04Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -103,8 +103,8 @@
         "音乐",
         "TV",
         "百合",
-        "日本",
         "2026",
+        "日本",
         "NICHICALINE"
       ],
       "identifiers": {
@@ -128,8 +128,8 @@
           "音乐",
           "TV",
           "百合",
-          "日本",
           "2026",
+          "日本",
           "NICHICALINE"
         ],
         "book_category": null
@@ -739,8 +739,8 @@
         "2026",
         "PC",
         "全年龄",
-        "STEAM",
         "Galgame",
+        "STEAM",
         "轻科幻"
       ],
       "identifiers": {
@@ -764,8 +764,8 @@
           "2026",
           "PC",
           "全年龄",
-          "STEAM",
           "Galgame",
+          "STEAM",
           "轻科幻"
         ],
         "book_category": null
@@ -2986,16 +2986,16 @@
       "rating": null,
       "progress": null,
       "tags": [
-        "RPG",
         "独立游戏",
+        "RPG",
         "2025",
-        "PC",
-        "STEAM",
         "CRPG",
+        "PC",
+        "欧美",
+        "STEAM",
         "XGP",
-        "20年代",
-        "2026",
-        "欧美"
+        "游戏",
+        "20年代"
       ],
       "identifiers": {
         "bangumi_subject_id": 469796
@@ -3011,16 +3011,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "RPG",
           "独立游戏",
+          "RPG",
           "2025",
-          "PC",
-          "STEAM",
           "CRPG",
+          "PC",
+          "欧美",
+          "STEAM",
           "XGP",
-          "20年代",
-          "2026",
-          "欧美"
+          "游戏",
+          "20年代"
         ],
         "book_category": null
       }
@@ -3958,14 +3958,14 @@
       "tags": [
         "RPG",
         "最终幻想",
-        "JRPG",
         "SquareEnix",
         "PC",
+        "JRPG",
         "STEAM",
         "游戏",
-        "iOS",
+        "2021",
         "Android",
-        "NS"
+        "高清复刻"
       ],
       "identifiers": {
         "bangumi_subject_id": 489878
@@ -3983,14 +3983,14 @@
         "subject_tags": [
           "RPG",
           "最终幻想",
-          "JRPG",
           "SquareEnix",
           "PC",
+          "JRPG",
           "STEAM",
           "游戏",
-          "iOS",
+          "2021",
           "Android",
-          "NS"
+          "高清复刻"
         ],
         "book_category": null
       }
@@ -4642,8 +4642,8 @@
         "银魂",
         "WEB",
         "搞笑",
-        "雀魂",
         "游戏改",
+        "雀魂",
         "CM",
         "原创",
         "BNPictures"
@@ -4667,8 +4667,8 @@
           "银魂",
           "WEB",
           "搞笑",
-          "雀魂",
           "游戏改",
+          "雀魂",
           "CM",
           "原创",
           "BNPictures"
@@ -4707,8 +4707,8 @@
         "漫改",
         "日本",
         "安藤尚也",
-        "空知英秋",
-        "搞笑"
+        "搞笑",
+        "空知英秋"
       ],
       "identifiers": {
         "bangumi_subject_id": 578766
@@ -4732,8 +4732,8 @@
           "漫改",
           "日本",
           "安藤尚也",
-          "空知英秋",
-          "搞笑"
+          "搞笑",
+          "空知英秋"
         ],
         "book_category": null
       }
@@ -5780,8 +5780,8 @@
         "任天堂",
         "JRPG",
         "糸井重里",
-        "2006",
         "nintendo",
+        "2006",
         "meta",
         "老娘3",
         "HAL研究所"
@@ -5805,8 +5805,8 @@
           "任天堂",
           "JRPG",
           "糸井重里",
-          "2006",
           "nintendo",
+          "2006",
           "meta",
           "老娘3",
           "HAL研究所"
@@ -9319,8 +9319,8 @@
         "StudioDURIAN",
         "青春",
         "日本",
-        "漫改",
-        "治愈"
+        "治愈",
+        "漫改"
       ],
       "identifiers": {
         "bangumi_subject_id": 480441
@@ -9344,8 +9344,8 @@
           "StudioDURIAN",
           "青春",
           "日本",
-          "漫改",
-          "治愈"
+          "治愈",
+          "漫改"
         ],
         "book_category": null
       }
@@ -10207,8 +10207,8 @@
         "PC",
         "多人",
         "沙盒",
-        "STEAM",
         "恐怖",
+        "STEAM",
         "2014",
         "独立游戏",
         "野人",
@@ -10232,8 +10232,8 @@
           "PC",
           "多人",
           "沙盒",
-          "STEAM",
           "恐怖",
+          "STEAM",
           "2014",
           "独立游戏",
           "野人",
@@ -10332,8 +10332,8 @@
         "精神续作",
         "合作",
         "丧尸",
-        "2021",
         "PVE",
+        "2021",
         "PS5"
       ],
       "identifiers": {
@@ -10357,8 +10357,8 @@
           "精神续作",
           "合作",
           "丧尸",
-          "2021",
           "PVE",
+          "2021",
           "PS5"
         ],
         "book_category": null
@@ -12352,9 +12352,9 @@
         "战锤",
         "2022",
         "大战略",
-        "东格玛",
         "英国",
-        "策略"
+        "东格玛",
+        "CA"
       ],
       "identifiers": {
         "bangumi_subject_id": 327292
@@ -12377,9 +12377,9 @@
           "战锤",
           "2022",
           "大战略",
-          "东格玛",
           "英国",
-          "策略"
+          "东格玛",
+          "CA"
         ],
         "book_category": null
       }
@@ -15808,8 +15808,8 @@
         "第一人称射击",
         "经典",
         "半条命",
-        "STEAM",
         "1998",
+        "STEAM",
         "神作"
       ],
       "identifiers": {
@@ -15833,8 +15833,8 @@
           "第一人称射击",
           "经典",
           "半条命",
-          "STEAM",
           "1998",
+          "STEAM",
           "神作"
         ],
         "book_category": null
@@ -20044,8 +20044,8 @@
         "富奸",
         "大坑",
         "重制",
-        "猎人",
         "热血",
+        "猎人",
         "富坚义博",
         "MADHouse",
         "TV",
@@ -20069,8 +20069,8 @@
           "富奸",
           "大坑",
           "重制",
-          "猎人",
           "热血",
+          "猎人",
           "富坚义博",
           "MADHouse",
           "TV",
