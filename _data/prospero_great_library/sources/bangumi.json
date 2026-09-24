@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-23T21:28:12Z",
-  "last_success_at": "2026-09-23T21:28:12Z",
+  "fetched_at": "2026-09-24T21:28:47Z",
+  "last_success_at": "2026-09-24T21:28:47Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -2143,8 +2143,8 @@
         "PC",
         "2026",
         "AAVG",
-        "动作冒险",
         "IOI",
+        "动作冒险",
         "游戏",
         "PS5",
         "007",
@@ -2168,8 +2168,8 @@
           "PC",
           "2026",
           "AAVG",
-          "动作冒险",
           "IOI",
+          "动作冒险",
           "游戏",
           "PS5",
           "007",
@@ -2293,7 +2293,7 @@
         "绝对神作",
         "Clover",
         "PS3",
-        "天照"
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 1536
@@ -2318,7 +2318,7 @@
           "绝对神作",
           "Clover",
           "PS3",
-          "天照"
+          "PC"
         ],
         "book_category": null
       }
@@ -3047,8 +3047,8 @@
       },
       "progress": null,
       "tags": [
-        "PC",
         "TRPG",
+        "PC",
         "RPG",
         "文字",
         "AVG",
@@ -3072,8 +3072,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "PC",
           "TRPG",
+          "PC",
           "RPG",
           "文字",
           "AVG",
@@ -8090,13 +8090,13 @@
         "漫画",
         "搞笑",
         "2021",
-        "福本伸行",
         "青年",
         "讲谈社",
-        "萩原天晴",
-        "网络",
+        "福本伸行",
         "打工人",
-        "连载中"
+        "萩原天晴",
+        "现实",
+        "网络"
       ],
       "identifiers": {
         "bangumi_subject_id": 333688
@@ -8115,13 +8115,13 @@
           "漫画",
           "搞笑",
           "2021",
-          "福本伸行",
           "青年",
           "讲谈社",
-          "萩原天晴",
-          "网络",
+          "福本伸行",
           "打工人",
-          "连载中"
+          "萩原天晴",
+          "现实",
+          "网络"
         ],
         "book_category": null
       }
@@ -11446,8 +11446,8 @@
         "RPG",
         "STEAM",
         "像素",
-        "科幻",
-        "悬疑"
+        "悬疑",
+        "科幻"
       ],
       "identifiers": {
         "bangumi_subject_id": 296491
@@ -11471,8 +11471,8 @@
           "RPG",
           "STEAM",
           "像素",
-          "科幻",
-          "悬疑"
+          "悬疑",
+          "科幻"
         ],
         "book_category": null
       }
