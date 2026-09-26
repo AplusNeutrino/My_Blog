@@ -15,6 +15,12 @@
     },
     {
       "source": "neodb",
+      "source_id": "1uYnoluuaJbMecvq5H4YEp",
+      "confidence": 1.0,
+      "method": "id:bangumi_subject_id"
+    },
+    {
+      "source": "neodb",
       "source_id": "0gp4bua6YIKKZyjBqNqCxj",
       "confidence": 1.0,
       "method": "id:bangumi_subject_id"

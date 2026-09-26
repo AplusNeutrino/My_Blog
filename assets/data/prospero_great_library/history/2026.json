@@ -631,6 +631,19 @@
       "data": {
         "title": "原罪的卡辛"
       }
+    },
+    {
+      "id": "evt_784f6b41a3ba84b2",
+      "observed_at": "2026-09-26T21:06:51Z",
+      "local_date": "2026-09-27",
+      "entity_id": "anime:bcc94235bb",
+      "category": "anime",
+      "event": "source_attached",
+      "source": "neodb",
+      "data": {
+        "title": "斗牌传说",
+        "source": "neodb"
+      }
     }
   ]
 }
