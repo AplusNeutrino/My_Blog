@@ -1,0 +1,21 @@
+types:
+  fragment:
+    label: Fragment
+  note:
+    label: Note
+  essay:
+    label: Essay
+
+topics:
+  otaku:
+    label: Otaku
+    description: Games, anime, manga, visual novels, JRPG and related subculture.
+  arts:
+    label: Arts
+    description: Film, books, literature and adjacent traditional cultural works.
+  computation:
+    label: Computation
+    description: Computing, AI, data, programming, databases, networks, algorithms and machine learning.
+  humanity:
+    label: Humanity
+    description: Society, philosophy, personal reflection, internet culture, values, identity and human experience.
