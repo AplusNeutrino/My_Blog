@@ -1,0 +1,22 @@
+{% assign taxonomy = site.data.content_taxonomy %}
+{% assign type_key = page.type | downcase %}
+{% assign topic_key = page.topic | downcase %}
+{% assign type_data = taxonomy.types[type_key] %}
+{% assign topic_data = taxonomy.topics[topic_key] %}
+
+{% if type_data or topic_data or page.series %}
+  <div class="post-meta mb-3 post-taxonomy" aria-label="Content taxonomy">
+    <i class="fa-solid fa-compass fa-fw me-1"></i>
+    {% if type_data %}
+      <span class="post-taxonomy-type">{{ type_data.label }}</span>
+    {% endif %}
+    {% if topic_data %}
+      {% if type_data %}<span aria-hidden="true"> · </span>{% endif %}
+      <span class="post-taxonomy-topic">{{ topic_data.label }}</span>
+    {% endif %}
+    {% if page.series %}
+      {% if type_data or topic_data %}<span aria-hidden="true"> · </span>{% endif %}
+      <span class="post-taxonomy-series">Series: {{ page.series }}</span>
+    {% endif %}
+  </div>
+{% endif %}
