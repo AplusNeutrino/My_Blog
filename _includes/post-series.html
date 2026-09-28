@@ -1,4 +1,31 @@
-{% if page.categories.size > 0 %}
+{% if page.series %}
+  {% assign series_posts = site.posts | where: 'series', page.series | sort: 'date' %}
+  {% if series_posts.size > 1 %}
+    <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
+      <div class="post-series-header">
+        <h2 class="panel-heading">同频系列</h2>
+        <span class="post-series-count">
+          {% for post in series_posts %}{% if post.url == page.url %}{{ forloop.index }}/{{ series_posts.size }}{% endif %}{% endfor %}
+        </span>
+      </div>
+      <div class="post-series-root">{{ page.series }}</div>
+      <div class="post-series-tree">
+        <ol class="post-series-list">
+          {% for post in series_posts %}
+            <li class="post-series-item{% if post.url == page.url %} is-current{% endif %}">
+              <a href="{{ post.url | relative_url }}">
+                <span class="post-series-order">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                <span class="post-series-title">{{ post.title }}</span>
+                <time class="post-series-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%m/%d' }}</time>
+              </a>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </section>
+  {% endif %}
+{% elsif page.categories.size > 0 %}
+  {% comment %}Legacy fallback retained until all posts have explicit series metadata.{% endcomment %}
   {% assign page_root_category = page.categories | first %}
   {% assign page_leaf_category = page.categories | last %}
 
@@ -22,15 +49,9 @@
               {% assign should_show_series_post = true %}
             {% endif %}
           {% endif %}
-
           {% if should_show_series_post %}
             {% unless first_series_post %},{% endunless %}
-            {
-              "title": {{ post.title | jsonify }},
-              "url": {{ post.url | relative_url | jsonify }},
-              "date": {{ post.date | date: '%Y-%m-%d' | jsonify }},
-              "categories": {{ post.categories | jsonify }}
-            }
+            {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "date": {{ post.date | date: '%Y-%m-%d' | jsonify }}, "categories": {{ post.categories | jsonify }}}
             {% assign first_series_post = false %}
           {% endif %}
         {% endfor %}
@@ -41,113 +62,26 @@
       (() => {
         const panel = document.currentScript.closest('#post-series');
         if (!panel) return;
-
         const treeRoot = panel.querySelector('[data-series-tree]');
         const countNode = panel.querySelector('[data-series-count]');
         const dataNode = panel.querySelector('[data-series-posts]');
         const currentUrl = panel.dataset.currentUrl;
         const posts = JSON.parse(dataNode.textContent || '[]');
-
-        if (posts.length <= 1) {
-          panel.hidden = true;
-          return;
-        }
-
-        const rootCategory = posts[0]?.categories?.[0];
-        const currentPost = posts.find((post) => post.url === currentUrl);
-        const currentPath = (currentPost?.categories || []).slice(1);
-        const categoryTree = { name: rootCategory, children: new Map(), posts: [] };
-
-        posts
-          .sort((a, b) => a.date.localeCompare(b.date))
-          .forEach((post) => {
-            const path = post.categories.slice(1);
-            let cursor = categoryTree;
-
-            if (path.length === 0) {
-              cursor.posts.push(post);
-              return;
-            }
-
-            path.forEach((category) => {
-              if (!cursor.children.has(category)) {
-                cursor.children.set(category, { name: category, children: new Map(), posts: [] });
-              }
-              cursor = cursor.children.get(category);
-            });
-
-            cursor.posts.push(post);
-          });
-
+        if (posts.length <= 1) { panel.hidden = true; return; }
         countNode.textContent = `${posts.findIndex((post) => post.url === currentUrl) + 1}/${posts.length}`;
-
-        const countPosts = (node) => {
-          return node.posts.length + [...node.children.values()].reduce((sum, child) => sum + countPosts(child), 0);
-        };
-
-        const renderPost = (post, index) => {
+        const list = document.createElement('ol');
+        list.className = 'post-series-list';
+        posts.sort((a, b) => a.date.localeCompare(b.date)).forEach((post, index) => {
           const item = document.createElement('li');
           item.className = 'post-series-item';
           if (post.url === currentUrl) item.classList.add('is-current');
-
-          const link = document.createElement('a');
-          link.href = post.url;
-
-          const order = document.createElement('span');
-          order.className = 'post-series-order';
-          order.textContent = String(index + 1).padStart(2, '0');
-
-          const title = document.createElement('span');
-          title.className = 'post-series-title';
-          title.textContent = post.title;
-
-          const date = document.createElement('time');
-          date.className = 'post-series-date';
-          date.dateTime = post.date;
-          date.textContent = post.date.slice(5).replace('-', '/');
-
-          link.append(order, title, date);
-          item.append(link);
-
-          return item;
-        };
-
-        const renderPostList = (node) => {
-          const list = document.createElement('ol');
-          list.className = 'post-series-list';
-          node.posts.forEach((post) => list.append(renderPost(post, posts.indexOf(post))));
-          return list;
-        };
-
-        const renderNode = (node, path = []) => {
-          const fragment = document.createDocumentFragment();
-
-          [...node.children.values()].forEach((child) => {
-            const childPath = [...path, child.name];
-            const details = document.createElement('details');
-            details.className = 'post-series-group';
-            details.open = currentPath.slice(0, childPath.length).join('\u0000') === childPath.join('\u0000');
-
-            const summary = document.createElement('summary');
-            const name = document.createElement('span');
-            name.className = 'post-series-category';
-            name.textContent = child.name;
-            const size = document.createElement('span');
-            size.className = 'post-series-size';
-            size.textContent = countPosts(child);
-            summary.append(name, size);
-
-            details.append(summary);
-            details.append(renderNode(child, childPath));
-            fragment.append(details);
-          });
-
-          if (node.posts.length > 0) fragment.append(renderPostList(node));
-
-          return fragment;
-        };
-
-        treeRoot.append(renderNode(categoryTree));
+          const link = document.createElement('a'); link.href = post.url;
+          const order = document.createElement('span'); order.className = 'post-series-order'; order.textContent = String(index + 1).padStart(2, '0');
+          const title = document.createElement('span'); title.className = 'post-series-title'; title.textContent = post.title;
+          const date = document.createElement('time'); date.className = 'post-series-date'; date.dateTime = post.date; date.textContent = post.date.slice(5).replace('-', '/');
+          link.append(order, title, date); item.append(link); list.append(item);
+        });
+        treeRoot.append(list);
       })();
     </script>
   </section>
