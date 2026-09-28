@@ -6,82 +6,16 @@
 > Scope: content taxonomy, tag rationalization, front-matter migration, supporting classification UI/data, validation  
 > Hard rule: **do not rewrite article body content**
 
-## 1. Goal
+## 1. Approved content model
 
-Reorganize Neutriverse's writing system around a durable content model that can support a large and growing body of public writing without turning the site into a course-folder archive or an unbounded tag cloud.
+The new taxonomy separates four questions:
 
-The new model separates four independent questions:
+- **Type** — `fragment`, `note`, `essay`. Argument structure outranks mechanical word count.
+- **Topic** — exactly one of `otaku`, `arts`, `computation`, `humanity`.
+- **Series** — optional; only for a durable continuing line of inquiry, not to preserve an old folder/category name.
+- **Tags** — a small canonical set of specific works/entities, technical concepts, analytical themes, named theories/frameworks/people.
 
-- **Type** — how deeply is this piece expressed?
-- **Topic** — which broad long-term domain does it belong to?
-- **Series** — is it part of a continuing line of inquiry?
-- **Tags** — what specific works, concepts, technologies, themes, or entities does it concern?
-
-Existing article URLs should remain unchanged wherever technically possible.
-
-## 2. Approved taxonomy
-
-### 2.1 Type
-
-Exactly three writing types:
-
-- `fragment`
-  - very short, immediate thought or observation
-  - normally no complete argument
-  - primarily maps to the current Thoughts/short-form system
-- `note`
-  - usually up to roughly 1000 Chinese characters, but length is not mechanical
-  - one piece, one specific idea / question / observation
-  - includes short reviews, focused cultural commentary, technical explanations, and learning notes
-- `essay`
-  - contains a clear central proposition that needs sustained development, comparison, synthesis, or argument
-  - may span multiple works, sources, disciplines, or technical ideas
-  - no strict upper or lower word-count rule
-
-Decision principle: **argument structure outranks word count**.
-
-### 2.2 Topic
-
-Exactly four long-lived top-level topics:
-
-- `otaku`
-  - Games, Anime, Manga, Visual Novels, JRPG, related subculture
-- `arts`
-  - Film, Books, Literature, and adjacent traditional cultural works
-- `computation`
-  - Computing, AI, Data, Programming, Databases, Networks, Algorithms, ML/LLM, data science
-- `humanity`
-  - Society, Philosophy, Personal reflection, internet culture, values, identity, human experience
-
-These are intentionally broad. Do not create new top-level topics during migration unless the current plan is explicitly revised by the owner.
-
-### 2.3 Series
-
-`series` is optional.
-
-A Series means: **a continuing line of inquiry that can receive future pieces**.
-
-Good candidates include:
-
-- Computer Networks
-- Database Systems
-- Understanding LLMs
-- Formal Systems
-- a recurring thematic criticism project
-
-Do **not** use Series merely to preserve old folder names or content-purpose labels such as:
-
-- 学习笔记
-- 游戏记录
-- 软件发布
-- 记忆碎片
-- 思维链条
-
-Course-derived series may survive, but should be reframed as an enduring subject rather than a frozen lecture sequence. Example: `计网笔记` → `Computer Networks`, where future non-course articles can still belong.
-
-## 3. Front-matter target model
-
-Preferred semantic shape:
+Preferred post front matter:
 
 ```yaml
 ---
@@ -89,255 +23,96 @@ title: ...
 date: ...
 type: note
 topic: computation
-series: computer-networks   # optional; omit when not used
+series: computer-networks   # optional
 tags:
   - TCP
   - Congestion Control
-  - Transport Layer
-# preserve existing permalink / slug / layout / image / other required fields
+# preserve permalink / slug / layout / image / description / other required fields
 ---
 ```
 
-Rules:
+## 2. Topic definitions
 
-1. Preserve existing permalink/slug behavior and existing URLs wherever possible.
-2. Preserve all unrelated metadata required by the site/theme.
-3. Modify front matter only unless a technical classification template/data file must be changed.
-4. **Do not alter article body text, argument, wording, headings, quotations, images, or prose structure.**
-5. Do not mechanically force a `series` value onto every article.
-6. If current architecture requires retaining legacy `categories` temporarily for compatibility, keep them only as a migration bridge; the new semantic source of truth is `type/topic/series/tags`.
+- `otaku`: Games, Anime, Manga, Visual Novels, JRPG and related subculture.
+- `arts`: Film, Books, Literature and adjacent traditional cultural works.
+- `computation`: Computing, AI, Data, Programming, Databases, Networks, Algorithms, ML/LLM and data science.
+- `humanity`: Society, Philosophy, Personal reflection, internet culture, values, identity and human experience.
 
-## 4. Tag rationalization strategy
+Do not create another top-level Topic during this migration.
 
-The current tag system should be reduced and normalized, not indiscriminately deleted.
+## 3. Classification rules
 
-### 4.1 What a tag should represent
+1. Read each article itself before assigning its new classification; never classify from filename alone when body content is available.
+2. Assign exactly one `type` and one primary `topic` to each post in migration scope.
+3. Add `series` only where a real future-extensible thread exists. Course-derived lines may be reframed as enduring subjects (for example `计网笔记` → `Computer Networks`).
+4. Reduce tags based on actual subject matter. Do not use tags to repeat Type, Topic or Series.
+5. Keep legacy `categories` temporarily only if current Jekyll/Chirpy compatibility requires them.
+6. Preserve unrelated metadata.
+7. **Do not modify article body text, headings, wording, quotations, images or argument structure.**
+8. Preserve existing URLs: do not rename post files or change `date`, `slug` or `permalink` unless an unavoidable technical issue is documented.
 
-A tag should usually be one of:
+## 4. Tag rationalization
 
-1. **Named work / franchise / object**
-   - `Final Fantasy XVI`
-   - `NieR: Automata`
-   - `Ghost in the Shell`
-2. **Specific technical concept / technology**
-   - `RAG`
-   - `Embedding`
-   - `TCP`
-   - `B+ Tree`
-3. **Specific analytical concept / theme**
-   - `Narrative Design`
-   - `Identity`
-   - `Memory`
-   - `Apocalypse`
-4. **Named theory / framework / person when genuinely useful for retrieval**
-   - `Gödel`
-   - `Terror Management Theory`
+Retain useful retrieval tags such as named works/franchises, technologies/concepts, analytical themes, and named theories/people. Merge synonyms, spelling/case variants and redundant abbreviation/full-name pairs into one canonical form.
 
-### 4.2 What should normally stop being a tag
+Normally retire generic editorial/domain labels whose work is now done by Type/Topic/Series, such as 学习、学习笔记、笔记、记录、随笔、随想、杂谈、思考, broad media-only tags such as 游戏/动画/电影/书籍, and broad computation-domain tags used only to mean Computing/AI/Data.
 
-Retire tags whose job is already handled by Type, Topic, or Series, including generic labels such as:
+Default tag-count targets: Fragment `0–3`, Note `2–5`, Essay `3–6`. These are judgment guidelines, not hard limits.
 
-- 学习 / 学习笔记
-- 笔记
-- 记录
-- 随笔 / 随想
-- 杂谈
-- 思考
-- 游戏 / 动画 / 电影 / 书籍 when used only as broad media labels
-- Computing / AI / Data when used only as broad domain labels already represented by `topic: computation`
-- old category names that describe editorial purpose rather than subject matter
+Step 2 must inventory old tag usage, produce the canonical old → new map, protect useful one-off entity/concept tags, and document uncertain cases.
 
-### 4.3 Normalization rules
+## 5. Migration audit
 
-- Merge obvious synonyms, spelling variants, abbreviations, plural/singular variants, and capitalization variants.
-- Prefer canonical technical terminology for technical tags.
-- Prefer official/common work titles for media tags.
-- Do not create both a full term and abbreviation unless each has independent retrieval value; prefer one canonical form.
-- Avoid duplicating `topic` or `series` as a tag unless a concrete audit shows a strong discovery reason.
-- Do not delete a highly specific one-off tag merely because it is used once if it names a work, concept, technology, theory, or person that is genuinely useful for later lookup.
+The authoritative audit is `docs/content-taxonomy-migration.md`. It records source file/title, old categories/tags, new Type/Topic/Series/Tags, confidence (`confident`/`review`) and notes. Every migrated article must have an audit entry.
 
-### 4.4 Tag-count target
+## 6. Implementation boundaries
 
-These are defaults, not hard validation limits:
+Allowed: front-matter metadata, taxonomy data/config, minimum compatible taxonomy/index/template plumbing, tag cleanup, audit/report files, and fixes directly caused by this migration.
 
-- Fragment: `0–3` tags
-- Note: `2–5` tags
-- Essay: `3–6` tags
+Out of scope: prose rewriting, opinion changes, stylistic body editing, broad site redesign, unrelated refactors, and gratuitous URL changes.
 
-A piece should have enough tags to be findable, but not enough to become a summary of every noun in the article.
+## 7. Eight-step execution plan
 
-### 4.5 Canonicalization workflow
+Each run reads this file and current GitHub state, executes **the first unchecked step only**, then updates this plan and records evidence. A blocked step remains unchecked.
 
-During the article audit:
+### Step 1 — Repository + content inventory
 
-1. inventory every existing tag and usage count;
-2. group near-duplicates and synonyms;
-3. identify tags made redundant by Type/Topic/Series;
-4. retain high-value named entities and concepts;
-5. create a canonical old → new mapping;
-6. migrate article metadata using that mapping plus article-specific judgment;
-7. validate that no obviously useful retrieval path was lost.
+- [x] Locate article/Thought sources and front-matter conventions; inventory published writing; identify category/tag generation; establish migration count and audit; confirm URL-sensitive metadata.
 
-## 5. Classification judgment rules
+**Execution evidence — 2026-09-29:** Created `docs/content-taxonomy-migration.md` with the complete 44-post source inventory plus 5 current Thoughts fragments (49 writing items total). Confirmed posts live in `_posts/`; Thoughts are 5 YAML objects embedded in `_tabs/thoughts.md` and rendered by `_layouts/thoughts.html`; no `_thoughts` collection exists. Confirmed existing discovery through `_tabs/categories.md`, `_tabs/tags.md`, archives, custom layouts, and existing `_includes/post-series.html`. Representative front matter confirms current `categories` + `tags` convention. URL-safety rule established: leave filenames, dates, slugs and explicit permalinks unchanged. No article body was edited. Audit commit: `27e2187bbbb9b3c6bc51e0afa8d47586951819f0`. Plan-status update is this commit. No blocker.
 
-When reading each article:
+### Step 2 — Canonical taxonomy + tag map
 
-1. Read the article itself, not only its current category/tag names.
-2. Assign exactly one `type`.
-3. Assign exactly one primary `topic` unless the current implementation proves a strong need for multi-topic support; default is one topic.
-4. Assign `series` only when a real continuing thread exists.
-5. Rewrite tags as a small canonical set based on actual subject matter.
-6. Mark ambiguous cases in the migration audit rather than inventing new taxonomy.
-7. Preserve the body byte-for-byte whenever feasible.
+- [ ] Read current tag inventory; build canonical reduction map; identify retired generic tags, synonym/case merges and protected entity tags; map old category/series-like structures; document uncertain cases in the audit. Do not edit article bodies.
 
-### Borderline examples
+### Step 3 — Implement taxonomy plumbing
 
-- 900 characters with a sustained thesis and comparison → may be `essay`.
-- 1500 characters that mainly explain one technical mechanism → may remain `note`.
-- a learning article should not be classified by the old course folder alone; classify by the idea it explains.
-- a game/anime/film/book article is classified by depth (`type`) and domain (`topic`), not by a generic “review” label.
+- [ ] Add/adapt the minimum machinery required for `type`, `topic`, `series` and canonical `tags` in templates/indexes/navigation without breaking existing URLs. Prefer adapting current category/tag machinery. Inspect existing `_includes/post-series.html` before changing Series behavior. Validate syntax/build as repository tooling permits.
 
-## 6. Required migration audit
+### Step 4 — Article migration batch A
 
-Create and maintain a machine- or human-readable audit file during migration with at least:
+- [ ] Read and classify approximately the first quarter of the 44 posts. Front matter only. Apply Type, Topic, optional Series and reduced tags; preserve URLs and bodies; update audit for every migrated file.
 
-| Field | Meaning |
-|---|---|
-| Article | source file/title |
-| Old Category | prior category values |
-| Old Tags | prior tags |
-| New Type | fragment/note/essay |
-| New Topic | otaku/arts/computation/humanity |
-| New Series | optional |
-| New Tags | canonical reduced set |
-| Confidence | confident/review |
-| Notes | reason for ambiguous or notable decisions |
+### Step 5 — Article migration batch B
 
-Preferred location: `docs/content-taxonomy-migration.md` or an equivalent clearly named file.
+- [ ] Read and classify approximately the second quarter using the same rules; front matter only; update audit.
 
-## 7. Implementation boundaries
+### Step 6 — Article migration batch C
 
-### Allowed
+- [ ] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
 
-- front-matter metadata changes
-- taxonomy data/config changes
-- category/topic/type/series index or template changes required to make the new model function
-- tag cleanup and canonicalization
-- migration audit/report files
-- tests/build fixes directly caused by the taxonomy migration
+### Step 7 — Article migration batch D + Fragments/Thoughts
 
-### Not allowed in this migration
+- [ ] Read/classify remaining posts; align current Thoughts to `type: fragment` in the least disruptive architecture-compatible way; finish tag cleanup; update audit and list owner-review items.
 
-- rewriting article prose
-- changing the author's historical opinions
-- stylistic editing of article bodies
-- broad redesign of the entire Neutriverse visual language
-- unrelated refactors
-- gratuitous URL changes
+### Step 8 — Full validation + final handoff
 
-## 8. Eight-step hourly execution plan
+- [ ] Validate all writing classifications, allowed Topic values, meaningful optional Series, tag reduction, body preservation, URL/permalink preservation and generated taxonomy surfaces. Run available build/tests where feasible and review diffs for accidental prose changes. Create `docs/content-taxonomy-final-report.md` with migration totals, Type/Topic counts, Series list, old/new unique tag counts, merges/removals, URL compatibility, validation/build evidence, unresolved review items and relevant commit SHAs.
 
-Each automation run must first read this file and the current repository state, then execute **the first unchecked step only**. After completing a step, update this document by changing `[ ]` to `[x]` and append a short dated execution note under that step. If a step is partially blocked, record the blocker clearly and do not falsely mark it complete.
+## 8. Definition of done
 
-### Step 1 — Repository + content inventory (03:00)
+Done means all relevant writing has been individually read/classified; Type uses only Fragment/Note/Essay; Topic uses only the four approved values; learning material is organized by enduring subject/question rather than course sequence alone; Series are optional and extensible; tags are materially reduced/canonicalized; bodies are unchanged; URLs are preserved wherever possible; the site can surface the taxonomy with minimal compatible extensions; and complete audit/final-report evidence exists.
 
-- [ ] Locate all article/Thought source directories and front-matter conventions.
-- Inventory all published writing files, categories, tags, existing permalinks, and special layouts.
-- Identify how category/tag pages are generated today.
-- Establish exact migration count and create the initial migration audit file.
-- Confirm which metadata fields can be changed without changing URLs.
+## 9. Safety and handoff
 
-### Step 2 — Canonical taxonomy + tag map (04:00)
-
-- [ ] Read the current tag inventory and build the first canonical tag reduction map.
-- Identify retired generic tags, synonym merges, spelling/case normalization, and protected high-value entity tags.
-- Map old category/series-like structures to the new model.
-- Record all rules and uncertain cases in the migration audit.
-- Do not edit article bodies.
-
-### Step 3 — Implement taxonomy plumbing (05:00)
-
-- [ ] Add or adapt the minimum site machinery required for `type`, `topic`, `series`, and canonical `tags` to be usable in templates/indexes/navigation without breaking existing URLs.
-- Prefer adapting existing category/tag machinery over replacing the CMS architecture.
-- Preserve backwards compatibility where needed during migration.
-- Validate syntax/build as far as repository tooling permits.
-
-### Step 4 — Article migration batch A (06:00)
-
-- [ ] Read and classify approximately the first quarter of existing long-form/article source files.
-- Edit front matter only.
-- Apply `type`, `topic`, optional `series`, and reduced canonical tags.
-- Preserve permalinks and body content.
-- Update migration audit for every migrated file.
-
-### Step 5 — Article migration batch B (07:00)
-
-- [ ] Read and classify approximately the second quarter of existing long-form/article source files using the same rules.
-- Front matter only; preserve URLs and body content.
-- Update migration audit.
-
-### Step 6 — Article migration batch C (08:00)
-
-- [ ] Read and classify approximately the third quarter of existing long-form/article source files using the same rules.
-- Front matter only; preserve URLs and body content.
-- Update migration audit.
-
-### Step 7 — Article migration batch D + Fragments/Thoughts (09:00)
-
-- [ ] Read and classify the remaining article files.
-- Migrate/align the current Thoughts/short-form system to `type: fragment` in the least disruptive way supported by the existing architecture.
-- Complete tag cleanup across all migrated content.
-- Update migration audit and explicitly list any items requiring owner review.
-
-### Step 8 — Full validation + final handoff (10:00)
-
-- [ ] Validate the complete migration:
-  - every writing item has the intended new classification where applicable;
-  - no article body was intentionally changed;
-  - existing URLs/permalinks were preserved wherever possible;
-  - tag duplication and generic editorial tags were materially reduced;
-  - topic values are limited to `otaku`, `arts`, `computation`, `humanity`;
-  - Series usage is optional and meaningful;
-  - generated classification pages/templates do not obviously break;
-  - repository build/tests are run where feasible.
-- Review diffs for accidental prose edits.
-- Produce a final report at `docs/content-taxonomy-final-report.md` containing:
-  - total items migrated;
-  - counts by Type and Topic;
-  - Series list;
-  - old vs new unique tag counts;
-  - canonical tag merges/removals;
-  - URL compatibility notes;
-  - validation/build results;
-  - unresolved review items;
-  - relevant commit SHAs.
-- Mark this plan complete only if evidence supports completion.
-
-## 9. Definition of done
-
-The migration is done when:
-
-- all relevant existing writing has been individually read and classified;
-- Type uses only Fragment / Note / Essay;
-- Topic uses only Otaku / Arts / Computation / Humanity;
-- learning notes are organized by enduring subject/question rather than merely by course sequence;
-- Series are optional, durable, and future-extensible;
-- tags are meaningfully reduced and canonicalized;
-- article body content remains unchanged;
-- existing URLs are preserved wherever possible;
-- the site can surface the new taxonomy using its existing architecture or minimal compatible extensions;
-- a complete audit and final report exist.
-
-## 10. Execution safety rules
-
-- Read before writing.
-- Never infer an article classification from filename alone when body content is available.
-- Do not claim runtime/build PASS without actually running the available validation.
-- Do not silently change URLs.
-- Do not silently rewrite prose.
-- Keep changes scoped to this migration.
-- If repository state changes between hourly runs, re-read current files and continue from GitHub truth rather than stale assumptions.
-
-## 11. Repository handoff convention
-
-Per `AGENTS.md`, any final handoff involving changed files must include copy-paste-ready PowerShell commands for committing and pushing changes when manual Git operation is relevant. Automated GitHub commits should still be listed by SHA in the final migration report.
+Read before writing. Never infer classification from filename alone. Never claim build/runtime PASS without running the validation. Do not silently change URLs or prose. Re-read GitHub state on every run. Per `AGENTS.md`, final handoffs involving changed files must include copy-paste-ready PowerShell commit/push commands when manual Git operation is relevant; automated GitHub commits must be listed by SHA in the final report.
