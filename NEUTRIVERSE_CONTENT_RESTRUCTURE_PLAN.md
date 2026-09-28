@@ -65,6 +65,8 @@ Step 2 must inventory old tag usage, produce the canonical old → new map, prot
 
 The authoritative audit is `docs/content-taxonomy-migration.md`. It records source file/title, old categories/tags, new Type/Topic/Series/Tags, confidence (`confident`/`review`) and notes. Every migrated article must have an audit entry.
 
+The canonical tag/legacy-category decision companion is `docs/content-taxonomy-tag-map.md`; per-article final decisions remain recorded in the authoritative migration audit as articles are read and migrated.
+
 ## 6. Implementation boundaries
 
 Allowed: front-matter metadata, taxonomy data/config, minimum compatible taxonomy/index/template plumbing, tag cleanup, audit/report files, and fixes directly caused by this migration.
@@ -79,11 +81,13 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 - [x] Locate article/Thought sources and front-matter conventions; inventory published writing; identify category/tag generation; establish migration count and audit; confirm URL-sensitive metadata.
 
-**Execution evidence — 2026-09-29:** Created `docs/content-taxonomy-migration.md` with the complete 44-post source inventory plus 5 current Thoughts fragments (49 writing items total). Confirmed posts live in `_posts/`; Thoughts are 5 YAML objects embedded in `_tabs/thoughts.md` and rendered by `_layouts/thoughts.html`; no `_thoughts` collection exists. Confirmed existing discovery through `_tabs/categories.md`, `_tabs/tags.md`, archives, custom layouts, and existing `_includes/post-series.html`. Representative front matter confirms current `categories` + `tags` convention. URL-safety rule established: leave filenames, dates, slugs and explicit permalinks unchanged. No article body was edited. Audit commit: `27e2187bbbb9b3c6bc51e0afa8d47586951819f0`. Plan-status update is this commit. No blocker.
+**Execution evidence — 2026-09-29:** Created `docs/content-taxonomy-migration.md` with the complete 44-post source inventory plus 5 current Thoughts fragments (49 writing items total). Confirmed posts live in `_posts/`; Thoughts are 5 YAML objects embedded in `_tabs/thoughts.md` and rendered by `_layouts/thoughts.html`; no `_thoughts` collection exists. Confirmed existing discovery through `_tabs/categories.md`, `_tabs/tags.md`, archives, custom layouts, and existing `_includes/post-series.html`. Representative front matter confirms current `categories` + `tags` convention. URL-safety rule established: leave filenames, dates, slugs and explicit permalinks unchanged. No article body was edited. Audit commit: `27e2187bbbb9b3c6bc51e0afa8d47586951819f0`. Plan-status update commit: `8a1a2f6322aa1bce992ab8e2c7f4a2f898ae6cc8`. No blocker.
 
 ### Step 2 — Canonical taxonomy + tag map
 
-- [ ] Read current tag inventory; build canonical reduction map; identify retired generic tags, synonym/case merges and protected entity tags; map old category/series-like structures; document uncertain cases in the audit. Do not edit article bodies.
+- [x] Read current tag inventory; build canonical reduction map; identify retired generic tags, synonym/case merges and protected entity tags; map old category/series-like structures; document uncertain cases in the audit. Do not edit article bodies.
+
+**Execution evidence — 2026-09-29:** Read front matter for all 44 posts and the Step-1 fragment inventory. Added `docs/content-taxonomy-tag-map.md`, which maps every observed legacy tag family to KEEP/MERGE/RETIRE/REVIEW decisions, defines canonical naming rules, maps legacy categories to Type/Topic/Series responsibilities, and records body-review uncertainties. Durable Series candidates are `Database Systems`, `Computer Architecture`, `Computer Networks`, with `LLM Systems` explicitly conditional on later body review. Broad subject tags carried by those Series are scheduled for retirement; useful one-off entity/concept tags are protected rather than removed by frequency. No article body or article front matter was modified. Tag-map commit: `73ff315e55a8e42777b2dd21be1dd5377a1344de`. Plan-status update is this commit. No blocker.
 
 ### Step 3 — Implement taxonomy plumbing
 
