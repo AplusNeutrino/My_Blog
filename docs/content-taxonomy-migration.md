@@ -34,17 +34,17 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | confident | migrated Step 5; complete body read via ranged/blob reads; body prose preserved |
 | 21 | 2025-08-22-FF1记录.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy; JRPG; Game Design; Narrative Design | confident | migrated Step 5; body read; body prose preserved |
 | 22 | 2025-09-02-计网-01.md | 学习笔记; 计网笔记 | 计算机网络 | note | computation | Computer Networks | Network Architecture; TCP/IP; OSI Model; Packet Switching | confident | migrated Step 5; body read; body prose preserved |
-| 23 | 2025-09-12-计网-02.md | pending | pending | — | — | — | — | — | pending later batch |
-| 24 | 2025-09-13-最后的纳尔马斯克.md | pending | pending | — | — | — | — | — | pending later batch |
-| 25 | 2025-09-15-为什么我要跳过FF2.md | pending | pending | — | — | — | — | — | pending later batch |
-| 26 | 2025-09-25-计网-03.md | pending | pending | — | — | — | — | — | pending later batch |
-| 27 | 2025-10-04-TMT理论.md | pending | pending | — | — | — | — | — | pending later batch |
-| 28 | 2025-10-11-计网-04.md | pending | pending | — | — | — | — | — | pending later batch |
-| 29 | 2025-10-15-计网-05.md | pending | pending | — | — | — | — | — | pending later batch |
-| 30 | 2025-10-21-计网-06.md | pending | pending | — | — | — | — | — | pending later batch |
-| 31 | 2025-11-05-计网-07.md | pending | pending | — | — | — | — | — | pending later batch |
-| 32 | 2025-11-25-计网-08.md | pending | pending | — | — | — | — | — | pending later batch |
-| 33 | 2025-11-29-计网-09.md | pending | pending | — | — | — | — | — | pending later batch |
+| 23 | 2025-09-12-计网-02.md | 学习笔记; 计网笔记 | 计算机网络; 物理层 | note | computation | Computer Networks | Physical Layer; Signal Encoding; Multiplexing; Shannon Capacity | confident | migrated Step 6; full body read; body prose preserved |
+| 24 | 2025-09-13-最后的纳尔马斯克.md | 地下墓穴; FFXIV | FFXIV | essay | otaku | — | Final Fantasy XIV; Fan Fiction; Garlean Empire; Nhalmasque | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 25 | 2025-09-15-为什么我要跳过FF2.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy II; JRPG; Game Design; Progression Systems | confident | migrated Step 6; full body read; body prose preserved |
+| 26 | 2025-09-25-计网-03.md | 学习笔记; 计网笔记 | 计算机网络; 数据链路层 | note | computation | Computer Networks | Data Link Layer; Ethernet; CRC; VLAN | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 27 | 2025-10-04-TMT理论.md | 记忆碎片; 思维链条 | TMT; Ernest Becker; Immortality Project | note | humanity | — | Terror Management Theory; Ernest Becker; Immortality Project; Symbolic Immortality | confident | migrated Step 6; full body read; body prose preserved |
+| 28 | 2025-10-11-计网-04.md | 学习笔记; 计网笔记 | 计算机网络; 网络层 | note | computation | Computer Networks | IPv4; Routing; CIDR; NAT; ICMP | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 29 | 2025-10-15-计网-05.md | 学习笔记; 计网笔记 | 传输层 | note | computation | Computer Networks | TCP; UDP; Congestion Control; Flow Control | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 30 | 2025-10-21-计网-06.md | 学习笔记; 计网笔记 | HTTP; FTP; DNS; DHCP | note | computation | Computer Networks | HTTP; FTP; DNS; DHCP | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 31 | 2025-11-05-计网-07.md | 学习笔记; 计网笔记 | 网络安全; IPS; 防火墙; DDOS | note | computation | Computer Networks | Network Security; Cryptography; Firewall; IDS/IPS; DDoS | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 32 | 2025-11-25-计网-08.md | 学习笔记; 计网笔记 | WPAN; GSM; 3G三大标准 | note | computation | Computer Networks | Wi-Fi; CSMA/CA; WPAN; Mobile Networks | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
+| 33 | 2025-11-29-计网-09.md | 学习笔记; 计网笔记 | VoIP; IP 电话网关; H.323; SIP; SDP; QoS 指标 | note | computation | Computer Networks | VoIP; RTP/RTCP; SIP; QoS | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
 | 34 | 2025-12-14-计网-10.md | pending | pending | — | — | — | — | — | pending later batch |
 | 35 | 2025-12-17-NoSQL项目面经.md | pending | pending | — | — | — | — | — | pending later batch |
 | 36 | 2025-12-19-ROSSMANN项目.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -74,3 +74,7 @@ Batch A is complete. All first-quarter target bodies (#1–#11) were read before
 ## Step 5 progress
 
 Batch B (#12–#22) is complete. All eleven article bodies were read before classification and all eleven front matters now contain the approved `type`, `topic`, optional durable `series`, and canonical reduced `tags`. The earlier connected-read truncation for #13 and #20 was resolved with ranged/blob reads before either classification was finalized. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made.
+
+## Step 6 progress
+
+Batch C targets #23–#33. All eleven bodies have now been read before classification, using ranged reads where necessary. Metadata has been written for #23, #25 and #27; #24, #26 and #28–#33 have approved per-article decisions above but still require front-matter writes. Step 6 therefore remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
