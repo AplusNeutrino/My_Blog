@@ -97,7 +97,9 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 ### Step 4 — Article migration batch A
 
-- [ ] Read and classify approximately the first quarter of the 44 posts. Front matter only. Apply Type, Topic, optional Series and reduced tags; preserve URLs and bodies; update audit for every migrated file.
+- [x] Read and classify approximately the first quarter of the 44 posts. Front matter only. Apply Type, Topic, optional Series and reduced tags; preserve URLs and bodies; update audit for every migrated file.
+
+**Execution evidence — 2026-09-29:** Read all first-quarter article bodies (#1–#11) before classification and migrated all eleven front matters. Applied only the approved Type/Topic values, `Database Systems` where appropriate, and reduced canonical tags; retained legacy `categories` temporarily for compatibility. Final pending metadata commits: `5d83c10efa5d015550f093154205b90dd92d7ca9`, `da3607b7f52c0f57f1006547eebb42c7c57e43a7`, `56874cec7699a1ccd0a7dbc12a11283cb673f762`, `6b0eb5a5c14174bfdf28db95de512e79dbb4c4d4`, `91a2ebe3e30882ca0b00ff97736566f67a9f392a`; completed audit commit `15f7b9c0ddf2f18bce623838882f4d6f1f555b6d`. No filename/date/slug/permalink changed and no intentional body prose was modified. No blocker.
 
 ### Step 5 — Article migration batch B
 
