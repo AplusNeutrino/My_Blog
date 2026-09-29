@@ -111,7 +111,7 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 - [ ] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
 
-**Execution evidence — 2026-09-29 (partial):** Batch C is #23–#33. All eleven bodies were read before classification, including ranged reads for long posts. Front matter migrated this run for #23 (`1e45f5ff0a87b9ff86cf8f33a62962a3c0b91852`), #25 (`d3de249eb7c6f095a8879de2d46563321420472a`) and #27 (`aacefcbfe127a6dd882416baf29fcc55f30e9680`). Audit updated in `a646146c1e62f335065bb83e5a5e7dee31b7bec7` with decisions for all #23–#33. Remaining metadata writes: #24, #26, #28–#33. Validation: source bodies were read before classification; replacements preserved filenames/dates/descriptions and article body text. No build/runtime PASS claimed. No blocker; step remains unchecked until all eleven front matters are written.
+**Execution evidence — 2026-09-29 (partial):** Batch C is #23–#33 and all eleven bodies have been read before classification. Current GitHub state confirms metadata written for #23 and #25–#30; this run re-read and migrated #30 in commit `80c19b137aaaf26ba5af03088a0a0141c49e4437`, and reconciled stale audit statuses for #26/#28/#29 in audit commit `094a95e9da15fbe60f5817ae6e4239c61d376e1e`. Remaining metadata writes: #24 and #31–#33. Validation this run: #30 full body was read immediately before replacement; title/date/categories/description/body were preserved, and no filename/slug/permalink changed. No build/runtime PASS claimed. No blocker; step remains unchecked until all eleven front matters are written.
 
 ### Step 7 — Article migration batch D + Fragments/Thoughts
 
