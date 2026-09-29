@@ -12,15 +12,15 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 
 | # | Article | Old Category | Old Tags | New Type | New Topic | New Series | New Tags | Confidence | Status / Notes |
 |---:|---|---|---|---|---|---|---|---|---|
-| 1 | 2024-10-07-TestInfo.md | 记忆碎片 | FirstPost | — | — | — | — | review | Body read in Step 4; hidden test/probe post; migration pending |
+| 1 | 2024-10-07-TestInfo.md | 记忆碎片 | FirstPost | note | computation | — | Site Styling; Markdown | confident | migrated Step 4; hidden site-formatting probe; body read; body prose preserved |
 | 2 | 2024-10-08-DBMS-01.md | 学习笔记; DBMS笔记 | DBMS; E-R模型 | note | computation | Database Systems | E-R Model; Data Models; Data Independence | confident | migrated Step 4; body read; body prose preserved |
 | 3 | 2024-10-09-DBMS-02.md | 学习笔记; DBMS笔记 | DBMS; 关系数据库; 三类约束; 三大范式 | note | computation | Database Systems | Relational Databases; Integrity Constraints; Normalization | confident | migrated Step 4; body read; body prose preserved |
-| 4 | 2024-10-12-DBMS-03.md | 学习笔记; DBMS笔记 | DBMS; 关系代数运算 | note | computation | Database Systems | Relational Algebra; SQL | confident | body read Step 4; metadata migration pending |
-| 5 | 2024-10-14-DBMS-04.md | 学习笔记; DBMS笔记 | DBMS; SQL | note | computation | Database Systems | SQL; Views; Integrity Constraints | confident | body read Step 4; metadata migration pending |
+| 4 | 2024-10-12-DBMS-03.md | 学习笔记; DBMS笔记 | DBMS; 关系代数运算 | note | computation | Database Systems | Relational Algebra; SQL | confident | migrated Step 4; body read; body prose preserved |
+| 5 | 2024-10-14-DBMS-04.md | 学习笔记; DBMS笔记 | DBMS; SQL | note | computation | Database Systems | SQL; Views; Integrity Constraints | confident | migrated Step 4; body read; body prose preserved |
 | 6 | 2024-10-15-DBMS-05.md | 学习笔记; DBMS笔记 | DBMS; 关系查询 | note | computation | Database Systems | Query Optimization; Query Processing; Join Algorithms | confident | body read Step 4; metadata migration pending |
 | 7 | 2024-10-22-DBMS-06.md | 学习笔记; DBMS笔记 | DBMS; 数据库安全性; 存取控制 | note | computation | Database Systems | Database Security; Access Control; DAC; MAC | confident | body read Step 4; metadata migration pending |
 | 8 | 2024-10-29-DBMS-07.md | 学习笔记; DBMS笔记 | DBMS; 数据库完整性 | note | computation | Database Systems | Integrity Constraints; Triggers | confident | body read Step 4; metadata migration pending |
-| 9 | 2024-10-30-PythonIntro.md | 学习笔记; Python笔记 | Python | note | computation | — | Python | confident | body read Step 4; metadata migration pending |
+| 9 | 2024-10-30-PythonIntro.md | 学习笔记; Python笔记 | Python | note | computation | — | Python | confident | migrated Step 4; body read; body prose preserved |
 | 10 | 2024-11-05-DBMS-08.md | 学习笔记; DBMS笔记 | DBMS; 数据库恢复 | note | computation | Database Systems | Database Recovery; Write-Ahead Logging; UNDO; REDO | confident | body read Step 4; metadata migration pending |
 | 11 | 2024-11-12-DBMS-09.md | 学习笔记; DBMS笔记 | DBMS; 并发控制; ACID特性; 封锁机制 | note | computation | Database Systems | Concurrency Control; ACID; Locking; Two-Phase Locking | confident | body read Step 4; metadata migration pending |
 | 12 | 2024-11-19-DBMS-10.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -69,4 +69,4 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 
 ## Step 4 progress
 
-All first-quarter target bodies (#1–#11) have been read. Classification decisions are recorded above. Metadata writes completed for #2 and #3. The remaining nine metadata writes are still pending, so Step 4 must remain unchecked until those front-matter changes are committed and verified. No article filename/date/slug/permalink was changed. No intentional article-body prose edit was made.
+All first-quarter target bodies (#1–#11) have been read. Classification decisions are recorded above. Metadata writes are now complete for #1–#5 and #9 (six of eleven); #6–#8 and #10–#11 remain pending. The hidden `Zodiac` formatting probe was classified as `note / computation` with `Site Styling` and `Markdown` tags rather than retaining the generic `FirstPost` tag. Step 4 remains unchecked until all eleven front-matter migrations are committed and verified. No article filename/date/slug/permalink was changed. No intentional article-body prose edit was made; updates rewrite complete file contents through the GitHub Contents API, so line-ending normalization may occur and must not be treated as prose editing.
