@@ -109,9 +109,9 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 ### Step 6 — Article migration batch C
 
-- [ ] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
+- [x] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
 
-**Execution evidence — 2026-09-30 (partial):** Batch C is #23–#33 and all eleven bodies have been read before classification. Current GitHub state now has metadata written for #23–#31, including #24 migrated this run after safely reconstructing its complete content from ranged reads. #24 metadata commit: `eabb41563392134149d19e0e6788c9c8e49be5d9`; audit commit: `64bb6ffcff615741860a5b355047b72d87bc10ef`. Remaining metadata writes: #32–#33. Validation this run: #24 complete ranged content was used for the replacement; only taxonomy front matter changed, while filename/date/categories/hidden/media_subpath/description/body were preserved. No filename/date/slug/permalink changed. No build/runtime PASS claimed. Step remains unchecked.
+**Execution evidence — 2026-09-30:** Batch C (#23–#33) complete. All eleven bodies were read before classification, using ranged reads where necessary, and all eleven front matters now contain the approved taxonomy. Final article #33 metadata commit: `42bb9a4b19048b56ee0741e1a6b3bfa0472609bf`; completed audit commit: `3318d6667afca60146e8092e0c60073208da44f1`. Validation performed: current GitHub state for #33 was re-read and confirms `type: note`, `topic: computation`, `series: Computer Networks`, and canonical tags `[VoIP, RTP/RTCP, SIP, QoS]`; the audit records all #23–#33 as migrated. Across Batch C no filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS claimed. No blocker.
 
 ### Step 7 — Article migration batch D + Fragments/Thoughts
 
