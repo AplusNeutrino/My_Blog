@@ -37,11 +37,11 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 23 | 2025-09-12-计网-02.md | 学习笔记; 计网笔记 | 计算机网络; 物理层 | note | computation | Computer Networks | Physical Layer; Signal Encoding; Multiplexing; Shannon Capacity | confident | migrated Step 6; full body read; body prose preserved |
 | 24 | 2025-09-13-最后的纳尔马斯克.md | 地下墓穴; FFXIV | FFXIV | essay | otaku | — | Final Fantasy XIV; Fan Fiction; Garlean Empire; Nhalmasque | confident | Step 6 body fully read; classification decided; metadata write pending |
 | 25 | 2025-09-15-为什么我要跳过FF2.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy II; JRPG; Game Design; Progression Systems | confident | migrated Step 6; full body read; body prose preserved |
-| 26 | 2025-09-25-计网-03.md | 学习笔记; 计网笔记 | 计算机网络; 数据链路层 | note | computation | Computer Networks | Data Link Layer; Ethernet; CRC; VLAN | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 26 | 2025-09-25-计网-03.md | 学习笔记; 计网笔记 | 计算机网络; 数据链路层 | note | computation | Computer Networks | Data Link Layer; Ethernet; CRC; VLAN | confident | migrated Step 6; full body read; body prose preserved |
 | 27 | 2025-10-04-TMT理论.md | 记忆碎片; 思维链条 | TMT; Ernest Becker; Immortality Project | note | humanity | — | Terror Management Theory; Ernest Becker; Immortality Project; Symbolic Immortality | confident | migrated Step 6; full body read; body prose preserved |
-| 28 | 2025-10-11-计网-04.md | 学习笔记; 计网笔记 | 计算机网络; 网络层 | note | computation | Computer Networks | IPv4; Routing; CIDR; NAT; ICMP | confident | Step 6 body fully read; classification decided; metadata write pending |
-| 29 | 2025-10-15-计网-05.md | 学习笔记; 计网笔记 | 传输层 | note | computation | Computer Networks | TCP; UDP; Congestion Control; Flow Control | confident | Step 6 body fully read; classification decided; metadata write pending |
-| 30 | 2025-10-21-计网-06.md | 学习笔记; 计网笔记 | HTTP; FTP; DNS; DHCP | note | computation | Computer Networks | HTTP; FTP; DNS; DHCP | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 28 | 2025-10-11-计网-04.md | 学习笔记; 计网笔记 | 计算机网络; 网络层 | note | computation | Computer Networks | IPv4; Routing; CIDR; NAT; ICMP | confident | migrated Step 6; full body read; body prose preserved |
+| 29 | 2025-10-15-计网-05.md | 学习笔记; 计网笔记 | 传输层 | note | computation | Computer Networks | TCP; UDP; Congestion Control; Flow Control | confident | migrated Step 6; full body read; body prose preserved |
+| 30 | 2025-10-21-计网-06.md | 学习笔记; 计网笔记 | HTTP; FTP; DNS; DHCP | note | computation | Computer Networks | HTTP; FTP; DNS; DHCP | confident | migrated Step 6; full body re-read before write; body prose preserved |
 | 31 | 2025-11-05-计网-07.md | 学习笔记; 计网笔记 | 网络安全; IPS; 防火墙; DDOS | note | computation | Computer Networks | Network Security; Cryptography; Firewall; IDS/IPS; DDoS | confident | Step 6 body fully read; classification decided; metadata write pending |
 | 32 | 2025-11-25-计网-08.md | 学习笔记; 计网笔记 | WPAN; GSM; 3G三大标准 | note | computation | Computer Networks | Wi-Fi; CSMA/CA; WPAN; Mobile Networks | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
 | 33 | 2025-11-29-计网-09.md | 学习笔记; 计网笔记 | VoIP; IP 电话网关; H.323; SIP; SDP; QoS 指标 | note | computation | Computer Networks | VoIP; RTP/RTCP; SIP; QoS | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
@@ -52,10 +52,10 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 38 | 2026-05-24-neutriverse-site-changelog.md | pending | pending | — | — | — | — | — | pending later batch |
 | 39 | 2026-06-15-超过五千亿吨空气的重压之下.md | pending | pending | — | — | — | — | — | pending later batch |
 | 40 | 2026-06-30-阿卡夏便笺akashanotes.md | pending | pending | — | — | — | — | — | pending later batch |
-| 41 | 2026-07-06-于因特网标签们展开双翼.md | pending | pending | — | — | — | — | — | pending later batch |
-| 42 | 2026-07-09-丰聪耳机toyosatomimisheadphone.md | pending | pending | — | — | — | — | — | pending later batch |
-| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | pending | pending | — | — | — | — | — | pending later batch |
-| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | pending | pending | — | — | — | — | — | pending later batch |
+| 41 | 2026-07-06-于因特网标签们展开双翼.md | pending | pending | — | — | — | — | — | — | pending later batch |
+| 42 | 2026-07-09-丰聪耳机toyosatomimisheadphone.md | pending | pending | — | — | — | — | — | — | pending later batch |
+| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | pending | pending | — | — | — | — | — | — | pending later batch |
+| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | pending | pending | — | — | — | — | — | — | pending later batch |
 
 ## Fragment inventory
 
@@ -77,4 +77,4 @@ Batch B (#12–#22) is complete. All eleven article bodies were read before clas
 
 ## Step 6 progress
 
-Batch C targets #23–#33. All eleven bodies have now been read before classification, using ranged reads where necessary. Metadata has been written for #23, #25 and #27; #24, #26 and #28–#33 have approved per-article decisions above but still require front-matter writes. Step 6 therefore remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
+Batch C targets #23–#33. All eleven bodies have been read before classification, using ranged reads where necessary. Metadata is now written for #23 and #25–#30. Remaining writes are #24 and #31–#33. This audit also reconciles earlier stale statuses for #26, #28 and #29 against current GitHub state. Step 6 remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
