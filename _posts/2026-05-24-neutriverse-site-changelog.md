@@ -2,7 +2,9 @@
 title: "中间层网站更新记录"
 date: 2026-05-24
 categories: [记忆碎片, 站点维护]
-tags: [Neutriverse, Changelog, 维护记录]
+type: note
+topic: computation
+tags: [Neutriverse, Changelog, Jekyll]
 description: "基于 Git 提交记录整理的站点功能上线与修改索引。"
 hidden: true
 ---
