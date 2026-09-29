@@ -43,7 +43,7 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 29 | 2025-10-15-计网-05.md | 学习笔记; 计网笔记 | 传输层 | note | computation | Computer Networks | TCP; UDP; Congestion Control; Flow Control | confident | migrated Step 6; full body read; body prose preserved |
 | 30 | 2025-10-21-计网-06.md | 学习笔记; 计网笔记 | HTTP; FTP; DNS; DHCP | note | computation | Computer Networks | HTTP; FTP; DNS; DHCP | confident | migrated Step 6; full body re-read before write; body prose preserved |
 | 31 | 2025-11-05-计网-07.md | 学习笔记; 计网笔记 | 网络安全; IPS; 防火墙; DDOS | note | computation | Computer Networks | Network Security; Cryptography; Firewall; IDS/IPS; DDoS | confident | migrated Step 6; full body read; body prose preserved |
-| 32 | 2025-11-25-计网-08.md | 学习笔记; 计网笔记 | WPAN; GSM; 3G三大标准 | note | computation | Computer Networks | Wi-Fi; CSMA/CA; WPAN; Mobile Networks | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
+| 32 | 2025-11-25-计网-08.md | 学习笔记; 计网笔记 | WPAN; GSM; 3G三大标准 | note | computation | Computer Networks | Wi-Fi; CSMA/CA; WPAN; Mobile Networks | confident | migrated Step 6; full body re-read in ranges before write; body prose preserved |
 | 33 | 2025-11-29-计网-09.md | 学习笔记; 计网笔记 | VoIP; IP 电话网关; H.323; SIP; SDP; QoS 指标 | note | computation | Computer Networks | VoIP; RTP/RTCP; SIP; QoS | confident | Step 6 body fully read in ranges; classification decided; metadata write pending |
 | 34 | 2025-12-14-计网-10.md | pending | pending | — | — | — | — | — | pending later batch |
 | 35 | 2025-12-17-NoSQL项目面经.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -77,4 +77,4 @@ Batch B (#12–#22) is complete. All eleven article bodies were read before clas
 
 ## Step 6 progress
 
-Batch C targets #23–#33. All eleven bodies have been read before classification, using ranged reads where necessary. Metadata is now written for #23–#31 except none omitted; remaining writes are #32–#33. #24 was safely reconstructed from ranged reads and migrated in commit `eabb41563392134149d19e0e6788c9c8e49be5d9`. Step 6 remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
+Batch C targets #23–#33. All eleven bodies have been read before classification, using ranged reads where necessary. Metadata is now written for #23–#32; remaining write is #33. #32 was safely reconstructed from ranged reads and migrated in commit `4eb84796119ea84d687b889d2250975a2f19b60f`. Step 6 remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
