@@ -93,7 +93,7 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 - [x] Add/adapt the minimum machinery required for `type`, `topic`, `series` and canonical `tags` in templates/indexes/navigation without breaking existing URLs. Prefer adapting current category/tag machinery. Inspect existing `_includes/post-series.html` before changing Series behavior. Validate syntax/build as repository tooling permits.
 
-**Execution evidence — 2026-09-29:** Added `_data/content_taxonomy.yml`, `_includes/post-taxonomy.html`, adapted `_layouts/post.html` and `_includes/post-series.html`. Commits: `fcd9a84fcd7afba1d430c9a4bcc0d0b0c7a4f070`, `029d73ea68022ace48ebc040e477835eac0ec863`, `374c1e9625e24a22fa9b95a8b642fed52b5b5ec2`, `a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c`. Static review only; no build PASS claimed.
+**Execution evidence — 2026-09-29:** Added `_data/content_taxonomy.yml`, `_includes/post-taxonomy.html`, adapted `_layouts/post.html` and `_includes/post-series.html`. Commits: `fcd9a84fcd7afba1d430c9a4bcc0d0b0c7a4f070`, `029d73ea68022ace48ebc3903779694f4e9f297420f76668`, `374c1e9625e24a22fa9b95a8b642fed52b5b5ec2`, `a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c`. Static review only; no build PASS claimed.
 
 ### Step 4 — Article migration batch A
 
@@ -110,6 +110,8 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 ### Step 6 — Article migration batch C
 
 - [ ] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
+
+**Execution evidence — 2026-09-29 (partial):** Batch C is #23–#33. All eleven bodies were read before classification, including ranged reads for long posts. Front matter migrated this run for #23 (`1e45f5ff0a87b9ff86cf8f33a62962a3c0b91852`), #25 (`d3de249eb7c6f095a8879de2d46563321420472a`) and #27 (`aacefcbfe127a6dd882416baf29fcc55f30e9680`). Audit updated in `a646146c1e62f335065bb83e5a5e7dee31b7bec7` with decisions for all #23–#33. Remaining metadata writes: #24, #26, #28–#33. Validation: source bodies were read before classification; replacements preserved filenames/dates/descriptions and article body text. No build/runtime PASS claimed. No blocker; step remains unchecked until all eleven front matters are written.
 
 ### Step 7 — Article migration batch D + Fragments/Thoughts
 
