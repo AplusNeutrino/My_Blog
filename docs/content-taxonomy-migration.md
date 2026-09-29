@@ -12,7 +12,7 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 
 | # | Article | Old Category | Old Tags | New Type | New Topic | New Series | New Tags | Confidence | Status / Notes |
 |---:|---|---|---|---|---|---|---|---|---|
-| 1 | 2024-10-07-TestInfo.md | 记忆碎片 | FirstPost | note | computation | — | Site Styling; Markdown | confident | migrated Step 4; hidden site-formatting probe; body read; body prose preserved |
+| 1 | 2024-10-07-TestInfo.md | 记忆碎片 | FirstPost | note | computation | — | Site Styling; Markdown | confident | migrated Step 4; body read; body prose preserved |
 | 2 | 2024-10-08-DBMS-01.md | 学习笔记; DBMS笔记 | DBMS; E-R模型 | note | computation | Database Systems | E-R Model; Data Models; Data Independence | confident | migrated Step 4; body read; body prose preserved |
 | 3 | 2024-10-09-DBMS-02.md | 学习笔记; DBMS笔记 | DBMS; 关系数据库; 三类约束; 三大范式 | note | computation | Database Systems | Relational Databases; Integrity Constraints; Normalization | confident | migrated Step 4; body read; body prose preserved |
 | 4 | 2024-10-12-DBMS-03.md | 学习笔记; DBMS笔记 | DBMS; 关系代数运算 | note | computation | Database Systems | Relational Algebra; SQL | confident | migrated Step 4; body read; body prose preserved |
@@ -23,17 +23,17 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 9 | 2024-10-30-PythonIntro.md | 学习笔记; Python笔记 | Python | note | computation | — | Python | confident | migrated Step 4; body read; body prose preserved |
 | 10 | 2024-11-05-DBMS-08.md | 学习笔记; DBMS笔记 | DBMS; 数据库恢复 | note | computation | Database Systems | Database Recovery; Write-Ahead Logging; UNDO; REDO | confident | migrated Step 4; body read; body prose preserved |
 | 11 | 2024-11-12-DBMS-09.md | 学习笔记; DBMS笔记 | DBMS; 并发控制; ACID特性; 封锁机制 | note | computation | Database Systems | Concurrency Control; ACID; Locking; Two-Phase Locking | confident | migrated Step 4; body read; body prose preserved |
-| 12 | 2024-11-19-DBMS-10.md | pending | pending | — | — | — | — | — | pending later batch |
-| 13 | 2025-02-26-计组-01.md | pending | pending | — | — | — | — | — | pending later batch |
-| 14 | 2025-03-12-计组-02.md | pending | pending | — | — | — | — | — | pending later batch |
-| 15 | 2025-03-27-计组-03.md | pending | pending | — | — | — | — | — | pending later batch |
-| 16 | 2025-04-16-计组-04.md | pending | pending | — | — | — | — | — | pending later batch |
-| 17 | 2025-04-25-计组-05.md | pending | pending | — | — | — | — | — | pending later batch |
-| 18 | 2025-05-07-计组-06.md | pending | pending | — | — | — | — | — | pending later batch |
-| 19 | 2025-05-21-计组-07.md | pending | pending | — | — | — | — | — | pending later batch |
-| 20 | 2025-06-11-计组-08.md | pending | pending | — | — | — | — | — | pending later batch |
-| 21 | 2025-08-22-FF1记录.md | pending | pending | — | — | — | — | — | pending later batch |
-| 22 | 2025-09-02-计网-01.md | pending | pending | — | — | — | — | — | pending later batch |
+| 12 | 2024-11-19-DBMS-10.md | 学习笔记; DBMS笔记 | DBMS; 函数依赖分析; 范式规范 | note | computation | Database Systems | Functional Dependencies; Normalization; Database Design | confident | migrated Step 5; body read; body prose preserved |
+| 13 | 2025-02-26-计组-01.md | 学习笔记; 计组笔记 | 计算机组成原理; 计算机系统 | note | computation | Computer Architecture | Computer Systems; CPU Performance; Von Neumann Architecture | review | body retrieval was truncated in connected interface; do not migrate until complete read |
+| 14 | 2025-03-12-计组-02.md | 学习笔记; 计组笔记 | 计算机组成原理; 计算机数据 | note | computation | Computer Architecture | Data Representation; Two's Complement; IEEE 754; ALU | confident | migrated Step 5; body read; body prose preserved |
+| 15 | 2025-03-27-计组-03.md | 学习笔记; 计组笔记 | 计算机组成原理; 存储器; RAM | note | computation | Computer Architecture | Memory Hierarchy; Cache; SRAM; DRAM | confident | migrated Step 5; body read; body prose preserved |
+| 16 | 2025-04-16-计组-04.md | 学习笔记; 计组笔记 | 计算机组成原理; 指令; 寻址 | note | computation | Computer Architecture | Instruction Set Architecture; Addressing Modes; RISC; CISC | confident | migrated Step 5; body read; body prose preserved |
+| 17 | 2025-04-25-计组-05.md | 学习笔记; 计组笔记 | 计算机组成原理; CPU | note | computation | Computer Architecture | CPU; Pipelining; Control Unit | confident | body read; classification decided; metadata write pending |
+| 18 | 2025-05-07-计组-06.md | 学习笔记; 计组笔记 | 计算机组成原理; 总线; I/O | note | computation | Computer Architecture | Bus; I/O; DMA; Interrupts | confident | body read; classification decided; metadata write pending |
+| 19 | 2025-05-21-计组-07.md | 学习笔记; 计组笔记 | 计算机组成原理; 微机 | note | computation | Computer Architecture | Microcomputer; System Bus; Instruction Cycle | confident | body read; classification decided; metadata write pending |
+| 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | review | body retrieval was truncated in connected interface; do not migrate until complete read |
+| 21 | 2025-08-22-FF1记录.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy; JRPG; Game Design; Narrative Design | confident | migrated Step 5; body read; body prose preserved |
+| 22 | 2025-09-02-计网-01.md | 学习笔记; 计网笔记 | 计算机网络 | note | computation | Computer Networks | Network Architecture; TCP/IP; OSI Model; Packet Switching | confident | migrated Step 5; body read; body prose preserved |
 | 23 | 2025-09-12-计网-02.md | pending | pending | — | — | — | — | — | pending later batch |
 | 24 | 2025-09-13-最后的纳尔马斯克.md | pending | pending | — | — | — | — | — | pending later batch |
 | 25 | 2025-09-15-为什么我要跳过FF2.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -69,6 +69,8 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 
 ## Step 4 progress
 
-Batch A is complete. All first-quarter target bodies (#1–#11) were read before classification, and all eleven front matters now contain the approved `type`, `topic`, optional durable `series`, and reduced canonical `tags`. Legacy `categories` remain temporarily for compatibility. No article filename/date/slug/permalink was changed. No intentional article-body prose edit was made; updates rewrite complete file contents through the GitHub Contents API, so line-ending normalization may occur and must not be treated as prose editing.
+Batch A is complete. All first-quarter target bodies (#1–#11) were read before classification, and all eleven front matters now contain the approved `type`, `topic`, optional durable `series`, and reduced canonical `tags`. Legacy `categories` remain temporarily for compatibility. No article filename/date/slug/permalink was changed. No intentional article-body prose edit was made.
 
-Final Batch-A metadata commits for #6–#8 and #10–#11: `5d83c10efa5d015550f093154205b90dd92d7ca9`, `da3607b7f52c0f57f1006547eebb42c7c57e43a7`, `56874cec7699a1ccd0a7dbc12a11283cb673f762`, `6b0eb5a5c14174bfdf28db95de512e79dbb4c4d4`, `91a2ebe3e30882ca0b00ff97736566f67a9f392a`.
+## Step 5 progress
+
+Batch B targets #12–#22. In this run, #12, #14–#16, #21 and #22 were migrated after body review. #17–#19 were fully read and classified but still await metadata writes. #13 and #20 returned truncated bodies through the connected GitHub interface, so they are deliberately left unmigrated until a complete read is possible. Step 5 remains incomplete. No filename/date/slug/permalink was changed and no intentional body prose edit was made.
