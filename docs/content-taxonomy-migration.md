@@ -45,27 +45,27 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 31 | 2025-11-05-计网-07.md | 学习笔记; 计网笔记 | 网络安全; IPS; 防火墙; DDOS | note | computation | Computer Networks | Network Security; Cryptography; Firewall; IDS/IPS; DDoS | confident | migrated Step 6; full body read; body prose preserved |
 | 32 | 2025-11-25-计网-08.md | 学习笔记; 计网笔记 | WPAN; GSM; 3G三大标准 | note | computation | Computer Networks | Wi-Fi; CSMA/CA; WPAN; Mobile Networks | confident | migrated Step 6; full body re-read in ranges before write; body prose preserved |
 | 33 | 2025-11-29-计网-09.md | 学习笔记; 计网笔记 | VoIP; IP 电话网关; H.323; SIP; SDP; QoS 指标 | note | computation | Computer Networks | VoIP; RTP/RTCP; SIP; QoS | confident | migrated Step 6; full body read in ranges before write; body prose preserved |
-| 34 | 2025-12-14-计网-10.md | pending | pending | — | — | — | — | — | pending later batch |
-| 35 | 2025-12-17-NoSQL项目面经.md | pending | pending | — | — | — | — | — | pending later batch |
-| 36 | 2025-12-19-ROSSMANN项目.md | pending | pending | — | — | — | — | — | pending later batch |
-| 37 | 2026-02-12-不完备性.md | pending | pending | — | — | — | — | — | pending later batch |
-| 38 | 2026-05-24-neutriverse-site-changelog.md | pending | pending | — | — | — | — | — | pending later batch |
-| 39 | 2026-06-15-超过五千亿吨空气的重压之下.md | pending | pending | — | — | — | — | — | pending later batch |
-| 40 | 2026-06-30-阿卡夏便笺akashanotes.md | pending | pending | — | — | — | — | — | pending later batch |
-| 41 | 2026-07-06-于因特网标签们展开双翼.md | pending | pending | — | — | — | — | — | pending later batch |
-| 42 | 2026-07-09-丰聪耳机toyosatomimisheadphone.md | pending | pending | — | — | — | — | — | pending later batch |
-| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | pending | pending | — | — | — | — | — | — | pending later batch |
-| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | pending | pending | — | — | — | — | — | — | pending later batch |
+| 34 | 2025-12-14-计网-10.md | 学习笔记; 计网笔记 | IPv4/IPv6; MPLS; P2P | note | computation | Computer Networks | IPv6; MPLS; P2P; BitTorrent | confident | classified Step 7; full body read; metadata write pending |
+| 35 | 2025-12-17-NoSQL项目面经.md | 学习笔记; 面试经验 | NoSQL | note | computation | — | MongoDB; Data Modeling; Denormalization; Indexing | confident | migrated Step 7; full body read; body prose preserved |
+| 36 | 2025-12-19-ROSSMANN项目.md | 学习笔记; 面试经验 | XGBoost | note | computation | — | XGBoost; Sales Forecasting; Feature Engineering; RMSPE | confident | classified Step 7; full body read in ranges; metadata write pending |
+| 37 | 2026-02-12-不完备性.md | 记忆碎片; 思维链条 | 不完备性; 康托尔对角线法; 理查德悖论; 哥德尔第一不完备性定理; 哥德尔第二不完备性定理 | note | computation | — | Incompleteness Theorems; Cantor Diagonal Argument; Halting Problem; Gödel Numbering | confident | classified Step 7; full body read; metadata write pending |
+| 38 | 2026-05-24-neutriverse-site-changelog.md | 记忆碎片; 站点维护 | Neutriverse; Changelog; 维护记录 | note | computation | — | Neutriverse; Changelog; Jekyll | confident | classified Step 7; full body read; metadata write pending |
+| 39 | 2026-06-15-超过五千亿吨空气的重压之下.md | 阅览记录; 游戏记录 | 神圣而可怖的空气; Z.A.T.O. | essay | otaku | — | Z.A.T.O.; Social Conformity; Identity; Innocence | confident | classified Step 7; full body read; metadata write pending |
+| 40 | 2026-06-30-阿卡夏便笺akashanotes.md | 记忆碎片; 软件发布 | 桌面便签; Windows; 小工具 | note | computation | — | Akasha Notes; Windows; Desktop Widgets | confident | classified Step 7; full body read; metadata write pending |
+| 41 | 2026-07-06-于因特网标签们展开双翼.md | 记忆碎片; 思维链条 | 社会身份; 情感极化; 外群体敌意 | essay | humanity | — | Social Identity; Affective Polarization; Out-group Animosity; Social Media | confident | classified Step 7; full body read; metadata write pending |
+| 42 | 2026-07-09-丰聪耳机toyosatomimisheadphone.md | 记忆碎片; 软件发布 | 东方Project; 丰聪耳神子; STT | note | computation | — | Toyosatomimi's Headphone; Speech-to-Text; Translation; Windows | confident | classified Step 7; full body read; metadata write pending |
+| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | 学习笔记; LLM笔记 | Progressive Disclosure; SKILL | note | computation | — | Progressive Disclosure; Agent Skills; Context Engineering; Tool Routing | confident | classified Step 7; full body read in ranges; metadata write pending |
+| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | 记忆碎片; 思维链条 | 哥德尔编码; Embedding; RAG | note | computation | — | Gödel Numbering; Embeddings; RAG; Semantic Search | confident | classified Step 7; full body read; metadata write pending |
 
 ## Fragment inventory
 
-| Date | Existing tags | Status |
-|---|---|---|
-| 2024-09-12 | 目标, 可能性 | pending Step 7 |
-| 2024-10-30 | 交流 | pending Step 7 |
-| 2025-03-23 | 等待 | pending Step 7 |
-| 2025-11-12 | 孤独 | pending Step 7 |
-| 2026-05-02 | 侦探小说 | pending Step 7 |
+| Date | Existing tags | New Type | New Topic | Canonical Tags | Status |
+|---|---|---|---|---|---|
+| 2024-09-12 | 目标, 可能性 | fragment | humanity | 目标; 可能性 | migrated Step 7 |
+| 2024-10-30 | 交流 | fragment | humanity | 交流 | migrated Step 7 |
+| 2025-03-23 | 等待 | fragment | humanity | 等待 | migrated Step 7 |
+| 2025-11-12 | 孤独 | fragment | humanity | 孤独 | migrated Step 7 |
+| 2026-05-02 | 侦探小说 | fragment | arts | 侦探小说 | migrated Step 7 |
 
 ## Step 4 progress
 
@@ -78,3 +78,7 @@ Batch B (#12–#22) is complete. All eleven article bodies were read before clas
 ## Step 6 progress
 
 Batch C (#23–#33) is complete. All eleven bodies were read before classification, using ranged reads where necessary, and all eleven front matters now contain the approved `type`, `topic`, optional durable `series`, and canonical reduced `tags`. #32 was migrated in commit `4eb84796119ea84d687b889d2250975a2f19b60f`; #33 was migrated in commit `42bb9a4b19048b56ee0741e1a6b3bfa0472609bf`. Current GitHub state was re-read to verify #33 taxonomy metadata before closing the batch. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
+
+## Step 7 progress
+
+All remaining post bodies (#34–#44) have now been read and classified; #35 has been migrated in commit `b18f504a47d5addc0b09b74713571ff16b928ee9`. The five existing Thoughts objects were aligned to `type: fragment` plus an allowed primary topic in commit `a4ebf1e15db24046eb79a65a9674bf8ccf26088f`. Metadata writes remain pending for #34 and #36–#44, so Step 7 remains incomplete. No build/runtime PASS is claimed.
