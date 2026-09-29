@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-09-28T23:14:11Z",
-  "last_success_at": "2026-09-28T23:14:11Z",
+  "fetched_at": "2026-09-29T22:13:05Z",
+  "last_success_at": "2026-09-29T22:13:05Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -4457,7 +4457,7 @@
         "ACECOOL",
         "偶像",
         "电影",
-        "动画电影"
+        "2020-2029"
       ],
       "identifiers": {
         "bangumi_subject_id": 540411
@@ -4482,7 +4482,7 @@
           "ACECOOL",
           "偶像",
           "电影",
-          "动画电影"
+          "2020-2029"
         ],
         "book_category": null
       }
@@ -4640,8 +4640,8 @@
         "短片",
         "2025",
         "银魂",
-        "搞笑",
         "WEB",
+        "搞笑",
         "游戏改",
         "雀魂",
         "CM",
@@ -4665,8 +4665,8 @@
           "短片",
           "2025",
           "银魂",
-          "搞笑",
           "WEB",
+          "搞笑",
           "游戏改",
           "雀魂",
           "CM",
@@ -4971,7 +4971,7 @@
         "JUMP",
         "银他妈",
         "漫画改",
-        "杉田智和"
+        "热血"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -4996,7 +4996,7 @@
           "JUMP",
           "银他妈",
           "漫画改",
-          "杉田智和"
+          "热血"
         ],
         "book_category": null
       }
@@ -5780,8 +5780,8 @@
         "任天堂",
         "JRPG",
         "糸井重里",
-        "nintendo",
         "2006",
+        "nintendo",
         "meta",
         "老娘3",
         "HAL研究所"
@@ -5805,8 +5805,8 @@
           "任天堂",
           "JRPG",
           "糸井重里",
-          "nintendo",
           "2006",
+          "nintendo",
           "meta",
           "老娘3",
           "HAL研究所"
@@ -6605,8 +6605,8 @@
         "RPG",
         "科幻",
         "赛博朋克2077",
-        "2023",
-        "ARPG"
+        "ARPG",
+        "2023"
       ],
       "identifiers": {
         "bangumi_subject_id": 455775
@@ -6630,8 +6630,8 @@
           "RPG",
           "科幻",
           "赛博朋克2077",
-          "2023",
-          "ARPG"
+          "ARPG",
+          "2023"
         ],
         "book_category": null
       }
@@ -9190,8 +9190,8 @@
         "萩原天晴",
         "讲谈社",
         "连载中",
-        "恶搞",
-        "逆境无赖外传"
+        "外传",
+        "恶搞"
       ],
       "identifiers": {
         "bangumi_subject_id": 248607
@@ -9215,8 +9215,8 @@
           "萩原天晴",
           "讲谈社",
           "连载中",
-          "恶搞",
-          "逆境无赖外传"
+          "外传",
+          "恶搞"
         ],
         "book_category": null
       }
@@ -9966,14 +9966,14 @@
       "tags": [
         "PC",
         "网游",
-        "战舰世界",
         "Wargaming",
+        "战舰世界",
         "WoWs",
         "TPS",
         "膜法锉刀",
         "Online",
-        "欧美系",
-        "迷之优化"
+        "迷之优化",
+        "欧美系"
       ],
       "identifiers": {
         "bangumi_subject_id": 122847
@@ -9991,14 +9991,14 @@
         "subject_tags": [
           "PC",
           "网游",
-          "战舰世界",
           "Wargaming",
+          "战舰世界",
           "WoWs",
           "TPS",
           "膜法锉刀",
           "Online",
-          "欧美系",
-          "迷之优化"
+          "迷之优化",
+          "欧美系"
         ],
         "book_category": null
       }
@@ -10082,15 +10082,15 @@
       "progress": null,
       "tags": [
         "PC",
-        "ARPG",
         "Metroidvania",
+        "ARPG",
         "RPG",
         "Unepic",
+        "ACT",
         "indie",
         "Platform",
-        "ACT",
-        "Switch",
-        "横版"
+        "类银河战士恶魔城",
+        "Switch"
       ],
       "identifiers": {
         "bangumi_subject_id": 27717
@@ -10107,15 +10107,15 @@
         "platform": null,
         "subject_tags": [
           "PC",
-          "ARPG",
           "Metroidvania",
+          "ARPG",
           "RPG",
           "Unepic",
+          "ACT",
           "indie",
           "Platform",
-          "ACT",
-          "Switch",
-          "横版"
+          "类银河战士恶魔城",
+          "Switch"
         ],
         "book_category": null
       }
@@ -10796,9 +10796,9 @@
         "空战",
         "STEAM",
         "VR",
-        "XGP",
         "indie",
         "2020",
+        "XGP",
         "游戏",
         "独立"
       ],
@@ -10821,9 +10821,9 @@
           "空战",
           "STEAM",
           "VR",
-          "XGP",
           "indie",
           "2020",
+          "XGP",
           "游戏",
           "独立"
         ],
@@ -11032,14 +11032,14 @@
       "tags": [
         "黑手党",
         "PC",
-        "射击",
-        "剧情",
         "mafia",
+        "射击",
         "TPS",
+        "剧情",
+        "2KGames",
+        "ACT",
         "2020",
-        "美国",
-        "STEAM",
-        "游戏"
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 496201
@@ -11057,14 +11057,14 @@
         "subject_tags": [
           "黑手党",
           "PC",
-          "射击",
-          "剧情",
           "mafia",
+          "射击",
           "TPS",
+          "剧情",
+          "2KGames",
+          "ACT",
           "2020",
-          "美国",
-          "STEAM",
-          "游戏"
+          "STEAM"
         ],
         "book_category": null
       }
@@ -11446,8 +11446,8 @@
         "RPG",
         "STEAM",
         "像素",
-        "悬疑",
-        "科幻"
+        "科幻",
+        "悬疑"
       ],
       "identifiers": {
         "bangumi_subject_id": 296491
@@ -11471,8 +11471,8 @@
           "RPG",
           "STEAM",
           "像素",
-          "悬疑",
-          "科幻"
+          "科幻",
+          "悬疑"
         ],
         "book_category": null
       }
@@ -15697,8 +15697,8 @@
         "耐玩",
         "2019",
         "DBG",
-        "TCG",
-        "游戏"
+        "游戏",
+        "TCG"
       ],
       "identifiers": {
         "bangumi_subject_id": 234026
@@ -15722,8 +15722,8 @@
           "耐玩",
           "2019",
           "DBG",
-          "TCG",
-          "游戏"
+          "游戏",
+          "TCG"
         ],
         "book_category": null
       }
@@ -16895,8 +16895,8 @@
       },
       "progress": null,
       "tags": [
-        "独立游戏",
         "PC",
+        "独立游戏",
         "CRPG",
         "RPG",
         "STEAM",
@@ -16920,8 +16920,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "独立游戏",
           "PC",
+          "独立游戏",
           "CRPG",
           "RPG",
           "STEAM",
@@ -17951,8 +17951,8 @@
         "TV",
         "士郎正宗",
         "Production.IG",
-        "2002",
         "Production.I.G",
+        "2002",
         "漫画改"
       ],
       "identifiers": {
@@ -17976,8 +17976,8 @@
           "TV",
           "士郎正宗",
           "Production.IG",
-          "2002",
           "Production.I.G",
+          "2002",
           "漫画改"
         ],
         "book_category": null
@@ -18915,8 +18915,8 @@
         "MADHouse",
         "赌博",
         "TV",
-        "心理战",
         "漫画改",
+        "心理战",
         "2005",
         "智斗",
         "斗智"
@@ -18940,8 +18940,8 @@
           "MADHouse",
           "赌博",
           "TV",
-          "心理战",
           "漫画改",
+          "心理战",
           "2005",
           "智斗",
           "斗智"
@@ -20996,8 +20996,8 @@
         "轻百合",
         "CloverWorks",
         "日常",
-        "乐队题材",
         "漫画改",
+        "乐队题材",
         "2022年10月",
         "搞笑",
         "TV"
@@ -21021,8 +21021,8 @@
           "轻百合",
           "CloverWorks",
           "日常",
-          "乐队题材",
           "漫画改",
+          "乐队题材",
           "2022年10月",
           "搞笑",
           "TV"
