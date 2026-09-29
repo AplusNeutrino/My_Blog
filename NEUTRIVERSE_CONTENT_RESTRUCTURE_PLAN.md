@@ -111,7 +111,7 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 - [ ] Read and classify approximately the third quarter using the same rules; front matter only; update audit.
 
-**Execution evidence — 2026-09-30 (partial):** Batch C is #23–#33 and all eleven bodies have been read before classification. Current GitHub state confirms metadata written for #23 and #25–#31; #31 was independently rechecked in current GitHub state and the stale audit status was reconciled in commit `dae29db7bead80c30341923a5dfdcb07b338ec3b`. Remaining metadata writes: #24 and #32–#33. Validation this run: current #31 front matter contains the approved taxonomy; #24 and #32 were re-opened but not rewritten because the connected response truncated their long complete contents, so no unsafe whole-file replacement was attempted. No filename/date/slug/permalink changed. No build/runtime PASS claimed. Step remains unchecked.
+**Execution evidence — 2026-09-30 (partial):** Batch C is #23–#33 and all eleven bodies have been read before classification. Current GitHub state now has metadata written for #23–#31, including #24 migrated this run after safely reconstructing its complete content from ranged reads. #24 metadata commit: `eabb41563392134149d19e0e6788c9c8e49be5d9`; audit commit: `64bb6ffcff615741860a5b355047b72d87bc10ef`. Remaining metadata writes: #32–#33. Validation this run: #24 complete ranged content was used for the replacement; only taxonomy front matter changed, while filename/date/categories/hidden/media_subpath/description/body were preserved. No filename/date/slug/permalink changed. No build/runtime PASS claimed. Step remains unchecked.
 
 ### Step 7 — Article migration batch D + Fragments/Thoughts
 
