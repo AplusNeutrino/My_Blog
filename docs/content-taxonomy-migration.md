@@ -31,7 +31,7 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 17 | 2025-04-25-计组-05.md | 学习笔记; 计组笔记 | 计算机组成原理; CPU | note | computation | Computer Architecture | CPU; Pipelining; Control Unit | confident | migrated Step 5; body read; body prose preserved |
 | 18 | 2025-05-07-计组-06.md | 学习笔记; 计组笔记 | 计算机组成原理; 总线; I/O | note | computation | Computer Architecture | Bus; I/O; DMA; Interrupts | confident | migrated Step 5; body read; body prose preserved |
 | 19 | 2025-05-21-计组-07.md | 学习笔记; 计组笔记 | 计算机组成原理; 微机 | note | computation | Computer Architecture | Microcomputer; System Bus; Instruction Cycle | confident | migrated Step 5; body read; body prose preserved |
-| 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | confident | complete body read in ranges; classification confirmed; metadata write pending |
+| 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | confident | migrated Step 5; complete body read via ranged/blob reads; body prose preserved |
 | 21 | 2025-08-22-FF1记录.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy; JRPG; Game Design; Narrative Design | confident | migrated Step 5; body read; body prose preserved |
 | 22 | 2025-09-02-计网-01.md | 学习笔记; 计网笔记 | 计算机网络 | note | computation | Computer Networks | Network Architecture; TCP/IP; OSI Model; Packet Switching | confident | migrated Step 5; body read; body prose preserved |
 | 23 | 2025-09-12-计网-02.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -73,4 +73,4 @@ Batch A is complete. All first-quarter target bodies (#1–#11) were read before
 
 ## Step 5 progress
 
-Batch B targets #12–#22. #12–#19 and #21–#22 are migrated after complete body review. The previous connected-read truncation blocker for #13 and #20 was resolved by ranged reads; #13 is now migrated and #20 is fully read/classified but its metadata write remains pending. Step 5 remains incomplete solely on #20. No filename/date/slug/permalink was changed and no intentional body prose edit was made.
+Batch B (#12–#22) is complete. All eleven article bodies were read before classification and all eleven front matters now contain the approved `type`, `topic`, optional durable `series`, and canonical reduced `tags`. The earlier connected-read truncation for #13 and #20 was resolved with ranged/blob reads before either classification was finalized. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made.
