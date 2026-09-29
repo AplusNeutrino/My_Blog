@@ -35,7 +35,7 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 21 | 2025-08-22-FF1记录.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy; JRPG; Game Design; Narrative Design | confident | migrated Step 5; body read; body prose preserved |
 | 22 | 2025-09-02-计网-01.md | 学习笔记; 计网笔记 | 计算机网络 | note | computation | Computer Networks | Network Architecture; TCP/IP; OSI Model; Packet Switching | confident | migrated Step 5; body read; body prose preserved |
 | 23 | 2025-09-12-计网-02.md | 学习笔记; 计网笔记 | 计算机网络; 物理层 | note | computation | Computer Networks | Physical Layer; Signal Encoding; Multiplexing; Shannon Capacity | confident | migrated Step 6; full body read; body prose preserved |
-| 24 | 2025-09-13-最后的纳尔马斯克.md | 地下墓穴; FFXIV | FFXIV | essay | otaku | — | Final Fantasy XIV; Fan Fiction; Garlean Empire; Nhalmasque | confident | Step 6 body fully read; classification decided; metadata write pending |
+| 24 | 2025-09-13-最后的纳尔马斯克.md | 地下墓穴; FFXIV | FFXIV | essay | otaku | — | Final Fantasy XIV; Fan Fiction; Garlean Empire; Nhalmasque | confident | migrated Step 6; full body re-read in ranges before write; body prose preserved |
 | 25 | 2025-09-15-为什么我要跳过FF2.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy II; JRPG; Game Design; Progression Systems | confident | migrated Step 6; full body read; body prose preserved |
 | 26 | 2025-09-25-计网-03.md | 学习笔记; 计网笔记 | 计算机网络; 数据链路层 | note | computation | Computer Networks | Data Link Layer; Ethernet; CRC; VLAN | confident | migrated Step 6; full body read; body prose preserved |
 | 27 | 2025-10-04-TMT理论.md | 记忆碎片; 思维链条 | TMT; Ernest Becker; Immortality Project | note | humanity | — | Terror Management Theory; Ernest Becker; Immortality Project; Symbolic Immortality | confident | migrated Step 6; full body read; body prose preserved |
@@ -54,8 +54,8 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 40 | 2026-06-30-阿卡夏便笺akashanotes.md | pending | pending | — | — | — | — | — | pending later batch |
 | 41 | 2026-07-06-于因特网标签们展开双翼.md | pending | pending | — | — | — | — | — | pending later batch |
 | 42 | 2026-07-09-丰聪耳机toyosatomimisheadphone.md | pending | pending | — | — | — | — | — | pending later batch |
-| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | pending | pending | — | — | — | — | — | pending later batch |
-| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | pending | pending | — | — | — | — | — | pending later batch |
+| 43 | 2026-08-07-学习笔记-progressive-disclosure和skill.md | pending | pending | — | — | — | — | — | — | pending later batch |
+| 44 | 2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md | pending | pending | — | — | — | — | — | — | pending later batch |
 
 ## Fragment inventory
 
@@ -77,4 +77,4 @@ Batch B (#12–#22) is complete. All eleven article bodies were read before clas
 
 ## Step 6 progress
 
-Batch C targets #23–#33. All eleven bodies have been read before classification, using ranged reads where necessary. Metadata is now written for #23 and #25–#31. Remaining writes are #24 and #32–#33. This audit reconciles current GitHub state through #31. Step 6 remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
+Batch C targets #23–#33. All eleven bodies have been read before classification, using ranged reads where necessary. Metadata is now written for #23–#31 except none omitted; remaining writes are #32–#33. #24 was safely reconstructed from ranged reads and migrated in commit `eabb41563392134149d19e0e6788c9c8e49be5d9`. Step 6 remains incomplete. No filename/date/slug/permalink was changed and no intentional article-body prose edit was made. No build/runtime PASS is claimed.
