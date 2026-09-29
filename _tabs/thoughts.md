@@ -6,18 +6,28 @@ order: 3
 fragments:
   - text: "过于宏大的目标太过耀眼，会遮住其他小目标的可能性。"
     date: 2024-09-12
+    type: fragment
+    topic: humanity
     tags: [目标, 可能性]
   - text: "人们并不想听别人的观点，只是想听自己的观点从别人嘴里说出来。"
     date: 2024-10-30
+    type: fragment
+    topic: humanity
     tags: [交流]
   - text: "等待的本质是将喜爱之物任人蹂躏。"
     date: 2025-03-23
+    type: fragment
+    topic: humanity
     tags: [等待]
   - text: "孤独至极便会涌现出无处置放的炫耀之心。"
     date: 2025-11-12
+    type: fragment
+    topic: humanity
     tags: [孤独]
   - text: "侦探小说中一旦出现了枪，这把枪就一定会背叛自己的第一任主人。"
     date: 2026-05-02
+    type: fragment
+    topic: arts
     tags: [侦探小说]   
 ---
 
@@ -29,11 +39,15 @@ fragments:
 fragments:
   - text: "短句正文"
     date: 2026-04-30
+    type: fragment
+    topic: humanity
     tags: [标签一, 标签二]
 
 说明：
 - text 是短句正文。
 - date 是显示日期。
+- type 固定为 fragment。
+- topic 使用 otaku / arts / computation / humanity 之一。
 - tags 可以写一个或多个；不需要标签时可写 tags: []。
 - 这个页面不是文章页，不会计入文章数量和总字数。
 -->
