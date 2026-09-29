@@ -103,9 +103,9 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 ### Step 5 — Article migration batch B
 
-- [ ] Read and classify approximately the second quarter using the same rules; front matter only; update audit.
+- [x] Read and classify approximately the second quarter using the same rules; front matter only; update audit.
 
-**Execution evidence — 2026-09-29 partial:** Batch B is #12–#22. #12–#19 and #21–#22 are migrated after complete body review. Earlier metadata commits include `e4c005554b756efdf6ba9d8e97fe72988d3c3102`, `68e6f83d8ae07ebc3903779694f4e9f440b40818`, `9f8cf9c20937f9f126c17ded23199cb4e341cc90`, `db5acb7fa45aa50be6fe5ebbe8ac4b8dfd66161f`, `3ef58774435a633c9b256087b0e31c527816fd2d`, `fde8eb7b3ffd01f29763c015047ece1def8003cd`, plus #17–#19 commits from the subsequent run. The previous truncation blocker was resolved using ranged reads: #13 and #20 have now both been completely inspected. #13 metadata migrated in `d4e53891518123194ec9f6a83e3e797644b169ca`; #20 classification is confirmed but its metadata write remains pending. Audit updated in `82456807cbcc955b92652218f2e4019756fd325b`. Step remains unchecked solely for #20. No URL-sensitive metadata changed and no intentional article-body prose edit was made.
+**Execution evidence — 2026-09-29:** Batch B (#12–#22) complete. All eleven bodies were read before classification and all eleven front matters migrated. The earlier read-truncation blocker for #13/#20 was resolved using ranged/blob reads. Final #20 metadata commit: `d718e1a2b7ed57d676c92242cfd0d1b89f75e1cd`; completed audit commit: `1e4964501134e506f5147359d4b8929a3fe4d2e3`. Validation performed: current #20 front matter and full blob were compared while constructing the replacement; only taxonomy front matter changed, with filename/date/description/body preserved. No filename/date/slug/permalink changed. No build/runtime PASS claimed. No blocker.
 
 ### Step 6 — Article migration batch C
 
