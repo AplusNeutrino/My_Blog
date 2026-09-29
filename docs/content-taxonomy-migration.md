@@ -24,14 +24,14 @@ Posts use YAML front matter with legacy `categories` and `tags`; new semantic fi
 | 10 | 2024-11-05-DBMS-08.md | 学习笔记; DBMS笔记 | DBMS; 数据库恢复 | note | computation | Database Systems | Database Recovery; Write-Ahead Logging; UNDO; REDO | confident | migrated Step 4; body read; body prose preserved |
 | 11 | 2024-11-12-DBMS-09.md | 学习笔记; DBMS笔记 | DBMS; 并发控制; ACID特性; 封锁机制 | note | computation | Database Systems | Concurrency Control; ACID; Locking; Two-Phase Locking | confident | migrated Step 4; body read; body prose preserved |
 | 12 | 2024-11-19-DBMS-10.md | 学习笔记; DBMS笔记 | DBMS; 函数依赖分析; 范式规范 | note | computation | Database Systems | Functional Dependencies; Normalization; Database Design | confident | migrated Step 5; body read; body prose preserved |
-| 13 | 2025-02-26-计组-01.md | 学习笔记; 计组笔记 | 计算机组成原理; 计算机系统 | note | computation | Computer Architecture | Computer Systems; CPU Performance; Von Neumann Architecture | review | body retrieval was truncated in connected interface; do not migrate until complete read |
+| 13 | 2025-02-26-计组-01.md | 学习笔记; 计组笔记 | 计算机组成原理; 计算机系统 | note | computation | Computer Architecture | Computer Systems; CPU Performance; Von Neumann Architecture | confident | migrated Step 5; complete body read in line ranges; body prose preserved |
 | 14 | 2025-03-12-计组-02.md | 学习笔记; 计组笔记 | 计算机组成原理; 计算机数据 | note | computation | Computer Architecture | Data Representation; Two's Complement; IEEE 754; ALU | confident | migrated Step 5; body read; body prose preserved |
 | 15 | 2025-03-27-计组-03.md | 学习笔记; 计组笔记 | 计算机组成原理; 存储器; RAM | note | computation | Computer Architecture | Memory Hierarchy; Cache; SRAM; DRAM | confident | migrated Step 5; body read; body prose preserved |
 | 16 | 2025-04-16-计组-04.md | 学习笔记; 计组笔记 | 计算机组成原理; 指令; 寻址 | note | computation | Computer Architecture | Instruction Set Architecture; Addressing Modes; RISC; CISC | confident | migrated Step 5; body read; body prose preserved |
-| 17 | 2025-04-25-计组-05.md | 学习笔记; 计组笔记 | 计算机组成原理; CPU | note | computation | Computer Architecture | CPU; Pipelining; Control Unit | confident | body read; classification decided; metadata write pending |
-| 18 | 2025-05-07-计组-06.md | 学习笔记; 计组笔记 | 计算机组成原理; 总线; I/O | note | computation | Computer Architecture | Bus; I/O; DMA; Interrupts | confident | body read; classification decided; metadata write pending |
-| 19 | 2025-05-21-计组-07.md | 学习笔记; 计组笔记 | 计算机组成原理; 微机 | note | computation | Computer Architecture | Microcomputer; System Bus; Instruction Cycle | confident | body read; classification decided; metadata write pending |
-| 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | review | body retrieval was truncated in connected interface; do not migrate until complete read |
+| 17 | 2025-04-25-计组-05.md | 学习笔记; 计组笔记 | 计算机组成原理; CPU | note | computation | Computer Architecture | CPU; Pipelining; Control Unit | confident | migrated Step 5; body read; body prose preserved |
+| 18 | 2025-05-07-计组-06.md | 学习笔记; 计组笔记 | 计算机组成原理; 总线; I/O | note | computation | Computer Architecture | Bus; I/O; DMA; Interrupts | confident | migrated Step 5; body read; body prose preserved |
+| 19 | 2025-05-21-计组-07.md | 学习笔记; 计组笔记 | 计算机组成原理; 微机 | note | computation | Computer Architecture | Microcomputer; System Bus; Instruction Cycle | confident | migrated Step 5; body read; body prose preserved |
+| 20 | 2025-06-11-计组-08.md | 学习笔记; 计组笔记 | 计算机组成原理; 汇编语言 | note | computation | Computer Architecture | Assembly Language; 8086; Procedures; Stack | confident | complete body read in ranges; classification confirmed; metadata write pending |
 | 21 | 2025-08-22-FF1记录.md | 阅览记录; 游戏记录 | 最终幻想 | essay | otaku | — | Final Fantasy; JRPG; Game Design; Narrative Design | confident | migrated Step 5; body read; body prose preserved |
 | 22 | 2025-09-02-计网-01.md | 学习笔记; 计网笔记 | 计算机网络 | note | computation | Computer Networks | Network Architecture; TCP/IP; OSI Model; Packet Switching | confident | migrated Step 5; body read; body prose preserved |
 | 23 | 2025-09-12-计网-02.md | pending | pending | — | — | — | — | — | pending later batch |
@@ -73,4 +73,4 @@ Batch A is complete. All first-quarter target bodies (#1–#11) were read before
 
 ## Step 5 progress
 
-Batch B targets #12–#22. In this run, #12, #14–#16, #21 and #22 were migrated after body review. #17–#19 were fully read and classified but still await metadata writes. #13 and #20 returned truncated bodies through the connected GitHub interface, so they are deliberately left unmigrated until a complete read is possible. Step 5 remains incomplete. No filename/date/slug/permalink was changed and no intentional body prose edit was made.
+Batch B targets #12–#22. #12–#19 and #21–#22 are migrated after complete body review. The previous connected-read truncation blocker for #13 and #20 was resolved by ranged reads; #13 is now migrated and #20 is fully read/classified but its metadata write remains pending. Step 5 remains incomplete solely on #20. No filename/date/slug/permalink was changed and no intentional body prose edit was made.
