@@ -117,6 +117,8 @@ Each run reads this file and current GitHub state, executes **the first unchecke
 
 - [ ] Read/classify remaining posts; align current Thoughts to `type: fragment` in the least disruptive architecture-compatible way; finish tag cleanup; update audit and list owner-review items.
 
+**Execution evidence — 2026-09-30 (partial):** Read and classified all remaining post bodies #34–#44, using ranged reads for long files. Migrated #35 (`2025-12-17-NoSQL项目面经.md`) to `note / computation` with canonical tags `MongoDB / Data Modeling / Denormalization / Indexing` in commit `b18f504a47d5addc0b09b74713571ff16b928ee9`. Aligned all five existing `_tabs/thoughts.md` objects to `type: fragment` plus allowed primary topics in commit `a4ebf1e15db24046eb79a65a9674bf8ccf26088f`. Audit updated in commit `cf6263cfd682c1d3715f75daeefe7d66892aa903` with final classifications for #34–#44 and fragment records. Metadata writes remain pending for #34 and #36–#44, so Step 7 remains unchecked. Validation: source bodies were read before classification; current write scope did not rename files or alter date/slug/permalink fields. No full Jekyll build/runtime PASS claimed.
+
 ### Step 8 — Full validation + final handoff
 
 - [ ] Validate all writing classifications, allowed Topic values, meaningful optional Series, tag reduction, body preservation, URL/permalink preservation and generated taxonomy surfaces. Run available build/tests where feasible and review diffs for accidental prose changes. Create `docs/content-taxonomy-final-report.md` with migration totals, Type/Topic counts, Series list, old/new unique tag counts, merges/removals, URL compatibility, validation/build evidence, unresolved review items and relevant commit SHAs.
