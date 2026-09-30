@@ -1,8 +1,10 @@
 ---
 title: "学习笔记：Progressive Disclosure和SKILL"
 date: 2026-08-07
+type: note
+topic: computation
 categories: [学习笔记, LLM笔记]
-tags: [Progressive Disclosure, SKILL]
+tags: [Progressive Disclosure, Agent Skills, Context Engineering, Tool Routing]
 description: "总结了渐进式披露的原理和SKILL的一些设计思路。注意文章中很多部分的思路是直接照搬的参考文献，比起原创文章我更愿意称其为摘抄笔记。"
 ---
 
