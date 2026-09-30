@@ -78,16 +78,18 @@ Step 3 added `_data/content_taxonomy.yml` and `_includes/post-taxonomy.html`, an
 
 GitHub Actions run **36687172696** (`Build and Deploy`, head `63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`) completed with **failure**.
 
-Evidence from the run:
+Evidence from that run:
 
 - Regression-test step: **PASS**, `27` tests run, `OK`.
 - Jekyll build step: **FAIL**.
 - Failure: `Liquid Exception: undefined method 'gsub' for an instance of Integer in _layouts/post.html` while Jekyll's `slugify` filter was rendering post metadata.
-- The migrated `2025-06-11-计组-08.md` currently has `tags: [Assembly Language, 8086, Procedures, Stack]`; YAML parses unquoted `8086` as an integer, and `_layouts/post.html` applies `slugify` directly to each tag. This is a migration-caused build blocker. No build/runtime PASS is claimed.
+- Root cause was the migrated `2025-06-11-计组-08.md` tag value `8086` being parsed by YAML as an integer.
+
+The root cause was corrected in commit `5fc783bcb82beadaeba157ed1c38f83216442e11` by quoting the canonical tag as `"8086"`. This is a front-matter-only compatibility fix; the article body was preserved. At the time of this validation update, GitHub reported no workflow run yet for that commit, so the fix is **not** claimed as a build/runtime PASS.
 
 ## Unresolved review items / blockers
 
-1. **Build blocker:** quote the numeric canonical tag (`"8086"`) or make taxonomy tag rendering stringify values before `slugify`, then obtain a successful Jekyll build on the resulting commit.
+1. **Build verification:** the numeric-tag root cause is fixed in `5fc783bcb82beadaeba157ed1c38f83216442e11`, but a successful Jekyll build on the corrected repository state is still required.
 2. **Body-diff verification:** independently compare article bodies for the three large-stat replacement diffs listed above against the pre-migration baseline to rule out accidental prose changes rather than relying on patch statistics.
 3. **Global tag vocabulary:** confirm that the increase from 93 legacy unique strings to 157 final canonical strings is acceptable under the intended “reduced/canonicalized” model, or perform another evidence-based canonical reduction without altering bodies.
 
@@ -105,5 +107,6 @@ Because these items remain unresolved, Step 8 must remain unchecked.
 - Final article migration (#36): `0625b2786ae7514af8020c5c1002b31979cc9b5b`.
 - Step 7 audit reconciliation: `3edfd5fca9ba16599ba5575e03681b69486c393f`.
 - Step 7 completion state: `63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`.
+- Numeric-tag Jekyll compatibility fix: `5fc783bcb82beadaeba157ed1c38f83216442e11`.
 
 This report is a Step 8 validation artifact, not a declaration that Step 8 is complete.
