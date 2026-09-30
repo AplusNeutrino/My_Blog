@@ -1,8 +1,10 @@
 ---
 title: "哥德尔编码和 RAG Embedding 之间的关系"
 date: 2026-08-17
+type: note
+topic: computation
 categories: [记忆碎片, 思维链条]
-tags: [哥德尔编码, Embedding, RAG]
+tags: [Gödel Numbering, Embeddings, RAG, Semantic Search]
 description: "读RAG相关文章时发现这俩有点像。两者一个更加关注语句之间如何实现数学运算，一个更加关注语句之间如何实现意义对比。"
 ---
 
