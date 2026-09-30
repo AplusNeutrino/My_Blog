@@ -2,7 +2,9 @@
 title: "阿卡夏便笺 Akasha Notes v0.1.2."
 date: 2026-06-30
 categories: [记忆碎片, 软件发布]
-tags: [桌面便签, Windows, 小工具]
+type: note
+topic: computation
+tags: [Akasha Notes, Windows, Desktop Widgets]
 description: "这是一个自用的小工具，没有特别设计UI之类的。不过作为六月份vibe coding的成果之一，还是放出来一下好了。或许会有人想要这样高度自定义化的东西。"
 ---
 
