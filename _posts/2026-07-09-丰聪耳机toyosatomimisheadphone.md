@@ -2,7 +2,9 @@
 title: "丰聪耳机 Toyosatomimi’s headphone v0.2.0"
 date: 2026-07-09
 categories: [记忆碎片, 软件发布]
-tags: [东方Project, 丰聪耳神子, STT]
+type: note
+topic: computation
+tags: [Toyosatomimi's Headphone, Speech-to-Text, Translation, Windows]
 description: "最近找到一些不错的Ai播客，但前段时间长期戴耳机听力稍有下降，所以决定寻找一个不戴耳机也能听的方法。"
 ---
 
