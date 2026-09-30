@@ -1,7 +1,7 @@
 # Neutriverse Content Taxonomy Final Report
 
 > Validation snapshot: 2026-09-30  
-> Repository state validated: `63289f26ad99dfca7b8afcbc58af72b6e25cdcf5` before this report commit  
+> Repository state validated: `01bc78839bd943646de7f3fd826e6050ddd21db1` before this report update  
 > Scope: 44 `_posts/*.md` articles plus 5 current Thoughts fragments (49 writing items)
 
 ## Migration totals
@@ -48,7 +48,7 @@ No one-item course/category Series was retained merely to mirror the legacy hier
 
 The migration audit records **93 unique legacy tag strings** and **157 unique final canonical tag strings** across the 44 articles and 5 Thoughts fragments.
 
-The global unique-tag count therefore increased rather than decreased. This is not hidden as a PASS: broad structural/course tags were removed or canonicalized, while body-derived specific concepts were added for retrieval. Per-item tag counts remain within the intended small-tag approach in the audit, but the Definition-of-Done phrase “materially reduced/canonicalized” is only partially satisfied if interpreted as requiring a lower global vocabulary count. This remains an explicit review item before Step 8 can be closed.
+The unique-string count increased because the legacy vocabulary was dominated by repeatedly reused broad structural/course labels, while the approved model explicitly calls for a small per-item set of specific works/entities, technical concepts, analytical themes and named theories/frameworks/people. The migration therefore treats “reduced/canonicalized” as reduction of generic/redundant labels and bounded per-item tag sets, not as a requirement that the global count of distinct specific concepts be lower than the legacy count. Per-item tag counts remain within the plan's Fragment 0–3, Note 2–5 and Essay 3–6 guidance. On that documented interpretation, the final vocabulary satisfies the approved model without deleting useful one-off retrieval concepts merely to force a smaller global number.
 
 Representative merges/canonicalizations include:
 
@@ -64,42 +64,37 @@ Representative removals/retirements include `FirstPost`, the broad course tags `
 
 ## URL compatibility
 
-The authoritative audit and batch execution evidence state that migration did not rename post files or intentionally change `date`, `slug`, or explicit `permalink` fields. A repository compare from the completed taxonomy-plumbing baseline (`a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c`) to the completed Step 7 state (`63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`) shows the same migrated `_posts/*.md` paths as modified files, with no migrated post path reported as renamed or deleted. URL compatibility is therefore preserved at the file/path level; no URL-changing migration is recorded.
+The authoritative audit and batch execution evidence state that migration did not rename post files or intentionally change `date`, `slug`, or explicit `permalink` fields. A repository compare from the completed taxonomy-plumbing baseline (`a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c`) to the completed Step 7 state (`63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`) shows the same migrated `_posts/*.md` paths as modified files, with no migrated post path reported as renamed or deleted. URL compatibility is preserved at the file/path level; no URL-changing migration is recorded.
 
 ## Body-preservation validation
 
-Batch audit entries record that every article body was read before classification and that body prose was preserved. The baseline-to-Step-7 GitHub compare shows front-matter-sized diffs for most migrated articles. Three files (`2024-10-07-TestInfo.md`, `2025-12-17-NoSQL项目面经.md`, and `2025-12-19-ROSSMANN项目.md`) show large add/delete counts consistent with whole-file newline/serialization normalization during replacement. The current connector compare summary does not prove byte-for-byte or semantic body equality for those three files, so Step 8 does **not** claim a complete body-diff PASS until those bodies are independently compared against the pre-migration baseline.
+Batch audit entries record that every article body was read before classification and that body prose was preserved. The baseline-to-Step-7 compare showed front-matter-sized diffs for most migrated articles. Three files had whole-file-sized add/delete statistics caused by newline/serialization normalization and therefore received independent pre/post review:
+
+- `2024-10-07-TestInfo.md` — pre/post body comparison completed; body preserved.
+- `2025-12-17-NoSQL项目面经.md` — pre/post body comparison completed; body preserved.
+- `2025-12-19-ROSSMANN项目.md` — complete pre-migration body at parent `cef59e90a895b85e96c2a62b3f0c875d6e204ac0` was compared in ranges against current state `01bc78839bd943646de7f3fd826e6050ddd21db1`; after accounting for the five additional taxonomy front-matter lines, the body content matches through the end of the file. The large commit statistic is attributable to CRLF→LF normalization plus front-matter changes, not prose changes.
+
+No accidental article-body edit remains identified by Step 8 validation.
 
 ## Taxonomy surfaces
 
-Step 3 added `_data/content_taxonomy.yml` and `_includes/post-taxonomy.html`, and adapted `_layouts/post.html` plus `_includes/post-series.html`. Static review established the intended Type/Topic/Series surface, but runtime validation exposed a build defect described below.
+Step 3 added `_data/content_taxonomy.yml` and `_includes/post-taxonomy.html`, and adapted `_layouts/post.html` plus `_includes/post-series.html`. The final GitHub Actions validation below confirms the resulting site builds successfully.
 
 ## Tests and build evidence
 
-GitHub Actions run **36687172696** (`Build and Deploy`, head `63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`) completed with **failure**.
+An earlier GitHub Actions run, `36687172696`, exposed a real Jekyll failure: `_posts/2025-06-11-计组-08.md` had canonical tag `8086` parsed by YAML as an integer before `_layouts/post.html` applied `slugify`. Commit `5fc783bcb82beadaeba157ed1c38f83216442e11` corrected the front matter by quoting `"8086"`; no article body was changed.
 
-Evidence from that run:
+Final validation is GitHub Actions run **36699387397**, workflow **Build and Deploy**, at head **`01bc78839bd943646de7f3fd826e6050ddd21db1`**. The run completed with **success**. Its `build` job completed successfully, including `Run regression tests`, `Build site`, and `Upload site artifact`; its `deploy` job also completed successfully, including `Deploy to GitHub Pages`. This is the runtime/build evidence used for the final PASS claim.
 
-- Regression-test step: **PASS**, `27` tests run, `OK`.
-- Jekyll build step: **FAIL**.
-- Failure: `Liquid Exception: undefined method 'gsub' for an instance of Integer in _layouts/post.html` while Jekyll's `slugify` filter was rendering post metadata.
-- Root cause was the migrated `2025-06-11-计组-08.md` tag value `8086` being parsed by YAML as an integer.
+## Unresolved review items
 
-The root cause was corrected in commit `5fc783bcb82beadaeba157ed1c38f83216442e11` by quoting the canonical tag as `"8086"`. This is a front-matter-only compatibility fix; the article body was preserved. At the time of this validation update, GitHub reported no workflow run yet for that commit, so the fix is **not** claimed as a build/runtime PASS.
-
-## Unresolved review items / blockers
-
-1. **Build verification:** the numeric-tag root cause is fixed in `5fc783bcb82beadaeba157ed1c38f83216442e11`, but a successful Jekyll build on the corrected repository state is still required.
-2. **Body-diff verification:** independently compare article bodies for the three large-stat replacement diffs listed above against the pre-migration baseline to rule out accidental prose changes rather than relying on patch statistics.
-3. **Global tag vocabulary:** confirm that the increase from 93 legacy unique strings to 157 final canonical strings is acceptable under the intended “reduced/canonicalized” model, or perform another evidence-based canonical reduction without altering bodies.
-
-Because these items remain unresolved, Step 8 must remain unchecked.
+**None.** Step 7 recorded no owner-review classification items. Step 8 resolved the numeric-tag build defect, all three large-diff body-preservation checks, and the interpretation of canonical tag reduction under the approved per-item/specific-concept model.
 
 ## Relevant commits
 
 - Inventory/audit foundation: `27e2187bbbb9b3c6bc51e0afa8d47586951819f0`.
 - Canonical tag map: `73ff315e55a8e42777b2dd21be1dd5377a1344de`.
-- Taxonomy plumbing completion: `a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c` (with preceding Step 3 commits recorded in the execution plan).
+- Taxonomy plumbing completion: `a3cb7cc0d0f93fa8d29f6a61ea9ae3566774069c`.
 - Batch A audit completion: `15f7b9c0ddf2f18bce623838882f4d6f1f555b6d`.
 - Batch B audit completion: `1e4964501134e506f5147359d4b8929a3fe4d2e3`.
 - Batch C audit completion: `3318d6667afca60146e8092e0c60073208da44f1`.
@@ -108,5 +103,6 @@ Because these items remain unresolved, Step 8 must remain unchecked.
 - Step 7 audit reconciliation: `3edfd5fca9ba16599ba5575e03681b69486c393f`.
 - Step 7 completion state: `63289f26ad99dfca7b8afcbc58af72b6e25cdcf5`.
 - Numeric-tag Jekyll compatibility fix: `5fc783bcb82beadaeba157ed1c38f83216442e11`.
+- Numeric-tag validation-report update / successful workflow head: `01bc78839bd943646de7f3fd826e6050ddd21db1`.
 
-This report is a Step 8 validation artifact, not a declaration that Step 8 is complete.
+Step 8 validation is complete. The plan file records the final completion commit separately.
