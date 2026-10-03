@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00 done，T01 done（基线已交付，等待对应 CI）。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：T02/T06 ready，优先 T02。
+**当前状态：计划细化与启动决定已完成，T00/T01 done，T02 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：完成 T02 当前分类/审计/报告一致性修正；T06 保持 ready。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00 = done，T01 = done，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00/T01 = done，T02 = in-progress，T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T01 baseline committed；next = T02 ready / T06 ready；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T02-taxonomy-consistency；branch = main（未完成实现用工作分支）；checkpoint = T01 done；next = finish T02；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1158,3 +1158,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 限制：本环境缺 Ruby；线上 sitemap 返回 HTTP 403。源路径在 JSON 标记 runtime_url_verified=false；生成 URL/robots/Tag 详情与线上视觉留 T33/T38，不声称已通过。
 - 保护：未改文章/Fragments/配置/应用行为；文档和 tools 原配置排除站点发布内容。
 - 下一步：T02/T06 已解锁，优先 T02。
+
+### T02 — 分类/审计/报告一致性（进行中）
+
+- Run：2026-10-04 01:00；base SHA = `c6d8ef5ce1a1a22d635d2f2a9e461509d47852a3`；branch = main。
+- 本次范围：从 T01 基线与 authoritative audit 独立核对 44 篇文章 + 5 条 Fragment 的 Type/Topic/Series/Tags；修正 `docs/content-taxonomy-final-report.md` 的统计错误并解释原因。
+- 拟改文件：`docs/content-taxonomy-final-report.md`、必要的只读校验脚本、本主计划、执行日志。
+- 验收：49/49 条源分类与 audit 一致；报告 Type/Topic/Series/Tag 数字由可重复检查支持；不修改内容 front matter 或正文；相关回归通过。
+- 预计剩余：提交报告/校验工具、检查对应 CI、记录 T02 done 或 validation-pending。
