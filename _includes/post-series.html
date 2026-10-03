@@ -1,5 +1,5 @@
-{% if page.series %}
-  {% assign series_posts = site.posts | where: 'series', page.series | sort: 'date' %}
+{% if page.series and page.hidden != true %}
+  {% assign series_posts = site.posts | where: 'series', page.series | where_exp: 'post', 'post.hidden != true' | sort: 'date' %}
   {% if series_posts.size > 1 %}
     <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
       <div class="post-series-header">
@@ -24,65 +24,4 @@
       </div>
     </section>
   {% endif %}
-{% elsif page.categories.size > 0 %}
-  {% comment %}Legacy fallback retained until all posts have explicit series metadata.{% endcomment %}
-  {% assign page_root_category = page.categories | first %}
-  {% assign page_leaf_category = page.categories | last %}
-
-  <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
-    <div class="post-series-header">
-      <h2 class="panel-heading">同频系列</h2>
-      <span class="post-series-count" data-series-count></span>
-    </div>
-    <div class="post-series-root">{{ page_root_category }}</div>
-    <div class="post-series-tree" data-series-tree></div>
-
-    <script type="application/json" data-series-posts>
-      [
-        {% assign first_series_post = true %}
-        {% assign series_posts = site.posts | sort: 'date' %}
-        {% for post in series_posts %}
-          {% assign post_leaf_category = post.categories | last %}
-          {% assign should_show_series_post = false %}
-          {% if post_leaf_category == page_leaf_category %}
-            {% if page.hidden == true or post.hidden != true %}
-              {% assign should_show_series_post = true %}
-            {% endif %}
-          {% endif %}
-          {% if should_show_series_post %}
-            {% unless first_series_post %},{% endunless %}
-            {"title": {{ post.title | jsonify }}, "url": {{ post.url | relative_url | jsonify }}, "date": {{ post.date | date: '%Y-%m-%d' | jsonify }}, "categories": {{ post.categories | jsonify }}}
-            {% assign first_series_post = false %}
-          {% endif %}
-        {% endfor %}
-      ]
-    </script>
-
-    <script>
-      (() => {
-        const panel = document.currentScript.closest('#post-series');
-        if (!panel) return;
-        const treeRoot = panel.querySelector('[data-series-tree]');
-        const countNode = panel.querySelector('[data-series-count]');
-        const dataNode = panel.querySelector('[data-series-posts]');
-        const currentUrl = panel.dataset.currentUrl;
-        const posts = JSON.parse(dataNode.textContent || '[]');
-        if (posts.length <= 1) { panel.hidden = true; return; }
-        countNode.textContent = `${posts.findIndex((post) => post.url === currentUrl) + 1}/${posts.length}`;
-        const list = document.createElement('ol');
-        list.className = 'post-series-list';
-        posts.sort((a, b) => a.date.localeCompare(b.date)).forEach((post, index) => {
-          const item = document.createElement('li');
-          item.className = 'post-series-item';
-          if (post.url === currentUrl) item.classList.add('is-current');
-          const link = document.createElement('a'); link.href = post.url;
-          const order = document.createElement('span'); order.className = 'post-series-order'; order.textContent = String(index + 1).padStart(2, '0');
-          const title = document.createElement('span'); title.className = 'post-series-title'; title.textContent = post.title;
-          const date = document.createElement('time'); date.className = 'post-series-date'; date.dateTime = post.date; date.textContent = post.date.slice(5).replace('-', '/');
-          link.append(order, title, date); item.append(link); list.append(item);
-        });
-        treeRoot.append(list);
-      })();
-    </script>
-  </section>
 {% endif %}
