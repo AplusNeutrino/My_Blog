@@ -4,6 +4,8 @@
 > Repository state validated: `01bc78839bd943646de7f3fd826e6050ddd21db1` before this report update  
 > Scope: 44 `_posts/*.md` articles plus 5 current Thoughts fragments (49 writing items)
 
+> **2026-10-04 correction:** T02 revalidated the authoritative audit against the current 44 post front matters and 5 Fragment objects. The earlier Topic table accidentally counted the Arts Fragment as Humanity. The corrected counts below are `humanity: 6` and `arts: 1`; the 49-item total and every per-item classification are unchanged. Current-source evidence is recorded in `docs/neutriverse-restructure-baseline.json` and enforced by `tests/test_content_taxonomy_consistency.py`.
+
 ## Migration totals
 
 - Articles migrated: **44 / 44**.
@@ -27,9 +29,9 @@ All audited Type values are within the approved controlled vocabulary: `fragment
 | Topic | Count |
 |---|---:|
 | `computation` | 38 |
-| `humanity` | 7 |
+| `humanity` | 6 |
 | `otaku` | 4 |
-| `arts` | 0 |
+| `arts` | 1 |
 | **Total** | **49** |
 
 All audited Topic values are within the approved controlled vocabulary: `otaku`, `arts`, `computation`, `humanity`.
@@ -47,6 +49,8 @@ No one-item course/category Series was retained merely to mirror the legacy hier
 ## Tag inventory
 
 The migration audit records **93 unique legacy tag strings** and **157 unique final canonical tag strings** across the 44 articles and 5 Thoughts fragments.
+
+The 2026-10-04 source revalidation independently confirmed **151 unique tags across article front matter** and **157 across all writing after including Fragments**. Re-parsing the audit's old/new tag columns reproduced **93 / 157**, so no tag-count conflict exists between the audit and current content. This is a vocabulary count, not a public Tag-page count: hidden content filtering is handled separately by the later retrieval work.
 
 The unique-string count increased because the legacy vocabulary was dominated by repeatedly reused broad structural/course labels, while the approved model explicitly calls for a small per-item set of specific works/entities, technical concepts, analytical themes and named theories/frameworks/people. The migration therefore treats “reduced/canonicalized” as reduction of generic/redundant labels and bounded per-item tag sets, not as a requirement that the global count of distinct specific concepts be lower than the legacy count. Per-item tag counts remain within the plan's Fragment 0–3, Note 2–5 and Essay 3–6 guidance. On that documented interpretation, the final vocabulary satisfies the approved model without deleting useful one-off retrieval concepts merely to force a smaller global number.
 
@@ -89,6 +93,14 @@ Final validation is GitHub Actions run **36699387397**, workflow **Build and Dep
 ## Unresolved review items
 
 **None.** Step 7 recorded no owner-review classification items. Step 8 resolved the numeric-tag build defect, all three large-diff body-preservation checks, and the interpretation of canonical tag reduction under the approved per-item/specific-concept model.
+
+## 2026-10-04 consistency revalidation
+
+- All **44 / 44** article audit rows match current `type`, `topic`, optional `series`, and ordered canonical `tags` exactly.
+- All **5 / 5** Fragment audit rows match current date, `type`, `topic`, and canonical `tags`; their text remains protected by the T01 SHA-256 baseline rather than duplicated here.
+- Controlled vocabularies contain no unexpected values. Series counts remain Database Systems 10, Computer Architecture 8, and Computer Networks 10.
+- The only report discrepancy was the aggregate Topic transcription described above. No front matter, body, filename, date, slug, permalink, or audit classification was changed to make the report agree.
+- `tests/test_content_taxonomy_consistency.py` performs the repeatable current-source ↔ audit ↔ report check without requiring Jekyll or third-party Python packages.
 
 ## Relevant commits
 
