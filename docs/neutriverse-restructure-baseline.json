@@ -1,0 +1,2018 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-03T16:09:01.690800+00:00",
+  "source_head_sha": "97281227aaafe176870b28bc8a352a0e536e29d6",
+  "source_url_rules": "Explicit permalink first; otherwise configured /posts/:title/ with filename slug, tab /:title/, directory index. Unicode paths unescaped. All candidates require Jekyll output validation; slugify/archive-generated routes are not asserted here.",
+  "hash_rules": "UTF-8; strip initial BOM; normalize CRLF/CR to LF; body is exact suffix after front matter closing line; preserve other whitespace including terminal newline. Fragment hash covers parsed text only, date separately protected.",
+  "counts": {
+    "posts": 44,
+    "fragments": 5,
+    "hidden_posts": 5,
+    "types": {
+      "essay": 5,
+      "fragment": 5,
+      "note": 39
+    },
+    "topics": {
+      "arts": 1,
+      "computation": 38,
+      "humanity": 6,
+      "otaku": 4
+    },
+    "unique_post_tags": 151,
+    "unique_writing_tags": 157
+  },
+  "posts": [
+    {
+      "path": "_posts/2024-10-07-TestInfo.md",
+      "title": "Zodiac",
+      "raw_sha256": "a28931c0f41ab5c6b9485f77cda2851373412cbc0b8c7cb7eb7e1f69febf8c2f",
+      "body_sha256_lf": "299b0c8140871d2e06aed7a23995656a679d6d90ab360a7a3f7ca0e5e118204f",
+      "body_bytes_utf8_lf": 3094,
+      "protected_url_metadata": {
+        "date": "2024-10-07",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/testinfo/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Site Styling",
+        "Markdown"
+      ],
+      "categories": [
+        "记忆碎片"
+      ],
+      "hidden": true,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-08-DBMS-01.md",
+      "title": "DBMS笔记 01 数据库基本概念",
+      "raw_sha256": "c81a2e797305602b4634cf57c44255686564fce02bc472481838fd93d221596e",
+      "body_sha256_lf": "7c001f86fdfffe09e01fcd5a0cd14f222d780a8b0966a4cc75693bb918e20db5",
+      "body_bytes_utf8_lf": 3335,
+      "protected_url_metadata": {
+        "date": "2024-10-08",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-01/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "E-R Model",
+        "Data Models",
+        "Data Independence"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-09-DBMS-02.md",
+      "title": "DBMS笔记 02 关系数据库",
+      "raw_sha256": "b8c62c79f6bac863fd9c54b037209b4a07baab14e5df97a1fa47b278c1428ccb",
+      "body_sha256_lf": "566e436aa8368d29809b2f86e00154671023b808f16a3bce8468c1e9b787c67e",
+      "body_bytes_utf8_lf": 4180,
+      "protected_url_metadata": {
+        "date": "2024-10-09",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-02/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Relational Databases",
+        "Integrity Constraints",
+        "Normalization"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-12-DBMS-03.md",
+      "title": "DBMS笔记 03 关系数据理论",
+      "raw_sha256": "9e899eedf7a656cd1a50e9751a780d8f402efe879fe6b3016532e4b4a051adef",
+      "body_sha256_lf": "d9077dc14d17f32777629d820889d38879a6ca976ffcfb2971a8d2e349ddf877",
+      "body_bytes_utf8_lf": 4108,
+      "protected_url_metadata": {
+        "date": "2024-10-12",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-03/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Relational Algebra",
+        "SQL"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-14-DBMS-04.md",
+      "title": "DBMS笔记 04 SQL语言",
+      "raw_sha256": "f2b9b5928ad2c194a6cf3b63cc0e4c11359331b638e744929ab77cf43721987e",
+      "body_sha256_lf": "6bc99c393dcb570792b525dc892cde48520f29696509a78da6f3100464056668",
+      "body_bytes_utf8_lf": 3836,
+      "protected_url_metadata": {
+        "date": "2024-10-14",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-04/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "SQL",
+        "Views",
+        "Integrity Constraints"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-15-DBMS-05.md",
+      "title": "DBMS笔记 05 关系查询处理与查询优化",
+      "raw_sha256": "cb030327dc2d6a433eb83447ee37bc7c278efc4168cc0ec12160c51b1cab8356",
+      "body_sha256_lf": "e2d37cf49a67d79f14bd8a696cace2ef922c8345f491304b7fceb3ea2e89c5d9",
+      "body_bytes_utf8_lf": 3636,
+      "protected_url_metadata": {
+        "date": "2024-10-15",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-05/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Query Optimization",
+        "Query Processing",
+        "Join Algorithms"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-22-DBMS-06.md",
+      "title": "DBMS笔记 06 数据库安全性",
+      "raw_sha256": "0c37e57df607f2694d20f19b3949186904d540fdc49fc2eda68a8d35ec7583e0",
+      "body_sha256_lf": "f64b0e10fffce78ff6dd003ae5f014baffee30e1a0c00434ca90a04250cdfc04",
+      "body_bytes_utf8_lf": 3111,
+      "protected_url_metadata": {
+        "date": "2024-10-22",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-06/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Database Security",
+        "Access Control",
+        "DAC",
+        "MAC"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-29-DBMS-07.md",
+      "title": "DBMS笔记 07 数据库完整性",
+      "raw_sha256": "a0bdd5dc1342d32b7f8835b3bddaf1dad82bfb85c2517d639ee4a6c0d7af7441",
+      "body_sha256_lf": "5cd90de32a4e8b814f013617cefef44f7b174b801ac84be50e82aae5a594ed94",
+      "body_bytes_utf8_lf": 3649,
+      "protected_url_metadata": {
+        "date": "2024-10-29",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-07/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Integrity Constraints",
+        "Triggers"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-10-30-PythonIntro.md",
+      "title": "Python笔记 01 杂项",
+      "raw_sha256": "cc6292e0f6836bae7536f60599752a11cffd9051420689de03024dcd9a227c53",
+      "body_sha256_lf": "b8e611f3850e9e5b1ced3d4d7ada484661f0311b4caaaa74fc14a0a75768366d",
+      "body_bytes_utf8_lf": 2342,
+      "protected_url_metadata": {
+        "date": "2024-10-30",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/pythonintro/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Python"
+      ],
+      "categories": [
+        "学习笔记",
+        "Python笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-11-05-DBMS-08.md",
+      "title": "DBMS笔记 08 数据库恢复技术",
+      "raw_sha256": "d22545aa82941c3f1e8f9868bb506086649a31d5f3c64570016911bed29ebdbb",
+      "body_sha256_lf": "8003bc5f00af5848bdb015f60706d5c5d39da1e535d9bef60ae5f0dfff6e1aab",
+      "body_bytes_utf8_lf": 3199,
+      "protected_url_metadata": {
+        "date": "2024-11-05",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-08/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Database Recovery",
+        "Write-Ahead Logging",
+        "UNDO",
+        "REDO"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-11-12-DBMS-09.md",
+      "title": "DBMS笔记 09 并发控制",
+      "raw_sha256": "ade7011d6b29fd3008e6357fe92e4c9d08f22cea19bc1d3f0eb3b2d07ae1693b",
+      "body_sha256_lf": "39f37869de0a0bcaa3d836f1bcb2a1e9975ccba82a73a07f87aae9234fdcf64b",
+      "body_bytes_utf8_lf": 3168,
+      "protected_url_metadata": {
+        "date": "2024-11-12",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-09/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Concurrency Control",
+        "ACID",
+        "Locking",
+        "Two-Phase Locking"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2024-11-19-DBMS-10.md",
+      "title": "DBMS笔记 10 关系数据库设计理论",
+      "raw_sha256": "882f52d1d0df302b99502f8f326e0508803930d69a1269c48963447ac4a77a7e",
+      "body_sha256_lf": "32824ed403046f74074f42005e234341707d71ed179b212285ffca4c83411e39",
+      "body_bytes_utf8_lf": 2989,
+      "protected_url_metadata": {
+        "date": "2024-11-19",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/dbms-10/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Database Systems",
+      "tags": [
+        "Functional Dependencies",
+        "Normalization",
+        "Database Design"
+      ],
+      "categories": [
+        "学习笔记",
+        "DBMS笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-02-26-计组-01.md",
+      "title": "计组笔记 01 计算机系统概述",
+      "raw_sha256": "1ea3edf7e9dda169aad23ed4f56c9960f268654864c155ec2047953e6ff1c435",
+      "body_sha256_lf": "41e62e1c0b9b9f1c50c77e92d337ed1f2756bd68e77417cfb07f02bd938747a4",
+      "body_bytes_utf8_lf": 9464,
+      "protected_url_metadata": {
+        "date": "2025-02-26",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-01/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Computer Systems",
+        "CPU Performance",
+        "Von Neumann Architecture"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-03-12-计组-02.md",
+      "title": "计组笔记 02 计算机数据的表示和运算",
+      "raw_sha256": "ff61c62781a8ab36c831aebf08b3088fd3e4e9d2ce5956e430b97dd82db3c4cd",
+      "body_sha256_lf": "0547428c7b87183c4deb5b274583dcf9d242030f65c5b5d32e53a0a4de1e2f39",
+      "body_bytes_utf8_lf": 4678,
+      "protected_url_metadata": {
+        "date": "2025-03-12",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-02/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Data Representation",
+        "Two's Complement",
+        "IEEE 754",
+        "ALU"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-03-27-计组-03.md",
+      "title": "计组笔记 03 存储器层次结构",
+      "raw_sha256": "2a4b12a7ede64cee861ae784e8454381f604443c29cb86d3ba88a99c3a188673",
+      "body_sha256_lf": "ff1b459a614b16ba2e5e471d439e3b475cbf0aca7affc00dd3f38f17716df15d",
+      "body_bytes_utf8_lf": 4567,
+      "protected_url_metadata": {
+        "date": "2025-03-27",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-03/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Memory Hierarchy",
+        "Cache",
+        "SRAM",
+        "DRAM"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-04-16-计组-04.md",
+      "title": "计组笔记 04 指令系统",
+      "raw_sha256": "84d30d3495ee08762e6f5d392595aefe951f46513cd5479c19886a15690a515d",
+      "body_sha256_lf": "12d58297edb106e955a1b98d6a2e19d1b31103167406f250d7ad6d678ff24548",
+      "body_bytes_utf8_lf": 4451,
+      "protected_url_metadata": {
+        "date": "2025-04-16",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-04/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Instruction Set Architecture",
+        "Addressing Modes",
+        "RISC",
+        "CISC"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-04-25-计组-05.md",
+      "title": "计组笔记 05 中央处理器",
+      "raw_sha256": "ef3ac4e1cbda4a0c634539fa0ac50ce6dde5d2339e645de1072ed97759c79977",
+      "body_sha256_lf": "dcc72de9e16d99d53aa2ae57b2c8675141e744d3723f99d5342516001094833f",
+      "body_bytes_utf8_lf": 5691,
+      "protected_url_metadata": {
+        "date": "2025-04-25",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-05/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "CPU",
+        "Pipelining",
+        "Control Unit"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-05-07-计组-06.md",
+      "title": "计组笔记 06 总线与输入/输出系统",
+      "raw_sha256": "2425ae349ad334c507e6110704b6e4001f92c077f813ed8e1d4910a9f229a169",
+      "body_sha256_lf": "d27580c4fa036a519d57abcc3c2379285d807d57df0694a65724ef1c2b965181",
+      "body_bytes_utf8_lf": 6141,
+      "protected_url_metadata": {
+        "date": "2025-05-07",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-06/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Bus",
+        "I/O",
+        "DMA",
+        "Interrupts"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-05-21-计组-07.md",
+      "title": "计组笔记 07 微型计算机原理及接口基础",
+      "raw_sha256": "c9e8822e1dab120fdb48aae23a0e523cbbb7ba36f2f93dfda7a8329a6660b0e8",
+      "body_sha256_lf": "3115307dc60346b22aa946b65203979aec20ecb1ba0cd53e50d9975ebb742d45",
+      "body_bytes_utf8_lf": 4008,
+      "protected_url_metadata": {
+        "date": "2025-05-21",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-07/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Microcomputer",
+        "System Bus",
+        "Instruction Cycle"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-06-11-计组-08.md",
+      "title": "计组笔记 08 汇编语言",
+      "raw_sha256": "f125b41e04c0e8efcd0cc7b436b9d3dc851d447f3e6bc92c42dbb7999f9d9e0c",
+      "body_sha256_lf": "0c3191688a002774aa12c8058634ee9598c384ff7d486f7a649d7c9501acc6d7",
+      "body_bytes_utf8_lf": 11695,
+      "protected_url_metadata": {
+        "date": "2025-06-11",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计组-08/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Architecture",
+      "tags": [
+        "Assembly Language",
+        "8086",
+        "Procedures",
+        "Stack"
+      ],
+      "categories": [
+        "学习笔记",
+        "计组笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-08-22-FF1记录.md",
+      "title": "游戏记录：Final Fantasy 1",
+      "raw_sha256": "5be58dfa30a02436f851d73be0d2e86f6ade963686f3898ef19e0a795d13f277",
+      "body_sha256_lf": "f3978185436759d898e171a2e5a32969c86779c5163a6bfe967a5966113a978a",
+      "body_bytes_utf8_lf": 6397,
+      "protected_url_metadata": {
+        "date": "2025-08-22",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/ff1记录/",
+      "runtime_url_verified": false,
+      "type": "essay",
+      "topic": "otaku",
+      "series": null,
+      "tags": [
+        "Final Fantasy",
+        "JRPG",
+        "Game Design",
+        "Narrative Design"
+      ],
+      "categories": [
+        "阅览记录",
+        "游戏记录"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-09-02-计网-01.md",
+      "title": "计网笔记 01 导论",
+      "raw_sha256": "7fa02a9fc40ea8f618efba87acbec391c15dde28e1960b229a307e3cab4d619f",
+      "body_sha256_lf": "a4c4ef556cd933633824bcbed098f238388eaeb4c48cd730b0171bddfaad4430",
+      "body_bytes_utf8_lf": 3105,
+      "protected_url_metadata": {
+        "date": "2025-09-02",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-01/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "Network Architecture",
+        "TCP/IP",
+        "OSI Model",
+        "Packet Switching"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-09-12-计网-02.md",
+      "title": "计网笔记 02 物理层",
+      "raw_sha256": "75846b204cdbf122932ad00013a44aef73ac0d7993768e3b22155360e552c23b",
+      "body_sha256_lf": "33e522fee02e49ea84b86a76d03893bd4f0cd1af94581377a2ec954904ef9a1a",
+      "body_bytes_utf8_lf": 3511,
+      "protected_url_metadata": {
+        "date": "2025-09-12",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-02/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "Physical Layer",
+        "Signal Encoding",
+        "Multiplexing",
+        "Shannon Capacity"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-09-13-最后的纳尔马斯克.md",
+      "title": "最后的纳尔马斯克人",
+      "raw_sha256": "940bb79eefff873297c9fb1b4f2490af5063bc6c83a5ad81ff7fcdc4a3fe07f9",
+      "body_sha256_lf": "947a4b2eace4fbce443d5f9a218a6a1ebee5dec72b494f078950c003ada86238",
+      "body_bytes_utf8_lf": 11642,
+      "protected_url_metadata": {
+        "date": "2025-09-13",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/最后的纳尔马斯克/",
+      "runtime_url_verified": false,
+      "type": "essay",
+      "topic": "otaku",
+      "series": null,
+      "tags": [
+        "Final Fantasy XIV",
+        "Fan Fiction",
+        "Garlean Empire",
+        "Nhalmasque"
+      ],
+      "categories": [
+        "地下墓穴",
+        "FFXIV"
+      ],
+      "hidden": true,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-09-15-为什么我要跳过FF2.md",
+      "title": "为什么我决定跳过FF2",
+      "raw_sha256": "0884bc89d24c0ce7fb726e9afbf3257dcfb382d8d3964d0d4f59bc93c7fd2ef2",
+      "body_sha256_lf": "d4fe3bed4aa25a84dbadf83ceda47488ca507077c12a3894b0479a495fd553ed",
+      "body_bytes_utf8_lf": 4526,
+      "protected_url_metadata": {
+        "date": "2025-09-15",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/为什么我要跳过ff2/",
+      "runtime_url_verified": false,
+      "type": "essay",
+      "topic": "otaku",
+      "series": null,
+      "tags": [
+        "Final Fantasy II",
+        "JRPG",
+        "Game Design",
+        "Progression Systems"
+      ],
+      "categories": [
+        "阅览记录",
+        "游戏记录"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-09-25-计网-03.md",
+      "title": "计网笔记 03 数据链路层",
+      "raw_sha256": "1d0b54871bcb664e27deb3489485fa2f0e11ac76ba09e0601a2ac6a047f58f6c",
+      "body_sha256_lf": "d3fb91a82dd1b9591519918bfb732d68471c898ffbb0f9a1609b4b9d597b5b17",
+      "body_bytes_utf8_lf": 3762,
+      "protected_url_metadata": {
+        "date": "2025-09-25",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-03/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "Data Link Layer",
+        "Ethernet",
+        "CRC",
+        "VLAN"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-10-04-TMT理论.md",
+      "title": "恐惧管理理论 Terror Management Theory",
+      "raw_sha256": "6e5d18b858146eec622114aa2511fa2e2379f307a72d3e9f4b3878699c9a8c49",
+      "body_sha256_lf": "428439656cdb0ae5096559d527ab984cf58164d2a5a131da6071d7ca58eaad53",
+      "body_bytes_utf8_lf": 1537,
+      "protected_url_metadata": {
+        "date": "2025-10-04",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/tmt理论/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "humanity",
+      "series": null,
+      "tags": [
+        "Terror Management Theory",
+        "Ernest Becker",
+        "Immortality Project",
+        "Symbolic Immortality"
+      ],
+      "categories": [
+        "记忆碎片",
+        "思维链条"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-10-11-计网-04.md",
+      "title": "计网笔记 04 网络层",
+      "raw_sha256": "1a0d19ebf1dd1b63f710f68b9b584a1366e6decdacab333e73f7cd5473be1371",
+      "body_sha256_lf": "c70b09b973c003db6c56f36e6bb6c2908e088ca46d99932bd874a30135ba803b",
+      "body_bytes_utf8_lf": 6274,
+      "protected_url_metadata": {
+        "date": "2025-10-11",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-04/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "IPv4",
+        "Routing",
+        "CIDR",
+        "NAT",
+        "ICMP"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-10-15-计网-05.md",
+      "title": "计网笔记 05 传输层",
+      "raw_sha256": "e8d670752dba3b7925fe5428b6c09b1351acd285a1cf02fc82a18501bb602b71",
+      "body_sha256_lf": "53f301000f80374f6eb6b9f5bdb9a32c2d2a04722528b4742ec8cdd389bdb005",
+      "body_bytes_utf8_lf": 6332,
+      "protected_url_metadata": {
+        "date": "2025-10-15",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-05/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "TCP",
+        "UDP",
+        "Congestion Control",
+        "Flow Control"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-10-21-计网-06.md",
+      "title": "计网笔记 06 应用层",
+      "raw_sha256": "f83beabd176e73483f1c06f92107043e97e7e23a17915b84f8842f2e34911c85",
+      "body_sha256_lf": "8b9a842095e1e1eb3ae5988474f1e19aaedc1408e89b481fa2c01cb4aeb22807",
+      "body_bytes_utf8_lf": 6430,
+      "protected_url_metadata": {
+        "date": "2025-10-21",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-06/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "HTTP",
+        "FTP",
+        "DNS",
+        "DHCP"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-11-05-计网-07.md",
+      "title": "计网笔记 07 网络安全",
+      "raw_sha256": "5c4ec994a1bb4590829a3c7d1753df7df6cdac39a058b1e2dacc8b6b2872c3f7",
+      "body_sha256_lf": "816c1375fb9ccd4ca75647b97bdb2eb27e8e63697c8c4ab479a726f8701339fb",
+      "body_bytes_utf8_lf": 6990,
+      "protected_url_metadata": {
+        "date": "2025-11-05",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-07/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "Network Security",
+        "Cryptography",
+        "Firewall",
+        "IDS/IPS",
+        "DDoS"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-11-25-计网-08.md",
+      "title": "计网笔记 08 无线网络与移动网络",
+      "raw_sha256": "4f8ee6b3027c43a0179d4b1b68a2d8138eaefe99ea064b8a18be7e1b6d36a970",
+      "body_sha256_lf": "1a1d1c00dd8470f07ba9d5343b3592ef4e8936da4edf360c60493e5362d83633",
+      "body_bytes_utf8_lf": 7966,
+      "protected_url_metadata": {
+        "date": "2025-11-25",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-08/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "Wi-Fi",
+        "CSMA/CA",
+        "WPAN",
+        "Mobile Networks"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-11-29-计网-09.md",
+      "title": "计网笔记 09 互联网上的音频/视频服务",
+      "raw_sha256": "31a20af2574398b39a74a03bd011e1063112e774fe794a82add1e300a7469b58",
+      "body_sha256_lf": "3d2caf0c5b8dddd02d78fb3c46ede1acbf37a2b55449de7b8bcc852abf116654",
+      "body_bytes_utf8_lf": 8227,
+      "protected_url_metadata": {
+        "date": "2025-11-29",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-09/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "VoIP",
+        "RTP/RTCP",
+        "SIP",
+        "QoS"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-12-14-计网-10.md",
+      "title": "计网笔记 10 下一代因特网",
+      "raw_sha256": "622349654a02a3fc95143b2c8b681b88102a25989ddcae07f75fe7c7d290190f",
+      "body_sha256_lf": "244be2862518f714dfd09d61a5b36f995f8171d9c676b81cb4487bfcf652163c",
+      "body_bytes_utf8_lf": 6872,
+      "protected_url_metadata": {
+        "date": "2025-12-14",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/计网-10/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": "Computer Networks",
+      "tags": [
+        "IPv6",
+        "MPLS",
+        "P2P",
+        "BitTorrent"
+      ],
+      "categories": [
+        "学习笔记",
+        "计网笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-12-17-NoSQL项目面经.md",
+      "title": "NoSQL 项目面经",
+      "raw_sha256": "ae29f09d95e8fea625704cf84c5b32e2de6802a4a9c7436190c48cdbf595aa46",
+      "body_sha256_lf": "04af3283dc45da3deddddc2982805c3847a78f36a7a56935353da37c0c5b9488",
+      "body_bytes_utf8_lf": 7015,
+      "protected_url_metadata": {
+        "date": "2025-12-17",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/nosql项目面经/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "MongoDB",
+        "Data Modeling",
+        "Denormalization",
+        "Indexing"
+      ],
+      "categories": [
+        "学习笔记",
+        "面试经验"
+      ],
+      "hidden": true,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2025-12-19-ROSSMANN项目.md",
+      "title": "ROSSMANN项目面经",
+      "raw_sha256": "90431970f51b1f315a798e928aec7fda5abd5e2a69daf83418040d3f0e2ffa0f",
+      "body_sha256_lf": "cc6df13da0269c13e032c285fa5cf70035e82292603045c5ec156cce47996aa0",
+      "body_bytes_utf8_lf": 18998,
+      "protected_url_metadata": {
+        "date": "2025-12-19",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/rossmann项目/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "XGBoost",
+        "Sales Forecasting",
+        "Feature Engineering",
+        "RMSPE"
+      ],
+      "categories": [
+        "学习笔记",
+        "面试经验"
+      ],
+      "hidden": true,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-02-12-不完备性.md",
+      "title": "形式系统的极限：从对角线法到不完备定理",
+      "raw_sha256": "08cb9c4dd0d5ea9cdbcd1eadf54f211bb18b8b55f689505cd3dd2aec38fca755",
+      "body_sha256_lf": "6358682f6210925057fe030afaf19e7aae3a76b86be4b35a4167abf24c97edd6",
+      "body_bytes_utf8_lf": 3474,
+      "protected_url_metadata": {
+        "date": "2026-02-12",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/不完备性/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Incompleteness Theorems",
+        "Cantor Diagonal Argument",
+        "Halting Problem",
+        "Gödel Numbering"
+      ],
+      "categories": [
+        "记忆碎片",
+        "思维链条"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-05-24-neutriverse-site-changelog.md",
+      "title": "中间层网站更新记录",
+      "raw_sha256": "198441189b7009ab139d7b1b4fd597e928fa195e5fccde283297affb47631b0b",
+      "body_sha256_lf": "4d210d28ecde8088af099a56d8ce5a9eca7bb81d7605c4607c7b59ee3f7d9af3",
+      "body_bytes_utf8_lf": 7751,
+      "protected_url_metadata": {
+        "date": "2026-05-24",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/neutriverse-site-changelog/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Neutriverse",
+        "Changelog",
+        "Jekyll"
+      ],
+      "categories": [
+        "记忆碎片",
+        "站点维护"
+      ],
+      "hidden": true,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-06-15-超过五千亿吨空气的重压之下.md",
+      "title": "Z.A.T.O.: 超过五千亿吨空气的重压之下",
+      "raw_sha256": "22a140d1e2c2bacbab20c6ac6f8419ec39eb372eed3d989c29d6ee075682e729",
+      "body_sha256_lf": "b836024ab0197bd1a37d64526293f3969bfdc96a59a7e54e8db18e4d09b07ed7",
+      "body_bytes_utf8_lf": 8269,
+      "protected_url_metadata": {
+        "date": "2026-06-15",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/超过五千亿吨空气的重压之下/",
+      "runtime_url_verified": false,
+      "type": "essay",
+      "topic": "otaku",
+      "series": null,
+      "tags": [
+        "Z.A.T.O.",
+        "Social Conformity",
+        "Identity",
+        "Innocence"
+      ],
+      "categories": [
+        "阅览记录",
+        "游戏记录"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-06-30-阿卡夏便笺akashanotes.md",
+      "title": "阿卡夏便笺 Akasha Notes v0.1.2.",
+      "raw_sha256": "11dcfbbd9947af186beda981d64af1e9c5901da1dfee456c91b69b8464df1007",
+      "body_sha256_lf": "6684f2386a09b5e4f14e083fffd29434e1f631ccf556d788c374c4f5af3dfcb3",
+      "body_bytes_utf8_lf": 3225,
+      "protected_url_metadata": {
+        "date": "2026-06-30",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/阿卡夏便笺akashanotes/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Akasha Notes",
+        "Windows",
+        "Desktop Widgets"
+      ],
+      "categories": [
+        "记忆碎片",
+        "软件发布"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-07-06-于因特网标签们展开双翼.md",
+      "title": "于因特网，标签们展开双翼",
+      "raw_sha256": "3a7f535d0ec330e2fd09dd1544e5b7f20e09e03b7f8abc284bfddfec541d0941",
+      "body_sha256_lf": "14dd9e23217f038ed14cc22f520bff54e9d62c4d38bf5f2df4af2bb3d29db7ea",
+      "body_bytes_utf8_lf": 6614,
+      "protected_url_metadata": {
+        "date": "2026-07-06",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/于因特网标签们展开双翼/",
+      "runtime_url_verified": false,
+      "type": "essay",
+      "topic": "humanity",
+      "series": null,
+      "tags": [
+        "Social Identity",
+        "Affective Polarization",
+        "Out-group Animosity",
+        "Social Media"
+      ],
+      "categories": [
+        "记忆碎片",
+        "思维链条"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-07-09-丰聪耳机toyosatomimisheadphone.md",
+      "title": "丰聪耳机 Toyosatomimi’s headphone v0.2.0",
+      "raw_sha256": "7eb62f6a1c0c6aa9bfd9dbac934957f28a636ec7ddd1c4d9504d5df5b61b7607",
+      "body_sha256_lf": "264051bc9581cf3ecaab4231198a9b7ea076ba44169265641e58a59c3a0cdabf",
+      "body_bytes_utf8_lf": 4644,
+      "protected_url_metadata": {
+        "date": "2026-07-09",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/丰聪耳机toyosatomimisheadphone/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Toyosatomimi's Headphone",
+        "Speech-to-Text",
+        "Translation",
+        "Windows"
+      ],
+      "categories": [
+        "记忆碎片",
+        "软件发布"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-08-07-学习笔记-progressive-disclosure和skill.md",
+      "title": "学习笔记：Progressive Disclosure和SKILL",
+      "raw_sha256": "61ce431c54f84960e5e04fea76333a89ce2ffd4deff4506248674e5c9e1cf464",
+      "body_sha256_lf": "48aa65664e3c275a096f89af752c1d2b30cbb44ca348a100cdc217fec8d4dcae",
+      "body_bytes_utf8_lf": 13146,
+      "protected_url_metadata": {
+        "date": "2026-08-07",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/学习笔记-progressive-disclosure和skill/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Progressive Disclosure",
+        "Agent Skills",
+        "Context Engineering",
+        "Tool Routing"
+      ],
+      "categories": [
+        "学习笔记",
+        "LLM笔记"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    },
+    {
+      "path": "_posts/2026-08-17-哥德尔编码和-rag-embedding-之间的关系.md",
+      "title": "哥德尔编码和 RAG Embedding 之间的关系",
+      "raw_sha256": "d625485c77d06c98f845727ec70a1f17ee36f1b1480bf3e4e093fd4646e4ac1a",
+      "body_sha256_lf": "9cd8325c7eccb19b8573a430af03ad251a2a09b8a3a2551224256c4e2301dfe9",
+      "body_bytes_utf8_lf": 2352,
+      "protected_url_metadata": {
+        "date": "2026-08-17",
+        "slug": null,
+        "permalink": null
+      },
+      "source_url_candidate": "/posts/哥德尔编码和-rag-embedding-之间的关系/",
+      "runtime_url_verified": false,
+      "type": "note",
+      "topic": "computation",
+      "series": null,
+      "tags": [
+        "Gödel Numbering",
+        "Embeddings",
+        "RAG",
+        "Semantic Search"
+      ],
+      "categories": [
+        "记忆碎片",
+        "思维链条"
+      ],
+      "hidden": false,
+      "published": true,
+      "sitemap": null,
+      "robots": null
+    }
+  ],
+  "fragments": [
+    {
+      "source": "_tabs/thoughts.md",
+      "source_index": 0,
+      "date": "2024-09-12",
+      "text_sha256": "c526f603499c0f1c8633f54ea68181920f13e4c8c48dd6e751d2d9de011a6708",
+      "type": "fragment",
+      "topic": "humanity",
+      "tags": [
+        "目标",
+        "可能性"
+      ],
+      "hidden": false
+    },
+    {
+      "source": "_tabs/thoughts.md",
+      "source_index": 1,
+      "date": "2024-10-30",
+      "text_sha256": "20f5c157ee29ea536cf60db28f0552d2e640ac97d118a5095c21715189f1808a",
+      "type": "fragment",
+      "topic": "humanity",
+      "tags": [
+        "交流"
+      ],
+      "hidden": false
+    },
+    {
+      "source": "_tabs/thoughts.md",
+      "source_index": 2,
+      "date": "2025-03-23",
+      "text_sha256": "fb15c3e0792c401e8ba212ae4538561b85629e96d2c21ba28834fc214651b2a6",
+      "type": "fragment",
+      "topic": "humanity",
+      "tags": [
+        "等待"
+      ],
+      "hidden": false
+    },
+    {
+      "source": "_tabs/thoughts.md",
+      "source_index": 3,
+      "date": "2025-11-12",
+      "text_sha256": "8ac1be15a4d1790ed800432fd3b012c44fdb2c558e3197586f6acd4ae5c4db08",
+      "type": "fragment",
+      "topic": "humanity",
+      "tags": [
+        "孤独"
+      ],
+      "hidden": false
+    },
+    {
+      "source": "_tabs/thoughts.md",
+      "source_index": 4,
+      "date": "2026-05-02",
+      "text_sha256": "793cc51384ca334f2565fc93484fc096b38b20a559a02bd2fa4eac23d5f3ce9b",
+      "type": "fragment",
+      "topic": "arts",
+      "tags": [
+        "侦探小说"
+      ],
+      "hidden": false
+    }
+  ],
+  "pages": [
+    {
+      "path": "_hidden_pages/navi.md",
+      "source_url_candidate": "/navi/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": false,
+        "robots": null
+      },
+      "layout": null,
+      "raw_sha256": "d4a415a117b053ef3b46c1e054975868a4d8783143fa26d2c557b4c18f1b7605",
+      "hidden_collection": true,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_hidden_pages/occult-atlas.md",
+      "source_url_candidate": "/occult-atlas/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": false,
+        "robots": null
+      },
+      "layout": "occult-atlas",
+      "raw_sha256": "9df9600ba8b33574b3bf82cda1a1ac09d9f9a815a83aa66846cbb204ae7da49d",
+      "hidden_collection": true,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/about.md",
+      "source_url_candidate": "/about/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": null,
+      "raw_sha256": "224b10e18cf432ca8df9438890a2ba6c8e7b8e7da21345119a0e4ca8b6de982a",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/archives.md",
+      "source_url_candidate": "/archives/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "archives",
+      "raw_sha256": "8ee31a7652e7a4dd12d0bf290a0468412542ba7b4268c2f627cb3ced61df8a0b",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/categories.md",
+      "source_url_candidate": "/categories/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "categories",
+      "raw_sha256": "a5afcabfaa1f3689a99bec974352203b9b7506b1e7a0b1c09fb811a45c230833",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/library.md",
+      "source_url_candidate": "/library/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "page",
+      "raw_sha256": "b9324586dd4f747bfecab00b96a0396bd398cae4eeac560573e0b933182770ac",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/links.md",
+      "source_url_candidate": "/links/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": null,
+      "raw_sha256": "911666745e94dd88dbbe3ad28f0c964e0e67aa00f990ec981c92186ef9970688",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/tags.md",
+      "source_url_candidate": "/tags/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "tags",
+      "raw_sha256": "4f1f91b79377c3489dfb7ac9c614ba766c1611480ba532f2b1532e91adeeebef",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "_tabs/thoughts.md",
+      "source_url_candidate": "/thoughts/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "thoughts",
+      "raw_sha256": "85606c3a20b458d925aa25d4c6a16e05a82e7bab4cc4888b4a372706b9ca6f48",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "gate/index.md",
+      "source_url_candidate": "/gate/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "gate",
+      "raw_sha256": "d5bec1e26f58fb3d8065145bfec48c5c3ce51431d64b6f77aefcbe9cc6a4623f",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "index.html",
+      "source_url_candidate": "/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": "home",
+      "raw_sha256": "2dac183e4db1c239c91cd0e19bcc3934249f95324102ba78df9ae74c43837468",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "occult-atlas-app/index.html",
+      "source_url_candidate": "/occult-atlas-app/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": null,
+      "raw_sha256": "5b708cea9e74d5b4d4421e392c849eaf33f3e6c53cbd32e248f2be3bf4992c30",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "projfitzgerald/index.html",
+      "source_url_candidate": "/projfitzgerald/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": null,
+        "robots": null
+      },
+      "layout": null,
+      "raw_sha256": "2aa5f7ddbecba4b8ec23197548ead44b3855b7c6389af3f2d29ffec2e0583201",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    },
+    {
+      "path": "ravenis/index.html",
+      "source_url_candidate": "/ravenis/",
+      "front_matter_visibility": {
+        "hidden": null,
+        "sitemap": false,
+        "robots": "noindex,nofollow"
+      },
+      "layout": "page",
+      "raw_sha256": "fb5cf09ec6fafc2cd0d6b03ff20188178f938217f3843d5296ce1563db640fc4",
+      "hidden_collection": false,
+      "runtime_url_verified": false
+    }
+  ],
+  "contracts": [
+    {
+      "path": ".github/workflows/pages-deploy.yml",
+      "sha256": "e8b62b0b57cba027e3b21ccade8b0122798e11414c763913e042280bafbceac8"
+    },
+    {
+      "path": ".github/workflows/pgl-integration-check.yml",
+      "sha256": "4b947689e85d3d5f81f5d88511975d7af248886ae1b7ac6b9cf6bc8206c78b53"
+    },
+    {
+      "path": ".github/workflows/pgl-sync.yml",
+      "sha256": "ef9899fe60fcdb754e02f17803945078f213fff915155b7855196490f6523154"
+    },
+    {
+      "path": ".github/workflows/update-home-popular.yml",
+      "sha256": "22b14ed866f95df68ac6e108135ff63f9c88d5751b2765d24ab72f4801e21468"
+    },
+    {
+      "path": "CNAME",
+      "sha256": "c4b91aca4c98c4d9163af7fc58a2e797ff5fa4bad871cf87689a8fb5cbd5f26c"
+    },
+    {
+      "path": "DESIGN.md",
+      "sha256": "673737a15c0fe1848dddf03ff4e61eac3d444e5277dd7535cb38f88205b7cec6"
+    },
+    {
+      "path": "Gemfile",
+      "sha256": "c4a085ced8122a750f1afe6e47258bb13c16f76e4f2999e7c11829eb8937f6bd"
+    },
+    {
+      "path": "_config.yml",
+      "sha256": "03b8cbd908c06436ac893833439fe9f5c72ff6ad5af7cb070d9599bd34575296"
+    },
+    {
+      "path": "_data/contact.yml",
+      "sha256": "77f646e8332b2b6c00af49c6e3d25d960674eeb4e36066cfcd606274438cc3b9"
+    },
+    {
+      "path": "_data/content_taxonomy.yml",
+      "sha256": "4bf79e20becffb9bc9b4c7a3492d6925545fac0fde92f802c45c5f95d7bb76f3"
+    },
+    {
+      "path": "_data/friends.yml",
+      "sha256": "cca1e4d2fe9fe021ebec4503c058f5dd073c6808c403916e640b13e01230670f"
+    },
+    {
+      "path": "_data/gate.yml",
+      "sha256": "7eb90bd29614a3ccd71f8114a88d6b11ec3d848cbecb8dffd003d864b9e350d6"
+    },
+    {
+      "path": "_data/home_popular.yml",
+      "sha256": "af70d40aaee1729bb05b9d5597e751cf72a67d98cfb830a2014952ea77e77428"
+    },
+    {
+      "path": "_data/home_recommend.yml",
+      "sha256": "08ee79de16fda82b8978a695bceb95bbba97948fbe30f67af175f5d829aa57ab"
+    },
+    {
+      "path": "_data/locales/zh-CN.yml",
+      "sha256": "d36e82e80f7f7197fdfe07f1b4400a40c3116b9ad6847435f313496644bbed7c"
+    },
+    {
+      "path": "_data/middle_memory.yml",
+      "sha256": "84278691a4e23ab5fd3e0525bef8ccb7e42e0c210045dc37f2896678e4185cc5"
+    },
+    {
+      "path": "_data/neutriverse.yml",
+      "sha256": "71fda5d42cf647f370a8a620c47eeda7593acc7fe531d4747f308445ada8ef03"
+    },
+    {
+      "path": "_data/occult_atlas.yml",
+      "sha256": "13398c49b24b7cfb8f35d5b468d22f28cb9e052ce908178cdb28b12761b820ec"
+    },
+    {
+      "path": "_data/origin/cors.yml",
+      "sha256": "dfdd8f3104ce2961d7ca4eb60bd6f33480551704eee98cad3510b6555449b09c"
+    },
+    {
+      "path": "_data/pgl_locales/en.yml",
+      "sha256": "893681bd6e2beeb76724567340b983d78589233467f79a5622cd5c7c58f07a46"
+    },
+    {
+      "path": "_data/pgl_locales/zh-CN.yml",
+      "sha256": "9d2c8df69977b06d8709d64ec9c23949c9db1de4b0f6b4cfd941f7af1ac0fad4"
+    },
+    {
+      "path": "_data/private_navigation.yml",
+      "sha256": "f8b2f9c1125704e55a0c596bf5f5cefd2224a7c37254e83e07adf402cfa1e875"
+    },
+    {
+      "path": "_data/prospero_great_library/mappings.yml",
+      "sha256": "057a1de07b253a8220e5f82c086e49862a86cd41b45030f1e7411e0e0de6da98"
+    },
+    {
+      "path": "_data/share.yml",
+      "sha256": "76480d6ed56ab280b72c2d89a640c5756f7374277a654a9a076e92ca7b0e84b1"
+    },
+    {
+      "path": "_data/travel_boundary_sources.yml",
+      "sha256": "ba12932df1fb95585aa27fb2c1f32e0a204fc602566980f83246edb87cabb7d6"
+    },
+    {
+      "path": "_data/travel_regions.yml",
+      "sha256": "8ede0ba85dcad4b1183746541cd595c621f7f953cd45be6805971f13d485c26b"
+    },
+    {
+      "path": "_includes/comments/twikoo.html",
+      "sha256": "317410ecc072e953d9d82bb2e57685e49733450a22d21cb4c8649b5e5e8af4d7"
+    },
+    {
+      "path": "_includes/download-page-link.html",
+      "sha256": "05f0a3cfd0887b8695b1beae55e0c912ad16a48c486a62b129c4443a80698627"
+    },
+    {
+      "path": "_includes/favicons.html",
+      "sha256": "6140c72b25491566df3dedc7bd4f63e868b02b49ad3b8d06b975f5ced8d23c75"
+    },
+    {
+      "path": "_includes/footer.html",
+      "sha256": "88d79c4922ac07e9ff08a53ef550b7f13a279ae0cfcbaac97cab372a0678c6db"
+    },
+    {
+      "path": "_includes/friend-nodes.html",
+      "sha256": "ce0fedd70bd0c53452630ac67d9ee698ad9139a5516ec317b3c6c77ec4c8f7c3"
+    },
+    {
+      "path": "_includes/inline-image.html",
+      "sha256": "f8b8cf12bfe169fb8648cc563f490750ad88675792a779a1bcc4ae063d009eca"
+    },
+    {
+      "path": "_includes/metadata-hook.html",
+      "sha256": "c0aeb5e4d0f36b833b60c3e44cb88fdf0adbc27081258c7a0a673d56965d23e4"
+    },
+    {
+      "path": "_includes/neutriverse-status.html",
+      "sha256": "0961b3eccfc71a21bc898825aad4c76d5336a2627a11063392001fde231d83ba"
+    },
+    {
+      "path": "_includes/pgl/card.html",
+      "sha256": "c597080c8ec622fc9ab9c8503c61fa6fde0173bc7a71ffc693ddb8dd69785347"
+    },
+    {
+      "path": "_includes/pgl/category-ledger.html",
+      "sha256": "1c07610239f2b279530010d02c11e232fd3cf014b122ce0f37834fd2b84bc318"
+    },
+    {
+      "path": "_includes/pgl/current.html",
+      "sha256": "164dc0a74aae39311589150f4b9ca7ca5f770c34fce1e48091ac19ce02cb73d1"
+    },
+    {
+      "path": "_includes/pgl/drawer.html",
+      "sha256": "9c430ffe8492f03f934930e0961677a4a8639cbec0706431789d13c3ffc8f450"
+    },
+    {
+      "path": "_includes/pgl/filters.html",
+      "sha256": "3e096c3d0aecb05458ec9d15b221e5ac3c3a10f5328fe7f6b89b2113f983cb7e"
+    },
+    {
+      "path": "_includes/pgl/header.html",
+      "sha256": "89ed61e427f3f9a5a81765f5e3c0b6b458ce8fcd88c310f0f0e0f50cf4686c5c"
+    },
+    {
+      "path": "_includes/pgl/library.html",
+      "sha256": "d97750367c883a85ed9ccac2dfa3823213bf5511577f27dd265f461ad4efeb27"
+    },
+    {
+      "path": "_includes/pgl/pagination.html",
+      "sha256": "b6a15f6284c958c4e433c253abf2f559021dc73479157383bec21b13964c7b58"
+    },
+    {
+      "path": "_includes/pgl/post-card.html",
+      "sha256": "79ffa9f454f52ae566c8fe52962e5c5040534bcef87f4298ff9ef97ffc4d6b7d"
+    },
+    {
+      "path": "_includes/pgl/rating-chart.html",
+      "sha256": "95622abcd89142166b7367c68ed17adeedcac1104c8703f485b995cb6968fcd5"
+    },
+    {
+      "path": "_includes/pgl/stats.html",
+      "sha256": "51a8495ca978114b1bdb72297b48adc5126d59e8584ddd495ff51b4889d8ef03"
+    },
+    {
+      "path": "_includes/pgl/view-toolbar.html",
+      "sha256": "19118e130fd07f6e2f4943b6b11fb8f07412d6ff99c9f2d24bf0577c746ae197"
+    },
+    {
+      "path": "_includes/poe-night-mode.html",
+      "sha256": "3072f3f1c5abd60d550c922b6c8988460c69f7343ac002f34cc083ebc79797ad"
+    },
+    {
+      "path": "_includes/post-like.html",
+      "sha256": "d114be2f44fd73ea7bb7aebcb6bd4b0c44cf780e9c5d5866b0b4db9a39d7b1f8"
+    },
+    {
+      "path": "_includes/post-panel-stack.html",
+      "sha256": "f9428a1492b0c137799e9751a167ee73694619aac2f44c4d4ea32c5a7eef71a0"
+    },
+    {
+      "path": "_includes/post-series.html",
+      "sha256": "51a3f611de9a12918aef14da986d9f1c1a9c0855f5ecf917fef9af8aa5ed495d"
+    },
+    {
+      "path": "_includes/post-taxonomy.html",
+      "sha256": "753f7718b31e7e9ab38905cba3a121af64d146a5ba122c682d837e78971e42ae"
+    },
+    {
+      "path": "_includes/private-navigation.html",
+      "sha256": "6171919a8f03824da2a9bbe1dbcffaadb68f54beddf88a824da8889d0184b94f"
+    },
+    {
+      "path": "_includes/probe-tracking-module.html",
+      "sha256": "a37cbc7061d233c1dfe30283cf0503cc955700194c2fbbc07cd8e1dbe03db497"
+    },
+    {
+      "path": "_includes/read-time.html",
+      "sha256": "7fadd146d5bbc6f776a69b5180345feed3b397a4fd03531c94d3fa0fa44830d1"
+    },
+    {
+      "path": "_includes/site-avatar-loader.html",
+      "sha256": "4456e2ef6af482da0cf0f5123ac5da46fa19f2066336f6c10cc98e562ec23ad9"
+    },
+    {
+      "path": "_includes/toc-status.html",
+      "sha256": "1d2c7cbebebffad46618c2d8e9957fdea02823d98fc764cd94ba7652793fe011"
+    },
+    {
+      "path": "_includes/trending-tags.html",
+      "sha256": "bcd34d1976089cdf7efbdcfa521b1e413fd027880afced08a221d687f32c88eb"
+    },
+    {
+      "path": "_layouts/archives.html",
+      "sha256": "20ff733c0aa3cc8d8bf201510c62d36249a50940ae658603d00b87654292bcae"
+    },
+    {
+      "path": "_layouts/categories.html",
+      "sha256": "abf032751df950ab1215db830b53fbec217e8dadd82b34daac450297976d0d6d"
+    },
+    {
+      "path": "_layouts/category.html",
+      "sha256": "42fec2923b13e2fe8653fc710e5a20a17437ead11e6c2b432eee41ae843fce7b"
+    },
+    {
+      "path": "_layouts/default.html",
+      "sha256": "7e9432188526687998c8aef48d36f50985883192a314395b0a5219412a7fb168"
+    },
+    {
+      "path": "_layouts/gate.html",
+      "sha256": "b2393006de23486a1de069ffd03331152333b975c2d3675a50d228067363ce69"
+    },
+    {
+      "path": "_layouts/home.html",
+      "sha256": "4e286cfce3717146721dab0d5a4a03144ab7484611a658ccdcd13deca1a49c94"
+    },
+    {
+      "path": "_layouts/occult-atlas.html",
+      "sha256": "5c7be92eb9ea67a79cd041958b6e098e7dd768071575d699383cc31d84669483"
+    },
+    {
+      "path": "_layouts/post.html",
+      "sha256": "576071a85768e399ec82c26822775acf54850f9a4a567898ca4a23c7a61a21f1"
+    },
+    {
+      "path": "_layouts/tags.html",
+      "sha256": "da768d7bb23a6e766f9429551242686f21be7a062fcf70336093aecf384c60b2"
+    },
+    {
+      "path": "_layouts/thoughts.html",
+      "sha256": "563f7a96682bd2d257240bf7b01fdbebf644c31864ad0ae2f728dd48ed9af5dd"
+    },
+    {
+      "path": "_plugins/liquid-standard-tags.rb",
+      "sha256": "b61d11cbedde421a1f341ca108d329c9f4c6577d673902e434940ef50b73864e"
+    },
+    {
+      "path": "_plugins/posts-lastmod-hook.rb",
+      "sha256": "5b5d14c3c250cb2b56c3bca74e0faada88bfa0faceb6637a848ac26e3e0d5229"
+    },
+    {
+      "path": "_plugins/prospero_great_library.rb",
+      "sha256": "32f205f0c5e0efaf471244812e05973d4afe3136139a3ab1adafc55e33bddb16"
+    },
+    {
+      "path": "_plugins/sass-cli-fallback.rb",
+      "sha256": "8ca6304d81d4e14ffc62475c54885a5496b6166877fd978e9eca22751f82704c"
+    },
+    {
+      "path": "assets/css/NormaiNight.css",
+      "sha256": "868bb245ce2aed56cea6526ab91946a47424744405431e7e6e16d8ce5b0066f4"
+    },
+    {
+      "path": "assets/css/ProsperoLight.css",
+      "sha256": "ee2dd380588fa4251e50d93f14e26386510109fd986ffba8dd5f20598d05b0fd"
+    },
+    {
+      "path": "assets/css/gate.css",
+      "sha256": "784a3dba8126aecf2325607fa0675197fc44a1e02aa13af60a1494726abd972d"
+    },
+    {
+      "path": "assets/css/ravenis.css",
+      "sha256": "3fa9dc937ed43731cd87c3efb95252da567b4bca55e80d0d82fed976d675705b"
+    },
+    {
+      "path": "assets/js/gate.js",
+      "sha256": "aeb04cf2750cd405b01624f16601aa593cf40dfff4f09bc484aefb8fe6269a85"
+    },
+    {
+      "path": "assets/js/ravenis.js",
+      "sha256": "63d769ce789508620915b02de64daa3970ec0afb6ef18a5565baeef46bbb2f61"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/D3-LICENSE.txt",
+      "sha256": "a88809a0c39e2464e5fb3ba9af6281e6bdd140fc89230a476cf530e60c6a5157"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/README.md",
+      "sha256": "be12756877a7c720d7c39817544821d2484c9d00c697ee9e20326ef722a479e5"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/THREE-LICENSE.txt",
+      "sha256": "97de7ac302052bcea7f20e5ae89635c10e049614f56409288d554d63fceb614f"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/d3.min.js",
+      "sha256": "7e720f063bff964f5322341ac69375bbfb8c3b7c5bb8a5472f46ab851800195b"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/three.core.min.js",
+      "sha256": "796fad61747dc30a0c4bca955c9d5a270bcfe50c262fcb380042ac3e574a082b"
+    },
+    {
+      "path": "assets/js/third-party/travel-globe/three.module.min.js",
+      "sha256": "3f819e402169508535928c8df8284de13ace7adf18b572d0fbff821a7dceb702"
+    },
+    {
+      "path": "assets/js/travel-globe-texture.js",
+      "sha256": "dc37f6239e7d5dd0a14e9996a4b85f3ad5c393435c4b519e733f849e42965cd8"
+    },
+    {
+      "path": "assets/js/travel-globe-worker.js",
+      "sha256": "1e9dc8c9b6d1b62d4ed12e6d1c1ffad9f59278d62d13d2be699bec6fd8f2cfee"
+    },
+    {
+      "path": "assets/js/travel-globe.js",
+      "sha256": "f887a2909c2e4abc58bba7edea41d14e0abbd25654f066cd6301b6b9a915d93d"
+    },
+    {
+      "path": "assets/pgl/pgl-chirpy.css",
+      "sha256": "f3aa53190e41ba7c62d5609dcd1f828ca0ec9d5b8747d32997ef7fe91e4d43c9"
+    },
+    {
+      "path": "assets/pgl/pgl-polish.css",
+      "sha256": "09acd3a22eddc54ac015cc9f6cf464c55c4e816a570947612a9b3f2edf72af23"
+    },
+    {
+      "path": "assets/pgl/pgl-rating-polish.js",
+      "sha256": "a83c8279d6e38c25b7047a86c55b901695b2e4deb71f2e46eaff04d2193a7aa7"
+    },
+    {
+      "path": "assets/pgl/pgl.css",
+      "sha256": "4cd345d86a5e6202d8b9cd3a77d57a796e94c71f4c842b48b9223a28580f1d3b"
+    },
+    {
+      "path": "assets/pgl/pgl.js",
+      "sha256": "43f155777a19f2a8d46a73b725ad6fbc2c67c4198b0f8609f78c556bd23d6e76"
+    },
+    {
+      "path": "occult-atlas-app/app.js",
+      "sha256": "38cbe938dc2947bde2773332ef2d90ee07e0b3fb3c0a3803670e3b2df1870d28"
+    },
+    {
+      "path": "occult-atlas-app/index.html",
+      "sha256": "5b708cea9e74d5b4d4421e392c849eaf33f3e6c53cbd32e248f2be3bf4992c30"
+    },
+    {
+      "path": "occult-atlas-app/styles.css",
+      "sha256": "6621bdda7262f2cd85c2cb25b218b3ce2192a59fa2318cd10a0037d456b789c8"
+    },
+    {
+      "path": "occult-atlas-app/sw.js",
+      "sha256": "cef49395a2cae5d3d1b7daf5be5c28e969b1b366c69296251625d0c702985dcf"
+    },
+    {
+      "path": "projfitzgerald/app.js",
+      "sha256": "19dfca6dcdee6a6fe69ad70789c5abaef4d795b1a783b79fb164f0c37aff9c1f"
+    },
+    {
+      "path": "projfitzgerald/index.html",
+      "sha256": "2aa5f7ddbecba4b8ec23197548ead44b3855b7c6389af3f2d29ffec2e0583201"
+    },
+    {
+      "path": "projfitzgerald/styles.css",
+      "sha256": "c41685f7ab7c0d1e3ad4263ce0cb2ad15ee4af6c0e4e21d17d268d4e7c04a257"
+    },
+    {
+      "path": "ravenis/index.html",
+      "sha256": "fb5cf09ec6fafc2cd0d6b03ff20188178f938217f3843d5296ce1563db640fc4"
+    }
+  ]
+}
