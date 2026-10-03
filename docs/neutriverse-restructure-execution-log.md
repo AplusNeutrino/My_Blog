@@ -20,15 +20,24 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-04 07:00 — T08 范围锁定
+## Run 2026-10-04 07:00 — T08 完成
 
-- Task / parent：T08；status = in-progress；依赖 T07 done。
+- Task / parent：T08；status = done；依赖 T07 done。
 - Base SHA / branch：`12d0d70139bcdfa7192820c6f228d9be54bbfbe1` / main。
 - 前置核对：从 base 新鲜克隆，工作树无本地差异；base 的 Build and Deploy [run 37157775095](https://github.com/AplusNeutrino/My_Blog/actions/runs/37157775095) completed/success。该结果不替代本次 T08 验证。
 - 本次范围：建立 THINK/BUILD/OBSERVE/ABOUT 单一数据源；新增 `/think/`、`/build/`、`/observe/` canonical 页面；ABOUT 保留原页面并接入同一可复用四入口导航；提供各入口基于当前站内事实、可实际到达的链接。OBSERVE 只列 Ravenis/Occult Atlas；BUILD 不公开 Gate/NAVI 工具入口，也不伪造未完成项目详情。
 - 拟改文件：四入口数据、共享 section layout/导航/链接 includes、三个新页面、ABOUT 入口接线、共享样式及主题 token 映射、metadata stylesheet 接线、相关测试、主计划、执行日志。
 - 验收：四个入口英文名/中文说明/canonical/真实摘要来自单一数据源；三个新 URL 构建存在，ABOUT 旧 URL 不变；全部链接指向已有源或既定 canonical；没有 disabled/coming-soon 假功能；旧 tabs/应用路径不删除；Gate/NAVI/MMXProj 不进入公共数据；Night/Prospero Light 使用同一 DOM 与共享语义 token；全套测试、T01 baseline 与对应实现 SHA 的 Pages workflow 通过。
 - 用户问题：无；本项使用已确认的信息架构与站内公开事实。
+- 范围记录 / 实现 / 修复提交：`ae9de7696125609b22e3caa1e7a4fda0168e8f6b` / `e5b256505c1ad7e4c8593d49d7c9a5d76336bb6a` / `3818729a1a17e36128d876d5ea06961c7752ab40`。
+- 实际交付：`_data/neutriverse_sections.yml` 统一定义四入口；共享 layout、主导航和 section links includes 由该数据渲染；新增 `/think/`、`/build/`、`/observe/`，原 `/about/` 不改路由并接入共享组件；新增主题无关结构 CSS，并在 Night/Prospero Light 中映射 `--nv-*` 语义 token。
+- 初次失败：初始实现 head 的 [run 37160568512](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160568512) completed/failure；回归步骤捕获 `test_night_theme_owns_bootstrap_and_related_post_surfaces` 失败。核对 blob 后确认提交接口将大型 `NormaiNight.css` 与 `ProsperoLight.css` 静默截断。未将失败标作 done。
+- 修复：通过完整 Git blob（Night `b43d6a7051d7b5a920ffafbabf2598e63225e081`、Light `507a12fb30620ef30316619fae5fafcc73c8b2cd`）恢复主题文件并保留新增 token；修复 head `3818729a...`。
+- 本地验收：全套 62 tests OK；T01 baseline protection passed（44 posts / 5 Fragments，Type essay/note/fragment = 5/39/5，正文/文件名/date/slug/permalink/保护 URL 不变）；`git diff --check` 通过。
+- 精确 CI：[run 37160746998](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160746998) 的 head 为 `3818729a1a17e36128d876d5ea06961c7752ab40`，build/deploy 均 completed/success；regression tests、Jekyll build、artifact upload、Pages deploy 全部成功。
+- 产物验收：artifact `11286954602` / digest `sha256:4d70e6e18f517a598f8f2c7963dc3906e73357edf6928135f8a01d9204060ef8`；`think/build/observe/about/index.html` 和共享 CSS 存在；每页公共主导航只有 `/think/`、`/build/`、`/observe/`、`/about/`；中文说明和 section links 正确；OBSERVE 含 Ravenis/Occult Atlas；公共 section links 不含 Gate/NAVI/MMXProj；两份主题 CSS 大小 148589/70176 bytes。
+- 内容/路由/可见性：未改文章或 Thought 正文及 front matter；未删除旧 tabs/路由；Ravenis/Occult Atlas 应用页索引边界未在本项更改；ABOUT 仅复用站内已有资料。
+- 结论 / 下一步：T08 done；T09 ready（桌面四入口主导航、返回首页及辅助检索/社交入口）。
 
 ## Run 2026-10-04 06:04 — T07 完成
 

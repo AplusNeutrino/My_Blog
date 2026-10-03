@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T07 done; T08 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T08 done; T09 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,9 +877,9 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T07 done，T08 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T08 四入口数据/页面骨架和可复用导航；base SHA `12d0d70139bcdfa7192820c6f228d9be54bbfbe1`。
-本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
+**当前状态：计划细化与启动决定已完成，T00–T08 done，T09 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+当前工作：T08 已建立四入口数据/页面骨架和可复用导航；下一项 T09 桌面主导航与辅助入口。
+本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
 
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T07 = done，T08 = in-progress，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T08 = done，T09 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T08；branch = main；base = 12d0d70139bcdfa7192820c6f228d9be54bbfbe1；checkpoint = T07 done；next = T08；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；checkpoint = T08 done；next = T09；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1237,3 +1237,15 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 验证：新增 8 项设计契约测试，全套 54 tests OK；`git diff --check` 通过；T01 baseline check passed（44 posts / 5 Fragments、页面源与保护 URL 未变）。本地无 Ruby，未声称本地 Jekyll build。
 - CI：[run 37157623519](https://github.com/AplusNeutrino/My_Blog/actions/runs/37157623519) 精确对应实现 head，completed/success；测试、Jekyll build、artifact upload 和 deploy 成功。
 - 用户问题：无。结论：T07 done；T08 ready。
+
+### T08 — 四入口数据、页面骨架与可复用导航（done）
+
+- Run：2026-10-04 07:00；base SHA = `12d0d70139bcdfa7192820c6f228d9be54bbfbe1`；branch = main。
+- 范围记录提交：`ae9de7696125609b22e3caa1e7a4fda0168e8f6b`；初始实现提交：`e5b256505c1ad7e4c8593d49d7c9a5d76336bb6a`；完整主题文件修复及最终验收 head：`3818729a1a17e36128d876d5ea06961c7752ab40`。
+- 交付：`_data/neutriverse_sections.yml` 作为四入口英文名、中文说明、摘要与当前真实链接的单一来源；新增共享 section layout、主入口导航、入口链接 include、共享 CSS，以及 `/think/`、`/build/`、`/observe/` 三个 canonical 页面；原 `/about/` 页面保留并接入同一组件。
+- 边界：公共四入口导航仅含 THINK/BUILD/OBSERVE/ABOUT；OBSERVE 连接 Ravenis/Occult Atlas；BUILD 骨架只连接现有 FitzSight、Akasha Notes、Toyosatomimi's Headphone 站内依据。Gate/NAVI/MMXProj 未进入这些公共入口；未伪造未完成项目详情或状态。
+- 失败与修复证据：初始实现的 [run 37160568512](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160568512) 因提交接口静默截断大型主题 CSS 而失败，精确失败为 Night 主题关联文章表面断言。没有将其记作通过；修复提交以完整 blob 恢复两份主题文件并保留 `--nv-*` 映射。
+- 本地验证：全套 62 tests OK；T01 baseline check passed（44 posts / 5 Fragments，正文、文件名、日期及保护 URL 未变）；`git diff --check` 通过。
+- CI：[run 37160746998](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160746998) 精确对应最终 head `3818729a...`，regression tests、Jekyll build、artifact upload 与 Pages deploy 全部 completed/success。
+- 构建产物：artifact `11286954602`（digest `sha256:4d70e6e18f517a598f8f2c7963dc3906e73357edf6928135f8a01d9204060ef8`）内四个页面均存在；四入口导航逐页只含四个 canonical；各中文说明及实际 section links 正确；共享 CSS 存在；Night/Light 文件分别为 148589/70176 bytes，确认未再次截断。
+- 用户问题：无。结论：T08 done；T09 ready。
