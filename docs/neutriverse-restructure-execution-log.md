@@ -20,6 +20,20 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+### T02 验证收敛
+
+- 实现 head `e595599...` 的 run 37139226666 因后续 push 被 Pages concurrency 取消，并非测试失败。
+- 直接后续状态提交 `1b9bf7b38c9c0ea79419de55205e9615be39f76e` 包含完整 T02 实现树；run 37139271289 completed/success。T02 done，T03/T04/T06 ready。
+
+## Run 2026-10-04 01:58 — T03 开始
+
+- Task / parent：T03；status = in-progress。
+- Base SHA / branch：1b9bf7b38c9c0ea79419de55205e9615be39f76e / main。
+- 本次范围：移除无显式 series 的旧 categories 回退；显式 Series 列表排除 hidden 文章；增加回归测试。
+- 保护：不改文章正文、front matter、categories、series 值或 URL；只收紧 Series 展示逻辑。
+- 验收：无 series 不渲染；有 series 只列非 hidden 同系列文章并保持日期序；全回归及对应 CI。
+- 用户问题：无。
+
 
 ## Run 2026-10-04 00:01 — T01 基线交付
 
