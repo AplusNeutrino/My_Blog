@@ -1,0 +1,20 @@
+---
+layout: page
+---
+{% assign nv_section = site.data.neutriverse_sections.sections | where: 'id', page.section_id | first %}
+<article class="nv-section" data-neutriverse-section="{{ page.section_id }}">
+  <header class="nv-section-header">
+    <p class="nv-section-kicker">{{ nv_section.kicker }}</p>
+    <h1>{{ nv_section.name }}</h1>
+    <p class="nv-section-label">{{ nv_section.label_zh }}</p>
+    <p class="nv-section-summary">{{ nv_section.summary }}</p>
+  </header>
+
+  {% include neutriverse-primary-nav.html current=page.section_id %}
+
+  <div class="nv-section-intro">
+    {{ content }}
+  </div>
+
+  {% include neutriverse-section-links.html current=page.section_id %}
+</article>

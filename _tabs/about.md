@@ -6,6 +6,11 @@ order: 5
 excerpt_separator: <!-- about-excerpt-end -->
 ---
 
+<div class="nv-about-entry">
+  {% include neutriverse-primary-nav.html current='about' %}
+  {% include neutriverse-section-links.html current='about' %}
+</div>
+
 {% comment %}
 ============================================================
 ABOUT PAGE TEXT CONFIG

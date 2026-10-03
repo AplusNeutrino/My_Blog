@@ -1,0 +1,21 @@
+{% assign nv_section_id = include.current | default: page.section_id %}
+{% assign nv_section = site.data.neutriverse_sections.sections | where: 'id', nv_section_id | first %}
+{% if nv_section and nv_section.links.size > 0 %}
+  <section class="nv-section-links" aria-labelledby="nv-section-links-{{ nv_section.id }}">
+    <div class="nv-section-links-heading">
+      <p>{{ nv_section.kicker }}</p>
+      <h2 id="nv-section-links-{{ nv_section.id }}">当前可用入口</h2>
+    </div>
+    <ul class="nv-section-link-list">
+      {% for link in nv_section.links %}
+        <li>
+          <a class="nv-section-link" href="{{ link.url | relative_url }}">
+            <span class="nv-section-link-kind">{{ link.kind }}</span>
+            <strong>{{ link.label }}</strong>
+            <span>{{ link.description }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

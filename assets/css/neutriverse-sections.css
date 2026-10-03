@@ -1,0 +1,206 @@
+/* Shared structure for the four Neutriverse entrances. Theme files own palette values. */
+
+:root {
+  --nv-canvas: var(--main-bg, #fff);
+  --nv-surface-1: var(--card-bg, #fff);
+  --nv-surface-2: var(--button-bg, #f4f4f4);
+  --nv-border: var(--main-border-color, #d0d0d0);
+  --nv-border-strong: var(--blockquote-border-color, #999);
+  --nv-text: var(--text-color, #333);
+  --nv-text-strong: var(--heading-color, #111);
+  --nv-text-muted: var(--text-muted-color, #666);
+  --nv-accent: var(--link-color, #0759b5);
+  --nv-signal: var(--nv-accent);
+  --nv-anomaly: var(--nv-accent);
+  --nv-focus: var(--nv-accent);
+  --nv-font-reading: inherit;
+  --nv-font-interface: inherit;
+  --nv-font-inscription: serif;
+  --nv-font-data: ui-monospace, monospace;
+}
+
+.nv-section,
+.nv-about-entry {
+  color: var(--nv-text);
+}
+
+.nv-section-header {
+  max-width: 46rem;
+  margin: 0 0 2rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--nv-border-strong);
+}
+
+.nv-section-kicker,
+.nv-section-links-heading p,
+.nv-primary-nav-name,
+.nv-section-link-kind {
+  margin: 0;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nv-section-header h1 {
+  margin: 0.35rem 0 0;
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-inscription);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+}
+
+.nv-section-label {
+  margin: 0.65rem 0 0;
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-interface);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.nv-section-summary {
+  max-width: 42rem;
+  margin: 0.75rem 0 0;
+  color: var(--nv-text-muted);
+  line-height: 1.75;
+}
+
+.nv-primary-nav {
+  margin: 1.5rem 0 2rem;
+}
+
+.nv-primary-nav-list,
+.nv-section-link-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nv-primary-nav-link,
+.nv-section-link {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 7.5rem;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+  color: var(--nv-text);
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.nv-primary-nav-link::before {
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 0;
+  width: 2px;
+  background: transparent;
+  content: '';
+}
+
+.nv-primary-nav-link:hover,
+.nv-section-link:hover {
+  border-color: var(--nv-border-strong);
+  background: var(--nv-surface-2);
+  color: var(--nv-text-strong);
+}
+
+.nv-primary-nav-link.is-current,
+.nv-primary-nav-link[aria-current='page'] {
+  border-color: var(--nv-accent);
+}
+
+.nv-primary-nav-link.is-current::before,
+.nv-primary-nav-link[aria-current='page']::before {
+  background: var(--nv-accent);
+}
+
+.nv-primary-nav-link:focus-visible,
+.nv-section-link:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.nv-primary-nav-name {
+  color: var(--nv-accent);
+  font-family: var(--nv-font-inscription);
+  font-size: 0.95rem;
+}
+
+.nv-primary-nav-label,
+.nv-section-link strong {
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-interface);
+  font-size: 1rem;
+}
+
+.nv-primary-nav-summary,
+.nv-section-link > span:last-child {
+  color: var(--nv-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.nv-section-intro {
+  max-width: 46rem;
+  margin: 0 0 2rem;
+  line-height: 1.8;
+}
+
+.nv-section-links {
+  margin: 2rem 0;
+}
+
+.nv-section-links-heading {
+  margin-bottom: 1rem;
+}
+
+.nv-section-links-heading h2 {
+  margin: 0.25rem 0 0;
+  color: var(--nv-text-strong);
+  font-size: 1.35rem;
+}
+
+.nv-section-link {
+  min-height: 6.75rem;
+}
+
+.nv-section-link-kind {
+  color: var(--nv-accent);
+}
+
+.nv-about-entry {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .nv-primary-nav-list,
+  .nv-section-link-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nv-primary-nav-link,
+  .nv-section-link {
+    min-height: 0;
+    padding: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nv-primary-nav-link,
+  .nv-section-link {
+    transition: none;
+  }
+}

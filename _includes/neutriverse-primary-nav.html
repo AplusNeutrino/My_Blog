@@ -1,0 +1,18 @@
+{% assign nv_current = include.current | default: page.section_id %}
+<nav class="nv-primary-nav" aria-label="Neutriverse 四大入口">
+  <ul class="nv-primary-nav-list">
+    {% for entry in site.data.neutriverse_sections.sections %}
+      <li class="nv-primary-nav-item">
+        <a
+          class="nv-primary-nav-link{% if entry.id == nv_current %} is-current{% endif %}"
+          href="{{ entry.url | relative_url }}"
+          {% if entry.id == nv_current %}aria-current="page"{% endif %}
+        >
+          <span class="nv-primary-nav-name">{{ entry.name }}</span>
+          <span class="nv-primary-nav-label">{{ entry.label_zh }}</span>
+          <span class="nv-primary-nav-summary">{{ entry.summary }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

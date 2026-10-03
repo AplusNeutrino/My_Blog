@@ -1,0 +1,80 @@
+sections:
+  - id: think
+    name: THINK
+    label_zh: 我如何思考与表达
+    url: /think/
+    kicker: WRITING / INQUIRY
+    summary: 从文章、笔记与思维片段进入持续生长的写作记录。
+    links:
+      - label: 思维片段
+        kind: Fragment
+        url: /thoughts/
+        description: 五条现有 Fragment 的唯一内容来源。
+      - label: 写作时间线
+        kind: Archive
+        url: /archives/
+        description: 按时间回看已经发布的写作。
+      - label: 标签
+        kind: Tags
+        url: /tags/
+        description: 按具体对象与概念检索公开内容。
+      - label: 旧分类索引
+        kind: Compatibility
+        url: /categories/
+        description: 保留既有分类路径与历史浏览方式。
+
+  - id: build
+    name: BUILD
+    label_zh: 我正在制作什么
+    url: /build/
+    kicker: PROJECTS / SYSTEMS
+    summary: 从已有项目记录与可用界面进入正在形成的工具和系统。
+    links:
+      - label: FitzSight
+        kind: Project tracker
+        url: /projfitzgerald/
+        description: 查看站内 Project Fitzgerald / FinSight 进度界面。
+      - label: Akasha Notes
+        kind: Project note
+        url: /posts/阿卡夏便笺akashanotes/
+        description: 阅读现有版本说明、功能与下载入口。
+      - label: Toyosatomimi's Headphone
+        kind: Project note
+        url: /posts/丰聪耳机toyosatomimisheadphone/
+        description: 阅读现有实时双语字幕工具记录。
+
+  - id: observe
+    name: OBSERVE
+    label_zh: 我持续观察什么
+    url: /observe/
+    kicker: WATCH / INTERPRET
+    summary: 进入持续整理外部信号与时间结构的公开观察界面。
+    links:
+      - label: Ravenis
+        kind: Public intelligence
+        url: /ravenis/
+        description: 查看按日期与观察角度组织的公共记录。
+      - label: Occult Atlas
+        kind: Chart workbench
+        url: /occult-atlas/
+        description: 进入实时与历史星图工作台。
+
+  - id: about
+    name: ABOUT
+    label_zh: 我是谁以及这个站如何生长
+    url: /about/
+    kicker: IDENTITY / CONTINUITY
+    summary: 了解作者节点、网站状态，以及阅读、友链和旅行记录之间的关系。
+    links:
+      - label: 中间层大图书馆
+        kind: Library
+        url: /library/
+        description: 浏览独立维护的阅读、观看与游玩记录。
+      - label: 友情链接
+        kind: Internet relations
+        url: /links/
+        description: 前往现有友链页面与互联网邻居。
+      - label: 中间出游记录
+        kind: Travel memory
+        url: /about/#travel-globe-title
+        description: 在 ABOUT 内查看现有旅行地球。

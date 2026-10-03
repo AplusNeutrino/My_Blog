@@ -147,6 +147,22 @@
   --font-day-ui: 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
   --font-day-inscription: 'Cinzel', 'Times New Roman', serif;
   --font-day-mono: 'IBM Plex Mono', 'Sarasa Mono SC', 'Noto Sans Mono CJK SC', ui-monospace, monospace;
+  --nv-canvas: var(--prospero-page);
+  --nv-surface-1: var(--prospero-surface-1);
+  --nv-surface-2: var(--prospero-surface-2);
+  --nv-border: var(--prospero-border);
+  --nv-border-strong: var(--prospero-border-strong);
+  --nv-text: var(--prospero-text-secondary);
+  --nv-text-strong: var(--prospero-text-primary);
+  --nv-text-muted: var(--prospero-text-muted);
+  --nv-accent: var(--prospero-teal);
+  --nv-signal: var(--prospero-gold-ink);
+  --nv-anomaly: var(--prospero-violet);
+  --nv-focus: var(--prospero-teal);
+  --nv-font-reading: var(--font-day-serif);
+  --nv-font-interface: var(--font-day-ui);
+  --nv-font-inscription: var(--font-day-inscription);
+  --nv-font-data: var(--font-day-mono);
 }
 
 :root[data-mode='light'] body,
