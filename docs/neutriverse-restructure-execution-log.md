@@ -20,14 +20,21 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-04 04:01 — T05 开始
+## Run 2026-10-04 04:01 — T05 完成
 
-- Task / parent：T05；status = in-progress；依赖 T04 done。
+- Task / parent：T05；status = done；依赖 T04 done。
 - Base SHA / branch：185236ff7b73934815df6f3c506edd0d40252446 / main。
 - 前置核对：base 的 Build and Deploy run 37146695323 completed/success；从该 head 新鲜克隆，未发现并发差异。
 - 本次范围：只执行 `Bus` → `System Bus` 与 `Changelog` retire；同步 audit/report；保留两个旧标签 URL；为公开 tag index/detail/trending 增加 hidden 过滤。
 - 验收：实际 metadata、权威审计和报告一致；正文/Fragment/受保护 URL metadata 通过 T01 baseline；旧标签 URL noindex 且指向既定目标；全套测试和对应 Pages workflow 成功。
 - 用户问题：无。
+- 范围记录 / 实现提交：05c34dcd87f73d4638b3074d435c899b779df0a6 / c2cf7da1e969502d34655ad69db3eb8795bb9b5e。
+- Metadata / 审计：仅将 `Bus` 改为 `System Bus`、删除 `Changelog`；迁移审计和 final report 同步。当前 149 个文章 Tags、155 个全部写作 Tags、164 次关联，`System Bus` 2 次。
+- 兼容 / 可见性：保留 `/tags/bus/`→`/tags/system-bus/`、`/tags/changelog/`→`/tags/neutriverse/` noindex + sitemap false 入口；tag index/detail/trending 统一排除 hidden posts，hidden-only 名称不进入公开索引。
+- 本地验证：T04 快照生成物 `--check` 通过；全套 39 tests OK；`git diff --check` 通过；T01 baseline protection passed，44 posts / 5 Fragments 正文、文本及保护 URL metadata 无变化。
+- CI：[run 37150481141](https://github.com/AplusNeutrino/My_Blog/actions/runs/37150481141) 对应实现 head，completed/success；回归、Jekyll build、artifact upload、deploy 全部成功。
+- 构建产物核对：artifact 11283507681 / digest `sha256:177108483abe5ee333c9328801a2355d1522871535bc6d3fbdd6b5a5d0a0e3ab`。`tags/index.html`、两个旧路径和两个目标路径均存在；公开索引未含 Changelog/Bus/Nhalmasque/RMSPE/Site Styling；redirect noindex/目标正确；抽查 3 个 hidden-only 标签详情均为 0 post links。
+- 结论 / 下一步：T05 done；T06 ready。
 
 ## Run 2026-10-04 02:55 — T04 完成
 

@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T04 done，T05 in-progress，T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：应用 T04 的两项有限标签变更、旧标签 URL 兼容及公开标签面的 hidden 过滤；T06 保持 ready。
+**当前状态：计划细化与启动决定已完成，T00–T05 done，T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：执行 T06 页面归属、路由与可见性映射文档。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T04 = done，T05 = in-progress，T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T05 = done，T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T05-tag-application；branch = main；checkpoint = T04 done；next = finish T05；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；checkpoint = T05 done；next = T06；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1199,7 +1199,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - CI：[run 37146556058](https://github.com/AplusNeutrino/My_Blog/actions/runs/37146556058) 对应实现 head，completed/success；包含回归、Jekyll build、artifact 与 deploy。
 - 结论：T04 done；T05/T06 ready。
 
-### T05 — 有限标签修改及兼容处理（进行中）
+### T05 — 有限标签修改及兼容处理（done）
 
 - Run：2026-10-04 04:01；base SHA = `185236ff7b73934815df6f3c506edd0d40252446`；branch = main。
 - 前置核对：base 对应 [run 37146695323](https://github.com/AplusNeutrino/My_Blog/actions/runs/37146695323) completed/success；T04 状态与审计均已部署。
@@ -1207,3 +1207,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 拟改文件：两篇文章 front matter、`docs/content-taxonomy-migration.md`、`docs/content-taxonomy-final-report.md`、标签布局/组件、两个兼容页、相关测试、本主计划与执行日志。
 - 验收：实际/审计/报告一致为 155 个写作 Tags、164 次关联；旧标签路径有明确目标且 noindex；公开标签面不列 hidden；正文、Fragment 原文、文件名、date/slug/permalink/旧文章 URL 均通过 T01 baseline；对应实现 SHA 的测试、Jekyll build、Pages deploy 成功。
 - 用户问题：无。
+- 范围记录提交：`05c34dcd87f73d4638b3074d435c899b779df0a6`；实现提交：`c2cf7da1e969502d34655ad69db3eb8795bb9b5e`。
+- Metadata：仅两篇文章 front matter 改动；`Bus` 合并为 `System Bus`，`Changelog` 删除。authoritative audit 与 final report 同步为 149 个文章 Tags、155 个全部写作 Tags、164 次关联；`System Bus` 两次使用。
+- 可见性：公开 Tags 目录、单 Tag 详情、trending tags 均按 `hidden != true` 过滤；hidden-only 标签不进入公开索引，直接标签详情不列隐藏文章。
+- 兼容：`/tags/bus/` noindex 跳转 `/tags/system-bus/`；`/tags/changelog/` noindex 跳转 `/tags/neutriverse/`；两个源路径 `sitemap: false`。
+- 本地验证：T04 审计快照复现通过；39 tests OK；`git diff --check` 通过；T01 baseline protection passed，44 posts / 5 Fragments 的正文、文本、文件名及 date/slug/permalink 未变。
+- CI：[run 37150481141](https://github.com/AplusNeutrino/My_Blog/actions/runs/37150481141) 精确对应实现 head，completed/success；回归、Jekyll build、artifact upload、Pages deploy 均成功。
+- 生成产物：artifact `11283507681`（digest `sha256:177108483abe5ee333c9328801a2355d1522871535bc6d3fbdd6b5a5d0a0e3ab`）中确认五个相关路径均存在；公开索引不含退役/hidden-only 抽查项，两个 redirect 含 noindex 与正确目标，hidden-only 详情抽查为 0 个文章链接。
+- 结论：T05 done；T06 ready。
