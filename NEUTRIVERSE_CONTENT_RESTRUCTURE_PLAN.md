@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T03 done，T04/T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：从 T04 Tags 二轮映射或 T06 页面归属映射中选择最小可交付项。
+**当前状态：计划细化与启动决定已完成，T00–T03 done，T04 in-progress，T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：完成 T04 Tags 使用频率、重复与二轮映射审计；T06 保持 ready。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T03 = done，T04/T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T03 = done，T04 = in-progress，T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；checkpoint = T03 done；next = T04 or T06；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T04-tag-second-pass；branch = main；checkpoint = T03 done；next = finish T04；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1182,3 +1182,12 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - CI：[run 37142745038](https://github.com/AplusNeutrino/My_Blog/actions/runs/37142745038) 由实现 head 精确触发，completed/success；包含回归测试、Jekyll build 与 Pages 部署流程。
 - 保护：未修改文章、Fragment、front matter、categories/series 值、文件名或 URL。
 - 结论：T03 验收完成；T04/T06 ready。
+
+### T04 — Tags 使用频率、重复与二轮映射（进行中）
+
+- Run：2026-10-04 02:55；base SHA = `b2a2a15321efb0c443b57f001368227105b1cdce`；branch = main。
+- 前置核对：base 对应 [run 37142886517](https://github.com/AplusNeutrino/My_Blog/actions/runs/37142886517) completed/success；T03 状态提交已部署。
+- 本次范围：从 44 篇文章 + 5 条 Fragment 的真实 metadata 统计 157 个独立 Tags 及使用位置；逐项记录 keep/merge/retire、目标和理由；给 T05 明确有限改动与旧标签 URL 策略。
+- 拟改文件：新增 `tools/content_tag_review.py`、`docs/content-taxonomy-tag-review.md`、相关回归测试、本主计划、执行日志。
+- 验收：157/157 个当前标签均有频率、公开/hidden 使用数、决定与理由；低频本身不作为删除理由；作品/实体标签不会仅因一次使用被删；建议改动可机械复核且不在 T04 修改文章或 Fragment metadata/正文。
+- 用户问题：无。
