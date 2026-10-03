@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00 done; T01 validation-pending; implementation decisions resolved; hourly execution authorized**  
+> Current state: **Phase 1 completed; T00 done; T01 done; implementation decisions resolved; hourly execution authorized**  
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00 done，T01 validation-pending（基线已交付，等待对应 CI）。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：核对 T01 提交 e1c7f29 的 Actions run 37135823458；通过后 T01 done，T02/T06 ready，优先 T02。
+**当前状态：计划细化与启动决定已完成，T00 done，T01 done（基线已交付，等待对应 CI）。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：T02/T06 ready，优先 T02。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00 = done，T01 = validation-pending，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00 = done，T01 = done，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T01 baseline committed；next = check T01 CI then T02；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T01 baseline committed；next = T02 ready / T06 ready；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1143,7 +1143,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 26. 当前执行状态与证据
 
-### T01 — 基线盘点（validation-pending）
+### T01 — 基线盘点（done）
 
 - Run：2026-10-04 00:01；active_run = none（本次工作已交接，无执行占用）；branch = main。
 - Base SHA：97281227aaafe176870b28bc8a352a0e536e29d6。
@@ -1154,7 +1154,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 当前统计：Type essay/note/fragment = 5/39/5；Topic computation/humanity/otaku/arts = 38/6/4/1；全部写作独立 Tags = 157。T02 需修正旧报告 humanity/arts 统计。
 - 验证：44 个原 Git blob 的 SHA-256 独立核对通过；44 个源 URL 候选唯一；正文/日期/slug/permalink/hidden/published 核对无差异；原保护源与基线 SHA 的 git diff 通过；27 项现有 Python 回归通过。
 - 历史基线构建：run 37132489511（head 97281227...）completed/success；不代表新交付构建。
-- 当前交付 CI：[37135823458](https://github.com/AplusNeutrino/My_Blog/actions/runs/37135823458)，head e1c7f29...，本次最后检查仍 in_progress；下一轮先核对结果，成功后 T01 done。
+- 当前交付 CI：[37135823458](https://github.com/AplusNeutrino/My_Blog/actions/runs/37135823458)，head e1c7f29...，最终检查 completed/success；T01 done，T02/T06 ready。
 - 限制：本环境缺 Ruby；线上 sitemap 返回 HTTP 403。源路径在 JSON 标记 runtime_url_verified=false；生成 URL/robots/Tag 详情与线上视觉留 T33/T38，不声称已通过。
 - 保护：未改文章/Fragments/配置/应用行为；文档和 tools 原配置排除站点发布内容。
-- 下一步：检查对应 CI，成功则解锁 T02/T06，优先 T02；若失败，先诊断与本次 diff 的因果关系，独立任务仍按规则推进。
+- 下一步：T02/T06 已解锁，优先 T02。
