@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T05 done; T06 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T06 done; T07 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T05 done，T06 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T06 页面归属、路由与可见性映射文档；base SHA `02a1e0c4ac709ac36b4303acc6b02957b876db68`。
+**当前状态：计划细化与启动决定已完成，T00–T06 done，T07 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：执行 T07 明暗主题基础规范与共享组件契约。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T05 = done，T06 = in-progress，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T06 = done，T07 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T06；branch = main；base = 02a1e0c4ac709ac36b4303acc6b02957b876db68；checkpoint = T05 done；next = T06；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；checkpoint = T06 done；next = T07；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1215,3 +1215,14 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - CI：[run 37150481141](https://github.com/AplusNeutrino/My_Blog/actions/runs/37150481141) 精确对应实现 head，completed/success；回归、Jekyll build、artifact upload、Pages deploy 均成功。
 - 生成产物：artifact `11283507681`（digest `sha256:177108483abe5ee333c9328801a2355d1522871535bc6d3fbdd6b5a5d0a0e3ab`）中确认五个相关路径均存在；公开索引不含退役/hidden-only 抽查项，两个 redirect 含 noindex 与正确目标，hidden-only 详情抽查为 0 个文章链接。
 - 结论：T05 done；T06 ready。
+
+### T06 — 页面归属、路由与可见性映射（done）
+
+- Run：2026-10-04 05:04；base SHA = `02a1e0c4ac709ac36b4303acc6b02957b876db68`；branch = main。
+- 本次范围：以 T01 的 14 个页面源为底，盘点动态/生成路由、四入口、特殊模块、公开发现、隐蔽发现、noindex、sitemap 和 robots 语义；只建立实现契约，不改线上页面行为。
+- 范围记录提交：`c6c20a8ab14ea585d67560d906ee47990a67c6b4`；中途 PGL 同步 bot 在其上快进提交 `5b394610033ba311e7f0368afd14751f91fa5fe2`；实现提交基于该新 head 安全重建为 `5a01abb2988f4a77e8c4fbc0f2d33931a105b8ee`，没有覆盖同步结果。
+- 交付：`docs/neutriverse-route-visibility-map.md` 为 authoritative contract；覆盖 14/14 页面源、文章/Category/Tag/Feed/Search/Sitemap/robots/兼容路由、四入口和非独立特殊模块。Ravenis/Occult Atlas 明确为 OBSERVE 可发现且应用页 noindex；Library/友链/旅行归 ABOUT；Gate/NAVI 保持旧 URL 和隐蔽程度。
+- BUILD 边界：列入 FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、Gate、OfficeSpire；MMXProj 明确排除；项目详情和应用入口分离，不修改关联项目仓库。
+- 验证：新增 7 项文档契约测试，全套 46 tests OK；`git diff --check` 通过；T01 baseline protection passed（44 posts / 5 Fragments、页面源和保护 URL 未变）。本环境无 Ruby，因此本地不声称 Jekyll build；对应实现 SHA 的 Pages workflow 补足构建验证。
+- CI：[run 37154308445](https://github.com/AplusNeutrino/My_Blog/actions/runs/37154308445) 精确对应实现 head，completed/success；测试、Jekyll build、artifact upload 和 deploy 成功。
+- 用户问题：无。结论：T06 done；T07 ready。

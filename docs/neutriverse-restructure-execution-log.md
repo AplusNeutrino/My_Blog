@@ -20,15 +20,22 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-04 05:04 — T06 范围锁定
+## Run 2026-10-04 05:04 — T06 完成
 
-- Task / parent：T06；status = in-progress；依赖 T01 done。
+- Task / parent：T06；status = done；依赖 T01 done。
 - Base SHA / branch：`02a1e0c4ac709ac36b4303acc6b02957b876db68` / main。
 - 前置核对：base 的 Build and Deploy run 37150692268 completed/success；从该 head 新鲜克隆，工作树无本地或并发差异。
 - 本次范围：盘点当前页面源、生成路由、公开入口、索引/robots 语义及特殊模块；建立后续 T07–T33 使用的权威页面归属、路由与可见性映射。只写文档和可重复核对，不在 T06 改线上导航、页面内容、应用或可见性。
-- 拟改文件：`docs/neutriverse-route-visibility-map.md`、对应文档契约测试、主计划、执行日志。
+- 交付文件：`docs/neutriverse-route-visibility-map.md`、`tests/test_route_visibility_map.py`、主计划、执行日志。
 - 验收：覆盖 T01 的 14 个页面源及动态文章/Category/Tag 路由；覆盖首页、THINK 检索面、BUILD/OBSERVE/ABOUT、Library、友链、旅行地球、Gate、NAVI、Ravenis、Occult Atlas、Project Fitzgerald、标签兼容入口；逐项记录当前/目标归属、canonical/兼容策略、公开发现性、noindex、sitemap 与保护边界；Q3/Q4 无遗漏；全文/URL 基线不变；测试与对应 SHA 的 Pages 工作流成功。
 - 用户问题：无；Q3/Q4 已 resolved，本项不新增产品决定。
+- 范围记录 / 实现提交：`c6c20a8ab14ea585d67560d906ee47990a67c6b4` / `5a01abb2988f4a77e8c4fbc0f2d33931a105b8ee`。范围提交后 PGL 同步 bot 快进了 `5b394610033ba311e7f0368afd14751f91fa5fe2`；实现提交基于 bot head 重建，保留同步数据且未强推。
+- 映射结果：14/14 T01 页面源均有当前 URL、当前可见性、目标归属和保护策略；动态文章/Category/Tag、Feed/Search/Sitemap/robots、两个标签兼容路径与新四入口均有契约。特殊模块覆盖旅行地球、友链、PGL、Probe、Gate、NAVI、Ravenis、Occult Atlas、Project Fitzgerald、主题、评论/点赞/RSS/社交/搜索。
+- Q3/Q4：Ravenis 与 Occult Atlas 进入公开 OBSERVE 目录但应用页保持 noindex；Library/友链/旅行归 ABOUT；Gate/NAVI 保持 URL 和隐蔽发现，不进入公共主导航/索引。文档另记录 Ravenis robots Disallow 与 noindex、NAVI 缺显式 noindex、Gate 缺 sitemap 排除的当前差异，交 T33 按既定边界收敛。
+- BUILD：七个已授权项目完整列入；MMXProj 明确排除；详情与实际应用 URL 分开，未知事实不补写。
+- 本地验证：新增 7 项契约测试，全套 46 tests OK；`git diff --check` 通过；T01 baseline protection passed，44 posts / 5 Fragments、14 页面源及保护 URL 均未变化。本地无 Ruby，未声称本地 Jekyll build。
+- CI：[run 37154308445](https://github.com/AplusNeutrino/My_Blog/actions/runs/37154308445) 精确对应实现 head，completed/success；workflow 内测试、Jekyll build、artifact upload 与 deploy 成功。
+- 结论 / 下一步：T06 done；T07 ready（明暗主题基础规范与共享组件契约）。
 
 ## Run 2026-10-04 04:01 — T05 完成
 
