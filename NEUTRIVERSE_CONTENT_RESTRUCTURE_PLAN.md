@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 — Content Foundation completed**  
+> Current state: **Phase 1 completed; execution plan refined; pre-automation decisions pending (Section 19)**  
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -223,7 +223,7 @@ NEUTRIVERSE
 A personal universe of thoughts, systems and observations.
 
 LATEST TRANSMISSIONS
-Recent Essay / Note / Fragment / Project Log
+Recent Essay / Note / Fragment (project-related writing may carry a secondary Project Log label)
 
 EXPLORE THE UNIVERSE
 THINK
@@ -246,7 +246,7 @@ Posts of different types may appear in one chronological stream, clearly labeled
 ESSAY
 NOTE
 FRAGMENT
-PROJECT LOG
+# Secondary relationship label when applicable: PROJECT LOG
 ```
 
 This helps the homepage answer: **“What has this person been thinking or doing lately?”**
@@ -349,6 +349,8 @@ DBMS Lecture 4 Notes
 ```
 
 The former can remain useful years after the original course ends.
+
+This is guidance for future writing only. Existing learning-note titles, bodies and structure will not be rewritten or split during this redesign.
 
 Course-derived material may still be grouped into durable Series, but the article itself should ideally center a reusable question or concept.
 
@@ -868,3 +870,243 @@ These are intentionally unresolved and should be decided through later design/im
 - Exact visual identity of THINK / BUILD / OBSERVE / ABOUT and how strongly they differ.
 
 This document should continue to act as the **single high-level design and implementation roadmap** for the Neutriverse overhaul. Detailed phase-specific audits or reports may live under `docs/`, but major conceptual decisions should be reflected back here.
+
+---
+
+## 18. 执行版约束与当前状态（2026-10-03）
+
+本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
+
+**当前状态：计划细化完成初稿；等待本轮用户设计决定。自动化尚未启动，也未被本次文档编辑创建。**
+下一步：收齐第 19 节答案，回写决定，将所有任务标为 ready 或有明确依赖的 pending，再由用户安排每小时任务。
+本轮完成状态：未开始实现 Phase 2–8；文档编辑不计为网站实现完成。
+
+### 18.1 已确定，不再重复询问
+
+- Type 严格为 fragment / note / essay；Project Log 不是第四种 Type。它是文章与项目的关联/记录角色，可作为次级展示标识，不能替换 Type。
+- 旧学习笔记不改写、不拆分，不改旧文章标题来符合新写作理想。“一个 Note 一个问题”仅为未来写作建议。
+- 所有旧文章正文（含图片、引用、标题层级、代码）、Thought 原文、文件名、date、slug、permalink 受保护；布局改造不等于内容编辑授权。
+- 保留四大入口及四大 Topic；不自动增设新 Type/Topic。
+- 本轮只重构 My_Blog 内的站点与关联展示；不修改关联项目仓库、不开发新新闻/天文/金融产品、不更新账号凭据或外部基础设施。
+- 个人事实、项目状态、发布日期、阅读/游玩状态只能来自用户确认或现有可验证公开材料。聊天中的私人背景不能自动写入公开网站。
+- hidden / noindex / sitemap 排除是不同语义，分别盘点与验证。可直达不代表可以公开推荐。
+- 新导航可以跨领域关联同一项目，但全站每个实体必须有稳定 ID 和一个明确的详情入口，避免维护两套内容。
+- 上一轮报告统计错误、Series 旧分类回退、Tags 复审属于维护任务；不篡改历史执行记录以假装当时已经修复。
+- 后续实现受用户回答与本计划约束；技术小决定由执行者记录理由后自主处理。
+
+### 18.2 本轮范围与终点
+
+必须交付：四大入口、THINK 检索、首页新结构、项目目录与有依据的项目详情、OBSERVE 入口、ABOUT 改造、统一视觉与移动端、检索/订阅/元数据维护、兼容性和操作文档。
+第一版不要求：在线 CMS、登录账户、写作 AI、全新后台、复杂项目发布系统、自动推断个人动态、实时市场监控、新数据源或平台迁移。
+Phase 8 的架构评估交付一份决策记录；若现有框架满足本轮需求，保持现状。重大平台迁移不悄悄加入小时任务。
+本轮完成后：未来持续成长的愿景仍保留，但不会因为可以继续增加内容而永不结束。
+
+## 19. 自动化开始前的用户决定
+
+以下为本轮集中问题。推荐项只是方案，**不是用户已经确认的偏好或发布许可**。用户回答后回写 answer/date，删除歧义；启动前必须全部 resolved。
+
+| ID | 必须决定的事项 | 推荐方案 / 可选方向 | 状态 |
+|---|---|---|---|
+| Q1 | 分小时成果如何提交、何时上线 | 推荐每个验收通过的任务提交 main 并随现有 Pages 自动上线；另一选择为专用分支积累后统一上线。须由用户选定 | awaiting-user |
+| Q2 | 视觉改造尺度及导航语言 | 推荐保留 Night / Prospero Light 双主题及气质，允许重构布局；主导航 THINK / BUILD / OBSERVE / ABOUT 配中文说明。可选择更彻底的新视觉或中文主标签 | awaiting-user |
+| Q3 | Ravenis / Occult Atlas 的可见性 | 当前 Ravenis 文档要求不列入导航、noindex；新 OBSERVE 可能改变这一点。分别选择：公开入口但保留 noindex；完全公开且可索引；继续不列入公开入口 | awaiting-user |
+| Q4 | 其他既有模块归属 | 推荐 Library 作为 ABOUT 的阅读/游玩记录入口，友链归 ABOUT 的互联网关系；旅行地球留 ABOUT；Gate / NAVI 保持原 URL 与隐蔽程度，不接入公开主导航。可提出不同归属 | awaiting-user |
+| Q5 | 第一批公开项目名单及交叉归属 | 推荐只收录仓库已能验证的 FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、Gate；后两观察系统可在 BUILD 提供关联入口，OBSERVE 保持使用入口。OfficeSpire / MMXProj 等需用户明确是否纳入及资料来源 | awaiting-user |
+| Q6 | ABOUT / Currently 的内容更新权限 | 推荐重新组织现有公开材料，时间敏感状态标注原更新日期，不把旧状态当今天；首页 Current Signal 使用用户指定焦点。用户可以提供新简介/动态，或授权执行者基于公开材料拟写 | awaiting-user |
+| Q7 | 二轮 Tags 裁缩力度 | 推荐适度合并同义/重复标签，减少过细概念，保留有价值作品名；不设强制总数。可选择只规范、不进一步裁缩，或更积极收敛 | awaiting-user |
+| Q8 | 技术与路由默认方案 | 推荐本轮继续 Jekyll / GitHub Pages；增加 /think/、/build/、/observe/，保留 /about/、/thoughts/、/tags/、/archives/、/categories/ 和旧应用入口。Archive 第一版只收录写作，ABOUT 时间线覆盖项目/网站历史 | awaiting-user |
+
+设计冲突处理：DESIGN.md 中“保持当前信息架构”将在 Q2 确认后按本总计划更新；Ravenis 的 unlisted 规则仅在 Q3 明确允许时变更。隐藏入口、个人身份和发布策略不靠默认推断。
+
+## 20. 初步页面归属与路由契约
+
+本表先定义实现方向；涉及 Q3/Q4/Q5 的项必须等答案落定。旧 URL 尽量原地工作，不用重定向代替可保留页面。
+
+| 当前对象 | 新归属 / 功能 | 路由策略 | 保护要求 |
+|---|---|---|---|
+| / | 首页：身份、近期表达、四入口、当前焦点、轻量状态 | 保留 / | 隐藏内容不进入公开推荐/计数 |
+| 文章 /posts/.../ | THINK 的文章详情 | 全部保留 | 保护正文、原 URL、附件链接、评论 |
+| _tabs/thoughts.md | THINK / Fragments | 保留 /thoughts/；THINK 链接到这里 | 不复制出第二份 Fragment 来源；未来稳定锚点 |
+| /categories/ | 旧分类兼容目录 | 保留；新 THINK 主浏览改用 Topic/Type | 旧分类详情链接仍工作 |
+| /tags/、/archives/ | THINK 检索工具 | 保留 | 标签合并时记录旧标签链接处理 |
+| 新 /think/ | 全写作目录与 Type/Topic 组合筛选 | 增量新增 | 无 JS 仍能到达文章，空状态清晰 |
+| 新 Topic / Series 检索 | THINK 内的检索面 | 优先少量静态页面 + 可链接筛选参数；实现时记录 | URL 可分享；刷新不丢条件 |
+| 新 /build/ | 项目目录 | 增量新增 | 项目 ID 稳定，未知状态不造假 |
+| 项目详情 | BUILD 的长期实体页 | 推荐 /build/<id>/；已有专用应用 URL 不动 | 详情页和应用使用入口明确区分 |
+| /projfitzgerald/ | 已有项目/进度界面 | 保留，关联对应项目详情 | 现有数据源及功能保持 |
+| /ravenis/ | OBSERVE 观察界面 | 保留 | Q3 决定发现性，现有发布数据流程受保护 |
+| /occult-atlas/ 与 /occult-atlas-app/ | OBSERVE 观察界面与现有兼容入口 | 都先保留 | 不破坏原跳转、主题、应用状态 |
+| /about/ | 作者节点、网站理念、历史、当前状态 | 保留 | 未确认个人信息不新增 |
+| /library/ | 既有大图书馆，待 Q4 定归属 | 保留独立页面，主入口只做关联 | 不改同步、隐私过滤、条目关联 |
+| /links/ | 友情链接，待 Q4 定归属 | 保留 | 保留链接与原友链关系 |
+| /gate/、隐藏 NAVI | 个人工具，待 Q4 定可见性 | 保留 | 本地数据/设置、noindex、隐藏导航受保护 |
+| About 内旅行地球 | ABOUT 的个人轨迹，待 Q4 | 保留现有能力 | 无新增个人地点，移动端降级可用 |
+
+## 21. 每小时执行协议
+
+每次运行不是机械执行整个 Phase。必须先从本 Markdown 中选择依赖满足的最小可交付任务，并把本小时边界写清楚，再实现和验收。
+
+### 21.1 启动门槛
+
+- 第 19 节 Q1–Q8 均已 resolved，答案记录在本文件。
+- 实施分支、发布方式、第一版名单、隐藏/公开边界已经写明。
+- 当前运行读取最新 main / 工作分支、AGENTS.md、本主计划和上一条执行日志；不得沿用旧 SHA 盲写。
+- 自动化实际能力必须支持仓库读写及约定的验证。缺权限/构建环境属于明确阻塞，不能写成已完成。
+- 文档不创建或启动自动化。用户另外安排定时任务后执行此协议。
+
+### 21.2 选择与拆分
+
+1. 先检查上一任务是否 validation-pending / blocked，确认是否已解除，再按依赖挑最早 ready 任务。
+2. 本小时目标预算为约 30–45 分钟实现、10–15 分钟验证和日志；这是规划预算，不是假设运行平台保证 60 分钟。
+3. 任务大于预算时拆成带 ID 的子项，例如 T15.a / T15.b；每项必须有文件范围、输出和验收。父项全部子项通过前不能 done。
+4. 一个小时可做一个紧密关联的小批次；不能跨多个大阶段做未闭合的改动。
+5. 开始前在主计划记录：任务 ID、依据提交、目标、拟改文件、验收、预计剩余。完成后更新证据与下一步。
+6. 遇到等待 CI，可保存为 validation-pending，下一次先核对该提交；不能为“按时推进”跳过失败。
+7. 本小时无法完成时保存安全检查点，写出精确剩余工作；不能丢下破坏构建的半成品到生产。
+8. 重新读取远端再提交；同文件并发修改必须合并，不能覆盖用户新增内容。提交文档时使用最新 blob SHA。
+9. 防重入：本文件记录 active_run/branch/base_sha/checkpoint/time。它是协作记录，不是原子锁；自动化应尽量配置不重叠，运行者发现有效进行中任务即跳过并说明。过期记录先检查提交与任务结果，再接续。
+10. 只有必要且直接相关的实现修复可以新加子项；新功能/平台迁移须列为 future，不扩张本轮验收。
+
+### 21.3 状态与证据
+
+状态只用 pending / ready / in-progress / validation-pending / blocked / done。
+pending：依赖或决定未满足；ready：可开始；done：交付与必要验证均通过。
+任务证据至少包括变更路径、实现提交 SHA、检查命令/结果、Actions URL 与 head SHA（适用时）、保护项结果、阻塞及下一任务。
+日志文件：docs/neutriverse-restructure-execution-log.md，由首个执行任务创建。主计划保留状态总览和最新一条摘要；日志保留逐次详情。
+避免自引用提交 SHA：实现提交与日志提交分开记录，日志引用已经存在的实现提交；不声称同一个提交内记录了自身 SHA。
+不要把日志更新导致的新构建误认为刚才实现提交的构建。每次检查必须对应实际 head SHA。
+
+### 21.4 每次完成条件
+
+- 约定输出可访问/可使用，不能只完成视觉占位。
+- 运行与本次改动相称的检查；不为纯文档改动额外编写测试。
+- 涉及模板/脚本的改动通过相关现有回归；涉及可见 UI 的改动核对桌面/移动端、明暗主题和键盘操作。
+- 正文与 URL 保护在基线清单中可核验；隐藏规则没有因统一聚合而失效。
+- 按 Q1 约定保存到 GitHub，必要时确认构建/部署；失败不标 done。
+- 更新主计划与日志，让下一小时无需依赖聊天上下文。
+- 自动化重复提醒不能代替执行。终态只在第 24 节全部通过后成立；完成后记录 COMPLETE，后续触发报告已完成，不继续改动。只有工具和授权允许时再停止对应定时任务。
+
+## 22. 有依赖的小时任务清单
+
+全部状态初始为 pending（等待 Q1–Q8）。收齐答案后 T00 可 ready；后续按依赖解锁。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+
+| ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
+|---|---|---|---|---|
+| T00 | 准备 | Q1–Q8 | 回写用户决定、确定分支/发布/项目名单，建立执行日志 | 无 awaiting-user；第一项 ready，范围有限 |
+| T01 | 准备 | T00 | 当前文章、Fragments、路由、模板、可见性与集成基线清单 | 枚举实际源和 URL；正文归一化换行后的校验值；记录构建 head |
+| T02 | 维护 | T01 | 核对当前分类和审计，修正 final report 统计 | 从实际内容计算 Topic/Type；审计冲突逐项解释 |
+| T03 | 维护 | T02 | 修正 Series 回退及隐藏文章过滤 | 无 series 的已迁移文章不自动成系列；公开页不列 hidden |
+| T04 | 维护 | T02 | Tags 使用频率、重复与二轮映射 | 每项保留/合并/删除理由；不凭频次删除作品标签 |
+| T05 | 维护 | T04 | 按 Q7 应用有限标签修改及兼容处理 | front matter / 审计同步，正文未改，旧标签 URL 有策略 |
+| T06 | Phase 2 | T01 | 完成页面归属、路由与可见性映射文档 | 包括所有现有特殊模块，Q3/Q4 无遗漏 |
+| T07 | Phase 2/7 基础 | T06 | 明暗主题基础规范与共享组件契约 | 更新 DESIGN 中冲突规则，定义文字/间距/焦点/移动端 |
+| T08 | Phase 2 | T07 | 创建四入口的数据/页面骨架和可复用导航 | 入口有真实摘要/链接；旧入口不失效，未完成功能不伪装可用 |
+| T09 | Phase 2 | T08 | 桌面四入口导航、辅助检索/社交入口 | 主次清晰；active 状态、返回首页、原功能可到达 |
+| T10 | Phase 2 | T09 | 手机导航、键盘与折叠行为 | 390px 无页面溢出；焦点可见；菜单可用 |
+| T11 | Phase 3 | T03,T05,T10 | /think/ 时间序写作列表 | Type/Topic 明确；排除 hidden；空列表有说明 |
+| T12 | Phase 3 | T11 | Type 与 Topic 组合筛选、排序/分页与可分享状态 | 刷新保持条件；组合结果正确；无 JS 有可达兜底 |
+| T13 | Phase 3 | T12 | Topic 浏览面与四主题入口 | 数量等于公开内容来源；不重复计算 |
+| T14 | Phase 3 | T13 | Series 目录及系列详情/筛选面 | 稳定 ID/标签；时间序与上一篇/下一篇正确 |
+| T15 | Phase 3 | T14 | Fragment 接入 THINK，统一原来源与稳定链接 | 原文本/日期保留；不复制数据；锚点可直达 |
+| T16 | Phase 3/7 | T15 | Note / Essay / Fragment 展示差异 | 正文相同；阅读宽度、代码/表格/图片可读 |
+| T17 | Phase 3 | T16 | 标签、Archive 与 Search 的 THINK 内入口 | 旧路径保留；筛选/搜索不暴露隐藏条目 |
+| T18 | Phase 4 | T17 | 首页区块、顺序及内容来源配置 | 最新表达优先；固定推荐/当前焦点有单一配置源 |
+| T19 | Phase 4 | T18 | 首页身份、四入口与混合近期流 | posts/fragments/项目记录按真实日期排序；Project Log 为次级标签 |
+| T20 | Phase 4 | T19 | Current Signal、轻量状态及精选内容 | 无伪造数据；缺数据有自然降级；明暗/手机一致 |
+| T21 | Phase 5 | T06,T10 | 项目 schema、来源和模板 | stable ID；状态/链接可选；无项目要求不存在的 Release |
+| T22 | Phase 5 | T21 | /build/ 项目列表与状态筛选 | 只列 Q5 名单；项目卡直达详情/应用正确入口 |
+| T23 | Phase 5 | T22 | 第一组有依据项目详情 | 概览、状态、仓库/演示、关联文章，未知字段不编造 |
+| T24 | Phase 5 | T23 | 余下项目详情及日志/发布关联 | 每项目来源可追溯；未确认外部仓库不动；必要时按项目拆子项 |
+| T25 | Phase 5 | T24 | /observe/ 目录及与 BUILD 的关联 | Q3 可见性准确；详情与使用入口不会循环跳转 |
+| T26 | Phase 5 | T25 | Ravenis / Occult Atlas 的共享导航适配 | 原数据/筛选/主题/跳转回归；不重写应用本体 |
+| T27 | Phase 6 | T20,T24 | ABOUT 数据与内容重组 | 使用 Q6 材料；旧时间标注；无未确认私人信息 |
+| T28 | Phase 6 | T27 | ABOUT 身份、Currently、互联网关系、网站理念 | 简介可读；维护点明确；无虚构实时状态 |
+| T29 | Phase 6 | T28 | 个人/网站时间线与 Library/友链/旅行关系 | 时间线事件有来源；现有 Library 同步及旅行能力保留 |
+| T30 | Phase 7 | T26,T29 | 全站视觉一致性与各入口性格整理 | 两主题共享层级/组件；世界观副标签不阻碍导航 |
+| T31 | Phase 7 | T30 | 响应式/阅读/无障碍专项 | 390/768/1024/1366px；键盘、焦点、对比、reduced-motion 检查 |
+| T32 | Phase 8 | T31 | Search 索引与 RSS/feed 的本轮补全 | 写作可查/可订阅；Fragments 策略明确；hidden 不输出公开索引 |
+| T33 | Phase 8 | T32 | canonical、SEO、sitemap 与旧链接检查 | Q3 noindex 正确；无重定向环/断链/重复 canonical |
+| T34 | Phase 8 | T33 | 性能/资源降级与现有集成回归 | 不全量首屏加载 Library/观察数据；主题、评论、点赞等无回退 |
+| T35 | Phase 8 | T34 | 长期架构评估及旧 categories 维护策略 | 决策记录而非自动平台迁移；旧分类无必要不删除 |
+| T36 | Phase 8 | T35 | 作者操作指南、新增内容/项目模板与必要校验 | 可按指南添加各类内容；标签为字符串；无伪造内容默认值 |
+| T37 | 总验收 | T36 | 正文/URL/hidden 基线对照与完整回归 | 差异全部有依据；相关测试、Jekyll、对应 SHA 的 Pages 结果可查 |
+| T38 | 总验收 | T37 | 线上端到端浏览与缺陷修复 | 首页→四入口→详情→返回；筛选、主题、手机、旧链正确 |
+| T39 | 交付 | T38 | 最终报告、主计划 COMPLETE、维护说明 | 所有必须项 done；无未解释 blocker；列实现 SHA 和验证证据 |
+
+### 22.1 阶段验收
+
+- Phase 2：四入口导航、旧路径兼容、特殊模块归属与发现性完整。
+- Phase 3：三 Type / 四 Topic、Series、Tags、Fragments、Archive/Search 可以实际使用。
+- Phase 4：首页回答第 3 节五个问题，排序、当前焦点和公开范围正确。
+- Phase 5：Q5 指定项目有长期实体；观察系统可用；原应用与外部来源未破坏。
+- Phase 6：ABOUT 能说明作者与网站，动态信息不造假，关联模块保留。
+- Phase 7：明暗/手机/桌面/键盘均可用；正文阅读优先。
+- Phase 8：检索、订阅、SEO、兼容、性能、操作指南及构建证据齐全。
+- 阶段完成需要在主计划写证据摘要，不能只写状态名称。
+
+## 23. 验证、失败恢复与执行日志模板
+
+### 23.1 保护与验证矩阵
+
+| 范围 | 每次相关改动 | 最终验收 |
+|---|---|---|
+| 文章与 Fragment | 比较受影响原文、日期、元数据/链接 | 对照 T01 全量正文校验和 URL 集合；换行规范化单独说明 |
+| 内容聚合 | 检查 hidden、noindex、公开计数、排序 | 首页/目录/搜索/feed/系列/项目关联不泄露 hidden |
+| 模板/脚本 | 相关现有回归，必要的功能测试 | 全回归 + production Jekyll build |
+| UI | 修改面在手机/桌面、双主题检查 | 390/768/1024/1366px，键盘、长文本、空状态 |
+| 外部系统 | 只验证已授权边界，离线/失败降级 | Ravenis、Atlas、Library、Gate 原契约及入口检查 |
+| 发布 | 验证约定分支/head，不混淆其他工作流 | 对应最终实现提交 build/deploy 成功，线上浏览证据 |
+
+不能因为工具不支持浏览器或缺数据就声称视觉/线上验收通过；记录实际限制并在未完成项中保留。外部服务暂不可达时区分站内退化处理通过与服务端验证未完成。
+
+### 23.2 故障恢复
+
+- 对失败任务按真实原因拆小/修复；有限重试后若无新证据，blocked 并记录解决条件，不逐小时重复同一请求。
+- 独立任务可继续，但最终不能把 blocker 跳过算完成。
+- 只回退本轮引入且明确定位的改动；不强推、不清除用户提交、不删除原内容以让测试通过。
+- Q1 若允许自动上线，每小时提交必须可独立使用；未完成功能在工作分支保留或用不改变现有体验的增量方式落地。
+- 新的重大设计问题记录为 decision-needed，集中通知用户；日常样式、组件和文件组织由已确认规则自主决定。
+- 不要求每小时恰好完成整项；要求每小时留下真实、可接续的进展。
+
+### 23.3 日志模板
+
+~~~markdown
+## Run YYYY-MM-DD HH:mm (Asia/Shanghai)
+- Task / parent: Txx / Txx.a
+- Base SHA / branch:
+- Status: in-progress | validation-pending | blocked | done
+- This-hour scope:
+- Outputs / affected paths:
+- Implementation commit(s):
+- Checks / actual results:
+- CI / deployment URL and head SHA:
+- Content / URL / visibility protections:
+- Decisions / deviations:
+- Blocker and unblocking condition:
+- Next task / remaining work:
+~~~
+
+主计划当前运行字段：active_run = none；branch = awaiting Q1；checkpoint = planning-only；next = resolve Q1–Q8；completion = NOT STARTED。
+
+## 24. 整个本轮计划的最终完成标准
+
+全部必须同时成立：
+
+1. T00–T39 及其必要子项均 done；无 pending 验证冒充通过。
+2. 访客可从首页进入 THINK / BUILD / OBSERVE / ABOUT，并完整返回。
+3. 写作有三种 Type、四个 Topic，Series 明确可选，Project Log 没有成为新 Type。
+4. 本轮 Tags 整理符合 Q7，审计、实际内容、统计一致。
+5. 旧正文/Thought 原文未改写，原文章 URL、重要附件和旧入口保持兼容。
+6. 公开/隐藏/noindex 边界符合用户 Q3/Q4，所有聚合面一致。
+7. Q5 名单项目具有有据可查的详情与关联；Q6 的身份与当前焦点完整落地。
+8. 原 Library 同步、Ravenis 发布读取、Atlas、Gate 本地设置等不被重构破坏。
+9. 明暗主题、移动端、键盘、阅读、搜索、订阅、元数据及性能检查有实际证据。
+10. 相关回归、production build、约定最终部署通过，证据对应真实实现 SHA。
+11. 作者指南说明如何新增写作/项目、改 Current Signal/Currently、维护隐藏规则。
+12. docs/neutriverse-restructure-final-report.md 记录交付、保护验证、实现提交、已知非阻塞限制、future 项；主计划记录 COMPLETE。
+13. 没有借长期愿景额外增加未约定的新系统或框架迁移。
+
+### 24.1 本次计划细化记录
+
+2026-10-03：读取最新主计划、仓库目录、现有 About / Library / 友链 / Gate / 私有导航配置、DESIGN 和部署流程；明确 Project Log 非第四 Type、旧学习笔记不改写；新增用户决定表、页面归属、40 个小时候选任务、依赖、执行/验收/恢复规则。
+本次仅编辑主计划。网站实现未开始；未创建自动化；待 Q1–Q8 回答后将本计划收敛为可自动执行版本。
