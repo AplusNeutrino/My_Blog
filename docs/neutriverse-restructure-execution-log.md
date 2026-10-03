@@ -43,3 +43,19 @@
 
 ### T01 验证收敛
 最终重新读取 run 37135823458：head e1c7f29defce1e2821e81fdd87e4bdbf71597c63，completed/success。T01 改为 done；T02/T06 ready。此前 in_progress 是历史检查记录，不是当前状态。上一条交接记录提交 bab93e7a56161965d26bf8f20e49b5d5677a4e85。
+
+
+## Run 2026-10-04 01:00 — T02 分类一致性修正
+
+- Task / parent：T02；status = validation-pending。
+- Base SHA / branch：c6d8ef5ce1a1a22d635d2f2a9e461509d47852a3 / main。
+- 范围记录提交：f5842399e9cedb93569e0f2ecc78f1b9458862d5。
+- 实现提交：e595599463b3eee38b4dc38ce6baecbdda7b05a6。
+- 输出：修正 docs/content-taxonomy-final-report.md；新增 tests/test_content_taxonomy_consistency.py。
+- 结论：44/44 文章 audit 行与当前 type/topic/series/tags 完全一致；5/5 Fragment 的日期/type/topic/tags 一致。Series 为 Database Systems 10、Computer Architecture 8、Computer Networks 10。审计 old/new tags 重新解析为 93/157；当前文章 tags 151、含 Fragments 157。
+- 修正：旧报告把 2026-05-02 的 Arts Fragment 计入 Humanity；只改聚合数 humanity 7→6、arts 0→1，总数仍为 49。没有修改内容或 authoritative audit。
+- 检查：新一致性测试单独通过；全套 28 tests OK；git diff --check 通过。测试只用 Python 标准库，不新增 CI 依赖。
+- CI：https://github.com/AplusNeutrino/My_Blog/actions/runs/37139226666，head e595599...，最后检查 in_progress；下次先核对对应 head。
+- 保护：0 篇文章/Fragment/front matter/文件名/日期/slug/permalink 改动。
+- 下一步：CI 成功后 T02 done、T03/T04 ready；T06 已 ready，可在 CI 等待或 T02 阻塞时独立推进。
+- 用户问题：没有新增需用户决定的事项。
