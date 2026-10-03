@@ -19,3 +19,23 @@
 ## 待用户决定的问题队列
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
+
+
+## Run 2026-10-04 00:01 — T01 基线交付
+
+- Task / parent：T01；status = validation-pending（交付与本地核对通过，CI 未结束）。
+- Base SHA / branch：97281227aaafe176870b28bc8a352a0e536e29d6 / main。
+- 范围记录：2878fbb0c8d4af0eea7e902a4a8faf4701abf910。
+- 实现/交付提交：e1c7f29defce1e2821e81fdd87e4bdbf71597c63。
+- 输出：tools/content_restructure_baseline.py、docs/neutriverse-restructure-baseline.json、docs/neutriverse-restructure-baseline.md。
+- 覆盖：44 篇文章、5 条 Fragment、14 页面来源、99 集成/布局/配置哈希；全部原文只存保护哈希，不复制新增个人信息。
+- 实际统计：44 文章中 5 hidden；全写作 Topic computation/humanity/otaku/arts = 38/6/4/1，Type note/essay/fragment = 39/5/5；157 独立写作 Tags。
+- 实际检查：脚本生成/保护核对通过；44 原 Git blobs 逐个匹配 SHA-256；44 源候选 URL 唯一；git diff --quiet 原快照保护源通过；python -m unittest discover -s tests -v 共 27 项通过。
+- 已有基线 CI：37132489511，head 97281227... completed/success。
+- 新交付 CI：https://github.com/AplusNeutrino/My_Blog/actions/runs/37135823458，head e1c7f29...；最后检查 in_progress。下轮核对该实现提交，不用日志提交的构建代替。
+- 环境限制：无 Ruby，未运行本地 Jekyll；线上 sitemap HTTP 403。源 URL 候选未作为已构建链接宣称通过；后续 T33/T38 核查生成路径/robots/线上体验。
+- 发现并归入后续任务：显式 Series 无隐藏过滤、旧分类回退（T03）；Tags 目录未过滤 hidden-only 标签（T05/T17）；NAVI robots/Gate sitemap 源层不完整，主题默认 feed/sitemap 行为尚需生成产物验证（T32/T33）。
+- 保存方式：CLI clone 可读、直接 push 缺凭据；已用已连接 GitHub 插件 create_tree/create_commit/non-force update_ref 成功保存，未覆盖并发内容。这不是仓库写权限阻断。
+- 保护：本次没有修改任何网站功能/旧正文/日期/路径/应用配置。
+- 后续：检查 CI 后将 T01 done，解锁 T02 和 T06，优先修正统计报告。
+- 用户问题：没有新增需用户决定的事项。
