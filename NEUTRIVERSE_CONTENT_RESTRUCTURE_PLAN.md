@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T00 done；next = T01 ready；completion = IMPLEMENTATION NOT STARTED。
+主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T00 done；next = T01 in-progress；completion = IMPLEMENTATION NOT STARTED。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1139,3 +1139,14 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 任务每轮读取最新主计划/日志，拆分并完成工作，遇到问题转做独立任务；全部验收后暂停此任务。
 - 旧的 Neutriverse Taxonomy Migration 已停用；本次没有重启旧迁移任务。
 - 创建成功表示定时配置已保存，不等于未来所有实现/构建已完成；实际执行以日志与提交为准。
+
+
+## 26. 当前执行状态与证据
+
+### T01 — 基线盘点（进行中）
+- Run：2026-10-04 00:01，active_run = T01-baseline；branch = main。
+- Base SHA：97281227aaafe176870b28bc8a352a0e536e29d6。
+- 本次范围：读取所有文章及 Fragments，建立正文 SHA-256、URL 元数据、分类统计、页面可见性和集成清单。
+- 拟改文件：本主计划、docs/neutriverse-restructure-execution-log.md、新基线 JSON/说明和可重复生成基线的脚本。
+- 验收：44 篇文章/5 条 Fragment 全部覆盖；源文件正文哈希核对；记录准确 head 的已有构建结果。新 UI/生产 build 不在本次文档任务范围。
+- 预计剩余：生成与验证基线，提交证据，T02/T06 解锁。
