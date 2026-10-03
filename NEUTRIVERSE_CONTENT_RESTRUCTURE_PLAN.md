@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; execution plan refined; pre-automation decisions pending (Section 19)**  
+> Current state: **Phase 1 completed; T00 done; T01 ready; implementation decisions resolved; hourly execution authorized**  
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,9 +877,9 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化完成初稿；等待本轮用户设计决定。自动化尚未启动，也未被本次文档编辑创建。**
-下一步：收齐第 19 节答案，回写决定，将所有任务标为 ready 或有明确依赖的 pending，再由用户安排每小时任务。
-本轮完成状态：未开始实现 Phase 2–8；文档编辑不计为网站实现完成。
+**当前状态：计划细化与启动决定已完成，T00 done，T01 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：按第 21 节协议执行 T01；其余任务按依赖解锁。
+本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
 
@@ -903,20 +903,31 @@ Phase 8 的架构评估交付一份决策记录；若现有框架满足本轮需
 
 ## 19. 自动化开始前的用户决定
 
-以下为本轮集中问题。推荐项只是方案，**不是用户已经确认的偏好或发布许可**。用户回答后回写 answer/date，删除歧义；启动前必须全部 resolved。
+用户于 2026-10-03 23:10（Asia/Shanghai）回答全部启动问题；下列为已确认决定，不再重复询问。
 
-| ID | 必须决定的事项 | 推荐方案 / 可选方向 | 状态 |
+| ID | 事项 | 已确认答案 | 状态 |
 |---|---|---|---|
-| Q1 | 分小时成果如何提交、何时上线 | 推荐每个验收通过的任务提交 main 并随现有 Pages 自动上线；另一选择为专用分支积累后统一上线。须由用户选定 | awaiting-user |
-| Q2 | 视觉改造尺度及导航语言 | 推荐保留 Night / Prospero Light 双主题及气质，允许重构布局；主导航 THINK / BUILD / OBSERVE / ABOUT 配中文说明。可选择更彻底的新视觉或中文主标签 | awaiting-user |
-| Q3 | Ravenis / Occult Atlas 的可见性 | 当前 Ravenis 文档要求不列入导航、noindex；新 OBSERVE 可能改变这一点。分别选择：公开入口但保留 noindex；完全公开且可索引；继续不列入公开入口 | awaiting-user |
-| Q4 | 其他既有模块归属 | 推荐 Library 作为 ABOUT 的阅读/游玩记录入口，友链归 ABOUT 的互联网关系；旅行地球留 ABOUT；Gate / NAVI 保持原 URL 与隐蔽程度，不接入公开主导航。可提出不同归属 | awaiting-user |
-| Q5 | 第一批公开项目名单及交叉归属 | 推荐只收录仓库已能验证的 FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、Gate；后两观察系统可在 BUILD 提供关联入口，OBSERVE 保持使用入口。OfficeSpire / MMXProj 等需用户明确是否纳入及资料来源 | awaiting-user |
-| Q6 | ABOUT / Currently 的内容更新权限 | 推荐重新组织现有公开材料，时间敏感状态标注原更新日期，不把旧状态当今天；首页 Current Signal 使用用户指定焦点。用户可以提供新简介/动态，或授权执行者基于公开材料拟写 | awaiting-user |
-| Q7 | 二轮 Tags 裁缩力度 | 推荐适度合并同义/重复标签，减少过细概念，保留有价值作品名；不设强制总数。可选择只规范、不进一步裁缩，或更积极收敛 | awaiting-user |
-| Q8 | 技术与路由默认方案 | 推荐本轮继续 Jekyll / GitHub Pages；增加 /think/、/build/、/observe/，保留 /about/、/thoughts/、/tags/、/archives/、/categories/ 和旧应用入口。Archive 第一版只收录写作，ABOUT 时间线覆盖项目/网站历史 | awaiting-user |
+| Q1 | 提交与上线 | 验收通过的小任务提交 main，沿用现有 Pages 自动部署。半成品留工作分支；不强推、不覆盖用户变更 | resolved |
+| Q2 | 视觉及语言 | 保留 Night / Prospero Light 双主题与气质，可重构布局；THINK / BUILD / OBSERVE / ABOUT 英文主标签配中文说明 | resolved |
+| Q3 | 观察系统可见性 | Ravenis 和 Occult Atlas 均可进入公开 OBSERVE 目录，保留 noindex。不自动扩大到其他隐藏内容 | resolved |
+| Q4 | 其他模块 | Library 作为 ABOUT 阅读/游玩记录入口；友链、旅行地球归 ABOUT；Gate / NAVI 保留原 URL 和隐蔽程度，不加入公开主导航 | resolved |
+| Q5 | BUILD 名单 | FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、Gate、OfficeSpire；MMXProj 明确排除 | resolved |
+| Q6 | ABOUT / Currently | 允许执行者拟写，但仅使用网站内信息，不透露个人信息。不得使用聊天记忆、履历、单位、健康、住址等材料补全公开简介；现有敏感内容不因改版突出或扩散 | resolved |
+| Q7 | Tags | 适度裁缩同义、重复、过细标签，保留有价值作品名；无强制总数 | resolved |
+| Q8 | 技术与路由 | 保持 Jekyll / GitHub Pages；新增 /think/、/build/、/observe/；保留 /about/、/thoughts/、/tags/、/archives/、/categories/ 和旧应用路径。Archive 第一版写作专用，ABOUT 时间线为项目/网站历史 | resolved |
 
-设计冲突处理：DESIGN.md 中“保持当前信息架构”将在 Q2 确认后按本总计划更新；Ravenis 的 unlisted 规则仅在 Q3 明确允许时变更。隐藏入口、个人身份和发布策略不靠默认推断。
+执行细化：
+- 首页 Current Signal 使用本网站主计划已有事实“Neutriverse 网站重构”；不猜测用户当前工作、考试或生活状态。
+- OfficeSpire 的纳入已授权；项目事实需核对来源，不能从聊天记忆生成版本/成果/状态。关联仓库可只读核实公开项目资料；本次不授权修改项目仓库。
+- Gate 可有 BUILD 项目介绍，介绍以站内可公开说明为限；不把工具入口、隐藏 NAVI、私人配置暴露到首页、全局菜单或公共索引。
+- DESIGN.md 中旧的信息架构限制按本总计划更新；Ravenis 由 unlisted 改为可在 OBSERVE 发现，同时继续 noindex。不把 noindex 误当作身份验证或访问控制。
+
+### 19.1 后续问题的异步处理（用户明确要求）
+
+遇到必须由用户决定的新问题时，写入执行日志的集中问题队列：ID、关联任务、具体问题、推荐方案、选项、影响、首次提出时间、是否已通知、待答状态。一次汇总本次新问题，给出用户可查历史的记录链接；已通知且未回答的问题不在每小时反复询问。
+**用户暂未回答不暂停整个自动化。**将受影响任务标 blocked / decision-needed，并从依赖满足、没有该疑问的任务继续实施。不得把无答复理解为许可；不得绕过相关依赖。
+用户回来答复后读取并回写决定，解除对应任务。若全部剩余工作确实依赖未回答问题或外部权限，继续定时核对并如实记录“无可执行独立项”；不虚构进展，也不自作主张实现争议部分。
+完成前必须解决所有影响本轮必交付内容的问题；future 项可以清楚移入长期规划。
 
 ## 20. 初步页面归属与路由契约
 
@@ -952,7 +963,7 @@ Phase 8 的架构评估交付一份决策记录；若现有框架满足本轮需
 - 实施分支、发布方式、第一版名单、隐藏/公开边界已经写明。
 - 当前运行读取最新 main / 工作分支、AGENTS.md、本主计划和上一条执行日志；不得沿用旧 SHA 盲写。
 - 自动化实际能力必须支持仓库读写及约定的验证。缺权限/构建环境属于明确阻塞，不能写成已完成。
-- 文档不创建或启动自动化。用户另外安排定时任务后执行此协议。
+- 用户已授权设置每小时任务；自动化只在实际工具创建成功后记为启用，登记见第 25 节。
 
 ### 21.2 选择与拆分
 
@@ -988,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-全部状态初始为 pending（等待 Q1–Q8）。收齐答案后 T00 可 ready；后续按依赖解锁。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00 = done，T01 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1065,7 +1076,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 独立任务可继续，但最终不能把 blocker 跳过算完成。
 - 只回退本轮引入且明确定位的改动；不强推、不清除用户提交、不删除原内容以让测试通过。
 - Q1 若允许自动上线，每小时提交必须可独立使用；未完成功能在工作分支保留或用不改变现有体验的增量方式落地。
-- 新的重大设计问题记录为 decision-needed，集中通知用户；日常样式、组件和文件组织由已确认规则自主决定。
+- 新的重大设计问题按第 19.1 节集中记录并通知；等待时继续无关的可执行工作。日常样式、组件和文件组织由已确认规则自主决定。
 - 不要求每小时恰好完成整项；要求每小时留下真实、可接续的进展。
 
 ### 23.3 日志模板
@@ -1086,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = awaiting Q1；checkpoint = planning-only；next = resolve Q1–Q8；completion = NOT STARTED。
+主计划当前运行字段：active_run = none；branch = main（未完成实现用工作分支）；checkpoint = T00 done；next = T01 ready；completion = IMPLEMENTATION NOT STARTED。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1109,4 +1120,14 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 ### 24.1 本次计划细化记录
 
 2026-10-03：读取最新主计划、仓库目录、现有 About / Library / 友链 / Gate / 私有导航配置、DESIGN 和部署流程；明确 Project Log 非第四 Type、旧学习笔记不改写；新增用户决定表、页面归属、40 个小时候选任务、依赖、执行/验收/恢复规则。
-本次仅编辑主计划。网站实现未开始；未创建自动化；待 Q1–Q8 回答后将本计划收敛为可自动执行版本。
+本次细化时仅编辑主计划，未创建自动化。随后用户已确认 Q1–Q8 并授权每小时任务；最新状态以本节后续记录及第 25 节为准。
+
+
+### 24.2 启动准备完成
+
+2026-10-03 23:10：Q1–Q8 全部收敛；创建 docs/neutriverse-restructure-execution-log.md（提交 0c5397370ff2624776797c15d00338ce34cd4da0），T00 输出已具备。本主计划回写最终决定、网站内资料隐私边界、OfficeSpire 纳入 / MMXProj 排除，以及异步问题不中止独立工作规则。纯文档核对，不声称 Phase 2–8 已实现或验证。
+
+## 25. 自动化登记
+
+用户于 2026-10-03 23:10:38 明确授权：无其他启动问题即可设置每小时任务。
+状态：创建待执行；成功后写回实际 automation ID / schedule。不得把授权或文档中的计划视为任务已成功创建。
