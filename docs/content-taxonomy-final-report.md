@@ -6,6 +6,8 @@
 
 > **2026-10-04 correction:** T02 revalidated the authoritative audit against the current 44 post front matters and 5 Fragment objects. The earlier Topic table accidentally counted the Arts Fragment as Humanity. The corrected counts below are `humanity: 6` and `arts: 1`; the 49-item total and every per-item classification are unchanged. Current-source evidence is recorded in `docs/neutriverse-restructure-baseline.json` and enforced by `tests/test_content_taxonomy_consistency.py`.
 
+> **2026-10-04 T05 tag second pass:** The T04 audit reviewed every current tag and approved only two changes: `Bus` was merged into the existing `System Bus`, and the editorial-form `Changelog` tag was retired. The current vocabulary is therefore 149 unique post tags / 155 unique writing tags and 164 assignments across posts plus Fragments. Article bodies, Fragment text and protected URL metadata remain unchanged.
+
 ## Migration totals
 
 - Articles migrated: **44 / 44**.
@@ -48,9 +50,9 @@ No one-item course/category Series was retained merely to mirror the legacy hier
 
 ## Tag inventory
 
-The migration audit records **93 unique legacy tag strings** and **157 unique final canonical tag strings** across the 44 articles and 5 Thoughts fragments.
+The migration audit records **93 unique legacy tag strings** and **155 current canonical tag strings** across the 44 articles and 5 Thoughts fragments after the T05 second pass.
 
-The 2026-10-04 source revalidation independently confirmed **151 unique tags across article front matter** and **157 across all writing after including Fragments**. Re-parsing the audit's old/new tag columns reproduced **93 / 157**, so no tag-count conflict exists between the audit and current content. This is a vocabulary count, not a public Tag-page count: hidden content filtering is handled separately by the later retrieval work.
+The 2026-10-04 T05 source revalidation confirmed **149 unique tags across article front matter** and **155 across all writing after including Fragments**, with **164 total tag assignments**. Re-parsing the audit's old/new tag columns reproduces **93 / 155**, so no tag-count conflict exists between the audit and current content. This is a vocabulary count, not a public Tag-page count: T05 filters hidden posts and hidden-only names from public tag indexes, while broader retrieval/search validation continues in T17.
 
 The unique-string count increased because the legacy vocabulary was dominated by repeatedly reused broad structural/course labels, while the approved model explicitly calls for a small per-item set of specific works/entities, technical concepts, analytical themes and named theories/frameworks/people. The migration therefore treats “reduced/canonicalized” as reduction of generic/redundant labels and bounded per-item tag sets, not as a requirement that the global count of distinct specific concepts be lower than the legacy count. Per-item tag counts remain within the plan's Fragment 0–3, Note 2–5 and Essay 3–6 guidance. On that documented interpretation, the final vocabulary satisfies the approved model without deleting useful one-off retrieval concepts merely to force a smaller global number.
 
@@ -65,6 +67,8 @@ Representative merges/canonicalizations include:
 - Network/database/architecture Chinese concept labels were replaced by canonical technical names such as `Physical Layer`, `Relational Algebra`, `Database Recovery`, `Addressing Modes`, and `Assembly Language`.
 
 Representative removals/retirements include `FirstPost`, the broad course tags `计算机组成原理` and `计算机网络`, and generic structural/editorial labels whose role is now carried by Type/Topic/Series. Legacy `categories` remain temporarily in front matter for compatibility as required by the migration plan.
+
+The T05 second pass additionally merged `Bus` into `System Bus` and retired `Changelog`. Compatibility stubs preserve `/tags/bus/` → `/tags/system-bus/` and `/tags/changelog/` → `/tags/neutriverse/` without restoring the retired vocabulary.
 
 ## URL compatibility
 

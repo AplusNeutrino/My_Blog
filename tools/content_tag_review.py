@@ -7,12 +7,12 @@ frequency as evidence, not as an automatic deletion rule.
 
 import argparse
 from collections import Counter, defaultdict
+import json
 from pathlib import Path
 
-from content_restructure_baseline import build
-
-
 SOURCE_SHA = "b2a2a15321efb0c443b57f001368227105b1cdce"
+ROOT = Path(__file__).resolve().parents[1]
+BASELINE = ROOT / "docs" / "neutriverse-restructure-baseline.json"
 
 # The second pass is intentionally small. Every unspecified current tag is kept.
 DECISIONS = {
@@ -63,7 +63,10 @@ def keep_reason(tag, count, public_count, fragment_tags):
 
 
 def collect():
-    inventory = build()
+    # T04 is a historical decision snapshot. The T01 baseline was revalidated
+    # against SOURCE_SHA before review, so reading it keeps the audit
+    # reproducible after T05 applies the approved metadata changes.
+    inventory = json.loads(BASELINE.read_text(encoding="utf-8"))
     items = inventory["posts"] + inventory["fragments"]
     uses = defaultdict(list)
     fragment_tags = set()

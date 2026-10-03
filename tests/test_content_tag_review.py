@@ -33,6 +33,11 @@ def review_rows():
 
 
 class ContentTagReviewTests(unittest.TestCase):
+    def test_review_generator_is_pinned_to_the_pre_t05_baseline(self):
+        tool = (ROOT / "tools" / "content_tag_review.py").read_text(encoding="utf-8")
+        self.assertIn("neutriverse-restructure-baseline.json", tool)
+        self.assertNotIn("from content_restructure_baseline import build", tool)
+
     def test_review_covers_the_complete_t04_snapshot(self):
         _, rows = review_rows()
         self.assertEqual(157, len(rows))

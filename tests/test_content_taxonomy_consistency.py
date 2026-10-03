@@ -137,11 +137,20 @@ class ContentTaxonomyConsistencyTest(unittest.TestCase):
         self.assertEqual({"computation": 38, "humanity": 6, "otaku": 4, "arts": 1}, dict(Counter(x["topic"] for x in audited_items)))
         self.assertEqual({"Database Systems": 10, "Computer Architecture": 8, "Computer Networks": 10}, dict(Counter(x["series"] for x in audited_items if x["series"])))
         self.assertEqual(93, len(old_tags))
-        self.assertEqual(157, len(final_tags))
+        self.assertEqual(155, len(final_tags))
+
+        current_post_tags = {tag for item in actual.values() for tag in item["tags"]}
+        self.assertEqual(149, len(current_post_tags))
+        self.assertNotIn("Bus", final_tags)
+        self.assertNotIn("Changelog", final_tags)
+        self.assertIn("System Bus", final_tags)
 
         report = REPORT.read_text(encoding="utf-8")
         for topic, count in (("computation", 38), ("humanity", 6), ("otaku", 4), ("arts", 1)):
             self.assertRegex(report, rf"\| `{topic}` \| {count} \|")
+        self.assertIn("149 unique tags across article front matter", report)
+        self.assertIn("155 across all writing", report)
+        self.assertIn("164 total tag assignments", report)
 
 
 if __name__ == "__main__":

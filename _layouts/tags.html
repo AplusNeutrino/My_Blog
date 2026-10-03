@@ -4,15 +4,17 @@ layout: page
 ---
 
 {% assign tags = '' | split: '' %}
+{% assign tag_relation_count = 0 %}
 {% for t in site.tags %}
-  {% assign tags = tags | push: t[0] %}
+  {% assign tag_posts = t | last %}
+  {% assign visible_tag_posts = tag_posts | where_exp: 'post', 'post.hidden != true' %}
+  {% if visible_tag_posts.size > 0 %}
+    {% assign tags = tags | push: t[0] %}
+    {% assign tag_relation_count = tag_relation_count | plus: visible_tag_posts.size %}
+  {% endif %}
 {% endfor %}
 
 {% assign sorted_tags = tags | sort_natural %}
-{% assign tag_relation_count = 0 %}
-{% for t in sorted_tags %}
-  {% assign tag_relation_count = tag_relation_count | plus: site.tags[t].size %}
-{% endfor %}
 
 <div id="tags" class="tag-ledger">
   {% if sorted_tags.size > 0 %}
@@ -29,14 +31,15 @@ layout: page
 
     <div class="tag-index-list">
       {% for t in sorted_tags %}
+        {% assign visible_tag_posts = site.tags[t] | where_exp: 'post', 'post.hidden != true' %}
         <a class="tag tag-ledger-entry" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
           <span class="tag-ledger-node" aria-hidden="true"></span>
           <span class="tag-ledger-name">{{ t }}</span>
-          <span class="tag-ledger-count" aria-label="{{ site.tags[t].size }} 篇记录">{{ site.tags[t].size }}</span>
+          <span class="tag-ledger-count" aria-label="{{ visible_tag_posts.size }} 篇公开记录">{{ visible_tag_posts.size }}</span>
         </a>
       {% endfor %}
     </div>
   {% else %}
-    <p class="index-ledger-empty">暂无标签记录。</p>
+    <p class="index-ledger-empty">暂无公开标签记录。</p>
   {% endif %}
 </div>
