@@ -20,6 +20,15 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-04 04:01 — T05 开始
+
+- Task / parent：T05；status = in-progress；依赖 T04 done。
+- Base SHA / branch：185236ff7b73934815df6f3c506edd0d40252446 / main。
+- 前置核对：base 的 Build and Deploy run 37146695323 completed/success；从该 head 新鲜克隆，未发现并发差异。
+- 本次范围：只执行 `Bus` → `System Bus` 与 `Changelog` retire；同步 audit/report；保留两个旧标签 URL；为公开 tag index/detail/trending 增加 hidden 过滤。
+- 验收：实际 metadata、权威审计和报告一致；正文/Fragment/受保护 URL metadata 通过 T01 baseline；旧标签 URL noindex 且指向既定目标；全套测试和对应 Pages workflow 成功。
+- 用户问题：无。
+
 ## Run 2026-10-04 02:55 — T04 完成
 
 - Task / parent：T04；status = done；依赖 T02 done。

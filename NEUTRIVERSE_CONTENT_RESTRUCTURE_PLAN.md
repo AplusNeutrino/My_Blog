@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T04 done，T05/T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：按 T04 的有限变更集执行 T05，或并行推进独立的 T06 页面归属映射。
+**当前状态：计划细化与启动决定已完成，T00–T04 done，T05 in-progress，T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：应用 T04 的两项有限标签变更、旧标签 URL 兼容及公开标签面的 hidden 过滤；T06 保持 ready。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T04 = done，T05/T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T04 = done，T05 = in-progress，T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；checkpoint = T04 done；next = T05 or T06；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T05-tag-application；branch = main；checkpoint = T04 done；next = finish T05；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1198,3 +1198,12 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 保护验证：T01 baseline 对照 passed；44 posts / 5 Fragments 的正文、文本及受保护 URL metadata 无变化。T04 未修改任何文章或 Fragment metadata。
 - CI：[run 37146556058](https://github.com/AplusNeutrino/My_Blog/actions/runs/37146556058) 对应实现 head，completed/success；包含回归、Jekyll build、artifact 与 deploy。
 - 结论：T04 done；T05/T06 ready。
+
+### T05 — 有限标签修改及兼容处理（进行中）
+
+- Run：2026-10-04 04:01；base SHA = `185236ff7b73934815df6f3c506edd0d40252446`；branch = main。
+- 前置核对：base 对应 [run 37146695323](https://github.com/AplusNeutrino/My_Blog/actions/runs/37146695323) completed/success；T04 状态与审计均已部署。
+- 本次范围：仅应用 `Bus` → `System Bus`、删除 `Changelog` 两项；同步 authoritative audit/final report；保留 `/tags/bus/` 与 `/tags/changelog/` noindex 兼容入口；公开 tags 目录、tag 详情与 trending tags 排除 hidden posts/hidden-only tags。
+- 拟改文件：两篇文章 front matter、`docs/content-taxonomy-migration.md`、`docs/content-taxonomy-final-report.md`、标签布局/组件、两个兼容页、相关测试、本主计划与执行日志。
+- 验收：实际/审计/报告一致为 155 个写作 Tags、164 次关联；旧标签路径有明确目标且 noindex；公开标签面不列 hidden；正文、Fragment 原文、文件名、date/slug/permalink/旧文章 URL 均通过 T01 baseline；对应实现 SHA 的测试、Jekyll build、Pages deploy 成功。
+- 用户问题：无。
