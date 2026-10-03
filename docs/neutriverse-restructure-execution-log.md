@@ -20,15 +20,22 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-04 02:55 — T04 开始
+## Run 2026-10-04 02:55 — T04 完成
 
-- Task / parent：T04；status = in-progress；依赖 T02 done。
+- Task / parent：T04；status = done；依赖 T02 done。
 - Base SHA / branch：b2a2a15321efb0c443b57f001368227105b1cdce / main。
 - 前置核对：base 的 Build and Deploy run 37142886517 completed/success；工作树从该 head 新鲜克隆，无并发差异。
 - 本次范围：统计 49 个写作项的当前 Tags；覆盖全部 157 个独立标签，逐项给出 keep/merge/retire 与理由；仅设计 T05 的有限修改和旧 URL 兼容，不在本项改 metadata。
 - 拟改：`tools/content_tag_review.py`、`docs/content-taxonomy-tag-review.md`、相关测试、主计划、执行日志。
 - 验收：来源/频率/可见性可重复计算；不凭一次使用删除具体作品/实体标签；建议集有限且每项有理由；旧正文、Fragment 文本、文件名、date/slug/permalink 不变。
 - 用户问题：无。
+- 范围记录 / 实现提交：792176c47f2eeef15f5cc7a2819cc7159109f2e3 / dbdeb5a77cee9f88e106aa861d0523da89716879。
+- 交付：`docs/content-taxonomy-tag-review.md`、`tools/content_tag_review.py`、`tests/test_content_tag_review.py`。157 个独立标签、165 次关联均逐项记录 Uses/Public/Hidden/Decision/Target/Reason/来源。
+- 频率：150 个标签使用一次、6 个两次、1 个三次；17 个 hidden-only。低频未被当作删除规则，作品/实体和 Fragment 原语言标签保留。
+- 决策：155 KEEP；`Bus` MERGE→`System Bus`；`Changelog` RETIRE。T05 应保留 `/tags/bus/`→`/tags/system-bus/`、`/tags/changelog/`→`/tags/neutriverse/` 的 noindex 兼容路径。
+- 验证：生成物 `--check` 通过；全套 34 tests OK；`git diff --check` 通过；T01 baseline protection passed，44 posts / 5 Fragments 内容及保护 URL metadata 无变化。
+- CI：[run 37146556058](https://github.com/AplusNeutrino/My_Blog/actions/runs/37146556058) 精确对应实现 head，completed/success；build/deploy 均成功。
+- 结论 / 下一步：T04 done；T05/T06 ready。T05 可按有限变更集实施，T06 可独立推进。
 
 ### T02 验证收敛
 
