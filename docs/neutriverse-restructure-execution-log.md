@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-04 07:00 — T08 范围锁定
+
+- Task / parent：T08；status = in-progress；依赖 T07 done。
+- Base SHA / branch：`12d0d70139bcdfa7192820c6f228d9be54bbfbe1` / main。
+- 前置核对：从 base 新鲜克隆，工作树无本地差异；base 的 Build and Deploy [run 37157775095](https://github.com/AplusNeutrino/My_Blog/actions/runs/37157775095) completed/success。该结果不替代本次 T08 验证。
+- 本次范围：建立 THINK/BUILD/OBSERVE/ABOUT 单一数据源；新增 `/think/`、`/build/`、`/observe/` canonical 页面；ABOUT 保留原页面并接入同一可复用四入口导航；提供各入口基于当前站内事实、可实际到达的链接。OBSERVE 只列 Ravenis/Occult Atlas；BUILD 不公开 Gate/NAVI 工具入口，也不伪造未完成项目详情。
+- 拟改文件：四入口数据、共享 section layout/导航/链接 includes、三个新页面、ABOUT 入口接线、共享样式及主题 token 映射、metadata stylesheet 接线、相关测试、主计划、执行日志。
+- 验收：四个入口英文名/中文说明/canonical/真实摘要来自单一数据源；三个新 URL 构建存在，ABOUT 旧 URL 不变；全部链接指向已有源或既定 canonical；没有 disabled/coming-soon 假功能；旧 tabs/应用路径不删除；Gate/NAVI/MMXProj 不进入公共数据；Night/Prospero Light 使用同一 DOM 与共享语义 token；全套测试、T01 baseline 与对应实现 SHA 的 Pages workflow 通过。
+- 用户问题：无；本项使用已确认的信息架构与站内公开事实。
+
 ## Run 2026-10-04 06:04 — T07 完成
 
 - Task / parent：T07；status = done；依赖 T06 done。
