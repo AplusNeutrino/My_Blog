@@ -25,14 +25,20 @@
 - 实现 head `e595599...` 的 run 37139226666 因后续 push 被 Pages concurrency 取消，并非测试失败。
 - 直接后续状态提交 `1b9bf7b38c9c0ea79419de55205e9615be39f76e` 包含完整 T02 实现树；run 37139271289 completed/success。T02 done，T03/T04/T06 ready。
 
-## Run 2026-10-04 01:58 — T03 开始
+## Run 2026-10-04 01:58 — T03 完成
 
-- Task / parent：T03；status = in-progress。
+- Task / parent：T03；status = done。
 - Base SHA / branch：1b9bf7b38c9c0ea79419de55205e9615be39f76e / main。
 - 本次范围：移除无显式 series 的旧 categories 回退；显式 Series 列表排除 hidden 文章；增加回归测试。
+- 范围记录提交：378a677efe2f497f4ca108edca68014184585d61。
+- 实现提交：338a9c97e1dd615f099ab88ebe011649ca7fcd1a（`fix: require explicit visible series metadata`）。
+- 实际实现：无 `page.series` 或当前页 `hidden: true` 时不渲染 Series 面板；有显式 series 时仅按日期列出同 series 且非 hidden 的文章；删除旧 categories/JavaScript 回退。
+- 本地验证：`git diff --check` 通过；`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v` 共 31 项通过。
+- CI：[run 37142745038](https://github.com/AplusNeutrino/My_Blog/actions/runs/37142745038) 由实现 head 精确触发，completed/success；包含回归测试、Jekyll build 与 Pages 部署流程，未借用其他提交的结果。
 - 保护：不改文章正文、front matter、categories、series 值或 URL；只收紧 Series 展示逻辑。
 - 验收：无 series 不渲染；有 series 只列非 hidden 同系列文章并保持日期序；全回归及对应 CI。
 - 用户问题：无。
+- 结论 / 下一步：T03 done；T04/T06 ready，下轮从中选择最小可交付项。
 
 
 ## Run 2026-10-04 00:01 — T01 基线交付

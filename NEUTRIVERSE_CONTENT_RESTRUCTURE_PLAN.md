@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T02 done，T03 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-下一步：完成 T03 Series 回退与隐藏文章过滤；T04/T06 保持 ready。
+**当前状态：计划细化与启动决定已完成，T00–T03 done，T04/T06 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：从 T04 Tags 二轮映射或 T06 页面归属映射中选择最小可交付项。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T02 = done，T03 = in-progress，T04/T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T03 = done，T04/T06 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T03-series-visibility；branch = main（未完成实现用工作分支）；checkpoint = T02 done；next = finish T03；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；checkpoint = T03 done；next = T04 or T06；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1171,10 +1171,14 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - CI：实现 head `e595599...` 的 run 37139226666 被后续 push 依 Pages concurrency 取消；包含该实现的直接后续状态提交 `1b9bf7b...` 在 [run 37139271289](https://github.com/AplusNeutrino/My_Blog/actions/runs/37139271289) completed/success。该成功构建实际包含相同实现树及仅追加的计划/日志，T02 done，T03/T04/T06 ready。
 - 保护：未修改任何文章、Fragment、front matter、权威 audit、文件名或 URL 元数据。
 
-### T03 — Series 回退与隐藏文章过滤（进行中）
+### T03 — Series 回退与隐藏文章过滤（done）
 
 - Run：2026-10-04 01:58；base SHA = `1b9bf7b38c9c0ea79419de55205e9615be39f76e`；branch = main。
 - 本次范围：让 Series 只由显式 `series` metadata 驱动；无 Series 的已迁移文章不再按旧 categories 自动组成系列；Series 列表统一排除 `hidden: true` 文章。
 - 拟改文件：`_includes/post-series.html`、相关回归测试、本主计划、执行日志。
 - 验收：无 `page.series` 时不渲染 Series 面板；有 Series 时按日期列出同 series 且非 hidden 的文章；页面链接/正文/分类 metadata 不变；全套回归和 Pages build 通过。
-- 预计剩余：实现最小 Liquid 修改与回归测试，提交并核对 CI。
+- 实现提交：`338a9c97e1dd615f099ab88ebe011649ca7fcd1a`。`_includes/post-series.html` 已删除 categories 回退；仅非 hidden 且有显式 `page.series` 的页面渲染面板，并从同系列列表排除 hidden 文章。新增 `tests/test_post_series_visibility.py` 防止回退恢复。
+- 本地验证：`git diff --check` 通过；`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v`，31 tests OK。
+- CI：[run 37142745038](https://github.com/AplusNeutrino/My_Blog/actions/runs/37142745038) 由实现 head 精确触发，completed/success；包含回归测试、Jekyll build 与 Pages 部署流程。
+- 保护：未修改文章、Fragment、front matter、categories/series 值、文件名或 URL。
+- 结论：T03 验收完成；T04/T06 ready。
