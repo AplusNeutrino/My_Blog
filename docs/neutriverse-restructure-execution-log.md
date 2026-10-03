@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-04 05:04 — T06 范围锁定
+
+- Task / parent：T06；status = in-progress；依赖 T01 done。
+- Base SHA / branch：`02a1e0c4ac709ac36b4303acc6b02957b876db68` / main。
+- 前置核对：base 的 Build and Deploy run 37150692268 completed/success；从该 head 新鲜克隆，工作树无本地或并发差异。
+- 本次范围：盘点当前页面源、生成路由、公开入口、索引/robots 语义及特殊模块；建立后续 T07–T33 使用的权威页面归属、路由与可见性映射。只写文档和可重复核对，不在 T06 改线上导航、页面内容、应用或可见性。
+- 拟改文件：`docs/neutriverse-route-visibility-map.md`、对应文档契约测试、主计划、执行日志。
+- 验收：覆盖 T01 的 14 个页面源及动态文章/Category/Tag 路由；覆盖首页、THINK 检索面、BUILD/OBSERVE/ABOUT、Library、友链、旅行地球、Gate、NAVI、Ravenis、Occult Atlas、Project Fitzgerald、标签兼容入口；逐项记录当前/目标归属、canonical/兼容策略、公开发现性、noindex、sitemap 与保护边界；Q3/Q4 无遗漏；全文/URL 基线不变；测试与对应 SHA 的 Pages 工作流成功。
+- 用户问题：无；Q3/Q4 已 resolved，本项不新增产品决定。
+
 ## Run 2026-10-04 04:01 — T05 完成
 
 - Task / parent：T05；status = done；依赖 T04 done。
