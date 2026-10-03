@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T06 done; T07 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T07 done; T08 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T06 done，T07 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T07 明暗主题基础规范与共享组件契约；base SHA `df9d33f5e2c845dec388710601f08a780d9a5f5f`。
+**当前状态：计划细化与启动决定已完成，T00–T07 done，T08 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+下一步：执行 T08 四入口数据/页面骨架和可复用导航。
 本轮完成状态：T00 计划准备完成；Phase 2–8 网站实现未开始。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T06 = done，T07 = in-progress，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T07 = done，T08 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T07；branch = main；base = df9d33f5e2c845dec388710601f08a780d9a5f5f；checkpoint = T06 done；next = T07；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；checkpoint = T07 done；next = T08；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1226,3 +1226,14 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - 验证：新增 7 项文档契约测试，全套 46 tests OK；`git diff --check` 通过；T01 baseline protection passed（44 posts / 5 Fragments、页面源和保护 URL 未变）。本环境无 Ruby，因此本地不声称 Jekyll build；对应实现 SHA 的 Pages workflow 补足构建验证。
 - CI：[run 37154308445](https://github.com/AplusNeutrino/My_Blog/actions/runs/37154308445) 精确对应实现 head，completed/success；测试、Jekyll build、artifact upload 和 deploy 成功。
 - 用户问题：无。结论：T06 done；T07 ready。
+
+### T07 — 双主题基础规范与共享组件契约（done）
+
+- Run：2026-10-04 06:04；base SHA = `df9d33f5e2c845dec388710601f08a780d9a5f5f`；branch = main。
+- 本次范围：将 `DESIGN.md` 从 Prospero Light 单主题说明升级为 Night / Prospero Light 的权威共享契约；只改规范与契约测试，不改 CSS、模板、页面、路由或正文。
+- 范围记录提交：`bf3bf1d01becf609c0f8cc1185afc849960e7464`；实现提交：`6f3ee6e7bc6b4664af34afb9c977394e807a6d1c`。
+- 冲突收敛：删除“保持旧信息架构”的约束，改为保留 Chirpy 壳层能力但以 THINK/BUILD/OBSERVE/ABOUT 替换旧一级 tab；Ravenis 改为经 `/observe/` 公开发现且应用页继续 `noindex,nofollow`，与 Q3/T06 一致。
+- 契约：定义双主题语义等价、canonical theme controller、11 个共享语义 token、字体/17px 长文/700–740px 阅读宽度、8px+4px 间距、九类共享组件、2px/3px focus、44×44px 移动目标、390/768/1024/1366px、reduced-motion 与无页面级横向溢出规则；补充 Ravenis/Occult Atlas/Gate/NAVI/Library/友链/旅行地球边界。
+- 验证：新增 8 项设计契约测试，全套 54 tests OK；`git diff --check` 通过；T01 baseline check passed（44 posts / 5 Fragments、页面源与保护 URL 未变）。本地无 Ruby，未声称本地 Jekyll build。
+- CI：[run 37157623519](https://github.com/AplusNeutrino/My_Blog/actions/runs/37157623519) 精确对应实现 head，completed/success；测试、Jekyll build、artifact upload 和 deploy 成功。
+- 用户问题：无。结论：T07 done；T08 ready。

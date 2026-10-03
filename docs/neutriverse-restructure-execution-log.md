@@ -20,15 +20,22 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-04 06:04 — T07 范围锁定
+## Run 2026-10-04 06:04 — T07 完成
 
-- Task / parent：T07；status = in-progress；依赖 T06 done。
+- Task / parent：T07；status = done；依赖 T06 done。
 - Base SHA / branch：`df9d33f5e2c845dec388710601f08a780d9a5f5f` / main。
 - 前置核对：base 的 Build and Deploy [run 37154464812](https://github.com/AplusNeutrino/My_Blog/actions/runs/37154464812) completed/success；从该 head 新鲜克隆，工作树无本地差异。
 - 本次范围：将 `DESIGN.md` 从 Prospero Light 单主题说明升级为 Night / Prospero Light 共享设计契约；消除“保持旧信息架构”和“Ravenis unlisted”等与主计划/Q3 冲突的规则；定义主题角色、文字、8px 间距、组件状态、焦点、动效、移动端与特殊应用边界。只修改规范与契约测试，不在 T07 改 CSS、模板、页面路由或正文。
-- 拟改文件：`DESIGN.md`、对应设计契约测试、主计划、执行日志。
+- 交付文件：`DESIGN.md`、`tests/test_design_contract.py`、主计划、执行日志。
 - 验收：四入口与 T06 路由契约优先级明确；Night/Prospero Light 语义等价；字体/阅读宽度/间距/焦点/44px 触控/390–1366px/reduced-motion/无横向页面溢出有机械可查规则；共享组件及 Gate/Ravenis/Occult Atlas 例外边界清楚；旧冲突措辞不存在；全套测试、T01 基线与对应实现 SHA 的 Pages workflow 通过。
 - 用户问题：无；本项落实已有视觉与信息架构决定，不新增个人资料或产品范围。
+- 范围记录 / 实现提交：`bf3bf1d01becf609c0f8cc1185afc849960e7464` / `6f3ee6e7bc6b4664af34afb9c977394e807a6d1c`。
+- 冲突收敛：旧“保持当前信息架构”改为保留 Chirpy shell 能力、用四入口替换旧一级 tab；Ravenis 不再是 unlisted，而是从 `/observe/` 公开发现并继续 `noindex,nofollow`。没有改变实际导航或索引行为，实施仍归后续任务。
+- 设计契约：双主题内容/动作/状态等价；复用 `data-mode` / `data-bs-theme` 与既有 storage key；定义 11 个 `--nv-*` 共享角色、四类字体、17px/1.75–1.9/700–740px 阅读规则、8px 主节奏+4px 微步长、九类组件状态和链接/按钮语义。
+- 交互/响应式：focus 为 2px + 3px offset；移动目标 44×44px；390/768/1024/1366px 验证；禁止页面级横向滚动和 `transition: all`；reduced-motion 保留功能反馈。特殊应用可保留本地性格，但必须遵守可读标签、键盘、焦点、移动 containment 与隐私/可见性边界。
+- 本地验证：新增 8 项契约测试，全套 54 tests OK；`git diff --check` 通过；T01 baseline check passed，44 posts / 5 Fragments、页面源和保护 URL 未变。本地无 Ruby，未声称本地 Jekyll build。
+- CI：[run 37157623519](https://github.com/AplusNeutrino/My_Blog/actions/runs/37157623519) 精确对应实现 head，completed/success；测试、Jekyll build、artifact upload 与 deploy 成功。
+- 结论 / 下一步：T07 done；T08 ready（创建四入口数据/页面骨架和可复用导航）。
 
 ## Run 2026-10-04 05:04 — T06 完成
 
