@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T08 done; T09 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T08 done; T09 in progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T08 done，T09 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T08 已建立四入口数据/页面骨架和可复用导航；下一项 T09 桌面主导航与辅助入口。
+**当前状态：计划细化与启动决定已完成，T00–T08 done，T09 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+当前工作：T09 桌面四入口主导航、返回首页与辅助检索/社交入口；base SHA `2c7df63d3a510131cc8563ed9b620c71dd3df2e3`。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T08 = done，T09 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T08 = done，T09 = in-progress，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；checkpoint = T08 done；next = T09；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T09；branch = main；base = 2c7df63d3a510131cc8563ed9b620c71dd3df2e3；checkpoint = T08 done；next = T09；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 

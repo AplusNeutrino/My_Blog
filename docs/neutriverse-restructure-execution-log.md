@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-04 08:02 — T09 范围锁定
+
+- Task / parent：T09；status = in-progress；依赖 T08 done。
+- Base SHA / branch：`2c7df63d3a510131cc8563ed9b620c71dd3df2e3` / main。
+- 前置核对：从最新 main 新鲜克隆，工作树无本地差异；base 的 Build and Deploy [run 37160986658](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160986658) completed/success。该结果不替代 T09 的精确实现验证。
+- 本次范围：用四入口数据替换 Chirpy 旧一级 sidebar tabs；保留清晰的首页返回入口；桌面导航为每项显示英文主标签和中文说明，并按当前 section/路由提供文本与 `aria-current` active 状态；将 Search、Tags、Archive、RSS 及现有公开社交链接作为次级 utilities 保持可达。
+- 边界：不删除 `/categories/`、`/thoughts/`、`/library/`、`/links/` 等旧页面；不把 Gate/NAVI/MMXProj 加入公共菜单；不改文章/Thought 正文或 metadata；不在 T09 实现 T10 的手机折叠菜单/专项响应式行为，不改特殊应用本体。
+- 拟改文件：sidebar override、桌面导航共享样式、最小 search utility 接线、T09 回归测试、主计划和执行日志；只有必要时才调整既有主题接线。
+- 验收：四入口及中文说明来自单一数据源；home/section active 状态正确；首页、搜索、Tags、Archive、RSS、Twitter/GitHub 与既有 BGM 可达；公共菜单无 Gate/NAVI/MMXProj；两主题同一 DOM；全套测试、T01 baseline、构建产物桌面检查及对应实现 SHA 的 Pages workflow 通过。
+- 用户问题：无；使用既定 IA、现有站内配置和已公开社交链接。
+
 ## Run 2026-10-04 07:00 — T08 完成
 
 - Task / parent：T08；status = done；依赖 T07 done。
