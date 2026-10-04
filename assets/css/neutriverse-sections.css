@@ -24,6 +24,125 @@
   color: var(--nv-text);
 }
 
+/* Global desktop navigation keeps the four entrances primary and utilities secondary. */
+#sidebar .nv-sidebar-navigation {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+#sidebar .nv-sidebar-primary,
+#sidebar .nv-sidebar-utilities {
+  width: 100%;
+}
+
+#sidebar .nv-sidebar-primary .nav-item,
+#sidebar .nv-sidebar-utilities .nav-item {
+  width: 100%;
+}
+
+#sidebar .nv-sidebar-primary .nav-link {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 3.45rem;
+  gap: 0.6rem;
+  padding-block: 0.45rem;
+  text-align: left;
+}
+
+#sidebar .nv-sidebar-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.08rem;
+  line-height: 1.2;
+}
+
+#sidebar .nv-sidebar-copy strong,
+#sidebar .nv-sidebar-index,
+#sidebar .nv-sidebar-utility-group > p {
+  font-family: var(--nv-font-data);
+  letter-spacing: 0.08em;
+}
+
+#sidebar .nv-sidebar-copy strong {
+  color: inherit;
+  font-family: var(--nv-font-inscription);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+#sidebar .nv-sidebar-copy small {
+  color: var(--sidebar-muted-color);
+  font-family: var(--nv-font-interface);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+#sidebar .nv-sidebar-index {
+  color: var(--sidebar-muted-color);
+  font-size: 0.64rem;
+  text-align: center;
+}
+
+#sidebar .nv-sidebar-primary .nav-item.active .nv-sidebar-copy small,
+#sidebar .nv-sidebar-primary .nav-link[aria-current='page'] .nv-sidebar-copy small {
+  color: var(--sidebar-active-color);
+}
+
+#sidebar .nv-sidebar-utility-group {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--sidebar-border-color);
+}
+
+#sidebar .nv-sidebar-utility-group > p {
+  margin: 0 1rem 0.3rem;
+  color: var(--sidebar-muted-color);
+  font-size: 0.6rem;
+}
+
+#sidebar .nv-sidebar-utilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-inline: 0.5rem;
+}
+
+#sidebar .nv-sidebar-utilities .nav-link {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.2rem;
+  border: 0;
+  background: transparent;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+#sidebar .nv-sidebar-utilities .nav-link:focus-visible,
+#sidebar .nv-sidebar-primary .nav-link:focus-visible,
+#sidebar .sidebar-bottom > a:focus-visible,
+#sidebar #mode-toggle:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+@media (min-width: 850px) {
+  #sidebar .profile-wrapper {
+    margin-bottom: 0.75rem;
+  }
+
+  #sidebar .nv-sidebar-navigation {
+    padding-bottom: 0.5rem;
+  }
+}
+
 .nv-section-header {
   max-width: 46rem;
   margin: 0 0 2rem;

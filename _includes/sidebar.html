@@ -1,0 +1,133 @@
+<!-- Neutriverse primary navigation; keeps Chirpy's shell and utility controls. -->
+{% assign nv_current = page.section_id | default: '' %}
+{% if page.layout == 'home' %}
+  {% assign nv_current = 'home' %}
+{% endif %}
+
+{% if nv_current == '' %}
+  {% for entry in site.data.neutriverse_sections.sections %}
+    {% for route in entry.routes %}
+      {% assign route_size = route | size %}
+      {% assign page_prefix = page.url | slice: 0, route_size %}
+      {% if page_prefix == route %}
+        {% assign nv_current = entry.id %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if nv_current != '' %}{% break %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper">
+    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle" aria-label="返回 Neutriverse 首页">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}{% include media-url.html src=site.avatar %}{%- endcapture -%}
+        <img src="{{- avatar_url -}}" width="112" height="112" alt="Neutriverse 标志" onerror="this.style.display='none'">
+      {%- endif -%}
+    </a>
+
+    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
+  </header>
+
+  <nav class="nv-sidebar-navigation flex-column flex-grow-1 w-100 ps-0" aria-label="Neutriverse 主导航">
+    <ul class="nav nv-sidebar-primary">
+      <li class="nav-item nv-sidebar-home{% if nv_current == 'home' %} active{% endif %}">
+        <a
+          href="{{ '/' | relative_url }}"
+          class="nav-link"
+          {% if nv_current == 'home' %}aria-current="page"{% endif %}
+        >
+          <i class="fa-fw fas fa-home" aria-hidden="true"></i>
+          <span class="nv-sidebar-copy">
+            <strong>HOME</strong>
+            <small>返回首页</small>
+          </span>
+        </a>
+      </li>
+
+      {% for entry in site.data.neutriverse_sections.sections %}
+        <li class="nav-item nv-sidebar-entrance{% if entry.id == nv_current %} active{% endif %}">
+          <a
+            href="{{ entry.url | relative_url }}"
+            class="nav-link"
+            {% if entry.id == nv_current %}aria-current="page"{% endif %}
+          >
+            <span class="nv-sidebar-index" aria-hidden="true">0{{ forloop.index }}</span>
+            <span class="nv-sidebar-copy">
+              <strong>{{ entry.name }}</strong>
+              <small>{{ entry.label_zh }}</small>
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="nv-sidebar-utility-group" aria-label="写作检索工具">
+      <p>DISCOVER</p>
+      <ul class="nav nv-sidebar-utilities">
+        <li class="nav-item">
+          <button type="button" class="nav-link" data-nv-search-trigger aria-label="搜索站内内容">
+            <i class="fa-fw fas fa-search" aria-hidden="true"></i><span>搜索</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <a href="{{ '/tags/' | relative_url }}" class="nav-link">
+            <i class="fa-fw fas fa-tags" aria-hidden="true"></i><span>标签</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ '/archives/' | relative_url }}" class="nav-link">
+            <i class="fa-fw fas fa-archive" aria-hidden="true"></i><span>归档</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100" aria-label="主题、订阅与社交链接">
+    {% unless site.theme_mode == 'light' or site.theme_mode == 'dark' %}
+      <div class="btn-group dropup">
+        <button type="button" class="btn btn-link nav-link" aria-label="切换明暗主题" id="mode-toggle" data-bs-toggle="dropdown">
+          <i class="fa-regular fa-sun" data-theme-mode="light"></i>
+          <i class="fa-regular fa-moon" data-theme-mode="dark"></i>
+          <i class="fa-solid fa-display" data-theme-mode="system"></i>
+        </button>
+        <ul class="dropdown-menu rounded-3 mb-1 p-1">
+          <li><button class="dropdown-item" type="button" data-theme-mode="light">{{ site.data.locales[lang].theme.light }}</button></li>
+          <li><button class="dropdown-item" type="button" data-theme-mode="dark">{{ site.data.locales[lang].theme.dark }}</button></li>
+          <li><button class="dropdown-item" type="button" data-theme-mode="system">{{ site.data.locales[lang].theme.system }}</button></li>
+        </ul>
+      </div>
+    {% endunless %}
+
+    {% if site.twitter.username %}
+      <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+      </a>
+    {% endif %}
+    {% if site.github.username %}
+      <a href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      </a>
+    {% endif %}
+
+    {% for entry in site.data.contact %}
+      {% if entry.type == 'rss' %}
+        {% assign contact_url = '/feed.xml' | relative_url %}
+      {% else %}
+        {% assign contact_url = entry.url %}
+      {% endif %}
+      {% if contact_url %}
+        <a
+          href="{{ contact_url }}"
+          aria-label="{% if entry.type == 'rss' %}RSS 订阅{% elsif entry.type == 'bangumi' %}BGM 主页{% else %}{{ entry.type }}{% endif %}"
+          {% unless entry.noblank %}target="_blank" rel="noopener noreferrer"{% endunless %}
+        >
+          <i class="{{ entry.icon }}" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</aside>

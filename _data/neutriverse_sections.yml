@@ -3,6 +3,7 @@ sections:
     name: THINK
     label_zh: 我如何思考与表达
     url: /think/
+    routes: [/think/, /thoughts/, /archives/, /tags/, /categories/, /posts/]
     kicker: WRITING / INQUIRY
     summary: 从文章、笔记与思维片段进入持续生长的写作记录。
     links:
@@ -27,6 +28,7 @@ sections:
     name: BUILD
     label_zh: 我正在制作什么
     url: /build/
+    routes: [/build/, /projfitzgerald/]
     kicker: PROJECTS / SYSTEMS
     summary: 从已有项目记录与可用界面进入正在形成的工具和系统。
     links:
@@ -47,6 +49,7 @@ sections:
     name: OBSERVE
     label_zh: 我持续观察什么
     url: /observe/
+    routes: [/observe/, /ravenis/, /occult-atlas/, /occult-atlas-app/]
     kicker: WATCH / INTERPRET
     summary: 进入持续整理外部信号与时间结构的公开观察界面。
     links:
@@ -63,6 +66,7 @@ sections:
     name: ABOUT
     label_zh: 我是谁以及这个站如何生长
     url: /about/
+    routes: [/about/, /library/, /links/]
     kicker: IDENTITY / CONTINUITY
     summary: 了解作者节点、网站状态，以及阅读、友链和旅行记录之间的关系。
     links:
