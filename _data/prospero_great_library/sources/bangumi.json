@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-10-06T00:00:50Z",
-  "last_success_at": "2026-10-06T00:00:50Z",
+  "fetched_at": "2026-10-06T22:38:14Z",
+  "last_success_at": "2026-10-06T22:38:14Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -486,8 +486,8 @@
       },
       "tags": [
         "漫画改",
-        "JOJO",
         "战斗",
+        "JOJO",
         "冒险",
         "荒木飞吕彦",
         "2026",
@@ -511,8 +511,8 @@
         "platform": null,
         "subject_tags": [
           "漫画改",
-          "JOJO",
           "战斗",
+          "JOJO",
           "冒险",
           "荒木飞吕彦",
           "2026",
@@ -741,7 +741,7 @@
         "Galgame",
         "全年龄",
         "STEAM",
-        "轻科幻"
+        "游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 646525
@@ -766,7 +766,7 @@
           "Galgame",
           "全年龄",
           "STEAM",
-          "轻科幻"
+          "游戏"
         ],
         "book_category": null
       }
@@ -4511,15 +4511,15 @@
       },
       "tags": [
         "剧场版",
-        "2026",
         "游戏改",
+        "2026",
         "总集篇",
         "日本",
         "OVA",
         "GAL改",
         "地雷妹",
-        "Yostar_Pictures",
-        "YostarPictures"
+        "玉玉症",
+        "26冬"
       ],
       "identifiers": {
         "bangumi_subject_id": 620918
@@ -4536,15 +4536,15 @@
         "platform": null,
         "subject_tags": [
           "剧场版",
-          "2026",
           "游戏改",
+          "2026",
           "总集篇",
           "日本",
           "OVA",
           "GAL改",
           "地雷妹",
-          "Yostar_Pictures",
-          "YostarPictures"
+          "玉玉症",
+          "26冬"
         ],
         "book_category": null
       }
@@ -4703,14 +4703,14 @@
       "tags": [
         "剧场版",
         "2026",
-        "BNPictures",
         "漫画改",
+        "BNPictures",
         "银魂",
         "漫改",
         "日本",
         "安藤尚也",
-        "搞笑",
-        "空知英秋"
+        "空知英秋",
+        "搞笑"
       ],
       "identifiers": {
         "bangumi_subject_id": 578766
@@ -4728,14 +4728,14 @@
         "subject_tags": [
           "剧场版",
           "2026",
-          "BNPictures",
           "漫画改",
+          "BNPictures",
           "银魂",
           "漫改",
           "日本",
           "安藤尚也",
-          "搞笑",
-          "空知英秋"
+          "空知英秋",
+          "搞笑"
         ],
         "book_category": null
       }
@@ -5095,8 +5095,8 @@
         "2008",
         "JUMP",
         "2009",
-        "藤田阳一",
         "热血",
+        "藤田阳一",
         "杉田智和"
       ],
       "identifiers": {
@@ -5120,8 +5120,8 @@
           "2008",
           "JUMP",
           "2009",
-          "藤田阳一",
           "热血",
+          "藤田阳一",
           "杉田智和"
         ],
         "book_category": null
@@ -8607,8 +8607,8 @@
         "2013",
         "講談社",
         "漫画系列",
-        "周刊YoungMagazine",
-        "日本漫画"
+        "完结",
+        "人性"
       ],
       "identifiers": {
         "bangumi_subject_id": 178317
@@ -8632,8 +8632,8 @@
           "2013",
           "講談社",
           "漫画系列",
-          "周刊YoungMagazine",
-          "日本漫画"
+          "完结",
+          "人性"
         ],
         "book_category": null
       }
@@ -8925,15 +8925,15 @@
       },
       "tags": [
         "漫画",
-        "福本伸行",
         "搞笑",
+        "福本伸行",
         "职场",
         "萩原天晴",
-        "橋本智広",
         "2015",
+        "橋本智広",
         "三好智樹",
         "日常",
-        "系列"
+        "搞笑漫画"
       ],
       "identifiers": {
         "bangumi_subject_id": 190623
@@ -8950,15 +8950,15 @@
         "platform": null,
         "subject_tags": [
           "漫画",
-          "福本伸行",
           "搞笑",
+          "福本伸行",
           "职场",
           "萩原天晴",
-          "橋本智広",
           "2015",
+          "橋本智広",
           "三好智樹",
           "日常",
-          "系列"
+          "搞笑漫画"
         ],
         "book_category": null
       }
@@ -10151,9 +10151,9 @@
         "STEAM",
         "横版",
         "2015",
-        "多人",
         "俯角射击",
-        "FPS"
+        "FPS",
+        "多人"
       ],
       "identifiers": {
         "bangumi_subject_id": 100291
@@ -10176,9 +10176,9 @@
           "STEAM",
           "横版",
           "2015",
-          "多人",
           "俯角射击",
-          "FPS"
+          "FPS",
+          "多人"
         ],
         "book_category": null
       }
@@ -11098,8 +11098,8 @@
         "mafia",
         "ACT",
         "TPS",
-        "黑手党",
         "2KGames",
+        "黑手党",
         "2020",
         "没有多周目必要",
         "STEAM"
@@ -11123,8 +11123,8 @@
           "mafia",
           "ACT",
           "TPS",
-          "黑手党",
           "2KGames",
+          "黑手党",
           "2020",
           "没有多周目必要",
           "STEAM"
@@ -11448,8 +11448,8 @@
         "RPG",
         "STEAM",
         "像素",
-        "科幻",
-        "悬疑"
+        "悬疑",
+        "科幻"
       ],
       "identifiers": {
         "bangumi_subject_id": 296491
@@ -11473,8 +11473,8 @@
           "RPG",
           "STEAM",
           "像素",
-          "科幻",
-          "悬疑"
+          "悬疑",
+          "科幻"
         ],
         "book_category": null
       }
@@ -14308,7 +14308,7 @@
         "PC",
         "东方",
         "同人",
-        "东方干zun传"
+        "2015"
       ],
       "identifiers": {
         "bangumi_subject_id": 131875
@@ -14333,7 +14333,7 @@
           "PC",
           "东方",
           "同人",
-          "东方干zun传"
+          "2015"
         ],
         "book_category": null
       }
@@ -16385,8 +16385,8 @@
         "NaughtyDog",
         "ACT",
         "板砖在手天下我有",
-        "满分",
         "神作",
+        "满分",
         "TPS"
       ],
       "identifiers": {
@@ -16410,8 +16410,8 @@
           "NaughtyDog",
           "ACT",
           "板砖在手天下我有",
-          "满分",
           "神作",
+          "满分",
           "TPS"
         ],
         "book_category": null
@@ -16498,8 +16498,8 @@
         "独立游戏",
         "解谜",
         "类银河战士恶魔城",
-        "像素风",
         "PC",
+        "像素风",
         "2024",
         "横版",
         "Metroidvania",
@@ -16523,8 +16523,8 @@
           "独立游戏",
           "解谜",
           "类银河战士恶魔城",
-          "像素风",
           "PC",
+          "像素风",
           "2024",
           "横版",
           "Metroidvania",
@@ -17497,8 +17497,8 @@
         "GBA",
         "SQUARE",
         "JRPG",
-        "PSP",
         "FC",
+        "PSP",
         "SquareEnix",
         "ff",
         "FinalFantasy"
@@ -17522,8 +17522,8 @@
           "GBA",
           "SQUARE",
           "JRPG",
-          "PSP",
           "FC",
+          "PSP",
           "SquareEnix",
           "ff",
           "FinalFantasy"
@@ -19553,8 +19553,8 @@
         "老人与海",
         "欧美",
         "奥斯卡",
-        "小说改",
         "俄罗斯",
+        "小说改",
         "艺术动画",
         "剧场版"
       ],
@@ -19578,8 +19578,8 @@
           "老人与海",
           "欧美",
           "奥斯卡",
-          "小说改",
           "俄罗斯",
+          "小说改",
           "艺术动画",
           "剧场版"
         ],
@@ -20160,7 +20160,7 @@
       ],
       "year": 2006,
       "release_date": "2006-07-09",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/2b/ca/995_1FUkm.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/2b/ca/995_m937T.jpg",
       "summary": "大学退学第二年的春天，主角家里蹲废材佐藤达广在一事无成下，妄想认为自己的退学跟无职是NHK的全国性阴谋，就在这个时候在他面前出现了之前遇到过叫做中原岬的神秘美少女，并坚持达广一定要加入计划治好只会窝在家里的毛病……",
       "status": "wishlist",
       "rating": null,
@@ -22480,8 +22480,8 @@
       "tags": [
         "泡面番",
         "BONES",
-        "搞笑",
         "2021年1月",
+        "搞笑",
         "漫画改",
         "TV",
         "2021",
@@ -22505,8 +22505,8 @@
         "subject_tags": [
           "泡面番",
           "BONES",
-          "搞笑",
           "2021年1月",
+          "搞笑",
           "漫画改",
           "TV",
           "2021",
