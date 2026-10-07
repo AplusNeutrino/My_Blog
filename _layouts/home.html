@@ -13,6 +13,40 @@ refactor: true
   {% assign home_fragments = home_fragment_page.fragments %}
 {% endif %}
 {% assign home_transmissions = home_visible_posts | concat: home_fragments | sort: 'date' | reverse %}
+{% assign home_latest_transmission = home_transmissions | first %}
+{% assign home_record_count = home_visible_posts.size | plus: home_fragments.size %}
+{% assign home_featured_limit = home_config.featured.limit | default: 4 %}
+{% assign home_featured_urls = '' | split: '' %}
+
+{% for featured_url in home_config.featured.posts %}
+  {% assign home_candidate = home_visible_posts | where: 'url', featured_url | first %}
+  {% if home_candidate %}
+    {% unless home_featured_urls contains home_candidate.url %}
+      {% assign home_featured_urls = home_featured_urls | push: home_candidate.url %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+{% if home_featured_urls.size < home_featured_limit %}
+  {% for featured_url in site.data.home_popular.posts %}
+    {% assign home_candidate = home_visible_posts | where: 'url', featured_url | first %}
+    {% if home_candidate and home_featured_urls.size < home_featured_limit %}
+      {% unless home_featured_urls contains home_candidate.url %}
+        {% assign home_featured_urls = home_featured_urls | push: home_candidate.url %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if home_featured_urls.size < home_featured_limit %}
+  {% for home_candidate in home_visible_posts %}
+    {% if home_featured_urls.size < home_featured_limit %}
+      {% unless home_featured_urls contains home_candidate.url %}
+        {% assign home_featured_urls = home_featured_urls | push: home_candidate.url %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 <section class="nv-home-identity" data-home-section="identity" aria-labelledby="nv-home-title">
   <p class="nv-home-kicker">{{ home_config.identity.kicker }}</p>
@@ -90,4 +124,96 @@ refactor: true
     <h2 id="nv-home-explore-title">探索四个入口</h2>
   </div>
   {% include neutriverse-primary-nav.html %}
+</section>
+
+
+<section class="nv-home-current-signal" data-home-section="current_signal" aria-labelledby="nv-home-current-title">
+  <div class="nv-home-section-heading">
+    <p>CURRENT SIGNAL</p>
+    <h2 id="nv-home-current-title">当前焦点</h2>
+  </div>
+  {% if home_config.current_signal.title %}
+    <article class="nv-home-signal-card">
+      <p class="nv-home-signal-source">来自已确认的站内计划</p>
+      <h3>{{ home_config.current_signal.title }}</h3>
+      {% if home_config.current_signal.summary %}
+        <p>{{ home_config.current_signal.summary }}</p>
+      {% endif %}
+      {% if home_config.current_signal.url %}
+        <a href="{{ home_config.current_signal.url | relative_url }}">查看当前焦点的站内说明</a>
+      {% endif %}
+    </article>
+  {% else %}
+    <p class="nv-home-empty">当前没有公开焦点。</p>
+  {% endif %}
+</section>
+
+<section class="nv-home-featured" data-home-section="featured" aria-labelledby="nv-home-featured-title">
+  <div class="nv-home-section-heading">
+    <p>FEATURED RECORDS</p>
+    <h2 id="nv-home-featured-title">精选内容</h2>
+  </div>
+  {% if home_featured_urls.size > 0 %}
+    <ol class="nv-home-featured-list">
+      {% for featured_url in home_featured_urls limit: home_featured_limit %}
+        {% assign featured_post = home_visible_posts | where: 'url', featured_url | first %}
+        {% if featured_post %}
+          {% assign featured_type = site.data.content_taxonomy.types[featured_post.type] %}
+          {% assign featured_topic = site.data.content_taxonomy.topics[featured_post.topic] %}
+          <li>
+            <article class="nv-home-featured-card" data-home-featured>
+              <p>
+                <span>{{ featured_type.label | default: featured_post.type }}</span>
+                <span>{{ featured_topic.label | default: featured_post.topic }}</span>
+              </p>
+              <h3><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h3>
+              {% if featured_post.description %}
+                <p>{{ featured_post.description }}</p>
+              {% endif %}
+            </article>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="nv-home-empty">暂无可公开展示的精选内容。</p>
+  {% endif %}
+</section>
+
+<section class="nv-home-system-status" data-home-section="system_status" aria-labelledby="nv-home-status-title">
+  <div class="nv-home-section-heading">
+    <p>SYSTEM STATUS</p>
+    <h2 id="nv-home-status-title">站点状态</h2>
+  </div>
+  <dl class="nv-home-status-grid">
+    <div data-home-status="records" data-home-value="{{ home_record_count }}">
+      <dt>PUBLIC RECORDS</dt>
+      <dd>{{ home_record_count }}</dd>
+      <p>当前公开表达总数</p>
+    </div>
+    <div
+      data-home-status="writing_sources"
+      data-home-posts="{{ home_visible_posts.size }}"
+      data-home-fragments="{{ home_fragments.size }}"
+    >
+      <dt>WRITING SOURCES</dt>
+      <dd>{{ home_visible_posts.size }} + {{ home_fragments.size }}</dd>
+      <p>Posts + Fragments</p>
+    </div>
+    {% if home_latest_transmission %}
+      <div data-home-status="last_update" data-home-value="{{ home_latest_transmission.date | date: '%Y-%m-%d' }}">
+        <dt>LAST UPDATE</dt>
+        <dd>{{ home_latest_transmission.date | date: '%Y-%m-%d' }}</dd>
+        <p>最近一次公开内容更新</p>
+      </div>
+    {% endif %}
+    {% assign home_project_catalog = site.data.neutriverse_projects.projects %}
+    {% if home_project_catalog and home_project_catalog.size > 0 %}
+      <div data-home-status="projects" data-home-value="{{ home_project_catalog.size }}">
+        <dt>PROJECTS</dt>
+        <dd>{{ home_project_catalog.size }}</dd>
+        <p>具有公开目录记录的项目</p>
+      </div>
+    {% endif %}
+  </dl>
 </section>

@@ -1125,3 +1125,157 @@ article.nv-post .content video {
     padding: 0.875rem;
   }
 }
+
+
+/* T20 homepage: approved current signal, public featured records, and source-derived status. */
+.nv-home-current-signal,
+.nv-home-featured,
+.nv-home-system-status {
+  margin: 0 0 3rem;
+  color: var(--nv-text);
+}
+
+.nv-home-signal-card {
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  border: 1px solid var(--nv-border-strong);
+  border-left: 3px solid var(--nv-signal);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+}
+
+.nv-home-signal-source,
+.nv-home-featured-card > p:first-child,
+.nv-home-status-grid dt {
+  font-family: var(--nv-font-data);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nv-home-signal-source {
+  margin: 0;
+  color: var(--nv-signal);
+}
+
+.nv-home-signal-card h3 {
+  margin: 0.45rem 0 0;
+  color: var(--nv-text-strong);
+  font-size: 1.25rem;
+}
+
+.nv-home-signal-card h3 + p {
+  margin: 0.55rem 0 0;
+  color: var(--nv-text-muted);
+  line-height: 1.7;
+}
+
+.nv-home-signal-card a,
+.nv-home-featured-card a {
+  color: var(--nv-accent);
+  text-decoration: none;
+}
+
+.nv-home-signal-card a {
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+.nv-home-signal-card a:focus-visible,
+.nv-home-featured-card a:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-home-featured-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nv-home-featured-list > li {
+  min-width: 0;
+}
+
+.nv-home-featured-card {
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+}
+
+.nv-home-featured-card > p:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  color: var(--nv-text-muted);
+}
+
+.nv-home-featured-card > p:first-child span:first-child {
+  color: var(--nv-accent);
+}
+
+.nv-home-featured-card h3 {
+  margin: 0.55rem 0 0;
+  color: var(--nv-text-strong);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.nv-home-featured-card h3 + p {
+  margin: 0.45rem 0 0;
+  color: var(--nv-text-muted);
+  line-height: 1.65;
+}
+
+.nv-home-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.nv-home-status-grid > div {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-2);
+}
+
+.nv-home-status-grid dt {
+  color: var(--nv-text-muted);
+}
+
+.nv-home-status-grid dd {
+  margin: 0.45rem 0 0;
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-inscription);
+  font-size: clamp(1.35rem, 5vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.nv-home-status-grid p {
+  margin: 0.45rem 0 0;
+  color: var(--nv-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+  .nv-home-current-signal,
+  .nv-home-featured,
+  .nv-home-system-status {
+    margin-bottom: 2rem;
+  }
+
+  .nv-home-featured-list,
+  .nv-home-status-grid {
+    grid-template-columns: 1fr;
+  }
+}

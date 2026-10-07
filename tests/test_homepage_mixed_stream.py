@@ -52,9 +52,9 @@ class HomepageMixedStreamTest(unittest.TestCase):
         ):
             self.assertNotIn(marker, LAYOUT)
 
-    def test_t20_sections_are_not_implemented_early(self):
+    def test_t20_sections_complete_the_configured_homepage(self):
         for section_id in ("current_signal", "featured", "system_status"):
-            self.assertNotIn(f'data-home-section="{section_id}"', LAYOUT)
+            self.assertIn(f'data-home-section="{section_id}"', LAYOUT)
 
 
 if __name__ == "__main__":

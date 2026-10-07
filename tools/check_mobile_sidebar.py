@@ -706,6 +706,23 @@ def main():
                 .filter((item) => item.dataset.homeProject)
                 .map((item) => item.dataset.homeProject),
               firstPath: path(items[0]?.querySelector('a')),
+              currentSignal: {
+                title: document.querySelector('.nv-home-signal-card h3')?.textContent.trim(),
+                href: path(document.querySelector('.nv-home-signal-card a'))
+              },
+              featuredPaths: [...document.querySelectorAll(
+                '[data-home-featured] h3 a'
+              )].map(path),
+              status: Object.fromEntries(
+                [...document.querySelectorAll('[data-home-status]')].map((item) => [
+                  item.dataset.homeStatus,
+                  {
+                    value: item.dataset.homeValue || null,
+                    posts: item.dataset.homePosts || null,
+                    fragments: item.dataset.homeFragments || null
+                  }
+                ])
+              ),
               text: document.querySelector('main')?.textContent || '',
               bodyClientWidth: document.body.clientWidth,
               bodyScrollWidth: document.body.scrollWidth
@@ -717,6 +734,9 @@ def main():
                 "identity",
                 "latest_transmissions",
                 "explore",
+                "current_signal",
+                "featured",
+                "system_status",
             ],
             f"homepage section order changed: {homepage}",
         )
@@ -751,6 +771,43 @@ def main():
             f"{homepage['firstPath']} != {latest_public_post_path}",
         )
         require(
+            homepage["currentSignal"] == {
+                "title": "Neutriverse 网站重构",
+                "href": "/about/",
+            },
+            f"Current Signal does not use the approved source: {homepage}",
+        )
+        require(
+            homepage["featuredPaths"] == [
+                "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+                "/posts/FF1%E8%AE%B0%E5%BD%95/",
+                "/posts/%E8%AE%A1%E7%BB%84-02/",
+                "/posts/%E8%AE%A1%E7%BD%91-03/",
+            ]
+            and len(set(homepage["featuredPaths"])) == 4,
+            f"featured fallback order or visibility changed: {homepage}",
+        )
+        require(
+            homepage["status"] == {
+                "records": {
+                    "value": "44",
+                    "posts": None,
+                    "fragments": None,
+                },
+                "writing_sources": {
+                    "value": None,
+                    "posts": "39",
+                    "fragments": "5",
+                },
+                "last_update": {
+                    "value": "2026-08-17",
+                    "posts": None,
+                    "fragments": None,
+                },
+            },
+            f"homepage status is not source-derived or failed to degrade: {homepage}",
+        )
+        require(
             homepage["bodyScrollWidth"] <= homepage["bodyClientWidth"],
             f"homepage has horizontal overflow: {homepage}",
         )
@@ -759,6 +816,45 @@ def main():
                 title not in homepage["text"],
                 f"hidden title leaked into homepage: {title}",
             )
+
+        homepage_before_theme = read_state(driver)
+        homepage_toggle = driver.find_element(By.ID, "mode-toggle")
+        driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'})", homepage_toggle
+        )
+        homepage_toggle.click()
+        wait.until(
+            lambda current: read_state(current)["background"]
+            != homepage_before_theme["background"]
+        )
+        homepage_after_theme = read_state(driver)
+        homepage_theme_layout = driver.execute_script(
+            """
+            const sections = [...document.querySelectorAll('[data-home-section]')];
+            return {
+              visible: sections.every((section) => {
+                const style = getComputedStyle(section);
+                const rect = section.getBoundingClientRect();
+                return style.display !== 'none' && style.visibility !== 'hidden'
+                  && rect.width > 0 && rect.height > 0;
+              }),
+              count: sections.length,
+              bodyClientWidth: document.body.clientWidth,
+              bodyScrollWidth: document.body.scrollWidth
+            };
+            """
+        )
+        require(
+            homepage_theme_layout["visible"]
+            and homepage_theme_layout["count"] == 6
+            and homepage_theme_layout["bodyScrollWidth"]
+            <= homepage_theme_layout["bodyClientWidth"],
+            f"homepage theme/mobile layout regressed: {homepage_theme_layout}",
+        )
+        require(
+            homepage_after_theme["background"] != homepage_before_theme["background"],
+            "homepage theme did not change",
+        )
 
         driver.get(site_url + "/archives/")
         wait.until(lambda current: current.find_element(By.ID, "archives").is_displayed())
