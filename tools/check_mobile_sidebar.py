@@ -64,7 +64,10 @@ def read_state(driver):
             (item) => item.getBoundingClientRect().height > 0
           ).length,
           primaryLabels: primary.map(
-            (item) => (item.getAttribute('aria-label') || item.textContent).trim().split(/\s+/)[0]
+            (item) => (
+              item.querySelector('.nv-sidebar-copy strong')?.textContent ||
+              item.textContent
+            ).trim().split(/\s+/)[0]
           ),
           utilitiesVisible: utilities.filter(
             (item) => item.getBoundingClientRect().height > 0
