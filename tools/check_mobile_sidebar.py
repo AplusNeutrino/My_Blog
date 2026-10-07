@@ -47,6 +47,12 @@ def read_state(driver):
           '#sidebar .nv-sidebar-utilities .nav-link'
         )];
         const rect = trigger.getBoundingClientRect();
+        const writingRecords = [...document.querySelectorAll('[data-writing-record]')];
+        const writingCounts = (field) => writingRecords.reduce((counts, item) => {
+          const value = item.dataset[field];
+          counts[value] = (counts[value] || 0) + 1;
+          return counts;
+        }, {});
         return {
           innerWidth: window.innerWidth,
           innerHeight: window.innerHeight,
@@ -75,7 +81,12 @@ def read_state(driver):
             (item) => item.getBoundingClientRect().height > 0
           ).length,
           mode: document.documentElement.getAttribute('data-mode'),
-          background: getComputedStyle(document.body).backgroundColor
+          background: getComputedStyle(document.body).backgroundColor,
+          writingCount: writingRecords.length,
+          writingTypes: writingCounts('writingType'),
+          writingTopics: writingCounts('writingTopic'),
+          firstWritingDate: writingRecords[0]?.dataset.writingDate || null,
+          writingText: document.getElementById('nv-writing-list')?.textContent || ''
         };
         """
     )
@@ -129,6 +140,29 @@ def main():
         )
         require(initial["utilitiesVisible"] == 3, f"utility links unavailable: {initial}")
         require(initial["controls"] == "sidebar" and initial["expanded"] == "false", f"trigger semantics wrong: {initial}")
+        require(initial["writingCount"] == 44, f"writing count changed: {initial}")
+        require(
+            initial["writingTypes"] == {"note": 35, "essay": 4, "fragment": 5},
+            f"public Type counts changed: {initial}",
+        )
+        require(
+            initial["writingTopics"] == {
+                "computation": 34,
+                "humanity": 6,
+                "otaku": 3,
+                "arts": 1,
+            },
+            f"public Topic counts changed: {initial}",
+        )
+        require(initial["firstWritingDate"] == "2026-08-17", f"writing order changed: {initial}")
+        for hidden_title in (
+            "Zodiac",
+            "最后的纳尔马斯克人",
+            "NoSQL 项目面经",
+            "ROSSMANN项目面经",
+            "中间层网站更新记录",
+        ):
+            require(hidden_title not in initial["writingText"], f"hidden title leaked: {hidden_title}")
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")
         trigger.click()

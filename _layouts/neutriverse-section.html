@@ -16,5 +16,9 @@ layout: page
     {{ content }}
   </div>
 
+  {% if page.section_id == 'think' %}
+    {% include neutriverse-writing-list.html %}
+  {% endif %}
+
   {% include neutriverse-section-links.html current=page.section_id %}
 </article>

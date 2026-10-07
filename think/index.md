@@ -6,4 +6,4 @@ permalink: /think/
 section_id: think
 ---
 
-这里先汇集已经存在且可以使用的写作入口。文章仍保留原地址，Fragments 仍由 `/thoughts/` 维护；Type、Topic 与 Series 的完整浏览功能会在后续 THINK 任务中逐步加入。
+这里汇集公开的 Note、Essay 与 Fragment，并按日期从新到旧排列。文章继续使用原地址，Fragment 仍由 `/thoughts/` 维护；下方入口保留 Archive、Tags 与旧分类索引等检索方式。

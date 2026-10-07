@@ -1,0 +1,81 @@
+{% assign nv_fragment_page = site.tabs | where: 'layout', 'thoughts' | first %}
+{% assign nv_visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
+{% assign nv_fragments = '' | split: '' %}
+{% if nv_fragment_page and nv_fragment_page.fragments %}
+  {% assign nv_fragments = nv_fragment_page.fragments %}
+{% endif %}
+{% assign nv_writing_items = nv_visible_posts | concat: nv_fragments | sort: 'date' | reverse %}
+
+<section class="nv-writing-ledger" aria-labelledby="nv-writing-ledger-title">
+  <div class="nv-writing-heading">
+    <div>
+      <p>CHRONOLOGICAL RECORD</p>
+      <h2 id="nv-writing-ledger-title">写作时间线</h2>
+    </div>
+    <p class="nv-writing-count">
+      <strong>{{ nv_writing_items.size }}</strong>
+      <span>项公开记录</span>
+    </p>
+  </div>
+
+  {% if nv_writing_items.size > 0 %}
+    <ol class="nv-writing-list" id="nv-writing-list">
+      {% for item in nv_writing_items %}
+        {% assign nv_is_fragment = false %}
+        {% if item.type == 'fragment' and item.text %}
+          {% assign nv_is_fragment = true %}
+        {% endif %}
+        {% assign nv_type = site.data.content_taxonomy.types[item.type] %}
+        {% assign nv_topic = site.data.content_taxonomy.topics[item.topic] %}
+        {% assign nv_date_key = item.date | date: '%Y-%m-%d' %}
+
+        <li>
+          <article
+            class="nv-writing-record{% if nv_is_fragment %} is-fragment{% endif %}"
+            data-writing-record
+            data-writing-date="{{ nv_date_key }}"
+            data-writing-type="{{ item.type | escape }}"
+            data-writing-topic="{{ item.topic | escape }}"
+          >
+            <time datetime="{{ item.date | date_to_xmlschema }}">
+              <span>{{ item.date | date: '%Y' }}</span>
+              <strong>{{ item.date | date: '%m-%d' }}</strong>
+            </time>
+
+            <div class="nv-writing-record-body">
+              <div class="nv-writing-taxonomy" aria-label="内容分类">
+                <span>{{ nv_type.label | default: item.type }}</span>
+                <span>{{ nv_topic.label | default: item.topic }}</span>
+                {% if item.series %}
+                  <span>{{ item.series }}</span>
+                {% endif %}
+              </div>
+
+              {% if nv_is_fragment %}
+                <p class="nv-writing-fragment">{{ item.text }}</p>
+                <a
+                  class="nv-writing-source"
+                  href="{{ nv_fragment_page.url | relative_url }}#fragment-{{ nv_date_key }}"
+                >
+                  查看片段原页
+                </a>
+              {% else %}
+                <h3>
+                  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                </h3>
+                {% if item.description %}
+                  <p class="nv-writing-description">{{ item.description }}</p>
+                {% endif %}
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <div class="nv-writing-empty" role="status">
+      <strong>还没有公开写作记录。</strong>
+      <p>新的 Note、Essay 或 Fragment 发布后会按日期出现在这里。</p>
+    </div>
+  {% endif %}
+</section>
