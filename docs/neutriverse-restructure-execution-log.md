@@ -20,16 +20,20 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 06:04 — T20 范围记录
+## Run 2026-10-08 06:04 — T20 首页 Current Signal、精选与状态
 
-- Task：T20；status = in-progress；依赖 T19 done。
-- Base / branch：`7ddf9353c4b41f6a8d2d56d2914287f92aa59ed8` / main；[Actions run 37688234891](https://github.com/AplusNeutrino/My_Blog/actions/runs/37688234891) 精确对应 base，completed/success，无 validation-pending。
-- 本次最小交付：渲染 Current Signal、精选内容和轻量 System Status，闭合 T18 配置的六区块首页。
-- 拟改：`_layouts/home.html`、`assets/css/neutriverse-sections.css`、`tests/test_homepage_configuration.py`、新增 T20 静态回归、`tools/check_mobile_sidebar.py`、主计划与本日志；配置若已足够则不制造第二来源。
-- 数据规则：Current Signal 只读已批准配置；Featured 先取配置中的公开文章，再从 `home_popular.posts`、最新公开文章顺序补足至最多 4 条，不公开访问量、不含 hidden；Status 动态计算公开 Records、posts/fragments 分解与最后更新时间。T21 项目 schema 尚不存在时不显示项目数，作为自然降级。
-- 验收：六区块严格按配置顺序；Current Signal 标题/摘要/链接真实；四条精选均为公开真实链接且无重复；Records = 39 public posts + 5 Fragments = 44，最新时间来自混合流；项目指标在无 catalog 时缺席；390px 无溢出，Night/Prospero Light、回归、production Jekyll 与精确 head Pages 成功。
-- 边界与保护：不改任何文章/Fragment 原文或 metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex、外部项目；不提前实现 T21。
-- 用户问题：无。
+- Task：T20；status = done；依赖 T19 done。
+- Base / branch：`7ddf9353c4b41f6a8d2d56d2914287f92aa59ed8` / main；base 的 [Actions run 37688234891](https://github.com/AplusNeutrino/My_Blog/actions/runs/37688234891) completed/success。
+- 范围提交：`f75a8e6c00a6c674c3cf8581e2e840a598a4f65b`；主体实现：`5e70e23674026679f3ece8efd9f23e594d5ad396`；移动主题门禁修复：`6effe6dc3e99a8d445a4750f1a6ea7c787aa3faf`；final head：`0e521a53a1408f56ee657fb1197148f9ed9a68da`。
+- 输出：`_layouts/home.html`、`assets/css/neutriverse-sections.css`、`tests/test_homepage_mixed_stream.py`、`tests/test_homepage_completion.py`、`tools/check_mobile_sidebar.py`。首页已按配置形成六区块完整顺序。
+- Current Signal：仅从 `_data/neutriverse_home.yml` 读取已批准的“Neutriverse 网站重构”、现有摘要和 `/about/`，不读取聊天记忆、运行时间或私人状态。
+- Featured：先取两条配置文章，再按 `home_popular.posts` 补足；最终顺序为“为什么我要跳过 FF2”“FF1 记录”“计组 02”“计网 03”，四条均匹配 `home_visible_posts`、无重复、无访问量、无 hidden。
+- System Status：由公开源动态得到 44 Records、39 posts + 5 Fragments、Last Update 2026-08-17；项目 catalog 尚未由 T21 建立，因此 Projects 指标不渲染，验证了缺数据自然降级。
+- 真实失败：run `37694173615` 的 115 tests 与 Jekyll 成功，但门禁在关闭的移动侧栏内直接点击不可见主题按钮；run `37694396230` 已验证六区块和主题切换，却将根层 `overflow-x:hidden` 下的离屏侧栏 `scrollWidth` 误判为用户可横向滚动。两次均未记为通过，随后仅修复门禁的真实交互与现有横向锁定契约。
+- 最终验证：[Actions run 37694550921](https://github.com/AplusNeutrino/My_Blog/actions/runs/37694550921) 精确对应 final head，completed/success；build job `113042896498` 的 115 项回归、production Jekyll、390px Chrome、双主题、hidden 检查、Ravenis 与 artifact upload 全部成功；deploy job `113043399090` 成功。
+- Artifact：`11515256020`；digest `sha256:60f17f4bc971a11d62b2b4c2ef40587bbcaac1f7c0b34243d4aa2ec2ecbc063c`。
+- 保护：未改文章/Fragment 原文或 metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex、外部项目；未提前实现 T21。
+- 用户问题：无。active_run = none；checkpoint = T20 done；next = T21。
 
 ## Run 2026-10-08 05:02 — T19 首页身份、四入口与混合近期流
 
