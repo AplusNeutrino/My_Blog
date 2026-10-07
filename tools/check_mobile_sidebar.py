@@ -480,7 +480,7 @@ def main():
             ),
             f"Fragment source link changed: {fragment_source.get_attribute('href')}",
         )
-        fragment_source.click()
+        driver.execute_script("arguments[0].click();", fragment_source)
         wait.until(
             lambda current: current.current_url.endswith(
                 "/thoughts/#fragment-2026-05-02"
