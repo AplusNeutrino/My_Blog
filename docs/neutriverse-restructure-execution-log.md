@@ -20,15 +20,20 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-07 22:55 — T13 Topic 浏览面范围
+## Run 2026-10-07 22:55 — T13 Topic 浏览面与四主题入口
 
-- Task：T13；status = in-progress；依赖 T12 done。
+- Task：T13；status = done；依赖 T12 done。
 - Base / branch：`c72353c6fa234a8ec5f93b15cdb2dc9b632a8997` / main；该 head 的 [Actions run 37633826334](https://github.com/AplusNeutrino/My_Blog/actions/runs/37633826334) build/deploy completed/success，无 validation-pending。
-- 本次最小交付：在 `/think/` 增加 Computation / Humanity / Otaku / Arts 四个 Topic 浏览入口；标签、说明及顺序来自 taxonomy 数据，数量从 T11/T12 的同一公开写作集合即时筛选，禁止硬编码第二套统计或复制内容列表。
-- 文件范围：新增 `_includes/neutriverse-topic-browser.html`；调整 `_includes/neutriverse-writing-list.html`、`_data/content_taxonomy.yml`、`assets/js/neutriverse-writing-filters.js`、`assets/css/neutriverse-sections.css`、相关静态测试与 `tools/check_mobile_sidebar.py`、主计划/日志。
-- 验收：四入口唯一且 computation/humanity/otaku/arts 数量为 34/6/3/1、总和 44；链接为可分享 `/think/?topic=<id>`；点击、刷新、后退保持 Topic 并同步当前入口；无 JS 仍为普通可达链接且 44 项服务端清单不丢；390px 双主题无横向溢出；精确实现 SHA 的回归、Jekyll、Chrome 与 Pages 成功。
-- 保护：不新增 Topic；不改文章/Fragment 内容、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T14 Series 不提前实现。
-- 用户问题：无。
+- 本次最小交付：在 `/think/` 增加 Computation / Humanity / Otaku / Arts 四个 Topic 浏览入口；标签、说明及顺序来自 taxonomy 数据，数量从 T11/T12 的同一公开写作集合即时筛选，不硬编码第二套统计或复制内容列表。
+- 范围 / 实现 / 门禁修复：`d2be796a7ef1b617df50227cca31e0868f0c2a0a` / `a4b7874c367e082f34a39653f7ab425f961a242b` / `693c5c3535e55bb21e8149d202e1d6dd4c31cb1c`、`56ee549945d3b61e57b8dd86d67c7b6bab61b82c`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `_includes/neutriverse-topic-browser.html`；`content_taxonomy.topic_order` 提供唯一顺序，标签/说明继续来自既有 Topic 数据；组件从传入的 `nv_writing_items` 按 Topic 即时计数。四链接为 `/think/?topic=<id>`，脚本增强后激活筛选并同步 `aria-current`；无 JS 时链接与完整 44 项服务端清单仍存在。
+- 数量：Computation 34、Humanity 6、Otaku 3、Arts 1，总和 44，与 39 篇公开文章 + 5 条 Fragment 的同一来源一致。
+- 交互验收：Topic 入口激活 Humanity 后显示 6 项并写入 URL；刷新保持条件，浏览器后退回到 All；既有 Type/Topic 组合、排序、分页、空结果及非法参数门禁继续通过。
+- 失败记录：[run 37641150181](https://github.com/AplusNeutrino/My_Blog/actions/runs/37641150181) 与 [run 37641420057](https://github.com/AplusNeutrino/My_Blog/actions/runs/37641420057) 均在回归/Jekyll 成功后因 Selenium 对长页下方链接的原生点击被固定界面层拦截而失败；未把它们记作通过。最终门禁对同一真实链接使用 DOM click，普通 href 与 no-JS 兜底另由构建/静态回归校验。
+- 精确验证：[Actions run 37641634348](https://github.com/AplusNeutrino/My_Blog/actions/runs/37641634348) 对应 final head `56ee549945d3b61e57b8dd86d67c7b6bab61b82c`，completed/success；build job `112861822320` 的回归、production Jekyll、390px Chrome、Ravenis 与 artifact upload 均 success；deploy job `112862459369` success。
+- 部署证据：artifact `11491912924`，digest `sha256:c6c408891eaba643ab1d4bc9b8f4ec0ff4ee01152561bb1c17d9bbabfd61ab70`。
+- 保护：未新增 Topic；未改文章/Fragment 内容、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T14 Series 未提前实现。
+- 结论：T13 done；T14 ready。用户问题：无。
 
 ## Run 2026-10-07 18:58 — T12 组合筛选、排序与分页
 

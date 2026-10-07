@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T12 done; T13 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T13 done; T14 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T12 done，T13 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T12 `/think/` Type/Topic 组合筛选、排序、分页与可分享 URL 状态；base `0ff7e3bb0217f9ee71cc1fd22c0b022be2a3f02f`，范围提交 `a8b0d0461e5a4faf8129cc5ce92932b27672bfa3`，最终实现 `e8e70c636ca2456874e0aa25ecc4a341ac78de2d`。精确 CI/部署、渐进增强与 390px Chrome 状态/历史验收通过；下一项 T13 Topic 浏览面与四主题入口。
+**当前状态：计划细化与启动决定已完成，T00–T13 done，T14 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T13 `/think/` Topic 浏览面与四主题入口；base `c72353c6fa234a8ec5f93b15cdb2dc9b632a8997`，范围提交 `d2be796a7ef1b617df50227cca31e0868f0c2a0a`，实现 `a4b7874c367e082f34a39653f7ab425f961a242b`，最终门禁修复 `56ee549945d3b61e57b8dd86d67c7b6bab61b82c`。四入口数量与同一公开内容源一致，精确 CI/部署及 390px 状态验收通过；下一项 T14 Series 目录与系列浏览。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T12 = done，T13 与 T21 的依赖已满足；按计划顺序下一项 T13 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T13 = done，T14 与 T21 的依赖已满足；按计划顺序下一项 T14 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T13；branch = main；base = c72353c6fa234a8ec5f93b15cdb2dc9b632a8997；checkpoint = T12 done；next = T13；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = 56ee549945d3b61e57b8dd86d67c7b6bab61b82c；checkpoint = T13 done；next = T14；completion = IN PROGRESS。
 
 T13 本次范围：在 `/think/` 增加四个稳定 Topic 入口，固定顺序为 Computation / Humanity / Otaku / Arts；标签与说明复用 `_data/content_taxonomy.yml`，每个数量直接从 T11/T12 已合并的 39 篇公开文章 + 5 条 Fragment 同一集合筛选得出，不维护第二套计数或内容列表。入口链接使用可分享的 `/think/?topic=<id>` 并由现有 T12 状态恢复机制激活对应筛选；JavaScript 只同步当前入口状态，不复制分类来源。拟新增 Topic 浏览 include，并调整 writing-list 接线、taxonomy 顺序、共享样式、静态回归与 390px Chrome 门禁；不新增 Topic、不改文章/Fragment、metadata、旧 URL 或外部项目。验收为四入口唯一且数量 computation/humanity/otaku/arts = 34/6/3/1，总和 44；点击、刷新、后退保持 Topic；无 JavaScript 时入口仍是普通可达链接且完整 44 项继续呈现；双主题/移动端/构建部署通过。
+
+T13 验收证据：新增 `_includes/neutriverse-topic-browser.html`，由 `content_taxonomy.topic_order` 决定唯一顺序并从传入的 `nv_writing_items` 使用 `where: 'topic'` 计数；没有第二份内容列表或硬编码数字。四个普通链接为 `/think/?topic=<id>`，脚本增强后同步筛选和 `aria-current`，刷新及浏览器历史状态继续由 T12 机制维护。公开数量 computation/humanity/otaku/arts = 34/6/3/1，总和 44。初始实现 run `37641150181` 与滚动修复 run `37641420057` 均真实记录为 Chrome 门禁失败：长页下 Selenium 原生点击被固定界面层拦截，回归/Jekyll 已通过但未据此验收；最终门禁改为对同一真实链接触发 DOM click，同时静态门禁继续校验普通 href/no-JS 兜底。最终 head `56ee549945d3b61e57b8dd86d67c7b6bab61b82c` 的 Actions run `37641634348` completed/success，build job `112861822320` 与 deploy job `112862459369` 均成功；artifact `11491912924`，digest `sha256:c6c408891eaba643ab1d4bc9b8f4ec0ff4ee01152561bb1c17d9bbabfd61ab70`。未改文章/Fragment 内容或 metadata、旧 URL、hidden 可见性及外部项目。T13 done，T14 ready，无新增用户问题。
 
 T12 本次范围：在 T11 的 44 项服务端清单上做渐进增强，加入 Type（all/note/essay/fragment）与 Topic（all/computation/humanity/otaku/arts）组合筛选、newest/oldest 排序、固定每页 12 项分页，以及 `type`/`topic`/`sort`/`page` 查询参数状态。有效 URL 刷新后保持条件，筛选变化重置到第 1 页，非法参数回退默认，前进/后退恢复界面；无 JavaScript 时控制区不伪装可用且完整 44 项原链接仍在 HTML 中。拟改 writing-list include、新增专用脚本、THINK layout 接线、共享样式、静态回归和真实 Chrome 门禁；不改 `_posts/`、Fragment 数据/原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
