@@ -20,15 +20,20 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 00:04 — T14 Series 目录与导航范围
+## Run 2026-10-08 00:04 — T14 Series 目录、筛选与相邻导航
 
-- Task：T14；status = in-progress；依赖 T13 done。
+- Task：T14；status = done；依赖 T13 done。
 - Base / branch：`4b0be3f61f68acd29217d8598eb3a5a87ad576f1` / main；该 head 的 [Actions run 37642127400](https://github.com/AplusNeutrino/My_Blog/actions/runs/37642127400) build/deploy completed/success，无 validation-pending。
-- 本次最小交付：为三个现有显式 Series 建立集中、稳定的 ID/标签/说明；在 `/think/` 提供 Series 目录及可分享筛选；在文章现有系列面板补齐目录链接和按日期相邻的上一篇/下一篇。
-- 文件范围：`_data/content_taxonomy.yml`、新增 `_includes/neutriverse-series-browser.html`、`_includes/neutriverse-writing-list.html`、`assets/js/neutriverse-writing-filters.js`、`_includes/post-series.html`、`assets/css/neutriverse-sections.css`、相关静态测试与 `tools/check_mobile_sidebar.py`、主计划/日志。
-- 验收：Series 唯一为 database-systems / computer-architecture / computer-networks，计数 10/8/10；目录数来自 39 篇公开文章 + 5 Fragment 的同一集合，不使用 categories；`series` 查询状态可分享、刷新/后退正确；无 JS 入口和全部记录仍可达；系列列表升序，首/中/末篇相邻导航边界与目标正确；390px 双主题无横向溢出；精确实现 SHA 的回归、Jekyll、Chrome 与 Pages 成功。
-- 保护：不改任何旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T15 不提前实现。
-- 用户问题：无。
+- 范围 / 实现 / 门禁修复：`f390d2223894d12282cd0e38556f518dcbc46659` / `10f4ecf71a815252cce7adb3098d97db4e78c690` / `ac7ca06a20196efcf36156916da91a6d5a372d19`；均以 expected head 非强推更新 main。
+- 实际交付：taxonomy 集中定义 database-systems / computer-architecture / computer-networks 三个稳定 ID、标签与说明；新增 Series 目录并以现有公开写作集合即时计数；写作状态新增 `series` 参数、下拉框、目录当前态、刷新/后退与非法值回退；文章系列面板根链接回到对应筛选，并按时间序生成边界正确的上一篇/下一篇。
+- 数量：Database Systems 10、Computer Architecture 8、Computer Networks 10，共 28 篇；仅来自显式公开 Series metadata，不从 categories 回退，不复制内容列表。
+- 渐进增强：无 JS 时三个目录入口仍是普通 `/think/?series=<id>` 链接，完整 44 项服务端清单不丢；脚本启用后 Database Systems 显示 10 篇，URL、刷新、后退及当前态正确。
+- 文章导航：门禁从构建后的 `/think/` 读取真实受保护文章 href；首篇显示 1/10 且仅 next，中间篇 5/10 且 prev/next 指向相邻文章，末篇 10/10 且仅 prev；系列清单保持升序。
+- 失败记录：[run 37649992497](https://github.com/AplusNeutrino/My_Blog/actions/runs/37649992497) 的回归与 Jekyll 成功，但 Chrome 门禁把文章路径假定为小写候选 URL，进入非真实页面后失败；未将其记作通过。修复只让门禁跟随构建产物的真实链接，不改文章 URL。
+- 精确验证：[Actions run 37650721617](https://github.com/AplusNeutrino/My_Blog/actions/runs/37650721617) 对应 final head `ac7ca06a20196efcf36156916da91a6d5a372d19`，completed/success；build job `112893031112` 的回归、production Jekyll、390px Chrome、Ravenis 与 artifact upload 均 success；deploy job `112893560452` success。
+- 部署证据：artifact `11495159334`，digest `sha256:36c5d70c8f16165429b09a8a8c22d0a036826b027c1029372335eb5d73122aa0`。
+- 保护：未改旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T15 未提前实现。
+- 结论：T14 done；T15 ready。用户问题：无。
 
 ## Run 2026-10-07 22:55 — T13 Topic 浏览面与四主题入口
 

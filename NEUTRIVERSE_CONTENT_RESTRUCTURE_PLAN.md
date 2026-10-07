@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T13 done; T14 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T14 done; T15 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T13 done，T14 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T13 `/think/` Topic 浏览面与四主题入口；base `c72353c6fa234a8ec5f93b15cdb2dc9b632a8997`，范围提交 `d2be796a7ef1b617df50227cca31e0868f0c2a0a`，实现 `a4b7874c367e082f34a39653f7ab425f961a242b`，最终门禁修复 `56ee549945d3b61e57b8dd86d67c7b6bab61b82c`。四入口数量与同一公开内容源一致，精确 CI/部署及 390px 状态验收通过；下一项 T14 Series 目录与系列浏览。
+**当前状态：计划细化与启动决定已完成，T00–T14 done，T15 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T14 Series 目录、可分享筛选及文章相邻导航；base `4b0be3f61f68acd29217d8598eb3a5a87ad576f1`，范围提交 `f390d2223894d12282cd0e38556f518dcbc46659`，实现 `10f4ecf71a815252cce7adb3098d97db4e78c690`，最终门禁修复 `ac7ca06a20196efcf36156916da91a6d5a372d19`。三个 Series 计数与显式公开 metadata 一致，首/中/末篇导航及精确 CI/部署通过；下一项 T15 Fragment 统一来源与稳定链接。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T13 = done，T14 与 T21 的依赖已满足；按计划顺序下一项 T14 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T14 = done，T15 与 T21 的依赖已满足；按计划顺序下一项 T15 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T14；branch = main；base = 4b0be3f61f68acd29217d8598eb3a5a87ad576f1；checkpoint = T13 done；next = T14；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = ac7ca06a20196efcf36156916da91a6d5a372d19；checkpoint = T14 done；next = T15；completion = IN PROGRESS。
 
 T14 本次范围：为现有三个显式 Series 建立稳定定义与 `/think/?series=<id>` 浏览面：Database Systems（database-systems，10 篇）、Computer Architecture（computer-architecture，8 篇）、Computer Networks（computer-networks，10 篇）。Series 标签/ID/说明集中在 `_data/content_taxonomy.yml`，目录计数与筛选直接复用公开 `nv_writing_items`，不从旧 categories 回退、不复制文章列表；现有 `post-series.html` 继续按日期升序，并补充指向该 Series 浏览面的稳定链接及边界正确的上一篇/下一篇。拟改 taxonomy、Series 浏览 include、writing-list、筛选脚本、post-series、共享样式、静态回归和 390px Chrome 门禁；不改旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL。验收为三个目录项唯一且计数 10/8/10；可分享 Series 状态刷新/后退正确；无 JS 普通链接和完整 44 项仍可达；首篇仅下一篇、中间篇双向、末篇仅上一篇，目标均为相邻日期文章；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 通过。
+
+T14 验收证据：`content_taxonomy.series` 集中保存三个稳定 ID/标签/说明；Series 目录从同一 `nv_writing_items` 按显式 `series` 计数，结果 10/8/10，共 28 篇，不使用 categories。`series` 查询参数、下拉控制、目录当前态、刷新与后退接入既有状态机；无 JS 保留普通链接与全部 44 项。文章系列面板按日期升序，根链接指回稳定筛选，并以边界判断生成上一篇/下一篇。初始 run `37649992497` 的回归/Jekyll 成功但 Chrome 因门禁把受保护文章路径假定为小写候选 URL 而失败，未记为通过；最终门禁从构建后的 `/think/` 获取真实文章 href，再核对首篇 1/10 仅 next、中间 5/10 prev+next、末篇 10/10 仅 prev。final head `ac7ca06a20196efcf36156916da91a6d5a372d19` 的 Actions run `37650721617` completed/success；build job `112893031112` 与 deploy job `112893560452` 成功；artifact `11495159334`，digest `sha256:36c5d70c8f16165429b09a8a8c22d0a036826b027c1029372335eb5d73122aa0`。未修改旧学习笔记/文章/Fragment 内容或 metadata、文件名、旧 URL、hidden 可见性及外部项目。T14 done，T15 ready，无新增用户问题。
 
 T13 本次范围：在 `/think/` 增加四个稳定 Topic 入口，固定顺序为 Computation / Humanity / Otaku / Arts；标签与说明复用 `_data/content_taxonomy.yml`，每个数量直接从 T11/T12 已合并的 39 篇公开文章 + 5 条 Fragment 同一集合筛选得出，不维护第二套计数或内容列表。入口链接使用可分享的 `/think/?topic=<id>` 并由现有 T12 状态恢复机制激活对应筛选；JavaScript 只同步当前入口状态，不复制分类来源。拟新增 Topic 浏览 include，并调整 writing-list 接线、taxonomy 顺序、共享样式、静态回归与 390px Chrome 门禁；不新增 Topic、不改文章/Fragment、metadata、旧 URL 或外部项目。验收为四入口唯一且数量 computation/humanity/otaku/arts = 34/6/3/1，总和 44；点击、刷新、后退保持 Topic；无 JavaScript 时入口仍是普通可达链接且完整 44 项继续呈现；双主题/移动端/构建部署通过。
 
