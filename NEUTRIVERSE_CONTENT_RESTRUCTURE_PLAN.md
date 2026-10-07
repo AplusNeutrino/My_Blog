@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = 337132987101fcb170db718a9713619013fe12d7；checkpoint = T10 done；next = T11；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T11；branch = main；base = b7fb7920df070d33070206d4f39fcd53b45c2c4f；checkpoint = T10 done；next = T11；completion = IN PROGRESS。
+
+T11 本次范围：在 `/think/` 使用现有 `site.posts` 与 `_tabs/thoughts.md` 的 Fragment 单一来源生成倒序写作时间线；公开范围为 39 篇非 hidden 文章 + 5 条 Fragment，共 44 项。每项显示 Type/Topic，文章保留原链接，Fragment 链接回 Thoughts 的稳定锚点；无内容时显示真实空状态。组合筛选、排序切换、分页与 URL 状态属于 T12，本次不提前实现。拟改共享 section layout、新写作列表 include、Thought anchor、共享样式、相关回归与现有 390px Chrome 门禁；不改任何文章/Fragment 原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
 T10.b 本次范围：增强 Chirpy 原生手机 sidebar trigger/mask 的 aria-expanded、关闭焦点恢复、Escape 与断点清理；仅调整导航交互脚本/共享样式、相关测试、计划/日志。验收：390px CSS viewport 的四入口/辅助入口/关闭路径可用、无 body 横向溢出、44px 关键触控目标、打开后焦点进入 sidebar、Escape/mask/导航后关闭并回 trigger；两主题与对应实现 SHA CI/部署通过。若窄视口只能通过浏览器 zoom 获得，须同时记录实际 innerWidth，不以桌面截图替代。
 
