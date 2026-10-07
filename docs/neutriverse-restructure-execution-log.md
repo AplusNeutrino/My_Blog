@@ -20,6 +20,15 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-07 17:03 — T10.b 手机菜单与窄屏验收范围
+
+- Task / parent：T10.b / T10；status = in-progress；依赖 T10.a done。
+- Base / branch：`2a46980d5160e47e5d7e37410dcb6a41cc472f45` / main；最新 main 无并发变化。
+- 本次最小交付：在不替换 Chirpy 原生 mobile sidebar toggle 的前提下，同步 trigger 的 controls/expanded，打开后将焦点进入菜单，Escape/mask/导航关闭后恢复 trigger，跨 850px 断点清理移动状态；补足 390px 两主题实际布局与 overflow/触控/入口验收。
+- 文件：`assets/js/neutriverse-navigation.js`、`assets/css/neutriverse-sections.css`、相关测试、主计划/日志。不改旧正文、路由、特殊应用或桌面 T10.a contract。
+- 验收：自动回归 + T01 基线；精确实现 SHA Pages；浏览器实际 innerWidth 约 390px 时四主入口/三个辅助入口/关闭路径可操作，关键 trigger ≥44px、无 body overflow，Night/Light 一致。无法获得窄屏时不可标父 T10 done。
+- 用户问题：无。
+
 ## Run 2026-10-07 16:45 — T10.a 范围锁定（最终 done）
 
 - Task / parent：T10.a / T10；status = in-progress；依赖 T09 done。

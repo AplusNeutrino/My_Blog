@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = b7fd898660d9bbabd6d0a8bdd0396069ef014aeb；checkpoint = T10.a done / 0968f1da56201a55d3c340dd8c323f6dc7c8c141；next = T10.b；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T10.b；branch = main；base = 2a46980d5160e47e5d7e37410dcb6a41cc472f45；checkpoint = T10.a done；next = T10.b；completion = IN PROGRESS。
+
+T10.b 本次范围：增强 Chirpy 原生手机 sidebar trigger/mask 的 aria-expanded、关闭焦点恢复、Escape 与断点清理；仅调整导航交互脚本/共享样式、相关测试、计划/日志。验收：390px CSS viewport 的四入口/辅助入口/关闭路径可用、无 body 横向溢出、44px 关键触控目标、打开后焦点进入 sidebar、Escape/mask/导航后关闭并回 trigger；两主题与对应实现 SHA CI/部署通过。若窄视口只能通过浏览器 zoom 获得，须同时记录实际 innerWidth，不以桌面截图替代。
 
 T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（ready）。T10.a 已改 metadata-hook sidebar controller、共享 focus CSS、相关行为回归。关闭侧栏不留不可见 Tab 目标，展开/收起正确命名与 expanded 状态，Escape 关闭并回到展开按钮，重新展开恢复焦点，既有自动折叠和 storage 保留；75 tests/正文 URL 基线/精确 CI 部署/双主题桌面浏览器通过。父 T10 在手机专项通过前不能 done；本次浏览器接口未提供 viewport resize，不把 1363px 或 DOM stub 当 390px 验收。
 
