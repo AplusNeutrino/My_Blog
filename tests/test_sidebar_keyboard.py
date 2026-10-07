@@ -100,5 +100,30 @@ console.log('sidebar controller behavior passed');
         self.assertIn("display: none !important", rule)
 
 
+    def test_mobile_sidebar_controller_contracts(self):
+        script = (ROOT / "assets/js/neutriverse-navigation.js").read_text(encoding="utf-8")
+        self.assertIn("aria-controls', 'sidebar", script)
+        self.assertIn("aria-expanded', String(isOpen)", script)
+        self.assertIn("document.body.hasAttribute('sidebar-display')", script)
+        self.assertIn("new MutationObserver(syncMobileSidebar)", script)
+        self.assertIn("event.key === 'Escape'", script)
+        self.assertIn("mobileFocusable()[0]?.focus()", script)
+        self.assertIn("mobileTrigger.focus()", script)
+        self.assertIn("event.shiftKey && document.activeElement === first", script)
+        self.assertIn("!mobileQuery.matches", script)
+        self.assertIn("mobileTrigger.click()", script)
+
+    def test_mobile_sidebar_touch_targets_and_containment(self):
+        css = (ROOT / "assets/css/neutriverse-sections.css").read_text(encoding="utf-8")
+        trigger_rule = re.search(r"#sidebar-trigger\s*\{([^}]+)\}", css).group(1)
+        self.assertIn("min-width: 2.75rem", trigger_rule)
+        self.assertIn("min-height: 2.75rem", trigger_rule)
+        mobile_rule = re.search(
+            r"@media \(max-width: 849px\)\s*\{(.*?)\n\}", css, re.S
+        ).group(1)
+        self.assertIn("overflow-y: auto", mobile_rule)
+        self.assertIn("overscroll-behavior: contain", mobile_rule)
+        self.assertIn("min-height: 2.75rem", mobile_rule)
+
 if __name__ == "__main__":
     unittest.main()

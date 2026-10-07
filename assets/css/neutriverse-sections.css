@@ -135,7 +135,8 @@
 #sidebar .nv-sidebar-utilities .nav-link:focus-visible,
 #sidebar .nv-sidebar-primary .nav-link:focus-visible,
 #sidebar .sidebar-bottom > a:focus-visible,
-#sidebar #mode-toggle:focus-visible {
+#sidebar #mode-toggle:focus-visible,
+#sidebar-trigger:focus-visible {
   outline: 2px solid var(--nv-focus);
   outline-offset: 3px;
   box-shadow: none;
@@ -149,6 +150,22 @@
 #sidebar #avatar:focus-visible {
   outline: 2px solid var(--nv-focus);
   outline-offset: 3px;
+}
+
+#sidebar-trigger {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+@media (max-width: 849px) {
+  #sidebar {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  #sidebar .nv-sidebar-utilities .nav-link {
+    min-height: 2.75rem;
+  }
 }
 
 @media (min-width: 850px) {
