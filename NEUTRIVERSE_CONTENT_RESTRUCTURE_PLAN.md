@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T15 done; T16 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T16 done; T17 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T15 done，T16 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T15 Fragment 统一来源与稳定链接；base `dd27fb3bb1b91287b2014e4317e9438cef734c6d`，范围提交 `016d3845b1a89cac62d9ca456bbb65354b22923d`，实现 `4e1a842bf8661b47aad68687965dba9cac8816ff`，测试契约修复 `8211ae26c0555b07228c66428a139609dbcf14fa`，最终浏览器门禁修复 `cf916da6c46f7d1b5962da92af9f96001b6b6fab`。五条 Fragment 的显式稳定 ID 由唯一来源提供，THINK/Thoughts 共用，精确 CI/部署通过；下一项 T16 三种 Type 的展示差异。
+**当前状态：计划细化与启动决定已完成，T00–T16 done，T17 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T16 Note / Essay / Fragment 展示差异；base `5eaf4ee45c77eb09c2bd5933a2e4d2fc25b37c9b`，范围提交 `ba55217e0163dd9ee7958b0d1d03e98f1070167c`，实现 `160c45616ebcca92fb9e8a6e3dffd54c1ea6b7c6`，最终门禁修复 `f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d`。文章详情从 taxonomy 显示双语 Type 标识，THINK 三种记录节奏与阅读/富内容约束经精确 CI/部署通过；下一项 T17 标签、Archive 与 Search 的 THINK 内入口。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T15 = done，T16 in-progress，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T16 = done，T17 ready，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T16；branch = main；base = 5eaf4ee45c77eb09c2bd5933a2e4d2fc25b37c9b；checkpoint = scope recorded；next = T16 implementation；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d；checkpoint = T16 done；next = T17；completion = IN PROGRESS。
 
 T16 本次范围：使用现有 `page.type` 与 `_data/content_taxonomy.yml`，在文章详情增加共享 Type 标识及 `nv-post--note` / `nv-post--essay` 语义类；THINK 时间线为三种 Type 输出稳定类名，以紧凑记录、编辑型长文、时间戳信号形成可感知但不改变内容顺序的视觉差异。共享 CSS 同时约束文章阅读宽度约 700–740px，并保证正文中的代码块、表格与图片在窄屏内部滚动/缩放而不造成页面级溢出；Thoughts 继续使用现有 Fragment 卡片。拟改 taxonomy 标签、post layout、writing-list、共享 CSS、静态回归与 390px Chrome 门禁；不改任何 `_posts/` 或 Fragment 的正文、标题、front matter、日期、slug/permalink、旧 URL、hidden/noindex 与外部项目。验收为 Note/Essay 详情各有正确标识与差异化布局、THINK 三种记录类可核对、正文哈希不变、390px 无页面溢出且代码/表格/图片安全、双主题和精确实现 SHA 的回归/Jekyll/Pages 通过。
+
+T16 验收证据：`content_taxonomy.types` 为 fragment/note/essay 增加片段/笔记/长文中文标签；文章布局从现有 `page.type` 读取同一数据，输出 `nv-post--note` / `nv-post--essay` 与可见双语标识，正文 `{{ content }}` 仍唯一。THINK 清单统一输出 `is-<type>`，Note 用紧凑记录左规则、Essay 用更强开篇层级、Fragment 用虚线信号卡，不改变排序/筛选/链接。共享样式将文章 header/content/tail 限制为 46rem（736px），代码/highlight/table-wrapper 内部横向滚动，图片/视频/iframe 不超容器。初始 run `37663655248` 的 96 项回归和 Jekyll 成功，但浏览器门禁错误地期待 CSS 视觉大写后的 DOM 文本 `NOTE`，实际语义文本正确为 `Note / 笔记`，故未记为通过；最终门禁按真实 DOM 文本、语义类和 data type 核对，并逐一打开 Note/Essay 构建链接，验证正文宽度、body 无横向溢出及富内容不逃逸。final head `f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d` 的 Actions run `37663923756` completed/success；build job `112938169888` 与 deploy job `112938558111` 成功；artifact `11501184118`，digest `sha256:cadb386235f7e19c6c121eff9be232f018efcd3ffae058a33800b5826185635d`。未修改任何文章/Fragment 正文或 front matter、文件名、日期、slug/permalink、旧 URL、hidden/noindex 与外部项目。T16 done，T17 ready，无新增用户问题。
 
 T15 本次范围：保留 `_tabs/thoughts.md` 为五条 Fragment 的唯一内容来源，为每条记录补充显式、唯一且不随排序变化的稳定 `id`；`_layouts/thoughts.html` 与 THINK 混合时间线共同读取同一 ID，旧日期派生锚点保持为当前五条 ID，Fragment 文本与日期不改。增加静态回归，验证 ID 唯一、格式稳定、两处渲染不复制文本且直达链接一致；扩展 390px Chrome 门禁，从 `/think/?type=fragment` 打开一条来源链接并确认落到 `/thoughts/#<id>` 的对应卡片。拟改 Fragment source metadata、两处模板、回归/门禁与计划日志；不改文章、Thought 正文/date/type/topic/tags、旧 URL 或外部项目。验收为五条原文/日期与 T01 基线一致、五个锚点唯一可直达、THINK 仍为 44 项且 Fragment 筛选为 5 项、精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
 

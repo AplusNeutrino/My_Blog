@@ -22,13 +22,21 @@
 
 ## Run 2026-10-08 01:58 — T16 范围记录
 
-- Task：T16；status = in-progress；依赖 T15 done。
+- Task：T16；status = done；依赖 T15 done。
 - Base / branch：`5eaf4ee45c77eb09c2bd5933a2e4d2fc25b37c9b` / main；T15 文档 [Actions run 37657069525](https://github.com/AplusNeutrino/My_Blog/actions/runs/37657069525) 精确对应 base，completed/success，无 validation-pending。
 - 本次最小交付：在不修改任何旧正文/front matter 的前提下，让 Note、Essay、Fragment 在 THINK 清单与文章详情形成语义和视觉可辨识的层级；补齐长文阅读宽度与代码/表格/图片的窄屏容器规则。
 - 拟改：`_data/content_taxonomy.yml`、`_layouts/post.html`、`_includes/neutriverse-writing-list.html`、`assets/css/neutriverse-sections.css`、相关静态回归与 `tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：Note/Essay 详情从同一 taxonomy 显示正确双语 Type 标识并使用不同语义类；THINK 三种记录类齐全；正文宽度约 700–740px，代码/表格/图片不造成页面级溢出；390px Chrome、两主题、回归、Jekyll 与精确 head Pages 成功。
 - 保护：不改 `_posts/`、Fragment text/date/type/topic/tags、文件名、slug/permalink、旧路由、hidden/noindex 或外部项目。
 - 用户问题：无；差异化遵循已批准的 T07 设计契约，不引入新 Type。
+- 范围 / 实现 / 门禁修复：`ba55217e0163dd9ee7958b0d1d03e98f1070167c` / `160c45616ebcca92fb9e8a6e3dffd54c1ea6b7c6` / `f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d`；均以 expected head 非强推更新 main。
+- 实际交付：三种 Type 的双语标签集中在 taxonomy；文章详情从 `page.type` 读取并显示 Type 标识，Note 与 Essay 使用不同语义类和开篇层级；THINK 清单为 Note/Essay/Fragment 输出稳定类型类，分别呈现紧凑记录、编辑型长文和时间戳信号节奏。文章 header/content/tail 限制为 46rem，代码/highlight/table-wrapper 内部滚动，图片、视频与 iframe 不超正文容器。
+- 失败记录：[run 37663655248](https://github.com/AplusNeutrino/My_Blog/actions/runs/37663655248) 的 96 项回归和 production Jekyll 成功，但浏览器门禁把 CSS 视觉大写误当成 DOM 文本大写，错误期待 `NOTE / 笔记`；实际 DOM 为语义正确的 `Note / 笔记`。未标作通过；修复只调整门禁断言，不改变页面实现。
+- 精确验证：[Actions run 37663923756](https://github.com/AplusNeutrino/My_Blog/actions/runs/37663923756) 对应 final head `f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d`，completed/success；build job `112938169888` 的 96 项回归、production Jekyll、390px Chrome、Ravenis 与 artifact upload 均成功；deploy job `112938558111` 成功。
+- 浏览器验收：从构建后的 THINK 分别取真实 Note/Essay 链接，核对 Type/data/class/双语标识；正文宽度不超过 740px，body 无横向溢出，代码、表格、图片、视频与 iframe 均未逃逸容器。现有主题切换与双主题 token 回归继续通过。
+- 部署证据：artifact `11501184118`，digest `sha256:cadb386235f7e19c6c121eff9be232f018efcd3ffae058a33800b5826185635d`。
+- 保护：正文插槽仍唯一；未修改任何 `_posts/` 或 Fragment 正文/front matter、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目。
+- 结论：T16 done；T17 ready。用户问题：无。
 
 ## Run 2026-10-08 01:02 — T15 范围记录
 
