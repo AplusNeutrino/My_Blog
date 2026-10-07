@@ -87,6 +87,10 @@
         {% assign nv_type = site.data.content_taxonomy.types[item.type] %}
         {% assign nv_topic = site.data.content_taxonomy.topics[item.topic] %}
         {% assign nv_date_key = item.date | date: '%Y-%m-%d' %}
+        {% assign nv_fragment_id = item.id | default: '' | strip %}
+        {% if nv_is_fragment and nv_fragment_id == '' %}
+          {% capture nv_fragment_id %}fragment-{{ nv_date_key }}{% endcapture %}
+        {% endif %}
         {% assign nv_series_id = '' %}
         {% if item.series %}
           {% assign nv_series_definition = site.data.content_taxonomy.series | where: 'label', item.series | first %}
@@ -120,7 +124,7 @@
                 <p class="nv-writing-fragment">{{ item.text }}</p>
                 <a
                   class="nv-writing-source"
-                  href="{{ nv_fragment_page.url | relative_url }}#fragment-{{ nv_date_key }}"
+                  href="{{ nv_fragment_page.url | relative_url }}#{{ nv_fragment_id | escape }}"
                 >
                   查看片段原页
                 </a>

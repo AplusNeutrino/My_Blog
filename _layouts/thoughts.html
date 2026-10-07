@@ -46,10 +46,14 @@ layout: page
     {% for fragment in fragments %}
       {% assign fragment_text = fragment.text | default: '' | strip %}
       {% if fragment_text != '' %}
+        {% assign fragment_id = fragment.id | default: '' | strip %}
+        {% if fragment_id == '' and fragment.date %}
+          {% capture fragment_id %}fragment-{{ fragment.date | date: '%Y-%m-%d' }}{% endcapture %}
+        {% endif %}
         {% capture fragment_key %}{{ page.url | relative_url }}fragment-{{ forloop.index }}{% endcapture %}
         <article
           class="thought-fragment-card"
-          {% if fragment.date %}id="fragment-{{ fragment.date | date: '%Y-%m-%d' }}"{% endif %}
+          {% if fragment_id != '' %}id="{{ fragment_id | escape }}"{% endif %}
         >
           {% if fragment.date %}
             <time class="thought-record-date" datetime="{{ fragment.date | date_to_xmlschema }}">

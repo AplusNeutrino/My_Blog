@@ -5,26 +5,31 @@ icon: fas fa-quote-left
 order: 3
 fragments:
   - text: "过于宏大的目标太过耀眼，会遮住其他小目标的可能性。"
+    id: fragment-2024-09-12
     date: 2024-09-12
     type: fragment
     topic: humanity
     tags: [目标, 可能性]
   - text: "人们并不想听别人的观点，只是想听自己的观点从别人嘴里说出来。"
+    id: fragment-2024-10-30
     date: 2024-10-30
     type: fragment
     topic: humanity
     tags: [交流]
   - text: "等待的本质是将喜爱之物任人蹂躏。"
+    id: fragment-2025-03-23
     date: 2025-03-23
     type: fragment
     topic: humanity
     tags: [等待]
   - text: "孤独至极便会涌现出无处置放的炫耀之心。"
+    id: fragment-2025-11-12
     date: 2025-11-12
     type: fragment
     topic: humanity
     tags: [孤独]
   - text: "侦探小说中一旦出现了枪，这把枪就一定会背叛自己的第一任主人。"
+    id: fragment-2026-05-02
     date: 2026-05-02
     type: fragment
     topic: arts
@@ -38,6 +43,7 @@ fragments:
 
 fragments:
   - text: "短句正文"
+    id: fragment-2026-04-30
     date: 2026-04-30
     type: fragment
     topic: humanity
@@ -45,6 +51,7 @@ fragments:
 
 说明：
 - text 是短句正文。
+- id 是稳定链接，使用唯一的 `fragment-YYYY-MM-DD`；同日多条时追加简短后缀，发布后不要修改。
 - date 是显示日期。
 - type 固定为 fragment。
 - topic 使用 otaku / arts / computation / humanity 之一。

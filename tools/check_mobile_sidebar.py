@@ -463,6 +463,32 @@ def main():
             actual = read_series_navigation(driver)
             require(actual == expected, f"Series neighbor contract failed at {path}: {actual}")
 
+        driver.get(think_url + "?type=fragment")
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["visibleWritingCount"] == 5
+            )
+        )
+        fragment_source = driver.find_element(
+            By.CSS_SELECTOR,
+            '#nv-writing-list [data-writing-item]:not([hidden]) .nv-writing-source',
+        )
+        require(
+            fragment_source.get_attribute("href").endswith(
+                "/thoughts/#fragment-2026-05-02"
+            ),
+            f"Fragment source link changed: {fragment_source.get_attribute('href')}",
+        )
+        fragment_source.click()
+        wait.until(
+            lambda current: current.current_url.endswith(
+                "/thoughts/#fragment-2026-05-02"
+            )
+        )
+        target = driver.find_element(By.ID, "fragment-2026-05-02")
+        require(target.is_displayed(), "Fragment stable anchor target is not visible")
+
         driver.get(think_url)
         wait.until(lambda current: read_state(current)["controlsVisible"])
 
