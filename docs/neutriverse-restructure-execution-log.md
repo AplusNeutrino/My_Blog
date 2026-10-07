@@ -20,7 +20,7 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-07 — T09.a 续接与缺陷范围
+## Run 2026-10-07 — T09.a 续接与缺陷范围（最终 done）
 
 - Task / parent：T09.a / T09；status = in-progress；依赖 T08 done。
 - Base SHA / branch：`15438e1a30715062087f1c05fbfd4c96f103f392` / main；保留其间 PGL 同步与用户首页推荐修改。
@@ -30,6 +30,18 @@
 - 文件范围：`assets/css/NormaiNight.css`、`assets/css/neutriverse-sections.css`、`tests/test_neutriverse_sidebar.py`、主计划、执行日志。
 - 验收：辅助入口可见且链接工作，明暗主题一致，首页/四入口 active/搜索可用；全部测试、T01 正文/URL baseline、精确修复 SHA Pages workflow；父项未满足不得标 done。
 - 用户问题：无。
+
+### T09.a 实现与最终验收
+
+- 范围记录：`6f6fa62dbc97cfe2ee863b73f92fa11c4b8fff76`。
+- 实现链：`1d809bdf1ba05224f064f9941fec003d40497af5` 删除旧 tab 隐藏规则/文字最小尺寸/回归；`ba33bcbbfdd243b265eb50eeb4f5543dd8eb59ea` 固定辅助按钮宽度与 nowrap；`c50938297d9b9388aceff5df84e60c051973dac9` 清除 Chirpy 的每格 24px 内边距。每次均 non-force + expected head，保留用户变更。
+- 第一轮浏览器复验发现搜索文字折行；第二轮 computed geometry 定位 utility li 的左右各 24px 旧内边距，按钮被压至 33px。未把中间修复 CI 成功当最终通过，最后修复后重新检查。
+- 最终本地：`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -q`，73 tests OK；`git diff --check` 通过；T01 baseline checker passed（44 posts / 5 Fragments，原文/date/slug/permalink/URL 无变化）。本地无 Ruby，不声称本地 Jekyll。
+- CI：最终 [run 37594247954](https://github.com/AplusNeutrino/My_Blog/actions/runs/37594247954) 对应 head `c50938297d9b9388aceff5df84e60c051973dac9`；build job `112702848217` 与 deploy job `112703133929` completed/success，回归/Jekyll/上传/Pages 部署成功。
+- artifact：`11469916226` / `github-pages`，digest `sha256:be289d881b1e8f7ac29de1a3f1727b81e7937f2c91443d5cc6b9e99b0e7b9fc8`；仅记录上传证据，未把未经解包的新 artifact 说成逐页检查过。
+- 浏览器：实际 1363px，THINK/BUILD/OBSERVE/ABOUT 与 HOME 跳转和 aria-current 正确；Tags/Archive 旧 URL 工作且归属 THINK；搜索 Akasha 返回现有文章，取消恢复；Night/Prospero Light 使用同一菜单。最终部署后 reload 检查辅助三项 display 为 list-item、宽约 81px、li padding 0，标签清晰可见；两主题无 body-level 横向溢出；Tab 焦点到 THINK，2px outline / 3px offset。
+- 保护：不修改旧正文、Thought 文本、路由、隐藏配置、社交账号或外部项目；保留用户近期首页推荐和 PGL 同步。没有新增待答问题。
+- 结论：T09.a 及父 T09 done；T10 ready。390px 手机导航/折叠/焦点恢复仍属 T10，768/1024/1366 等系统性专项仍按 T31；未提前声称通过。
 
 ## Run 2026-10-04 08:02 — T09 范围锁定
 

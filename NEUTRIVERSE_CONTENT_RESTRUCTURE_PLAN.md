@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T08 done; T09 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T09 done; T10 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T08 done，T09 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T09.a 续接桌面导航浏览器验收，修复旧 CSS 隐藏 Tags/Archive；base SHA `15438e1a30715062087f1c05fbfd4c96f103f392`。拟改 `assets/css/NormaiNight.css`、共享导航样式、sidebar 回归测试与计划/日志；验收为辅助入口实际可见、双主题/搜索/active/首页可用、正文与 URL 基线、对应修复 SHA 的 CI。T10 手机专项仍未开始。
+**当前状态：计划细化与启动决定已完成，T00–T09 done，T10 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T09.a 桌面导航验收及遗留样式修复；base SHA `15438e1a30715062087f1c05fbfd4c96f103f392`，最终修复 `c50938297d9b9388aceff5df84e60c051973dac9`；精确 CI/部署与浏览器检查通过。下一项 T10 手机导航、键盘与折叠专项，390px 等移动验收尚未完成。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T08 = done，T09 = in-progress，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T09 = done，T10 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T09.a；branch = main；base = 15438e1a30715062087f1c05fbfd4c96f103f392；checkpoint = T08 done / T09 deployed, browser validation ongoing；next = T09；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = 15438e1a30715062087f1c05fbfd4c96f103f392；checkpoint = T09 done / c50938297d9b9388aceff5df84e60c051973dac9；next = T10；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1249,3 +1249,12 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - CI：[run 37160746998](https://github.com/AplusNeutrino/My_Blog/actions/runs/37160746998) 精确对应最终 head `3818729a...`，regression tests、Jekyll build、artifact upload 与 Pages deploy 全部 completed/success。
 - 构建产物：artifact `11286954602`（digest `sha256:4d70e6e18f517a598f8f2c7963dc3906e73357edf6928135f8a01d9204060ef8`）内四个页面均存在；四入口导航逐页只含四个 canonical；各中文说明及实际 section links 正确；共享 CSS 存在；Night/Light 文件分别为 148589/70176 bytes，确认未再次截断。
 - 用户问题：无。结论：T08 done；T09 ready。
+
+### T09 — 桌面导航与辅助入口（done）
+
+- 原实现 `145d4b9aba56d049a3814140b07def3eff1a513c`；本次范围提交 `6f6fa62dbc97cfe2ee863b73f92fa11c4b8fff76`；修复依次为 `1d809bdf1ba05224f064f9941fec003d40497af5`、`ba33bcbbfdd243b265eb50eeb4f5543dd8eb59ea`、`c50938297d9b9388aceff5df84e60c051973dac9`。
+- 修复旧 CSS 隐藏 Tags/Archive、辅助文字折行及 Chirpy tab 内边距压缩 grid；中文/辅助必要标签提升为 12px。改动仅三文件：Night CSS、共享导航 CSS、sidebar 测试；没有改正文或用户首页推荐。
+- 本地：73 tests OK；`git diff --check` 通过；T01 protection passed，44 posts / 5 Fragments 的正文、日期、文件名、slug/permalink/旧 URL 不变。
+- 精确最终 [run 37594247954](https://github.com/AplusNeutrino/My_Blog/actions/runs/37594247954) head `c509382...`：回归、Jekyll build、artifact upload、Pages deploy 全部成功；artifact `11469916226`，digest `sha256:be289d881b1e8f7ac29de1a3f1727b81e7937f2c91443d5cc6b9e99b0e7b9fc8`。
+- 实际桌面浏览器：1363px，四入口/home active 与跳转、Tags/Archive、Search 查询 Akasha 及取消、双主题切换均通过；最终辅助入口宽约 81px、无折行/隐藏，明暗模式无页面横向溢出；Tab 到 THINK 的焦点环为 2px/3px。RSS/既有社交链接保留且可到达，不对外发送信息。
+- 验收边界：T09 桌面范围 done；未将此结果代替 T10 的 390px、手机折叠/焦点恢复或 T31 全断点专项。没有新增用户问题；下一项 T10 ready。
