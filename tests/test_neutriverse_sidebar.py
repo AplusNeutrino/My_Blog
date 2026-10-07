@@ -87,6 +87,11 @@ class NeutriverseSidebarTest(unittest.TestCase):
             self.assertGreaterEqual(float(size), 0.75)
 
     def test_utility_buttons_fill_their_grid_cell_without_label_wrap(self):
+        cell = re.findall(
+            r"#sidebar \.nv-sidebar-utilities \.nav-item\s*\{([^}]+)\}", STYLES
+        )[-1]
+        self.assertIn("padding: 0", cell)
+        self.assertIn("margin: 0", cell)
         block = re.search(
             r"#sidebar \.nv-sidebar-utilities \.nav-link\s*\{([^}]+)\}", STYLES
         ).group(1)

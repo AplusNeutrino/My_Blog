@@ -111,6 +111,12 @@
   padding-inline: 0.5rem;
 }
 
+/* Chirpy's full-width tab padding must not shrink the three utility cells. */
+#sidebar .nv-sidebar-utilities .nav-item {
+  margin: 0;
+  padding: 0;
+}
+
 #sidebar .nv-sidebar-utilities .nav-link {
   display: flex;
   width: 100%;
