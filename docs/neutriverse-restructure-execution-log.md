@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-07 22:55 — T13 Topic 浏览面范围
+
+- Task：T13；status = in-progress；依赖 T12 done。
+- Base / branch：`c72353c6fa234a8ec5f93b15cdb2dc9b632a8997` / main；该 head 的 [Actions run 37633826334](https://github.com/AplusNeutrino/My_Blog/actions/runs/37633826334) build/deploy completed/success，无 validation-pending。
+- 本次最小交付：在 `/think/` 增加 Computation / Humanity / Otaku / Arts 四个 Topic 浏览入口；标签、说明及顺序来自 taxonomy 数据，数量从 T11/T12 的同一公开写作集合即时筛选，禁止硬编码第二套统计或复制内容列表。
+- 文件范围：新增 `_includes/neutriverse-topic-browser.html`；调整 `_includes/neutriverse-writing-list.html`、`_data/content_taxonomy.yml`、`assets/js/neutriverse-writing-filters.js`、`assets/css/neutriverse-sections.css`、相关静态测试与 `tools/check_mobile_sidebar.py`、主计划/日志。
+- 验收：四入口唯一且 computation/humanity/otaku/arts 数量为 34/6/3/1、总和 44；链接为可分享 `/think/?topic=<id>`；点击、刷新、后退保持 Topic 并同步当前入口；无 JS 仍为普通可达链接且 44 项服务端清单不丢；390px 双主题无横向溢出；精确实现 SHA 的回归、Jekyll、Chrome 与 Pages 成功。
+- 保护：不新增 Topic；不改文章/Fragment 内容、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T14 Series 不提前实现。
+- 用户问题：无。
+
 ## Run 2026-10-07 18:58 — T12 组合筛选、排序与分页
 
 - Task：T12；status = done；依赖 T11 done。

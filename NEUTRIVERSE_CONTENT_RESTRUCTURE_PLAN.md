@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = e8e70c636ca2456874e0aa25ecc4a341ac78de2d；checkpoint = T12 done；next = T13；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T13；branch = main；base = c72353c6fa234a8ec5f93b15cdb2dc9b632a8997；checkpoint = T12 done；next = T13；completion = IN PROGRESS。
+
+T13 本次范围：在 `/think/` 增加四个稳定 Topic 入口，固定顺序为 Computation / Humanity / Otaku / Arts；标签与说明复用 `_data/content_taxonomy.yml`，每个数量直接从 T11/T12 已合并的 39 篇公开文章 + 5 条 Fragment 同一集合筛选得出，不维护第二套计数或内容列表。入口链接使用可分享的 `/think/?topic=<id>` 并由现有 T12 状态恢复机制激活对应筛选；JavaScript 只同步当前入口状态，不复制分类来源。拟新增 Topic 浏览 include，并调整 writing-list 接线、taxonomy 顺序、共享样式、静态回归与 390px Chrome 门禁；不新增 Topic、不改文章/Fragment、metadata、旧 URL 或外部项目。验收为四入口唯一且数量 computation/humanity/otaku/arts = 34/6/3/1，总和 44；点击、刷新、后退保持 Topic；无 JavaScript 时入口仍是普通可达链接且完整 44 项继续呈现；双主题/移动端/构建部署通过。
 
 T12 本次范围：在 T11 的 44 项服务端清单上做渐进增强，加入 Type（all/note/essay/fragment）与 Topic（all/computation/humanity/otaku/arts）组合筛选、newest/oldest 排序、固定每页 12 项分页，以及 `type`/`topic`/`sort`/`page` 查询参数状态。有效 URL 刷新后保持条件，筛选变化重置到第 1 页，非法参数回退默认，前进/后退恢复界面；无 JavaScript 时控制区不伪装可用且完整 44 项原链接仍在 HTML 中。拟改 writing-list include、新增专用脚本、THINK layout 接线、共享样式、静态回归和真实 Chrome 门禁；不改 `_posts/`、Fragment 数据/原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
