@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T14 done; T15 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T14 done; T15 in-progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T14 = done，T15 与 T21 的依赖已满足；按计划顺序下一项 T15 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T14 = done，T15 in-progress，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = ac7ca06a20196efcf36156916da91a6d5a372d19；checkpoint = T14 done；next = T15；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T15；branch = main；base = dd27fb3bb1b91287b2014e4317e9438cef734c6d；checkpoint = scope recorded；next = T15 implementation；completion = IN PROGRESS。
+
+T15 本次范围：保留 `_tabs/thoughts.md` 为五条 Fragment 的唯一内容来源，为每条记录补充显式、唯一且不随排序变化的稳定 `id`；`_layouts/thoughts.html` 与 THINK 混合时间线共同读取同一 ID，旧日期派生锚点保持为当前五条 ID，Fragment 文本与日期不改。增加静态回归，验证 ID 唯一、格式稳定、两处渲染不复制文本且直达链接一致；扩展 390px Chrome 门禁，从 `/think/?type=fragment` 打开一条来源链接并确认落到 `/thoughts/#<id>` 的对应卡片。拟改 Fragment source metadata、两处模板、回归/门禁与计划日志；不改文章、Thought 正文/date/type/topic/tags、旧 URL 或外部项目。验收为五条原文/日期与 T01 基线一致、五个锚点唯一可直达、THINK 仍为 44 项且 Fragment 筛选为 5 项、精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
 
 T14 本次范围：为现有三个显式 Series 建立稳定定义与 `/think/?series=<id>` 浏览面：Database Systems（database-systems，10 篇）、Computer Architecture（computer-architecture，8 篇）、Computer Networks（computer-networks，10 篇）。Series 标签/ID/说明集中在 `_data/content_taxonomy.yml`，目录计数与筛选直接复用公开 `nv_writing_items`，不从旧 categories 回退、不复制文章列表；现有 `post-series.html` 继续按日期升序，并补充指向该 Series 浏览面的稳定链接及边界正确的上一篇/下一篇。拟改 taxonomy、Series 浏览 include、writing-list、筛选脚本、post-series、共享样式、静态回归和 390px Chrome 门禁；不改旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL。验收为三个目录项唯一且计数 10/8/10；可分享 Series 状态刷新/后退正确；无 JS 普通链接和完整 44 项仍可达；首篇仅下一篇、中间篇双向、末篇仅上一篇，目标均为相邻日期文章；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 通过。
 

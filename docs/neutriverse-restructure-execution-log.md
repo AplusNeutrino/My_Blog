@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 01:02 — T15 范围记录
+
+- Task：T15；status = in-progress；依赖 T14 done。
+- Base / branch：`dd27fb3bb1b91287b2014e4317e9438cef734c6d` / main；T14 文档 head 的 Actions 结果在上次日志已核对为 completed/success，无 validation-pending。
+- 本次最小交付：把五条 Fragment 的稳定 ID 声明在唯一来源 `_tabs/thoughts.md`，Thoughts 页面锚点与 THINK 混合时间线共同读取，不再各自从日期隐式拼接；当前五个公开锚点字符串保持不变。
+- 拟改：`_tabs/thoughts.md`、`_layouts/thoughts.html`、`_includes/neutriverse-writing-list.html`、静态回归、390px Chrome 门禁、主计划与本日志。
+- 验收：ID 唯一且格式稳定；五条原文/日期与 T01 基线一致；Fragment 内容不复制；`/think/?type=fragment` 仍为 5 项且来源链接可直达对应 `/thoughts/#<id>`；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 成功。
+- 保护：不改任何文章；不改 Fragment text/date/type/topic/tags；不改文件名、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无；这是 T15 既定稳定实体 ID 规则的实现细化。
+
 ## Run 2026-10-08 00:04 — T14 Series 目录、筛选与相邻导航
 
 - Task：T14；status = done；依赖 T13 done。
