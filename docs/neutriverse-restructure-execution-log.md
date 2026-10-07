@@ -20,16 +20,18 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 05:02 — T19 范围记录
+## Run 2026-10-08 05:02 — T19 首页身份、四入口与混合近期流
 
-- Task：T19；status = in-progress；依赖 T18 done。
-- Base / branch：`24edc5d67a4241e042c42d855a0730b02a8f3dda` / main；[Actions run 37679190641](https://github.com/AplusNeutrino/My_Blog/actions/runs/37679190641) 精确对应 base，completed/success，无 validation-pending。
-- 本次最小交付：按 T18 配置实现首页身份、四入口和公开混合近期流；posts 与 Fragments 按真实日期倒序，Project Log 仅作为项目相关文章的次级关系标识。
-- 拟改：`_data/neutriverse_home.yml`、`_layouts/home.html`、`assets/css/neutriverse-sections.css`、新增静态回归并扩展 `tools/check_mobile_sidebar.py`，同步主计划与本日志。
-- 验收：首页顺序先 Identity、Latest Transmissions、Explore；近期流合并 39 篇非 hidden posts 与五条原来源 Fragment，显示前 8 条并至少包含 Note/Essay/Fragment；日期严格倒序；四入口真实可达；Akasha Notes / Toyosatomimi's Headphone 只增加 Project Log 次级标识；hidden 不输出；390px、双主题、回归、Jekyll 与精确 head Pages 成功。
-- 边界：T20 才实现 Current Signal、轻量状态与精选内容；T19 移除旧 category 墙和分页脚本，不修改文章/Fragment 内容源或 metadata，不把 Project Log 变成 Type。
-- 保护：不改文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
-- 用户问题：无；身份文案仅使用 `_config.yml`、站内公开 social name 与主计划已有网站定位。
+- Task：T19；status = done；依赖 T18 done。
+- Base / branch：`24edc5d67a4241e042c42d855a0730b02a8f3dda` / main；base 的 [Actions run 37679190641](https://github.com/AplusNeutrino/My_Blog/actions/runs/37679190641) completed/success。
+- 范围提交：`70921743c2f0991f03bac65f1b475a6466f4a5b8`；主体实现：`cf2a02914540660645ab2d5a47572963a8387ea6`；测试契约修复：`4e1775b2ed980a8e7a638e88ecbda7127afce5a7`、`7f733b159e2724f368989e15a88fa269f6c23a64`；生成 URL 匹配修复及 final head：`8905c13602bb272a806eca10f22ccd2969f62bc0`。
+- 输出：`_data/neutriverse_home.yml`、`_layouts/home.html`、`assets/css/neutriverse-sections.css`、`tests/test_homepage_mixed_stream.py`、`tests/test_homepage_configuration.py`、`tools/check_mobile_sidebar.py`。首页顺序为 Identity → Latest Transmissions → Explore；公开 posts 与原来源 Fragments 按真实日期倒序，显示 8 条并包含 Note/Essay/Fragment；四入口复用既有数据。
+- Project Log：Akasha Notes 与 Toyosatomimi's Headphone 仅作为首页次级关系标签；生成路径使用 Jekyll 的稳定百分号编码 URL 匹配，不新增第四种 Type、不修改文章 metadata。
+- 真实失败：run `37687050652` 在 110 项回归中因两条 T18 旧断言失败；run `37687173271` 因一条残留 YAML 断言失败；run `37687516979` 已通过 110 项回归与 Jekyll，但 Chrome 检出 Project Log 因中文 URL 编码未显示。三次均未记为通过，随后仅修复对应测试契约或 URL 匹配。
+- 最终验证：[Actions run 37687699563](https://github.com/AplusNeutrino/My_Blog/actions/runs/37687699563) 精确对应 final head，completed/success；build job `113019655845` 的 110 项回归、production Jekyll、390px Chrome、双主题、hidden 检查、Ravenis 与 artifact upload 全部成功；deploy job `113020001949` 成功。
+- Artifact：`11512292304`；digest `sha256:b8f04c5220a159565bf0a7829ea5287355e1d27180026dc29842ad0e4002ceac`。
+- 边界与保护：移除旧首页 category 墙/分页脚本；T20 的 Current Signal、轻量状态与精选区块未提前实现。未改文章/Fragment 原文或 front matter、文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无。active_run = none；checkpoint = T19 done；next = T20（T21 也 ready，按最早依赖先做 T20）。
 
 ## Run 2026-10-08 03:58 — T18 范围记录
 
