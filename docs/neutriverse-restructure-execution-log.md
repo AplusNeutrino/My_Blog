@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 02:59 — T17 范围记录
+
+- Task：T17；status = in-progress；依赖 T16 done。
+- Base / branch：`41e799a58664cc87a187c18a4c7d0472475eac75` / main。
+- 上一文档提交核验：`21d21899be575aa1805b85e0ed728bc51396018f` 的 [Actions run 37664158625](https://github.com/AplusNeutrino/My_Blog/actions/runs/37664158625) 回归与 Jekyll 成功，但 390px 侧栏遮罩原生点击被导航链接拦截，未作为通过；稳定门禁修复 `41e799a58664cc87a187c18a4c7d0472475eac75` 的 [run 37671462486](https://github.com/AplusNeutrino/My_Blog/actions/runs/37671462486) completed/success，main 已恢复精确绿灯。
+- 本次最小交付：把 Archive、Tags 与 Search 明确纳入 THINK 内部检索入口；保留旧路径，Search 调用现有原生模态框而非假链接。
+- 拟改：`_data/neutriverse_sections.yml`、`_includes/neutriverse-section-links.html`、`assets/js/neutriverse-navigation.js`、`assets/css/neutriverse-sections.css`、相关静态回归与 `tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：THINK 内 Archive/Tags 为真实旧路径链接，Search 为可聚焦 button；侧栏与 THINK 内两个触发器都可打开原生搜索并聚焦；Archive、Tags 与搜索索引继续过滤 hidden；390px、双主题、回归、Jekyll 与精确实现 head Pages 成功。
+- 保护：不改 `_posts/`、Fragment 原文/metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无；使用既有 Search 模态框与已批准 THINK 检索定位，不引入新公开内容。
+
 ## Run 2026-10-08 01:58 — T16 范围记录
 
 - Task：T16；status = done；依赖 T15 done。
