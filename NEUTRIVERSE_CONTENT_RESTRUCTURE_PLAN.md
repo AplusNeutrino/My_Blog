@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T14 done; T15 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T15 done; T16 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T14 done，T15 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T14 Series 目录、可分享筛选及文章相邻导航；base `4b0be3f61f68acd29217d8598eb3a5a87ad576f1`，范围提交 `f390d2223894d12282cd0e38556f518dcbc46659`，实现 `10f4ecf71a815252cce7adb3098d97db4e78c690`，最终门禁修复 `ac7ca06a20196efcf36156916da91a6d5a372d19`。三个 Series 计数与显式公开 metadata 一致，首/中/末篇导航及精确 CI/部署通过；下一项 T15 Fragment 统一来源与稳定链接。
+**当前状态：计划细化与启动决定已完成，T00–T15 done，T16 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T15 Fragment 统一来源与稳定链接；base `dd27fb3bb1b91287b2014e4317e9438cef734c6d`，范围提交 `016d3845b1a89cac62d9ca456bbb65354b22923d`，实现 `4e1a842bf8661b47aad68687965dba9cac8816ff`，测试契约修复 `8211ae26c0555b07228c66428a139609dbcf14fa`，最终浏览器门禁修复 `cf916da6c46f7d1b5962da92af9f96001b6b6fab`。五条 Fragment 的显式稳定 ID 由唯一来源提供，THINK/Thoughts 共用，精确 CI/部署通过；下一项 T16 三种 Type 的展示差异。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T14 = done，T15 in-progress，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T15 = done，T16 ready，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T15；branch = main；base = dd27fb3bb1b91287b2014e4317e9438cef734c6d；checkpoint = scope recorded；next = T15 implementation；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = cf916da6c46f7d1b5962da92af9f96001b6b6fab；checkpoint = T15 done；next = T16；completion = IN PROGRESS。
 
 T15 本次范围：保留 `_tabs/thoughts.md` 为五条 Fragment 的唯一内容来源，为每条记录补充显式、唯一且不随排序变化的稳定 `id`；`_layouts/thoughts.html` 与 THINK 混合时间线共同读取同一 ID，旧日期派生锚点保持为当前五条 ID，Fragment 文本与日期不改。增加静态回归，验证 ID 唯一、格式稳定、两处渲染不复制文本且直达链接一致；扩展 390px Chrome 门禁，从 `/think/?type=fragment` 打开一条来源链接并确认落到 `/thoughts/#<id>` 的对应卡片。拟改 Fragment source metadata、两处模板、回归/门禁与计划日志；不改文章、Thought 正文/date/type/topic/tags、旧 URL 或外部项目。验收为五条原文/日期与 T01 基线一致、五个锚点唯一可直达、THINK 仍为 44 项且 Fragment 筛选为 5 项、精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
+
+T15 验收证据：`_tabs/thoughts.md` 仍是五条 Fragment 的唯一内容来源，每条新增显式唯一 ID，当前值与既有 `fragment-YYYY-MM-DD` 锚点完全相同；新增说明规定同日多条追加短后缀且发布后不修改。Thoughts 卡片与 THINK 来源链接都读取该 ID，日期派生仅作旧/缺失数据兜底，模板不复制五条正文。初始实现 run `37656324275` 因新测试把注释示例误算为真实条目、旧 T11 测试仍断言日期拼接而在回归阶段失败；测试契约修复 run `37656612002` 的 92 项回归与 Jekyll 已通过，但长页原生点击被固定层拦截，Chrome 门禁失败；两次均未记为通过。最终门禁用与 T13/T14 一致的 DOM click 跟随真实普通链接，仍验证同一 href/目标卡片。final head `cf916da6c46f7d1b5962da92af9f96001b6b6fab` 的 Actions run `37656781396` completed/success；build job `112913743570` 的 92 项回归、production Jekyll、390px Chrome、Ravenis 与 artifact upload 均成功，deploy job `112914304585` 成功；artifact `11499200919`，digest `sha256:32e97d3b8bbdc58c129ccbbbbdf5681570f5283e16ee71e665eff50321bce311`。T01 基线继续保护五条 text/date/type/topic/tags；未改文章、旧 URL、hidden/noindex 或外部项目。T15 done，T16 ready，无新增用户问题。
 
 T14 本次范围：为现有三个显式 Series 建立稳定定义与 `/think/?series=<id>` 浏览面：Database Systems（database-systems，10 篇）、Computer Architecture（computer-architecture，8 篇）、Computer Networks（computer-networks，10 篇）。Series 标签/ID/说明集中在 `_data/content_taxonomy.yml`，目录计数与筛选直接复用公开 `nv_writing_items`，不从旧 categories 回退、不复制文章列表；现有 `post-series.html` 继续按日期升序，并补充指向该 Series 浏览面的稳定链接及边界正确的上一篇/下一篇。拟改 taxonomy、Series 浏览 include、writing-list、筛选脚本、post-series、共享样式、静态回归和 390px Chrome 门禁；不改旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL。验收为三个目录项唯一且计数 10/8/10；可分享 Series 状态刷新/后退正确；无 JS 普通链接和完整 44 项仍可达；首篇仅下一篇、中间篇双向、末篇仅上一篇，目标均为相邻日期文章；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 通过。
 

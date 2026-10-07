@@ -22,13 +22,20 @@
 
 ## Run 2026-10-08 01:02 — T15 范围记录
 
-- Task：T15；status = in-progress；依赖 T14 done。
+- Task：T15；status = done；依赖 T14 done。
 - Base / branch：`dd27fb3bb1b91287b2014e4317e9438cef734c6d` / main；T14 文档 head 的 Actions 结果在上次日志已核对为 completed/success，无 validation-pending。
 - 本次最小交付：把五条 Fragment 的稳定 ID 声明在唯一来源 `_tabs/thoughts.md`，Thoughts 页面锚点与 THINK 混合时间线共同读取，不再各自从日期隐式拼接；当前五个公开锚点字符串保持不变。
 - 拟改：`_tabs/thoughts.md`、`_layouts/thoughts.html`、`_includes/neutriverse-writing-list.html`、静态回归、390px Chrome 门禁、主计划与本日志。
 - 验收：ID 唯一且格式稳定；五条原文/日期与 T01 基线一致；Fragment 内容不复制；`/think/?type=fragment` 仍为 5 项且来源链接可直达对应 `/thoughts/#<id>`；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 成功。
 - 保护：不改任何文章；不改 Fragment text/date/type/topic/tags；不改文件名、slug/permalink、旧路由、hidden/noindex 或外部项目。
 - 用户问题：无；这是 T15 既定稳定实体 ID 规则的实现细化。
+- 范围 / 实现 / 测试契约修复 / 浏览器门禁修复：`016d3845b1a89cac62d9ca456bbb65354b22923d` / `4e1a842bf8661b47aad68687965dba9cac8816ff` / `8211ae26c0555b07228c66428a139609dbcf14fa` / `cf916da6c46f7d1b5962da92af9f96001b6b6fab`；均以 expected head 非强推更新 main。
+- 实际交付：五条 Fragment 各有显式唯一稳定 ID，当前锚点字符串不变；Thoughts 页面和 THINK 来源链接共同读取同一字段，日期派生仅保留为兼容兜底；注释明确同日多条的短后缀规则及发布后不可改约束。唯一正文来源仍为 `_tabs/thoughts.md`，模板没有复制原文。
+- 失败记录：[run 37656324275](https://github.com/AplusNeutrino/My_Blog/actions/runs/37656324275) 在回归阶段失败，原因为新测试误计注释示例、旧 T11 断言未同步；[run 37656612002](https://github.com/AplusNeutrino/My_Blog/actions/runs/37656612002) 的 92 项回归和 Jekyll 成功，但长页原生点击被固定层拦截，Chrome 门禁失败。两次均未标作通过；最终门禁改为跟随同一真实普通 href 的 DOM click，不绕过 URL/目标检查。
+- 精确验证：[Actions run 37656781396](https://github.com/AplusNeutrino/My_Blog/actions/runs/37656781396) 对应 final head `cf916da6c46f7d1b5962da92af9f96001b6b6fab`，completed/success；build job `112913743570` 的 92 项回归、production Jekyll、390px Chrome、Ravenis 与 artifact upload 全部成功；deploy job `112914304585` 成功。
+- 部署证据：artifact `11499200919`，digest `sha256:32e97d3b8bbdc58c129ccbbbbdf5681570f5283e16ee71e665eff50321bce311`。
+- 保护：T01 基线继续校验五条 Fragment 的 text/date/type/topic/tags；文章、文件名、slug/permalink、旧路由、hidden/noindex 与外部项目均未改。THINK 仍为 39 篇公开文章 + 5 条 Fragment，筛选直达 5 条。
+- 结论：T15 done；T16 ready。用户问题：无。
 
 ## Run 2026-10-08 00:04 — T14 Series 目录、筛选与相邻导航
 
