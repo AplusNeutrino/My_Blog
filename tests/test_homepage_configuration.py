@@ -29,7 +29,7 @@ class HomepageConfigurationTest(unittest.TestCase):
     def test_sources_and_visibility_policy_are_explicit(self):
         for contract in (
             "primary_source: visible_posts",
-            "fragment_source: thoughts.items",
+            "fragment_source: thoughts.fragments",
             "project_log_relation: project",
             "source: neutriverse_sections.sections",
             "post_scope: visible_posts",
@@ -46,13 +46,18 @@ class HomepageConfigurationTest(unittest.TestCase):
     def test_latest_visible_post_is_primary_and_featured_has_one_source(self):
         self.assertIn("site.data.neutriverse_home", LAYOUT)
         self.assertIn(
-            "{% assign main_post = all_visible_posts | first %}", LAYOUT
+            "home_visible_posts = site.posts | where_exp: 'item', "
+            "'item.hidden != true'",
+            LAYOUT,
         )
-        self.assertIn("for configured_rec_url in featured_config.posts", LAYOUT)
+        self.assertIn(
+            "home_visible_posts | concat: home_fragments | sort: 'date' | reverse",
+            LAYOUT,
+        )
         self.assertNotIn("site.data.home_recommend", LAYOUT)
         self.assertNotIn("all_pinned", LAYOUT)
         self.assertIn('data-home-section="latest_transmissions"', LAYOUT)
-        self.assertIn('data-home-section="featured"', LAYOUT)
+        self.assertIn("home_config.featured", CONFIG)
 
     def test_legacy_recommend_file_contains_no_duplicate_values(self):
         legacy = (ROOT / "_data" / "home_recommend.yml").read_text(encoding="utf-8")
