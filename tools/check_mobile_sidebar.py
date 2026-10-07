@@ -804,6 +804,11 @@ def main():
                     "posts": None,
                     "fragments": None,
                 },
+                "projects": {
+                    "value": "7",
+                    "posts": None,
+                    "fragments": None,
+                },
             },
             f"homepage status is not source-derived or failed to degrade: {homepage}",
         )
