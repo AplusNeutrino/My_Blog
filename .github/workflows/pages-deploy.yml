@@ -61,8 +61,8 @@ jobs:
           restore-keys: |
             ravenis-lkg-
 
-      - name: Install Ravenis reader dependency
-        run: python -m pip install boto3
+      - name: Install browser and Ravenis test dependencies
+        run: python -m pip install boto3 selenium
 
       - name: Run regression tests
         run: python -m unittest discover -s tests -v
@@ -71,6 +71,9 @@ jobs:
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
+
+      - name: Validate mobile sidebar in Chrome
+        run: python tools/check_mobile_sidebar.py "_site${{ steps.pages.outputs.base_path }}"
 
       - name: Fetch verified Ravenis public release
         id: ravenis
