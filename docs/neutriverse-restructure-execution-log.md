@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 05:02 — T19 范围记录
+
+- Task：T19；status = in-progress；依赖 T18 done。
+- Base / branch：`24edc5d67a4241e042c42d855a0730b02a8f3dda` / main；[Actions run 37679190641](https://github.com/AplusNeutrino/My_Blog/actions/runs/37679190641) 精确对应 base，completed/success，无 validation-pending。
+- 本次最小交付：按 T18 配置实现首页身份、四入口和公开混合近期流；posts 与 Fragments 按真实日期倒序，Project Log 仅作为项目相关文章的次级关系标识。
+- 拟改：`_data/neutriverse_home.yml`、`_layouts/home.html`、`assets/css/neutriverse-sections.css`、新增静态回归并扩展 `tools/check_mobile_sidebar.py`，同步主计划与本日志。
+- 验收：首页顺序先 Identity、Latest Transmissions、Explore；近期流合并 39 篇非 hidden posts 与五条原来源 Fragment，显示前 8 条并至少包含 Note/Essay/Fragment；日期严格倒序；四入口真实可达；Akasha Notes / Toyosatomimi's Headphone 只增加 Project Log 次级标识；hidden 不输出；390px、双主题、回归、Jekyll 与精确 head Pages 成功。
+- 边界：T20 才实现 Current Signal、轻量状态与精选内容；T19 移除旧 category 墙和分页脚本，不修改文章/Fragment 内容源或 metadata，不把 Project Log 变成 Type。
+- 保护：不改文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无；身份文案仅使用 `_config.yml`、站内公开 social name 与主计划已有网站定位。
+
 ## Run 2026-10-08 03:58 — T18 范围记录
 
 - Task：T18；status = done；依赖 T17 done。
