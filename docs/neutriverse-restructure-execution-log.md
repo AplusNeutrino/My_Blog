@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 06:04 — T20 范围记录
+
+- Task：T20；status = in-progress；依赖 T19 done。
+- Base / branch：`7ddf9353c4b41f6a8d2d56d2914287f92aa59ed8` / main；[Actions run 37688234891](https://github.com/AplusNeutrino/My_Blog/actions/runs/37688234891) 精确对应 base，completed/success，无 validation-pending。
+- 本次最小交付：渲染 Current Signal、精选内容和轻量 System Status，闭合 T18 配置的六区块首页。
+- 拟改：`_layouts/home.html`、`assets/css/neutriverse-sections.css`、`tests/test_homepage_configuration.py`、新增 T20 静态回归、`tools/check_mobile_sidebar.py`、主计划与本日志；配置若已足够则不制造第二来源。
+- 数据规则：Current Signal 只读已批准配置；Featured 先取配置中的公开文章，再从 `home_popular.posts`、最新公开文章顺序补足至最多 4 条，不公开访问量、不含 hidden；Status 动态计算公开 Records、posts/fragments 分解与最后更新时间。T21 项目 schema 尚不存在时不显示项目数，作为自然降级。
+- 验收：六区块严格按配置顺序；Current Signal 标题/摘要/链接真实；四条精选均为公开真实链接且无重复；Records = 39 public posts + 5 Fragments = 44，最新时间来自混合流；项目指标在无 catalog 时缺席；390px 无溢出，Night/Prospero Light、回归、production Jekyll 与精确 head Pages 成功。
+- 边界与保护：不改任何文章/Fragment 原文或 metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex、外部项目；不提前实现 T21。
+- 用户问题：无。
+
 ## Run 2026-10-08 05:02 — T19 首页身份、四入口与混合近期流
 
 - Task：T19；status = done；依赖 T18 done。
