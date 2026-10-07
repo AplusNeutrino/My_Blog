@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 03:58 — T18 范围记录
+
+- Task：T18；status = in-progress；依赖 T17 done。
+- Base / branch：`da37689e5a7710eb9e03244e393a59887d99f531` / main；[Actions run 37672947558](https://github.com/AplusNeutrino/My_Blog/actions/runs/37672947558) 精确对应 base，completed/success，无 validation-pending。
+- 本次最小交付：建立首页区块顺序、内容来源、固定推荐与 Current Signal 的单一配置契约；现有首页主卡改为最新公开文章优先，为 T19/T20 实现提供稳定输入。
+- 拟改：新增 `_data/neutriverse_home.yml`，调整 `_layouts/home.html`，停用旧 `_data/home_recommend.yml`，新增静态回归并扩展 `tools/check_mobile_sidebar.py`，同步主计划与本日志。
+- 验收：配置顺序为 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status；Latest 公开来源明确，固定推荐与 Current Signal 只有一个配置源；首页主卡等于最新公开文章；hidden 不进入主卡/推荐；390px、双主题、回归、Jekyll 与精确 head Pages 成功。
+- 边界：T18 不提前实现 T19 的 posts/fragments/Project Log 混合流，也不提前实现 T20 的完整 Current Signal、轻量状态和精选区块 UI。
+- 保护：不改文章/Fragment 正文或 metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无；Current Signal 使用用户已批准且主计划已有的“Neutriverse 网站重构”。
+
 ## Run 2026-10-08 02:59 — T17 范围记录
 
 - Task：T17；status = done；依赖 T16 done。
