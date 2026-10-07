@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 00:04 — T14 Series 目录与导航范围
+
+- Task：T14；status = in-progress；依赖 T13 done。
+- Base / branch：`4b0be3f61f68acd29217d8598eb3a5a87ad576f1` / main；该 head 的 [Actions run 37642127400](https://github.com/AplusNeutrino/My_Blog/actions/runs/37642127400) build/deploy completed/success，无 validation-pending。
+- 本次最小交付：为三个现有显式 Series 建立集中、稳定的 ID/标签/说明；在 `/think/` 提供 Series 目录及可分享筛选；在文章现有系列面板补齐目录链接和按日期相邻的上一篇/下一篇。
+- 文件范围：`_data/content_taxonomy.yml`、新增 `_includes/neutriverse-series-browser.html`、`_includes/neutriverse-writing-list.html`、`assets/js/neutriverse-writing-filters.js`、`_includes/post-series.html`、`assets/css/neutriverse-sections.css`、相关静态测试与 `tools/check_mobile_sidebar.py`、主计划/日志。
+- 验收：Series 唯一为 database-systems / computer-architecture / computer-networks，计数 10/8/10；目录数来自 39 篇公开文章 + 5 Fragment 的同一集合，不使用 categories；`series` 查询状态可分享、刷新/后退正确；无 JS 入口和全部记录仍可达；系列列表升序，首/中/末篇相邻导航边界与目标正确；390px 双主题无横向溢出；精确实现 SHA 的回归、Jekyll、Chrome 与 Pages 成功。
+- 保护：不改任何旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T15 不提前实现。
+- 用户问题：无。
+
 ## Run 2026-10-07 22:55 — T13 Topic 浏览面与四主题入口
 
 - Task：T13；status = done；依赖 T12 done。

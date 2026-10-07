@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = 56ee549945d3b61e57b8dd86d67c7b6bab61b82c；checkpoint = T13 done；next = T14；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T14；branch = main；base = 4b0be3f61f68acd29217d8598eb3a5a87ad576f1；checkpoint = T13 done；next = T14；completion = IN PROGRESS。
+
+T14 本次范围：为现有三个显式 Series 建立稳定定义与 `/think/?series=<id>` 浏览面：Database Systems（database-systems，10 篇）、Computer Architecture（computer-architecture，8 篇）、Computer Networks（computer-networks，10 篇）。Series 标签/ID/说明集中在 `_data/content_taxonomy.yml`，目录计数与筛选直接复用公开 `nv_writing_items`，不从旧 categories 回退、不复制文章列表；现有 `post-series.html` 继续按日期升序，并补充指向该 Series 浏览面的稳定链接及边界正确的上一篇/下一篇。拟改 taxonomy、Series 浏览 include、writing-list、筛选脚本、post-series、共享样式、静态回归和 390px Chrome 门禁；不改旧学习笔记或其他文章/Fragment 的正文、标题、front matter、文件名、日期、slug/permalink、旧 URL。验收为三个目录项唯一且计数 10/8/10；可分享 Series 状态刷新/后退正确；无 JS 普通链接和完整 44 项仍可达；首篇仅下一篇、中间篇双向、末篇仅上一篇，目标均为相邻日期文章；精确实现 SHA 的回归、Jekyll、浏览器与 Pages 通过。
 
 T13 本次范围：在 `/think/` 增加四个稳定 Topic 入口，固定顺序为 Computation / Humanity / Otaku / Arts；标签与说明复用 `_data/content_taxonomy.yml`，每个数量直接从 T11/T12 已合并的 39 篇公开文章 + 5 条 Fragment 同一集合筛选得出，不维护第二套计数或内容列表。入口链接使用可分享的 `/think/?topic=<id>` 并由现有 T12 状态恢复机制激活对应筛选；JavaScript 只同步当前入口状态，不复制分类来源。拟新增 Topic 浏览 include，并调整 writing-list 接线、taxonomy 顺序、共享样式、静态回归与 390px Chrome 门禁；不新增 Topic、不改文章/Fragment、metadata、旧 URL 或外部项目。验收为四入口唯一且数量 computation/humanity/otaku/arts = 34/6/3/1，总和 44；点击、刷新、后退保持 Topic；无 JavaScript 时入口仍是普通可达链接且完整 44 项继续呈现；双主题/移动端/构建部署通过。
 
