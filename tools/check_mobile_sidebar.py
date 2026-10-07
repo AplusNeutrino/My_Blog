@@ -162,6 +162,32 @@ def read_series_navigation(driver):
         """
     )
 
+def read_post_presentation(driver):
+    return driver.execute_script(
+        r"""
+        const article = document.querySelector('article.nv-post');
+        const content = article?.querySelector('.content');
+        const rect = content?.getBoundingClientRect();
+        const constrained = [...(content?.querySelectorAll(
+          'pre, .highlight, .table-wrapper, img, video, iframe'
+        ) || [])].filter((item) => {
+          const itemRect = item.getBoundingClientRect();
+          return itemRect.width > (rect?.width || 0) + 1;
+        });
+        return {
+          type: article?.dataset.writingType || null,
+          classes: article ? [...article.classList] : [],
+          marker: article?.querySelector('.nv-post-type')?.textContent
+            .trim().replace(/\s+/g, ' ') || null,
+          contentWidth: rect?.width || 0,
+          bodyClientWidth: document.body.clientWidth,
+          bodyScrollWidth: document.body.scrollWidth,
+          constrainedOverflow: constrained.map((item) => item.tagName)
+        };
+        """
+    )
+
+
 def require(condition, message):
     if not condition:
         raise AssertionError(message)
@@ -462,6 +488,52 @@ def main():
             )
             actual = read_series_navigation(driver)
             require(actual == expected, f"Series neighbor contract failed at {path}: {actual}")
+
+        type_expectations = [
+            ("note", "NOTE / 笔记"),
+            ("essay", "ESSAY / 长文"),
+        ]
+        for writing_type, marker in type_expectations:
+            driver.get(think_url + f"?type={writing_type}")
+            wait.until(
+                lambda current: (
+                    (state := read_state(current))["controlsVisible"]
+                    and state["filterType"] == writing_type
+                    and state["visibleWritingCount"] > 0
+                )
+            )
+            post_path = driver.execute_script(
+                r"""
+                const link = document.querySelector(
+                  '#nv-writing-list [data-writing-item]:not([hidden]) h3 a'
+                );
+                return link ? new URL(link.href).pathname : null;
+                """
+            )
+            require(post_path, f"missing built {writing_type} link")
+            driver.get(site_url + post_path)
+            wait.until(
+                lambda current: current.execute_script(
+                    "return document.readyState"
+                ) == "complete"
+            )
+            presentation = read_post_presentation(driver)
+            require(
+                presentation["type"] == writing_type
+                and f"nv-post--{writing_type}" in presentation["classes"]
+                and presentation["marker"] == marker,
+                f"{writing_type} presentation contract failed: {presentation}",
+            )
+            require(
+                0 < presentation["contentWidth"] <= 740
+                and presentation["bodyScrollWidth"]
+                <= presentation["bodyClientWidth"],
+                f"{writing_type} reading measure overflow: {presentation}",
+            )
+            require(
+                presentation["constrainedOverflow"] == [],
+                f"{writing_type} rich content escaped its container: {presentation}",
+            )
 
         driver.get(think_url + "?type=fragment")
         wait.until(

@@ -818,3 +818,116 @@
     transition: none;
   }
 }
+
+
+/* T16: one content source, three distinct reading rhythms. */
+.nv-writing-record.is-note {
+  border-left: 3px solid var(--nv-accent);
+}
+
+.nv-writing-record.is-essay {
+  padding-block: 1.25rem;
+  border-color: var(--nv-border-strong);
+  box-shadow: inset 0 2px 0 var(--nv-signal);
+}
+
+.nv-writing-record.is-essay h3 {
+  font-family: var(--nv-font-reading);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.nv-writing-record.is-fragment {
+  border-style: dashed;
+  background: transparent;
+}
+
+.nv-writing-record.is-fragment time {
+  color: var(--nv-accent);
+}
+
+article.nv-post > header,
+article.nv-post > .content,
+article.nv-post > .post-tail-wrapper {
+  width: 100%;
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.nv-post-type {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nv-post-type span:first-child {
+  color: var(--nv-accent);
+}
+
+article.nv-post > .content {
+  font-family: var(--nv-font-reading);
+  font-size: 1.0625rem;
+  line-height: 1.82;
+}
+
+article.nv-post--note > header {
+  padding-left: 1rem;
+  border-left: 3px solid var(--nv-accent);
+}
+
+article.nv-post--note > header h1 {
+  font-size: clamp(1.85rem, 5vw, 2.5rem);
+  line-height: 1.22;
+}
+
+article.nv-post--essay > header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--nv-border-strong);
+}
+
+article.nv-post--essay > header h1 {
+  font-family: var(--nv-font-reading);
+  font-size: clamp(2.2rem, 6vw, 3.25rem);
+  line-height: 1.12;
+}
+
+article.nv-post .content pre,
+article.nv-post .content .highlight,
+article.nv-post .content .table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+article.nv-post .content img,
+article.nv-post .content video,
+article.nv-post .content iframe {
+  max-width: 100%;
+}
+
+article.nv-post .content img,
+article.nv-post .content video {
+  height: auto;
+}
+
+@media (max-width: 767.98px) {
+  article.nv-post--note > header {
+    padding-left: 0.75rem;
+  }
+
+  article.nv-post > .content {
+    font-size: 1rem;
+    line-height: 1.78;
+  }
+
+  article.nv-post--essay > header h1 {
+    font-size: clamp(2rem, 10vw, 2.65rem);
+  }
+}

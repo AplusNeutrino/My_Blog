@@ -9,8 +9,20 @@ panel_includes:
 
 {% include toc-status.html %}
 
-<article class="px-1" data-toc="{{ enable_toc }}">
+{% assign nv_post_type = site.data.content_taxonomy.types[page.type] %}
+<article
+  class="px-1 nv-post{% if page.type %} nv-post--{{ page.type | escape }}{% endif %}"
+  data-toc="{{ enable_toc }}"
+  {% if page.type %}data-writing-type="{{ page.type | escape }}"{% endif %}
+>
   <header>
+    {% if nv_post_type %}
+      <p class="nv-post-type" aria-label="内容类型">
+        <span>{{ nv_post_type.label }}</span>
+        <span aria-hidden="true">/</span>
+        <span>{{ nv_post_type.label_zh }}</span>
+      </p>
+    {% endif %}
     <h1 data-toc-skip>{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>

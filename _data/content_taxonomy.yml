@@ -18,10 +18,13 @@ series:
 types:
   fragment:
     label: Fragment
+    label_zh: 片段
   note:
     label: Note
+    label_zh: 笔记
   essay:
     label: Essay
+    label_zh: 长文
 
 topics:
   otaku:

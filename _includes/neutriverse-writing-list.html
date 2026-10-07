@@ -99,7 +99,7 @@
 
         <li data-writing-item>
           <article
-            class="nv-writing-record{% if nv_is_fragment %} is-fragment{% endif %}"
+            class="nv-writing-record is-{{ item.type | escape }}"
             data-writing-record
             data-writing-date="{{ nv_date_key }}"
             data-writing-type="{{ item.type | escape }}"
