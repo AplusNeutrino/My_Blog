@@ -63,8 +63,42 @@
       }
     };
 
-    const applySidebarState = (collapsed) => {
+    const applySidebarState = (collapsed, restoreFocus = false) => {
       document.body.classList.toggle('site-sidebar-collapsed', collapsed);
+      const sidebar = document.getElementById('sidebar');
+      const avatar = document.getElementById('avatar');
+      const recall = document.querySelector('.site-sidebar-recall');
+      const hidden = desktopQuery.matches && collapsed;
+
+      if (sidebar) {
+        sidebar.inert = hidden;
+        if (hidden) sidebar.setAttribute('aria-hidden', 'true');
+        else sidebar.removeAttribute('aria-hidden');
+      }
+
+      if (recall) {
+        recall.hidden = !hidden;
+        recall.setAttribute('aria-controls', 'sidebar');
+        recall.setAttribute('aria-expanded', String(!hidden));
+      }
+
+      if (avatar) {
+        if (desktopQuery.matches) {
+          avatar.setAttribute('role', 'button');
+          avatar.setAttribute('aria-controls', 'sidebar');
+          avatar.setAttribute('aria-expanded', String(!hidden));
+          avatar.setAttribute('aria-label', '收起左侧栏');
+        } else {
+          avatar.removeAttribute('role');
+          avatar.removeAttribute('aria-controls');
+          avatar.removeAttribute('aria-expanded');
+          avatar.setAttribute('aria-label', '返回 Neutriverse 首页');
+        }
+      }
+
+      if (restoreFocus && desktopQuery.matches) {
+        (hidden ? recall : avatar)?.focus({ preventScroll: true });
+      }
     };
 
     const getAutomaticSidebarState = () => {
@@ -125,6 +159,13 @@
 
       applyStoredOrAutomaticSidebarState();
       window.addEventListener('pageshow', applyStoredOrAutomaticSidebarState);
+      desktopQuery.addEventListener('change', applyStoredOrAutomaticSidebarState);
+
+      const collapseSidebar = () => {
+        spin(avatar);
+        safeStorage.set(storageKey, 'true');
+        applySidebarState(true, true);
+      };
 
       avatar.addEventListener('click', (event) => {
         if (!desktopQuery.matches) {
@@ -132,15 +173,27 @@
         }
 
         event.preventDefault();
-        spin(avatar);
-        safeStorage.set(storageKey, 'true');
-        applySidebarState(true);
+        collapseSidebar();
+      });
+
+      avatar.addEventListener('keydown', (event) => {
+        if (desktopQuery.matches && event.key === ' ') {
+          event.preventDefault();
+          collapseSidebar();
+        }
+      });
+
+      sidebar.addEventListener('keydown', (event) => {
+        if (desktopQuery.matches && event.key === 'Escape') {
+          event.preventDefault();
+          collapseSidebar();
+        }
       });
 
       recall.addEventListener('click', () => {
         spin(recall);
         safeStorage.set(storageKey, 'false');
-        applySidebarState(false);
+        applySidebarState(false, true);
       });
     });
   })();

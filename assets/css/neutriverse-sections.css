@@ -141,6 +141,16 @@
   box-shadow: none;
 }
 
+.site-sidebar-recall[hidden] {
+  display: none !important;
+}
+
+.site-sidebar-recall:focus-visible,
+#sidebar #avatar:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
 @media (min-width: 850px) {
   #sidebar .profile-wrapper {
     margin-bottom: 0.75rem;
