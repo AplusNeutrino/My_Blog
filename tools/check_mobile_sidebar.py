@@ -86,7 +86,15 @@ def read_state(driver):
           writingTypes: writingCounts('writingType'),
           writingTopics: writingCounts('writingTopic'),
           firstWritingDate: writingRecords[0]?.dataset.writingDate || null,
-          writingText: document.getElementById('nv-writing-list')?.textContent || ''
+          hiddenWritingTitles: [
+            'Zodiac',
+            '最后的纳尔马斯克人',
+            'NoSQL 项目面经',
+            'ROSSMANN项目面经',
+            '中间层网站更新记录'
+          ].filter(
+            (title) => document.getElementById('nv-writing-list')?.textContent.includes(title)
+          )
         };
         """
     )
@@ -155,18 +163,18 @@ def main():
             f"public Topic counts changed: {initial}",
         )
         require(initial["firstWritingDate"] == "2026-08-17", f"writing order changed: {initial}")
-        for hidden_title in (
-            "Zodiac",
-            "最后的纳尔马斯克人",
-            "NoSQL 项目面经",
-            "ROSSMANN项目面经",
-            "中间层网站更新记录",
-        ):
-            require(hidden_title not in initial["writingText"], f"hidden title leaked: {hidden_title}")
+        require(
+            initial["hiddenWritingTitles"] == [],
+            f"hidden title leaked: {initial['hiddenWritingTitles']}",
+        )
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")
         trigger.click()
-        wait.until(lambda current: read_state(current)["open"])
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["open"] and state["focusInSidebar"]
+            )
+        )
         opened = read_state(driver)
         require(opened["expanded"] == "true" and opened["focusInSidebar"], f"open focus contract failed: {opened}")
         require(
