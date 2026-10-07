@@ -1097,11 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = d28ac191c41f316919348b8878977f7b53cb64be；checkpoint = T11 done；next = T12；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = b1554ce9d3bbfe9f4e56a2f434b3bbf16d572b5a；checkpoint = T11 done；next = T12；completion = IN PROGRESS。
 
 T11 本次范围：在 `/think/` 使用现有 `site.posts` 与 `_tabs/thoughts.md` 的 Fragment 单一来源生成倒序写作时间线；公开范围为 39 篇非 hidden 文章 + 5 条 Fragment，共 44 项。每项显示 Type/Topic，文章保留原链接，Fragment 链接回 Thoughts 的稳定锚点；无内容时显示真实空状态。组合筛选、排序切换、分页与 URL 状态属于 T12，本次不提前实现。拟改共享 section layout、新写作列表 include、Thought anchor、共享样式、相关回归与现有 390px Chrome 门禁；不改任何文章/Fragment 原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
-T11 完成证据：实现 `d28ac191c41f316919348b8878977f7b53cb64be` 在 `/think/` 输出 44 项日期倒序写作清单，Type 为 35 Note / 4 Essay / 5 Fragment，Topic 为 computation 34 / humanity 6 / otaku 3 / arts 1；首项日期 2026-08-17，hidden 标题不输出，文章沿用原 URL，Fragment 返回 `/thoughts/` 稳定锚点，真实空状态已实现。精确 Actions run `37605371371`：build job `112739422247` 的回归、production Jekyll 与 390px Chrome 门禁成功，deploy job `112739815749` 成功；Pages artifact `11474821554`，digest `sha256:288ccb2ac908394dca5dd7b34574682bbdb83159586570d71350005117100550`。未改文章/Thought 原文、front matter、日期、slug/permalink、旧路由或外部项目。
+T11 完成证据：实现 `d28ac191c41f316919348b8878977f7b53cb64be` 在 `/think/` 输出 44 项日期倒序写作清单，Type 为 35 Note / 4 Essay / 5 Fragment，Topic 为 computation 34 / humanity 6 / otaku 3 / arts 1；首项日期 2026-08-17，hidden 标题不输出，文章沿用原 URL，Fragment 返回 `/thoughts/` 稳定锚点，真实空状态已实现。精确 Actions run `37605371371`：build job `112739422247` 的回归、production Jekyll 与 390px Chrome 门禁成功，deploy job `112739815749` 成功；Pages artifact `11474821554`，digest `sha256:288ccb2ac908394dca5dd7b34574682bbdb83159586570d71350005117100550`。未改文章/Thought 原文、front matter、日期、slug/permalink、旧路由或外部项目。后续文档 head `2898a46811aa8170ade88d105a67b41ab0e8a390` 的 run `37605673482` 暴露 Chrome 焦点读取早于 `requestAnimationFrame` 的测试竞态（站点清单、回归和 Jekyll 均正常）；`b1554ce9d3bbfe9f4e56a2f434b3bbf16d572b5a` 改为等待抽屉打开且焦点进入侧栏，并缩短隐藏标题失败输出。其精确 run `37605887655` 的 build `112741125853`、deploy `112741535916` 全部成功，artifact `11475450372`，digest `sha256:6820ea6e1a328cb58e54613937c38918756cc1b92df7c6b6287b190a78ae7dde`。
 
 T10.b 本次范围：增强 Chirpy 原生手机 sidebar trigger/mask 的 aria-expanded、关闭焦点恢复、Escape 与断点清理；仅调整导航交互脚本/共享样式、相关测试、计划/日志。验收：390px CSS viewport 的四入口/辅助入口/关闭路径可用、无 body 横向溢出、44px 关键触控目标、打开后焦点进入 sidebar、Escape/mask/导航后关闭并回 trigger；两主题与对应实现 SHA CI/部署通过。若窄视口只能通过浏览器 zoom 获得，须同时记录实际 innerWidth，不以桌面截图替代。
 

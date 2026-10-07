@@ -34,6 +34,9 @@
 - 部署证据：Pages artifact `11474821554`，digest `sha256:288ccb2ac908394dca5dd7b34574682bbdb83159586570d71350005117100550`。
 - 保护：未改 `_posts/`、Fragment 原文/数据、文件名、date、slug/permalink、旧路由、hidden 可见性或外部项目；T12 能力未提前实现。
 - 结论：T11 done；T12 ready。用户问题：无。
+- 后续门禁核验：文档 head `2898a46811aa8170ade88d105a67b41ab0e8a390` 的 run `37605673482` 在回归与 Jekyll 成功后，Chrome 于抽屉已开但 `requestAnimationFrame` 尚未转移焦点时过早断言而失败；这不是站点行为或清单数据失败，仍按真实失败记录。
+- 稳定化提交：`b1554ce9d3bbfe9f4e56a2f434b3bbf16d572b5a` 令门禁等待“抽屉打开且焦点进入侧栏”，并将隐藏标题诊断缩减为命中项，避免整份写作清单污染日志。
+- 稳定化验证：精确 run `37605887655` success；build `112741125853`（回归、production Jekyll、390px Chrome）与 deploy `112741535916` 均 success；artifact `11475450372`，digest `sha256:6820ea6e1a328cb58e54613937c38918756cc1b92df7c6b6287b190a78ae7dde`。T11 继续为 done，下一项 T12。
 
 ## Run 2026-10-07 17:03 — T10.b 手机菜单与窄屏验收范围
 
