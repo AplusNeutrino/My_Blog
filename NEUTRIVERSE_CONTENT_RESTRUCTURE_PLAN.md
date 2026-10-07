@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T09 done; T10 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 completed; T00–T09 done; T10 in progress (T10.a done, T10.b ready); implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T09 done，T10 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T09.a 桌面导航验收及遗留样式修复；base SHA `15438e1a30715062087f1c05fbfd4c96f103f392`，最终修复 `c50938297d9b9388aceff5df84e60c051973dac9`；精确 CI/部署与浏览器检查通过。下一项 T10 手机导航、键盘与折叠专项，390px 等移动验收尚未完成。
+**当前状态：计划细化与启动决定已完成，T00–T09 done，T10 in-progress（T10.a done，T10.b ready）。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T10.a 桌面折叠键盘/焦点与状态；base SHA `b7fd898660d9bbabd6d0a8bdd0396069ef014aeb`，实现 `0968f1da56201a55d3c340dd8c323f6dc7c8c141`；精确 CI/部署与双主题桌面浏览器通过。下一项 T10.b 手机导航/关闭/焦点与 390px 实际验收，父 T10 尚未完成。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T09 = done，T10 = ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T09 = done，T10 = in-progress（T10.a done，T10.b ready），其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T10.a；branch = main；base = b7fd898660d9bbabd6d0a8bdd0396069ef014aeb；checkpoint = T09 done；next = T10.a；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = b7fd898660d9bbabd6d0a8bdd0396069ef014aeb；checkpoint = T10.a done / 0968f1da56201a55d3c340dd8c323f6dc7c8c141；next = T10.b；completion = IN PROGRESS。
 
-T10 拆分：T10.a 桌面折叠键盘/焦点与状态（in-progress）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（pending）。本次 T10.a 拟改 metadata-hook sidebar controller、共享 focus CSS、相关回归与日志。验收：关闭侧栏不留不可见 Tab 目标，展开/收起正确命名与 expanded 状态，Escape 关闭并回到展开按钮，重新展开恢复焦点，既有自动折叠和 storage 保留；全套测试、正文/URL 基线、精确提交 CI/部署与浏览器。父 T10 在手机专项通过前不能 done。
+T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（ready）。T10.a 已改 metadata-hook sidebar controller、共享 focus CSS、相关行为回归。关闭侧栏不留不可见 Tab 目标，展开/收起正确命名与 expanded 状态，Escape 关闭并回到展开按钮，重新展开恢复焦点，既有自动折叠和 storage 保留；75 tests/正文 URL 基线/精确 CI 部署/双主题桌面浏览器通过。父 T10 在手机专项通过前不能 done；本次浏览器接口未提供 viewport resize，不把 1363px 或 DOM stub 当 390px 验收。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1261,3 +1261,11 @@ T10 拆分：T10.a 桌面折叠键盘/焦点与状态（in-progress）；T10.b �
 - 精确最终 [run 37594247954](https://github.com/AplusNeutrino/My_Blog/actions/runs/37594247954) head `c509382...`：回归、Jekyll build、artifact upload、Pages deploy 全部成功；artifact `11469916226`，digest `sha256:be289d881b1e8f7ac29de1a3f1727b81e7937f2c91443d5cc6b9e99b0e7b9fc8`。
 - 实际桌面浏览器：1363px，四入口/home active 与跳转、Tags/Archive、Search 查询 Akasha 及取消、双主题切换均通过；最终辅助入口宽约 81px、无折行/隐藏，明暗模式无页面横向溢出；Tab 到 THINK 的焦点环为 2px/3px。RSS/既有社交链接保留且可到达，不对外发送信息。
 - 验收边界：T09 桌面范围 done；未将此结果代替 T10 的 390px、手机折叠/焦点恢复或 T31 全断点专项。没有新增用户问题；下一项 T10 ready。
+
+### T10.a — 桌面侧栏键盘与折叠状态（done；父 T10 in-progress）
+
+- Base `b7fd898660d9bbabd6d0a8bdd0396069ef014aeb`；范围提交 `23108f19456f86ef76911eb520be0f1a01b7037f`；实现 `0968f1da56201a55d3c340dd8c323f6dc7c8c141`。
+- 交付：折叠时 sidebar inert/aria-hidden、展开按钮 hidden/expanded 与状态同步，桌面 avatar 动作角色/标签正确、Space/Enter/Escape 可操作、焦点关闭→展开按钮/打开→avatar；断点切入手机时释放桌面 inert，不改 native 手机菜单本体。
+- 验证：75 tests OK（含 Node 执行实际 controller 的状态/焦点行为）；T01 protection passed；diff check 通过。精确 [run 37596416095](https://github.com/AplusNeutrino/My_Blog/actions/runs/37596416095)，head `0968f1d...`，回归/Jekyll/上传/部署全部成功，build/deploy jobs `112710055792` / `112710337878`。
+- 浏览器：1363px，Night Space 收起→inert/焦点 recall；Shift+Tab 去页脚且不进入 sidebar；打开→avatar；HOME Escape 收起；Light Enter 收起/打开与焦点恢复正确，2px 主题焦点环；未把此结果说成手机通过。
+- 无用户问题。下一项 T10.b 手机菜单与 390px；T11/T21 依赖父 T10，暂不解锁。

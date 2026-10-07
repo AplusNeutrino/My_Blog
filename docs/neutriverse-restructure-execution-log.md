@@ -20,7 +20,7 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-07 16:45 — T10.a 范围锁定
+## Run 2026-10-07 16:45 — T10.a 范围锁定（最终 done）
 
 - Task / parent：T10.a / T10；status = in-progress；依赖 T09 done。
 - Base / branch：`b7fd898660d9bbabd6d0a8bdd0396069ef014aeb` / main，最新 head 无额外用户差异。
@@ -29,6 +29,17 @@
 - 验收：全回归/基线保护/精确 SHA Pages；桌面实际浏览器收起→Tab→展开→Escape 与 storage 状态核对。手机菜单与 390px 留 T10.b，父项未全部通过不标 done。
 - 调度处理：用户要求保留每小时一次、暂停重复项。peek 只发现一个完整重构任务，原处 paused；已恢复 `6ac11b88fe048191ae937f499e28ed30` enabled/hourly，旧 Taxonomy Migration 保持 paused；没有新建或改其他项目任务。
 - 用户问题：无。
+
+### T10.a 交付与验收
+
+- 范围记录 `23108f19456f86ef76911eb520be0f1a01b7037f`；实现 `0968f1da56201a55d3c340dd8c323f6dc7c8c141`，non-force + expected head 保存 main。
+- 文件：`_includes/metadata-hook.html`、`assets/css/neutriverse-sections.css`、`tests/test_sidebar_keyboard.py`。桌面折叠令 sidebar inert/aria-hidden，recall 的 hidden/expanded/controls 和 avatar 的动作角色同步；Space/Enter/Escape 与打开/关闭焦点返回；进入手机断点时取消桌面 inert/动作角色；原 native 手机菜单未重写。
+- 本地：75 tests OK，其中 Node 运行实际 inline controller，验证折叠/展开/焦点/属性/断点恢复，测试模拟 DOM 不冒充渲染验收；`git diff --check` 通过；T01 baseline protection passed，44 posts/5 Fragments 正文/date/slug/permalink/旧 URL 未改。本地没有 Ruby，构建由精确 CI 验证。
+- CI：[run 37596416095](https://github.com/AplusNeutrino/My_Blog/actions/runs/37596416095) head `0968f1da56201a55d3c340dd8c323f6dc7c8c141`；build job `112710055792`、deploy job `112710337878` 全部 success，regression/Jekyll/artifact/Pages 成功。
+- artifact 上传证据：`11470288774`，digest `sha256:3752fd415df231da04ee6428e9c193734686febb642076eee7265d0fcbaa20a5`；未声称本次解包验证。
+- 实际浏览器：部署后 reload，1363px Night 空格收起→侧栏 inert/aria-hidden、焦点 recall；Shift+Tab 去页脚，不进入隐藏菜单；展开→avatar；HOME Escape→recall；Light Enter 收起/展开→焦点返回正确，recall 焦点环 rgb(25,127,147) solid 2px，Night 为 rgb(95,133,255) solid 2px。role/expanded 状态与可访问树一致。
+- 验收限制：可用浏览器 API 未提供 viewport resize；没有进行 390px 真渲染或 native 手机折叠专项。T10.a done，父 T10 in-progress；T10.b ready，下一轮应优先补手机菜单行为及获得可核验的窄视口渲染，不能跳过父依赖推进 T11/T21。
+- 调度：恢复同一完整重构任务 enabled/hourly；旧迁移保持 paused，无新增重复任务。无新待答问题。
 
 ## Run 2026-10-07 — T09.a 续接与缺陷范围（最终 done）
 
