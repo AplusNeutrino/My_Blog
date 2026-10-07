@@ -1,0 +1,26 @@
+<section class="nv-topic-browser nv-series-browser" aria-labelledby="nv-series-browser-title" data-writing-series-browser>
+  <div class="nv-topic-browser-heading">
+    <p>SERIES DIRECTORY</p>
+    <h3 id="nv-series-browser-title">按系列浏览</h3>
+  </div>
+
+  <ul class="nv-topic-browser-list nv-series-browser-list">
+    {% for series in site.data.content_taxonomy.series %}
+      {% assign series_items = include.items | where: 'series', series.label | sort: 'date' %}
+      <li>
+        <a
+          class="nv-topic-browser-link nv-series-browser-link"
+          href="{{ '/think/' | relative_url }}?series={{ series.id | url_encode }}"
+          data-writing-series-link="{{ series.id }}"
+        >
+          <span class="nv-topic-browser-name">{{ series.label }}</span>
+          <span class="nv-topic-browser-description">{{ series.description }}</span>
+          <span class="nv-topic-browser-count">
+            <strong data-writing-series-count="{{ series.id }}">{{ series_items.size }}</strong>
+            篇公开文章
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

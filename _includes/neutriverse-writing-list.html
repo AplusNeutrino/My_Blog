@@ -24,6 +24,7 @@
   </div>
 
   {% include neutriverse-topic-browser.html items=nv_writing_items %}
+  {% include neutriverse-series-browser.html items=nv_writing_items %}
 
   {% if nv_writing_items.size > 0 %}
     <form class="nv-writing-controls" data-writing-controls hidden>
@@ -45,6 +46,16 @@
           <option value="humanity">Humanity</option>
           <option value="otaku">Otaku</option>
           <option value="arts">Arts</option>
+        </select>
+      </div>
+
+      <div class="nv-writing-control">
+        <label for="nv-writing-series">Series / 系列</label>
+        <select id="nv-writing-series" name="series">
+          <option value="all">All / 全部</option>
+          {% for series in site.data.content_taxonomy.series %}
+            <option value="{{ series.id }}">{{ series.label }}</option>
+          {% endfor %}
         </select>
       </div>
 
@@ -76,6 +87,11 @@
         {% assign nv_type = site.data.content_taxonomy.types[item.type] %}
         {% assign nv_topic = site.data.content_taxonomy.topics[item.topic] %}
         {% assign nv_date_key = item.date | date: '%Y-%m-%d' %}
+        {% assign nv_series_id = '' %}
+        {% if item.series %}
+          {% assign nv_series_definition = site.data.content_taxonomy.series | where: 'label', item.series | first %}
+          {% assign nv_series_id = nv_series_definition.id | default: item.series | slugify %}
+        {% endif %}
 
         <li data-writing-item>
           <article
@@ -84,6 +100,7 @@
             data-writing-date="{{ nv_date_key }}"
             data-writing-type="{{ item.type | escape }}"
             data-writing-topic="{{ item.topic | escape }}"
+            data-writing-series="{{ nv_series_id | escape }}"
           >
             <time datetime="{{ item.date | date_to_xmlschema }}">
               <span>{{ item.date | date: '%Y' }}</span>

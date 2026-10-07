@@ -4,6 +4,17 @@ topic_order:
   - otaku
   - arts
 
+series:
+  - id: database-systems
+    label: Database Systems
+    description: 数据库系统学习笔记的现有时间序列。
+  - id: computer-architecture
+    label: Computer Architecture
+    description: 计算机组成与体系结构学习笔记的现有时间序列。
+  - id: computer-networks
+    label: Computer Networks
+    description: 计算机网络学习笔记的现有时间序列。
+
 types:
   fragment:
     label: Fragment

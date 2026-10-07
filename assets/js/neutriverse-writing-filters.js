@@ -1,5 +1,5 @@
 (() => {
-  const PARAM_KEYS = ['type', 'topic', 'sort', 'page'];
+  const PARAM_KEYS = ['type', 'topic', 'series', 'sort', 'page'];
   const ALLOWED_TYPES = new Set(['all', 'note', 'essay', 'fragment']);
   const ALLOWED_TOPICS = new Set(['all', 'computation', 'humanity', 'otaku', 'arts']);
   const ALLOWED_SORTS = new Set(['newest', 'oldest']);
@@ -21,14 +21,19 @@
           index,
           date: record?.dataset.writingDate || '',
           type: record?.dataset.writingType || '',
-          topic: record?.dataset.writingTopic || ''
+          topic: record?.dataset.writingTopic || '',
+          series: record?.dataset.writingSeries || ''
         };
       }
     );
     const pageSize = Number.parseInt(ledger.dataset.writingPageSize || '12', 10);
     const typeSelect = controls.elements.type;
     const topicSelect = controls.elements.topic;
+    const seriesSelect = controls.elements.series;
     const sortSelect = controls.elements.sort;
+    const allowedSeries = new Set(
+      Array.from(seriesSelect.options, (option) => option.value)
+    );
     const matchCount = ledger.querySelector('[data-writing-match-count]');
     const countLabel = ledger.querySelector('[data-writing-count-label]');
     const status = ledger.querySelector('[data-writing-status]');
@@ -39,10 +44,13 @@
     const next = ledger.querySelector('[data-writing-page="next"]');
     const topicBrowser = ledger.querySelector('[data-writing-topic-browser]');
     const topicLinks = Array.from(ledger.querySelectorAll('[data-writing-topic-link]'));
+    const seriesBrowser = ledger.querySelector('[data-writing-series-browser]');
+    const seriesLinks = Array.from(ledger.querySelectorAll('[data-writing-series-link]'));
 
     let state = {
       type: 'all',
       topic: 'all',
+      series: 'all',
       sort: 'newest',
       page: 1
     };
@@ -51,12 +59,14 @@
       const params = new URLSearchParams(window.location.search);
       const type = params.get('type');
       const topic = params.get('topic');
+      const series = params.get('series');
       const sort = params.get('sort');
       const rawPage = Number.parseInt(params.get('page') || '1', 10);
 
       return {
         type: ALLOWED_TYPES.has(type) ? type : 'all',
         topic: ALLOWED_TOPICS.has(topic) ? topic : 'all',
+        series: allowedSeries.has(series) ? series : 'all',
         sort: ALLOWED_SORTS.has(sort) ? sort : 'newest',
         page: Number.isInteger(rawPage) && rawPage > 0 ? rawPage : 1
       };
@@ -71,6 +81,9 @@
       }
       if (candidate.topic !== 'all') {
         url.searchParams.set('topic', candidate.topic);
+      }
+      if (candidate.series !== 'all') {
+        url.searchParams.set('series', candidate.series);
       }
       if (candidate.sort !== 'newest') {
         url.searchParams.set('sort', candidate.sort);
@@ -87,7 +100,8 @@
         .filter(
           (item) =>
             (state.type === 'all' || item.type === state.type) &&
-            (state.topic === 'all' || item.topic === state.topic)
+            (state.topic === 'all' || item.topic === state.topic) &&
+            (state.series === 'all' || item.series === state.series)
         )
         .sort((left, right) => {
           const direction = state.sort === 'oldest' ? 1 : -1;
@@ -98,9 +112,19 @@
     const syncControls = () => {
       typeSelect.value = state.type;
       topicSelect.value = state.topic;
+      seriesSelect.value = state.series;
       sortSelect.value = state.sort;
       topicLinks.forEach((link) => {
         const isCurrent = link.dataset.writingTopicLink === state.topic;
+        link.classList.toggle('is-current', isCurrent);
+        if (isCurrent) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+      seriesLinks.forEach((link) => {
+        const isCurrent = link.dataset.writingSeriesLink === state.series;
         link.classList.toggle('is-current', isCurrent);
         if (isCurrent) {
           link.setAttribute('aria-current', 'true');
@@ -191,6 +215,7 @@
       state = {
         type: ALLOWED_TYPES.has(typeSelect.value) ? typeSelect.value : 'all',
         topic: ALLOWED_TOPICS.has(topicSelect.value) ? topicSelect.value : 'all',
+        series: allowedSeries.has(seriesSelect.value) ? seriesSelect.value : 'all',
         sort: ALLOWED_SORTS.has(sortSelect.value) ? sortSelect.value : 'newest',
         page: 1
       };
@@ -206,6 +231,23 @@
       state = {
         type: 'all',
         topic: link.dataset.writingTopicLink,
+        series: 'all',
+        sort: 'newest',
+        page: 1
+      };
+      render({ historyMode: 'push' });
+    });
+
+    seriesBrowser?.addEventListener('click', (event) => {
+      const link = event.target.closest('a[data-writing-series-link]');
+      if (!link || !allowedSeries.has(link.dataset.writingSeriesLink)) {
+        return;
+      }
+      event.preventDefault();
+      state = {
+        type: 'all',
+        topic: 'all',
+        series: link.dataset.writingSeriesLink,
         sort: 'newest',
         page: 1
       };
@@ -215,7 +257,7 @@
     controls.addEventListener('change', updateFromControls);
     controls.addEventListener('reset', (event) => {
       event.preventDefault();
-      state = { type: 'all', topic: 'all', sort: 'newest', page: 1 };
+      state = { type: 'all', topic: 'all', series: 'all', sort: 'newest', page: 1 };
       render({ historyMode: 'push' });
     });
 

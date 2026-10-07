@@ -101,12 +101,24 @@ def read_state(driver):
               href: link.getAttribute('href')
             })
           ),
+          seriesEntries: [...document.querySelectorAll('[data-writing-series-link]')].map(
+            (link) => ({
+              series: link.dataset.writingSeriesLink,
+              count: Number.parseInt(
+                link.querySelector('[data-writing-series-count]')?.textContent || '0',
+                10
+              ),
+              current: link.getAttribute('aria-current'),
+              href: link.getAttribute('href')
+            })
+          ),
           firstWritingDate: writingRecords[0]?.dataset.writingDate || null,
           visibleWritingCount: visibleWritingRecords.length,
           visibleFirstWritingDate: visibleWritingRecords[0]?.dataset.writingDate || null,
           controlsVisible: controls ? !controls.hidden : false,
           filterType: controls?.elements.type?.value || null,
           filterTopic: controls?.elements.topic?.value || null,
+          filterSeries: controls?.elements.series?.value || null,
           filterSort: controls?.elements.sort?.value || null,
           filterEmptyVisible: ledger?.querySelector('[data-writing-filter-empty]')?.hidden === false,
           pageCurrent: Number.parseInt(ledger?.dataset.writingPageCurrent || '0', 10),
@@ -125,6 +137,30 @@ def read_state(driver):
         """
     )
 
+
+
+def read_series_navigation(driver):
+    return driver.execute_script(
+        r"""
+        const panel = document.getElementById('post-series');
+        const path = (selector) => {
+          const link = panel?.querySelector(selector);
+          if (!link) {
+            return null;
+          }
+          const url = new URL(link.href);
+          return url.pathname + url.search;
+        };
+        return {
+          id: panel?.dataset.seriesId || null,
+          position: panel?.querySelector('.post-series-count')?.textContent.trim() || null,
+          itemCount: panel?.querySelectorAll('.post-series-item').length || 0,
+          root: path('.post-series-root a'),
+          previous: path('[data-series-previous]'),
+          next: path('[data-series-next]')
+        };
+        """
+    )
 
 def require(condition, message):
     if not condition:
@@ -197,6 +233,14 @@ def main():
             ],
             f"Topic directory changed: {initial}",
         )
+        require(
+            initial["seriesEntries"] == [
+                {"series": "database-systems", "count": 10, "current": None, "href": "/think/?series=database-systems"},
+                {"series": "computer-architecture", "count": 8, "current": None, "href": "/think/?series=computer-architecture"},
+                {"series": "computer-networks", "count": 10, "current": None, "href": "/think/?series=computer-networks"},
+            ],
+            f"Series directory changed: {initial}",
+        )
         require(initial["firstWritingDate"] == "2026-08-17", f"writing order changed: {initial}")
         require(
             initial["hiddenWritingTitles"] == [],
@@ -235,6 +279,32 @@ def main():
         )
         driver.back()
         wait.until(lambda current: read_state(current)["filterTopic"] == "all")
+
+        series_link = driver.find_element(
+            By.CSS_SELECTOR, '[data-writing-series-link="database-systems"]'
+        )
+        driver.execute_script("arguments[0].click();", series_link)
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["filterSeries"] == "database-systems"
+                and state["visibleWritingCount"] == 10
+                and "series=database-systems" in state["urlSearch"]
+                and next(
+                    entry for entry in state["seriesEntries"]
+                    if entry["series"] == "database-systems"
+                )["current"] == "true"
+            )
+        )
+        driver.refresh()
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["filterSeries"] == "database-systems"
+                and state["visibleWritingCount"] == 10
+            )
+        )
+        driver.back()
+        wait.until(lambda current: read_state(current)["filterSeries"] == "all")
 
         Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("fragment")
         wait.until(lambda current: read_state(current)["visibleWritingCount"] == 5)
@@ -307,7 +377,10 @@ def main():
             f"pagination refresh failed: {paged}",
         )
 
-        driver.get(think_url + "?type=invalid&topic=invalid&sort=invalid&page=-2")
+        driver.get(
+            think_url
+            + "?type=invalid&topic=invalid&series=invalid&sort=invalid&page=-2"
+        )
         wait.until(
             lambda current: (
                 (state := read_state(current))["controlsVisible"]
@@ -318,10 +391,60 @@ def main():
         require(
             initial["filterType"] == "all"
             and initial["filterTopic"] == "all"
+            and initial["filterSeries"] == "all"
             and initial["filterSort"] == "newest"
             and initial["pageCurrent"] == 1,
             f"invalid parameters did not fall back: {initial}",
         )
+
+        site_url = f"http://127.0.0.1:{port}"
+        expected_series_pages = [
+            (
+                "/posts/dbms-01/",
+                {
+                    "id": "database-systems",
+                    "position": "1/10",
+                    "itemCount": 10,
+                    "root": "/think/?series=database-systems",
+                    "previous": None,
+                    "next": "/posts/dbms-02/",
+                },
+            ),
+            (
+                "/posts/dbms-05/",
+                {
+                    "id": "database-systems",
+                    "position": "5/10",
+                    "itemCount": 10,
+                    "root": "/think/?series=database-systems",
+                    "previous": "/posts/dbms-04/",
+                    "next": "/posts/dbms-06/",
+                },
+            ),
+            (
+                "/posts/dbms-10/",
+                {
+                    "id": "database-systems",
+                    "position": "10/10",
+                    "itemCount": 10,
+                    "root": "/think/?series=database-systems",
+                    "previous": "/posts/dbms-09/",
+                    "next": None,
+                },
+            ),
+        ]
+        for path, expected in expected_series_pages:
+            driver.get(site_url + path)
+            wait.until(
+                lambda current: current.execute_script(
+                    "return document.readyState"
+                ) == "complete"
+            )
+            actual = read_series_navigation(driver)
+            require(actual == expected, f"Series neighbor contract failed at {path}: {actual}")
+
+        driver.get(think_url)
+        wait.until(lambda current: read_state(current)["controlsVisible"])
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")
         trigger.click()

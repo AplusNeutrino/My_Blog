@@ -1,19 +1,38 @@
 {% if page.series and page.hidden != true %}
+  {% assign series_definition = site.data.content_taxonomy.series | where: 'label', page.series | first %}
+  {% assign series_id = series_definition.id | default: page.series | slugify %}
   {% assign series_posts = site.posts | where: 'series', page.series | where_exp: 'post', 'post.hidden != true' | sort: 'date' %}
   {% if series_posts.size > 1 %}
-    <section id="post-series" class="middle-memory-panel" data-current-url="{{ page.url | relative_url }}">
+    {% assign current_index = -1 %}
+    {% for post in series_posts %}
+      {% if post.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+    {% assign last_index = series_posts.size | minus: 1 %}
+    {% assign previous_index = current_index | minus: 1 %}
+    {% assign next_index = current_index | plus: 1 %}
+
+    <section
+      id="post-series"
+      class="middle-memory-panel"
+      data-current-url="{{ page.url | relative_url }}"
+      data-series-id="{{ series_id }}"
+    >
       <div class="post-series-header">
         <h2 class="panel-heading">同频系列</h2>
-        <span class="post-series-count">
-          {% for post in series_posts %}{% if post.url == page.url %}{{ forloop.index }}/{{ series_posts.size }}{% endif %}{% endfor %}
-        </span>
+        <span class="post-series-count">{{ current_index | plus: 1 }}/{{ series_posts.size }}</span>
       </div>
-      <div class="post-series-root">{{ page.series }}</div>
+      <div class="post-series-root">
+        <a href="{{ '/think/' | relative_url }}?series={{ series_id | url_encode }}">
+          {{ series_definition.label | default: page.series }}
+        </a>
+      </div>
       <div class="post-series-tree">
         <ol class="post-series-list">
           {% for post in series_posts %}
             <li class="post-series-item{% if post.url == page.url %} is-current{% endif %}">
-              <a href="{{ post.url | relative_url }}">
+              <a href="{{ post.url | relative_url }}"{% if post.url == page.url %} aria-current="page"{% endif %}>
                 <span class="post-series-order">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
                 <span class="post-series-title">{{ post.title }}</span>
                 <time class="post-series-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%m/%d' }}</time>
@@ -22,6 +41,25 @@
           {% endfor %}
         </ol>
       </div>
+
+      {% if current_index >= 0 %}
+        <nav class="post-series-neighbors" aria-label="系列相邻文章">
+          {% if current_index > 0 %}
+            {% assign previous_post = series_posts[previous_index] %}
+            <a rel="prev" data-series-previous href="{{ previous_post.url | relative_url }}">
+              <span>上一篇</span>
+              <strong>{{ previous_post.title }}</strong>
+            </a>
+          {% endif %}
+          {% if current_index < last_index %}
+            {% assign next_post = series_posts[next_index] %}
+            <a rel="next" data-series-next href="{{ next_post.url | relative_url }}">
+              <span>下一篇</span>
+              <strong>{{ next_post.title }}</strong>
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
     </section>
   {% endif %}
 {% endif %}
