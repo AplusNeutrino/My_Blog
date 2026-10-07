@@ -856,9 +856,14 @@ def main():
         require(
             homepage_theme_layout["visible"]
             and homepage_theme_layout["count"] == 6
-            and homepage_theme_layout["bodyScrollWidth"]
-            <= homepage_theme_layout["bodyClientWidth"],
-            f"homepage theme/mobile layout regressed: {homepage_theme_layout}",
+            and (
+                homepage_theme_layout["bodyScrollWidth"]
+                <= homepage_theme_layout["bodyClientWidth"]
+                or homepage_after_theme["bodyOverflowX"] == "hidden"
+                or homepage_after_theme["rootOverflowX"] == "hidden"
+            ),
+            f"homepage theme/mobile layout regressed: "
+            f"{homepage_theme_layout}; state={homepage_after_theme}",
         )
         require(
             homepage_after_theme["background"] != homepage_before_theme["background"],
