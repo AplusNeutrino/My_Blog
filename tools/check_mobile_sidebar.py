@@ -613,7 +613,8 @@ def main():
                 and state["searchInputFocused"]
             )
         )
-        driver.switch_to.active_element.send_keys(Keys.ESCAPE)
+        search_cancel = driver.find_element(By.ID, "search-cancel")
+        driver.execute_script("arguments[0].click();", search_cancel)
         wait.until(lambda current: not read_state(current)["searchInputVisible"])
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")
