@@ -211,7 +211,14 @@ def main():
             f"default pagination contract failed: {initial}",
         )
 
-        driver.find_element(By.CSS_SELECTOR, '[data-writing-topic-link="humanity"]').click()
+        topic_link = driver.find_element(
+            By.CSS_SELECTOR, '[data-writing-topic-link="humanity"]'
+        )
+        driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            topic_link,
+        )
+        topic_link.click()
         wait.until(
             lambda current: (
                 (state := read_state(current))["filterTopic"] == "humanity"
