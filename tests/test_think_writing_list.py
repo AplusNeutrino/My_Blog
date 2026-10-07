@@ -22,8 +22,10 @@ class ThinkWritingListTest(unittest.TestCase):
         thoughts = (ROOT / "_layouts" / "thoughts.html").read_text(encoding="utf-8")
         self.assertIn("还没有公开写作记录", include)
         self.assertIn("查看片段原页", include)
-        self.assertIn("#fragment-{{ nv_date_key }}", include)
-        self.assertIn('id="fragment-{{ fragment.date | date:', thoughts)
+        self.assertIn("item.id | default: '' | strip", include)
+        self.assertIn("#{{ nv_fragment_id | escape }}", include)
+        self.assertIn("fragment.id | default: '' | strip", thoughts)
+        self.assertIn('id="{{ fragment_id | escape }}"', thoughts)
 
     def test_current_public_inventory_contract(self):
         baseline = json.loads(

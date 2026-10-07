@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ThinkFragmentsTest(unittest.TestCase):
     def test_fragment_source_declares_unique_stable_ids(self):
         source = (ROOT / "_tabs" / "thoughts.md").read_text(encoding="utf-8")
+        source = source.split("---", 2)[1]
         pairs = re.findall(
             r'^  - text: .+\n    id: (fragment-[a-z0-9-]+)\n    date: (\d{4}-\d{2}-\d{2})$',
             source,
@@ -32,6 +33,7 @@ class ThinkFragmentsTest(unittest.TestCase):
             ROOT / "_includes" / "neutriverse-writing-list.html"
         ).read_text(encoding="utf-8")
         source = (ROOT / "_tabs" / "thoughts.md").read_text(encoding="utf-8")
+        source = source.split("---", 2)[1]
 
         self.assertIn("fragment.id | default: '' | strip", thoughts_layout)
         self.assertIn('id="{{ fragment_id | escape }}"', thoughts_layout)
