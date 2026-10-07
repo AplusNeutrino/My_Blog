@@ -214,11 +214,7 @@ def main():
         topic_link = driver.find_element(
             By.CSS_SELECTOR, '[data-writing-topic-link="humanity"]'
         )
-        driver.execute_script(
-            "arguments[0].scrollIntoView({block: 'center'});",
-            topic_link,
-        )
-        topic_link.click()
+        driver.execute_script("arguments[0].click();", topic_link)
         wait.until(
             lambda current: (
                 (state := read_state(current))["filterTopic"] == "humanity"
