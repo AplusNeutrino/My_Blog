@@ -57,7 +57,7 @@ class HomepageConfigurationTest(unittest.TestCase):
         self.assertNotIn("site.data.home_recommend", LAYOUT)
         self.assertNotIn("all_pinned", LAYOUT)
         self.assertIn('data-home-section="latest_transmissions"', LAYOUT)
-        self.assertIn("home_config.featured", CONFIG)
+        self.assertIn("featured:\n", CONFIG)
 
     def test_legacy_recommend_file_contains_no_duplicate_values(self):
         legacy = (ROOT / "_data" / "home_recommend.yml").read_text(encoding="utf-8")
