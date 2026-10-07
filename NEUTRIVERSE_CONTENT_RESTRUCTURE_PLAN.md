@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = b1554ce9d3bbfe9f4e56a2f434b3bbf16d572b5a；checkpoint = T11 done；next = T12；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T12；branch = main；base = 0ff7e3bb0217f9ee71cc1fd22c0b022be2a3f02f；checkpoint = T11 done；next = T12；completion = IN PROGRESS。
+
+T12 本次范围：在 T11 的 44 项服务端清单上做渐进增强，加入 Type（all/note/essay/fragment）与 Topic（all/computation/humanity/otaku/arts）组合筛选、newest/oldest 排序、固定每页 12 项分页，以及 `type`/`topic`/`sort`/`page` 查询参数状态。有效 URL 刷新后保持条件，筛选变化重置到第 1 页，非法参数回退默认，前进/后退恢复界面；无 JavaScript 时控制区不伪装可用且完整 44 项原链接仍在 HTML 中。拟改 writing-list include、新增专用脚本、THINK layout 接线、共享样式、静态回归和真实 Chrome 门禁；不改 `_posts/`、Fragment 数据/原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
 T11 本次范围：在 `/think/` 使用现有 `site.posts` 与 `_tabs/thoughts.md` 的 Fragment 单一来源生成倒序写作时间线；公开范围为 39 篇非 hidden 文章 + 5 条 Fragment，共 44 项。每项显示 Type/Topic，文章保留原链接，Fragment 链接回 Thoughts 的稳定锚点；无内容时显示真实空状态。组合筛选、排序切换、分页与 URL 状态属于 T12，本次不提前实现。拟改共享 section layout、新写作列表 include、Thought anchor、共享样式、相关回归与现有 390px Chrome 门禁；不改任何文章/Fragment 原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
