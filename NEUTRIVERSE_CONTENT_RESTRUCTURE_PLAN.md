@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T16 done; T17 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T17 done; T18 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T16 done，T17 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T16 Note / Essay / Fragment 展示差异；base `5eaf4ee45c77eb09c2bd5933a2e4d2fc25b37c9b`，范围提交 `ba55217e0163dd9ee7958b0d1d03e98f1070167c`，实现 `160c45616ebcca92fb9e8a6e3dffd54c1ea6b7c6`，最终门禁修复 `f1ddf8190c12c2c37cdcd17ff7ace16fe3590b4d`。文章详情从 taxonomy 显示双语 Type 标识，THINK 三种记录节奏与阅读/富内容约束经精确 CI/部署通过；下一项 T17 标签、Archive 与 Search 的 THINK 内入口。
+**当前状态：计划细化与启动决定已完成，T00–T17 done，T18 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T17 标签、Archive 与 Search 的 THINK 内入口；base `41e799a58664cc87a187c18a4c7d0472475eac75`，范围提交 `66f4de2d71232b259e1711169763e691f7ba37d7`，实现 `e66a246ca11945ed0558b47e75d85df9ecf9a6c6`，最终门禁修复 `8d047175d2da89ee3614f9041b998b2ef8c5303c`。Archive/Tags 保留旧路径，Search 复用原生模态框且多个入口均可触发；精确 CI/部署通过；下一项 T18 首页区块、顺序及内容来源配置。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T16 = done，T17 in-progress，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T17 = done，T18 ready，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T17；branch = main；base = 41e799a58664cc87a187c18a4c7d0472475eac75；checkpoint = T16 done；next = T17；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = 8d047175d2da89ee3614f9041b998b2ef8c5303c；checkpoint = T17 done；next = T18；completion = IN PROGRESS。
 
 T17 本次范围：把 Archive、Tags 与 Search 明确接入 THINK 的“当前可用入口”，保留 `/archives/`、`/tags/`、`/categories/` 与既有搜索模态框；Search 使用真实 button action 调用 Chirpy 原生搜索，不制造假 URL。导航脚本需支持侧栏与 THINK 内多个搜索触发器；Archive、Tags、Search 继续只读取非 hidden 文章。拟改 section 数据/入口模板、导航脚本、共享 CSS、静态回归和 390px Chrome 门禁；不改任何文章/Fragment 原文、metadata、旧 URL、hidden/noindex 或外部项目。验收为 THINK 内 Archive/Tags 普通链接及 Search 按钮可用，搜索打开且聚焦并可关闭，三种检索均无 hidden 条目，精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
+
+T17 验收证据：THINK 的共享入口数据新增 Search action；入口模板将 Archive/Tags 保持为普通链接，将 Search 渲染为无假 URL 的 button，并复用现有 Chirpy 原生搜索。导航脚本从只绑定首个代理改为绑定全部 `data-nv-search-trigger`，侧栏与 THINK 页面入口均可打开并聚焦同一搜索框。100 项回归、production Jekyll、390px Chrome、双主题、Archive 实际账本与生成搜索索引的 hidden 检查均通过；Tags 的索引、详情及关系计数继续在模板层过滤 hidden。初始 run `37672096216` 因门禁过宽扫描整个 Archive HTML 而非实际账本失败；run `37672371791` 确认 Search 打开/聚焦成功，但错误假定 Escape 可关闭 Chirpy 搜索；两者均未记为通过。final head `8d047175d2da89ee3614f9041b998b2ef8c5303c` 的 Actions run `37672590085` completed/success；build job `112967859911` 与 deploy job `112968329095` 成功；artifact `11504919047`，digest `sha256:ec4352a24ad4941ae83b34d315b8649c678ea8bf0a71eac93b0c58ee45c519c5`。未改文章/Fragment、front matter、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目。T17 done，T18 ready，无新增用户问题。
 
 T16 本次范围：使用现有 `page.type` 与 `_data/content_taxonomy.yml`，在文章详情增加共享 Type 标识及 `nv-post--note` / `nv-post--essay` 语义类；THINK 时间线为三种 Type 输出稳定类名，以紧凑记录、编辑型长文、时间戳信号形成可感知但不改变内容顺序的视觉差异。共享 CSS 同时约束文章阅读宽度约 700–740px，并保证正文中的代码块、表格与图片在窄屏内部滚动/缩放而不造成页面级溢出；Thoughts 继续使用现有 Fragment 卡片。拟改 taxonomy 标签、post layout、writing-list、共享 CSS、静态回归与 390px Chrome 门禁；不改任何 `_posts/` 或 Fragment 的正文、标题、front matter、日期、slug/permalink、旧 URL、hidden/noindex 与外部项目。验收为 Note/Essay 详情各有正确标识与差异化布局、THINK 三种记录类可核对、正文哈希不变、390px 无页面溢出且代码/表格/图片安全、双主题和精确实现 SHA 的回归/Jekyll/Pages 通过。
 

@@ -22,7 +22,7 @@
 
 ## Run 2026-10-08 02:59 — T17 范围记录
 
-- Task：T17；status = in-progress；依赖 T16 done。
+- Task：T17；status = done；依赖 T16 done。
 - Base / branch：`41e799a58664cc87a187c18a4c7d0472475eac75` / main。
 - 上一文档提交核验：`21d21899be575aa1805b85e0ed728bc51396018f` 的 [Actions run 37664158625](https://github.com/AplusNeutrino/My_Blog/actions/runs/37664158625) 回归与 Jekyll 成功，但 390px 侧栏遮罩原生点击被导航链接拦截，未作为通过；稳定门禁修复 `41e799a58664cc87a187c18a4c7d0472475eac75` 的 [run 37671462486](https://github.com/AplusNeutrino/My_Blog/actions/runs/37671462486) completed/success，main 已恢复精确绿灯。
 - 本次最小交付：把 Archive、Tags 与 Search 明确纳入 THINK 内部检索入口；保留旧路径，Search 调用现有原生模态框而非假链接。
@@ -30,6 +30,15 @@
 - 验收：THINK 内 Archive/Tags 为真实旧路径链接，Search 为可聚焦 button；侧栏与 THINK 内两个触发器都可打开原生搜索并聚焦；Archive、Tags 与搜索索引继续过滤 hidden；390px、双主题、回归、Jekyll 与精确实现 head Pages 成功。
 - 保护：不改 `_posts/`、Fragment 原文/metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
 - 用户问题：无；使用既有 Search 模态框与已批准 THINK 检索定位，不引入新公开内容。
+
+- 范围 / 实现 / hidden 门禁修复 / Search 关闭门禁修复：`66f4de2d71232b259e1711169763e691f7ba37d7` / `e66a246ca11945ed0558b47e75d85df9ecf9a6c6` / `c5e4dbfea56a7abfaa46f72048015bf5db475ebf` / `8d047175d2da89ee3614f9041b998b2ef8c5303c`；均以 expected head 非强推更新 main。
+- 实际交付：THINK “当前可用入口”保留 Archive `/archives/`、Tags `/tags/` 与旧分类兼容路径，并新增真实 Search button；Search 不制造 `href="#"`，而是复用 Chirpy 原生搜索。导航脚本绑定全部 Search 代理，侧栏与 THINK 内入口共用同一原生触发器。
+- 可见性：Archive 账本、Tags 索引/详情/关系计数与生成搜索索引都继续从非 hidden 文章读取；构建门禁直接核对五个 hidden 标题不在 Search 索引和实际 `#archives` 账本。
+- 失败记录：[run 37672096216](https://github.com/AplusNeutrino/My_Blog/actions/runs/37672096216) 的 100 项回归与 Jekyll 成功，但门禁过宽扫描整个 Archive HTML（含主题辅助数据）而非实际账本；[run 37672371791](https://github.com/AplusNeutrino/My_Blog/actions/runs/37672371791) 确认 Search 打开和聚焦成功，但错误假定 Escape 是 Chirpy 的关闭契约。两次均未标为通过；最终使用实际 `#archives` 与原生 `#search-cancel`。
+- 精确验证：[Actions run 37672590085](https://github.com/AplusNeutrino/My_Blog/actions/runs/37672590085) 对应 final head `8d047175d2da89ee3614f9041b998b2ef8c5303c`，completed/success；build job `112967859911` 的 100 项回归、production Jekyll、390px Chrome、双主题、Ravenis 与 artifact upload 均成功；deploy job `112968329095` 成功。
+- 部署证据：artifact `11504919047`，digest `sha256:ec4352a24ad4941ae83b34d315b8649c678ea8bf0a71eac93b0c58ee45c519c5`。
+- 保护：未改任何文章/Fragment 正文或 metadata、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目。
+- 结论：T17 done；T18 ready。用户问题：无。
 
 ## Run 2026-10-08 01:58 — T16 范围记录
 
