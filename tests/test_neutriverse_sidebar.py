@@ -65,6 +65,27 @@ class NeutriverseSidebarTest(unittest.TestCase):
         self.assertIn("/assets/js/neutriverse-navigation.js", hook)
         self.assertIn("defer", hook)
 
+    def test_theme_does_not_hide_secondary_writing_routes(self):
+        # The old tab suppression also matched the new Tags/Archive utilities.
+        # Markup presence alone cannot prove an entrance is actually reachable.
+        for theme in ("NormaiNight.css", "ProsperoLight.css"):
+            css = (ROOT / "assets" / "css" / theme).read_text(encoding="utf-8")
+            for route in ("tags", "archives"):
+                with self.subTest(theme=theme, route=route):
+                    self.assertNotRegex(
+                        css,
+                        rf'[^{{}}]*:has\([^{{}}]*href[^{{}}]*/{route}/[^{{}}]*\{{[^{{}}]*display:\s*none',
+                    )
+
+    def test_essential_navigation_labels_meet_minimum_size(self):
+        for selector in (
+            "#sidebar .nv-sidebar-copy small",
+            "#sidebar .nv-sidebar-utilities .nav-link",
+        ):
+            block = re.search(re.escape(selector) + r"\s*\{([^}]+)\}", STYLES).group(1)
+            size = re.search(r"font-size:\s*([\d.]+)rem", block).group(1)
+            self.assertGreaterEqual(float(size), 0.75)
+
 
 if __name__ == "__main__":
     unittest.main()

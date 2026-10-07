@@ -77,7 +77,7 @@
 #sidebar .nv-sidebar-copy small {
   color: var(--sidebar-muted-color);
   font-family: var(--nv-font-interface);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   line-height: 1.35;
 }
 
@@ -120,7 +120,7 @@
   padding: 0.4rem 0.2rem;
   border: 0;
   background: transparent;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-align: center;
 }
 

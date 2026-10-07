@@ -304,13 +304,6 @@ footer a:hover,
   font-style: normal !important;
 }
 
-#sidebar .nav-item:has(.nav-link[href$="/categories/"]),
-#sidebar .nav-item:has(.nav-link[href$="/tags/"]),
-#sidebar .nav-item:has(.nav-link[href$="/thoughts/"]),
-#sidebar .nav-item:has(.nav-link[href$="/archives/"]) {
-  display: none;
-}
-
 #sidebar #avatar {
   cursor: pointer;
 }
