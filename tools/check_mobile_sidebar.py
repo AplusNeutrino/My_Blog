@@ -490,8 +490,8 @@ def main():
             require(actual == expected, f"Series neighbor contract failed at {path}: {actual}")
 
         type_expectations = [
-            ("note", "NOTE / 笔记"),
-            ("essay", "ESSAY / 长文"),
+            ("note", "Note / 笔记"),
+            ("essay", "Essay / 长文"),
         ]
         for writing_type, marker in type_expectations:
             driver.get(think_url + f"?type={writing_type}")
