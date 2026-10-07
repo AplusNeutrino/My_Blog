@@ -86,6 +86,13 @@ class NeutriverseSidebarTest(unittest.TestCase):
             size = re.search(r"font-size:\s*([\d.]+)rem", block).group(1)
             self.assertGreaterEqual(float(size), 0.75)
 
+    def test_utility_buttons_fill_their_grid_cell_without_label_wrap(self):
+        block = re.search(
+            r"#sidebar \.nv-sidebar-utilities \.nav-link\s*\{([^}]+)\}", STYLES
+        ).group(1)
+        self.assertIn("width: 100%", block)
+        self.assertIn("white-space: nowrap", block)
+
 
 if __name__ == "__main__":
     unittest.main()

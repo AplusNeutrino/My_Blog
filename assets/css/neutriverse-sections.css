@@ -113,6 +113,7 @@
 
 #sidebar .nv-sidebar-utilities .nav-link {
   display: flex;
+  width: 100%;
   min-height: 2.75rem;
   align-items: center;
   justify-content: center;
@@ -122,6 +123,7 @@
   background: transparent;
   font-size: 0.75rem;
   text-align: center;
+  white-space: nowrap;
 }
 
 #sidebar .nv-sidebar-utilities .nav-link:focus-visible,
