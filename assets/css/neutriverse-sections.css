@@ -508,6 +508,106 @@
   margin: 0.35rem 0 0;
 }
 
+.nv-writing-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+}
+
+.nv-writing-control {
+  min-width: 0;
+}
+
+.nv-writing-control label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nv-writing-control select,
+.nv-writing-reset {
+  min-height: 2.75rem;
+  border: 1px solid var(--nv-border-strong);
+  border-radius: 0.35rem;
+  background: var(--nv-surface-2);
+  color: var(--nv-text-strong);
+}
+
+.nv-writing-control select {
+  width: 100%;
+  padding: 0.55rem 2rem 0.55rem 0.65rem;
+}
+
+.nv-writing-reset {
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.nv-writing-control select:focus-visible,
+.nv-writing-reset:focus-visible,
+.nv-writing-pagination a:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-writing-reset:hover,
+.nv-writing-pagination a:hover {
+  border-color: var(--nv-accent);
+  color: var(--nv-accent);
+}
+
+.nv-writing-status,
+.nv-writing-noscript {
+  margin: 0 0 0.75rem;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.78rem;
+}
+
+.nv-writing-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nv-writing-pagination a,
+.nv-writing-pagination .is-current {
+  display: inline-flex;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.35rem;
+  color: var(--nv-text-muted);
+  text-decoration: none;
+}
+
+.nv-writing-pagination .is-current {
+  border-color: var(--nv-accent);
+  background: var(--nv-surface-2);
+  color: var(--nv-text-strong);
+}
+
+.nv-writing-pages {
+  display: flex;
+  gap: 0.35rem;
+}
+
 @media (max-width: 767.98px) {
   .nv-primary-nav-list,
   .nv-section-link-list {
@@ -522,6 +622,18 @@
 
   .nv-writing-heading {
     align-items: start;
+  }
+
+  .nv-writing-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .nv-writing-reset {
+    width: 100%;
+  }
+
+  .nv-writing-pagination {
+    flex-wrap: wrap;
   }
 
   .nv-writing-record {

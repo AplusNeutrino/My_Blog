@@ -12,7 +12,7 @@ from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select, WebDriverWait
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -47,7 +47,12 @@ def read_state(driver):
           '#sidebar .nv-sidebar-utilities .nav-link'
         )];
         const rect = trigger.getBoundingClientRect();
+        const ledger = document.querySelector('[data-writing-ledger]');
+        const controls = ledger?.querySelector('[data-writing-controls]');
         const writingRecords = [...document.querySelectorAll('[data-writing-record]')];
+        const visibleWritingRecords = writingRecords.filter(
+          (item) => !item.closest('[data-writing-item]')?.hidden
+        );
         const writingCounts = (field) => writingRecords.reduce((counts, item) => {
           const value = item.dataset[field];
           counts[value] = (counts[value] || 0) + 1;
@@ -86,6 +91,16 @@ def read_state(driver):
           writingTypes: writingCounts('writingType'),
           writingTopics: writingCounts('writingTopic'),
           firstWritingDate: writingRecords[0]?.dataset.writingDate || null,
+          visibleWritingCount: visibleWritingRecords.length,
+          visibleFirstWritingDate: visibleWritingRecords[0]?.dataset.writingDate || null,
+          controlsVisible: controls ? !controls.hidden : false,
+          filterType: controls?.elements.type?.value || null,
+          filterTopic: controls?.elements.topic?.value || null,
+          filterSort: controls?.elements.sort?.value || null,
+          filterEmptyVisible: ledger?.querySelector('[data-writing-filter-empty]')?.hidden === false,
+          pageCurrent: Number.parseInt(ledger?.dataset.writingPageCurrent || '0', 10),
+          pageTotal: Number.parseInt(ledger?.dataset.writingPageTotal || '0', 10),
+          urlSearch: window.location.search,
           hiddenWritingTitles: [
             'Zodiac',
             '最后的纳尔马斯克人',
@@ -166,6 +181,101 @@ def main():
         require(
             initial["hiddenWritingTitles"] == [],
             f"hidden title leaked: {initial['hiddenWritingTitles']}",
+        )
+        wait.until(lambda current: read_state(current)["controlsVisible"])
+        initial = read_state(driver)
+        require(
+            initial["visibleWritingCount"] == 12
+            and initial["pageCurrent"] == 1
+            and initial["pageTotal"] == 4,
+            f"default pagination contract failed: {initial}",
+        )
+
+        Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("fragment")
+        wait.until(lambda current: read_state(current)["visibleWritingCount"] == 5)
+        Select(driver.find_element(By.ID, "nv-writing-topic")).select_by_value("humanity")
+        wait.until(lambda current: read_state(current)["visibleWritingCount"] == 4)
+        Select(driver.find_element(By.ID, "nv-writing-sort")).select_by_value("oldest")
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["visibleFirstWritingDate"] == "2024-09-12"
+                and "type=fragment" in state["urlSearch"]
+                and "topic=humanity" in state["urlSearch"]
+                and "sort=oldest" in state["urlSearch"]
+            )
+        )
+
+        driver.refresh()
+        wait.until(lambda current: read_state(current)["controlsVisible"])
+        refreshed = read_state(driver)
+        require(
+            refreshed["filterType"] == "fragment"
+            and refreshed["filterTopic"] == "humanity"
+            and refreshed["filterSort"] == "oldest"
+            and refreshed["visibleWritingCount"] == 4,
+            f"refresh lost filter state: {refreshed}",
+        )
+
+        Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("essay")
+        wait.until(lambda current: read_state(current)["visibleWritingCount"] == 1)
+        driver.back()
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["filterType"] == "fragment"
+                and state["filterTopic"] == "humanity"
+                and state["filterSort"] == "oldest"
+                and state["visibleWritingCount"] == 4
+            )
+        )
+
+        think_url = f"http://127.0.0.1:{port}/think/"
+        driver.get(think_url + "?type=essay&topic=arts")
+        wait.until(lambda current: read_state(current)["controlsVisible"])
+        no_results = read_state(driver)
+        require(
+            no_results["visibleWritingCount"] == 0
+            and no_results["filterEmptyVisible"],
+            f"filter empty state failed: {no_results}",
+        )
+
+        driver.get(think_url + "?sort=oldest")
+        wait.until(lambda current: read_state(current)["controlsVisible"])
+        oldest = read_state(driver)
+        require(
+            oldest["visibleWritingCount"] == 12
+            and oldest["visibleFirstWritingDate"] == "2024-09-12",
+            f"oldest sort failed: {oldest}",
+        )
+
+        driver.get(think_url + "?page=2")
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["pageCurrent"] == 2
+            )
+        )
+        driver.refresh()
+        wait.until(lambda current: read_state(current)["pageCurrent"] == 2)
+        paged = read_state(driver)
+        require(
+            paged["visibleWritingCount"] == 12 and paged["pageTotal"] == 4,
+            f"pagination refresh failed: {paged}",
+        )
+
+        driver.get(think_url + "?type=invalid&topic=invalid&sort=invalid&page=-2")
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["urlSearch"] == ""
+            )
+        )
+        initial = read_state(driver)
+        require(
+            initial["filterType"] == "all"
+            and initial["filterTopic"] == "all"
+            and initial["filterSort"] == "newest"
+            and initial["pageCurrent"] == 1,
+            f"invalid parameters did not fall back: {initial}",
         )
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")

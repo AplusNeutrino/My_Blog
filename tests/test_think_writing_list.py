@@ -34,6 +34,36 @@ class ThinkWritingListTest(unittest.TestCase):
         self.assertEqual(5, len(baseline["fragments"]))
         self.assertEqual(44, len(public_posts) + len(baseline["fragments"]))
 
+    def test_progressive_filters_keep_the_server_rendered_fallback(self):
+        include = (ROOT / "_includes" / "neutriverse-writing-list.html").read_text(encoding="utf-8")
+        layout = (ROOT / "_layouts" / "neutriverse-section.html").read_text(encoding="utf-8")
+        script = (
+            ROOT / "assets" / "js" / "neutriverse-writing-filters.js"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('data-writing-controls hidden', include)
+        self.assertIn('data-writing-page-size="12"', include)
+        self.assertIn("JavaScript 未启用，以下显示全部公开写作记录", include)
+        self.assertIn("data-writing-filter-empty", include)
+        self.assertIn("neutriverse-writing-filters.js", layout)
+        for parameter in ("type", "topic", "sort", "page"):
+            with self.subTest(parameter=parameter):
+                self.assertIn("'" + parameter + "'", script)
+        self.assertIn("window.addEventListener('popstate'", script)
+        self.assertIn("window.history[historyMode + 'State']", script)
+        self.assertNotIn("document.write", script)
+
+    def test_filter_contract_uses_only_three_types_and_four_topics(self):
+        script = (
+            ROOT / "assets" / "js" / "neutriverse-writing-filters.js"
+        ).read_text(encoding="utf-8")
+        self.assertIn("['all', 'note', 'essay', 'fragment']", script)
+        self.assertIn(
+            "['all', 'computation', 'humanity', 'otaku', 'arts']",
+            script,
+        )
+        self.assertIn("['newest', 'oldest']", script)
+
     def test_shared_layout_and_styles_wire_the_ledger(self):
         layout = (ROOT / "_layouts" / "neutriverse-section.html").read_text(encoding="utf-8")
         css = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(encoding="utf-8")
@@ -44,6 +74,8 @@ class ThinkWritingListTest(unittest.TestCase):
             ".nv-writing-record",
             ".nv-writing-taxonomy",
             ".nv-writing-empty",
+            ".nv-writing-controls",
+            ".nv-writing-pagination",
         ):
             with self.subTest(selector=selector):
                 self.assertIn(selector, css)

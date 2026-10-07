@@ -6,19 +6,65 @@
 {% endif %}
 {% assign nv_writing_items = nv_visible_posts | concat: nv_fragments | sort: 'date' | reverse %}
 
-<section class="nv-writing-ledger" aria-labelledby="nv-writing-ledger-title">
+<section
+  class="nv-writing-ledger"
+  aria-labelledby="nv-writing-ledger-title"
+  data-writing-ledger
+  data-writing-page-size="12"
+>
   <div class="nv-writing-heading">
     <div>
       <p>CHRONOLOGICAL RECORD</p>
       <h2 id="nv-writing-ledger-title">写作时间线</h2>
     </div>
     <p class="nv-writing-count">
-      <strong>{{ nv_writing_items.size }}</strong>
-      <span>项公开记录</span>
+      <strong data-writing-match-count>{{ nv_writing_items.size }}</strong>
+      <span data-writing-count-label>项公开记录</span>
     </p>
   </div>
 
   {% if nv_writing_items.size > 0 %}
+    <form class="nv-writing-controls" data-writing-controls hidden>
+      <div class="nv-writing-control">
+        <label for="nv-writing-type">Type / 类型</label>
+        <select id="nv-writing-type" name="type">
+          <option value="all">All / 全部</option>
+          <option value="note">Note</option>
+          <option value="essay">Essay</option>
+          <option value="fragment">Fragment</option>
+        </select>
+      </div>
+
+      <div class="nv-writing-control">
+        <label for="nv-writing-topic">Topic / 主题</label>
+        <select id="nv-writing-topic" name="topic">
+          <option value="all">All / 全部</option>
+          <option value="computation">Computation</option>
+          <option value="humanity">Humanity</option>
+          <option value="otaku">Otaku</option>
+          <option value="arts">Arts</option>
+        </select>
+      </div>
+
+      <div class="nv-writing-control">
+        <label for="nv-writing-sort">Order / 顺序</label>
+        <select id="nv-writing-sort" name="sort">
+          <option value="newest">Newest first / 最新优先</option>
+          <option value="oldest">Oldest first / 最早优先</option>
+        </select>
+      </div>
+
+      <button type="reset" class="nv-writing-reset">重置条件</button>
+    </form>
+
+    <noscript>
+      <p class="nv-writing-noscript">JavaScript 未启用，以下显示全部公开写作记录。</p>
+    </noscript>
+
+    <p class="nv-writing-status" data-writing-status role="status" aria-live="polite">
+      共 {{ nv_writing_items.size }} 项公开记录
+    </p>
+
     <ol class="nv-writing-list" id="nv-writing-list">
       {% for item in nv_writing_items %}
         {% assign nv_is_fragment = false %}
@@ -29,7 +75,7 @@
         {% assign nv_topic = site.data.content_taxonomy.topics[item.topic] %}
         {% assign nv_date_key = item.date | date: '%Y-%m-%d' %}
 
-        <li>
+        <li data-writing-item>
           <article
             class="nv-writing-record{% if nv_is_fragment %} is-fragment{% endif %}"
             data-writing-record
@@ -72,6 +118,17 @@
         </li>
       {% endfor %}
     </ol>
+
+    <div class="nv-writing-empty" data-writing-filter-empty role="status" hidden>
+      <strong>没有符合当前条件的公开记录。</strong>
+      <p>可以调整 Type、Topic 或顺序，或重置全部条件。</p>
+    </div>
+
+    <nav class="nv-writing-pagination" data-writing-pagination aria-label="写作列表分页" hidden>
+      <a href="{{ '/think/' | relative_url }}" data-writing-page="previous">上一页</a>
+      <span class="nv-writing-pages" data-writing-pages></span>
+      <a href="{{ '/think/' | relative_url }}" data-writing-page="next">下一页</a>
+    </nav>
   {% else %}
     <div class="nv-writing-empty" role="status">
       <strong>还没有公开写作记录。</strong>

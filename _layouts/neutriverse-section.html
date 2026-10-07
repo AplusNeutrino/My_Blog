@@ -18,6 +18,7 @@ layout: page
 
   {% if page.section_id == 'think' %}
     {% include neutriverse-writing-list.html %}
+    <script src="{{ '/assets/js/neutriverse-writing-filters.js' | relative_url }}" defer></script>
   {% endif %}
 
   {% include neutriverse-section-links.html current=page.section_id %}
