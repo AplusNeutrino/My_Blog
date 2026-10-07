@@ -878,7 +878,7 @@ This document should continue to act as the **single high-level design and imple
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
 **当前状态：计划细化与启动决定已完成，T00–T08 done，T09 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-当前工作：T09 桌面四入口主导航、返回首页与辅助检索/社交入口；base SHA `2c7df63d3a510131cc8563ed9b620c71dd3df2e3`。
+当前工作：T09.a 续接桌面导航浏览器验收，修复旧 CSS 隐藏 Tags/Archive；base SHA `15438e1a30715062087f1c05fbfd4c96f103f392`。拟改 `assets/css/NormaiNight.css`、共享导航样式、sidebar 回归测试与计划/日志；验收为辅助入口实际可见、双主题/搜索/active/首页可用、正文与 URL 基线、对应修复 SHA 的 CI。T10 手机专项仍未开始。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T09；branch = main；base = 2c7df63d3a510131cc8563ed9b620c71dd3df2e3；checkpoint = T08 done；next = T09；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T09.a；branch = main；base = 15438e1a30715062087f1c05fbfd4c96f103f392；checkpoint = T08 done / T09 deployed, browser validation ongoing；next = T09；completion = IN PROGRESS。
 
 ## 24. 整个本轮计划的最终完成标准
 

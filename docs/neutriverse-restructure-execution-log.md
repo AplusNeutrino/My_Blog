@@ -20,6 +20,17 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-07 — T09.a 续接与缺陷范围
+
+- Task / parent：T09.a / T09；status = in-progress；依赖 T08 done。
+- Base SHA / branch：`15438e1a30715062087f1c05fbfd4c96f103f392` / main；保留其间 PGL 同步与用户首页推荐修改。
+- 上次实现：`145d4b9aba56d049a3814140b07def3eff1a513c` 已部署；[run 37164121165](https://github.com/AplusNeutrino/My_Blog/actions/runs/37164121165) build/deploy 成功。上次浏览器验收未完成，不能仅据 CI 标 done。
+- 实际浏览器发现：1363px 的 `/think/`，THINK `aria-current` 正确，Search 唤起并聚焦；Tags/Archive 的 li computed display 为 none，旧 Night CSS 的 `:has(.nav-link[href$=...])` 隐藏规则仍覆盖新 utility 菜单。
+- 本次边界：删除已失去适用对象的旧隐藏规则，确保次级入口显示；必要的小字可读性修正；增加针对遗留隐藏规则的回归；不改变隐藏工具/索引/应用数据，不实现 T10 手机折叠专项。
+- 文件范围：`assets/css/NormaiNight.css`、`assets/css/neutriverse-sections.css`、`tests/test_neutriverse_sidebar.py`、主计划、执行日志。
+- 验收：辅助入口可见且链接工作，明暗主题一致，首页/四入口 active/搜索可用；全部测试、T01 正文/URL baseline、精确修复 SHA Pages workflow；父项未满足不得标 done。
+- 用户问题：无。
+
 ## Run 2026-10-04 08:02 — T09 范围锁定
 
 - Task / parent：T09；status = in-progress；依赖 T08 done。
