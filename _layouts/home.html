@@ -6,482 +6,88 @@ refactor: true
 {% include lang.html %}
 
 {% assign home_config = site.data.neutriverse_home %}
-{% assign all_visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
-{% assign featured_config = home_config.featured %}
-{% assign popular_config = site.data.home_popular %}
-
-{% comment %}
-  T18 contract: the primary homepage expression is always the latest visible post.
-  T19 will merge posts, Fragments and project-linked writing by real date.
-{% endcomment %}
-{% assign main_post = all_visible_posts | first %}
-
-{% assign used_rec_urls = '' | split: '' %}
-{% if main_post %}
-  {% assign used_rec_urls = used_rec_urls | push: main_post.url %}
+{% assign home_visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
+{% assign home_fragment_page = site.tabs | where: 'layout', 'thoughts' | first %}
+{% assign home_fragments = '' | split: '' %}
+{% if home_fragment_page and home_fragment_page.fragments %}
+  {% assign home_fragments = home_fragment_page.fragments %}
 {% endif %}
+{% assign home_transmissions = home_visible_posts | concat: home_fragments | sort: 'date' | reverse %}
 
-{% assign sub_recs = '' | split: '' %}
-
-{% for configured_rec_url in featured_config.posts %}
-  {% assign configured_rec_url = configured_rec_url | default: '' | strip %}
-  {% if configured_rec_url == '' %}
-    {% continue %}
-  {% endif %}
-
-  {% for post in all_visible_posts %}
-    {% if post.url == configured_rec_url %}
-      {% unless used_rec_urls contains post.url %}
-        {% assign sub_recs = sub_recs | push: post %}
-        {% assign used_rec_urls = used_rec_urls | push: post.url %}
-      {% endunless %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-
-{% assign fill_candidates = '' | split: '' %}
-{% for popular_url in popular_config.posts %}
-  {% assign popular_url = popular_url | default: '' %}
-  {% if popular_url == '' %}
-    {% continue %}
-  {% endif %}
-
-  {% for post in all_visible_posts %}
-    {% if post.url == popular_url %}
-      {% assign fill_candidates = fill_candidates | push: post %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-{% for post in all_visible_posts %}
-  {% assign fill_candidates = fill_candidates | push: post %}
-{% endfor %}
-
-{% for post in fill_candidates %}
-  {% if sub_recs.size >= 4 %}
-    {% break %}
-  {% endif %}
-
-  {% unless used_rec_urls contains post.url %}
-    {% assign sub_recs = sub_recs | push: post %}
-    {% assign used_rec_urls = used_rec_urls | push: post.url %}
-  {% endunless %}
-{% endfor %}
-
-{% assign primary_categories = '' | split: '' %}
-{% for post in all_visible_posts %}
-  {% assign primary_category = post.categories[0] | default: '' %}
-  {% if primary_category != '' %}
-    {% unless primary_categories contains primary_category %}
-      {% assign primary_categories = primary_categories | push: primary_category %}
-    {% endunless %}
-  {% endif %}
-{% endfor %}
-
-{% if main_post %}
-  {% assign hero_images = '' | split: '' %}
-
-  {% if main_post.image %}
-    {% assign hero_src = main_post.image.path | default: main_post.image %}
-    {% unless hero_src contains '//' %}
-      {% if main_post.media_subpath contains '://' %}
-        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
-      {% else %}
-        {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
-      {% endif %}
-    {% endunless %}
-    {% assign hero_images = hero_images | push: hero_src %}
-  {% endif %}
-
-  {% if main_post.recommend_images %}
-    {% for image_src in main_post.recommend_images limit: 5 %}
-      {% assign hero_src = image_src %}
-      {% unless hero_src contains '//' %}
-        {% if main_post.media_subpath contains '://' %}
-          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
-        {% else %}
-          {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
-        {% endif %}
-      {% endunless %}
-      {% unless hero_images contains hero_src %}
-        {% assign hero_images = hero_images | push: hero_src %}
-      {% endunless %}
-    {% endfor %}
-  {% else %}
-    {% assign markdown_image_parts = main_post.content | split: '](' %}
-    {% for image_part in markdown_image_parts offset: 1 limit: 5 %}
-      {% assign hero_src = image_part | split: ')' | first | split: ' ' | first %}
-      {% if hero_src == '' %}
-        {% continue %}
-      {% endif %}
-
-      {% unless hero_src contains '//' %}
-        {% unless hero_src contains '/' %}
-          {% if main_post.media_subpath contains '://' %}
-            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
-          {% else %}
-            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
-          {% endif %}
-        {% endunless %}
-      {% endunless %}
-
-      {% unless hero_images contains hero_src %}
-        {% assign hero_images = hero_images | push: hero_src %}
-      {% endunless %}
-    {% endfor %}
-
-    {% assign html_image_parts = main_post.content | split: 'src="' %}
-    {% for image_part in html_image_parts offset: 1 limit: 5 %}
-      {% assign hero_src = image_part | split: '"' | first %}
-      {% if hero_src == '' %}
-        {% continue %}
-      {% endif %}
-
-      {% unless hero_src contains '//' %}
-        {% unless hero_src contains '/' %}
-          {% if main_post.media_subpath contains '://' %}
-            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src %}
-          {% else %}
-            {% assign hero_src = main_post.media_subpath | append: '/' | append: hero_src | replace: '//', '/' %}
-          {% endif %}
-        {% endunless %}
-      {% endunless %}
-
-      {% unless hero_images contains hero_src %}
-        {% assign hero_images = hero_images | push: hero_src %}
-      {% endunless %}
-    {% endfor %}
-  {% endif %}
-
-  <section class="home-dispatch" data-home-section="latest_transmissions" aria-labelledby="home-dispatch-title">
-    <div class="home-dispatch-heading">
-      <p><span class="theme-copy-night">Latest Transmissions</span><span class="theme-copy-day">Latest Dispatches</span></p>
-      <h1 id="home-dispatch-title">最新表达与精选记录</h1>
-    </div>
-
-    <div class="home-dispatch-grid">
-      <a href="{{ main_post.url | relative_url }}" class="home-dispatch-main">
-        <div class="home-dispatch-media{% if hero_images.size > 1 %} has-carousel{% endif %}">
-          {% if hero_images.size > 0 %}
-            <div
-              class="home-dispatch-track"
-              style="--home-rec-image-count: {{ hero_images.size }};"
-              data-home-dispatch-track
-              aria-hidden="true"
-            >
-              {% for hero_src in hero_images %}
-                <div class="home-dispatch-slide">
-                  <img
-                    src="{{ hero_src }}"
-                    alt=""
-                    decoding="async"
-                    {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
-                  >
-                </div>
-              {% endfor %}
-            </div>
-          {% else %}
-            <div class="home-dispatch-placeholder" aria-hidden="true">
-              <span></span>
-            </div>
-          {% endif %}
-        </div>
-
-        <div class="home-dispatch-main-meta">
-          <span class="home-dispatch-kicker">Latest Expression</span>
-          <h2>{{ main_post.title }}</h2>
-          <p class="home-dispatch-main-details">
-            {% assign visible_post_date = main_post.display_date | default: main_post.date %}
-            {% include datetime.html date=visible_post_date lang=lang %}
-            {% if main_post.categories.size > 0 %}
-              <span aria-hidden="true">/</span>
-              {{ main_post.categories | join: ' / ' }}
-            {% endif %}
-          </p>
-        </div>
-      </a>
-
-      <div class="home-dispatch-sublist" data-home-section="featured" aria-label="精选公开文章">
-        {% for post in sub_recs limit: 4 %}
-          <a href="{{ post.url | relative_url }}" class="home-dispatch-sub">
-            <span class="home-dispatch-index">0{{ forloop.index }}</span>
-            <span class="home-dispatch-sub-title">{{ post.title }}</span>
-            <span class="home-dispatch-sub-meta">
-              {% assign visible_post_date = post.display_date | default: post.date %}
-              {% include datetime.html date=visible_post_date lang=lang %}
-              {% if post.categories.size > 0 %}
-                / {{ post.categories[0] }}
-              {% endif %}
-            </span>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-{% endif %}
-
-<section class="home-feed-control" aria-labelledby="home-feed-title">
-  <div class="home-feed-control-rail">
-    <div class="home-feed-control-heading">
-      <p><span class="theme-copy-night">Launch Module</span><span class="theme-copy-day">Cult of the Athanaeans</span></p>
-      <h2 id="home-feed-title"><span class="theme-copy-night">历史观测记录</span><span class="theme-copy-day">天枭学派信息汇总</span></h2>
-    </div>
-
-    <div class="home-category-filter" aria-label="Filter posts by category">
-      <button type="button" class="is-active" data-home-filter="all">全部文章</button>
-
-      {% for primary_category in primary_categories %}
-        {% assign secondary_categories = '' | split: '' %}
-        {% for post in all_visible_posts %}
-          {% if post.categories[0] == primary_category %}
-            {% assign secondary_category = post.categories[1] | default: '' %}
-            {% if secondary_category != '' %}
-              {% unless secondary_categories contains secondary_category %}
-                {% assign secondary_categories = secondary_categories | push: secondary_category %}
-              {% endunless %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-
-        <div class="home-category-group">
-          <button type="button" data-home-filter="primary" data-category="{{ primary_category | escape }}">
-            {{ primary_category }}
-          </button>
-
-          {% if secondary_categories.size > 0 %}
-            <div class="home-category-submenu">
-              {% for secondary_category in secondary_categories %}
-                <button
-                  type="button"
-                  data-home-filter="secondary"
-                  data-category="{{ primary_category | escape }}"
-                  data-secondary="{{ secondary_category | escape }}"
-                >
-                  {{ secondary_category }}
-                </button>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-
-    <nav class="home-feed-pager home-feed-pager-top" data-home-pager aria-label="Launch Module pages" hidden>
-      <button type="button" data-home-page="prev" aria-label="上一页">&#8592;</button>
-      <span data-home-page-status>01 / 01</span>
-      <button type="button" data-home-page="next" aria-label="下一页">&#8594;</button>
-    </nav>
-  </div>
+<section class="nv-home-identity" data-home-section="identity" aria-labelledby="nv-home-title">
+  <p class="nv-home-kicker">{{ home_config.identity.kicker }}</p>
+  <h1 id="nv-home-title">{{ home_config.identity.title }}</h1>
+  <p class="nv-home-owner">by {{ home_config.identity.owner }}</p>
+  <p class="nv-home-summary">{{ home_config.identity.summary }}</p>
 </section>
 
-<div id="post-list" class="flex-grow-1 px-xl-1 home-feed-list" data-home-feed-list>
-  {% for post in all_visible_posts %}
-    {% unless post.title and post.url and post.date %}
-      {% continue %}
-    {% endunless %}
+<section class="nv-home-latest" data-home-section="latest_transmissions" aria-labelledby="nv-home-latest-title">
+  <div class="nv-home-section-heading">
+    <p>LATEST TRANSMISSIONS</p>
+    <h2 id="nv-home-latest-title">近期表达</h2>
+  </div>
 
-    <article
-      class="card-wrapper card home-feed-item"
-      data-primary-category="{{ post.categories[0] | default: '' | escape }}"
-      data-secondary-category="{{ post.categories[1] | default: '' | escape }}"
-    >
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse{% if post.image %} has-preview-image{% endif %}">
-        {% assign card_body_col = '12' %}
-
-        {% if post.image %}
-          {% assign src = post.image.path | default: post.image %}
-          {% unless src contains '//' %}
-            {% if post.media_subpath contains '://' %}
-              {% assign src = post.media_subpath | append: '/' | append: src %}
-            {% else %}
-              {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
-            {% endif %}
-          {% endunless %}
-
-          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
-
-          {% assign lqip = null %}
-
-          {% if post.image.lqip %}
-            {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
-          {% endif %}
-
-          <div class="col-md-5 post-preview-image">
-            <div class="post-preview-image-frame">
-              <img src="{{ src }}" alt="{{ alt }}" loading="lazy" decoding="async" {{ lqip }}>
-            </div>
-          </div>
-
-          {% assign card_body_col = '7' %}
+  {% if home_transmissions.size > 0 %}
+    <ol class="nv-home-transmission-list">
+      {% for item in home_transmissions limit: home_config.latest_transmissions.limit %}
+        {% assign home_is_fragment = false %}
+        {% if item.type == 'fragment' and item.text %}
+          {% assign home_is_fragment = true %}
         {% endif %}
+        {% assign home_type = site.data.content_taxonomy.types[item.type] %}
+        {% assign home_topic = site.data.content_taxonomy.topics[item.topic] %}
+        {% assign home_date = item.date | date: '%Y-%m-%d' %}
+        {% assign home_fragment_id = item.id | default: '' | strip %}
+        {% if home_is_fragment and home_fragment_id == '' %}
+          {% capture home_fragment_id %}fragment-{{ home_date }}{% endcapture %}
+        {% endif %}
+        {% assign home_project_log = nil %}
+        {% unless home_is_fragment %}
+          {% assign home_project_log = home_config.project_logs | where: 'url', item.url | first %}
+        {% endunless %}
 
-        <div class="col-md-{{ card_body_col }}">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>{% include post-summary.html %}</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <i class="far fa-calendar fa-fw me-1"></i>
-                {% assign visible_post_date = post.display_date | default: post.date %}
-                {% include datetime.html date=visible_post_date lang=lang %}
-
-                {% if post.categories.size > 0 %}
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    {% for category in post.categories %}
-                      {{ category }}
-                      {%- unless forloop.last -%},{%- endunless -%}
-                    {% endfor %}
-                  </span>
+        <li>
+          <article
+            class="nv-home-transmission is-{{ item.type | escape }}"
+            data-home-transmission
+            data-home-date="{{ home_date }}"
+            data-home-type="{{ item.type | escape }}"
+            {% if home_project_log %}data-home-project="{{ home_project_log.project | escape }}"{% endif %}
+          >
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ home_date }}</time>
+            <div class="nv-home-transmission-body">
+              <div class="nv-home-transmission-meta" aria-label="内容分类">
+                <span>{{ home_type.label | default: item.type }}</span>
+                <span>{{ home_topic.label | default: item.topic }}</span>
+                {% if home_project_log %}
+                  <span class="nv-home-project-log">Project Log / {{ home_project_log.project }}</span>
                 {% endif %}
               </div>
 
-              {% if post.pin %}
-                <div class="pin ms-1">
-                  <i class="fas fa-thumbtack fa-fw"></i>
-                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
-                </div>
+              {% if home_is_fragment %}
+                <p>{{ item.text }}</p>
+                <a href="{{ home_fragment_page.url | relative_url }}#{{ home_fragment_id | escape }}">查看 Fragment 原页</a>
+              {% else %}
+                <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+                {% if item.description %}
+                  <p>{{ item.description }}</p>
+                {% endif %}
               {% endif %}
             </div>
-          </div>
-        </div>
-      </a>
-    </article>
-  {% endfor %}
-</div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+    <a class="nv-home-more" href="{{ '/think/' | relative_url }}">进入 THINK 查看全部公开写作</a>
+  {% else %}
+    <p class="nv-home-empty">暂无公开表达。</p>
+  {% endif %}
+</section>
 
-<nav class="home-feed-pager home-feed-pager-bottom" data-home-pager aria-label="Launch Module pages" hidden>
-  <button type="button" data-home-page="prev">&#8592; &#19978;&#19968;&#39029;</button>
-  <span data-home-page-status>01 / 01</span>
-  <button type="button" data-home-page="next">&#19979;&#19968;&#39029; &#8594;</button>
-</nav>
-
-<script>
-  (() => {
-    const filters = Array.from(document.querySelectorAll('[data-home-filter]'));
-    const items = Array.from(document.querySelectorAll('[data-primary-category]'));
-    const pagers = Array.from(document.querySelectorAll('[data-home-pager]'));
-    const pageButtons = Array.from(document.querySelectorAll('[data-home-page]'));
-    const pageStatuses = Array.from(document.querySelectorAll('[data-home-page-status]'));
-    const pageSize = 12;
-    let activeFilter = filters.find((filter) => filter.classList.contains('is-active')) || filters[0];
-    let currentPage = 1;
-
-    if (filters.length === 0 || items.length === 0) {
-      return;
-    }
-
-    const setActiveFilter = (filterToActivate) => {
-      filters.forEach((filter) => {
-        const isActive = filter === filterToActivate;
-        filter.classList.toggle('is-active', isActive);
-        filter.setAttribute('aria-pressed', String(isActive));
-      });
-    };
-
-    const itemMatchesFilter = (item, filter) => {
-      const mode = filter.dataset.homeFilter;
-      const category = filter.dataset.category || '';
-      const secondary = filter.dataset.secondary || '';
-
-      return mode === 'all'
-        || (mode === 'primary' && item.dataset.primaryCategory === category)
-        || (mode === 'secondary'
-          && item.dataset.primaryCategory === category
-          && item.dataset.secondaryCategory === secondary);
-    };
-
-    const renderFeedPage = () => {
-      const matchedItems = items.filter((item) => itemMatchesFilter(item, activeFilter));
-      const totalPages = Math.max(1, Math.ceil(matchedItems.length / pageSize));
-      currentPage = Math.min(Math.max(1, currentPage), totalPages);
-
-      const start = (currentPage - 1) * pageSize;
-      const visibleItems = new Set(matchedItems.slice(start, start + pageSize));
-
-      items.forEach((item) => {
-        item.hidden = !visibleItems.has(item);
-      });
-
-      const pageText = `${String(currentPage).padStart(2, '0')} / ${String(totalPages).padStart(2, '0')}`;
-      const canPage = matchedItems.length > pageSize;
-
-      pagers.forEach((pager) => {
-        pager.hidden = !canPage;
-      });
-
-      pageStatuses.forEach((status) => {
-        status.textContent = pageText;
-      });
-
-      pageButtons.forEach((button) => {
-        const direction = button.dataset.homePage;
-        button.disabled = !canPage
-          || (direction === 'prev' && currentPage === 1)
-          || (direction === 'next' && currentPage === totalPages);
-      });
-    };
-
-    filters.forEach((filter) => {
-      filter.addEventListener('click', () => {
-        activeFilter = filter;
-        currentPage = 1;
-        setActiveFilter(filter);
-        renderFeedPage();
-      });
-    });
-
-    pageButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        currentPage += button.dataset.homePage === 'prev' ? -1 : 1;
-        renderFeedPage();
-      });
-    });
-
-    setActiveFilter(activeFilter);
-    renderFeedPage();
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    document.querySelectorAll('[data-home-dispatch-track]').forEach((track) => {
-      const slides = Array.from(track.children);
-      if (slides.length <= 1 || reducedMotion.matches) {
-        return;
-      }
-
-      let index = 0;
-      let timer;
-      const firstHold = 20000;
-      const slideHold = 10000;
-      const transitionDuration = 450;
-
-      const moveTo = (nextIndex) => {
-        track.style.transitionDuration = `${transitionDuration}ms`;
-        track.style.transform = `translateX(-${nextIndex * 100}%)`;
-        index = nextIndex;
-      };
-
-      const scheduleNext = (delay) => {
-        window.clearTimeout(timer);
-        timer = window.setTimeout(() => {
-          const nextIndex = index + 1 >= slides.length ? 0 : index + 1;
-          moveTo(nextIndex);
-          scheduleNext(slideHold);
-        }, delay);
-      };
-
-      document.addEventListener('visibilitychange', () => {
-        window.clearTimeout(timer);
-        if (!document.hidden) {
-          scheduleNext(slideHold);
-        }
-      });
-
-      scheduleNext(firstHold);
-    });
-  })();
-</script>
+<section class="nv-home-explore" data-home-section="explore" aria-labelledby="nv-home-explore-title">
+  <div class="nv-home-section-heading">
+    <p>EXPLORE THE UNIVERSE</p>
+    <h2 id="nv-home-explore-title">探索四个入口</h2>
+  </div>
+  {% include neutriverse-primary-nav.html %}
+</section>

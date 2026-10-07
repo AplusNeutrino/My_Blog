@@ -10,17 +10,19 @@ section_order:
   - system_status
 
 identity:
-  source: site
-  title_field: title
-  summary_field: tagline
+  source: public_site_identity
+  kicker: A PERSONAL DIGITAL UNIVERSE
+  title: NEUTRIVERSE
+  owner: Neutrino
+  summary: 思考、系统、观察与时间在这里汇合，并持续留下公开可见的轨迹。
 
 latest_transmissions:
   order: date_desc
   primary_source: visible_posts
-  fragment_source: thoughts.items
+  fragment_source: thoughts.fragments
   project_log_relation: project
   hidden_policy: exclude
-  limit: 5
+  limit: 8
 
 explore:
   source: neutriverse_sections.sections
@@ -46,3 +48,9 @@ system_status:
   post_scope: visible_posts
   project_source: future_project_catalog
   latest_update_source: visible_content
+
+project_logs:
+  - url: /posts/阿卡夏便笺akashanotes/
+    project: Akasha Notes
+  - url: /posts/丰聪耳机toyosatomimisheadphone/
+    project: Toyosatomimi's Headphone

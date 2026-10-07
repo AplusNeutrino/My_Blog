@@ -938,3 +938,190 @@ article.nv-post .content video {
     font-size: clamp(2rem, 10vw, 2.65rem);
   }
 }
+
+
+/* T19 homepage: identity, mixed public transmissions, then the four entrances. */
+.nv-home-identity,
+.nv-home-latest,
+.nv-home-explore {
+  margin: 0 0 3rem;
+  color: var(--nv-text);
+}
+
+.nv-home-identity {
+  max-width: 48rem;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border: 1px solid var(--nv-border-strong);
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--nv-surface-1), var(--nv-surface-2));
+}
+
+.nv-home-kicker,
+.nv-home-section-heading p,
+.nv-home-transmission time,
+.nv-home-transmission-meta,
+.nv-home-owner {
+  font-family: var(--nv-font-data);
+}
+
+.nv-home-kicker,
+.nv-home-section-heading p {
+  margin: 0;
+  color: var(--nv-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+
+.nv-home-identity h1 {
+  margin: 0.45rem 0 0;
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-inscription);
+  font-size: clamp(2.2rem, 9vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.nv-home-owner {
+  margin: 0.65rem 0 0;
+  color: var(--nv-text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.nv-home-summary {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  color: var(--nv-text);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.nv-home-section-heading {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--nv-border-strong);
+}
+
+.nv-home-section-heading h2 {
+  margin: 0.25rem 0 0;
+  color: var(--nv-text-strong);
+  font-size: 1.5rem;
+}
+
+.nv-home-transmission-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nv-home-transmission {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+}
+
+.nv-home-transmission.is-essay {
+  border-color: var(--nv-border-strong);
+  box-shadow: inset 3px 0 0 var(--nv-signal);
+}
+
+.nv-home-transmission.is-fragment {
+  border-style: dashed;
+  background: transparent;
+}
+
+.nv-home-transmission time {
+  color: var(--nv-text-muted);
+  font-size: 0.75rem;
+}
+
+.nv-home-transmission-body {
+  min-width: 0;
+}
+
+.nv-home-transmission-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+}
+
+.nv-home-transmission-meta span {
+  padding: 0.15rem 0.42rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 999px;
+  color: var(--nv-text-muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+}
+
+.nv-home-transmission-meta span:first-child {
+  border-color: var(--nv-accent);
+  color: var(--nv-accent);
+}
+
+.nv-home-project-log {
+  border-style: dashed !important;
+}
+
+.nv-home-transmission h3,
+.nv-home-transmission p {
+  margin: 0;
+}
+
+.nv-home-transmission h3 {
+  color: var(--nv-text-strong);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.nv-home-transmission p {
+  color: var(--nv-text-muted);
+  line-height: 1.65;
+}
+
+.nv-home-transmission h3 + p {
+  margin-top: 0.4rem;
+}
+
+.nv-home-transmission a,
+.nv-home-more {
+  color: var(--nv-accent);
+  text-decoration: none;
+}
+
+.nv-home-transmission a:focus-visible,
+.nv-home-more:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-home-more {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.nv-home-explore .nv-primary-nav {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+  .nv-home-identity,
+  .nv-home-latest,
+  .nv-home-explore {
+    margin-bottom: 2rem;
+  }
+
+  .nv-home-transmission {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    padding: 0.875rem;
+  }
+}

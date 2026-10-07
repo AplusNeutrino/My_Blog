@@ -684,24 +684,80 @@ def main():
         driver.get(site_url + "/")
         wait.until(
             lambda current: current.find_element(
-                By.CSS_SELECTOR, ".home-dispatch-main"
+                By.CSS_SELECTOR, ".nv-home-latest"
             ).is_displayed()
         )
-        homepage_main_path = driver.execute_script(
-            "return new URL(document.querySelector('.home-dispatch-main').href).pathname"
+        homepage = driver.execute_script(
+            r"""
+            const path = (link) => link ? new URL(link.href).pathname : null;
+            const sections = [...document.querySelectorAll('[data-home-section]')];
+            const items = [...document.querySelectorAll('[data-home-transmission]')];
+            return {
+              sections: sections.map((section) => section.dataset.homeSection),
+              entrances: [...document.querySelectorAll(
+                '.nv-home-explore .nv-primary-nav-link'
+              )].map((link) => ({
+                name: link.querySelector('.nv-primary-nav-name')?.textContent.trim(),
+                href: path(link)
+              })),
+              dates: items.map((item) => item.dataset.homeDate),
+              types: items.map((item) => item.dataset.homeType),
+              projects: items
+                .filter((item) => item.dataset.homeProject)
+                .map((item) => item.dataset.homeProject),
+              firstPath: path(items[0]?.querySelector('a')),
+              text: document.querySelector('main')?.textContent || '',
+              bodyClientWidth: document.body.clientWidth,
+              bodyScrollWidth: document.body.scrollWidth
+            };
+            """
         )
         require(
-            homepage_main_path == latest_public_post_path,
-            f"homepage does not prioritize latest public post: "
-            f"{homepage_main_path} != {latest_public_post_path}",
+            homepage["sections"] == [
+                "identity",
+                "latest_transmissions",
+                "explore",
+            ],
+            f"homepage section order changed: {homepage}",
         )
-        homepage_editorial_text = driver.find_element(
-            By.CSS_SELECTOR, ".home-dispatch"
-        ).text
+        require(
+            homepage["entrances"] == [
+                {"name": "THINK", "href": "/think/"},
+                {"name": "BUILD", "href": "/build/"},
+                {"name": "OBSERVE", "href": "/observe/"},
+                {"name": "ABOUT", "href": "/about/"},
+            ],
+            f"homepage entrances changed: {homepage}",
+        )
+        require(
+            len(homepage["dates"]) == 8
+            and homepage["dates"] == sorted(homepage["dates"], reverse=True),
+            f"homepage mixed stream order changed: {homepage}",
+        )
+        require(
+            {"note", "essay", "fragment"}.issubset(set(homepage["types"])),
+            f"homepage mixed stream lost a Type: {homepage}",
+        )
+        require(
+            homepage["projects"] == [
+                "Toyosatomimi's Headphone",
+                "Akasha Notes",
+            ],
+            f"Project Log remains a missing or primary relation: {homepage}",
+        )
+        require(
+            homepage["firstPath"] == latest_public_post_path,
+            f"homepage does not prioritize latest public post: "
+            f"{homepage['firstPath']} != {latest_public_post_path}",
+        )
+        require(
+            homepage["bodyScrollWidth"] <= homepage["bodyClientWidth"],
+            f"homepage has horizontal overflow: {homepage}",
+        )
         for title in hidden_titles:
             require(
-                title not in homepage_editorial_text,
-                f"hidden title leaked into homepage editorial area: {title}",
+                title not in homepage["text"],
+                f"hidden title leaked into homepage: {title}",
             )
 
         driver.get(site_url + "/archives/")
