@@ -90,6 +90,17 @@ def read_state(driver):
           writingCount: writingRecords.length,
           writingTypes: writingCounts('writingType'),
           writingTopics: writingCounts('writingTopic'),
+          topicEntries: [...document.querySelectorAll('[data-writing-topic-link]')].map(
+            (link) => ({
+              topic: link.dataset.writingTopicLink,
+              count: Number.parseInt(
+                link.querySelector('[data-writing-topic-count]')?.textContent || '0',
+                10
+              ),
+              current: link.getAttribute('aria-current'),
+              href: link.getAttribute('href')
+            })
+          ),
           firstWritingDate: writingRecords[0]?.dataset.writingDate || null,
           visibleWritingCount: visibleWritingRecords.length,
           visibleFirstWritingDate: visibleWritingRecords[0]?.dataset.writingDate || null,
@@ -177,6 +188,15 @@ def main():
             },
             f"public Topic counts changed: {initial}",
         )
+        require(
+            initial["topicEntries"] == [
+                {"topic": "computation", "count": 34, "current": None, "href": "/think/?topic=computation"},
+                {"topic": "humanity", "count": 6, "current": None, "href": "/think/?topic=humanity"},
+                {"topic": "otaku", "count": 3, "current": None, "href": "/think/?topic=otaku"},
+                {"topic": "arts", "count": 1, "current": None, "href": "/think/?topic=arts"},
+            ],
+            f"Topic directory changed: {initial}",
+        )
         require(initial["firstWritingDate"] == "2026-08-17", f"writing order changed: {initial}")
         require(
             initial["hiddenWritingTitles"] == [],
@@ -190,6 +210,28 @@ def main():
             and initial["pageTotal"] == 4,
             f"default pagination contract failed: {initial}",
         )
+
+        driver.find_element(By.CSS_SELECTOR, '[data-writing-topic-link="humanity"]').click()
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["filterTopic"] == "humanity"
+                and state["visibleWritingCount"] == 6
+                and "topic=humanity" in state["urlSearch"]
+                and next(
+                    entry for entry in state["topicEntries"] if entry["topic"] == "humanity"
+                )["current"] == "true"
+            )
+        )
+        driver.refresh()
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["filterTopic"] == "humanity"
+                and state["visibleWritingCount"] == 6
+            )
+        )
+        driver.back()
+        wait.until(lambda current: read_state(current)["filterTopic"] == "all")
 
         Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("fragment")
         wait.until(lambda current: read_state(current)["visibleWritingCount"] == 5)

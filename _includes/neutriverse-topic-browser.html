@@ -1,0 +1,27 @@
+<section class="nv-topic-browser" aria-labelledby="nv-topic-browser-title" data-writing-topic-browser>
+  <div class="nv-topic-browser-heading">
+    <p>TOPIC DIRECTORY</p>
+    <h3 id="nv-topic-browser-title">按主题浏览</h3>
+  </div>
+
+  <ul class="nv-topic-browser-list">
+    {% for topic_id in site.data.content_taxonomy.topic_order %}
+      {% assign topic = site.data.content_taxonomy.topics[topic_id] %}
+      {% assign topic_items = include.items | where: 'topic', topic_id %}
+      <li>
+        <a
+          class="nv-topic-browser-link"
+          href="{{ '/think/' | relative_url }}?topic={{ topic_id | url_encode }}"
+          data-writing-topic-link="{{ topic_id }}"
+        >
+          <span class="nv-topic-browser-name">{{ topic.label }}</span>
+          <span class="nv-topic-browser-description">{{ topic.description }}</span>
+          <span class="nv-topic-browser-count">
+            <strong data-writing-topic-count="{{ topic_id }}">{{ topic_items.size }}</strong>
+            项公开记录
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

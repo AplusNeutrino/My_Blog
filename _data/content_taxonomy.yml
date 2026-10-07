@@ -1,3 +1,9 @@
+topic_order:
+  - computation
+  - humanity
+  - otaku
+  - arts
+
 types:
   fragment:
     label: Fragment

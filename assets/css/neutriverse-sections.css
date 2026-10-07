@@ -392,6 +392,100 @@
   font-size: 1.4rem;
 }
 
+.nv-topic-browser {
+  margin: 0 0 1.5rem;
+}
+
+.nv-topic-browser-heading {
+  margin-bottom: 0.75rem;
+}
+
+.nv-topic-browser-heading p {
+  margin: 0;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.nv-topic-browser-heading h3 {
+  margin: 0.2rem 0 0;
+  color: var(--nv-text-strong);
+  font-size: 1.15rem;
+}
+
+.nv-topic-browser-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nv-topic-browser-link {
+  display: flex;
+  min-height: 9rem;
+  height: 100%;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+  color: var(--nv-text);
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.nv-topic-browser-link:hover {
+  border-color: var(--nv-border-strong);
+  background: var(--nv-surface-2);
+  color: var(--nv-text);
+}
+
+.nv-topic-browser-link.is-current,
+.nv-topic-browser-link[aria-current='true'] {
+  border-color: var(--nv-accent);
+  background: var(--nv-surface-2);
+}
+
+.nv-topic-browser-link:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-topic-browser-name,
+.nv-topic-browser-count {
+  font-family: var(--nv-font-data);
+}
+
+.nv-topic-browser-name {
+  color: var(--nv-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nv-topic-browser-description {
+  flex: 1;
+  color: var(--nv-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.nv-topic-browser-count {
+  color: var(--nv-text-muted);
+  font-size: 0.72rem;
+}
+
+.nv-topic-browser-count strong {
+  color: var(--nv-text-strong);
+  font-size: 1rem;
+}
+
 .nv-writing-list {
   display: grid;
   gap: 0.75rem;
@@ -624,6 +718,15 @@
     align-items: start;
   }
 
+  .nv-topic-browser-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nv-topic-browser-link {
+    min-height: 0;
+    padding: 0.875rem;
+  }
+
   .nv-writing-controls {
     grid-template-columns: 1fr;
   }
@@ -650,7 +753,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .nv-primary-nav-link,
-  .nv-section-link {
+  .nv-section-link,
+  .nv-topic-browser-link {
     transition: none;
   }
 }

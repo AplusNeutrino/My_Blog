@@ -37,6 +37,8 @@
     const pages = ledger.querySelector('[data-writing-pages]');
     const previous = ledger.querySelector('[data-writing-page="previous"]');
     const next = ledger.querySelector('[data-writing-page="next"]');
+    const topicBrowser = ledger.querySelector('[data-writing-topic-browser]');
+    const topicLinks = Array.from(ledger.querySelectorAll('[data-writing-topic-link]'));
 
     let state = {
       type: 'all',
@@ -97,6 +99,15 @@
       typeSelect.value = state.type;
       topicSelect.value = state.topic;
       sortSelect.value = state.sort;
+      topicLinks.forEach((link) => {
+        const isCurrent = link.dataset.writingTopicLink === state.topic;
+        link.classList.toggle('is-current', isCurrent);
+        if (isCurrent) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
     };
 
     const pageLink = (page, label, current = false) => {
@@ -185,6 +196,21 @@
       };
       render({ historyMode: 'push' });
     };
+
+    topicBrowser?.addEventListener('click', (event) => {
+      const link = event.target.closest('a[data-writing-topic-link]');
+      if (!link || !ALLOWED_TOPICS.has(link.dataset.writingTopicLink)) {
+        return;
+      }
+      event.preventDefault();
+      state = {
+        type: 'all',
+        topic: link.dataset.writingTopicLink,
+        sort: 'newest',
+        page: 1
+      };
+      render({ historyMode: 'push' });
+    });
 
     controls.addEventListener('change', updateFromControls);
     controls.addEventListener('reset', (event) => {
