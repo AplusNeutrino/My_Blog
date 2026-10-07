@@ -149,13 +149,24 @@ def main():
         trigger.click()
         wait.until(lambda current: read_state(current)["open"])
         before_theme = read_state(driver)
-        driver.find_element(By.ID, "mode-toggle").click()
+        mode_toggle = driver.find_element(By.ID, "mode-toggle")
+        driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'})", mode_toggle
+        )
+        wait.until(lambda _current: mode_toggle.is_displayed() and mode_toggle.is_enabled())
+        mode_toggle.click()
         wait.until(lambda current: read_state(current)["background"] != before_theme["background"])
         themed = read_state(driver)
         require(themed["bodyScrollWidth"] <= themed["bodyClientWidth"], f"theme introduced overflow: {themed}")
         require(themed["primaryVisible"] == 5 and themed["utilitiesVisible"] == 3, f"theme hid navigation: {themed}")
 
-        driver.find_element(By.CSS_SELECTOR, "#sidebar .nv-sidebar-primary .nav-link").click()
+        first_navigation = driver.find_element(
+            By.CSS_SELECTOR, "#sidebar .nv-sidebar-primary .nav-link"
+        )
+        driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'})", first_navigation
+        )
+        first_navigation.click()
         wait.until(lambda current: not read_state(current)["open"])
         navigated = read_state(driver)
         require(navigated["expanded"] == "false", f"navigation did not close menu: {navigated}")
