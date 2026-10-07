@@ -817,16 +817,25 @@ def main():
                 f"hidden title leaked into homepage: {title}",
             )
 
+        homepage_trigger = driver.find_element(By.ID, "sidebar-trigger")
+        homepage_trigger.click()
+        wait.until(lambda current: read_state(current)["open"])
         homepage_before_theme = read_state(driver)
         homepage_toggle = driver.find_element(By.ID, "mode-toggle")
         driver.execute_script(
             "arguments[0].scrollIntoView({block: 'center'})", homepage_toggle
+        )
+        wait.until(
+            lambda _current: homepage_toggle.is_displayed()
+            and homepage_toggle.is_enabled()
         )
         homepage_toggle.click()
         wait.until(
             lambda current: read_state(current)["background"]
             != homepage_before_theme["background"]
         )
+        driver.switch_to.active_element.send_keys(Keys.ESCAPE)
+        wait.until(lambda current: not read_state(current)["open"])
         homepage_after_theme = read_state(driver)
         homepage_theme_layout = driver.execute_script(
             """
