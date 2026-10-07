@@ -158,6 +158,11 @@
 }
 
 @media (max-width: 849px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   #sidebar {
     overflow-y: auto;
     overscroll-behavior: contain;

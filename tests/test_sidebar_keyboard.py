@@ -122,6 +122,7 @@ console.log('sidebar controller behavior passed');
             r"@media \(max-width: 849px\)\s*\{(.*?)\n\}", css, re.S
         ).group(1)
         self.assertIn("overflow-y: auto", mobile_rule)
+        self.assertIn("overflow-x: hidden", mobile_rule)
         self.assertIn("overscroll-behavior: contain", mobile_rule)
         self.assertIn("min-height: 2.75rem", mobile_rule)
 

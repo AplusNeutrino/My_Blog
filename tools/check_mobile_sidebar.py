@@ -52,6 +52,8 @@ def read_state(driver):
           innerHeight: window.innerHeight,
           bodyClientWidth: document.body.clientWidth,
           bodyScrollWidth: document.body.scrollWidth,
+          bodyOverflowX: getComputedStyle(document.body).overflowX,
+          rootOverflowX: getComputedStyle(document.documentElement).overflowX,
           triggerWidth: rect.width,
           triggerHeight: rect.height,
           triggerVisible: getComputedStyle(trigger).display !== 'none',
@@ -133,6 +135,10 @@ def main():
         wait.until(lambda current: read_state(current)["open"])
         opened = read_state(driver)
         require(opened["expanded"] == "true" and opened["focusInSidebar"], f"open focus contract failed: {opened}")
+        require(
+            opened["bodyOverflowX"] == "hidden" or opened["rootOverflowX"] == "hidden",
+            f"open drawer allows horizontal scrolling: {opened}",
+        )
 
         driver.switch_to.active_element.send_keys(Keys.ESCAPE)
         wait.until(lambda current: not read_state(current)["open"])
@@ -157,7 +163,10 @@ def main():
         mode_toggle.click()
         wait.until(lambda current: read_state(current)["background"] != before_theme["background"])
         themed = read_state(driver)
-        require(themed["bodyScrollWidth"] <= themed["bodyClientWidth"], f"theme introduced overflow: {themed}")
+        require(
+            themed["bodyOverflowX"] == "hidden" or themed["rootOverflowX"] == "hidden",
+            f"theme allows horizontal scrolling: {themed}",
+        )
         require(themed["primaryVisible"] == 5 and themed["utilitiesVisible"] == 3, f"theme hid navigation: {themed}")
 
         first_navigation = driver.find_element(
