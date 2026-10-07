@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-07 16:45 — T10.a 范围锁定
+
+- Task / parent：T10.a / T10；status = in-progress；依赖 T09 done。
+- Base / branch：`b7fd898660d9bbabd6d0a8bdd0396069ef014aeb` / main，最新 head 无额外用户差异。
+- 本次最小交付：桌面侧栏折叠时不可见控件退出 Tab 顺序；动作标签/expanded 状态与实际一致；Escape 收起、焦点转移与重新展开恢复；保留既有首页展开/文章收起、storage 和 logo 动效规则。
+- 拟改：`_includes/metadata-hook.html`、`assets/css/neutriverse-sections.css`、键盘侧栏回归测试、主计划/日志。不改文章、移动菜单本体、外部项目或隐藏入口。
+- 验收：全回归/基线保护/精确 SHA Pages；桌面实际浏览器收起→Tab→展开→Escape 与 storage 状态核对。手机菜单与 390px 留 T10.b，父项未全部通过不标 done。
+- 调度处理：用户要求保留每小时一次、暂停重复项。peek 只发现一个完整重构任务，原处 paused；已恢复 `6ac11b88fe048191ae937f499e28ed30` enabled/hourly，旧 Taxonomy Migration 保持 paused；没有新建或改其他项目任务。
+- 用户问题：无。
+
 ## Run 2026-10-07 — T09.a 续接与缺陷范围（最终 done）
 
 - Task / parent：T09.a / T09；status = in-progress；依赖 T08 done。

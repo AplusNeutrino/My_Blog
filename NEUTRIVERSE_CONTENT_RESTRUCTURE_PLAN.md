@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = 15438e1a30715062087f1c05fbfd4c96f103f392；checkpoint = T09 done / c50938297d9b9388aceff5df84e60c051973dac9；next = T10；completion = IN PROGRESS。
+主计划当前运行字段：active_run = T10.a；branch = main；base = b7fd898660d9bbabd6d0a8bdd0396069ef014aeb；checkpoint = T09 done；next = T10.a；completion = IN PROGRESS。
+
+T10 拆分：T10.a 桌面折叠键盘/焦点与状态（in-progress）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（pending）。本次 T10.a 拟改 metadata-hook sidebar controller、共享 focus CSS、相关回归与日志。验收：关闭侧栏不留不可见 Tab 目标，展开/收起正确命名与 expanded 状态，Escape 关闭并回到展开按钮，重新展开恢复焦点，既有自动折叠和 storage 保留；全套测试、正文/URL 基线、精确提交 CI/部署与浏览器。父 T10 在手机专项通过前不能 done。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1138,6 +1140,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - RRULE：FREQ=HOURLY;INTERVAL=1
 - 任务每轮读取最新主计划/日志，拆分并完成工作，遇到问题转做独立任务；全部验收后暂停此任务。
 - 旧的 Neutriverse Taxonomy Migration 已停用；本次没有重启旧迁移任务。
+- 2026-10-07 16:46 用户要求暂停重复 scheduled 并保留每小时一次；peek 核对只有上述完整重构任务（当时 paused），旧迁移保持 paused；已恢复上述 ID 为 enabled，原 hourly RRULE 不变，未创建第二条任务。
 - 创建成功表示定时配置已保存，不等于未来所有实现/构建已完成；实际执行以日志与提交为准。
 
 
