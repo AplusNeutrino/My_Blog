@@ -219,17 +219,14 @@ def main():
         "ROSSMANN项目面经",
         "中间层网站更新记录",
     )
-    for relative_path in (
-        Path("archives/index.html"),
-        Path("tags/index.html"),
-        Path("assets/js/data/search.json"),
-    ):
-        built_source = (site / relative_path).read_text(encoding="utf-8")
-        for title in hidden_titles:
-            require(
-                title not in built_source,
-                f"hidden title leaked into {relative_path}: {title}",
-            )
+    search_index = (site / "assets" / "js" / "data" / "search.json").read_text(
+        encoding="utf-8"
+    )
+    for title in hidden_titles:
+        require(
+            title not in search_index,
+            f"hidden title leaked into search index: {title}",
+        )
 
     chrome = next(
         (
@@ -673,6 +670,15 @@ def main():
         wait.until(lambda current: not read_state(current)["open"])
         navigated = read_state(driver)
         require(navigated["expanded"] == "false", f"navigation did not close menu: {navigated}")
+
+        driver.get(site_url + "/archives/")
+        wait.until(lambda current: current.find_element(By.ID, "archives").is_displayed())
+        archive_text = driver.find_element(By.ID, "archives").text
+        for title in hidden_titles:
+            require(
+                title not in archive_text,
+                f"hidden title leaked into Archive ledger: {title}",
+            )
 
         print(json.dumps({
             "initial": initial,
