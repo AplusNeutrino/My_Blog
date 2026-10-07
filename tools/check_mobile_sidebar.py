@@ -397,38 +397,58 @@ def main():
             f"invalid parameters did not fall back: {initial}",
         )
 
+        driver.get(think_url + "?series=database-systems&sort=oldest")
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["controlsVisible"]
+                and state["filterSeries"] == "database-systems"
+                and state["visibleWritingCount"] == 10
+            )
+        )
+        database_paths = driver.execute_script(
+            r"""
+            return [...document.querySelectorAll(
+              '#nv-writing-list [data-writing-item]:not([hidden]) h3 a'
+            )].map((link) => new URL(link.href).pathname);
+            """
+        )
+        require(
+            len(database_paths) == 10,
+            f"Database Systems built links changed: {database_paths}",
+        )
+
         site_url = f"http://127.0.0.1:{port}"
         expected_series_pages = [
             (
-                "/posts/dbms-01/",
+                database_paths[0],
                 {
                     "id": "database-systems",
                     "position": "1/10",
                     "itemCount": 10,
                     "root": "/think/?series=database-systems",
                     "previous": None,
-                    "next": "/posts/dbms-02/",
+                    "next": database_paths[1],
                 },
             ),
             (
-                "/posts/dbms-05/",
+                database_paths[4],
                 {
                     "id": "database-systems",
                     "position": "5/10",
                     "itemCount": 10,
                     "root": "/think/?series=database-systems",
-                    "previous": "/posts/dbms-04/",
-                    "next": "/posts/dbms-06/",
+                    "previous": database_paths[3],
+                    "next": database_paths[5],
                 },
             ),
             (
-                "/posts/dbms-10/",
+                database_paths[9],
                 {
                     "id": "database-systems",
                     "position": "10/10",
                     "itemCount": 10,
                     "root": "/think/?series=database-systems",
-                    "previous": "/posts/dbms-09/",
+                    "previous": database_paths[8],
                     "next": None,
                 },
             ),
