@@ -29,6 +29,18 @@
 - 验收：自动回归 + T01 基线；精确实现 SHA Pages；浏览器实际 innerWidth 约 390px 时四主入口/三个辅助入口/关闭路径可操作，关键 trigger ≥44px、无 body overflow，Night/Light 一致。无法获得窄屏时不可标父 T10 done。
 - 用户问题：无。
 
+
+### T10.b 交付与验收（最终 done）
+
+- 范围记录 `c7b89d9e71903d3791facc960c4eb20e51980879`；实现链：`63123d19ab5f0cbd05ad8e95b849f03ef32913bb`（mobile controller/CSS/静态回归）、`c1781394d8b04fa667e80b37b1fba40dd53703cf`（在 Pages 构建后加入真实 Chrome 验收）、`fad2f2c6c59c3c1bdd2824d0b2fc1181abb57094` / `796403d9237979f54c05f35c108fbe2332ddb875` / `0ce092bb8844a61a6adbeda101ac35766e535c01` / `d51bf71108fec14b7494c161e8b66f34d2e7d3f5`（校正测试对 HOME、标题节点和侧栏滚动的读取），最终 `337132987101fcb170db718a9713619013fe12d7` 修复真实移动抽屉横向滚动。均 non-force + expected head 保存 main。
+- 功能：保留 Chirpy 原生 trigger/mask；同步 `aria-controls=sidebar`、expanded 与打开/关闭标签；打开焦点进入 sidebar，Tab 在打开菜单内循环；Escape/遮罩关闭后回 trigger；跨 850px 清理移动状态。移动 trigger 为 46×44px，sidebar 可纵向滚动，根页面在移动断点锁住横向滚动。
+- 第一次功能 head [run 37598635773](https://github.com/AplusNeutrino/My_Blog/actions/runs/37598635773) 已通过 77 tests/Jekyll/部署。新增真浏览器门禁后，失败 runs `37599003282`、`37599228209`、`37599434408` 是断言读取 HOME/编号结构的测试口径校正；`37599637266` 证明已越过入口/焦点检查、定位底部主题按钮需滚动；`37599878310` 首次暴露 Night 打开抽屉时原生位移产生横向滚动，未把失败冒充通过。
+- 最终 [run 37600119191](https://github.com/AplusNeutrino/My_Blog/actions/runs/37600119191) 精确 head `337132987101fcb170db718a9713619013fe12d7`：build `112722158257`、deploy `112722471895` success；77 tests、production Jekyll、390px Chrome 门禁、artifact 和 Pages 全通过。artifact `11471544488`，digest `sha256:ebf2eab52a17774d669d1a34deb1d77efa7487881ea4f3808ba1e0c8847bf2a7`。
+- Chrome 证据：实际 `innerWidth=390` / `innerHeight=701`；HOME + THINK/BUILD/OBSERVE/ABOUT 与三个辅助入口均可见；trigger 46×44；Light 打开后焦点在 sidebar，Escape/遮罩关闭后焦点回 trigger；Night 主题切换后入口仍完整且横向滚动锁定；导航后菜单关闭。关闭态 body scroll/client width 均为 379（Light）或 375（Night）。
+- 保护：实现链仅改导航 JS/共享 CSS/测试与 workflow；未改 `_posts/`、`_thoughts/`、文件名、date/slug/permalink、正文、旧 URL、隐藏可见性或外部项目仓库。T10.a + T10.b 均 done，父 T10 done。
+- 调度：只保留“推进 Neutriverse 重构”启用并每小时运行；旧 “Neutriverse Taxonomy Migration” 继续 paused，没有创建重复任务。
+- 用户问题：无。下一项 T11 `/think/` 时间序写作列表；T21 也已解锁但按主计划顺序暂后置。
+
 ## Run 2026-10-07 16:45 — T10.a 范围锁定（最终 done）
 
 - Task / parent：T10.a / T10；status = in-progress；依赖 T09 done。

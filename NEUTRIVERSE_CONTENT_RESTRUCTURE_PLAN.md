@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 completed; T00–T09 done; T10 in progress (T10.a done, T10.b ready); implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T10 done; T11 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T09 done，T10 in-progress（T10.a done，T10.b ready）。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T10.a 桌面折叠键盘/焦点与状态；base SHA `b7fd898660d9bbabd6d0a8bdd0396069ef014aeb`，实现 `0968f1da56201a55d3c340dd8c323f6dc7c8c141`；精确 CI/部署与双主题桌面浏览器通过。下一项 T10.b 手机导航/关闭/焦点与 390px 实际验收，父 T10 尚未完成。
+**当前状态：计划细化与启动决定已完成，T00–T10 done，T11 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T10 手机/桌面导航、键盘、折叠与焦点行为；T10.b base `2a46980d5160e47e5d7e37410dcb6a41cc472f45`，最终实现 `337132987101fcb170db718a9713619013fe12d7`。精确 CI/部署及 390px Chrome 双主题交互通过；下一项 T11 `/think/` 时间序写作列表。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T09 = done，T10 = in-progress（T10.a done，T10.b ready），其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T10 = done，T11 与 T21 的依赖已满足；按计划顺序下一项 T11 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,11 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T10.b；branch = main；base = 2a46980d5160e47e5d7e37410dcb6a41cc472f45；checkpoint = T10.a done；next = T10.b；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = 337132987101fcb170db718a9713619013fe12d7；checkpoint = T10 done；next = T11；completion = IN PROGRESS。
 
 T10.b 本次范围：增强 Chirpy 原生手机 sidebar trigger/mask 的 aria-expanded、关闭焦点恢复、Escape 与断点清理；仅调整导航交互脚本/共享样式、相关测试、计划/日志。验收：390px CSS viewport 的四入口/辅助入口/关闭路径可用、无 body 横向溢出、44px 关键触控目标、打开后焦点进入 sidebar、Escape/mask/导航后关闭并回 trigger；两主题与对应实现 SHA CI/部署通过。若窄视口只能通过浏览器 zoom 获得，须同时记录实际 innerWidth，不以桌面截图替代。
 
-T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（ready）。T10.a 已改 metadata-hook sidebar controller、共享 focus CSS、相关行为回归。关闭侧栏不留不可见 Tab 目标，展开/收起正确命名与 expanded 状态，Escape 关闭并回到展开按钮，重新展开恢复焦点，既有自动折叠和 storage 保留；75 tests/正文 URL 基线/精确 CI 部署/双主题桌面浏览器通过。父 T10 在手机专项通过前不能 done；本次浏览器接口未提供 viewport resize，不把 1363px 或 DOM stub 当 390px 验收。
+T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机菜单/关闭/焦点与 390px 实际验收（done）。T10.b 保留 Chirpy 原生抽屉并补 controls/expanded、打开焦点、Escape/遮罩焦点返回、跨断点清理、44px trigger 与移动横向滚动锁；77 tests 和 production build 通过。GitHub Actions 的真实 Chrome 以 innerWidth 390 / innerHeight 701 验证 HOME + 四入口、三个辅助入口、Light/Night、打开/关闭/导航路径；final head `337132987101fcb170db718a9713619013fe12d7` 的 build/deploy 成功。T10 done，解锁 T11 与 T21；按顺序下一项 T11。
 
 ## 24. 整个本轮计划的最终完成标准
 
@@ -1271,3 +1271,12 @@ T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机�
 - 验证：75 tests OK（含 Node 执行实际 controller 的状态/焦点行为）；T01 protection passed；diff check 通过。精确 [run 37596416095](https://github.com/AplusNeutrino/My_Blog/actions/runs/37596416095)，head `0968f1d...`，回归/Jekyll/上传/部署全部成功，build/deploy jobs `112710055792` / `112710337878`。
 - 浏览器：1363px，Night Space 收起→inert/焦点 recall；Shift+Tab 去页脚且不进入 sidebar；打开→avatar；HOME Escape 收起；Light Enter 收起/打开与焦点恢复正确，2px 主题焦点环；未把此结果说成手机通过。
 - 无用户问题。下一项 T10.b 手机菜单与 390px；T11/T21 依赖父 T10，暂不解锁。
+
+
+### T10.b — 手机菜单、焦点与 390px 验收（done；父 T10 done）
+
+- 范围提交：`c7b89d9e71903d3791facc960c4eb20e51980879`；功能实现链最终 head：`337132987101fcb170db718a9713619013fe12d7`。
+- 交付：原生 sidebar trigger 同步 `aria-controls/expanded` 与动作名称；打开焦点进入菜单；Escape 和遮罩关闭后焦点回 trigger；Tab 在打开菜单内循环；跨 850px 清理状态。移动端 trigger 最小 44px，sidebar 垂直滚动且根页面横向滚动锁定。
+- 可复现真浏览器：`tools/check_mobile_sidebar.py` 在 Pages workflow 构建后启动 Chrome 390×844，实测 `innerWidth=390`、trigger `46×44`、HOME + THINK/BUILD/OBSERVE/ABOUT、3 个辅助入口、Light/Night、Escape/遮罩/导航关闭与焦点。关闭态 `bodyScrollWidth=bodyClientWidth`；抽屉打开时根页面 `overflow-x:hidden`，用户不可横向滚动。
+- 最终证据：[run 37600119191](https://github.com/AplusNeutrino/My_Blog/actions/runs/37600119191)，head `337132987101fcb170db718a9713619013fe12d7`；build `112722158257`、deploy `112722471895` success，77 tests、Jekyll、Chrome 验收及 Pages 部署通过。artifact `11471544488`，digest `sha256:ebf2eab52a17774d669d1a34deb1d77efa7487881ea4f3808ba1e0c8847bf2a7`。
+- 保护：实现链未触及 `_posts/`、`_thoughts/`、文件名、date/slug/permalink、正文、旧路由或外部项目仓库。无新增待答问题；下一项 T11。
