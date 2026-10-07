@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T20 done; T21 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T20 done; T21 in-progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,7 +877,7 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T20 done，T21 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+**当前状态：计划细化与启动决定已完成，T00–T20 done，T21 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
 最新完成：T20 Current Signal、轻量状态及精选内容；base `7ddf9353c4b41f6a8d2d56d2914287f92aa59ed8`，范围提交 `f75a8e6c00a6c674c3cf8581e2e840a598a4f65b`，主体实现 `5e70e23674026679f3ece8efd9f23e594d5ad396`，最终门禁 head `0e521a53a1408f56ee657fb1197148f9ed9a68da`。首页六区块已闭合；Current Signal 仅使用批准事实，精选为四条公开真实链接，状态动态显示 44 Records、39 posts + 5 Fragments 与最近更新时间，无项目 catalog 时自然省略项目数；精确 CI/Pages 通过。下一项 T21 项目 schema、来源和模板。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T20 = done，T21 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T20 = done，T21 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = 0e521a53a1408f56ee657fb1197148f9ed9a68da；checkpoint = T20 done；next = T21；completion = IN PROGRESS.
+主计划当前运行字段：active_run = T21；branch = main；base = 5d41704f37f6de7db7e23effda914fe563c4a194；checkpoint = T20 done / T21 scoped；time = 2026-10-08 07:01 Asia/Shanghai；next = T21 implementation；completion = IN PROGRESS.
 
 T20 本次范围：实现 T18 已配置但尚未渲染的 Current Signal、Featured 与 System Status，保持首页完整顺序 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status。Current Signal 只使用已批准的“Neutriverse 网站重构”及其站内说明；Featured 优先使用 `neutriverse_home.featured.posts` 中仍公开可见的文章，不足时依次从 `home_popular.posts` 与最新公开文章补足到最多 4 条，始终排除 hidden 且不显示访问量；System Status 仅从公开内容动态计算 Records、posts/fragments 分解与最后更新时间，项目目录在 T21 建立前无数据则不渲染项目指标，作为自然降级而非伪造数量。拟改首页 layout、共享 CSS、首页配置契约测试、新增 T20 静态回归及 390px Chrome 门禁、主计划/日志；不改文章/Fragment 原文或 metadata、旧 URL、hidden/noindex、外部项目，也不提前实现 T21 项目 schema。验收为六区块顺序、Current Signal 唯一来源、精选 4 条公开且链接真实、状态值与公开源一致、无项目源时项目指标缺席、两主题/390px/回归/Jekyll/Pages 对精确 SHA 通过。
 
@@ -1106,6 +1106,9 @@ T19 本次范围：按 T18 单一配置重构首页主体，先显示仅使用�
 T18 本次范围：新增首页单一配置源，固定首页区块顺序为 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status，并明确各区块的数据来源、公开/hidden 边界与缺省降级。现有首页主卡从 pin 优先改为最新公开文章优先；固定推荐迁入同一配置，旧 `home_recommend.yml` 停用；Current Signal 仅使用已批准的“Neutriverse 网站重构”。拟改首页配置、home layout、静态回归与 390px Chrome 门禁、主计划/日志；不在 T18 提前实现 T19 的混合 Fragment/Project Log 流或 T20 的完整新首页区块，不改任何文章/Fragment、旧 URL 或外部项目。验收为单一配置可机械核对，最新公开文章确为首页首要表达，固定推荐/当前焦点无第二来源，hidden 不进入首页，精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
 
 T17 本次范围：把 Archive、Tags 与 Search 明确接入 THINK 的“当前可用入口”，保留 `/archives/`、`/tags/`、`/categories/` 与既有搜索模态框；Search 使用真实 button action 调用 Chirpy 原生搜索，不制造假 URL。导航脚本需支持侧栏与 THINK 内多个搜索触发器；Archive、Tags、Search 继续只读取非 hidden 文章。拟改 section 数据/入口模板、导航脚本、共享 CSS、静态回归和 390px Chrome 门禁；不改任何文章/Fragment 原文、metadata、旧 URL、hidden/noindex 或外部项目。验收为 THINK 内 Archive/Tags 普通链接及 Search 按钮可用，搜索打开且聚焦并可关闭，三种检索均无 hidden 条目，精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
+
+
+T21 本次范围：以七个已批准项目为唯一 BUILD catalog，建立稳定 ID、可追溯来源、可选状态/链接/Release 语义和通用项目详情模板。拟新增 `_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、`_layouts/neutriverse-project.html`、项目 catalog 回归测试，并仅为 catalog 接入补充共享样式、首页 Projects 动态状态和 390px 门禁预期；不提前实现 T22 的 `/build/` 项目清单/筛选或 T23/T24 的项目详情页。验收为七个稳定 ID 唯一且无 MMXProj；每项摘要/链接均有站内或公开来源；status/links/releases 均可省略且模板自然降级；没有项目被要求提供不存在的 Release；Ravenis/Occult Atlas/Gate 的 noindex/隐蔽边界不变；回归、production Jekyll、390px 双主题与精确 head Pages 通过。预计剩余：完成实现、验证、记录精确证据后 T21 done，T22 ready。
 
 T20 验收证据：首页按配置补齐 Current Signal、Featured Records 与 System Status，形成 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status 六区块顺序。Current Signal 只读取 `_data/neutriverse_home.yml` 已批准的“Neutriverse 网站重构”、摘要与 `/about/`；Featured 先取两条配置文章，再从不含公开访问量的 `home_popular.posts` 补足，最终四条均为非 hidden 真实文章且无重复；System Status 从公开源动态计算 44 Records、39 posts + 5 Fragments、最近更新 2026-08-17，T21 catalog 尚不存在时不渲染 Projects 指标。范围提交 `f75a8e6c00a6c674c3cf8581e2e840a598a4f65b`，主体实现 `5e70e23674026679f3ece8efd9f23e594d5ad396`，主题门禁修复 `6effe6dc3e99a8d445a4750f1a6ea7c787aa3faf`，final head `0e521a53a1408f56ee657fb1197148f9ed9a68da`。run `37694173615` 的 115 项回归与 Jekyll 成功，但移动侧栏关闭时直接点击不可见主题按钮；run `37694396230` 确认六区块与主题切换成功，但将 overflow 锁定的离屏侧栏宽度误判为用户可滚动；两次均未记为通过。最终 [run 37694550921](https://github.com/AplusNeutrino/My_Blog/actions/runs/37694550921) completed/success；build job `113042896498` 的 115 项回归、production Jekyll、390px Chrome、双主题、hidden 检查、Ravenis 与 artifact upload 全部成功，deploy job `113043399090` 成功；artifact `11515256020`，digest `sha256:60f17f4bc971a11d62b2b4c2ef40587bbcaac1f7c0b34243d4aa2ec2ecbc063c`。未改文章/Fragment 原文或 metadata、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目，也未提前实现 T21。T20 done，T21 ready，无新增用户问题。
 
