@@ -63,6 +63,7 @@ def read_state(driver):
           primaryVisible: primary.filter(
             (item) => item.getBoundingClientRect().height > 0
           ).length,
+          primaryLabels: primary.map((item) => item.textContent.trim().split(/\s+/)[0]),
           utilitiesVisible: utilities.filter(
             (item) => item.getBoundingClientRect().height > 0
           ).length,
@@ -114,7 +115,11 @@ def main():
         require(initial["bodyScrollWidth"] <= initial["bodyClientWidth"], f"horizontal overflow: {initial}")
         require(initial["triggerVisible"], f"mobile trigger hidden: {initial}")
         require(initial["triggerWidth"] >= 44 and initial["triggerHeight"] >= 44, f"undersized trigger: {initial}")
-        require(initial["primaryVisible"] == 4, f"primary links unavailable: {initial}")
+        require(initial["primaryVisible"] == 5, f"HOME + four primary links unavailable: {initial}")
+        require(
+            initial["primaryLabels"] == ["HOME", "THINK", "BUILD", "OBSERVE", "ABOUT"],
+            f"primary link order changed: {initial}",
+        )
         require(initial["utilitiesVisible"] == 3, f"utility links unavailable: {initial}")
         require(initial["controls"] == "sidebar" and initial["expanded"] == "false", f"trigger semantics wrong: {initial}")
 
@@ -143,7 +148,7 @@ def main():
         wait.until(lambda current: read_state(current)["background"] != before_theme["background"])
         themed = read_state(driver)
         require(themed["bodyScrollWidth"] <= themed["bodyClientWidth"], f"theme introduced overflow: {themed}")
-        require(themed["primaryVisible"] == 4 and themed["utilitiesVisible"] == 3, f"theme hid navigation: {themed}")
+        require(themed["primaryVisible"] == 5 and themed["utilitiesVisible"] == 3, f"theme hid navigation: {themed}")
 
         driver.find_element(By.CSS_SELECTOR, "#sidebar .nv-sidebar-primary .nav-link").click()
         wait.until(lambda current: not read_state(current)["open"])
