@@ -20,15 +20,22 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 07:01 — T21 项目 schema、来源和模板范围
+## Run 2026-10-08 07:01 — T21 项目 schema、来源和模板
 
-- Task：T21；status = in-progress；依赖 T06、T10 done。
+- Task：T21；status = done；依赖 T06、T10 done。
 - Base / branch：`5d41704f37f6de7db7e23effda914fe563c4a194` / main；base 是 T20 证据提交后的自动 Library 数据同步，只改个人 Library 公开投影数据；T20 实现 head `0e521a53a1408f56ee657fb1197148f9ed9a68da` 的 [Actions run 37694550921](https://github.com/AplusNeutrino/My_Blog/actions/runs/37694550921) completed/success。
 - 本次最小交付：七个批准项目的单一 catalog、稳定 ID、逐项来源台账与通用详情模板；状态、站外链接、关联文章和 releases 均为可选字段，未知即省略。
 - 拟改：新增 `_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、`_layouts/neutriverse-project.html`、`tests/test_project_catalog.py`；必要时补充共享 CSS、首页 Projects 动态状态断言与 390px 门禁；同步主计划/日志。
 - 验收：恰有 FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、Gate、OfficeSpire 七个唯一稳定 ID，无 MMXProj；所有公开事实有站内或公开仓库来源；模板对缺 status/links/releases 自然降级，不虚构 Release；noindex/隐藏边界不变；回归、Jekyll、390px 双主题与精确实现 SHA 的 Pages 成功。
 - 边界：不提前实现 T22 的 `/build/` 列表/状态筛选，不生成 T23/T24 项目详情页，不改关联项目仓库、旧文章/Fragment、旧 URL 或隐藏入口。
 - 用户问题：无。
+- 范围 / 实现及 final head：`95818c1dd9a28fba47ccc4e3b3b48af83810e540` / `029a0110a27a15019ad809e7113cb362c479fd95`；均以 expected head 非强推更新 main。期间自动 Library 同步提交 `5d41704f37f6de7db7e23effda914fe563c4a194` 只改 Library 投影数据，本次重新读取后保留。
+- 实际交付：`_data/neutriverse_projects.yml` 恰含七个批准项目与稳定 ID；逐项 sources 支持公开摘要/链接/状态。schema 文档定义必填和可选字段；通用 layout 只按 `page.project_id` 查找，并对 status、links、related_posts、releases 分别条件渲染。
+- 边界结果：无 MMXProj；无任何 releases 字段；Gate 为 `unlisted_noindex` 且 catalog 不含公开 links；Ravenis/Occult Atlas 为 `listed_noindex`；仅 OfficeSpire 使用公开 README 明示的 `implemented_unverified`。首页项目数从 catalog 动态得到 7，不硬编码到配置。
+- 精确验证：[Actions run 37700336301](https://github.com/AplusNeutrino/My_Blog/actions/runs/37700336301) 对应 final head `029a0110a27a15019ad809e7113cb362c479fd95`，completed/success；build job `113062000744` 的 122 tests、production Jekyll、390px Chrome、双主题、hidden/Ravenis 与 artifact upload 全部成功；deploy job `113062326427` 成功。
+- Artifact：`11517690309`；digest `sha256:4749ebd6e80812fe37331ab1be10da408441734c6c5f2291a5e7e832b1fc6d84`。
+- 保护：未改文章/Fragment、文件名、date/slug/permalink、旧 URL、hidden/noindex 或外部项目；未提前实现 T22/T23/T24。
+- 结论：T21 done；active_run = none；checkpoint = T21 done；next = T22。无新增用户问题。
 
 ## Run 2026-10-08 06:04 — T20 首页 Current Signal、精选与状态
 
