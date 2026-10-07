@@ -5,29 +5,25 @@ refactor: true
 
 {% include lang.html %}
 
+{% assign home_config = site.data.neutriverse_home %}
 {% assign all_visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
-{% assign all_pinned = all_visible_posts | where: 'pin', 'true' %}
-{% assign recommend_config = site.data.home_recommend %}
+{% assign featured_config = home_config.featured %}
 {% assign popular_config = site.data.home_popular %}
 
-{% assign main_post = all_pinned | first %}
-{% unless main_post %}
-  {% assign main_post = all_visible_posts | first %}
-{% endunless %}
+{% comment %}
+  T18 contract: the primary homepage expression is always the latest visible post.
+  T19 will merge posts, Fragments and project-linked writing by real date.
+{% endcomment %}
+{% assign main_post = all_visible_posts | first %}
 
 {% assign used_rec_urls = '' | split: '' %}
 {% if main_post %}
   {% assign used_rec_urls = used_rec_urls | push: main_post.url %}
 {% endif %}
 
-{% assign configured_rec_urls = '' | split: '' %}
-{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_1 %}
-{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_2 %}
-{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_3 %}
-{% assign configured_rec_urls = configured_rec_urls | push: recommend_config.sub_rec_4 %}
 {% assign sub_recs = '' | split: '' %}
 
-{% for configured_rec_url in configured_rec_urls %}
+{% for configured_rec_url in featured_config.posts %}
   {% assign configured_rec_url = configured_rec_url | default: '' | strip %}
   {% if configured_rec_url == '' %}
     {% continue %}
@@ -158,10 +154,10 @@ refactor: true
     {% endfor %}
   {% endif %}
 
-  <section class="home-dispatch" aria-labelledby="home-dispatch-title">
+  <section class="home-dispatch" data-home-section="latest_transmissions" aria-labelledby="home-dispatch-title">
     <div class="home-dispatch-heading">
-      <p><span class="theme-copy-night">Control Module</span><span class="theme-copy-day">Cult of the Corvidae</span></p>
-      <h1 id="home-dispatch-title"><span class="theme-copy-night">本次观测结果</span><span class="theme-copy-day">黑鸦学派占卜结果</span></h1>
+      <p><span class="theme-copy-night">Latest Transmissions</span><span class="theme-copy-day">Latest Dispatches</span></p>
+      <h1 id="home-dispatch-title">最新表达与精选记录</h1>
     </div>
 
     <div class="home-dispatch-grid">
@@ -193,7 +189,7 @@ refactor: true
         </div>
 
         <div class="home-dispatch-main-meta">
-          <span class="home-dispatch-kicker"><span class="theme-copy-night">Pinned Signal</span><span class="theme-copy-day">Rehati Digest</span></span>
+          <span class="home-dispatch-kicker">Latest Expression</span>
           <h2>{{ main_post.title }}</h2>
           <p class="home-dispatch-main-details">
             {% assign visible_post_date = main_post.display_date | default: main_post.date %}
@@ -206,7 +202,7 @@ refactor: true
         </div>
       </a>
 
-      <div class="home-dispatch-sublist" aria-label="Recommended posts">
+      <div class="home-dispatch-sublist" data-home-section="featured" aria-label="精选公开文章">
         {% for post in sub_recs limit: 4 %}
           <a href="{{ post.url | relative_url }}" class="home-dispatch-sub">
             <span class="home-dispatch-index">0{{ forloop.index }}</span>

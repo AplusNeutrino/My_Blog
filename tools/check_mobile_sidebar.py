@@ -307,6 +307,15 @@ def main():
             f"Series directory changed: {initial}",
         )
         require(initial["firstWritingDate"] == "2026-08-17", f"writing order changed: {initial}")
+        latest_public_post_path = driver.execute_script(
+            r"""
+            const link = document.querySelector(
+              '#nv-writing-list [data-writing-item] h3 a'
+            );
+            return link ? new URL(link.href).pathname : null;
+            """
+        )
+        require(latest_public_post_path, "latest public post link is missing")
         require(
             initial["hiddenWritingTitles"] == [],
             f"hidden title leaked: {initial['hiddenWritingTitles']}",
@@ -671,6 +680,29 @@ def main():
         wait.until(lambda current: not read_state(current)["open"])
         navigated = read_state(driver)
         require(navigated["expanded"] == "false", f"navigation did not close menu: {navigated}")
+
+        driver.get(site_url + "/")
+        wait.until(
+            lambda current: current.find_element(
+                By.CSS_SELECTOR, ".home-dispatch-main"
+            ).is_displayed()
+        )
+        homepage_main_path = driver.execute_script(
+            "return new URL(document.querySelector('.home-dispatch-main').href).pathname"
+        )
+        require(
+            homepage_main_path == latest_public_post_path,
+            f"homepage does not prioritize latest public post: "
+            f"{homepage_main_path} != {latest_public_post_path}",
+        )
+        homepage_editorial_text = driver.find_element(
+            By.CSS_SELECTOR, ".home-dispatch"
+        ).text
+        for title in hidden_titles:
+            require(
+                title not in homepage_editorial_text,
+                f"hidden title leaked into homepage editorial area: {title}",
+            )
 
         driver.get(site_url + "/archives/")
         wait.until(lambda current: current.find_element(By.ID, "archives").is_displayed())

@@ -1,0 +1,48 @@
+# Single source of truth for homepage structure and editorial choices.
+schema_version: 1
+
+section_order:
+  - identity
+  - latest_transmissions
+  - explore
+  - current_signal
+  - featured
+  - system_status
+
+identity:
+  source: site
+  title_field: title
+  summary_field: tagline
+
+latest_transmissions:
+  order: date_desc
+  primary_source: visible_posts
+  fragment_source: thoughts.items
+  project_log_relation: project
+  hidden_policy: exclude
+  limit: 5
+
+explore:
+  source: neutriverse_sections.sections
+
+current_signal:
+  title: Neutriverse 网站重构
+  summary: 正在把这个网站重组为可长期生长的个人数字宇宙。
+  url: /about/
+  source: approved_master_plan
+
+featured:
+  posts:
+    - /posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/
+    - /posts/FF1%E8%AE%B0%E5%BD%95/
+  fallback_sources:
+    - home_popular.posts
+    - latest_visible_posts
+  hidden_policy: exclude
+  limit: 4
+
+system_status:
+  source: public_content
+  post_scope: visible_posts
+  project_source: future_project_catalog
+  latest_update_source: visible_content

@@ -1,9 +1,2 @@
-# Home side recommendation overrides.
-# Main Control Module card is selected by pin: true on a post.
-# Leave a value blank to let the homepage fill that slot automatically.
-# Use the post URL, for example: /posts/example/
-
-sub_rec_1:
-sub_rec_2: /posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/
-sub_rec_3: /posts/FF1%E8%AE%B0%E5%BD%95/
-sub_rec_4:
+# Deprecated after T18.
+# Homepage editorial configuration now lives only in _data/neutriverse_home.yml.
