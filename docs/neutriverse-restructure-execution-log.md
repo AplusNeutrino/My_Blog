@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 01:58 — T16 范围记录
+
+- Task：T16；status = in-progress；依赖 T15 done。
+- Base / branch：`5eaf4ee45c77eb09c2bd5933a2e4d2fc25b37c9b` / main；T15 文档 [Actions run 37657069525](https://github.com/AplusNeutrino/My_Blog/actions/runs/37657069525) 精确对应 base，completed/success，无 validation-pending。
+- 本次最小交付：在不修改任何旧正文/front matter 的前提下，让 Note、Essay、Fragment 在 THINK 清单与文章详情形成语义和视觉可辨识的层级；补齐长文阅读宽度与代码/表格/图片的窄屏容器规则。
+- 拟改：`_data/content_taxonomy.yml`、`_layouts/post.html`、`_includes/neutriverse-writing-list.html`、`assets/css/neutriverse-sections.css`、相关静态回归与 `tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：Note/Essay 详情从同一 taxonomy 显示正确双语 Type 标识并使用不同语义类；THINK 三种记录类齐全；正文宽度约 700–740px，代码/表格/图片不造成页面级溢出；390px Chrome、两主题、回归、Jekyll 与精确 head Pages 成功。
+- 保护：不改 `_posts/`、Fragment text/date/type/topic/tags、文件名、slug/permalink、旧路由、hidden/noindex 或外部项目。
+- 用户问题：无；差异化遵循已批准的 T07 设计契约，不引入新 Type。
+
 ## Run 2026-10-08 01:02 — T15 范围记录
 
 - Task：T15；status = done；依赖 T14 done。
