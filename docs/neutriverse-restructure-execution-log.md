@@ -20,15 +20,20 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-07 18:58 — T12 组合筛选、排序与分页范围
+## Run 2026-10-07 18:58 — T12 组合筛选、排序与分页
 
-- Task：T12；status = in-progress；依赖 T11 done。
+- Task：T12；status = done；依赖 T11 done。
 - Base / branch：`0ff7e3bb0217f9ee71cc1fd22c0b022be2a3f02f` / main；上一文档 head 的 Actions run `37606136510` build/deploy success，无 validation-pending。
 - 本次最小交付：在 T11 服务端完整清单上渐进增强 Type/Topic 组合筛选、newest/oldest 排序、每页 12 项分页和可分享查询参数；刷新、前进/后退保持合法状态，筛选变化回第 1 页，非法参数回退默认。
-- 文件范围：`_includes/neutriverse-writing-list.html`、新增 `assets/js/neutriverse-writing-filters.js`、`_layouts/neutriverse-section.html`、`assets/css/neutriverse-sections.css`、相关静态与 Chrome 门禁、主计划/日志。
-- 验收：默认 12/44、4 页；Type+Topic 组合结果正确，oldest 排序首项 2024-09-12；URL 刷新/历史导航恢复；无结果状态明确；无 JS 时控制区隐藏且 44 项原链接仍可达；390px 双主题无横向溢出；精确实现 SHA 回归/Jekyll/Chrome/Pages 成功。
-- 保护：不改文章/Fragment 内容源、正文、front matter、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T13 Topic 浏览面不提前实现。
-- 用户问题：无。
+- 文件范围：`_includes/neutriverse-writing-list.html`、新增 `assets/js/neutriverse-writing-filters.js`、`_layouts/neutriverse-section.html`、`assets/css/neutriverse-sections.css`、`tests/test_think_writing_list.py`、`tools/check_mobile_sidebar.py`、主计划/日志。
+- 范围记录 / 实现：`a8b0d0461e5a4faf8129cc5ce92932b27672bfa3` / `e8e70c636ca2456874e0aa25ecc4a341ac78de2d`；均以 expected head 非强推更新 main。
+- 实际结果：服务端仍输出 44 项及原始可达链接；JavaScript 启用后默认显示 12/44、4 页，支持 Type = note/essay/fragment、Topic = computation/humanity/otaku/arts、newest/oldest、组合筛选、明确空结果与重置。URL 使用 `type`/`topic`/`sort`/`page`，刷新和浏览器历史恢复合法状态，筛选变化回第 1 页，非法参数回退并规范化。
+- 渐进增强：无 JavaScript 时筛选表单保持隐藏且完整 44 项可读可达；分页链接含真实 href；没有把客户端控制伪装成无 JS 可用。
+- 390px Chrome：默认 12/44 与 4 页；fragment+humanity = 4；oldest 首项 2024-09-12；刷新保持组合条件，浏览器后退恢复；essay+arts 显示空结果；page 2 可刷新；非法参数回到默认；随后既有 Light/Night、侧栏、焦点和横向溢出门禁继续通过。
+- 精确验证：[Actions run 37611360209](https://github.com/AplusNeutrino/My_Blog/actions/runs/37611360209) 对应 head `e8e70c636ca2456874e0aa25ecc4a341ac78de2d`，completed/success；build job `112759102707` 的回归、production Jekyll、Chrome、Ravenis 与 artifact upload 均 success；deploy job `112759519223` success。
+- 部署证据：artifact `11477777654`，digest `sha256:668c992fc4263720558f1699ccb61a87905d759266f68ed44744d4534f55afa9`。
+- 保护：未改文章/Fragment 内容源、正文、front matter、文件名、日期、slug/permalink、旧 URL、hidden 可见性或外部项目；T13 Topic 浏览面未提前实现。
+- 结论：T12 done；T13 ready。用户问题：无。
 
 ## Run 2026-10-07 18:02 — T11 写作时间线范围
 
