@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T10 done; T11 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T11 done; T12 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T10 done，T11 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T10 手机/桌面导航、键盘、折叠与焦点行为；T10.b base `2a46980d5160e47e5d7e37410dcb6a41cc472f45`，最终实现 `337132987101fcb170db718a9713619013fe12d7`。精确 CI/部署及 390px Chrome 双主题交互通过；下一项 T11 `/think/` 时间序写作列表。
+**当前状态：计划细化与启动决定已完成，T00–T11 done，T12 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T11 `/think/` 时间序写作列表；base `b7fb7920df070d33070206d4f39fcd53b45c2c4f`，范围提交 `3d056912ff09e45bc5caa50dbb834a8e3ddadaee`，最终实现 `d28ac191c41f316919348b8878977f7b53cb64be`。精确 CI/部署及 390px Chrome 清单验收通过；下一项 T12 组合筛选、排序/分页与可分享状态。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T10 = done，T11 与 T21 的依赖已满足；按计划顺序下一项 T11 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
+当前 T00–T11 = done，T12 与 T21 的依赖已满足；按计划顺序下一项 T12 ready，其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章。
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T11；branch = main；base = b7fb7920df070d33070206d4f39fcd53b45c2c4f；checkpoint = T10 done；next = T11；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = d28ac191c41f316919348b8878977f7b53cb64be；checkpoint = T11 done；next = T12；completion = IN PROGRESS。
 
 T11 本次范围：在 `/think/` 使用现有 `site.posts` 与 `_tabs/thoughts.md` 的 Fragment 单一来源生成倒序写作时间线；公开范围为 39 篇非 hidden 文章 + 5 条 Fragment，共 44 项。每项显示 Type/Topic，文章保留原链接，Fragment 链接回 Thoughts 的稳定锚点；无内容时显示真实空状态。组合筛选、排序切换、分页与 URL 状态属于 T12，本次不提前实现。拟改共享 section layout、新写作列表 include、Thought anchor、共享样式、相关回归与现有 390px Chrome 门禁；不改任何文章/Fragment 原文、front matter、日期、slug/permalink、旧路由或外部项目。
+
+T11 完成证据：实现 `d28ac191c41f316919348b8878977f7b53cb64be` 在 `/think/` 输出 44 项日期倒序写作清单，Type 为 35 Note / 4 Essay / 5 Fragment，Topic 为 computation 34 / humanity 6 / otaku 3 / arts 1；首项日期 2026-08-17，hidden 标题不输出，文章沿用原 URL，Fragment 返回 `/thoughts/` 稳定锚点，真实空状态已实现。精确 Actions run `37605371371`：build job `112739422247` 的回归、production Jekyll 与 390px Chrome 门禁成功，deploy job `112739815749` 成功；Pages artifact `11474821554`，digest `sha256:288ccb2ac908394dca5dd7b34574682bbdb83159586570d71350005117100550`。未改文章/Thought 原文、front matter、日期、slug/permalink、旧路由或外部项目。
 
 T10.b 本次范围：增强 Chirpy 原生手机 sidebar trigger/mask 的 aria-expanded、关闭焦点恢复、Escape 与断点清理；仅调整导航交互脚本/共享样式、相关测试、计划/日志。验收：390px CSS viewport 的四入口/辅助入口/关闭路径可用、无 body 横向溢出、44px 关键触控目标、打开后焦点进入 sidebar、Escape/mask/导航后关闭并回 trigger；两主题与对应实现 SHA CI/部署通过。若窄视口只能通过浏览器 zoom 获得，须同时记录实际 innerWidth，不以桌面截图替代。
 

@@ -22,13 +22,18 @@
 
 ## Run 2026-10-07 18:02 — T11 写作时间线范围
 
-- Task：T11；status = in-progress；依赖 T03、T05、T10 done。
+- Task：T11；status = done；依赖 T03、T05、T10 done。
 - Base / branch：`b7fb7920df070d33070206d4f39fcd53b45c2c4f` / main；读取最新主计划、AGENTS、domain docs、taxonomy audit/report、T01 baseline、现有 THINK/Thoughts/layout/CSS/tests。
 - 本次最小交付：从现有单一来源合并 39 篇非 hidden 文章与 5 条 Fragment，在 `/think/` 输出 44 项日期倒序列表；明确 Type/Topic，文章保持原 URL，Fragment 返回 Thoughts 稳定锚点；提供无内容空状态。
 - 文件范围：`_layouts/neutriverse-section.html`、新增 writing-list include、`_layouts/thoughts.html`、`assets/css/neutriverse-sections.css`、相关测试与 390px Chrome 门禁、主计划/日志。不改 `_posts/`、Fragment 数据、taxonomy metadata、旧路由或外部项目。
 - 验收：静态回归 + production Jekyll；构建页面恰有 44 条、35 Note / 4 Essay / 5 Fragment，Topic 为 computation 34 / humanity 6 / otaku 3 / arts 1；首项为 2026-08-17，hidden 条目不输出；390px/双主题无横向滚动且入口可达；精确实现 SHA build/deploy 成功。
 - 边界：T12 才实现组合筛选、排序切换、分页和可分享 URL 状态；T11 不提前扩范围。
-- 用户问题：无。
+- 实现提交：`d28ac191c41f316919348b8878977f7b53cb64be`（父提交为范围记录 `3d056912ff09e45bc5caa50dbb834a8e3ddadaee`）；以 expected head 非强推更新 main。
+- 实际结果：`/think/` 生成 44 项倒序清单；35 Note / 4 Essay / 5 Fragment，Topic 为 computation 34 / humanity 6 / otaku 3 / arts 1；首项日期 2026-08-17；hidden 标题未出现；文章原链接与 Thoughts 稳定锚点可达；真实空状态存在。
+- 精确验证：Actions run `37605371371` 对应 head `d28ac191c41f316919348b8878977f7b53cb64be`；build job `112739422247` 的回归、production Jekyll、390px Chrome 均 success；deploy job `112739815749` success。
+- 部署证据：Pages artifact `11474821554`，digest `sha256:288ccb2ac908394dca5dd7b34574682bbdb83159586570d71350005117100550`。
+- 保护：未改 `_posts/`、Fragment 原文/数据、文件名、date、slug/permalink、旧路由、hidden 可见性或外部项目；T12 能力未提前实现。
+- 结论：T11 done；T12 ready。用户问题：无。
 
 ## Run 2026-10-07 17:03 — T10.b 手机菜单与窄屏验收范围
 
