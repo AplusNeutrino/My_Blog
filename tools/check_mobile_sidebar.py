@@ -37,7 +37,7 @@ def serve(directory):
 
 def read_state(driver):
     return driver.execute_script(
-        """
+        r"""
         const trigger = document.getElementById('sidebar-trigger');
         const sidebar = document.getElementById('sidebar');
         const primary = [...document.querySelectorAll(
@@ -63,7 +63,9 @@ def read_state(driver):
           primaryVisible: primary.filter(
             (item) => item.getBoundingClientRect().height > 0
           ).length,
-          primaryLabels: primary.map((item) => item.textContent.trim().split(/\s+/)[0]),
+          primaryLabels: primary.map(
+            (item) => (item.getAttribute('aria-label') || item.textContent).trim().split(/\s+/)[0]
+          ),
           utilitiesVisible: utilities.filter(
             (item) => item.getBoundingClientRect().height > 0
           ).length,
