@@ -22,7 +22,7 @@
 
 ## Run 2026-10-08 03:58 — T18 范围记录
 
-- Task：T18；status = in-progress；依赖 T17 done。
+- Task：T18；status = done；依赖 T17 done。
 - Base / branch：`da37689e5a7710eb9e03244e393a59887d99f531` / main；[Actions run 37672947558](https://github.com/AplusNeutrino/My_Blog/actions/runs/37672947558) 精确对应 base，completed/success，无 validation-pending。
 - 本次最小交付：建立首页区块顺序、内容来源、固定推荐与 Current Signal 的单一配置契约；现有首页主卡改为最新公开文章优先，为 T19/T20 实现提供稳定输入。
 - 拟改：新增 `_data/neutriverse_home.yml`，调整 `_layouts/home.html`，停用旧 `_data/home_recommend.yml`，新增静态回归并扩展 `tools/check_mobile_sidebar.py`，同步主计划与本日志。
@@ -30,6 +30,15 @@
 - 边界：T18 不提前实现 T19 的 posts/fragments/Project Log 混合流，也不提前实现 T20 的完整 Current Signal、轻量状态和精选区块 UI。
 - 保护：不改文章/Fragment 正文或 metadata、文件名、日期、slug/permalink、旧路由、hidden/noindex 或外部项目。
 - 用户问题：无；Current Signal 使用用户已批准且主计划已有的“Neutriverse 网站重构”。
+
+- 范围 / 实现：`b8f20d7433ac6f1c6d4deb0c8432ee51cd970d8c` / `74dd320059aab642d57933960af7adeb142e2034`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `_data/neutriverse_home.yml`，统一保存首页六区块顺序、各区块来源、hidden 策略、固定推荐、降级顺序及 Current Signal；旧 `home_recommend.yml` 只保留迁移指针，不再形成第二套值。
+- 最新表达：现有首页主卡取消 pin 优先，改取最新公开文章；390px Chrome 从 THINK 构建产物读取最新公开文章真实路径，与首页主卡比较相等。首页主卡和精选候选均来自已过滤的 `all_visible_posts`，五个 hidden 标题未出现在编辑区域。
+- 配置契约：Identity 读取 site title/tagline；Latest 声明 visible posts、Thoughts items 与 project 关系；Explore 读取四入口；Current Signal 为“Neutriverse 网站重构”；状态声明公开内容来源。T19/T20 将按该契约实现完整 UI。
+- 精确验证：[Actions run 37678793810](https://github.com/AplusNeutrino/My_Blog/actions/runs/37678793810) 对应 final head `74dd320059aab642d57933960af7adeb142e2034`，completed/success；build job `112989195647` 的 105 项回归、production Jekyll、390px Chrome、双主题、Ravenis 与 artifact upload 均成功；deploy job `112989813922` 成功。
+- 部署证据：artifact `11508296680`，digest `sha256:7cafeb8a79f405c384c5287ead8f555145b61bf2eb15927dc56c841974fd45ac`。
+- 保护：未改文章/Fragment 正文或 metadata、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目。
+- 结论：T18 done；T19 ready。用户问题：无。
 
 ## Run 2026-10-08 02:59 — T17 范围记录
 

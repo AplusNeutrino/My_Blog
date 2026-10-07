@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T17 done; T18 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T18 done; T19 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T17 done，T18 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T17 标签、Archive 与 Search 的 THINK 内入口；base `41e799a58664cc87a187c18a4c7d0472475eac75`，范围提交 `66f4de2d71232b259e1711169763e691f7ba37d7`，实现 `e66a246ca11945ed0558b47e75d85df9ecf9a6c6`，最终门禁修复 `8d047175d2da89ee3614f9041b998b2ef8c5303c`。Archive/Tags 保留旧路径，Search 复用原生模态框且多个入口均可触发；精确 CI/部署通过；下一项 T18 首页区块、顺序及内容来源配置。
+**当前状态：计划细化与启动决定已完成，T00–T18 done，T19 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T18 首页区块、顺序及内容来源配置；base `da37689e5a7710eb9e03244e393a59887d99f531`，范围提交 `b8f20d7433ac6f1c6d4deb0c8432ee51cd970d8c`，实现 `74dd320059aab642d57933960af7adeb142e2034`。首页结构、数据来源、固定推荐与 Current Signal 已收敛到单一配置，主卡优先最新公开文章；精确 CI/部署通过；下一项 T19 首页身份、四入口与混合近期流。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T17 = done，T18 in-progress，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T18 = done，T19 ready，T21 的依赖已满足；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,11 +1097,13 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T18；branch = main；base = da37689e5a7710eb9e03244e393a59887d99f531；checkpoint = T17 done；next = T18；completion = IN PROGRESS。
+主计划当前运行字段：active_run = none；branch = main；base = 74dd320059aab642d57933960af7adeb142e2034；checkpoint = T18 done；next = T19；completion = IN PROGRESS。
 
 T18 本次范围：新增首页单一配置源，固定首页区块顺序为 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status，并明确各区块的数据来源、公开/hidden 边界与缺省降级。现有首页主卡从 pin 优先改为最新公开文章优先；固定推荐迁入同一配置，旧 `home_recommend.yml` 停用；Current Signal 仅使用已批准的“Neutriverse 网站重构”。拟改首页配置、home layout、静态回归与 390px Chrome 门禁、主计划/日志；不在 T18 提前实现 T19 的混合 Fragment/Project Log 流或 T20 的完整新首页区块，不改任何文章/Fragment、旧 URL 或外部项目。验收为单一配置可机械核对，最新公开文章确为首页首要表达，固定推荐/当前焦点无第二来源，hidden 不进入首页，精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
 
 T17 本次范围：把 Archive、Tags 与 Search 明确接入 THINK 的“当前可用入口”，保留 `/archives/`、`/tags/`、`/categories/` 与既有搜索模态框；Search 使用真实 button action 调用 Chirpy 原生搜索，不制造假 URL。导航脚本需支持侧栏与 THINK 内多个搜索触发器；Archive、Tags、Search 继续只读取非 hidden 文章。拟改 section 数据/入口模板、导航脚本、共享 CSS、静态回归和 390px Chrome 门禁；不改任何文章/Fragment 原文、metadata、旧 URL、hidden/noindex 或外部项目。验收为 THINK 内 Archive/Tags 普通链接及 Search 按钮可用，搜索打开且聚焦并可关闭，三种检索均无 hidden 条目，精确实现 SHA 的回归/Jekyll/浏览器/Pages 通过。
+
+T18 验收证据：新增 `_data/neutriverse_home.yml` 作为首页结构与编辑选择的单一来源，固定 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status 顺序；声明公开 posts、Thoughts Fragment、Project Log 关系、四入口、状态数据的来源与 hidden 排除策略。Current Signal 仅使用批准事实“Neutriverse 网站重构”；固定推荐从旧 `home_recommend.yml` 迁入，新旧文件不再保存两套值。现有首页主卡取消 pin 优先，改为 `all_visible_posts | first`，浏览器从 THINK 构建页读取最新公开文章真实路径并与首页主卡逐项比较；精选区域也仅遍历公开文章。final head `74dd320059aab642d57933960af7adeb142e2034` 的 Actions run `37678793810` completed/success；build job `112989195647` 的 105 项回归、production Jekyll、390px Chrome、双主题、Ravenis 与 artifact upload 均成功，deploy job `112989813922` 成功；artifact `11508296680`，digest `sha256:7cafeb8a79f405c384c5287ead8f555145b61bf2eb15927dc56c841974fd45ac`。未改文章/Fragment、front matter、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目；T19/T20 UI 未提前实现。T18 done，T19 ready，无新增用户问题。
 
 T17 验收证据：THINK 的共享入口数据新增 Search action；入口模板将 Archive/Tags 保持为普通链接，将 Search 渲染为无假 URL 的 button，并复用现有 Chirpy 原生搜索。导航脚本从只绑定首个代理改为绑定全部 `data-nv-search-trigger`，侧栏与 THINK 页面入口均可打开并聚焦同一搜索框。100 项回归、production Jekyll、390px Chrome、双主题、Archive 实际账本与生成搜索索引的 hidden 检查均通过；Tags 的索引、详情及关系计数继续在模板层过滤 hidden。初始 run `37672096216` 因门禁过宽扫描整个 Archive HTML 而非实际账本失败；run `37672371791` 确认 Search 打开/聚焦成功，但错误假定 Escape 可关闭 Chirpy 搜索；两者均未记为通过。final head `8d047175d2da89ee3614f9041b998b2ef8c5303c` 的 Actions run `37672590085` completed/success；build job `112967859911` 与 deploy job `112968329095` 成功；artifact `11504919047`，digest `sha256:ec4352a24ad4941ae83b34d315b8649c678ea8bf0a71eac93b0c58ee45c519c5`。未改文章/Fragment、front matter、文件名、日期、slug/permalink、旧 URL、hidden/noindex 或外部项目。T17 done，T18 ready，无新增用户问题。
 
