@@ -336,6 +336,13 @@
   min-height: 6.75rem;
 }
 
+.nv-section-link-action {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .nv-section-link-kind {
   color: var(--nv-accent);
 }

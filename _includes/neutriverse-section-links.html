@@ -9,11 +9,29 @@
     <ul class="nv-section-link-list">
       {% for link in nv_section.links %}
         <li>
-          <a class="nv-section-link" href="{{ link.url | relative_url }}">
-            <span class="nv-section-link-kind">{{ link.kind }}</span>
-            <strong>{{ link.label }}</strong>
-            <span>{{ link.description }}</span>
-          </a>
+          {% if link.action == 'search' %}
+            <button
+              type="button"
+              class="nv-section-link nv-section-link-action"
+              data-nv-retrieval="{{ link.kind | downcase }}"
+              data-nv-search-trigger
+              aria-label="搜索公开写作"
+            >
+              <span class="nv-section-link-kind">{{ link.kind }}</span>
+              <strong>{{ link.label }}</strong>
+              <span>{{ link.description }}</span>
+            </button>
+          {% else %}
+            <a
+              class="nv-section-link"
+              data-nv-retrieval="{{ link.kind | downcase }}"
+              href="{{ link.url | relative_url }}"
+            >
+              <span class="nv-section-link-kind">{{ link.kind }}</span>
+              <strong>{{ link.label }}</strong>
+              <span>{{ link.description }}</span>
+            </a>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>

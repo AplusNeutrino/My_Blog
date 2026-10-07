@@ -19,6 +19,10 @@ sections:
         kind: Tags
         url: /tags/
         description: 按具体对象与概念检索公开内容。
+      - label: 搜索
+        kind: Search
+        action: search
+        description: 在公开写作的标题、摘要与标签中检索。
       - label: 旧分类索引
         kind: Compatibility
         url: /categories/

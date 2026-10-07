@@ -49,6 +49,7 @@ def read_state(driver):
         const rect = trigger.getBoundingClientRect();
         const ledger = document.querySelector('[data-writing-ledger]');
         const controls = ledger?.querySelector('[data-writing-controls]');
+        const searchInput = document.getElementById('search-input');
         const writingRecords = [...document.querySelectorAll('[data-writing-record]')];
         const visibleWritingRecords = writingRecords.filter(
           (item) => !item.closest('[data-writing-item]')?.hidden
@@ -85,6 +86,21 @@ def read_state(driver):
           utilitiesVisible: utilities.filter(
             (item) => item.getBoundingClientRect().height > 0
           ).length,
+          retrievalEntries: [...document.querySelectorAll(
+            '.nv-section-links [data-nv-retrieval]'
+          )].filter(
+            (entry) => ['archive', 'tags', 'search'].includes(
+              entry.dataset.nvRetrieval
+            )
+          ).map((entry) => ({
+            kind: entry.dataset.nvRetrieval,
+            tag: entry.tagName,
+            href: entry.getAttribute('href')
+          })),
+          searchInputVisible: Boolean(
+            searchInput && searchInput.getBoundingClientRect().height > 0
+          ),
+          searchInputFocused: document.activeElement === searchInput,
           mode: document.documentElement.getAttribute('data-mode'),
           background: getComputedStyle(document.body).backgroundColor,
           writingCount: writingRecords.length,
@@ -196,6 +212,24 @@ def require(condition, message):
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
     require((site / "think" / "index.html").exists(), f"missing built THINK page: {site}")
+    hidden_titles = (
+        "Zodiac",
+        "最后的纳尔马斯克人",
+        "NoSQL 项目面经",
+        "ROSSMANN项目面经",
+        "中间层网站更新记录",
+    )
+    for relative_path in (
+        Path("archives/index.html"),
+        Path("tags/index.html"),
+        Path("assets/js/data/search.json"),
+    ):
+        built_source = (site / relative_path).read_text(encoding="utf-8")
+        for title in hidden_titles:
+            require(
+                title not in built_source,
+                f"hidden title leaked into {relative_path}: {title}",
+            )
 
     chrome = next(
         (
@@ -235,6 +269,14 @@ def main():
             f"primary link order changed: {initial}",
         )
         require(initial["utilitiesVisible"] == 3, f"utility links unavailable: {initial}")
+        require(
+            initial["retrievalEntries"] == [
+                {"kind": "archive", "tag": "A", "href": "/archives/"},
+                {"kind": "tags", "tag": "A", "href": "/tags/"},
+                {"kind": "search", "tag": "BUTTON", "href": None},
+            ],
+            f"THINK retrieval entries changed: {initial}",
+        )
         require(initial["controls"] == "sidebar" and initial["expanded"] == "false", f"trigger semantics wrong: {initial}")
         require(initial["writingCount"] == 44, f"writing count changed: {initial}")
         require(
@@ -563,6 +605,19 @@ def main():
 
         driver.get(think_url)
         wait.until(lambda current: read_state(current)["controlsVisible"])
+
+        search_action = driver.find_element(
+            By.CSS_SELECTOR, '.nv-section-links [data-nv-retrieval="search"]'
+        )
+        driver.execute_script("arguments[0].click();", search_action)
+        wait.until(
+            lambda current: (
+                (state := read_state(current))["searchInputVisible"]
+                and state["searchInputFocused"]
+            )
+        )
+        driver.switch_to.active_element.send_keys(Keys.ESCAPE)
+        wait.until(lambda current: not read_state(current)["searchInputVisible"])
 
         trigger = driver.find_element(By.ID, "sidebar-trigger")
         trigger.click()
