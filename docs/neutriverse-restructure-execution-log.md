@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 08:00 — T22 BUILD 项目列表与状态筛选范围
+
+- Task：T22；status = in-progress；依赖 T21 done。
+- Base / branch：`6142ff0f4d74367ab854c7fb1b3000e44e44a2b8` / main；base 的 [Actions run 37700560584](https://github.com/AplusNeutrino/My_Blog/actions/runs/37700560584) completed/success，无 validation-pending。
+- 本次最小交付：`/build/` 从 T21 catalog 输出七项目卡；以实际 status/未记录状态提供渐进增强筛选和可分享 URL。
+- 拟改：新增 `_includes/neutriverse-project-list.html`、`assets/js/neutriverse-project-filters.js`、`tests/test_build_project_list.py`；调整 `_layouts/neutriverse-section.html`、`build/index.md`、共享 CSS、390px Chrome 门禁及主计划/日志。
+- 验收：仅 Q5 七项目，无 MMXProj；六个已授权动作目标真实；Gate 作为项目记录出现但不公开隐藏工具 href；默认七项，无 JS 全量可读；`implemented_unverified` = 1、`unspecified` = 6，刷新/后退/非法参数回退正确；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
+- 边界：不新增/推断项目状态，不建立 T23/T24 详情页，不改关联项目仓库、文章/Fragment、旧 URL 或 noindex。
+- 用户问题：无；Gate 无公开动作是既定隐蔽边界的必要降级，不视为缺失链接。
+
 ## Run 2026-10-08 07:01 — T21 项目 schema、来源和模板
 
 - Task：T21；status = done；依赖 T06、T10 done。
