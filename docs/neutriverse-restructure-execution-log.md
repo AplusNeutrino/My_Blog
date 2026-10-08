@@ -1,7 +1,16 @@
 # Neutriverse 重构执行日志
-
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
+
+## Run 2026-10-08 17:04 — T30 全站视觉一致性与入口性格
+
+- Task / parent：T30；status = in-progress；依赖 T26、T29 done。
+- Base SHA / branch：`d42cb6d4cad4e648fa8b26c0b13054c8846c5deb` / main；开始前工作树干净，主计划指向 T30 ready。
+- 本次最小交付：四入口数据增加次级 signal；新增共享 identity include，并让 THINK/BUILD/OBSERVE layout 与 ABOUT 使用完全相同的标题/中文说明/摘要/signal/导航层级；以不交互、不依赖图片或 JavaScript 的纹理区分四入口性格。
+- 拟改文件：`_data/neutriverse_sections.yml`、`_includes/neutriverse-section-identity.html`、`_layouts/neutriverse-section.html`、`_tabs/about.md`、`assets/css/neutriverse-sections.css`、`tests/test_neutriverse_sections.py`、`tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：四入口均有清晰英文名、中文说明、摘要和同构导航，世界观 signal 仅是次级文字；纸面线/构造网格/观测准星/连续轨道四种性格同时有文本名称，不以颜色单独传意；两主题复用同一 DOM/语义 token；390px Chrome、全回归、T01 baseline、production Jekyll 与精确实现 head 的 Pages build/deploy 成功。
+- 明确不做：不改文章/Fragment、文件名/date/slug/permalink/旧 URL，不改项目/ABOUT 事实、Library/友链/旅行数据或功能、Gate/NAVI、Ravenis/Occult Atlas 索引边界，不改外部项目；T31 的全断点/对比/reduced-motion 专项留待下一任务。
+- 用户问题：无；本项只实现既定设计契约与已确认入口信息架构。
 
 ## Run 2026-10-03 23:10 — T00 决定收敛
 
