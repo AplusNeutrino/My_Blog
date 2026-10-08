@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-09 01:58 — T34 性能、资源降级与现有集成回归
+
+- Task / parent：T34；status = in-progress；依赖 T33 done。
+- Base SHA / branch：`46a960848da150229ee164f90eb10b2e1278ac3c` / main；与远端最新文档 head 一致，独立干净 worktree。
+- 现状证据：公开首页/四入口未引用 PGL、Ravenis、Occult Atlas 或旅行地球专属 JS；Ravenis 初始化仅取 manifest 与当日数据，历史搜索索引按搜索加载；但 Library 脚本解析后立即请求约 1.47 MB `library.json` 与 stats，Twikoo 为文章页解析阻塞式第三方 script。点赞已有 endpoint 失败后的 localStorage 回退。
+- 本次最小交付：PGL 全量数据改为 Library 首次交互、深链接或空闲阶段加载；Twikoo 改为评论区临近视口/交互时异步加载并显示失败降级；新增构建产物资源作用域和主题/评论/点赞/Search/feed/观察数据契约门禁。
+- 拟改文件：`assets/pgl/pgl.js`、`_includes/comments/twikoo.html`、`tools/check_performance_integrations.py`、`tests/test_performance_integrations.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
+- 验收：首页及 THINK/BUILD/OBSERVE/ABOUT 不请求 Library/观察应用/旅行地球专属资源；Library SSR 摘要先可用且全量 JSON 不在解析阶段获取，深链接和首次交互仍可加载；Twikoo provider/env/path 不变且第三方失败可见；Ravenis 搜索索引不在初始加载，Occult Atlas 资源只在应用，点赞保留远端与本地回退，双主题/Search/feed 不回退；全回归、基线、Jekyll、现有门禁、新门禁及精确 head Pages 成功。
+- 边界：不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API、hidden/noindex 或外部项目；不提前执行 T35。
+- 用户问题：无；本轮仅优化已存在资源的加载时机并固化既定集成契约。
+
 ## Run 2026-10-09 01:03 — T33 canonical、SEO、sitemap 与旧链接检查
 
 - Task / parent：T33；status = done；依赖 T32 done。
