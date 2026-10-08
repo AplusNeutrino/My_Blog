@@ -25,18 +25,19 @@
 - Task：T24；status = done；依赖 T23 done。
 - Base / branch：`9bcd81f677d22719735916361f460eb1fe3db7ce` / main；base 的 [Actions run 37711169410](https://github.com/AplusNeutrino/My_Blog/actions/runs/37711169410) completed/success，无 validation-pending。
 - 本次最小交付：为 Ravenis、Occult Atlas、Gate、OfficeSpire 建立四个 `/build/<stable-id>/` 事实页；BUILD 卡片统一先进入详情，再从详情区分应用、仓库、文档与来源。
-- 拟改：`_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、新增四个详情页、`tests/test_project_detail_pages.py`、`tests/test_build_project_list.py`、`tools/check_mobile_sidebar.py`、主计划与本日志；复用现有项目 layout/CSS，只有真实需要时才修改。
+- 文件：`_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、`_includes/metadata-hook.html`、四个详情页、`assets/css/neutriverse-sections.css`、`tests/test_project_detail_pages.py`、`tests/test_build_project_list.py`、`tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：四详情 canonical/ID 正确；Ravenis/Occult 应用入口真实且应用页 noindex 不变；Gate 详情不公开 `/gate/`；OfficeSpire 仅保留公开 README 支持的 `implemented_unverified`、repository/文档，不伪造 runtime_pass 或 Release；空 Project Log/Release 自然降级；来源可追溯；七张 BUILD 卡均进唯一详情；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
 - 边界：Ravenis、Occult Atlas、Gate 详情继续 noindex/sitemap false；不改旧应用路径、正文/Fragment、metadata 或关联项目仓库，不把 Gate/NAVI 私有配置公开。
-- 用户问题：无；可见性、状态和外部仓库边界均来自既有决定与公开来源。
-- 范围 / 主体实现 / 最终窄屏修复：`bdd370742f83d30a5862281807acf5c245d7a53a` / `e01d0b867b6add71c63d07e8f3d6950e901d58b4` / `75986c2d7e180aabefdac5facad1169d45c6fb2a`；均以 expected head 非强推更新 main。
+- 范围 / 主体实现 / 长链接修复 / 移动焦点门禁稳定化及 final head：`bdd370742f83d30a5862281807acf5c245d7a53a` / `e01d0b867b6add71c63d07e8f3d6950e901d58b4` / `75986c2d7e180aabefdac5facad1169d45c6fb2a` / `e0011626bee436fede98a0716dfa02d8e8009d87`；均以 expected head 非强推更新 main。
 - 实际交付：新增 `/build/ravenis/`、`/build/occult-atlas/`、`/build/gate/`、`/build/officespire/`；catalog 为全部七项目提供唯一 detail_url，BUILD 卡片统一先进入事实页。Ravenis/Occult 保留原应用动作，Gate 无公开工具动作，OfficeSpire 只链接公开 repository 与 README。
 - 状态/日志/发布：Ravenis、Occult Atlas、Gate 未推断 status；OfficeSpire 继续为来源明示的 `implemented_unverified`。四项无站内 Project Log 时显示空状态；OfficeSpire README 明示当前 source-complete M9 不是已发布 Release，因此没有新增 releases。
 - 可见性：Ravenis、Occult Atlas、Gate 详情均为 `noindex,nofollow` + `sitemap: false`；metadata hook 只为项目 layout 输出对应 robots meta。原 `/ravenis/`、`/occult-atlas/`、`/gate/` 的 URL、发现性与行为未改。
 - 真实失败：[run 37716362399](https://github.com/AplusNeutrino/My_Blog/actions/runs/37716362399) 的 136 tests 与 production Jekyll 成功，但 390px Chrome 在 OfficeSpire 详情测得 body 375px / scroll 518px；原因是完整 README 来源 URL 未断行，部署被跳过，未记为通过。
-- 修复：仅让项目来源链接与 code 使用 `overflow-wrap:anywhere` / `word-break:break-word`，并加入静态契约；没有隐藏内容或缩短事实来源。
-- 精确验证：[Actions run 37716525213](https://github.com/AplusNeutrino/My_Blog/actions/runs/37716525213) 对应 final head `75986c2d7e180aabefdac5facad1169d45c6fb2a`，completed/success；build `113114125035` 的 136 tests、production Jekyll、390px Chrome、双主题、七详情事实/状态/动作/来源/noindex、BUILD 筛选、hidden/Ravenis 与 artifact upload 全部成功；deploy `113114339275` 成功。
-- Artifact：`11524251193`；digest `sha256:16575bed465e9f7056c491952bf2f25e3864a1c484de02d3300c2b388b952b71`。
+- 长链接修复：仅让项目来源链接与 code 使用 `overflow-wrap:anywhere` / `word-break:break-word`，并加入静态契约；[run 37716525213](https://github.com/AplusNeutrino/My_Blog/actions/runs/37716525213) completed/success。
+- 后续真实失败：文档 head `7a5975736e53910702feda8e61e4ca6b4e0f31df` 的 [run 37716701179](https://github.com/AplusNeutrino/My_Blog/actions/runs/37716701179) 回归与 Jekyll 成功，但浏览器在遮罩关闭状态成立后、焦点返回 trigger 的下一帧前过早断言；站点菜单已关闭，属于既有异步焦点门禁竞态，未记为通过。
+- 门禁稳定化：等待条件改为“菜单已关闭且焦点已返回 trigger”，仍保留最终 require，不放宽行为要求。
+- 最终精确验证：[Actions run 37716834575](https://github.com/AplusNeutrino/My_Blog/actions/runs/37716834575) 对应 final head `e0011626bee436fede98a0716dfa02d8e8009d87`，completed/success；build `113115128909` 的 136 tests、production Jekyll、390px Chrome、双主题、七详情事实/状态/动作/来源/noindex、BUILD 筛选、hidden/Ravenis 与 artifact upload 全部成功；deploy `113115487252` 成功。
+- Artifact：`11523997952`；digest `sha256:8eb4a93046ca6b5618b8de81095eb05d472a726bd2a765a7cf7983142620d876`。
 - 保护：未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、原应用行为、Gate/NAVI 私有配置或外部项目仓库。
 - 结论：T24 done；active_run = none；checkpoint = T24 done；next = T25。无新增用户问题。
 
