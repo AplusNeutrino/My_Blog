@@ -8,6 +8,7 @@ FEED = (ROOT / "feed.xml").read_text(encoding="utf-8")
 HEAD = (ROOT / "_includes" / "metadata-hook.html").read_text(encoding="utf-8")
 CHECKER = (ROOT / "tools" / "check_search_feed.py").read_text(encoding="utf-8")
 WORKFLOW = (ROOT / ".github" / "workflows" / "pages-deploy.yml").read_text(encoding="utf-8")
+JEKYLL_CONFIG = (ROOT / "_config.yml").read_text(encoding="utf-8")
 
 
 class SearchFeedTest(unittest.TestCase):
@@ -34,6 +35,7 @@ class SearchFeedTest(unittest.TestCase):
         self.assertIn("slice: 0, discovery.limit", FEED)
         self.assertIn("fragment_page.url", FEED)
         self.assertIn('xmlns="http://www.w3.org/2005/Atom"', FEED)
+        self.assertIn("- assets/feed.xml", JEKYLL_CONFIG)
 
     def test_pages_advertise_and_validate_the_feed(self):
         self.assertIn('rel="alternate" type="application/atom+xml"', HEAD)
