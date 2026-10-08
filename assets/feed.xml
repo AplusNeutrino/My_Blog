@@ -2,6 +2,7 @@
 layout: null
 permalink: /feed.xml
 ---
+<?xml version="1.0" encoding="utf-8"?>
 {% assign discovery = site.data.neutriverse_discovery.feed %}
 {% assign visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
 {% assign fragment_page = site.tabs | where: 'layout', 'thoughts' | first %}
@@ -12,7 +13,6 @@ permalink: /feed.xml
 {% assign writings = visible_posts | concat: fragments | sort: 'date' | reverse %}
 {% assign entries = writings | slice: 0, discovery.limit %}
 {% assign latest = entries | first %}
-<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>{{ '/' | absolute_url | xml_escape }}</id>
   <title>{{ site.title | xml_escape }}</title>

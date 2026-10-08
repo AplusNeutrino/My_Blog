@@ -29,6 +29,7 @@ class SearchFeedTest(unittest.TestCase):
 
     def test_atom_feed_combines_public_writing_on_the_existing_route(self):
         self.assertIn("permalink: /feed.xml", FEED)
+        self.assertLess(FEED.index('<?xml version="1.0"'), FEED.index("{% assign discovery"))
         self.assertIn("item.hidden != true", FEED)
         self.assertIn("visible_posts | concat: fragments | sort: 'date' | reverse", FEED)
         self.assertIn("slice: 0, discovery.limit", FEED)
