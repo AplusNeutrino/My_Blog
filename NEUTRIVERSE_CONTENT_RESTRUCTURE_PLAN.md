@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T31 done; T32 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T32 done; T33 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T31 done，T32 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T31 已把 390/768/1024/1366px × Night/Prospero Light 的首页、四入口和实际文章响应式/阅读/无障碍检查接入 production Pages 门禁，并修正 Prospero Light 接口强调色对比度；精确 CI/Pages 通过。下一项 T32 Search 索引与 RSS/feed 补全。
+**当前状态：计划细化与启动决定已完成，T00–T32 done，T33 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T32 已让 Search 覆盖 39 篇公开文章与 5 条 Fragments，并在原 `/feed.xml` 提供最近 20 个公开写作项的 Atom feed；5 篇 hidden 均不进入公开发现面，精确 CI/Pages 通过。下一项 T33 canonical、SEO、sitemap 与旧链接检查。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T31 = done，T32 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T32 = done，T33 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T32-20261008-2056；branch = main；base = 8940a82967b26f1caa154e2a4e189ab981ab71cd；checkpoint = T31 done；next = T32 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = 19a4786c4d6d9144bbeba9120e829d417d5cfbcf；checkpoint = T32 done；next = T33 ready；completion = IN PROGRESS.
 
 T32 本次范围：把现有写作发现面收敛为明确的公开策略：Search 索引全部 39 篇公开文章与 5 条 Fragments；`/feed.xml` 继续使用原 URL，并按真实日期输出最近 20 个公开写作项，文章与 Fragment 共用稳定链接，hidden 永不进入两类公开输出。拟新增单一 discovery 配置、覆盖现有 search JSON、提供站内 Atom feed、在页面 head 宣告 feed、增加构建产物校验脚本并接入 production workflow，同时添加静态契约测试；不改正文/Fragment 文本、metadata、旧 URL、hidden/noindex、项目/ABOUT/应用数据或外部仓库。验收为构建后 Search 恰含 44 个唯一公开写作项与 5 个稳定 Fragment 锚点，Atom feed 顺序/上限/自链接/条目链接正确且含 Fragments，不含 5 篇 hidden，回归、T01 baseline、Jekyll、既有浏览器门禁及精确 head Pages build/deploy 成功。预计剩余：实现与验证后 T32 done，T33 ready。
+
+T32 验收证据：`_data/neutriverse_discovery.yml` 明确 Search/feed 的公开范围与 20 项上限；Search 构建产物为 44 项（39 posts + 5 Fragments），Fragment 使用 `/thoughts/#fragment-*` 稳定链接；项目级 `assets/feed.xml` 覆盖 Chirpy 同路径模板并继续输出 `/feed.xml`，构建产物为 20 个按日期倒序的 Atom entries，其中 2 个近期 Fragments。`tools/check_search_feed.py` 已接入 production workflow，机械检查唯一 URL、hidden 排除、Fragment 原文/锚点、Atom self link、顺序与条数。范围提交 `99eecd31add01eac3b0f0908660b6ed6761a1530`；主体实现 `80220dbc9609a2a7e0b5303a982062bb6ff15234`；依赖/校验/主题覆盖/XML 顺序修复最终汇聚为 `19a4786c4d6d9144bbeba9120e829d417d5cfbcf`。中间 Actions `37781647662`、`37781953822`、`37782416387`、`37782801175`、`37783163381` 分别真实暴露 CI 无 PyYAML、注释示例误计、主题 feed 冲突及 XML 声明位置问题，均未记为通过。最终 [run 37806178776](https://github.com/AplusNeutrino/My_Blog/actions/runs/37806178776) 对应精确 final head，172 tests、production Jekyll、Search/Atom 产物检查、390px Chrome、40 项响应式/无障碍矩阵、artifact upload 与 Pages deploy 全部成功；artifact `11562762275` / `sha256:2a5462865d6a1d51728b427ba8820e170dd9893035074a729ed42d4fca000eb7`。T01 baseline passed（44 posts / 5 Fragments，hidden posts 5，Type essay/note/fragment = 5/39/5）；未改文章/Fragment 原文、front matter、文件名/date/slug/permalink、旧 URL、可见性/应用数据或外部项目。T32 done，T33 ready，无新增用户问题。
 
 T31 本次范围：建立独立的 production-build 浏览器门禁，在 390/768/1024/1366px 四个视口和 Night/Prospero Light 两主题下检查首页、THINK、BUILD、OBSERVE、ABOUT 与实际文章阅读页。门禁机械核对页面无横向溢出、入口与卡片布局可见、文章正文宽度不超过 740px、富内容被容器约束、主要交互目标不小于 44px、键盘焦点有至少 2px 可见轮廓、关键正文/说明/链接的计算后颜色达到 WCAG AA，并在 `prefers-reduced-motion: reduce` 下关闭 Neutriverse 自有过渡/动画。拟新增专项检查脚本并接入 Pages workflow，补齐共享 CSS 的统一 focus/reduced-motion 规则及静态契约测试；不改内容、路由、分类、项目/ABOUT 事实、隐藏/noindex 边界、应用数据或外部项目。验收为四断点×两主题矩阵真实 Chrome 通过，全套回归、T01 baseline、production Jekyll 与精确 head Pages build/deploy 成功。预计剩余：实现与验证后 T31 done，T32 ready。
 

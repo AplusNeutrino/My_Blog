@@ -4,7 +4,7 @@
 
 ## Run 2026-10-08 20:56 — T32 Search 索引与 RSS/feed 补全
 
-- Task / parent：T32；status = in-progress；依赖 T31 done。
+- Task / parent：T32；status = done；依赖 T31 done。
 - Base SHA / branch：`8940a82967b26f1caa154e2a4e189ab981ab71cd` / main；该 head 的 Actions `37775359732` build/deploy completed/success，工作树干净。
 - 现状证据：线上 `/assets/js/data/search.json` 仅含 39 篇公开文章、0 Fragment；`/feed.xml` 仅含最近 5 篇文章，页面 head 未宣告 Atom feed。现有 search 已过滤 hidden，但 Fragments 没有检索/订阅策略。
 - 本次最小交付：Search 纳入 39 篇公开文章 + 5 条原来源 Fragments；自有 Atom feed 在原 `/feed.xml` 输出最近 20 个公开写作项并包含 Fragment；单一 discovery 配置明确 hidden 排除、稳定链接与条目上限。
@@ -12,6 +12,14 @@
 - 验收：Search JSON 为 44 个唯一公开项且 5 个 Fragment URL 指向 `/thoughts/#fragment-*`；Atom XML 可解析、self link 正确、按日期倒序且最多 20 项、包含 Fragments；两者都不出现 5 篇 hidden；全回归、T01 baseline、production Jekyll、既有 Chrome 门禁、新产物检查及精确实现 head 的 Pages build/deploy 成功。
 - 边界：不改任何文章/Fragment 原文、front matter、文件名/date/slug/permalink/旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex、应用数据或外部项目；不提前执行 T33 SEO/canonical/sitemap 全检。
 - 用户问题：无；Fragment 纳入公开写作检索与订阅是 T32 已明确要求的发现能力，不改变其原来源或正文。
+- 范围 / 主体实现 / final head：`99eecd31add01eac3b0f0908660b6ed6761a1530` / `80220dbc9609a2a7e0b5303a982062bb6ff15234` / `19a4786c4d6d9144bbeba9120e829d417d5cfbcf`；均以 expected head 非强推更新 main。
+- 实际交付：新增单一 discovery 配置；Search 继续过滤 hidden，并把 5 条原来源 Fragment 以稳定 `/thoughts/#fragment-*` 锚点加入索引；页面 head 宣告 Atom feed。项目在 Chirpy 的同源路径 `assets/feed.xml` 覆盖主题模板，旧 `/feed.xml` 不变，文章与 Fragment 按真实日期合并后输出最近 20 项。
+- 构建门禁：新增无第三方 Python 依赖的 `tools/check_search_feed.py` 并接入 Pages workflow；它从保护基线与 Fragment front matter 核对 Search 的数量、唯一 URL、原文/锚点与 hidden 排除，并解析 Atom 检查 self link、20 项上限、日期顺序、成员关系及 Fragment 存在。静态契约测试同时覆盖 discovery、模板、head 与 workflow 顺序。
+- 真实失败链：run `37781647662` 暴露 CI 未安装 PyYAML，随后移除该非必要依赖；run `37781953822` 暴露注释中的新增示例被正则误计为第 6 条 Fragment，随后只解析 front matter；run `37782416387` 暴露 Chirpy `assets/feed.xml` 与根模板争用 `/feed.xml`；run `37782801175` 证明 `_config.yml exclude` 不能排除主题 gem 页面；改用项目同路径覆盖后，run `37783163381` 暴露 Liquid 空白使 XML 声明落在第 9 行，最终把声明移到 front matter 后第一个输出位置。以上失败均未记为通过。
+- 本地验证：172/172 tests（最终修复另有 5/5 针对性测试）、T01 baseline protection passed（44 posts / 5 Fragments / 5 hidden；Type essay/note/fragment = 5/39/5）、Python 编译及 `git diff --check` 通过；本机无 Bundler，未声明本地 Jekyll 成功。
+- 最终精确验证：[Actions run 37806178776](https://github.com/AplusNeutrino/My_Blog/actions/runs/37806178776) 对应 final head `19a4786c4d6d9144bbeba9120e829d417d5cfbcf`，completed/success；build `113410926237` 的 172 tests、production Jekyll、Search/Atom 产物、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；产物统计为 Search 44 / Fragments 5、feed 20 / Fragments 2、hidden excluded 5。deploy `113411628435` 成功。
+- Artifact：`11562762275`；digest `sha256:2a5462865d6a1d51728b427ba8820e170dd9893035074a729ed42d4fca000eb7`。
+- 保护 / 结论：未改文章/Fragment 原文、front matter、文件名、date/slug/permalink、旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex、应用数据或外部项目；未提前执行 T33。T32 done；active_run = none；checkpoint = T32 done；next = T33 ready；无新增用户问题。
 
 ## Run 2026-10-08 19:57 — T31 响应式、阅读与无障碍专项
 
