@@ -649,7 +649,12 @@ def main():
         wait.until(lambda current: read_state(current)["open"])
         mask = driver.find_element(By.ID, "mask")
         driver.execute_script("arguments[0].click();", mask)
-        wait.until(lambda current: not read_state(current)["open"])
+        wait.until(
+            lambda current: (
+                not read_state(current)["open"]
+                and read_state(current)["focusIsTrigger"]
+            )
+        )
         masked = read_state(driver)
         require(masked["focusIsTrigger"], f"mask did not restore trigger focus: {masked}")
 
