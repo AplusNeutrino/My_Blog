@@ -71,8 +71,24 @@ def read_contrast(driver, selector):
         const node = document.querySelector(arguments[0]);
         if (!node) return null;
         const parse = (value) => {
+          const hex = value.trim().match(/^#([0-9a-f]{6})$/i);
+          if (hex) {
+            return [
+              Number.parseInt(hex[1].slice(0, 2), 16),
+              Number.parseInt(hex[1].slice(2, 4), 16),
+              Number.parseInt(hex[1].slice(4, 6), 16),
+              1
+            ];
+          }
           const match = value.match(/[\d.]+/g);
-          return match ? match.slice(0, 4).map(Number) : null;
+          if (!match || match.length < 3) return null;
+          const values = match.slice(0, 4).map(Number);
+          if (value.startsWith('color(')) {
+            values[0] *= 255;
+            values[1] *= 255;
+            values[2] *= 255;
+          }
+          return values;
         };
         const opaqueBackground = (start) => {
           let current = start;
