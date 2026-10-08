@@ -1006,9 +1006,13 @@
 
 :root[data-mode='light'] .about-profile,
 :root[data-mode='light'] .about-info,
+:root[data-mode='light'] .about-current,
+:root[data-mode='light'] .about-context-panel,
 :root[data-mode='light'] .about-now-roadmap,
 :root[data-bs-theme='light'] .about-profile,
 :root[data-bs-theme='light'] .about-info,
+:root[data-bs-theme='light'] .about-current,
+:root[data-bs-theme='light'] .about-context-panel,
 :root[data-bs-theme='light'] .about-now-roadmap {
   border-color: color-mix(in srgb, var(--prospero-gold) 36%, transparent);
 }
@@ -1027,8 +1031,12 @@
 }
 
 :root[data-mode='light'] .about-info-text,
+:root[data-mode='light'] .about-current-copy > p,
+:root[data-mode='light'] .about-context-intro,
 :root[data-mode='light'] .about-now-summary,
 :root[data-bs-theme='light'] .about-info-text,
+:root[data-bs-theme='light'] .about-current-copy > p,
+:root[data-bs-theme='light'] .about-context-intro,
 :root[data-bs-theme='light'] .about-now-summary {
   color: var(--prospero-text-secondary);
   font-family: var(--font-day-serif);
@@ -1036,8 +1044,14 @@
 }
 
 :root[data-mode='light'] .about-now h2,
+:root[data-mode='light'] .about-info h2,
+:root[data-mode='light'] .about-current h2,
+:root[data-mode='light'] .about-context-panel h2,
 :root[data-mode='light'] .about-stack-header h3,
 :root[data-bs-theme='light'] .about-now h2,
+:root[data-bs-theme='light'] .about-info h2,
+:root[data-bs-theme='light'] .about-current h2,
+:root[data-bs-theme='light'] .about-context-panel h2,
 :root[data-bs-theme='light'] .about-stack-header h3 {
   color: var(--prospero-text-primary);
   font-family: var(--font-day-serif);
@@ -1131,6 +1145,49 @@
 :root[data-bs-theme='light'] .about-now-step.is-active::before {
   border-color: var(--prospero-teal);
   background: var(--prospero-teal);
+}
+
+:root[data-mode='light'] .about-current,
+:root[data-bs-theme='light'] .about-current {
+  background: color-mix(in srgb, var(--prospero-teal) 5%, var(--prospero-surface-1));
+}
+
+:root[data-mode='light'] .about-current-meta,
+:root[data-bs-theme='light'] .about-current-meta {
+  border-color: var(--prospero-border);
+  background: var(--prospero-surface-muted);
+}
+
+:root[data-mode='light'] .about-current-meta > div + div,
+:root[data-mode='light'] .about-coordinate-list li,
+:root[data-mode='light'] .about-principle-list li,
+:root[data-bs-theme='light'] .about-current-meta > div + div,
+:root[data-bs-theme='light'] .about-coordinate-list li,
+:root[data-bs-theme='light'] .about-principle-list li {
+  border-color: var(--prospero-gold-border-soft);
+}
+
+:root[data-mode='light'] .about-current-meta dt,
+:root[data-mode='light'] .about-current-meta dd,
+:root[data-mode='light'] .about-coordinate-list p,
+:root[data-mode='light'] .about-principle-list p,
+:root[data-bs-theme='light'] .about-current-meta dt,
+:root[data-bs-theme='light'] .about-current-meta dd,
+:root[data-bs-theme='light'] .about-coordinate-list p,
+:root[data-bs-theme='light'] .about-principle-list p {
+  color: var(--prospero-muted-ink);
+}
+
+:root[data-mode='light'] .about-coordinate-list a,
+:root[data-bs-theme='light'] .about-coordinate-list a {
+  color: var(--prospero-teal-deep);
+}
+
+:root[data-mode='light'] .about-coordinate-list a strong,
+:root[data-mode='light'] .about-principle-list strong,
+:root[data-bs-theme='light'] .about-coordinate-list a strong,
+:root[data-bs-theme='light'] .about-principle-list strong {
+  color: var(--prospero-text-primary);
 }
 
 :root[data-mode='light'] .about-stack-panel,

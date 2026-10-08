@@ -4,10 +4,67 @@
 <section class="about-profile" data-about-profile data-about-schema="{{ about.schema_version }}">
   <div class="about-info" aria-labelledby="about-info-title">
     <span class="about-section-kicker">{{ about.identity.kicker }}</span>
-    <p id="about-info-title" class="about-info-text">
-      {% for line in about.identity.lines %}{{ line }}<br>{% endfor %}
-      <span class="nv-blue"><strong>{{ about.identity.welcome }}</strong></span>
-    </p>
+    <h2 id="about-info-title">{{ about.identity.title }}</h2>
+    <div class="about-info-text">
+      {% for line in about.identity.lines %}<p>{{ line }}</p>{% endfor %}
+      <p class="nv-blue"><strong>{{ about.identity.welcome }}</strong></p>
+    </div>
+  </div>
+
+  <section class="about-current" aria-labelledby="about-current-title" data-about-current data-as-of="{{ about.currently.as_of }}">
+    <div class="about-current-copy">
+      <span class="about-section-kicker">{{ about.currently.kicker }}</span>
+      <h2 id="about-current-title">{{ about.currently.title }}</h2>
+      <p>{{ about.currently.summary }}</p>
+      <p class="about-current-notice" role="note">{{ about.currently.notice }}</p>
+    </div>
+    <dl class="about-current-meta">
+      <div>
+        <dt>UPDATED</dt>
+        <dd><time datetime="{{ about.currently.as_of }}">{{ about.currently.as_of_label }}</time></dd>
+      </div>
+      <div>
+        <dt>SOURCE</dt>
+        <dd>{{ about.currently.source_label }}</dd>
+      </div>
+      <div>
+        <dt>MAINTAIN</dt>
+        <dd><code>{{ about.currently.maintenance.file }}</code> → <code>{{ about.currently.maintenance.field }}</code><br>{{ about.currently.maintenance.note }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <div class="about-context-grid">
+    <section class="about-context-panel" aria-labelledby="about-internet-title" data-about-internet>
+      <span class="about-section-kicker">{{ about.internet.kicker }}</span>
+      <h2 id="about-internet-title">{{ about.internet.title }}</h2>
+      <p class="about-context-intro">{{ about.internet.summary }}</p>
+      <ul class="about-coordinate-list">
+        {% for link in about.internet.links %}
+          <li>
+            <a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+              <span>{{ link.label }}</span>
+              <strong>{{ link.handle }}</strong>
+            </a>
+            <p>{{ link.description }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="about-context-panel" aria-labelledby="about-philosophy-title" data-about-philosophy>
+      <span class="about-section-kicker">{{ about.philosophy.kicker }}</span>
+      <h2 id="about-philosophy-title">{{ about.philosophy.title }}</h2>
+      <p class="about-context-intro">{{ about.philosophy.intro }}</p>
+      <ol class="about-principle-list">
+        {% for principle in about.philosophy.principles %}
+          <li>
+            <strong>{{ principle.title }}</strong>
+            <p>{{ principle.text }}</p>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
   </div>
 
   <div class="about-now" aria-labelledby="about-now-title" data-about-snapshot data-as-of="{{ snapshot.as_of }}">

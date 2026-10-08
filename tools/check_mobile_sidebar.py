@@ -1343,10 +1343,21 @@ def main():
             const path = (link) => link ? new URL(link.href).pathname
               + new URL(link.href).hash : null;
             const profile = document.querySelector('[data-about-profile]');
+            const current = profile?.querySelector('[data-about-current]');
             const snapshot = profile?.querySelector('[data-about-snapshot]');
             const links = [...document.querySelectorAll('.nv-section-link')];
             return {
               schema: profile?.dataset.aboutSchema || null,
+              currentAsOf: current?.dataset.asOf || null,
+              currentNotice: current?.querySelector('.about-current-notice')
+                ?.textContent.trim() || null,
+              currentLinks: [...profile?.querySelectorAll('.about-coordinate-list a') || []]
+                .map((link) => ({
+                  path: path(link),
+                  target: link.getAttribute('target'),
+                  rel: link.getAttribute('rel')
+                })),
+              principleCount: profile?.querySelectorAll('.about-principle-list li').length || 0,
               asOf: snapshot?.dataset.asOf || null,
               notice: profile?.querySelector('.about-snapshot-notice')
                 ?.textContent.trim() || null,
@@ -1364,7 +1375,16 @@ def main():
             """
         )
         require(
-            about_state["schema"] == "1"
+            about_state["schema"] == "2"
+            and about_state["currentAsOf"] == "2026-10-08"
+            and about_state["currentNotice"] == "网站维护状态 · 非个人实时状态"
+            and about_state["currentLinks"] == [
+                {"path": "/", "target": None, "rel": None},
+                {"path": "/AplusNeutrino", "target": "_blank", "rel": "noopener noreferrer"},
+                {"path": "/Neutrino_X", "target": "_blank", "rel": "noopener noreferrer"},
+                {"path": "/links/", "target": None, "rel": None},
+            ]
+            and about_state["principleCount"] == 4
             and about_state["asOf"] == "2026-08-17"
             and about_state["notice"] == "历史快照 · 非实时状态"
             and about_state["updated"] == "2026-08-17"
@@ -1377,6 +1397,8 @@ def main():
                 "/about/#travel-globe-title",
             ]
             and "更新于 2026-08-17" in about_state["text"]
+            and "Neutriverse 网站重构" in about_state["text"]
+            and "网站维护状态 · 非个人实时状态" in about_state["text"]
             and about_state["bodyScrollWidth"] <= about_state["bodyClientWidth"],
             f"ABOUT data/snapshot/mobile contract failed: {about_state}",
         )

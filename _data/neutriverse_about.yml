@@ -1,14 +1,69 @@
 # ABOUT content is intentionally limited to facts already published on this site.
 # Dynamic-looking entries must keep an explicit as_of date and stale notice.
-schema_version: 1
-source: _tabs/about.md before T27
+schema_version: 2
+source: _tabs/about.md before T27; public site configuration and approved master plan for T28
 
 identity:
   kicker: NEUTRIVERSE INFO
+  title: Neutrino 与 Neutriverse
   lines:
     - 本站是 Neutrino 的个人文字站。
     - 主要用于存储笔记、读后感和记忆碎片。
+    - 思考、系统、观察与时间在这里汇合，并持续留下公开可见的轨迹。
   welcome: 欢迎所有的你。
+
+currently:
+  kicker: CURRENTLY / SITE SIGNAL
+  title: Neutriverse 网站重构
+  as_of: "2026-10-08"
+  as_of_label: 站点焦点更新于 2026-10-08
+  notice: 网站维护状态 · 非个人实时状态
+  summary: 正在把这个网站重组为可长期生长的个人数字宇宙。
+  source_label: 来源：已批准的 Neutriverse 重构主计划
+  maintenance:
+    file: _data/neutriverse_about.yml
+    field: currently
+    note: 更新此区时需同时修改 as_of、summary 与来源说明。
+
+internet:
+  kicker: PUBLIC COORDINATES
+  title: 公开坐标与互联网邻居
+  summary: Neutriverse 是内容主节点；公开账号是外部坐标，友链保存与其他站点之间的邻居关系。
+  links:
+    - label: Neutriverse
+      handle: neutriverse.uk
+      url: /
+      external: false
+      description: 思考、项目、观察与作者记录的长期入口。
+    - label: GitHub
+      handle: AplusNeutrino
+      url: https://github.com/AplusNeutrino
+      external: true
+      description: 公开代码与项目仓库。
+    - label: X / Twitter
+      handle: "@Neutrino_X"
+      url: https://twitter.com/Neutrino_X
+      external: true
+      description: 站点配置中已有的公开社交坐标。
+    - label: 友情链接
+      handle: Internet neighbours
+      url: /links/
+      external: false
+      description: 独立维护的站点邻居与往来入口。
+
+philosophy:
+  kicker: SITE PHILOSOPHY
+  title: 这个站如何生长
+  intro: 这里不把写作、项目和观察拆成互不相干的履历条目，而把它们保留为同一个作者节点留下的不同轨迹。
+  principles:
+    - title: 写作属于网站本身
+      text: Fragment、Note 与 Essay 都是 Neutriverse 的原生记录，而不是附属的 Blog 模块。
+    - title: 清晰导航先于世界观
+      text: THINK、BUILD、OBSERVE、ABOUT 先说明去向；信号、观测站等语汇负责气质，不制造使用门槛。
+    - title: 连续性比重写更重要
+      text: 旧文章、旧链接与早期想法作为历史保留，新的结构在其上增量生长。
+    - title: 状态应当可维护且诚实
+      text: 当前焦点注明日期与来源；过期动态转为历史快照，不伪装成实时信息。
 
 snapshot:
   kicker: PERSONAL ORBIT
