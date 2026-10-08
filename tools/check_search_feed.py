@@ -2,14 +2,12 @@
 """Validate built public Search and Atom outputs against protected writing sources."""
 
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
-
-import yaml
-
 
 ROOT = Path(__file__).resolve().parents[1]
 ATOM = {"atom": "http://www.w3.org/2005/Atom"}
@@ -20,10 +18,16 @@ def require(condition, message):
         raise AssertionError(message)
 
 
-def front_matter(path):
+def fragment_source(path):
     text = path.read_text(encoding="utf-8")
-    require(text.startswith("---\n"), f"missing front matter: {path}")
-    return yaml.safe_load(text.split("---", 2)[1]) or {}
+    matches = re.findall(
+        r'^  - text: "(?P<text>.*)"\n'
+        r'    id: (?P<id>fragment-[a-z0-9-]+)\n'
+        r'    date: (?P<date>\d{4}-\d{2}-\d{2})$',
+        text,
+        re.MULTILINE,
+    )
+    return [{"text": text, "id": fragment_id, "date": date} for text, fragment_id, date in matches]
 
 
 def normalized_path(url):
@@ -49,8 +53,7 @@ def main():
         post for post in baseline["posts"] if not post["hidden"] and post["published"]
     ]
     hidden_titles = {post["title"] for post in baseline["posts"] if post["hidden"]}
-    fragment_source = front_matter(ROOT / "_tabs" / "thoughts.md")
-    fragments = fragment_source.get("fragments", [])
+    fragments = fragment_source(ROOT / "_tabs" / "thoughts.md")
     require(all(fragment.get("id") and fragment.get("text") for fragment in fragments), "Fragment id/text contract failed")
 
     search = json.loads(search_path.read_text(encoding="utf-8"))
@@ -78,8 +81,10 @@ def main():
     require(len(self_links) == 1 and normalized_path(self_links[0]) == "/feed.xml", "invalid feed self link")
 
     feed_entries = root.findall("atom:entry", ATOM)
-    config = yaml.safe_load((ROOT / "_data" / "neutriverse_discovery.yml").read_text(encoding="utf-8"))
-    limit = config["feed"]["limit"]
+    config = (ROOT / "_data" / "neutriverse_discovery.yml").read_text(encoding="utf-8")
+    limit_match = re.search(r"^  limit: (\d+)$", config, re.MULTILINE)
+    require(limit_match is not None, "missing feed limit in discovery config")
+    limit = int(limit_match.group(1))
     require(len(feed_entries) == min(limit, expected_count), "feed entry limit/count mismatch")
     feed_titles = [entry.findtext("atom:title", namespaces=ATOM) for entry in feed_entries]
     require(not hidden_titles.intersection(feed_titles), "hidden post leaked into feed")

@@ -1,11 +1,8 @@
 import unittest
 from pathlib import Path
 
-import yaml
-
-
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = yaml.safe_load((ROOT / "_data" / "neutriverse_discovery.yml").read_text(encoding="utf-8"))
+CONFIG = (ROOT / "_data" / "neutriverse_discovery.yml").read_text(encoding="utf-8")
 SEARCH = (ROOT / "assets" / "js" / "data" / "search.json").read_text(encoding="utf-8")
 FEED = (ROOT / "feed.xml").read_text(encoding="utf-8")
 HEAD = (ROOT / "_includes" / "metadata-hook.html").read_text(encoding="utf-8")
@@ -15,15 +12,13 @@ WORKFLOW = (ROOT / ".github" / "workflows" / "pages-deploy.yml").read_text(encod
 
 class SearchFeedTest(unittest.TestCase):
     def test_discovery_policy_is_explicit_and_bounded(self):
-        self.assertEqual(1, CONFIG["schema_version"])
-        self.assertTrue(CONFIG["search"]["include_posts"])
-        self.assertTrue(CONFIG["search"]["include_fragments"])
-        self.assertTrue(CONFIG["search"]["exclude_hidden"])
-        self.assertEqual("/feed.xml", CONFIG["feed"]["path"])
-        self.assertEqual("atom", CONFIG["feed"]["format"])
-        self.assertEqual(20, CONFIG["feed"]["limit"])
-        self.assertTrue(CONFIG["feed"]["include_fragments"])
-        self.assertTrue(CONFIG["feed"]["exclude_hidden"])
+        self.assertIn("schema_version: 1", CONFIG)
+        self.assertEqual(2, CONFIG.count("include_posts: true"))
+        self.assertEqual(2, CONFIG.count("include_fragments: true"))
+        self.assertEqual(2, CONFIG.count("exclude_hidden: true"))
+        self.assertIn("path: /feed.xml", CONFIG)
+        self.assertIn("format: atom", CONFIG)
+        self.assertIn("limit: 20", CONFIG)
 
     def test_search_indexes_public_posts_and_original_fragments(self):
         self.assertIn("site.posts | where_exp: 'post', 'post.hidden != true'", SEARCH)
