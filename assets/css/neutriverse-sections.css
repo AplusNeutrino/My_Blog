@@ -24,6 +24,20 @@
   color: var(--nv-text);
 }
 
+.about-snapshot-notice {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  margin: 0.75rem 0 0;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 999px;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-data);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
 /* Global desktop navigation keeps the four entrances primary and utilities secondary. */
 #sidebar .nv-sidebar-navigation {
   display: flex;

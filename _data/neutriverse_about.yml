@@ -1,0 +1,76 @@
+# ABOUT content is intentionally limited to facts already published on this site.
+# Dynamic-looking entries must keep an explicit as_of date and stale notice.
+schema_version: 1
+source: _tabs/about.md before T27
+
+identity:
+  kicker: NEUTRIVERSE INFO
+  lines:
+    - 本站是 Neutrino 的个人文字站。
+    - 主要用于存储笔记、读后感和记忆碎片。
+  welcome: 欢迎所有的你。
+
+snapshot:
+  kicker: PERSONAL ORBIT
+  title: Neutrino 状态监控
+  as_of: "2026-08-17"
+  as_of_label: 更新于 2026-08-17
+  notice: 历史快照 · 非实时状态
+  summary:
+    - 全力备战软考系统分析师中。
+    - 正在品鉴《无敌号》。
+  signals:
+    - label: focus
+      value: 软考备战中
+    - label: load
+      value: "03%"
+    - label: mode
+      value: SAVING MODE
+    - label: sync
+      value: "2026-08-17"
+  status:
+    - label: 学
+      value: 软考好多东西
+    - label: 写
+      value: 继续写游戏REPO
+    - label: 做
+      value: VB一个竞赛小玩具
+    - label: 态
+      value: 保持健身
+  roadmap:
+    - label: 现在
+      value: 入职环境调节
+    - label: 短期
+      value: 构筑稳定生活流
+    - label: 长期
+      value: 实现时/财自由
+
+stacks:
+  reading:
+    kicker: FUTURE READING STACK
+    title: 待阅读栈
+    items:
+      - title: 《迷雾之子》
+        added: "2026/05/02"
+      - title: 《大师与玛格丽特》
+        added: "2025/12/25"
+      - title: 《阿特拉斯耸耸肩》
+        added: "2025/11/21"
+      - title: 《无限近似于青色的蓝》
+        added: "2025/04/03"
+      - title: 《诺瓦利斯作品选集》
+        added: "2026/02/06"
+  visual:
+    kicker: FUTURE MEDIA STACK
+    title: 待观看栈
+    items:
+      - title: 《纽约提喻法》
+        added: "2025/03/05"
+      - title: 《Amadeus》
+        added: "2025/04/04"
+      - title: 《挽救计划》
+        added: "2026/03/23"
+      - title: 《全金属外壳》
+        added: "2026/01/26"
+      - title: 《斯巴达克斯》
+        added: "2026/01/26"

@@ -1,0 +1,85 @@
+{% assign about = site.data.neutriverse_about %}
+{% assign snapshot = about.snapshot %}
+
+<section class="about-profile" data-about-profile data-about-schema="{{ about.schema_version }}">
+  <div class="about-info" aria-labelledby="about-info-title">
+    <span class="about-section-kicker">{{ about.identity.kicker }}</span>
+    <p id="about-info-title" class="about-info-text">
+      {% for line in about.identity.lines %}{{ line }}<br>{% endfor %}
+      <span class="nv-blue"><strong>{{ about.identity.welcome }}</strong></span>
+    </p>
+  </div>
+
+  <div class="about-now" aria-labelledby="about-now-title" data-about-snapshot data-as-of="{{ snapshot.as_of }}">
+    <div class="about-now-main">
+      <span class="about-section-kicker">{{ snapshot.kicker }}</span>
+      <h2 id="about-now-title">{{ snapshot.title }}</h2>
+      <p class="about-now-summary">
+        {% for line in snapshot.summary %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}
+      </p>
+      <p class="about-snapshot-notice" role="note">{{ snapshot.notice }}</p>
+    </div>
+
+    <div class="about-instruments" aria-label="历史快照信号">
+      <div class="about-gauge-row" aria-hidden="true">
+        <div class="about-scan"><span></span></div>
+        <div class="about-bars"><span></span><span></span><span></span></div>
+        <div class="about-monitor"><span></span><i></i><b></b></div>
+      </div>
+
+      <div class="about-signal">
+        <span class="about-signal-title">SIGNAL</span>
+        {% for signal in snapshot.signals %}
+          <div class="about-signal-row">
+            <span>{{ signal.label }}</span>
+            <strong>{{ signal.value }}</strong>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="about-now-grid" aria-label="截至 {{ snapshot.as_of }} 的状态">
+      {% for status in snapshot.status %}
+        <div class="about-now-item">
+          <span>{{ status.label }}</span>
+          <strong>{{ status.value }}</strong>
+        </div>
+      {% endfor %}
+    </div>
+
+    <time class="about-now-updated" datetime="{{ snapshot.as_of }}">{{ snapshot.as_of_label }}</time>
+  </div>
+
+  <div class="about-now-roadmap" aria-label="截至 {{ snapshot.as_of }} 的个人路线图">
+    {% for step in snapshot.roadmap %}
+      <div class="about-now-step{% if forloop.first %} is-active{% endif %}">
+        <span>{{ step.label }}</span>
+        <strong>{{ step.value }}</strong>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="about-stacks" aria-label="阅读与影像历史记录栈">
+    {% assign stack_keys = 'reading,visual' | split: ',' %}
+    {% for stack_key in stack_keys %}
+      {% assign stack = about.stacks[stack_key] %}
+      <section class="about-stack-panel" aria-labelledby="{{ stack_key }}-stack-title">
+        <div class="about-stack-header">
+          <span class="about-stack-kicker">{{ stack.kicker }}</span>
+          <h3 id="{{ stack_key }}-stack-title">{{ stack.title }}</h3>
+        </div>
+
+        <ol class="about-stack-list">
+          {% assign stack_items = stack.items | sort: 'added' %}
+          {% for item in stack_items limit: 8 %}
+            <li class="about-stack-item">
+              <span class="about-stack-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <strong>{{ item.title }}</strong>
+              <time datetime="{{ item.added | replace: '/', '-' }}">{{ item.added }}</time>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endfor %}
+  </div>
+</section>

@@ -1332,6 +1332,55 @@ def main():
             "homepage theme did not change",
         )
 
+        driver.get(site_url + "/about/")
+        wait.until(
+            lambda current: current.find_element(
+                By.CSS_SELECTOR, "[data-about-profile]"
+            ).is_displayed()
+        )
+        about_state = driver.execute_script(
+            r"""
+            const path = (link) => link ? new URL(link.href).pathname
+              + new URL(link.href).hash : null;
+            const profile = document.querySelector('[data-about-profile]');
+            const snapshot = profile?.querySelector('[data-about-snapshot]');
+            const links = [...document.querySelectorAll('.nv-section-link')];
+            return {
+              schema: profile?.dataset.aboutSchema || null,
+              asOf: snapshot?.dataset.asOf || null,
+              notice: profile?.querySelector('.about-snapshot-notice')
+                ?.textContent.trim() || null,
+              updated: profile?.querySelector('.about-now-updated')
+                ?.getAttribute('datetime') || null,
+              statusCount: profile?.querySelectorAll('.about-now-item').length || 0,
+              roadmapCount: profile?.querySelectorAll('.about-now-step').length || 0,
+              stackCounts: [...profile?.querySelectorAll('.about-stack-list') || []]
+                .map((list) => list.querySelectorAll('.about-stack-item').length),
+              related: links.map(path),
+              text: profile?.textContent || '',
+              bodyClientWidth: document.body.clientWidth,
+              bodyScrollWidth: document.body.scrollWidth
+            };
+            """
+        )
+        require(
+            about_state["schema"] == "1"
+            and about_state["asOf"] == "2026-08-17"
+            and about_state["notice"] == "历史快照 · 非实时状态"
+            and about_state["updated"] == "2026-08-17"
+            and about_state["statusCount"] == 4
+            and about_state["roadmapCount"] == 3
+            and about_state["stackCounts"] == [5, 5]
+            and about_state["related"] == [
+                "/library/",
+                "/links/",
+                "/about/#travel-globe-title",
+            ]
+            and "更新于 2026-08-17" in about_state["text"]
+            and about_state["bodyScrollWidth"] <= about_state["bodyClientWidth"],
+            f"ABOUT data/snapshot/mobile contract failed: {about_state}",
+        )
+
         driver.get(site_url + "/archives/")
         wait.until(lambda current: current.find_element(By.ID, "archives").is_displayed())
         archive_text = driver.find_element(By.ID, "archives").text
