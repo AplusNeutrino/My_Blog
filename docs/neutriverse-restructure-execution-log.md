@@ -22,13 +22,21 @@
 
 ## Run 2026-10-08 12:03 — T26 Ravenis / Occult Atlas 共享导航适配
 
-- Task：T26；status = in-progress；依赖 T25 done。
+- Task：T26；status = done；依赖 T25 done。
 - Base / branch：`5f15e4684abc351e3e6c501e59f3f69b2c5f01f5` / main；base 的 [Actions run 37721612827](https://github.com/AplusNeutrino/My_Blog/actions/runs/37721612827) completed/success，无 validation-pending。
 - 本次最小交付：Ravenis 和 Occult Atlas 共用一个 catalog-driven OBSERVE 应用导航，可返回首页/OBSERVE、查看当前项目事实，并在两观察应用间切换。
 - 拟改：新增 `_includes/neutriverse-observe-app-nav.html`、`assets/css/neutriverse-observe-shell.css`、`tests/test_observe_app_navigation.py`；调整 `_includes/metadata-hook.html`、`ravenis/index.html`、`_layouts/occult-atlas.html`、`tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：两页使用同一 include/catalog；HOME、OBSERVE、当前 BUILD 事实和两应用链接正确，当前应用有 `aria-current`，无 Gate/NAVI/MMXProj；Ravenis 数据/日期/时段/搜索与 Atlas 星盘/筛选/控制状态不变；noindex/sitemap 与旧跳转不变；390px、双主题、回归、Jekyll 与精确 head Pages 通过。
 - 边界：不改 Ravenis 发布数据或 `assets/js/ravenis.js`，不改 Occult Atlas app.js/API/本地状态，不改关联项目仓库、文章/Fragment、旧 URL 或可见性。
-- 用户问题：无。
+- 范围 / 主体实现 / 浏览器门禁修复及 final head：`f518154982aa8687b51b1bddaaeb4a3ad8f32573` / `76de0db77d502270f61a769e0a426fd05ec60443` / `76014a77bb8370b3d5cb9d554502be133cff7c0e`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `_includes/neutriverse-observe-app-nav.html` 与 `assets/css/neutriverse-observe-shell.css`。Ravenis 与 Occult Atlas 从同一项目 catalog 生成 HOME、OBSERVE、两应用切换和当前 BUILD 事实链接；当前应用标记 `aria-current=page`，未列出 Gate/NAVI/MMXProj，也未引入新 JavaScript。
+- 应用保护：Ravenis 的日期、时段、搜索、公开数据读取脚本保持原样；Occult Atlas 的星盘、筛选、控制面板、API 与浏览器状态保持原样。两应用继续 noindex，`/occult-atlas-app/` 仍跳转 `/occult-atlas/`；共享样式同时响应 Night / Prospero Light，并在 390px 无横向溢出。
+- 真实失败：[run 37726043964](https://github.com/AplusNeutrino/My_Blog/actions/runs/37726043964) 的 146 tests 与 production Jekyll 成功，但 Chrome 把存在但在当前回退数据下为空、因而不可见的 `#ravenis-slot-nav` 当作必需可见控件，build `113144319062` 在浏览器门禁失败，deploy 跳过，未记为通过。
+- 门禁修复：端到端可见性改核对包裹日期与时段导航的 `#ravenis-period-nav`；静态回归仍单独验证 `#ravenis-slot-nav` 存在，未放宽应用功能契约。本地 `python -m unittest discover -s tests -v` 为 146/146，`py_compile` 与 `git diff --check` 通过；本机无 Bundler，production Jekyll 由精确 head CI 实跑。
+- 最终精确验证：[Actions run 37726199153](https://github.com/AplusNeutrino/My_Blog/actions/runs/37726199153) 对应 final head `76014a77bb8370b3d5cb9d554502be133cff7c0e`，completed/success；build `113144813310` 的 146 tests、production Jekyll、390px Chrome、双主题、两应用共享导航/当前态/noindex/核心控件/兼容跳转、Ravenis 与 artifact upload 全部成功；deploy `113145097044` 成功。
+- Artifact：`11527662883`；digest `sha256:cbd242c500cb54fe1f5966b58e98882dfe1ae794309d309b7eac97bb444c7036`。
+- 保护：未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、应用数据/业务脚本、Gate/NAVI 边界或外部项目仓库。
+- 结论：T26 done；active_run = none；checkpoint = T26 done；next = T27。无新增用户问题。
 
 ## Run 2026-10-08 11:00 — T25 OBSERVE 目录与 BUILD 关联
 
