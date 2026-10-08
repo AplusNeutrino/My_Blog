@@ -91,7 +91,7 @@ class BuildProjectListTest(unittest.TestCase):
     def test_build_layout_uses_catalog_instead_of_legacy_three_link_block(self):
         self.assertIn("neutriverse-project-list.html", LAYOUT)
         self.assertIn("neutriverse-project-filters.js", LAYOUT)
-        self.assertIn("unless page.section_id == 'build'", LAYOUT)
+        self.assertIn("page.section_id != 'build'", LAYOUT)
         self.assertIn("七个项目实体", PAGE)
 
     def test_mobile_and_theme_styles_use_shared_tokens(self):

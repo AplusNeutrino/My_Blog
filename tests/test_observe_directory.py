@@ -59,8 +59,7 @@ class ObserveDirectoryTest(unittest.TestCase):
         self.assertIsNotNone(block)
         body = block.group("body")
         self.assertNotIn("    links:", body)
-        self.assertNotIn("/ravenis/", body)
-        self.assertNotIn("/occult-atlas/", body)
+        self.assertIn("routes: [/observe/, /ravenis/, /occult-atlas/, /occult-atlas-app/]", body)
         self.assertIn("neutriverse-observe-list.html", LAYOUT)
         self.assertIn("page.section_id == 'observe'", LAYOUT)
 
