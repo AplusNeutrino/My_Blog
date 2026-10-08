@@ -22,13 +22,20 @@
 
 ## Run 2026-10-08 15:55 — T29 网站/项目时间线与 ABOUT 关系
 
-- Task：T29；status = in progress；依赖 T28 done。
+- Task：T29；status = done；依赖 T28 done。
 - Base / branch：`56aedf616da9b58162e8bfb5071a1356e0468e28` / main；T28 实现 head 的 [Actions run 37741773002](https://github.com/AplusNeutrino/My_Blog/actions/runs/37741773002) completed/success，随后仅文档 head `56aedf6` 的精确 Actions 也 completed/success，无 validation-pending。
 - 本次最小交付：在 ABOUT 单一数据源中增加可追溯的网站/项目时间线，以及 Library、友链、旅行记忆三类关系区块。
 - 拟改：`_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`_data/neutriverse_sections.yml`、`assets/css/NormaiNight.css`、`assets/css/ProsperoLight.css`、ABOUT/section 回归、`tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：时间线至少四项，按日期排列，每项有日期、来源标签和真实链接，且只记录仓库/站内可证明的网站或项目事件；Library 与友链继续进入既有页面；旅行关系显示“能力保留、当前未公开”且没有隐藏入口；`travel_globe_enabled = false`、旅行数据/脚本与 Library 同步保持；两主题、键盘、390px、全回归、Jekyll 与精确 head Pages 通过。
 - 边界：不使用聊天记忆/履历或新增私人事实；不改文章/Fragment、front matter、旧 URL、Library 同步、友链/旅行数据、Gate/NAVI、外部项目；不公开旅行地点或隐藏页面，不提前实施 T30。
-- 下一步：先提交本范围记录，再实现与验证；无新增用户问题。
+- 范围 / 实现及 final head：`0ad4bd9bf12a8c88e97d747d93acb67fe67729b4` / `2999e151bd9b73d7a7ac2035ad2577abd2134d2c`；均以 expected head 非强推更新 main。
+- 实际交付：ABOUT schema 升至 3，新增五项按日期升序排列的网站/项目轨迹；仓库初始提交、自定义域名和 Ravenis 接入使用精确 GitHub commit，两个 Project Log 使用既有站内 URL。每项均显示日期、说明、来源标签和真实链接；Archive 仍明确只承担写作时间线。
+- 关系状态：Library 与友链继续分别进入 `/library/`、`/links/`；旅行卡明确“能力保留 · 当前未公开”，输出不可交互的“暂未开放”状态，不提供隐藏地球或地点入口。ABOUT 顶部旅行入口改为公开说明锚点 `/about/#about-relations-title`，解决原先目标因开关关闭而不存在的问题。
+- 隐私与保护：时间线没有聊天记忆、单位、住址、邮箱、健康或推断履历；`travel_globe_enabled = false`、旅行数据/边界来源/脚本、Library 同步、友链数据、文章/Fragment、旧 URL、Gate/NAVI 与外部项目均未改。
+- 本地验证：`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v` 为 162/162；T01 baseline protection、两份 YAML 解析、`python -m py_compile tools/check_mobile_sidebar.py` 与 `git diff --check` 通过。本机无 Bundler，未把本地 Jekyll 记为成功。
+- 最终精确验证：[Actions run 37747072603](https://github.com/AplusNeutrino/My_Blog/actions/runs/37747072603) 对应 head `2999e151bd9b73d7a7ac2035ad2577abd2134d2c`，completed/success；build `113210969211` 的 162 tests、production Jekyll、390px Chrome、五项时间线/安全来源链接、三类关系/旅行非入口、无横向溢出、双主题、Ravenis 与 artifact upload 全部成功；deploy `113211459174` 成功。
+- Artifact：`11536790383`；digest `sha256:35b00e6ae4deb8029729954780d381ccd099aa9e2d4c217e082850bb1534972f`。
+- 结论：T29 done；active_run = none；checkpoint = T29 done；next = T30。无新增用户问题。
 
 ## Run 2026-10-08 15:02 — T28 ABOUT 身份、Currently、互联网关系与网站理念
 
