@@ -121,6 +121,7 @@ class ProjectDetailPagesTest(unittest.TestCase):
         ):
             self.assertIn(token, CSS)
         self.assertIn(".nv-project-detail-grid", CSS)
+        self.assertIn(".nv-project-sources a,\n.nv-project-sources code", CSS)
         self.assertRegex(
             CSS,
             re.compile(

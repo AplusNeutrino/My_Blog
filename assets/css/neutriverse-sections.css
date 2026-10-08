@@ -1572,8 +1572,10 @@ article.nv-post .content video {
   padding-left: 1.2rem;
 }
 
+.nv-project-sources a,
 .nv-project-sources code {
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 @media (max-width: 767.98px) {
