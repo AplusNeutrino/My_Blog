@@ -995,7 +995,7 @@ def main():
             "/ravenis/": {
                 "current": "ravenis",
                 "project": "/build/ravenis/",
-                "core": ("#ravenis-day-select", "#ravenis-slot-nav", "#ravenis-search"),
+                "core": ("#ravenis-day-select", "#ravenis-period-nav", "#ravenis-search"),
             },
             "/occult-atlas/": {
                 "current": "occult-atlas",
