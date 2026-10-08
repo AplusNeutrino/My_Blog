@@ -79,7 +79,7 @@ class BuildProjectListTest(unittest.TestCase):
 
     def test_filter_is_progressive_and_url_state_is_shareable(self):
         self.assertIn("data-project-status=", INCLUDE)
-        self.assertIn("data-project-filter-ready", SCRIPT)
+        self.assertIn("catalog.dataset.projectFilterReady", SCRIPT)
         self.assertIn("url.searchParams.set('status', status)", SCRIPT)
         self.assertIn("window.addEventListener('popstate'", SCRIPT)
         self.assertIn("window.history.replaceState", SCRIPT)
