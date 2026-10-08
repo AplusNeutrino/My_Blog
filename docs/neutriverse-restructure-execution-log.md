@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 10:03 — T24 余下项目详情及关联
+
+- Task：T24；status = in-progress；依赖 T23 done。
+- Base / branch：`9bcd81f677d22719735916361f460eb1fe3db7ce` / main；base 的 [Actions run 37711169410](https://github.com/AplusNeutrino/My_Blog/actions/runs/37711169410) completed/success，无 validation-pending。
+- 本次最小交付：为 Ravenis、Occult Atlas、Gate、OfficeSpire 建立四个 `/build/<stable-id>/` 事实页；BUILD 卡片统一先进入详情，再从详情区分应用、仓库、文档与来源。
+- 拟改：`_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、新增四个详情页、`tests/test_project_detail_pages.py`、`tests/test_build_project_list.py`、`tools/check_mobile_sidebar.py`、主计划与本日志；复用现有项目 layout/CSS，只有真实需要时才修改。
+- 验收：四详情 canonical/ID 正确；Ravenis/Occult 应用入口真实且应用页 noindex 不变；Gate 详情不公开 `/gate/`；OfficeSpire 仅保留公开 README 支持的 `implemented_unverified`、repository/文档，不伪造 runtime_pass 或 Release；空 Project Log/Release 自然降级；来源可追溯；七张 BUILD 卡均进唯一详情；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
+- 边界：Ravenis、Occult Atlas、Gate 详情继续 noindex/sitemap false；不改旧应用路径、正文/Fragment、metadata 或关联项目仓库，不把 Gate/NAVI 私有配置公开。
+- 用户问题：无；可见性、状态和外部仓库边界均来自既有决定与公开来源。
+
 ## Run 2026-10-08 09:00 — T23 第一组项目详情
 
 - Task：T23；status = done；依赖 T22 done。
