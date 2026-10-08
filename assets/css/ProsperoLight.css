@@ -1008,11 +1008,17 @@
 :root[data-mode='light'] .about-info,
 :root[data-mode='light'] .about-current,
 :root[data-mode='light'] .about-context-panel,
+:root[data-mode='light'] .about-timeline,
+:root[data-mode='light'] .about-relations,
+:root[data-mode='light'] .about-relation-card,
 :root[data-mode='light'] .about-now-roadmap,
 :root[data-bs-theme='light'] .about-profile,
 :root[data-bs-theme='light'] .about-info,
 :root[data-bs-theme='light'] .about-current,
 :root[data-bs-theme='light'] .about-context-panel,
+:root[data-bs-theme='light'] .about-timeline,
+:root[data-bs-theme='light'] .about-relations,
+:root[data-bs-theme='light'] .about-relation-card,
 :root[data-bs-theme='light'] .about-now-roadmap {
   border-color: color-mix(in srgb, var(--prospero-gold) 36%, transparent);
 }
@@ -1033,10 +1039,16 @@
 :root[data-mode='light'] .about-info-text,
 :root[data-mode='light'] .about-current-copy > p,
 :root[data-mode='light'] .about-context-intro,
+:root[data-mode='light'] .about-section-heading > p,
+:root[data-mode='light'] .about-timeline-event p,
+:root[data-mode='light'] .about-relation-card p,
 :root[data-mode='light'] .about-now-summary,
 :root[data-bs-theme='light'] .about-info-text,
 :root[data-bs-theme='light'] .about-current-copy > p,
 :root[data-bs-theme='light'] .about-context-intro,
+:root[data-bs-theme='light'] .about-section-heading > p,
+:root[data-bs-theme='light'] .about-timeline-event p,
+:root[data-bs-theme='light'] .about-relation-card p,
 :root[data-bs-theme='light'] .about-now-summary {
   color: var(--prospero-text-secondary);
   font-family: var(--font-day-serif);
@@ -1047,11 +1059,17 @@
 :root[data-mode='light'] .about-info h2,
 :root[data-mode='light'] .about-current h2,
 :root[data-mode='light'] .about-context-panel h2,
+:root[data-mode='light'] .about-section-heading h2,
+:root[data-mode='light'] .about-timeline-event h3,
+:root[data-mode='light'] .about-relation-card h3,
 :root[data-mode='light'] .about-stack-header h3,
 :root[data-bs-theme='light'] .about-now h2,
 :root[data-bs-theme='light'] .about-info h2,
 :root[data-bs-theme='light'] .about-current h2,
 :root[data-bs-theme='light'] .about-context-panel h2,
+:root[data-bs-theme='light'] .about-section-heading h2,
+:root[data-bs-theme='light'] .about-timeline-event h3,
+:root[data-bs-theme='light'] .about-relation-card h3,
 :root[data-bs-theme='light'] .about-stack-header h3 {
   color: var(--prospero-text-primary);
   font-family: var(--font-day-serif);
@@ -1161,9 +1179,11 @@
 :root[data-mode='light'] .about-current-meta > div + div,
 :root[data-mode='light'] .about-coordinate-list li,
 :root[data-mode='light'] .about-principle-list li,
+:root[data-mode='light'] .about-timeline-event,
 :root[data-bs-theme='light'] .about-current-meta > div + div,
 :root[data-bs-theme='light'] .about-coordinate-list li,
-:root[data-bs-theme='light'] .about-principle-list li {
+:root[data-bs-theme='light'] .about-principle-list li,
+:root[data-bs-theme='light'] .about-timeline-event {
   border-color: var(--prospero-gold-border-soft);
 }
 
@@ -1171,11 +1191,33 @@
 :root[data-mode='light'] .about-current-meta dd,
 :root[data-mode='light'] .about-coordinate-list p,
 :root[data-mode='light'] .about-principle-list p,
+:root[data-mode='light'] .about-timeline-event > time,
+:root[data-mode='light'] .about-relation-kind,
 :root[data-bs-theme='light'] .about-current-meta dt,
 :root[data-bs-theme='light'] .about-current-meta dd,
 :root[data-bs-theme='light'] .about-coordinate-list p,
-:root[data-bs-theme='light'] .about-principle-list p {
+:root[data-bs-theme='light'] .about-principle-list p,
+:root[data-bs-theme='light'] .about-timeline-event > time,
+:root[data-bs-theme='light'] .about-relation-kind {
   color: var(--prospero-muted-ink);
+}
+
+:root[data-mode='light'] .about-timeline-event::before,
+:root[data-bs-theme='light'] .about-timeline-event::before {
+  border-color: var(--prospero-teal-deep);
+  background: var(--prospero-page);
+}
+
+:root[data-mode='light'] .about-timeline-event a,
+:root[data-mode='light'] .about-relation-action,
+:root[data-bs-theme='light'] .about-timeline-event a,
+:root[data-bs-theme='light'] .about-relation-action {
+  color: var(--prospero-teal-deep);
+}
+
+:root[data-mode='light'] .about-relation-status,
+:root[data-bs-theme='light'] .about-relation-status {
+  color: var(--prospero-text-primary);
 }
 
 :root[data-mode='light'] .about-coordinate-list a,

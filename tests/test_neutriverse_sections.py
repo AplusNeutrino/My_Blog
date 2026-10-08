@@ -80,7 +80,7 @@ class NeutriverseSectionsTest(unittest.TestCase):
             "/posts/丰聪耳机toyosatomimisheadphone/",
             "/library/",
             "/links/",
-            "/about/#travel-globe-title",
+            "/about/#about-relations-title",
         }
         self.assertEqual(set(urls), expected)
 

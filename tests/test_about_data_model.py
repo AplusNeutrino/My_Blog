@@ -87,7 +87,7 @@ class AboutDataModelTest(unittest.TestCase):
         sections = (ROOT / "_data" / "neutriverse_sections.yml").read_text(
             encoding="utf-8"
         )
-        for route in ("/library/", "/links/", "/about/#travel-globe-title"):
+        for route in ("/library/", "/links/", "/about/#about-relations-title"):
             self.assertIn(route, sections)
         for marker in (
             "travel_globe_enabled = false",

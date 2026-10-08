@@ -67,6 +67,49 @@
     </section>
   </div>
 
+  <section class="about-timeline" aria-labelledby="about-timeline-title" data-about-timeline>
+    <div class="about-section-heading">
+      <span class="about-section-kicker">{{ about.timeline.kicker }}</span>
+      <h2 id="about-timeline-title">{{ about.timeline.title }}</h2>
+      <p>{{ about.timeline.intro }}</p>
+    </div>
+    <ol class="about-timeline-list">
+      {% for event in about.timeline.events %}
+        <li class="about-timeline-event">
+          <time datetime="{{ event.date }}">{{ event.date }}</time>
+          <div>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.text }}</p>
+            <a href="{% if event.external %}{{ event.source_url }}{% else %}{{ event.source_url | relative_url }}{% endif %}"{% if event.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ event.source_label }}</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="about-relations" aria-labelledby="about-relations-title" data-about-relations>
+    <div class="about-section-heading">
+      <span class="about-section-kicker">{{ about.relations.kicker }}</span>
+      <h2 id="about-relations-title">{{ about.relations.title }}</h2>
+      <p>{{ about.relations.intro }}</p>
+    </div>
+    <ul class="about-relation-list">
+      {% for relation in about.relations.items %}
+        <li class="about-relation-card" data-about-relation="{{ relation.id }}">
+          <span class="about-relation-kind">{{ relation.kind }}</span>
+          <h3>{{ relation.title }}</h3>
+          <strong class="about-relation-status">{{ relation.status }}</strong>
+          <p>{{ relation.description }}</p>
+          {% if relation.url %}
+            <a class="about-relation-action" href="{{ relation.url | relative_url }}">{{ relation.action_label }}</a>
+          {% else %}
+            <span class="about-relation-action is-inert" aria-disabled="true">{{ relation.action_label }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
   <div class="about-now" aria-labelledby="about-now-title" data-about-snapshot data-as-of="{{ snapshot.as_of }}">
     <div class="about-now-main">
       <span class="about-section-kicker">{{ snapshot.kicker }}</span>

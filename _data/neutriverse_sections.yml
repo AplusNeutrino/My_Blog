@@ -74,5 +74,5 @@ sections:
         description: 前往现有友链页面与互联网邻居。
       - label: 中间出游记录
         kind: Travel memory
-        url: /about/#travel-globe-title
-        description: 在 ABOUT 内查看现有旅行地球。
+        url: /about/#about-relations-title
+        description: 查看已保留但当前未公开的旅行记忆能力说明。

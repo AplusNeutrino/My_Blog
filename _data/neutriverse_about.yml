@@ -1,7 +1,7 @@
 # ABOUT content is intentionally limited to facts already published on this site.
 # Dynamic-looking entries must keep an explicit as_of date and stale notice.
-schema_version: 2
-source: _tabs/about.md before T27; public site configuration and approved master plan for T28
+schema_version: 3
+source: _tabs/about.md before T27; public site configuration and approved master plan through T29
 
 identity:
   kicker: NEUTRIVERSE INFO
@@ -64,6 +64,68 @@ philosophy:
       text: 旧文章、旧链接与早期想法作为历史保留，新的结构在其上增量生长。
     - title: 状态应当可维护且诚实
       text: 当前焦点注明日期与来源；过期动态转为历史快照，不伪装成实时信息。
+
+timeline:
+  kicker: SITE / PROJECT TIMELINE
+  title: 网站与项目轨迹
+  intro: 这里只记录现有仓库历史或站内页面能够直接证明的节点；写作发布时间线仍由 Archive 单独承担。
+  events:
+    - date: "2025-07-01"
+      title: 站点仓库建立
+      text: Neutriverse 的公开仓库从这次初始提交开始留下可追溯记录。
+      source_label: GitHub · Initial commit
+      source_url: https://github.com/AplusNeutrino/My_Blog/commit/bfcdf3493efee6a1576456b793df28ac911421e8
+      external: true
+    - date: "2026-04-29"
+      title: neutriverse.uk 成为站点域名
+      text: 仓库加入自定义域名配置，公开入口由此固定为 neutriverse.uk。
+      source_label: GitHub · Configure custom domain
+      source_url: https://github.com/AplusNeutrino/My_Blog/commit/32feb1bbd35ea6b6151d79c45057d07a71da748c
+      external: true
+    - date: "2026-06-30"
+      title: Akasha Notes 留下项目记录
+      text: 站内项目日志开始保存 Akasha Notes 的版本、功能与下载信息。
+      source_label: 站内 Project Log · Akasha Notes
+      source_url: /posts/阿卡夏便笺akashanotes/
+      external: false
+    - date: "2026-07-09"
+      title: Toyosatomimi's Headphone 留下项目记录
+      text: 实时双语字幕工具以站内 Project Log 的形式进入项目历史。
+      source_label: 站内 Project Log · Toyosatomimi's Headphone
+      source_url: /posts/丰聪耳机toyosatomimisheadphone/
+      external: false
+    - date: "2026-07-17"
+      title: Ravenis 接入 Neutriverse
+      text: Ravenis 观察界面被整合进站点，成为公开的外部信号观察节点。
+      source_label: GitHub · Integrate Ravenis
+      source_url: https://github.com/AplusNeutrino/My_Blog/commit/406cbef6805d1fb063300124e59dab75783c0773
+      external: true
+
+relations:
+  kicker: CONNECTED SURFACES
+  title: 阅读、邻居与旅行记忆
+  intro: 三类记录都属于 ABOUT，但公开状态与进入方式不同；未公开能力不会伪装成可用入口。
+  items:
+    - id: library
+      kind: Library
+      title: 中间层大图书馆
+      status: 独立同步 · 公开
+      description: 阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。
+      url: /library/
+      action_label: 浏览 Library
+    - id: links
+      kind: Internet relations
+      title: 友情链接
+      status: 独立维护 · 公开
+      description: 站点邻居与互联网往来继续保存在现有友链页面。
+      url: /links/
+      action_label: 前往友链
+    - id: travel
+      kind: Travel memory
+      title: 中间出游记录
+      status: 能力保留 · 当前未公开
+      description: 旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。
+      action_label: 暂未开放
 
 snapshot:
   kicker: PERSONAL ORBIT

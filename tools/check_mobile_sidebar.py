@@ -1345,6 +1345,8 @@ def main():
             const profile = document.querySelector('[data-about-profile]');
             const current = profile?.querySelector('[data-about-current]');
             const snapshot = profile?.querySelector('[data-about-snapshot]');
+            const timeline = profile?.querySelector('[data-about-timeline]');
+            const relations = profile?.querySelector('[data-about-relations]');
             const links = [...document.querySelectorAll('.nv-section-link')];
             return {
               schema: profile?.dataset.aboutSchema || null,
@@ -1358,6 +1360,24 @@ def main():
                   rel: link.getAttribute('rel')
                 })),
               principleCount: profile?.querySelectorAll('.about-principle-list li').length || 0,
+              timelineCount: timeline?.querySelectorAll('.about-timeline-event').length || 0,
+              timelineDates: [...timeline?.querySelectorAll('.about-timeline-event time') || []]
+                .map((item) => item.getAttribute('datetime')),
+              timelineSources: [...timeline?.querySelectorAll('.about-timeline-event a') || []]
+                .map((link) => ({
+                  text: link.textContent.trim(),
+                  target: link.getAttribute('target'),
+                  rel: link.getAttribute('rel')
+                })),
+              relationCount: relations?.querySelectorAll('.about-relation-card').length || 0,
+              relationActions: [...relations?.querySelectorAll('.about-relation-action') || []]
+                .map((item) => ({
+                  tag: item.tagName,
+                  path: item.tagName === 'A' ? path(item) : null,
+                  inert: item.getAttribute('aria-disabled')
+                })),
+              travelStatus: relations?.querySelector('[data-about-relation="travel"] .about-relation-status')
+                ?.textContent.trim() || null,
               asOf: snapshot?.dataset.asOf || null,
               notice: profile?.querySelector('.about-snapshot-notice')
                 ?.textContent.trim() || null,
@@ -1375,7 +1395,7 @@ def main():
             """
         )
         require(
-            about_state["schema"] == "2"
+            about_state["schema"] == "3"
             and about_state["currentAsOf"] == "2026-10-08"
             and about_state["currentNotice"] == "网站维护状态 · 非个人实时状态"
             and about_state["currentLinks"] == [
@@ -1385,6 +1405,18 @@ def main():
                 {"path": "/links/", "target": None, "rel": None},
             ]
             and about_state["principleCount"] == 4
+            and about_state["timelineCount"] == 5
+            and about_state["timelineDates"] == sorted(about_state["timelineDates"])
+            and len(about_state["timelineSources"]) == 5
+            and all(source["text"] for source in about_state["timelineSources"])
+            and sum(source["target"] == "_blank" and source["rel"] == "noopener noreferrer" for source in about_state["timelineSources"]) == 3
+            and about_state["relationCount"] == 3
+            and about_state["relationActions"] == [
+                {"tag": "A", "path": "/library/", "inert": None},
+                {"tag": "A", "path": "/links/", "inert": None},
+                {"tag": "SPAN", "path": None, "inert": "true"},
+            ]
+            and about_state["travelStatus"] == "能力保留 · 当前未公开"
             and about_state["asOf"] == "2026-08-17"
             and about_state["notice"] == "历史快照 · 非实时状态"
             and about_state["updated"] == "2026-08-17"
@@ -1394,7 +1426,7 @@ def main():
             and about_state["related"] == [
                 "/library/",
                 "/links/",
-                "/about/#travel-globe-title",
+                "/about/#about-relations-title",
             ]
             and "更新于 2026-08-17" in about_state["text"]
             and "Neutriverse 网站重构" in about_state["text"]
