@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 11:00 — T25 OBSERVE 目录与 BUILD 关联
+
+- Task：T25；status = in-progress；依赖 T24 done。
+- Base / branch：`53af1577b86c3e352135d248b29c5476bebec91d` / main；base 的 [Actions run 37717094901](https://github.com/AplusNeutrino/My_Blog/actions/runs/37717094901) completed/success，无 validation-pending。
+- 本次最小交付：`/observe/` 直接筛选 project catalog 中 `contexts: observe` 的实体，输出 Ravenis、Occult Atlas 两张观察卡；每张卡分别链接 BUILD 事实页与现有应用入口。
+- 拟改：新增 `_includes/neutriverse-observe-list.html`、`tests/test_observe_directory.py`；调整 `_layouts/neutriverse-section.html`、`_data/neutriverse_sections.yml`、共享 CSS、`tests/test_neutriverse_sections.py`、390px Chrome 门禁、主计划与本日志。
+- 验收：恰有两个已批准观察实体，无 Gate/NAVI/MMXProj；事实链接为 `/build/ravenis/` 与 `/build/occult-atlas/`，使用入口为 `/ravenis/` 与 `/occult-atlas/`，二者语义分开且不重定向；OBSERVE 目录可索引，应用继续 noindex；无 JS 可用；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
+- 边界：不改 Ravenis/Occult Atlas 应用本体、数据/主题/浏览器状态、旧 URL、noindex/sitemap 或 `/occult-atlas-app/` 兼容；不扩大 hidden 可见性，不修改文章/Fragment 或外部项目。
+- 用户问题：无。
+
 ## Run 2026-10-08 10:03 — T24 余下项目详情及关联
 
 - Task：T24；status = done；依赖 T23 done。
