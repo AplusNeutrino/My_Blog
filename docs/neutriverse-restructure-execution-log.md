@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 12:03 — T26 Ravenis / Occult Atlas 共享导航适配
+
+- Task：T26；status = in-progress；依赖 T25 done。
+- Base / branch：`5f15e4684abc351e3e6c501e59f3f69b2c5f01f5` / main；base 的 [Actions run 37721612827](https://github.com/AplusNeutrino/My_Blog/actions/runs/37721612827) completed/success，无 validation-pending。
+- 本次最小交付：Ravenis 和 Occult Atlas 共用一个 catalog-driven OBSERVE 应用导航，可返回首页/OBSERVE、查看当前项目事实，并在两观察应用间切换。
+- 拟改：新增 `_includes/neutriverse-observe-app-nav.html`、`assets/css/neutriverse-observe-shell.css`、`tests/test_observe_app_navigation.py`；调整 `_includes/metadata-hook.html`、`ravenis/index.html`、`_layouts/occult-atlas.html`、`tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：两页使用同一 include/catalog；HOME、OBSERVE、当前 BUILD 事实和两应用链接正确，当前应用有 `aria-current`，无 Gate/NAVI/MMXProj；Ravenis 数据/日期/时段/搜索与 Atlas 星盘/筛选/控制状态不变；noindex/sitemap 与旧跳转不变；390px、双主题、回归、Jekyll 与精确 head Pages 通过。
+- 边界：不改 Ravenis 发布数据或 `assets/js/ravenis.js`，不改 Occult Atlas app.js/API/本地状态，不改关联项目仓库、文章/Fragment、旧 URL 或可见性。
+- 用户问题：无。
+
 ## Run 2026-10-08 11:00 — T25 OBSERVE 目录与 BUILD 关联
 
 - Task：T25；status = done；依赖 T24 done。
