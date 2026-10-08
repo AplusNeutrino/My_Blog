@@ -22,13 +22,21 @@
 
 ## Run 2026-10-08 14:01 — T27 ABOUT 数据与内容重组
 
-- Task：T27；status = in-progress；依赖 T20/T24 done。
+- Task：T27；status = done；依赖 T20/T24 done。
 - Base / branch：`fdd16756d6e81c988244d206465bb0b4f2429456` / main；base 的 [Actions run 37726434072](https://github.com/AplusNeutrino/My_Blog/actions/runs/37726434072) completed/success，无 validation-pending。
 - 本次最小交付：把 `_tabs/about.md` 中内嵌的身份、旧状态、路线图与阅读/影像栈整理为唯一 ABOUT 数据源和共享渲染 include；所有动态内容保留原站内日期，并明确是历史快照而非实时状态。
 - 拟改：新增 `_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`tests/test_about_data_model.py`；精简 `_tabs/about.md` 的内嵌配置/渲染，扩展 `tools/check_mobile_sidebar.py`，并更新主计划与本日志。旅行地球实现与数据、Library、友链保持原路径和原行为。
 - 验收：ABOUT 配置只有一个数据源；页面没有第二套旧状态文字；`2026-08-17` 及“历史快照/非实时”同时可见；所有内容均逐项来自改造前网站，无聊天记忆/履历/单位/住址/健康等新增事实；Library、友链、旅行锚点关系保留；两主题、390px、回归、Jekyll 与精确 head Pages 通过。
 - 边界：T27 不提前完成 T28 的新身份/Currently/网站理念文案，也不提前实现 T29 时间线；不改文章/Fragment、旧 URL、Library 同步、旅行数据/脚本、友链数据、Gate/NAVI 或外部项目。
-- 用户问题：无。
+- 范围 / 主体实现及 final head：`cd77870a9c9b27f0188582f0d1bedf3984e790fb` / `77c0e81a03b3a0e5e2102e6968170905f073c73c`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `_data/neutriverse_about.yml`，将原 ABOUT 内嵌的身份说明、状态、路线图与 5+5 阅读/影像记录迁入单一数据源；新增 `_includes/neutriverse-about-profile.html` 统一渲染，`_tabs/about.md` 不再保存第二套文字或管道分隔配置。
+- 时间与来源：动态面板保留原 `2026-08-17`，输出语义化 `<time>`、`data-as-of` 和可见“历史快照 · 非实时状态”；数据文件声明来自 T27 前 `_tabs/about.md`，没有使用聊天记忆或外部履历补写事实。
+- 关联模块：ABOUT 仍提供 `/library/`、`/links/`、`/about/#travel-globe-title` 三个关系入口；旅行地球开关、`travel_regions` / `travel_boundary_sources`、脚本和当前隐藏状态均未改，Library 同步及友链数据未动。
+- 本地验证：`python -m unittest discover -s tests -v` 为 151/151；`python -m py_compile tools/check_mobile_sidebar.py` 与 `git diff --check` 成功。本机无 Bundler，未把本地 Jekyll 记为通过。
+- 最终精确验证：[Actions run 37735976935](https://github.com/AplusNeutrino/My_Blog/actions/runs/37735976935) 对应 final head `77c0e81a03b3a0e5e2102e6968170905f073c73c`，completed/success；build `113175459662` 的 151 tests、production Jekyll、390px Chrome、ABOUT 单源/日期/历史声明/5+5 栈/关联入口/无溢出、双主题、Ravenis 与 artifact upload 全部成功；deploy `113175770630` 成功。
+- Artifact：`11531562000`；digest `sha256:3c465d941177e815e8d01113ee1ff84764dd4f2f9f59a86dbceb01cf68e86d47`。
+- 保护：未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、Library/旅行/友链数据、Gate/NAVI 或外部项目；未提前实现 T28/T29。
+- 结论：T27 done；active_run = none；checkpoint = T27 done；next = T28。无新增用户问题。
 
 ## Run 2026-10-08 12:03 — T26 Ravenis / Occult Atlas 共享导航适配
 
