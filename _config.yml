@@ -224,9 +224,6 @@ compress_html:
     envs: [development]
 
 exclude:
-  # Chirpy ships assets/feed.xml with the same /feed.xml destination. The
-  # root feed.xml below is Neutriverse's public post + Fragment feed.
-  - assets/feed.xml
   - "*.gem"
   - "*.gemspec"
   - design-previews
