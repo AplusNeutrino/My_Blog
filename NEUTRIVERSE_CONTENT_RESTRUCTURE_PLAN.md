@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T24 done; T25 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T25 done; T26 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T24 done，T25 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T24 余下四项目详情；Ravenis、Occult Atlas、Gate、OfficeSpire 已补齐独立 `/build/<stable-id>/` 事实页，七项目现在都有唯一详情入口。Ravenis/Occult 应用和事实页继续 noindex；Gate 无公开工具动作；OfficeSpire 保留 `implemented_unverified` 且未伪造 Release；精确 CI/Pages 通过。下一项 T25 `/observe/` 目录及与 BUILD 的关联。
+**当前状态：计划细化与启动决定已完成，T00–T25 done，T26 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T25 `/observe/` 目录已改为从项目 catalog 单源渲染 Ravenis 与 Occult Atlas，事实页与 noindex 应用入口语义分开且无循环跳转；Gate/NAVI/MMXProj 不在目录中，精确 CI/Pages 通过。下一项 T26 Ravenis / Occult Atlas 共享导航适配。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T24 = done，T25 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T25 = done，T26 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T25；branch = main；base = 53af1577b86c3e352135d248b29c5476bebec91d；checkpoint = T25 scope recorded；next = T25 implementation；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = a0cc3605b3c3d498a704c2c90485714127aa9aa6；checkpoint = T25 done；next = T26；completion = IN PROGRESS.
 
 T20 本次范围：实现 T18 已配置但尚未渲染的 Current Signal、Featured 与 System Status，保持首页完整顺序 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status。Current Signal 只使用已批准的“Neutriverse 网站重构”及其站内说明；Featured 优先使用 `neutriverse_home.featured.posts` 中仍公开可见的文章，不足时依次从 `home_popular.posts` 与最新公开文章补足到最多 4 条，始终排除 hidden 且不显示访问量；System Status 仅从公开内容动态计算 Records、posts/fragments 分解与最后更新时间，项目目录在 T21 建立前无数据则不渲染项目指标，作为自然降级而非伪造数量。拟改首页 layout、共享 CSS、首页配置契约测试、新增 T20 静态回归及 390px Chrome 门禁、主计划/日志；不改文章/Fragment 原文或 metadata、旧 URL、hidden/noindex、外部项目，也不提前实现 T21 项目 schema。验收为六区块顺序、Current Signal 唯一来源、精选 4 条公开且链接真实、状态值与公开源一致、无项目源时项目指标缺席、两主题/390px/回归/Jekyll/Pages 对精确 SHA 通过。
 
@@ -1109,6 +1109,8 @@ T17 本次范围：把 Archive、Tags 与 Search 明确接入 THINK 的“当前
 
 
 T25 本次范围：把 `/observe/` 从手写的两个 section links 升级为由 `_data/neutriverse_projects.yml` 中 `contexts` 含 `observe` 的实体单源渲染的观察目录。每张卡同时提供 `/build/<stable-id>/` 项目事实页和既有 noindex 应用入口，明确“了解项目”与“打开观察界面”，不做重定向或循环跳转。拟新增 OBSERVE catalog include 与静态回归，接入共享 section layout，移除 `_data/neutriverse_sections.yml` 中重复的 Ravenis/Occult 手写 links，补充共享 CSS 和 390px Chrome 门禁；不改 `/ravenis/`、`/occult-atlas/` 应用、数据流程、主题、浏览器状态、noindex/sitemap 或兼容 `/occult-atlas-app/`。验收为目录恰含 Ravenis、Occult Atlas，无 Gate/NAVI/MMXProj；两项目事实/应用链接真实且互不替代；OBSERVE 本身可索引，两个应用继续 noindex；无 JS 可读可达；两主题、390px、全回归、production Jekyll 与精确 head Pages 成功。预计剩余：完成实现与验证后 T25 done，T26 ready。
+
+T25 验收证据：`/observe/` 现从 `_data/neutriverse_projects.yml` 中 `contexts: observe` 单源渲染，恰含 Ravenis 与 Occult Atlas；每张卡分别进入 `/build/ravenis/` / `/build/occult-atlas/` 事实页以及 `/ravenis/` / `/occult-atlas/` 应用，无重定向、循环或 JS 依赖。OBSERVE 本身可索引，两应用继续 noindex；Gate/NAVI/MMXProj 未进入目录。范围提交 `a7889f733a660548fb716913444b3d66259a8721`；主体实现 `6202afd48b692126783b244303e7f7d6e27ca078`；测试契约修复及 final head `a0cc3605b3c3d498a704c2c90485714127aa9aa6`。首次 [run 37720837335](https://github.com/AplusNeutrino/My_Blog/actions/runs/37720837335) 在 142 tests 中有 2 条旧/新测试断言未同步，Jekyll 与部署未执行，未记为通过；修复仅让 BUILD 契约接受新的非 BUILD/OBSERVE 分支，并区分合法 routes 清单与已移除的手写 links。最终 [Actions run 37721161289](https://github.com/AplusNeutrino/My_Blog/actions/runs/37721161289) completed/success；build `113128867874` 的 142 tests、production Jekyll、390px Chrome、双主题、OBSERVE 实体/事实与应用链接/noindex、hidden/Ravenis 与 artifact upload 全部通过，deploy `113129329149` 成功。artifact `11525881465`，digest `sha256:30b7dbb9bc0d4b563a14519a54188bcdbe4f5cd9f13c485c75f31d915c7552ae`。未改文章/Fragment、旧 URL、Ravenis/Occult 应用本体或外部项目。T25 done，T26 ready，无新增用户问题。
 
 T24 本次范围：为 Ravenis、Occult Atlas、Gate、OfficeSpire 建立 `/build/<stable-id>/` 数据驱动详情页，并将 BUILD 卡片从旧应用/仓库或无动作状态统一引向项目事实页。Ravenis 与 Occult Atlas 详情继续 `noindex`，现有应用 URL 与 noindex 不变；Gate 详情不公开 `/gate/` 工具入口并继续 noindex；OfficeSpire 只使用公开 README，保留 `implemented_unverified`，不把 source-complete 或版本 metadata 误称为 runtime-qualified / release。拟改 `_data/neutriverse_projects.yml`、项目 schema、四个详情入口、详情静态回归、BUILD 列表预期与 390px Chrome 门禁；复用现有 layout/CSS，若无需变更则不触碰。验收为四条 canonical 详情生成、七项目均有唯一详情入口；Ravenis/Occult 的应用动作存在且旧应用保持 noindex，Gate 无公开应用/仓库动作，OfficeSpire 仅有真实 repository/文档入口和精确状态；不存在的 Project Log/Release 自然降级；来源可追溯；文章/Fragment、旧 URL、外部仓库不变；全回归、production Jekyll、390px 双主题与精确 head Pages 成功。预计剩余：完成实现与验证后 T24 done，T25 ready。
 

@@ -22,13 +22,21 @@
 
 ## Run 2026-10-08 11:00 — T25 OBSERVE 目录与 BUILD 关联
 
-- Task：T25；status = in-progress；依赖 T24 done。
+- Task：T25；status = done；依赖 T24 done。
 - Base / branch：`53af1577b86c3e352135d248b29c5476bebec91d` / main；base 的 [Actions run 37717094901](https://github.com/AplusNeutrino/My_Blog/actions/runs/37717094901) completed/success，无 validation-pending。
 - 本次最小交付：`/observe/` 直接筛选 project catalog 中 `contexts: observe` 的实体，输出 Ravenis、Occult Atlas 两张观察卡；每张卡分别链接 BUILD 事实页与现有应用入口。
 - 拟改：新增 `_includes/neutriverse-observe-list.html`、`tests/test_observe_directory.py`；调整 `_layouts/neutriverse-section.html`、`_data/neutriverse_sections.yml`、共享 CSS、`tests/test_neutriverse_sections.py`、390px Chrome 门禁、主计划与本日志。
 - 验收：恰有两个已批准观察实体，无 Gate/NAVI/MMXProj；事实链接为 `/build/ravenis/` 与 `/build/occult-atlas/`，使用入口为 `/ravenis/` 与 `/occult-atlas/`，二者语义分开且不重定向；OBSERVE 目录可索引，应用继续 noindex；无 JS 可用；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
 - 边界：不改 Ravenis/Occult Atlas 应用本体、数据/主题/浏览器状态、旧 URL、noindex/sitemap 或 `/occult-atlas-app/` 兼容；不扩大 hidden 可见性，不修改文章/Fragment 或外部项目。
-- 用户问题：无。
+- 范围 / 主体实现 / 测试契约修复及 final head：`a7889f733a660548fb716913444b3d66259a8721` / `6202afd48b692126783b244303e7f7d6e27ca078` / `a0cc3605b3c3d498a704c2c90485714127aa9aa6`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `_includes/neutriverse-observe-list.html`，`/observe/` 从项目 catalog 的 `contexts: observe` 渲染恰好两卡；移除 section data 的重复手写 links，保留路由归属清单。两卡的“了解项目”进入 BUILD 事实页，“打开观察界面”进入既有应用；无 JS 时仍为真实 href。
+- 可见性：目录仅列 Ravenis 与 Occult Atlas，无 Gate/NAVI/MMXProj；OBSERVE 页本身可索引，两应用的 noindex 不变。
+- 真实失败：[run 37720837335](https://github.com/AplusNeutrino/My_Blog/actions/runs/37720837335) 的 build `113127837929` 在回归阶段失败；142 tests 中 2 条断言仍假定旧 `unless build` 模板和 routes 内不得出现应用 URL，Jekyll/部署未运行，未记为通过。
+- 契约修复：BUILD 断言改为检查实际 `page.section_id != 'build'` 分支；OBSERVE 断言允许合法的路由归属列表，仍严格禁止第二份手写 `links`。本地 142 tests 全通过。
+- 最终精确验证：[Actions run 37721161289](https://github.com/AplusNeutrino/My_Blog/actions/runs/37721161289) 对应 final head `a0cc3605b3c3d498a704c2c90485714127aa9aa6`，completed/success；build `113128867874` 的 142 tests、production Jekyll、390px Chrome、双主题、OBSERVE 目录/链接/noindex、hidden/Ravenis 与 artifact upload 全部成功；deploy `113129329149` 成功。
+- Artifact：`11525881465`；digest `sha256:30b7dbb9bc0d4b563a14519a54188bcdbe4f5cd9f13c485c75f31d915c7552ae`。
+- 保护：未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、Ravenis/Occult Atlas 应用行为、noindex/sitemap、Gate/NAVI 隐私边界或外部项目。
+- 结论：T25 done；active_run = none；checkpoint = T25 done；next = T26。无新增用户问题。
 
 ## Run 2026-10-08 10:03 — T24 余下项目详情及关联
 
