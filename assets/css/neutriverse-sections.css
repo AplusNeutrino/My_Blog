@@ -386,6 +386,22 @@
   box-shadow: none;
 }
 
+/* One predictable keyboard contract for every Neutriverse-owned surface. */
+:where(
+  .nv-section,
+  .nv-about-entry,
+  [data-about-profile],
+  [data-home-section],
+  [data-project-catalog],
+  [data-project-detail],
+  [data-observe-catalog],
+  article.nv-post
+) :is(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
 .nv-primary-nav-name {
   color: var(--nv-accent);
   font-family: var(--nv-font-inscription);
@@ -931,10 +947,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nv-primary-nav-link,
-  .nv-section-link,
-  .nv-topic-browser-link {
-    transition: none;
+  :where(
+    .nv-section,
+    .nv-about-entry,
+    [data-about-profile],
+    [data-home-section],
+    [data-project-catalog],
+    [data-project-detail],
+    [data-observe-catalog],
+    article.nv-post
+  ),
+  :where(
+    .nv-section,
+    .nv-about-entry,
+    [data-about-profile],
+    [data-home-section],
+    [data-project-catalog],
+    [data-project-detail],
+    [data-observe-catalog],
+    article.nv-post
+  ) * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 

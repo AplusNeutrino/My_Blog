@@ -75,6 +75,9 @@ jobs:
       - name: Validate mobile sidebar in Chrome
         run: python tools/check_mobile_sidebar.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Validate responsive accessibility matrix in Chrome
+        run: python tools/check_responsive_accessibility.py "_site${{ steps.pages.outputs.base_path }}"
+
       - name: Fetch verified Ravenis public release
         id: ravenis
         env:
