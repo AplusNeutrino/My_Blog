@@ -1,0 +1,15 @@
+schema_version: 1
+
+search:
+  path: /assets/js/data/search.json
+  include_posts: true
+  include_fragments: true
+  exclude_hidden: true
+
+feed:
+  path: /feed.xml
+  format: atom
+  limit: 20
+  include_posts: true
+  include_fragments: true
+  exclude_hidden: true

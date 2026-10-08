@@ -4,17 +4,39 @@ swcache: true
 ---
 
 [
+  {% assign discovery = site.data.neutriverse_discovery.search %}
   {% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
+  {% assign fragment_page = site.tabs | where: 'layout', 'thoughts' | first %}
+  {% assign fragments = '' | split: '' %}
+  {% if discovery.include_fragments and fragment_page and fragment_page.fragments %}
+    {% assign fragments = fragment_page.fragments %}
+  {% endif %}
   {% for post in visible_posts %}
     {% assign description = post.description | default: post.excerpt | default: post.content %}
     {% assign description = description | strip_html | strip_newlines %}
   {
     "title": {{ post.title | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
+    "type": {{ post.type | default: 'note' | jsonify }},
+    "topic": {{ post.topic | default: '' | jsonify }},
     "categories": {{ post.categories | join: ', ' | jsonify }},
     "tags": {{ post.tags | join: ', ' | jsonify }},
     "date": "{{ post.date }}",
     "content": {{ description | jsonify }}
+  }{% unless forloop.last and fragments.size == 0 %},{% endunless %}
+  {% endfor %}
+  {% for fragment in fragments %}
+    {% assign fragment_id = fragment.id | default: '' | strip %}
+    {% capture fragment_url %}{{ fragment_page.url }}#{{ fragment_id }}{% endcapture %}
+  {
+    "title": {{ 'Fragment · ' | append: fragment.date | jsonify }},
+    "url": {{ fragment_url | relative_url | jsonify }},
+    "type": "fragment",
+    "topic": {{ fragment.topic | default: '' | jsonify }},
+    "categories": "THINK, Fragment",
+    "tags": {{ fragment.tags | join: ', ' | jsonify }},
+    "date": "{{ fragment.date | date: '%Y-%m-%d 00:00:00 +0800' }}",
+    "content": {{ fragment.text | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
