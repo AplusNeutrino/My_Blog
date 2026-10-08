@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-09 01:03 — T33 canonical、SEO、sitemap 与旧链接检查
+
+- Task / parent：T33；status = in-progress；依赖 T32 done。
+- Base SHA / branch：`14f5463145c2a2584414c79fe4b1b59e2c118751` / main；与 `origin/main` 一致，开始前工作树干净。
+- 现状证据：权威路由表已记录 Gate 缺显式 sitemap 排除、NAVI 缺显式 noindex、Occult Atlas 兼容入口缺目标 canonical，以及 Ravenis 同时被 robots.txt Disallow 与页面 noindex 标记的冲突；现有 production workflow 尚无全站 canonical/sitemap/旧链接/断链门禁。
+- 本次最小交付：按 `docs/neutriverse-route-visibility-map.md` 修复上述四项契约差异；新增 production build SEO/路由验证器，覆盖 canonical、公开入口 SEO、noindex/sitemap、兼容重定向、T01 基线旧 URL 与站内断链，并接入 Pages workflow。
+- 拟改文件：`gate/index.md`、`_hidden_pages/navi.md`、`_layouts/gate.html`、`_includes/metadata-hook.html`、`occult-atlas-app/index.html`、`assets/robots.txt`、`tools/check_seo_routes.py`、`tests/test_seo_routes.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
+- 验收：每个生成 HTML 至多一个 canonical，所需公开页 canonical/标题/描述正确且内部 canonical 目标存在；Q3 与 Gate/NAVI 页面 noindex 且从 sitemap/search/feed 排除；兼容入口目标正确且无重定向环；T01 基线全部旧 URL 仍生成；站内页面链接无断链；全回归、T01 baseline、production Jekyll、既有门禁、新产物检查及精确实现 head 的 Pages build/deploy 成功。
+- 边界：不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、应用数据或外部项目；Gate/NAVI 隐蔽程度与旧 URL 不变，Ravenis/Occult Atlas 应用及相关项目详情继续 noindex；不提前执行 T34。
+- 用户问题：无；本轮只落实已有权威路由/可见性契约。
+
 ## Run 2026-10-08 20:56 — T32 Search 索引与 RSS/feed 补全
 
 - Task / parent：T32；status = done；依赖 T31 done。
