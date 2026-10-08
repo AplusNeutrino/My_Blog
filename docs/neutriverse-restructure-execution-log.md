@@ -20,6 +20,15 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 15:02 — T28 ABOUT 身份、Currently、互联网关系与网站理念
+
+- Task：T28；status = in-progress；依赖 T27 done。
+- Base / branch：`fabdc75c7e716be2daec746f2bbdeaff5f04cc10` / main；base 的 [Actions run 37736295752](https://github.com/AplusNeutrino/My_Blog/actions/runs/37736295752) completed/success，无 validation-pending。
+- 本次最小交付：在 T27 单一 ABOUT 数据源上增加身份、站点 Currently、公开互联网身份/邻居关系和网站理念四个可读区块；把当前站点工作与旧个人历史快照明确分开。
+- 拟改：`_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`assets/css/NormaiNight.css`、`assets/css/ProsperoLight.css`、ABOUT 回归、`tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：Currently 只写已批准的“Neutriverse 网站重构”，包含 `as_of`、来源和“网站维护状态/非个人实时状态”，并给出唯一维护数据点；互联网入口只来自现有 `_config.yml` 与公开站内路由，外链安全；网站理念符合四入口、长期连续性与清晰导航优先原则；旧 `2026-08-17` 快照继续明确非实时；两主题、键盘、390px、全回归、Jekyll 与精确 head Pages 通过。
+- 边界：不使用聊天记忆/履历或新增私人事实；不改文章/Fragment、旧 URL、Library 同步、友链/旅行数据及功能、Gate/NAVI、项目仓库；不提前实现 T29 时间线。
+
 ## Run 2026-10-08 14:01 — T27 ABOUT 数据与内容重组
 
 - Task：T27；status = done；依赖 T20/T24 done。
