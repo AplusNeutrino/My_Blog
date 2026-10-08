@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T29 done; T30 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T30 done; T31 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T29 done，T30 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T29 已在 ABOUT 单一数据源中增加五项逐项有来源的网站/项目轨迹，并明确 Library、友链与旅行记忆的公开状态；旅行能力保留但不公开入口或地点，精确 CI/Pages 通过。下一项 T30 全站视觉一致性与各入口性格整理。
+**当前状态：计划细化与启动决定已完成，T00–T30 done，T31 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T30 已让 THINK/BUILD/OBSERVE/ABOUT 使用同一 identity 层级和导航骨架，并以带文字说明的纸面线、构造网格、观测准星、连续轨道作为次级性格信号；双主题、390px 与精确 CI/Pages 通过。下一项 T31 响应式/阅读/无障碍专项。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T29 = done，T30 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T30 = done，T31 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T30-20261008-1704；branch = main；base = d42cb6d4cad4e648fa8b26c0b13054c8846c5deb；checkpoint = T29 done；next = T30 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = cc6fa8ba6091c0a69cab4e90eccfb96988592858；checkpoint = T30 done；next = T31；completion = IN PROGRESS.
 
 T30 本次范围：在四入口单一数据源上增加只作次级提示的 section signal，并新增一个 THINK/BUILD/OBSERVE/ABOUT 共用的 identity include；THINK、BUILD、OBSERVE 的共享 layout 与 ABOUT 入口都使用同一标题、中文说明、摘要、signal 和四入口导航层级。入口性格只通过数据属性、简短副标签与纯 CSS 的纸面线、构造网格、观测准星、连续轨道四种非交互纹理表达；主标题、中文说明与导航始终优先，两主题继续使用同一 DOM 和现有语义 token。拟改四入口数据、共享 identity include/layout、ABOUT 入口、共享 CSS、静态回归与 390px Chrome 门禁；不改文章/Fragment、入口 URL、旧链接、项目/ABOUT 事实、Library/友链/旅行数据、Gate/NAVI、Ravenis/Occult Atlas 索引边界或外部项目。验收为四入口共享组件和字段可机械核对，副标签不替代或遮挡清晰导航，四种性格不依赖 JS/图片/颜色单独传意，双主题、键盘、390px、全回归、production Jekyll 与精确 head Pages 成功。预计剩余：完成实现与验证后 T30 done，T31 ready。
+
+T30 验收证据：四入口数据各增加 `signal_label` 与中文 `signal_note`，共享 `_includes/neutriverse-section-identity.html` 统一渲染英文名、中文说明、摘要与次级 signal；THINK/BUILD/OBSERVE layout 和 ABOUT 均使用该组件及同一四入口导航。四种入口性格由共享 CSS 的纸面线、构造网格、观测准星、连续轨道表达，同时有可读文字与 aria label，不依赖 JS、图片或颜色单独传意；390px 下改为单列 identity，标题和导航保持优先。范围提交 `4860e38c51877150472f1c0b6fa20dfc1855cb60`；实现及 final head `cc6fa8ba6091c0a69cab4e90eccfb96988592858`。本地 162 tests、T01 baseline protection、四入口 YAML、Python 编译与 diff check 通过。[Actions run 37754831784](https://github.com/AplusNeutrino/My_Blog/actions/runs/37754831784) 对应该精确 head，completed/success；build `113236704458` 的回归、production Jekyll、390px Chrome 四入口 identity/无溢出/导航、双主题与 artifact upload 全部成功，deploy `113237217132` 成功。artifact `11538868917`，digest `sha256:1d009f05ee0a0aefce9d3c1ab82aa4b96b495a4b7b445e1d86540d3c4723e381`。未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、项目/ABOUT 事实、Library/友链/旅行数据、Gate/NAVI、索引边界或外部项目。T30 done，T31 ready，无新增用户问题。
 
 T20 本次范围：实现 T18 已配置但尚未渲染的 Current Signal、Featured 与 System Status，保持首页完整顺序 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status。Current Signal 只使用已批准的“Neutriverse 网站重构”及其站内说明；Featured 优先使用 `neutriverse_home.featured.posts` 中仍公开可见的文章，不足时依次从 `home_popular.posts` 与最新公开文章补足到最多 4 条，始终排除 hidden 且不显示访问量；System Status 仅从公开内容动态计算 Records、posts/fragments 分解与最后更新时间，项目目录在 T21 建立前无数据则不渲染项目指标，作为自然降级而非伪造数量。拟改首页 layout、共享 CSS、首页配置契约测试、新增 T20 静态回归及 390px Chrome 门禁、主计划/日志；不改文章/Fragment 原文或 metadata、旧 URL、hidden/noindex、外部项目，也不提前实现 T21 项目 schema。验收为六区块顺序、Current Signal 唯一来源、精选 4 条公开且链接真实、状态值与公开源一致、无项目源时项目指标缺席、两主题/390px/回归/Jekyll/Pages 对精确 SHA 通过。
 

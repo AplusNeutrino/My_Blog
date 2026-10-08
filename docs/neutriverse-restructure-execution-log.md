@@ -4,13 +4,18 @@
 
 ## Run 2026-10-08 17:04 — T30 全站视觉一致性与入口性格
 
-- Task / parent：T30；status = in-progress；依赖 T26、T29 done。
+- Task / parent：T30；status = done；依赖 T26、T29 done。
 - Base SHA / branch：`d42cb6d4cad4e648fa8b26c0b13054c8846c5deb` / main；开始前工作树干净，主计划指向 T30 ready。
 - 本次最小交付：四入口数据增加次级 signal；新增共享 identity include，并让 THINK/BUILD/OBSERVE layout 与 ABOUT 使用完全相同的标题/中文说明/摘要/signal/导航层级；以不交互、不依赖图片或 JavaScript 的纹理区分四入口性格。
 - 拟改文件：`_data/neutriverse_sections.yml`、`_includes/neutriverse-section-identity.html`、`_layouts/neutriverse-section.html`、`_tabs/about.md`、`assets/css/neutriverse-sections.css`、`tests/test_neutriverse_sections.py`、`tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：四入口均有清晰英文名、中文说明、摘要和同构导航，世界观 signal 仅是次级文字；纸面线/构造网格/观测准星/连续轨道四种性格同时有文本名称，不以颜色单独传意；两主题复用同一 DOM/语义 token；390px Chrome、全回归、T01 baseline、production Jekyll 与精确实现 head 的 Pages build/deploy 成功。
 - 明确不做：不改文章/Fragment、文件名/date/slug/permalink/旧 URL，不改项目/ABOUT 事实、Library/友链/旅行数据或功能、Gate/NAVI、Ravenis/Occult Atlas 索引边界，不改外部项目；T31 的全断点/对比/reduced-motion 专项留待下一任务。
 - 用户问题：无；本项只实现既定设计契约与已确认入口信息架构。
+- 范围 / 实现提交：`4860e38c51877150472f1c0b6fa20dfc1855cb60` / `cc6fa8ba6091c0a69cab4e90eccfb96988592858`。
+- 实际交付：四入口数据各提供 signal 文案；共享 identity include 统一英文名、中文说明、摘要、signal 与 aria 语义，三个 section layout 和 ABOUT 使用同一组件。共享 CSS 只用现有双主题语义 token 渲染纸面线、构造网格、观测准星、连续轨道；390px 为单列，纹理非交互且均有文字名称。
+- 本地验收：162 tests OK；T01 baseline protection passed（44 posts / 5 Fragments，Type essay/note/fragment = 5/39/5）；四入口 YAML 及 signal 完整；Python 编译与 `git diff --check` 通过。本机未声明本地 Jekyll 成功。
+- 精确 CI：[run 37754831784](https://github.com/AplusNeutrino/My_Blog/actions/runs/37754831784) 的 head 为 `cc6fa8ba6091c0a69cab4e90eccfb96988592858`，completed/success；build `113236704458` 的回归测试、production Jekyll、390px Chrome 四入口 identity/导航/无横向溢出、双主题和 artifact upload 成功，deploy `113237217132` 成功。artifact `11538868917` / `sha256:1d009f05ee0a0aefce9d3c1ab82aa4b96b495a4b7b445e1d86540d3c4723e381`。
+- 保护 / 结论：未改文章或 Fragment、front matter、文件名/date/slug/permalink、旧 URL、项目/ABOUT 事实、Library/友链/旅行数据、Gate/NAVI、Ravenis/Occult Atlas 索引边界或外部项目。T30 done；T31 ready；无新增用户问题。
 
 ## Run 2026-10-03 23:10 — T00 决定收敛
 
