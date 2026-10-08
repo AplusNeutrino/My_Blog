@@ -899,6 +899,66 @@ def main():
                 f"project detail contract failed at {detail_path}: {detail}",
             )
 
+        driver.get(site_url + "/observe/")
+        wait.until(
+            lambda current: current.find_element(
+                By.CSS_SELECTOR, "[data-observe-catalog]"
+            ).is_displayed()
+        )
+        observe_directory = driver.execute_script(
+            r"""
+            const root = document.querySelector('[data-observe-catalog]');
+            const cards = [...root.querySelectorAll('[data-observe-project]')];
+            const path = (link) => link ? new URL(link.href).pathname : null;
+            return {
+              ids: cards.map((card) => card.dataset.observeProjectId),
+              visibility: cards.map((card) => card.dataset.observeVisibility),
+              actions: Object.fromEntries(cards.map((card) => [
+                card.dataset.observeProjectId,
+                {
+                  project: path(card.querySelector(
+                    '[data-observe-action="project"]'
+                  )),
+                  application: path(card.querySelector(
+                    '[data-observe-action="application"]'
+                  ))
+                }
+              ])),
+              text: root.textContent || '',
+              robots: document.querySelector('meta[name="robots"]')
+                ?.getAttribute('content') || null,
+              bodyClientWidth: document.body.clientWidth,
+              bodyScrollWidth: document.body.scrollWidth
+            };
+            """
+        )
+        require(
+            observe_directory["ids"] == ["ravenis", "occult-atlas"]
+            and observe_directory["visibility"]
+            == ["listed_noindex", "listed_noindex"]
+            and observe_directory["actions"] == {
+                "ravenis": {
+                    "project": "/build/ravenis/",
+                    "application": "/ravenis/",
+                },
+                "occult-atlas": {
+                    "project": "/build/occult-atlas/",
+                    "application": "/occult-atlas/",
+                },
+            }
+            and "应用保持 noindex" in observe_directory["text"]
+            and all(
+                forbidden not in observe_directory["text"]
+                for forbidden in ("Gate", "NAVI", "MMXProj")
+            )
+            and "noindex" not in (observe_directory["robots"] or "").lower()
+            and (
+                observe_directory["bodyScrollWidth"]
+                <= observe_directory["bodyClientWidth"]
+            ),
+            f"OBSERVE directory contract failed: {observe_directory}",
+        )
+
         driver.get(build_url)
         wait.until(
             lambda current: current.execute_script(

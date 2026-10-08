@@ -29,7 +29,10 @@ class NeutriverseSectionsTest(unittest.TestCase):
                 self.assertIn(f"    label_zh: {label}", body)
                 self.assertIn(f"    url: {url}", body)
                 self.assertRegex(body, r"    summary: \S.+")
-                self.assertIn("    links:", body)
+                if section_id == "observe":
+                    self.assertNotIn("    links:", body)
+                else:
+                    self.assertIn("    links:", body)
 
     def test_new_canonical_pages_use_shared_layout(self):
         for section_id in ("think", "build", "observe"):
@@ -75,8 +78,6 @@ class NeutriverseSectionsTest(unittest.TestCase):
             "/projfitzgerald/",
             "/posts/阿卡夏便笺akashanotes/",
             "/posts/丰聪耳机toyosatomimisheadphone/",
-            "/ravenis/",
-            "/occult-atlas/",
             "/library/",
             "/links/",
             "/about/#travel-globe-title",

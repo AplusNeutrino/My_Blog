@@ -22,9 +22,11 @@ layout: page
   {% elsif page.section_id == 'build' %}
     {% include neutriverse-project-list.html %}
     <script src="{{ '/assets/js/neutriverse-project-filters.js' | relative_url }}" defer></script>
+  {% elsif page.section_id == 'observe' %}
+    {% include neutriverse-observe-list.html %}
   {% endif %}
 
-  {% unless page.section_id == 'build' %}
+  {% if page.section_id != 'build' and page.section_id != 'observe' %}
     {% include neutriverse-section-links.html current=page.section_id %}
-  {% endunless %}
+  {% endif %}
 </article>

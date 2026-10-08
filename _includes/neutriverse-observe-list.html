@@ -1,0 +1,52 @@
+{% assign project_catalog = site.data.neutriverse_projects.projects | default: empty %}
+{% assign observe_count = 0 %}
+{% for project in project_catalog %}
+  {% if project.contexts contains 'observe' %}
+    {% assign observe_count = observe_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<section class="nv-observe-catalog" data-observe-catalog aria-labelledby="nv-observe-catalog-title">
+  <div class="nv-observe-catalog-heading">
+    <div>
+      <p>OBSERVATION DIRECTORY</p>
+      <h2 id="nv-observe-catalog-title">公开观察界面</h2>
+    </div>
+    <p><strong>{{ observe_count }}</strong> interfaces</p>
+  </div>
+
+  {% if observe_count > 0 %}
+    <ol class="nv-observe-grid">
+      {% for project in project_catalog %}
+        {% if project.contexts contains 'observe' %}
+          <li
+            data-observe-project
+            data-observe-project-id="{{ project.id | escape }}"
+            data-observe-visibility="{{ project.visibility | escape }}"
+          >
+            <article class="nv-observe-card">
+              <div class="nv-observe-card-meta">
+                <span>OBSERVE / INTERFACE</span>
+                {% if project.visibility contains 'noindex' %}
+                  <span>应用保持 noindex</span>
+                {% endif %}
+              </div>
+              <h3>{{ project.name }}</h3>
+              <p>{{ project.summary }}</p>
+              <div class="nv-observe-card-actions">
+                {% if project.detail_url %}
+                  <a data-observe-action="project" href="{{ project.detail_url | relative_url }}">了解项目</a>
+                {% endif %}
+                {% if project.links.application %}
+                  <a data-observe-action="application" href="{{ project.links.application | relative_url }}">打开观察界面</a>
+                {% endif %}
+              </div>
+            </article>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="nv-home-empty">暂无公开观察界面。</p>
+  {% endif %}
+</section>

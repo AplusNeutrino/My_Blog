@@ -56,16 +56,6 @@ sections:
     routes: [/observe/, /ravenis/, /occult-atlas/, /occult-atlas-app/]
     kicker: WATCH / INTERPRET
     summary: 进入持续整理外部信号与时间结构的公开观察界面。
-    links:
-      - label: Ravenis
-        kind: Public intelligence
-        url: /ravenis/
-        description: 查看按日期与观察角度组织的公共记录。
-      - label: Occult Atlas
-        kind: Chart workbench
-        url: /occult-atlas/
-        description: 进入实时与历史星图工作台。
-
   - id: about
     name: ABOUT
     label_zh: 我是谁以及这个站如何生长
