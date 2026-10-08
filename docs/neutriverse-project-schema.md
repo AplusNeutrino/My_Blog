@@ -8,6 +8,7 @@ T21 建立项目实体的单一来源：`_data/neutriverse_projects.yml`。该�
 |---|---:|---|
 | `id` | 是 | 发布后稳定、全站唯一的小写 kebab-case 项目标识 |
 | `name` | 是 | 公开项目名 |
+| `detail_url` | 否 | 只有真实详情页已生成时填写；BUILD 卡片优先进入该页 |
 | `summary` | 是 | 仅由已记录来源支持的简述 |
 | `contexts` | 是 | 项目出现的概念入口；本轮仅 `build`，或已批准的 `build + observe` |
 | `visibility` | 是 | `listed`、`listed_noindex` 或 `unlisted_noindex` |
@@ -17,7 +18,7 @@ T21 建立项目实体的单一来源：`_data/neutriverse_projects.yml`。该�
 | `releases` | 否 | 只有可核实 Release 数据时才出现；项目不因缺少 Release 而不合法 |
 | `sources` | 是 | 支持公开事实的站内路径或公开外部 URL；不是展示文案的第二份副本 |
 
-`_layouts/neutriverse-project.html` 只通过 `page.project_id` 查找 catalog。status、links、related_posts 和 releases 都有条件渲染；字段不存在时不产生空标题、假按钮或“即将发布”占位。T21 只建立模板，不生成 T23/T24 的项目详情路由。
+`_layouts/neutriverse-project.html` 只通过 `page.project_id` 查找 catalog。status、links、related_posts 和 releases 都按真实数据渲染；未知状态明确说明“未记录”，而不是推断 active/complete/paused。T23 已为 FitzSight、Akasha Notes、Toyosatomimi's Headphone 建立 `detail_url`，其余项目在 T24 生成页面前仍不填写该字段。
 
 ## 固定项目与来源
 

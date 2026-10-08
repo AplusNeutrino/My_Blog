@@ -39,7 +39,10 @@
         {% assign project_status = project.status | default: 'unspecified' %}
         {% assign project_primary_url = nil %}
         {% assign project_primary_label = nil %}
-        {% if project.links.application %}
+        {% if project.detail_url %}
+          {% assign project_primary_url = project.detail_url %}
+          {% assign project_primary_label = '了解项目' %}
+        {% elsif project.links.application %}
           {% assign project_primary_url = project.links.application %}
           {% assign project_primary_label = '打开应用' %}
         {% elsif project.related_posts and project.related_posts.size > 0 %}

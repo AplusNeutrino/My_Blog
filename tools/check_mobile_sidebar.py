@@ -736,9 +736,9 @@ def main():
         )
         require(
             build_initial["actions"] == {
-                "fitzsight": "/projfitzgerald/",
-                "akasha-notes": "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
-                "toyosatomimis-headphone": "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+                "fitzsight": "/build/fitzsight/",
+                "akasha-notes": "/build/akasha-notes/",
+                "toyosatomimis-headphone": "/build/toyosatomimis-headphone/",
                 "ravenis": "/ravenis/",
                 "occult-atlas": "/occult-atlas/",
                 "gate": None,
@@ -749,6 +749,97 @@ def main():
         require(
             build_initial["bodyScrollWidth"] <= build_initial["bodyClientWidth"],
             f"BUILD has mobile overflow: {build_initial}",
+        )
+
+        detail_expectations = {
+            "/build/fitzsight/": {
+                "id": "fitzsight",
+                "name": "FitzSight",
+                "actions": {
+                    "application": "/projfitzgerald/",
+                    "repository": "https://github.com/AplusNeutrino/FitzSight",
+                },
+                "related": 0,
+                "sources": 2,
+            },
+            "/build/akasha-notes/": {
+                "id": "akasha-notes",
+                "name": "Akasha Notes",
+                "actions": {
+                    "repository": "https://github.com/AplusNeutrino/DesktopTextBoard",
+                },
+                "related": 1,
+                "sources": 1,
+            },
+            "/build/toyosatomimis-headphone/": {
+                "id": "toyosatomimis-headphone",
+                "name": "Toyosatomimi's Headphone",
+                "actions": {
+                    "repository": "https://github.com/AplusNeutrino/Toyosatomimis-headphones",
+                },
+                "related": 1,
+                "sources": 1,
+            },
+        }
+        for detail_path, expected in detail_expectations.items():
+            driver.get(site_url + detail_path)
+            wait.until(
+                lambda current: current.execute_script(
+                    "return document.readyState"
+                ) == "complete"
+            )
+            detail = driver.execute_script(
+                r"""
+                const root = document.querySelector('[data-project-detail]');
+                const href = (link) => {
+                  const raw = link?.getAttribute('href');
+                  if (!raw) return null;
+                  if (raw.startsWith('http')) return raw;
+                  return new URL(link.href).pathname;
+                };
+                return {
+                  id: root?.dataset.projectId,
+                  name: root?.querySelector('h1')?.textContent.trim(),
+                  status: root?.querySelector('[data-project-status-panel]')
+                    ?.dataset.projectStatus,
+                  statusText: root?.querySelector('[data-project-status-panel]')
+                    ?.textContent || '',
+                  actions: Object.fromEntries(
+                    [...root.querySelectorAll('[data-project-action]')].map(
+                      (link) => [link.dataset.projectAction, href(link)]
+                    )
+                  ),
+                  related: root.querySelectorAll(
+                    '#project-related-posts + ul li'
+                  ).length,
+                  sources: root.querySelectorAll(
+                    '#project-sources + ul li'
+                  ).length,
+                  back: href(root.querySelector('.nv-project-breadcrumb a')),
+                  bodyClientWidth: document.body.clientWidth,
+                  bodyScrollWidth: document.body.scrollWidth
+                };
+                """
+            )
+            require(
+                detail["id"] == expected["id"]
+                and detail["name"] == expected["name"]
+                and detail["status"] == "unspecified"
+                and "尚未单独记录状态" in detail["statusText"]
+                and detail["actions"] == expected["actions"]
+                and detail["related"] == expected["related"]
+                and detail["sources"] == expected["sources"]
+                and detail["back"] == "/build/"
+                and detail["bodyScrollWidth"] <= detail["bodyClientWidth"],
+                f"project detail contract failed at {detail_path}: {detail}",
+            )
+
+        driver.get(build_url)
+        wait.until(
+            lambda current: current.execute_script(
+                "return document.querySelector('[data-project-catalog]')"
+                "?.dataset.projectFilterReady"
+            ) == "true"
         )
 
         implemented_filter = driver.find_element(

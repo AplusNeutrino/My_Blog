@@ -1443,3 +1443,151 @@ article.nv-post .content video {
     flex: 1 1 9rem;
   }
 }
+
+
+/* BUILD project detail */
+.nv-project-detail {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.nv-project-detail > .nv-primary-nav {
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.nv-project-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  color: var(--nv-text-muted);
+  font-family: var(--nv-font-mono);
+  font-size: 0.78rem;
+}
+
+.nv-project-breadcrumb a,
+.nv-project-action-list a,
+.nv-project-related a,
+.nv-project-sources a {
+  color: var(--nv-accent);
+}
+
+.nv-project-hero {
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border: 1px solid var(--nv-border);
+  border-radius: var(--nv-radius-lg);
+  background: var(--nv-surface-1);
+  box-shadow: var(--nv-shadow-soft);
+}
+
+.nv-project-hero > p:first-child,
+.nv-project-section-index {
+  margin: 0 0 0.45rem;
+  color: var(--nv-accent);
+  font-family: var(--nv-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.nv-project-hero h1 {
+  margin: 0;
+  color: var(--nv-text-strong);
+}
+
+.nv-project-hero h1 + p {
+  max-width: 68ch;
+  margin: 0.85rem 0 0;
+  color: var(--nv-text);
+}
+
+.nv-project-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.nv-project-detail-grid > section,
+.nv-project-actions,
+.nv-project-related,
+.nv-project-releases,
+.nv-project-sources {
+  margin-top: 1rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  border: 1px solid var(--nv-border);
+  border-radius: var(--nv-radius-md);
+  background: var(--nv-surface-1);
+}
+
+.nv-project-detail-grid > section {
+  margin-top: 0;
+}
+
+.nv-project-detail h2 {
+  margin: 0 0 0.7rem;
+  color: var(--nv-text-strong);
+  font-size: 1.15rem;
+}
+
+.nv-project-detail section > :last-child {
+  margin-bottom: 0;
+}
+
+.nv-project-status-value {
+  color: var(--nv-accent);
+  font-family: var(--nv-font-mono);
+  text-transform: uppercase;
+}
+
+.nv-project-action-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.nv-project-action-list a {
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 999px;
+  background: var(--nv-surface-2);
+  font-weight: 700;
+}
+
+.nv-project-action-list a:hover {
+  border-color: var(--nv-accent);
+}
+
+.nv-project-action-list a:focus-visible,
+.nv-project-breadcrumb a:focus-visible,
+.nv-project-related a:focus-visible,
+.nv-project-sources a:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-project-related ul,
+.nv-project-sources ul {
+  margin-bottom: 0;
+  padding-left: 1.2rem;
+}
+
+.nv-project-sources code {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767.98px) {
+  .nv-project-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nv-project-action-list {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .nv-project-action-list a {
+    display: flex;
+    align-items: center;
+  }
+}

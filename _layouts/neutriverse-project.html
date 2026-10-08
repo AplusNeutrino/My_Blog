@@ -5,44 +5,81 @@ layout: default
 {% assign project_catalog = site.data.neutriverse_projects.projects %}
 {% assign project = project_catalog | where: 'id', page.project_id | first %}
 
-<section class="nv-project-detail" data-project-detail{% if project %} data-project-id="{{ project.id | escape }}"{% endif %}>
+<article class="nv-project-detail" data-project-detail{% if project %} data-project-id="{{ project.id | escape }}"{% endif %}>
+  {% include neutriverse-primary-nav.html current='build' %}
+
   {% if project %}
-    <header>
+    <nav class="nv-project-breadcrumb" aria-label="项目目录路径">
+      <a href="{{ '/build/' | relative_url }}">BUILD</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ project.name }}</span>
+    </nav>
+
+    <header class="nv-project-hero">
       <p>BUILD / PROJECT</p>
       <h1>{{ project.name }}</h1>
       <p>{{ project.summary }}</p>
-      {% if project.status %}
-        <p class="nv-project-status"><span>STATUS</span> {{ project.status | replace: '_', ' ' }}</p>
-      {% endif %}
     </header>
 
-    {% if project.links %}
-      <nav class="nv-project-links" aria-label="{{ project.name | escape }} 项目链接">
-        {% if project.links.application %}
-          <a href="{{ project.links.application | relative_url }}">打开应用</a>
-        {% endif %}
-        {% if project.links.repository %}
-          <a href="{{ project.links.repository }}">Repository</a>
-        {% endif %}
-        {% if project.links.documentation %}
-          <a href="{{ project.links.documentation | relative_url }}">Documentation</a>
-        {% endif %}
-      </nav>
-    {% endif %}
+    <div class="nv-project-detail-grid">
+      <section aria-labelledby="project-overview">
+        <p class="nv-project-section-index">01 / OVERVIEW</p>
+        <h2 id="project-overview">项目概览</h2>
+        <p>{{ project.summary }}</p>
+      </section>
 
-    {% if project.related_posts and project.related_posts.size > 0 %}
-      <section aria-labelledby="project-related-posts">
-        <h2 id="project-related-posts">Related Posts</h2>
+      <section data-project-status-panel data-project-status="{% if project.status %}{{ project.status | escape }}{% else %}unspecified{% endif %}" aria-labelledby="project-status">
+        <p class="nv-project-section-index">02 / STATUS</p>
+        <h2 id="project-status">公开状态</h2>
+        {% if project.status %}
+          <p class="nv-project-status-value">{{ project.status | replace: '_', ' ' }}</p>
+        {% else %}
+          <p>公开 catalog 尚未单独记录状态；这里不根据版本号、页面可达性或文章日期推断 active、complete 或 paused。</p>
+        {% endif %}
+      </section>
+    </div>
+
+    <section class="nv-project-actions" aria-labelledby="project-actions">
+      <p class="nv-project-section-index">03 / ACTIONS</p>
+      <h2 id="project-actions">使用与资料</h2>
+      {% if project.links %}
+        <div class="nv-project-action-list">
+          {% if project.links.application %}
+            <a data-project-action="application" href="{{ project.links.application | relative_url }}">打开现有应用</a>
+          {% endif %}
+          {% if project.links.repository %}
+            <a data-project-action="repository" href="{{ project.links.repository }}">查看 Repository</a>
+          {% endif %}
+          {% if project.links.documentation %}
+            {% if project.links.documentation contains '://' %}
+              <a data-project-action="documentation" href="{{ project.links.documentation }}">查看 Documentation</a>
+            {% else %}
+              <a data-project-action="documentation" href="{{ project.links.documentation | relative_url }}">查看 Documentation</a>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% else %}
+        <p>当前没有适合公开的应用、仓库或文档入口。</p>
+      {% endif %}
+    </section>
+
+    <section class="nv-project-related" aria-labelledby="project-related-posts">
+      <p class="nv-project-section-index">04 / PROJECT LOG</p>
+      <h2 id="project-related-posts">关联文章</h2>
+      {% if project.related_posts and project.related_posts.size > 0 %}
         <ul>
           {% for post in project.related_posts %}
             <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
-      </section>
-    {% endif %}
+      {% else %}
+        <p>catalog 暂无关联文章记录。</p>
+      {% endif %}
+    </section>
 
     {% if project.releases and project.releases.size > 0 %}
-      <section aria-labelledby="project-releases">
+      <section class="nv-project-releases" aria-labelledby="project-releases">
+        <p class="nv-project-section-index">05 / RELEASES</p>
         <h2 id="project-releases">Releases</h2>
         <ul>
           {% for release in project.releases %}
@@ -53,12 +90,28 @@ layout: default
         </ul>
       </section>
     {% endif %}
+
+    <section class="nv-project-sources" aria-labelledby="project-sources">
+      <p class="nv-project-section-index">SOURCE LEDGER</p>
+      <h2 id="project-sources">事实来源</h2>
+      <ul>
+        {% for source in project.sources %}
+          <li>
+            {% if source.path %}
+              <code>{{ source.path }}</code>
+            {% elsif source.url %}
+              <a href="{{ source.url }}">{{ source.url }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% else %}
-    <header>
+    <header class="nv-project-hero">
       <p>BUILD / PROJECT</p>
       <h1>Project record unavailable</h1>
       <p>这个项目 ID 尚未在公开目录中建立记录。</p>
       <a href="{{ '/build/' | relative_url }}">返回 BUILD</a>
     </header>
   {% endif %}
-</section>
+</article>

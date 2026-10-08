@@ -5,22 +5,33 @@
       "id": "fitzsight",
       "name": "FitzSight",
       "summary": "面向金融运营分析的证据约束决策支持 Agent。",
-      "contexts": ["build"],
+      "contexts": [
+        "build"
+      ],
       "visibility": "listed",
       "links": {
         "application": "/projfitzgerald/",
         "repository": "https://github.com/AplusNeutrino/FitzSight"
       },
       "sources": [
-        {"kind": "site", "path": "docs/PROJFITZGERALD_PROGRESS.md"},
-        {"kind": "site", "path": "projfitzgerald/index.html"}
-      ]
+        {
+          "kind": "site",
+          "path": "docs/PROJFITZGERALD_PROGRESS.md"
+        },
+        {
+          "kind": "site",
+          "path": "projfitzgerald/index.html"
+        }
+      ],
+      "detail_url": "/build/fitzsight/"
     },
     {
       "id": "akasha-notes",
       "name": "Akasha Notes",
       "summary": "用于透明文字板、计划表、清单和分类看板的轻量级 Windows 桌面小组件。",
-      "contexts": ["build"],
+      "contexts": [
+        "build"
+      ],
       "visibility": "listed",
       "links": {
         "repository": "https://github.com/AplusNeutrino/DesktopTextBoard"
@@ -33,14 +44,20 @@
         }
       ],
       "sources": [
-        {"kind": "site", "path": "_posts/2026-06-30-阿卡夏便笺akashanotes.md"}
-      ]
+        {
+          "kind": "site",
+          "path": "_posts/2026-06-30-阿卡夏便笺akashanotes.md"
+        }
+      ],
+      "detail_url": "/build/akasha-notes/"
     },
     {
       "id": "toyosatomimis-headphone",
       "name": "Toyosatomimi's Headphone",
       "summary": "监听 Windows 系统音频并生成外语原文与简体中文翻译的实时双语字幕工具。",
-      "contexts": ["build"],
+      "contexts": [
+        "build"
+      ],
       "visibility": "listed",
       "links": {
         "repository": "https://github.com/AplusNeutrino/Toyosatomimis-headphones"
@@ -53,52 +70,81 @@
         }
       ],
       "sources": [
-        {"kind": "site", "path": "_posts/2026-07-09-丰聪耳机toyosatomimisheadphone.md"}
-      ]
+        {
+          "kind": "site",
+          "path": "_posts/2026-07-09-丰聪耳机toyosatomimisheadphone.md"
+        }
+      ],
+      "detail_url": "/build/toyosatomimis-headphone/"
     },
     {
       "id": "ravenis",
       "name": "Ravenis",
       "summary": "最近 30 天的公开新闻简报、观察信号与历史检索。",
-      "contexts": ["build", "observe"],
+      "contexts": [
+        "build",
+        "observe"
+      ],
       "visibility": "listed_noindex",
       "links": {
         "application": "/ravenis/"
       },
       "sources": [
-        {"kind": "site", "path": "ravenis/index.html"}
+        {
+          "kind": "site",
+          "path": "ravenis/index.html"
+        }
       ]
     },
     {
       "id": "occult-atlas",
       "name": "Occult Atlas",
       "summary": "Live and historical astrology chart workbench.",
-      "contexts": ["build", "observe"],
+      "contexts": [
+        "build",
+        "observe"
+      ],
       "visibility": "listed_noindex",
       "links": {
         "application": "/occult-atlas/"
       },
       "sources": [
-        {"kind": "site", "path": "_hidden_pages/occult-atlas.md"}
+        {
+          "kind": "site",
+          "path": "_hidden_pages/occult-atlas.md"
+        }
       ]
     },
     {
       "id": "gate",
       "name": "Gate",
       "summary": "Neutriverse 内的个人导航终端，提供本地时钟、检索与命令、快捷入口和浏览器本地记录。",
-      "contexts": ["build"],
+      "contexts": [
+        "build"
+      ],
       "visibility": "unlisted_noindex",
       "sources": [
-        {"kind": "site", "path": "README_GATE.md"},
-        {"kind": "site", "path": "gate/index.md"},
-        {"kind": "site", "path": "GATE_ROADMAP.md"}
+        {
+          "kind": "site",
+          "path": "README_GATE.md"
+        },
+        {
+          "kind": "site",
+          "path": "gate/index.md"
+        },
+        {
+          "kind": "site",
+          "path": "GATE_ROADMAP.md"
+        }
       ]
     },
     {
       "id": "officespire",
       "name": "OfficeSpire",
       "summary": "Slay the Spire 2 的文本优先替代控制界面，由 C#/.NET 模组与 Tauri/React 桌面覆盖层组成。",
-      "contexts": ["build"],
+      "contexts": [
+        "build"
+      ],
       "visibility": "listed",
       "status": "implemented_unverified",
       "links": {

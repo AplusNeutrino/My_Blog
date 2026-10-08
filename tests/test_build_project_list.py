@@ -42,9 +42,9 @@ class BuildProjectListTest(unittest.TestCase):
 
     def test_each_authorized_card_resolves_to_a_real_current_action(self):
         expected = {
-            "fitzsight": "/projfitzgerald/",
-            "akasha-notes": "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
-            "toyosatomimis-headphone": "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "fitzsight": "/build/fitzsight/",
+            "akasha-notes": "/build/akasha-notes/",
+            "toyosatomimis-headphone": "/build/toyosatomimis-headphone/",
             "ravenis": "/ravenis/",
             "occult-atlas": "/occult-atlas/",
             "officespire": "https://github.com/AplusNeutrino/OfficeSpire",
@@ -52,7 +52,9 @@ class BuildProjectListTest(unittest.TestCase):
         resolved = {}
         for project in CATALOG:
             links = project.get("links", {})
-            if links.get("application"):
+            if project.get("detail_url"):
+                resolved[project["id"]] = project["detail_url"]
+            elif links.get("application"):
                 resolved[project["id"]] = links["application"]
             elif project.get("related_posts"):
                 resolved[project["id"]] = project["related_posts"][0]["url"]
