@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-08 20:56 — T32 Search 索引与 RSS/feed 补全
+
+- Task / parent：T32；status = in-progress；依赖 T31 done。
+- Base SHA / branch：`8940a82967b26f1caa154e2a4e189ab981ab71cd` / main；该 head 的 Actions `37775359732` build/deploy completed/success，工作树干净。
+- 现状证据：线上 `/assets/js/data/search.json` 仅含 39 篇公开文章、0 Fragment；`/feed.xml` 仅含最近 5 篇文章，页面 head 未宣告 Atom feed。现有 search 已过滤 hidden，但 Fragments 没有检索/订阅策略。
+- 本次最小交付：Search 纳入 39 篇公开文章 + 5 条原来源 Fragments；自有 Atom feed 在原 `/feed.xml` 输出最近 20 个公开写作项并包含 Fragment；单一 discovery 配置明确 hidden 排除、稳定链接与条目上限。
+- 拟改文件：`_data/neutriverse_discovery.yml`、`assets/js/data/search.json`、`feed.xml`、`_includes/metadata-hook.html`、`tools/check_search_feed.py`、`tests/test_search_feed.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
+- 验收：Search JSON 为 44 个唯一公开项且 5 个 Fragment URL 指向 `/thoughts/#fragment-*`；Atom XML 可解析、self link 正确、按日期倒序且最多 20 项、包含 Fragments；两者都不出现 5 篇 hidden；全回归、T01 baseline、production Jekyll、既有 Chrome 门禁、新产物检查及精确实现 head 的 Pages build/deploy 成功。
+- 边界：不改任何文章/Fragment 原文、front matter、文件名/date/slug/permalink/旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex、应用数据或外部项目；不提前执行 T33 SEO/canonical/sitemap 全检。
+- 用户问题：无；Fragment 纳入公开写作检索与订阅是 T32 已明确要求的发现能力，不改变其原来源或正文。
+
 ## Run 2026-10-08 19:57 — T31 响应式、阅读与无障碍专项
 
 - Task / parent：T31；status = in-progress；依赖 T30 done。
