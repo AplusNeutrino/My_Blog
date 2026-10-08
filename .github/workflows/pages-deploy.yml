@@ -75,6 +75,9 @@ jobs:
       - name: Validate Search and Atom feed
         run: python tools/check_search_feed.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Validate SEO, sitemap, redirects, and internal routes
+        run: python tools/check_seo_routes.py "_site${{ steps.pages.outputs.base_path }}"
+
       - name: Validate mobile sidebar in Chrome
         run: python tools/check_mobile_sidebar.py "_site${{ steps.pages.outputs.base_path }}"
 

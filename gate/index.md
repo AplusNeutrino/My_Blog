@@ -3,6 +3,8 @@ layout: gate
 title: "Gate"
 permalink: /gate/
 description: "Neutriverse personal transit gate."
+robots: noindex,nofollow
+sitemap: false
 ---
 
 {% assign gate = site.data.gate %}
