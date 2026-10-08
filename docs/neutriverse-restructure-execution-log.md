@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 14:01 — T27 ABOUT 数据与内容重组
+
+- Task：T27；status = in-progress；依赖 T20/T24 done。
+- Base / branch：`fdd16756d6e81c988244d206465bb0b4f2429456` / main；base 的 [Actions run 37726434072](https://github.com/AplusNeutrino/My_Blog/actions/runs/37726434072) completed/success，无 validation-pending。
+- 本次最小交付：把 `_tabs/about.md` 中内嵌的身份、旧状态、路线图与阅读/影像栈整理为唯一 ABOUT 数据源和共享渲染 include；所有动态内容保留原站内日期，并明确是历史快照而非实时状态。
+- 拟改：新增 `_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`tests/test_about_data_model.py`；精简 `_tabs/about.md` 的内嵌配置/渲染，扩展 `tools/check_mobile_sidebar.py`，并更新主计划与本日志。旅行地球实现与数据、Library、友链保持原路径和原行为。
+- 验收：ABOUT 配置只有一个数据源；页面没有第二套旧状态文字；`2026-08-17` 及“历史快照/非实时”同时可见；所有内容均逐项来自改造前网站，无聊天记忆/履历/单位/住址/健康等新增事实；Library、友链、旅行锚点关系保留；两主题、390px、回归、Jekyll 与精确 head Pages 通过。
+- 边界：T27 不提前完成 T28 的新身份/Currently/网站理念文案，也不提前实现 T29 时间线；不改文章/Fragment、旧 URL、Library 同步、旅行数据/脚本、友链数据、Gate/NAVI 或外部项目。
+- 用户问题：无。
+
 ## Run 2026-10-08 12:03 — T26 Ravenis / Occult Atlas 共享导航适配
 
 - Task：T26；status = done；依赖 T25 done。
