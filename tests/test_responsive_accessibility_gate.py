@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (ROOT / "tools" / "check_responsive_accessibility.py").read_text(encoding="utf-8")
 CSS = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(encoding="utf-8")
+LIGHT_CSS = (ROOT / "assets" / "css" / "ProsperoLight.css").read_text(encoding="utf-8")
 WORKFLOW = (ROOT / ".github" / "workflows" / "pages-deploy.yml").read_text(encoding="utf-8")
 
 
@@ -32,6 +33,10 @@ class ResponsiveAccessibilityGateTest(unittest.TestCase):
         self.assertIn("@media (prefers-reduced-motion: reduce)", CSS)
         self.assertIn("animation: none !important", CSS)
         self.assertIn("transition: none !important", CSS)
+
+    def test_light_theme_uses_accessible_interface_accent(self):
+        self.assertIn("--nv-accent: var(--prospero-teal-deep);", LIGHT_CSS)
+        self.assertIn("--nv-focus: var(--prospero-teal-deep);", LIGHT_CSS)
 
     def test_production_workflow_runs_the_gate_after_build(self):
         build = WORKFLOW.index("- name: Build site")
