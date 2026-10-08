@@ -20,11 +20,14 @@ def require(condition, message):
 
 def fragment_source(path):
     text = path.read_text(encoding="utf-8")
+    parts = text.split("---", 2)
+    require(len(parts) == 3, f"missing front matter delimiters: {path}")
+    front_matter = parts[1]
     matches = re.findall(
         r'^  - text: "(?P<text>.*)"\n'
         r'    id: (?P<id>fragment-[a-z0-9-]+)\n'
         r'    date: (?P<date>\d{4}-\d{2}-\d{2})$',
-        text,
+        front_matter,
         re.MULTILINE,
     )
     return [{"text": text, "id": fragment_id, "date": date} for text, fragment_id, date in matches]

@@ -47,6 +47,10 @@ class SearchFeedTest(unittest.TestCase):
         self.assertLess(check, upload)
         self.assertIn('python tools/check_search_feed.py "_site${{ steps.pages.outputs.base_path }}"', WORKFLOW)
 
+    def test_built_output_validator_ignores_commented_fragment_example(self):
+        self.assertIn('text.split("---", 2)', CHECKER)
+        self.assertIn("front_matter,", CHECKER)
+
 
 if __name__ == "__main__":
     unittest.main()
