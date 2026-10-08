@@ -11,6 +11,14 @@
 - 验收：四断点×两主题无页面横向溢出；正文宽度 ≤740px 且代码/表格/媒体 containment；主要交互目标 ≥44px；键盘焦点轮廓 ≥2px；关键文本/链接 WCAG AA；reduced-motion 关闭 Neutriverse 自有过渡与动画；全回归、T01 baseline、production Jekyll 与精确实现 head 的 Pages build/deploy 成功。
 - 边界：不改文章/Fragment、front matter、文件名/date/slug/permalink/旧 URL、内容分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex 或外部项目；不提前实现 T32 Search/RSS。
 - 用户问题：无；本项执行已确定的 Phase 7 验收契约。
+- 范围 / 主体实现 / 颜色解析修复 / 对比度修复及 final head：`e1eeb2ac9bb17ec4d65819ddf5ddcbe574787190` / `f03d1254bbbbf4a995a12d302e44db27010a7888` / `570b9d2c21b2c74e33252ec670bb279e34d1b8c7` / `fa431129021e0616e4e07cacc5918950f8027046`、`c927b27d37cdfdd8fd2197399679fa253d752f79`。
+- 实际交付：新增独立 Selenium 门禁并接入 Pages workflow，覆盖 390/768/1024/1366px、Night/Prospero Light、首页/THINK/BUILD/OBSERVE/ABOUT，共 40 项页面矩阵；每个视口与主题另取真实文章检查 ≤740px 阅读宽度、字号/行高、富内容 containment、正文对比与页面横向溢出。门禁还实测主要目标 ≥44px、焦点轮廓 ≥2px、关键文字/链接 ≥4.5:1、reduced-motion 下无自有动画/过渡且滚动行为为 auto。
+- 样式修复：共享 Neutriverse surface 采用统一 `:focus-visible` 契约和 reduced-motion fallback；Prospero Light 的 Neutriverse accent/focus 使用已有 `--prospero-teal-deep`，保持原主题气质并满足浅色 surface 对比。
+- 真实失败 1：[run 37774058716](https://github.com/AplusNeutrino/My_Blog/actions/runs/37774058716) 在新门禁中把十六进制 CSS 变量误当十进制数组，产生空 ratio；解析器补齐 6 位 hex 与 `color(srgb ...)` 后重跑，未把失败记为通过。
+- 真实失败 2：[run 37774453315](https://github.com/AplusNeutrino/My_Blog/actions/runs/37774453315) 的既有回归、Jekyll 与移动门禁通过，但新门禁实测浅色 THINK 导航为 4.138694:1，低于 4.5；改用现有深青色 token 并增加静态契约，失败未记为通过。
+- 本地验证：167/167 tests、T01 baseline protection（44 posts / 5 Fragments，Type essay/note/fragment = 5/39/5）、Python 编译及 `git diff --check` 通过；本机无 Bundler，未声明本地 Jekyll 成功。
+- 最终精确验证：[Actions run 37774796110](https://github.com/AplusNeutrino/My_Blog/actions/runs/37774796110) 对应 final head `c927b27d37cdfdd8fd2197399679fa253d752f79`，completed/success；build `113303295461` 的 167 tests、production Jekyll、既有移动 Chrome、新门禁 40 项矩阵与文章阅读检查、Ravenis、artifact upload 全部成功；deploy `113303814462` 成功。artifact `11549517059` / `sha256:3780fd6633f8b386a102c1d36dda539803bcd3040694d2d12218acaea4366e2f`。
+- 保护 / 结论：未改文章/Fragment、front matter、文件名/date/slug/permalink、旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex、应用数据或外部项目；未提前实现 T32。T31 done；active_run = none；checkpoint = T31 done；next = T32 ready；无新增用户问题。
 
 ## Run 2026-10-08 17:04 — T30 全站视觉一致性与入口性格
 
