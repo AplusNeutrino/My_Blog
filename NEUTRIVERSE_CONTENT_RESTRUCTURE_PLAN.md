@@ -3,7 +3,7 @@
 > Status: **living master plan**  
 > Repository: `AplusNeutrino/My_Blog`  
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history  
-> Current state: **Phase 1 and Phase 2 completed; T00–T21 done; T22 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T22 done; T23 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T21 done，T22 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T21 项目 schema、来源和模板；七个批准项目进入单一 catalog，stable ID/来源/可见性明确，status/links/related_posts/releases 为可选字段，通用详情模板自然降级。Gate 保持 unlisted/noindex 且 catalog 不公开应用链接；Ravenis/Occult Atlas 保持 listed + noindex；仅 OfficeSpire 记录来源明确的 `implemented_unverified`。精确 CI/Pages 通过。下一项 T22 `/build/` 项目列表与状态筛选。
+**当前状态：计划细化与启动决定已完成，T00–T22 done，T23 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T22 `/build/` 项目列表与状态筛选；七个项目从 T21 catalog 单源渲染，公开动作均指向真实应用、Project Log 或仓库，Gate 保留项目卡但不公开隐藏工具 href。筛选仅使用来源明确的 `implemented_unverified` 与未记录状态，支持 URL、刷新、后退和非法参数回退；精确 CI/Pages 通过。下一项 T23 第一组有依据项目详情。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T21 = done，T22 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T22 = done，T23 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T22；branch = main；base = 6142ff0f4d74367ab854c7fb1b3000e44e44a2b8；checkpoint = T21 done / T22 scoped；time = 2026-10-08 08:00 Asia/Shanghai；next = T22 implementation；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = f6a33049f446360a8ee7f553babc11ea714965ef；checkpoint = T22 done；next = T23；completion = IN PROGRESS.
 
 T20 本次范围：实现 T18 已配置但尚未渲染的 Current Signal、Featured 与 System Status，保持首页完整顺序 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status。Current Signal 只使用已批准的“Neutriverse 网站重构”及其站内说明；Featured 优先使用 `neutriverse_home.featured.posts` 中仍公开可见的文章，不足时依次从 `home_popular.posts` 与最新公开文章补足到最多 4 条，始终排除 hidden 且不显示访问量；System Status 仅从公开内容动态计算 Records、posts/fragments 分解与最后更新时间，项目目录在 T21 建立前无数据则不渲染项目指标，作为自然降级而非伪造数量。拟改首页 layout、共享 CSS、首页配置契约测试、新增 T20 静态回归及 390px Chrome 门禁、主计划/日志；不改文章/Fragment 原文或 metadata、旧 URL、hidden/noindex、外部项目，也不提前实现 T21 项目 schema。验收为六区块顺序、Current Signal 唯一来源、精选 4 条公开且链接真实、状态值与公开源一致、无项目源时项目指标缺席、两主题/390px/回归/Jekyll/Pages 对精确 SHA 通过。
 
@@ -1109,6 +1109,8 @@ T17 本次范围：把 Archive、Tags 与 Search 明确接入 THINK 的“当前
 
 
 T22 本次范围：在 `/build/` 从 T21 的唯一 project catalog 渲染七个批准项目卡，并提供渐进增强的 status 筛选与可分享 `?status=` 状态。每张卡只指向当前已存在且已授权公开的应用、Project Log 或仓库；Gate 仍显示为项目实体，但不公开隐藏工具链接，在详情页尚未由 T23/T24 建立前显示自然说明而不制造假链接。拟新增项目列表 include、筛选脚本及静态回归，调整 BUILD layout 接入、页面说明、共享 CSS 与 390px Chrome 门禁；不修改 catalog 事实、不生成项目详情页、不改关联项目仓库。验收为恰有 Q5 七项目且无 MMXProj；默认全量可读，无 JS 时链接仍可达；筛选 `implemented_unverified` = OfficeSpire 1 项、`unspecified` = 6 项，刷新/后退/非法参数行为稳定；六个已授权公开动作目标正确，Gate 无公开 href；两主题、390px、回归、Jekyll 与精确 head Pages 通过。预计剩余：完成实现和验证后 T22 done，T23 ready。
+
+T22 验收证据：`/build/` 通过新增 `_includes/neutriverse-project-list.html` 从 T21 catalog 渲染七张项目卡，`assets/js/neutriverse-project-filters.js` 提供渐进增强的 `?status=` 筛选；默认/无 JS 保留七项。FitzSight、Akasha Notes、Toyosatomimi's Headphone、Ravenis、Occult Atlas、OfficeSpire 分别直达既有应用、Project Log 或仓库；Gate 仅显示项目记录和“工具入口保持未公开”，无 `/gate/` href。状态完全来自 catalog：`implemented_unverified` 仅 OfficeSpire 1 项，`unspecified` 6 项；刷新、后退与非法参数回退通过。范围提交 `be1780f9aea13a93c6396a5ba0ffdb50c2403ef1`；主体实现 `b6cf998dcc8abdb796e144002a45010569b67a69`；测试契约修复及 final head `f6a33049f446360a8ee7f553babc11ea714965ef`。首次 [run 37705683923](https://github.com/AplusNeutrino/My_Blog/actions/runs/37705683923) 在 129 tests 中因静态测试误找 HTML 属性名而失败，未进入 Jekyll；修复只把断言对齐实际 DOM dataset 名。最终 [run 37705790326](https://github.com/AplusNeutrino/My_Blog/actions/runs/37705790326) completed/success；build job `113079711585` 的 129 项回归、production Jekyll、390px Chrome、双主题、BUILD 筛选/动作、hidden/Ravenis 与 artifact upload 全部成功；deploy job `113080119126` 成功。artifact `11519850872`，digest `sha256:d54f72bb0a24e20778d507f4d6c37e6343c1527aaa7b286a8ef576411909e7da`。未改 catalog 事实、文章/Fragment、旧 URL、noindex 或外部项目；未提前生成详情页。T22 done，T23 ready，无新增用户问题。
 
 T21 本次范围：以七个已批准项目为唯一 BUILD catalog，建立稳定 ID、可追溯来源、可选状态/链接/Release 语义和通用项目详情模板。拟新增 `_data/neutriverse_projects.yml`、`docs/neutriverse-project-schema.md`、`_layouts/neutriverse-project.html`、项目 catalog 回归测试，并仅为 catalog 接入补充共享样式、首页 Projects 动态状态和 390px 门禁预期；不提前实现 T22 的 `/build/` 项目清单/筛选或 T23/T24 的项目详情页。验收为七个稳定 ID 唯一且无 MMXProj；每项摘要/链接均有站内或公开来源；status/links/releases 均可省略且模板自然降级；没有项目被要求提供不存在的 Release；Ravenis/Occult Atlas/Gate 的 noindex/隐蔽边界不变；回归、production Jekyll、390px 双主题与精确 head Pages 通过。预计剩余：完成实现、验证、记录精确证据后 T21 done，T22 ready。
 

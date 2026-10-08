@@ -20,15 +20,23 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 08:00 — T22 BUILD 项目列表与状态筛选范围
+## Run 2026-10-08 08:00 — T22 BUILD 项目列表与状态筛选
 
-- Task：T22；status = in-progress；依赖 T21 done。
+- Task：T22；status = done；依赖 T21 done。
 - Base / branch：`6142ff0f4d74367ab854c7fb1b3000e44e44a2b8` / main；base 的 [Actions run 37700560584](https://github.com/AplusNeutrino/My_Blog/actions/runs/37700560584) completed/success，无 validation-pending。
 - 本次最小交付：`/build/` 从 T21 catalog 输出七项目卡；以实际 status/未记录状态提供渐进增强筛选和可分享 URL。
 - 拟改：新增 `_includes/neutriverse-project-list.html`、`assets/js/neutriverse-project-filters.js`、`tests/test_build_project_list.py`；调整 `_layouts/neutriverse-section.html`、`build/index.md`、共享 CSS、390px Chrome 门禁及主计划/日志。
 - 验收：仅 Q5 七项目，无 MMXProj；六个已授权动作目标真实；Gate 作为项目记录出现但不公开隐藏工具 href；默认七项，无 JS 全量可读；`implemented_unverified` = 1、`unspecified` = 6，刷新/后退/非法参数回退正确；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
 - 边界：不新增/推断项目状态，不建立 T23/T24 详情页，不改关联项目仓库、文章/Fragment、旧 URL 或 noindex。
 - 用户问题：无；Gate 无公开动作是既定隐蔽边界的必要降级，不视为缺失链接。
+- 范围 / 主体实现 / 测试契约修复及 final head：`be1780f9aea13a93c6396a5ba0ffdb50c2403ef1` / `b6cf998dcc8abdb796e144002a45010569b67a69` / `f6a33049f446360a8ee7f553babc11ea714965ef`；均以 expected head 非强推更新 main。
+- 实际交付：BUILD 使用 T21 catalog 渲染七卡；六个授权动作分别指向现有应用、Project Log 或公开仓库。Gate 卡无链接并说明入口未公开。旧三项目通用入口块不再在 BUILD 重复渲染，catalog 为唯一项目列表源。
+- 筛选：默认七项且无 JS 全量可读；`implemented_unverified` 仅 OfficeSpire 1 项，`unspecified` 6 项。URL `status` 支持分享/刷新/后退，非法值清理为默认 All；按钮有 pressed 状态和 44px 移动触控尺寸。
+- 真实失败：[run 37705683923](https://github.com/AplusNeutrino/My_Blog/actions/runs/37705683923) 的 129 tests 中仅新增静态测试失败，原因为断言查找 HTML 属性拼写而脚本使用正确的 DOM dataset 名；Jekyll/部署未运行，未记为通过。随后只修正测试契约。
+- 精确验证：[Actions run 37705790326](https://github.com/AplusNeutrino/My_Blog/actions/runs/37705790326) 对应 final head `f6a33049f446360a8ee7f553babc11ea714965ef`，completed/success；build `113079711585` 的 129 tests、production Jekyll、390px Chrome、双主题、BUILD 筛选与动作、hidden/Ravenis、artifact upload 全部成功；deploy `113080119126` 成功。
+- Artifact：`11519850872`；digest `sha256:d54f72bb0a24e20778d507f4d6c37e6343c1527aaa7b286a8ef576411909e7da`。
+- 保护：未改 catalog 事实、文章/Fragment、文件名、date/slug/permalink、旧 URL、noindex 或外部项目；未提前实现 T23/T24 详情页。
+- 结论：T22 done；active_run = none；checkpoint = T22 done；next = T23。无新增用户问题。
 
 ## Run 2026-10-08 07:01 — T21 项目 schema、来源和模板
 
