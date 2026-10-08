@@ -204,6 +204,38 @@ def read_post_presentation(driver):
     )
 
 
+def read_observe_app_navigation(driver):
+    return driver.execute_script(
+        r"""
+        const nav = document.querySelector('[data-observe-app-nav]');
+        const path = (link) => link ? new URL(link.href).pathname : null;
+        const links = [...(nav?.querySelectorAll('a') || [])];
+        const rect = nav?.getBoundingClientRect();
+        return {
+          current: nav?.dataset.currentApp || null,
+          home: path(links.find((link) => link.textContent.includes('NEUTRIVERSE'))),
+          observe: path(links.find((link) => link.textContent.includes('OBSERVE'))),
+          apps: Object.fromEntries(
+            [...(nav?.querySelectorAll('[data-observe-app-link]') || [])].map(
+              (link) => [link.dataset.observeAppLink, {
+                path: path(link),
+                current: link.getAttribute('aria-current')
+              }]
+            )
+          ),
+          project: path(nav?.querySelector('[data-observe-project-link]')),
+          visible: Boolean(rect && rect.width > 0 && rect.height > 0),
+          background: nav ? getComputedStyle(nav).backgroundColor : null,
+          robots: document.querySelector('meta[name="robots"]')
+            ?.getAttribute('content') || null,
+          bodyClientWidth: document.body.clientWidth,
+          bodyScrollWidth: document.body.scrollWidth,
+          text: nav?.textContent || ''
+        };
+        """
+    )
+
+
 def require(condition, message):
     if not condition:
         raise AssertionError(message)
@@ -958,6 +990,91 @@ def main():
             ),
             f"OBSERVE directory contract failed: {observe_directory}",
         )
+
+        app_expectations = {
+            "/ravenis/": {
+                "current": "ravenis",
+                "project": "/build/ravenis/",
+                "core": ("#ravenis-day-select", "#ravenis-slot-nav", "#ravenis-search"),
+            },
+            "/occult-atlas/": {
+                "current": "occult-atlas",
+                "project": "/build/occult-atlas/",
+                "core": ("#chartControlToggle", "#chartControlPanel", "#astroChart"),
+            },
+        }
+        for app_path, expected in app_expectations.items():
+            driver.get(site_url + app_path)
+            wait.until(
+                lambda current: current.find_element(
+                    By.CSS_SELECTOR, "[data-observe-app-nav]"
+                ).is_displayed()
+            )
+            app_navigation = read_observe_app_navigation(driver)
+            require(
+                app_navigation["current"] == expected["current"]
+                and app_navigation["home"] == "/"
+                and app_navigation["observe"] == "/observe/"
+                and app_navigation["project"] == expected["project"]
+                and app_navigation["apps"] == {
+                    "ravenis": {"path": "/ravenis/", "current": (
+                        "page" if expected["current"] == "ravenis" else None
+                    )},
+                    "occult-atlas": {"path": "/occult-atlas/", "current": (
+                        "page" if expected["current"] == "occult-atlas" else None
+                    )},
+                }
+                and app_navigation["visible"]
+                and "noindex" in (app_navigation["robots"] or "").lower()
+                and all(
+                    forbidden not in app_navigation["text"]
+                    for forbidden in ("Gate", "NAVI", "MMXProj")
+                )
+                and app_navigation["bodyScrollWidth"]
+                <= app_navigation["bodyClientWidth"],
+                f"shared OBSERVE app navigation failed at {app_path}: "
+                f"{app_navigation}",
+            )
+            for selector in expected["core"]:
+                require(
+                    driver.find_element(By.CSS_SELECTOR, selector).is_displayed()
+                    or selector == "#chartControlPanel",
+                    f"OBSERVE app core control missing at {app_path}: {selector}",
+                )
+
+            theme_backgrounds = []
+            for mode in ("dark", "light"):
+                theme_backgrounds.append(driver.execute_script(
+                    """
+                    document.documentElement.setAttribute('data-mode', arguments[0]);
+                    document.documentElement.setAttribute('data-bs-theme', arguments[0]);
+                    return getComputedStyle(
+                      document.querySelector('[data-observe-app-nav]')
+                    ).backgroundColor;
+                    """,
+                    mode,
+                ))
+            require(
+                theme_backgrounds[0] != theme_backgrounds[1],
+                f"shared OBSERVE navigation did not follow both themes at "
+                f"{app_path}: {theme_backgrounds}",
+            )
+
+            if app_path == "/occult-atlas/":
+                control = driver.find_element(By.ID, "chartControlToggle")
+                driver.execute_script("arguments[0].click();", control)
+                wait.until(
+                    lambda current: not current.find_element(
+                        By.ID, "chartControlPanel"
+                    ).get_attribute("hidden")
+                )
+                require(
+                    control.get_attribute("aria-expanded") == "true",
+                    "Occult Atlas control panel state regressed",
+                )
+
+        driver.get(site_url + "/occult-atlas-app/")
+        wait.until(lambda current: current.current_url.endswith("/occult-atlas/"))
 
         driver.get(build_url)
         wait.until(

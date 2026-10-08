@@ -1,0 +1,47 @@
+{% assign nv_observe_current = include.current | default: '' %}
+{% assign nv_observe_project = site.data.neutriverse_projects.projects | where: 'id', nv_observe_current | first %}
+<nav
+  class="nv-observe-app-nav"
+  data-observe-app-nav
+  data-current-app="{{ nv_observe_current | escape }}"
+  aria-label="OBSERVE 应用导航"
+>
+  <div class="nv-observe-app-nav-home">
+    <a href="{{ '/' | relative_url }}">
+      <strong>NEUTRIVERSE</strong>
+      <span>返回首页</span>
+    </a>
+    <a href="{{ '/observe/' | relative_url }}">
+      <strong>OBSERVE</strong>
+      <span>观察目录</span>
+    </a>
+  </div>
+
+  <ul class="nv-observe-app-nav-switcher" aria-label="切换观察界面">
+    {% for project in site.data.neutriverse_projects.projects %}
+      {% if project.contexts contains 'observe' and project.links.application %}
+        <li>
+          <a
+            data-observe-app-link="{{ project.id | escape }}"
+            href="{{ project.links.application | relative_url }}"
+            {% if project.id == nv_observe_current %}aria-current="page"{% endif %}
+          >
+            <strong>{{ project.name }}</strong>
+            <span>观察界面</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  {% if nv_observe_project.detail_url %}
+    <a
+      class="nv-observe-app-nav-record"
+      data-observe-project-link="{{ nv_observe_project.id | escape }}"
+      href="{{ nv_observe_project.detail_url | relative_url }}"
+    >
+      <strong>PROJECT RECORD</strong>
+      <span>了解 {{ nv_observe_project.name }}</span>
+    </a>
+  {% endif %}
+</nav>

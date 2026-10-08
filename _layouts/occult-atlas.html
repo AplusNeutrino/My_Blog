@@ -10,9 +10,12 @@
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     {% include poe-night-mode.html %}
     <link rel="stylesheet" href="{{ '/occult-atlas-app/styles.css' | relative_url }}?v={{ site.data.occult_atlas.asset_version }}">
+    <link rel="stylesheet" href="{{ '/assets/css/neutriverse-observe-shell.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
   </head>
   <body>
-    <div class="astro-home">
+    <div class="nv-observe-app-frame">
+      {% include neutriverse-observe-app-nav.html current='occult-atlas' %}
+      <div class="astro-home">
       <header class="sky-command" aria-label="Occult Atlas 命令区">
         <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-expanded="true" aria-label="收起左侧星盘菜单">
           <span aria-hidden="true">‹</span>
@@ -168,6 +171,7 @@
           </aside>
         </section>
       </main>
+      </div>
     </div>
 
     <script>

@@ -9,12 +9,14 @@ robots: noindex,nofollow
 ravenis: true
 ---
 
-<div
-  id="ravenis-app"
-  class="ravenis-app"
-  data-base-url="{{ '/ravenis/data/' | relative_url }}"
-  aria-busy="true"
->
+<div class="ravenis-app-shell">
+  {% include neutriverse-observe-app-nav.html current='ravenis' %}
+  <div
+    id="ravenis-app"
+    class="ravenis-app"
+    data-base-url="{{ '/ravenis/data/' | relative_url }}"
+    aria-busy="true"
+  >
   <header class="ravenis-hero" aria-labelledby="ravenis-heading">
     <div>
       <p class="ravenis-kicker">PUBLIC INTELLIGENCE LOG · 30 DAYS</p>
@@ -158,6 +160,7 @@ ravenis: true
   </section>
 
   <noscript><p class="ravenis-error">历史检索需要启用 JavaScript；公开摘要本身不包含正文。</p></noscript>
+  </div>
 </div>
 
 <script src="{{ '/assets/js/ravenis.js' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
