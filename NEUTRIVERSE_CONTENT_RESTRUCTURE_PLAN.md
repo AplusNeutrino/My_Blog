@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T28 done; T29 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T28 done; T29 in progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T28 done，T29 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T28 已在 ABOUT 单一数据源中增加可读身份、带日期/来源/维护点的站点 Currently、公开互联网坐标与网站理念；旧 `2026-08-17` 个人状态继续独立标为历史快照，精确 CI/Pages 通过。下一项 T29 个人/网站时间线与 Library/友链/旅行关系。
+**当前状态：计划细化与启动决定已完成，T00–T28 done，T29 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T28 已在 ABOUT 单一数据源中增加可读身份、带日期/来源/维护点的站点 Currently、公开互联网坐标与网站理念；旧 `2026-08-17` 个人状态继续独立标为历史快照，精确 CI/Pages 通过。当前执行 T29 个人/网站时间线与 Library/友链/旅行关系。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T28 = done，T29 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T28 = done，T29 = in progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = c3dc0e3e9d1bc5301483702579bb04d95c936dc4；checkpoint = T28 done；next = T29；completion = IN PROGRESS.
+主计划当前运行字段：active_run = T29；branch = main；base = 56aedf616da9b58162e8bfb5071a1356e0468e28；checkpoint = T28 done；next = T29 implementation；completion = IN PROGRESS.
 
 T20 本次范围：实现 T18 已配置但尚未渲染的 Current Signal、Featured 与 System Status，保持首页完整顺序 Identity → Latest Transmissions → Explore → Current Signal → Featured → System Status。Current Signal 只使用已批准的“Neutriverse 网站重构”及其站内说明；Featured 优先使用 `neutriverse_home.featured.posts` 中仍公开可见的文章，不足时依次从 `home_popular.posts` 与最新公开文章补足到最多 4 条，始终排除 hidden 且不显示访问量；System Status 仅从公开内容动态计算 Records、posts/fragments 分解与最后更新时间，项目目录在 T21 建立前无数据则不渲染项目指标，作为自然降级而非伪造数量。拟改首页 layout、共享 CSS、首页配置契约测试、新增 T20 静态回归及 390px Chrome 门禁、主计划/日志；不改文章/Fragment 原文或 metadata、旧 URL、hidden/noindex、外部项目，也不提前实现 T21 项目 schema。验收为六区块顺序、Current Signal 唯一来源、精选 4 条公开且链接真实、状态值与公开源一致、无项目源时项目指标缺席、两主题/390px/回归/Jekyll/Pages 对精确 SHA 通过。
 
@@ -1123,6 +1123,8 @@ T27 验收证据：`_data/neutriverse_about.yml` 成为 ABOUT 身份、状态、
 T28 本次范围：在 T27 的 ABOUT 单一数据源上增加四个明确区块：可读的站点身份、仅描述网站工作的 Currently、由现有公开站点配置支持的互联网身份/邻居关系、以及从本主计划与现有四入口提炼的网站理念。Currently 只使用已批准的“Neutriverse 网站重构”，携带 `as_of` 和“网站维护状态、非个人实时状态”说明；旧 `2026-08-17` 内容继续独立标作历史快照。拟改 `_data/neutriverse_about.yml`、ABOUT profile include、Night/Prospero Light 样式、静态回归与 390px Chrome 门禁；不使用聊天记忆或外部履历，不新增单位/住址/健康/私人联系方式，不改文章/Fragment、Library/友链/旅行数据与功能、旧 URL、Gate/NAVI、外部项目，也不提前实现 T29 时间线。验收为身份文案可读，Currently 的来源/日期/维护点清楚且不虚构个人实时状态，公开互联网入口有站内依据且安全使用外链属性，网站理念与四入口及连续性原则一致；双主题、键盘、390px、全回归、production Jekyll 与精确 head Pages 成功。预计剩余：完成实现与验证后 T28 done，T29 ready。
 
 T28 验收证据：`_data/neutriverse_about.yml` schema 升至 2，在同一来源内增加身份、Currently、公开坐标与四条网站理念；Currently 唯一内容为已批准的“Neutriverse 网站重构”，带 `2026-10-08`、主计划来源、明确维护字段及“网站维护状态 · 非个人实时状态”。公开坐标只使用既有 `neutriverse.uk`、GitHub `AplusNeutrino`、X `@Neutrino_X` 与 `/links/`，外链使用 `noopener noreferrer`；没有邮箱、单位、住址、健康或聊天记忆资料。旧 `2026-08-17` 个人动态仍在独立历史快照中并明确非实时。范围提交 `d7081afdd5e769c946e0cefacd7d78728ba92f79`；实现及 final head `c3dc0e3e9d1bc5301483702579bb04d95c936dc4`。本地 157 tests、T01 baseline protection 与 diff check 通过；本机无 Bundler，未把本地 Jekyll 记为成功。[Actions run 37741773002](https://github.com/AplusNeutrino/My_Blog/actions/runs/37741773002) 对应该精确 head，completed/success；build `113193881526` 的 157 tests、production Jekyll、390px Chrome、ABOUT 当前/历史语义、四坐标、四理念、双主题与 artifact upload 全部成功，deploy `113194183144` 成功。artifact `11534355036`，digest `sha256:563950bde7229db798a72e6f9e7f6000163f6b339582c5399d3dc89ea94771c5`。未改文章/Fragment、旧 URL、Library/友链/旅行数据与功能、Gate/NAVI 或外部项目，未提前实现 T29。T28 done，T29 ready，无新增用户问题。
+
+T29 本次范围：在 ABOUT 单一数据源中增加“网站与项目轨迹”时间线，并把 Library、友情链接、旅行记忆三类关系整理为可读且可机械核对的关系区块。时间线只采用仓库历史、现有站内页面与公开项目记录能够直接证明的站点/项目事件，每项同时给出日期、来源标签与真实来源链接，不把个人经历、聊天记忆或推断写成事件。Library 与友链继续链接既有 `/library/`、`/links/`；旅行关系明确标为“能力保留、当前未公开”，不生成可点击的隐藏入口，不公开地点数据，同时保持 `_tabs/about.md` 中 `travel_globe_enabled = false`、旅行数据和脚本原样。拟改 ABOUT 数据/include、ABOUT 关系入口数据、Night/Prospero Light 样式、静态回归与 390px Chrome 门禁；不改文章/Fragment、Library 同步、友链/旅行数据、Gate/NAVI、旧 URL或外部项目。验收为至少四个按日期排列且逐项可追溯的站点/项目事件，三类关系状态与动作准确，现有 Library 同步与旅行实现受保护，双主题、键盘、390px、全回归、production Jekyll 与精确 head Pages 成功。预计剩余：完成实现与验证后 T29 done，T30 ready。
 
 T24 本次范围：为 Ravenis、Occult Atlas、Gate、OfficeSpire 建立 `/build/<stable-id>/` 数据驱动详情页，并将 BUILD 卡片从旧应用/仓库或无动作状态统一引向项目事实页。Ravenis 与 Occult Atlas 详情继续 `noindex`，现有应用 URL 与 noindex 不变；Gate 详情不公开 `/gate/` 工具入口并继续 noindex；OfficeSpire 只使用公开 README，保留 `implemented_unverified`，不把 source-complete 或版本 metadata 误称为 runtime-qualified / release。拟改 `_data/neutriverse_projects.yml`、项目 schema、四个详情入口、详情静态回归、BUILD 列表预期与 390px Chrome 门禁；复用现有 layout/CSS，若无需变更则不触碰。验收为四条 canonical 详情生成、七项目均有唯一详情入口；Ravenis/Occult 的应用动作存在且旧应用保持 noindex，Gate 无公开应用/仓库动作，OfficeSpire 仅有真实 repository/文档入口和精确状态；不存在的 Project Log/Release 自然降级；来源可追溯；文章/Fragment、旧 URL、外部仓库不变；全回归、production Jekyll、390px 双主题与精确 head Pages 成功。预计剩余：完成实现与验证后 T24 done，T25 ready。
 

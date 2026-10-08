@@ -20,6 +20,16 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
+## Run 2026-10-08 15:55 — T29 网站/项目时间线与 ABOUT 关系
+
+- Task：T29；status = in progress；依赖 T28 done。
+- Base / branch：`56aedf616da9b58162e8bfb5071a1356e0468e28` / main；T28 实现 head 的 [Actions run 37741773002](https://github.com/AplusNeutrino/My_Blog/actions/runs/37741773002) completed/success，随后仅文档 head `56aedf6` 的精确 Actions 也 completed/success，无 validation-pending。
+- 本次最小交付：在 ABOUT 单一数据源中增加可追溯的网站/项目时间线，以及 Library、友链、旅行记忆三类关系区块。
+- 拟改：`_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`_data/neutriverse_sections.yml`、`assets/css/NormaiNight.css`、`assets/css/ProsperoLight.css`、ABOUT/section 回归、`tools/check_mobile_sidebar.py`、主计划与本日志。
+- 验收：时间线至少四项，按日期排列，每项有日期、来源标签和真实链接，且只记录仓库/站内可证明的网站或项目事件；Library 与友链继续进入既有页面；旅行关系显示“能力保留、当前未公开”且没有隐藏入口；`travel_globe_enabled = false`、旅行数据/脚本与 Library 同步保持；两主题、键盘、390px、全回归、Jekyll 与精确 head Pages 通过。
+- 边界：不使用聊天记忆/履历或新增私人事实；不改文章/Fragment、front matter、旧 URL、Library 同步、友链/旅行数据、Gate/NAVI、外部项目；不公开旅行地点或隐藏页面，不提前实施 T30。
+- 下一步：先提交本范围记录，再实现与验证；无新增用户问题。
+
 ## Run 2026-10-08 15:02 — T28 ABOUT 身份、Currently、互联网关系与网站理念
 
 - Task：T28；status = done；依赖 T27 done。
