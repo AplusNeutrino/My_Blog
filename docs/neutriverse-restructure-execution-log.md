@@ -22,12 +22,22 @@
 
 ## Run 2026-10-08 15:02 — T28 ABOUT 身份、Currently、互联网关系与网站理念
 
-- Task：T28；status = in-progress；依赖 T27 done。
+- Task：T28；status = done；依赖 T27 done。
 - Base / branch：`fabdc75c7e716be2daec746f2bbdeaff5f04cc10` / main；base 的 [Actions run 37736295752](https://github.com/AplusNeutrino/My_Blog/actions/runs/37736295752) completed/success，无 validation-pending。
 - 本次最小交付：在 T27 单一 ABOUT 数据源上增加身份、站点 Currently、公开互联网身份/邻居关系和网站理念四个可读区块；把当前站点工作与旧个人历史快照明确分开。
 - 拟改：`_data/neutriverse_about.yml`、`_includes/neutriverse-about-profile.html`、`assets/css/NormaiNight.css`、`assets/css/ProsperoLight.css`、ABOUT 回归、`tools/check_mobile_sidebar.py`、主计划与本日志。
 - 验收：Currently 只写已批准的“Neutriverse 网站重构”，包含 `as_of`、来源和“网站维护状态/非个人实时状态”，并给出唯一维护数据点；互联网入口只来自现有 `_config.yml` 与公开站内路由，外链安全；网站理念符合四入口、长期连续性与清晰导航优先原则；旧 `2026-08-17` 快照继续明确非实时；两主题、键盘、390px、全回归、Jekyll 与精确 head Pages 通过。
 - 边界：不使用聊天记忆/履历或新增私人事实；不改文章/Fragment、旧 URL、Library 同步、友链/旅行数据及功能、Gate/NAVI、项目仓库；不提前实现 T29 时间线。
+- 范围 / 实现及 final head：`d7081afdd5e769c946e0cefacd7d78728ba92f79` / `c3dc0e3e9d1bc5301483702579bb04d95c936dc4`；均以 expected head 非强推更新 main。
+- 实际交付：ABOUT 数据 schema 升至 2；身份区改为语义化标题与段落；新增站点 Currently、公开坐标、网站理念区块。Night 与 Prospero Light 共用同一 DOM/内容层级，并在窄屏折为单列。
+- Currently：只使用已批准的“Neutriverse 网站重构”，标注 `2026-10-08`、主计划来源、`_data/neutriverse_about.yml → currently` 维护点与“网站维护状态 · 非个人实时状态”；旧 `2026-08-17` 动态继续独立显示“历史快照 · 非实时状态”。
+- 互联网与隐私：仅列已有 Neutriverse、GitHub `AplusNeutrino`、X `@Neutrino_X`、`/links/`；外链带 `target=_blank` 与 `noopener noreferrer`。未新增邮箱、单位、住址、健康、履历或聊天记忆事实。
+- 网站理念：四条文字分别落实“写作属于网站本身”“清晰导航先于世界观”“连续性比重写重要”“状态可维护且诚实”，与现有四入口和保护边界一致。
+- 本地验证：`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v` 为 157/157；T01 baseline protection passed；`python -m py_compile tools/check_mobile_sidebar.py` 与 `git diff --check` 成功。本机无 Bundler，未把本地 Jekyll 记为成功。
+- 最终精确验证：[Actions run 37741773002](https://github.com/AplusNeutrino/My_Blog/actions/runs/37741773002) 对应 head `c3dc0e3e9d1bc5301483702579bb04d95c936dc4`，completed/success；build `113193881526` 的 157 tests、production Jekyll、390px Chrome、ABOUT 当前/历史语义、四坐标、四理念、无横向溢出、双主题、Ravenis 与 artifact upload 全部成功；deploy `113194183144` 成功。
+- Artifact：`11534355036`；digest `sha256:563950bde7229db798a72e6f9e7f6000163f6b339582c5399d3dc89ea94771c5`。
+- 保护：未改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、Library/友链/旅行数据或功能、Gate/NAVI、外部项目；未提前实现 T29。
+- 结论：T28 done；active_run = none；checkpoint = T28 done；next = T29。无新增用户问题。
 
 ## Run 2026-10-08 14:01 — T27 ABOUT 数据与内容重组
 
