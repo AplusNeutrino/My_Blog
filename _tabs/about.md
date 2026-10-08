@@ -6,7 +6,8 @@ order: 5
 excerpt_separator: <!-- about-excerpt-end -->
 ---
 
-<div class="nv-about-entry">
+<div class="nv-about-entry" data-neutriverse-section="about">
+  {% include neutriverse-section-identity.html current='about' %}
   {% include neutriverse-primary-nav.html current='about' %}
   {% include neutriverse-section-links.html current='about' %}
 </div>

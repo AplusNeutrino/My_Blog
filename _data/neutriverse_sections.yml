@@ -6,6 +6,8 @@ sections:
     routes: [/think/, /thoughts/, /archives/, /tags/, /categories/, /posts/]
     kicker: WRITING / INQUIRY
     summary: 从文章、笔记与思维片段进入持续生长的写作记录。
+    signal_label: DRAFT / TRACE
+    signal_note: 纸面线 · 从片段到可检索写作
     links:
       - label: 思维片段
         kind: Fragment
@@ -35,6 +37,8 @@ sections:
     routes: [/build/, /projfitzgerald/]
     kicker: PROJECTS / SYSTEMS
     summary: 从已有项目记录与可用界面进入正在形成的工具和系统。
+    signal_label: ASSEMBLE / VERIFY
+    signal_note: 构造网格 · 从来源到可核对系统
     links:
       - label: FitzSight
         kind: Project tracker
@@ -56,6 +60,8 @@ sections:
     routes: [/observe/, /ravenis/, /occult-atlas/, /occult-atlas-app/]
     kicker: WATCH / INTERPRET
     summary: 进入持续整理外部信号与时间结构的公开观察界面。
+    signal_label: SCAN / CONTEXT
+    signal_note: 观测准星 · 从信号到上下文
   - id: about
     name: ABOUT
     label_zh: 我是谁以及这个站如何生长
@@ -63,6 +69,8 @@ sections:
     routes: [/about/, /library/, /links/]
     kicker: IDENTITY / CONTINUITY
     summary: 了解作者节点、网站状态，以及阅读、友链和旅行记录之间的关系。
+    signal_label: ORIGIN / CONTINUITY
+    signal_note: 连续轨道 · 从当前节点回看生长
     links:
       - label: 中间层大图书馆
         kind: Library

@@ -154,6 +154,48 @@ def read_state(driver):
     )
 
 
+def read_section_identity(driver):
+    return driver.execute_script(
+        r"""
+        const identity = document.querySelector('[data-section-identity]');
+        const nav = document.querySelector('.nv-primary-nav');
+        const mark = identity?.querySelector('.nv-section-signal-mark');
+        return {
+          id: identity?.dataset.sectionIdentity || null,
+          name: identity?.querySelector('h1')?.textContent.trim() || null,
+          label: identity?.querySelector('.nv-section-label')?.textContent.trim() || null,
+          summary: identity?.querySelector('.nv-section-summary')?.textContent.trim() || null,
+          signal: identity?.querySelector('.nv-section-signal strong')?.textContent.trim() || null,
+          note: identity?.querySelector('.nv-section-signal > span:last-child')?.textContent.trim() || null,
+          signalAria: identity?.querySelector('.nv-section-signal')?.getAttribute('aria-label') || null,
+          markVisible: Boolean(mark && mark.getBoundingClientRect().height > 0),
+          navCount: nav?.querySelectorAll('.nv-primary-nav-link').length || 0,
+          currentCount: nav?.querySelectorAll('[aria-current="page"]').length || 0,
+          bodyClientWidth: document.body.clientWidth,
+          bodyScrollWidth: document.body.scrollWidth
+        };
+        """
+    )
+
+
+def require_section_identity(driver, expected):
+    actual = read_section_identity(driver)
+    require(
+        actual["id"] == expected["id"]
+        and actual["name"] == expected["name"]
+        and actual["label"] == expected["label"]
+        and actual["signal"] == expected["signal"]
+        and expected["note"] in (actual["note"] or "")
+        and actual["note"] in (actual["signalAria"] or "")
+        and bool(actual["summary"])
+        and actual["markVisible"]
+        and actual["navCount"] == 4
+        and actual["currentCount"] == 1
+        and actual["bodyScrollWidth"] <= actual["bodyClientWidth"],
+        f"section identity contract failed: {actual}",
+    )
+
+
 
 def read_series_navigation(driver):
     return driver.execute_script(
@@ -288,6 +330,13 @@ def main():
         wait.until(lambda current: current.execute_script("return document.readyState") == "complete")
 
         initial = read_state(driver)
+        require_section_identity(driver, {
+            "id": "think",
+            "name": "THINK",
+            "label": "我如何思考与表达",
+            "signal": "DRAFT / TRACE",
+            "note": "纸面线",
+        })
         require(380 <= initial["innerWidth"] <= 400, f"unexpected viewport: {initial}")
         require(initial["bodyScrollWidth"] <= initial["bodyClientWidth"], f"horizontal overflow: {initial}")
         require(initial["triggerVisible"], f"mobile trigger hidden: {initial}")
@@ -758,6 +807,13 @@ def main():
             )
 
         build_initial = read_projects(driver)
+        require_section_identity(driver, {
+            "id": "build",
+            "name": "BUILD",
+            "label": "我正在制作什么",
+            "signal": "ASSEMBLE / VERIFY",
+            "note": "构造网格",
+        })
         require(
             build_initial["ids"] == [
                 "fitzsight",
@@ -964,6 +1020,13 @@ def main():
             };
             """
         )
+        require_section_identity(driver, {
+            "id": "observe",
+            "name": "OBSERVE",
+            "label": "我持续观察什么",
+            "signal": "SCAN / CONTEXT",
+            "note": "观测准星",
+        })
         require(
             observe_directory["ids"] == ["ravenis", "occult-atlas"]
             and observe_directory["visibility"]
@@ -1394,6 +1457,13 @@ def main():
             };
             """
         )
+        require_section_identity(driver, {
+            "id": "about",
+            "name": "ABOUT",
+            "label": "我是谁以及这个站如何生长",
+            "signal": "ORIGIN / CONTINUITY",
+            "note": "连续轨道",
+        })
         require(
             about_state["schema"] == "3"
             and about_state["currentAsOf"] == "2026-10-08"

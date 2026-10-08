@@ -1,0 +1,20 @@
+{% assign nv_identity_id = include.current | default: page.section_id %}
+{% assign nv_identity = site.data.neutriverse_sections.sections | where: 'id', nv_identity_id | first %}
+<header
+  class="nv-section-identity"
+  data-section-identity="{{ nv_identity_id }}"
+  aria-labelledby="nv-section-title-{{ nv_identity_id }}"
+>
+  <div class="nv-section-identity-copy">
+    <p class="nv-section-kicker">{{ nv_identity.kicker }}</p>
+    <h1 id="nv-section-title-{{ nv_identity_id }}">{{ nv_identity.name }}</h1>
+    <p class="nv-section-label">{{ nv_identity.label_zh }}</p>
+    <p class="nv-section-summary">{{ nv_identity.summary }}</p>
+  </div>
+  <div class="nv-section-signal" aria-label="入口视觉信号：{{ nv_identity.signal_note }}">
+    <span class="nv-section-signal-mark" aria-hidden="true"></span>
+    <span class="nv-section-signal-kicker">SECTION SIGNAL</span>
+    <strong>{{ nv_identity.signal_label }}</strong>
+    <span>{{ nv_identity.signal_note }}</span>
+  </div>
+</header>

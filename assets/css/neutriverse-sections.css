@@ -197,14 +197,23 @@
   }
 }
 
-.nv-section-header {
-  max-width: 46rem;
+.nv-section-identity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem);
+  max-width: 58rem;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: stretch;
   margin: 0 0 2rem;
+}
+
+.nv-section-identity-copy {
+  min-width: 0;
   padding-left: 1rem;
   border-left: 1px solid var(--nv-border-strong);
 }
 
 .nv-section-kicker,
+.nv-section-signal-kicker,
 .nv-section-links-heading p,
 .nv-primary-nav-name,
 .nv-section-link-kind {
@@ -217,7 +226,7 @@
   text-transform: uppercase;
 }
 
-.nv-section-header h1 {
+.nv-section-identity h1 {
   margin: 0.35rem 0 0;
   color: var(--nv-text-strong);
   font-family: var(--nv-font-inscription);
@@ -239,6 +248,77 @@
   margin: 0.75rem 0 0;
   color: var(--nv-text-muted);
   line-height: 1.75;
+}
+
+.nv-section-signal {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 0.5rem;
+  background: var(--nv-surface-1);
+}
+
+.nv-section-signal-mark {
+  position: relative;
+  display: block;
+  min-height: 5rem;
+  margin-bottom: 0.55rem;
+  overflow: hidden;
+  border: 1px solid var(--nv-border);
+  background-color: var(--nv-surface-2);
+}
+
+.nv-section-signal-kicker {
+  color: var(--nv-accent);
+}
+
+.nv-section-signal strong {
+  color: var(--nv-text-strong);
+  font-family: var(--nv-font-inscription);
+  font-size: 0.9rem;
+  letter-spacing: 0.07em;
+}
+
+.nv-section-signal > span:last-child {
+  color: var(--nv-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Entrance personality is a secondary, non-interactive texture; labels carry its meaning. */
+[data-section-identity='think'] .nv-section-signal-mark {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 0.85rem,
+    color-mix(in srgb, var(--nv-accent) 28%, transparent) 0.85rem,
+    color-mix(in srgb, var(--nv-accent) 28%, transparent) 0.9rem
+  );
+}
+
+[data-section-identity='build'] .nv-section-signal-mark {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--nv-accent) 24%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--nv-accent) 24%, transparent) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+}
+
+[data-section-identity='observe'] .nv-section-signal-mark {
+  background-image:
+    linear-gradient(90deg, transparent 49%, color-mix(in srgb, var(--nv-accent) 48%, transparent) 49%, color-mix(in srgb, var(--nv-accent) 48%, transparent) 51%, transparent 51%),
+    linear-gradient(transparent 49%, color-mix(in srgb, var(--nv-accent) 48%, transparent) 49%, color-mix(in srgb, var(--nv-accent) 48%, transparent) 51%, transparent 51%),
+    radial-gradient(circle, transparent 28%, color-mix(in srgb, var(--nv-accent) 42%, transparent) 29%, color-mix(in srgb, var(--nv-accent) 42%, transparent) 31%, transparent 32%);
+}
+
+[data-section-identity='about'] .nv-section-signal-mark {
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--nv-accent) 0 0.18rem, transparent 0.2rem),
+    radial-gradient(ellipse at 50% 50%, transparent 34%, color-mix(in srgb, var(--nv-accent) 42%, transparent) 35%, color-mix(in srgb, var(--nv-accent) 42%, transparent) 37%, transparent 38%),
+    radial-gradient(ellipse at 50% 50%, transparent 53%, color-mix(in srgb, var(--nv-border-strong) 70%, transparent) 54%, color-mix(in srgb, var(--nv-border-strong) 70%, transparent) 56%, transparent 57%);
 }
 
 .nv-primary-nav {
@@ -778,6 +858,24 @@
 }
 
 @media (max-width: 767.98px) {
+  .nv-section-identity {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .nv-section-signal {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0.875rem;
+  }
+
+  .nv-section-signal-mark {
+    grid-row: 1 / span 3;
+    min-height: 4.5rem;
+    margin: 0;
+  }
+
   .nv-primary-nav-list,
   .nv-section-link-list {
     grid-template-columns: 1fr;

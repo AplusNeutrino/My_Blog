@@ -29,6 +29,8 @@ class NeutriverseSectionsTest(unittest.TestCase):
                 self.assertIn(f"    label_zh: {label}", body)
                 self.assertIn(f"    url: {url}", body)
                 self.assertRegex(body, r"    summary: \S.+")
+                self.assertRegex(body, r"    signal_label: \S.+")
+                self.assertRegex(body, r"    signal_note: \S.+")
                 if section_id == "observe":
                     self.assertNotIn("    links:", body)
                 else:
@@ -44,19 +46,26 @@ class NeutriverseSectionsTest(unittest.TestCase):
 
     def test_shared_layout_and_navigation_are_data_driven(self):
         layout = (ROOT / "_layouts" / "neutriverse-section.html").read_text(encoding="utf-8")
+        identity = (ROOT / "_includes" / "neutriverse-section-identity.html").read_text(encoding="utf-8")
         nav = (ROOT / "_includes" / "neutriverse-primary-nav.html").read_text(encoding="utf-8")
         links = (ROOT / "_includes" / "neutriverse-section-links.html").read_text(encoding="utf-8")
-        self.assertIn("site.data.neutriverse_sections.sections", layout)
+        self.assertIn("neutriverse-section-identity.html", layout)
         self.assertIn("neutriverse-primary-nav.html", layout)
         self.assertIn("neutriverse-section-links.html", layout)
         self.assertIn("site.data.neutriverse_sections.sections", nav)
         self.assertIn('aria-current="page"', nav)
+        self.assertIn("site.data.neutriverse_sections.sections", identity)
+        self.assertIn('data-section-identity="{{ nv_identity_id }}"', identity)
+        self.assertIn("nv_identity.signal_label", identity)
+        self.assertIn("nv_identity.signal_note", identity)
         self.assertIn("nv_section.links", links)
 
     def test_about_keeps_its_route_and_uses_shared_components(self):
         about = (ROOT / "_tabs" / "about.md").read_text(encoding="utf-8")
         self.assertIn("neutriverse-primary-nav.html current='about'", about)
         self.assertIn("neutriverse-section-links.html current='about'", about)
+        self.assertIn("neutriverse-section-identity.html current='about'", about)
+        self.assertIn('data-neutriverse-section="about"', about)
         self.assertNotIn("permalink:", about)
 
     def test_public_navigation_does_not_expose_hidden_tools_or_excluded_project(self):
@@ -104,6 +113,9 @@ class NeutriverseSectionsTest(unittest.TestCase):
         shared = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(encoding="utf-8")
         self.assertIn("/assets/css/neutriverse-sections.css", hook)
         self.assertIn(".nv-primary-nav", shared)
+        self.assertIn(".nv-section-identity", shared)
+        for section_id in ("think", "build", "observe", "about"):
+            self.assertIn(f"[data-section-identity='{section_id}']", shared)
         self.assertIn("outline: 2px solid var(--nv-focus)", shared)
         self.assertIn("@media (max-width: 767.98px)", shared)
         self.assertIn("@media (prefers-reduced-motion: reduce)", shared)
