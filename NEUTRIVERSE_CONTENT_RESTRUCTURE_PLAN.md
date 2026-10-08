@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T32 done; T33 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T33 done; T34 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T32 done，T33 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T32 已让 Search 覆盖 39 篇公开文章与 5 条 Fragments，并在原 `/feed.xml` 提供最近 20 个公开写作项的 Atom feed；5 篇 hidden 均不进入公开发现面，精确 CI/Pages 通过。下一项 T33 canonical、SEO、sitemap 与旧链接检查。
+**当前状态：计划细化与启动决定已完成，T00–T33 done，T34 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T33 已收敛 canonical、noindex、robots 与 sitemap 契约，并用 production build 门禁验证保护路由、兼容重定向、旧 URL 与站内页面链接；精确 CI/Pages 通过。下一项 T34 性能/资源降级与现有集成回归。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T32 = done，T33 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T33 = done，T34 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T33-20261009-0103；branch = main；base = 14f5463145c2a2584414c79fe4b1b59e2c118751；checkpoint = T32 done；next = T33 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = 59b1886ec40df6eaae39835b11d3032e8bd73e49；checkpoint = T33 done；next = T34 ready；completion = IN PROGRESS.
 
 T33 本次范围：依据 `docs/neutriverse-route-visibility-map.md` 收敛 canonical、robots 与 sitemap 契约，并新增 production build 产物门禁。明确修复 Gate 的 sitemap 排除与 head 内 noindex、NAVI 的显式 noindex、Occult Atlas 兼容入口 canonical，以及 Ravenis 的 robots.txt `Disallow`/页面 noindex 冲突；新增无第三方依赖的构建产物检查器，核对 canonical 单值与内部目标、公开入口 SEO 元数据、noindex/sitemap 排除、兼容重定向无环、T01 基线旧 URL 可生成及站内链接无断链，并接入 Pages workflow 和静态契约测试。拟改 `gate/index.md`、`_hidden_pages/navi.md`、`_layouts/gate.html`、`_includes/metadata-hook.html`、`occult-atlas-app/index.html`、`assets/robots.txt`、`tools/check_seo_routes.py`、`tests/test_seo_routes.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。边界是不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、项目/ABOUT 事实、Library/友链/旅行、应用数据或外部项目；Gate/NAVI 隐蔽程度与 URL 不变，Ravenis/Occult Atlas 应用及相关项目详情继续 noindex。验收为全回归、T01 baseline、production Jekyll、新 SEO/路由产物门禁、既有浏览器门禁以及精确实现 head 的 Pages build/deploy 全部成功；无新增用户问题。
+
+T33 验收证据：Gate 现显式 `sitemap: false` / `robots: noindex,nofollow` 且 robots meta 位于共享 head；NAVI 显式 noindex；`/occult-atlas-app/` 经过 Jekyll 处理并 canonical 到 `/occult-atlas/`；Ravenis 从 robots.txt 的 Disallow 移除而页面继续 noindex，使爬虫可读取索引指令。构建产物门禁 `tools/check_seo_routes.py` 核对 T01 基线 44 篇文章与 14 个页面的实际大小写/Unicode 路由、canonical 唯一值与内部目标、五个公开入口标题/描述/sitemap、十条 noindex 路由、三条兼容跳转及无环、robots sitemap 声明和全站内部页面链接；预检上一轮 artifact 时还发现既有 `/projfitzgerald/` 缺 canonical，已补齐。范围提交 `da5813542651e8ad6de571b20eb67630a461e362`；实现及 final head `59b1886ec40df6eaae39835b11d3032e8bd73e49`。本地 178/178 tests、T01 baseline protection（44 posts / 5 Fragments / 5 hidden；Type essay/note/fragment = 5/39/5）、Python 编译与 diff check 通过；上一轮 artifact 在模拟五项修复后新门禁通过。[Actions run 37814693228](https://github.com/AplusNeutrino/My_Blog/actions/runs/37814693228) 对应该精确 head，completed/success；build `113440190547` 的 178 tests、production Jekyll、Search/Atom、SEO/路由、移动与 40 项响应式/无障碍矩阵、Ravenis 及 artifact upload 全部成功，deploy `113440827853` 成功。artifact `11565939013` / `sha256:eac9a70a9996d2da5454e86e7586f2c05c15f46491757d686cfa0ff5fb67bf2e`。未改文章/Fragment 原文或 front matter、文件名/date/slug/permalink、旧 URL、项目/ABOUT 事实、应用数据或外部项目；T33 done，T34 ready，无新增用户问题。
 
 T32 本次范围：把现有写作发现面收敛为明确的公开策略：Search 索引全部 39 篇公开文章与 5 条 Fragments；`/feed.xml` 继续使用原 URL，并按真实日期输出最近 20 个公开写作项，文章与 Fragment 共用稳定链接，hidden 永不进入两类公开输出。拟新增单一 discovery 配置、覆盖现有 search JSON、提供站内 Atom feed、在页面 head 宣告 feed、增加构建产物校验脚本并接入 production workflow，同时添加静态契约测试；不改正文/Fragment 文本、metadata、旧 URL、hidden/noindex、项目/ABOUT/应用数据或外部仓库。验收为构建后 Search 恰含 44 个唯一公开写作项与 5 个稳定 Fragment 锚点，Atom feed 顺序/上限/自链接/条目链接正确且含 Fragments，不含 5 篇 hidden，回归、T01 baseline、Jekyll、既有浏览器门禁及精确 head Pages build/deploy 成功。预计剩余：实现与验证后 T32 done，T33 ready。
 

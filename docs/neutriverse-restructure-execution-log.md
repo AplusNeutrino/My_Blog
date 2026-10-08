@@ -4,7 +4,7 @@
 
 ## Run 2026-10-09 01:03 — T33 canonical、SEO、sitemap 与旧链接检查
 
-- Task / parent：T33；status = in-progress；依赖 T32 done。
+- Task / parent：T33；status = done；依赖 T32 done。
 - Base SHA / branch：`14f5463145c2a2584414c79fe4b1b59e2c118751` / main；与 `origin/main` 一致，开始前工作树干净。
 - 现状证据：权威路由表已记录 Gate 缺显式 sitemap 排除、NAVI 缺显式 noindex、Occult Atlas 兼容入口缺目标 canonical，以及 Ravenis 同时被 robots.txt Disallow 与页面 noindex 标记的冲突；现有 production workflow 尚无全站 canonical/sitemap/旧链接/断链门禁。
 - 本次最小交付：按 `docs/neutriverse-route-visibility-map.md` 修复上述四项契约差异；新增 production build SEO/路由验证器，覆盖 canonical、公开入口 SEO、noindex/sitemap、兼容重定向、T01 基线旧 URL 与站内断链，并接入 Pages workflow。
@@ -12,6 +12,12 @@
 - 验收：每个生成 HTML 至多一个 canonical，所需公开页 canonical/标题/描述正确且内部 canonical 目标存在；Q3 与 Gate/NAVI 页面 noindex 且从 sitemap/search/feed 排除；兼容入口目标正确且无重定向环；T01 基线全部旧 URL 仍生成；站内页面链接无断链；全回归、T01 baseline、production Jekyll、既有门禁、新产物检查及精确实现 head 的 Pages build/deploy 成功。
 - 边界：不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、应用数据或外部项目；Gate/NAVI 隐蔽程度与旧 URL 不变，Ravenis/Occult Atlas 应用及相关项目详情继续 noindex；不提前执行 T34。
 - 用户问题：无；本轮只落实已有权威路由/可见性契约。
+- 范围 / 实现及 final head：`da5813542651e8ad6de571b20eb67630a461e362` / `59b1886ec40df6eaae39835b11d3032e8bd73e49`；均以 expected head 非强推更新 main。
+- 实际交付：Gate 增加显式 sitemap 排除与共享 head 内 noindex；NAVI 增加显式 noindex；Occult Atlas 兼容入口增加 front matter，使目标 canonical 真正由 Jekyll 渲染；Ravenis 从 robots.txt 的 Disallow 移除但页面继续 noindex。上一轮 artifact 预检还识别出 `/projfitzgerald/` 缺 canonical，作为同一 SEO 验收缺陷补齐。
+- 构建门禁：新增无第三方依赖的 `tools/check_seo_routes.py`，并在 Jekyll 后、浏览器门禁前接入 production workflow。它按受保护文件名推导 44 篇文章的真实大小写/Unicode 旧路由并覆盖 14 个基线页面，检查 canonical 单值/主机/目标存在、公开入口 title/description/sitemap、十条 noindex 路由、三条兼容跳转及无环、robots sitemap 声明和站内页面链接无断链。
+- 本地 / 预检：178/178 tests；T01 baseline protection passed（44 posts / 5 Fragments / 5 hidden，Type essay/note/fragment = 5/39/5）；Python 编译与 `git diff --check` 通过。新检查器直接运行于 T32 artifact 时只报告本轮五项既知缺陷；在 artifact 中模拟这些修复后完整通过，未误判大小写 URL、Unicode canonical 或既有站内链接。
+- 精确验证：[Actions run 37814693228](https://github.com/AplusNeutrino/My_Blog/actions/runs/37814693228) 对应 final head `59b1886ec40df6eaae39835b11d3032e8bd73e49`，completed/success；build `113440190547` 的 178 tests、production Jekyll、Search/Atom、新 SEO/路由门禁、移动 Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `113440827853` 成功。artifact `11565939013` / `sha256:eac9a70a9996d2da5454e86e7586f2c05c15f46491757d686cfa0ff5fb67bf2e`。
+- 保护 / 结论：未改文章/Fragment 原文或 front matter、文件名、date/slug/permalink、旧 URL、分类、项目/ABOUT 事实、Library/友链/旅行、应用数据或外部项目；Gate/NAVI 的旧 URL 与隐蔽发现边界不变，Ravenis/Occult Atlas 应用及相关项目详情继续 noindex。T33 done；active_run = none；checkpoint = T33 done；next = T34 ready；无新增用户问题。
 
 ## Run 2026-10-08 20:56 — T32 Search 索引与 RSS/feed 补全
 
