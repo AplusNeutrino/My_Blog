@@ -20,9 +20,9 @@
 
 目前无未解决的启动问题。新问题按 D001、D002 顺序记录，并注明关联任务、影响、已确认边界、推荐方案、状态和首次提出时间。记录后集中通知；不在每小时重复提出已通知的问题。答复回来后同步回写主计划与此队列。
 
-## Run 2026-10-08 09:00 — T23 第一组项目详情范围
+## Run 2026-10-08 09:00 — T23 第一组项目详情
 
-- Task：T23；status = in-progress；依赖 T22 done。
+- Task：T23；status = done；依赖 T22 done。
 - Base / branch：`82e814220f1d6e7490088fb54feffd8bf38cf38f` / main；base 的 [Actions run 37706022964](https://github.com/AplusNeutrino/My_Blog/actions/runs/37706022964) completed/success，无 validation-pending。
 - 第一组：FitzSight、Akasha Notes、Toyosatomimi's Headphone；理由是三者在 My_Blog 内已有 tracker/progress 或公开 Project Log，来源和动作边界最完整。
 - 本次最小交付：三个 `/build/<stable-id>/` 详情入口，共用项目模板；BUILD 卡片先进入详情，详情继续链接现有 tracker、仓库与 Project Log。
@@ -30,6 +30,13 @@
 - 验收：三详情 canonical/ID 正确；概览、状态降级、真实动作、关联文章、来源均可见；未知状态不推断；旧 tracker/文章 URL 不变；其余四项目不提前生成；回归、Jekyll、390px 双主题与精确实现 SHA Pages 成功。
 - 边界：不复制或修改文章正文/front matter，不引入不存在的 demo/release，不修改项目仓库或 T24 项目。
 - 用户问题：无。
+- 范围 / 实现及 final head：`68e045969c43d73217a47b24416d44d4be9689c5` / `325f48298506ecf3fb620f2b203a9ee0349aa7f5`；均以 expected head 非强推更新 main。
+- 实际交付：为 FitzSight、Akasha Notes、Toyosatomimi's Headphone 建立三个 `/build/<stable-id>/` canonical 事实页；catalog 仅为已生成页面加入 detail_url，BUILD 卡片优先进入详情。共享 layout 输出概览、状态、动作、关联文章、可选 Release 与事实来源。
+- 状态与事实：三者均未新增 status；详情明确说明 catalog 尚未记录状态，不从版本、文章日期或页面可达性推断。FitzSight 保留 tracker/repository；Akasha/Headphone 保留各自 Project Log/repository；不存在的 demo/release 不渲染。
+- 精确验证：[Actions run 37711002137](https://github.com/AplusNeutrino/My_Blog/actions/runs/37711002137) 对应 final head `325f48298506ecf3fb620f2b203a9ee0349aa7f5`，completed/success；build `113096701703` 的 136 tests、production Jekyll、390px Chrome、双主题、三详情 ID/状态/动作/关联/来源、BUILD 筛选、hidden/Ravenis、artifact upload 全部成功；deploy `113096912163` 成功。
+- Artifact：`11522125928`；digest `sha256:e12402f79607620336697b1c7844284616af6ad9f4b9b23c1c62207fd0a220ef`。
+- 保护：未复制或修改文章/Fragment、front matter、文件名、date/slug/permalink、旧 URL、noindex 或外部项目；Ravenis/Occult Atlas/Gate/OfficeSpire 详情仍留给 T24。
+- 结论：T23 done；active_run = none；checkpoint = T23 done；next = T24。无新增用户问题。
 
 ## Run 2026-10-08 08:00 — T22 BUILD 项目列表与状态筛选
 
