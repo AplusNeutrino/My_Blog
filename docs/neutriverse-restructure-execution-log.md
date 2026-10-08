@@ -2,6 +2,16 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-08 19:57 — T31 响应式、阅读与无障碍专项
+
+- Task / parent：T31；status = in-progress；依赖 T30 done。
+- Base SHA / branch：`157ed3e48d821f5836b907d767baebd1b888b7e8` / main；开始前最新文档 Actions `37767979475` completed/success，工作树干净。
+- 本次最小交付：新增 production-build Chrome 专项门禁，覆盖 390/768/1024/1366px、Night/Prospero Light、首页/四入口/文章；同时修复门禁识别出的站内响应式、阅读或无障碍缺陷。
+- 拟改文件：`tools/check_responsive_accessibility.py`、`.github/workflows/pages-deploy.yml`、`assets/css/neutriverse-sections.css`、相关静态回归、主计划与本日志。
+- 验收：四断点×两主题无页面横向溢出；正文宽度 ≤740px 且代码/表格/媒体 containment；主要交互目标 ≥44px；键盘焦点轮廓 ≥2px；关键文本/链接 WCAG AA；reduced-motion 关闭 Neutriverse 自有过渡与动画；全回归、T01 baseline、production Jekyll 与精确实现 head 的 Pages build/deploy 成功。
+- 边界：不改文章/Fragment、front matter、文件名/date/slug/permalink/旧 URL、内容分类、项目/ABOUT 事实、Library/友链/旅行、Gate/NAVI、hidden/noindex 或外部项目；不提前实现 T32 Search/RSS。
+- 用户问题：无；本项执行已确定的 Phase 7 验收契约。
+
 ## Run 2026-10-08 17:04 — T30 全站视觉一致性与入口性格
 
 - Task / parent：T30；status = done；依赖 T26、T29 done。

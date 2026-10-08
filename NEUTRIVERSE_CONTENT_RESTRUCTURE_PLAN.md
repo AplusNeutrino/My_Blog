@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T30 done; T31 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T30 done; T31 in-progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,7 +877,7 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T30 done，T31 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+**当前状态：计划细化与启动决定已完成，T00–T30 done，T31 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
 最新完成：T30 已让 THINK/BUILD/OBSERVE/ABOUT 使用同一 identity 层级和导航骨架，并以带文字说明的纸面线、构造网格、观测准星、连续轨道作为次级性格信号；双主题、390px 与精确 CI/Pages 通过。下一项 T31 响应式/阅读/无障碍专项。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T30 = done，T31 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T30 = done，T31 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = cc6fa8ba6091c0a69cab4e90eccfb96988592858；checkpoint = T30 done；next = T31；completion = IN PROGRESS.
+主计划当前运行字段：active_run = T31-20261008-1957；branch = main；base = 157ed3e48d821f5836b907d767baebd1b888b7e8；checkpoint = T30 done；next = T31 in-progress；completion = IN PROGRESS.
+
+T31 本次范围：建立独立的 production-build 浏览器门禁，在 390/768/1024/1366px 四个视口和 Night/Prospero Light 两主题下检查首页、THINK、BUILD、OBSERVE、ABOUT 与实际文章阅读页。门禁机械核对页面无横向溢出、入口与卡片布局可见、文章正文宽度不超过 740px、富内容被容器约束、主要交互目标不小于 44px、键盘焦点有至少 2px 可见轮廓、关键正文/说明/链接的计算后颜色达到 WCAG AA，并在 `prefers-reduced-motion: reduce` 下关闭 Neutriverse 自有过渡/动画。拟新增专项检查脚本并接入 Pages workflow，补齐共享 CSS 的统一 focus/reduced-motion 规则及静态契约测试；不改内容、路由、分类、项目/ABOUT 事实、隐藏/noindex 边界、应用数据或外部项目。验收为四断点×两主题矩阵真实 Chrome 通过，全套回归、T01 baseline、production Jekyll 与精确 head Pages build/deploy 成功。预计剩余：实现与验证后 T31 done，T32 ready。
 
 T30 本次范围：在四入口单一数据源上增加只作次级提示的 section signal，并新增一个 THINK/BUILD/OBSERVE/ABOUT 共用的 identity include；THINK、BUILD、OBSERVE 的共享 layout 与 ABOUT 入口都使用同一标题、中文说明、摘要、signal 和四入口导航层级。入口性格只通过数据属性、简短副标签与纯 CSS 的纸面线、构造网格、观测准星、连续轨道四种非交互纹理表达；主标题、中文说明与导航始终优先，两主题继续使用同一 DOM 和现有语义 token。拟改四入口数据、共享 identity include/layout、ABOUT 入口、共享 CSS、静态回归与 390px Chrome 门禁；不改文章/Fragment、入口 URL、旧链接、项目/ABOUT 事实、Library/友链/旅行数据、Gate/NAVI、Ravenis/Occult Atlas 索引边界或外部项目。验收为四入口共享组件和字段可机械核对，副标签不替代或遮挡清晰导航，四种性格不依赖 JS/图片/颜色单独传意，双主题、键盘、390px、全回归、production Jekyll 与精确 head Pages 成功。预计剩余：完成实现与验证后 T30 done，T31 ready。
 
