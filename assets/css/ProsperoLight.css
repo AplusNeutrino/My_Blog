@@ -155,10 +155,10 @@
   --nv-text: var(--prospero-text-secondary);
   --nv-text-strong: var(--prospero-text-primary);
   --nv-text-muted: var(--prospero-text-muted);
-  --nv-accent: var(--prospero-teal);
+  --nv-accent: var(--prospero-teal-deep);
   --nv-signal: var(--prospero-gold-ink);
   --nv-anomaly: var(--prospero-violet);
-  --nv-focus: var(--prospero-teal);
+  --nv-focus: var(--prospero-teal-deep);
   --nv-font-reading: var(--font-day-serif);
   --nv-font-interface: var(--font-day-ui);
   --nv-font-inscription: var(--font-day-inscription);
