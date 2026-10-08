@@ -18,7 +18,7 @@ T21 建立项目实体的单一来源：`_data/neutriverse_projects.yml`。该�
 | `releases` | 否 | 只有可核实 Release 数据时才出现；项目不因缺少 Release 而不合法 |
 | `sources` | 是 | 支持公开事实的站内路径或公开外部 URL；不是展示文案的第二份副本 |
 
-`_layouts/neutriverse-project.html` 只通过 `page.project_id` 查找 catalog。status、links、related_posts 和 releases 都按真实数据渲染；未知状态明确说明“未记录”，而不是推断 active/complete/paused。T23 已为 FitzSight、Akasha Notes、Toyosatomimi's Headphone 建立 `detail_url`，其余项目在 T24 生成页面前仍不填写该字段。
+`_layouts/neutriverse-project.html` 只通过 `page.project_id` 查找 catalog。status、links、related_posts 和 releases 都按真实数据渲染；未知状态明确说明“未记录”，而不是推断 active/complete/paused。T23 已为 FitzSight、Akasha Notes、Toyosatomimi's Headphone 建立 `detail_url`；T24 又为 Ravenis、Occult Atlas、Gate、OfficeSpire 建立同类入口，因此七个 catalog 实体现在都由唯一 `/build/<stable-id>/` 事实页承接。
 
 ## 固定项目与来源
 
@@ -33,3 +33,10 @@ T21 建立项目实体的单一来源：`_data/neutriverse_projects.yml`。该�
 | `officespire` | OfficeSpire | [公开仓库 README](https://github.com/AplusNeutrino/OfficeSpire/blob/main/README.md) | BUILD listed；状态严格记录为 `implemented_unverified` |
 
 MMXProj 不在本轮 catalog。T21 没有添加任何 `releases` 字段；现有发布文章或仓库链接不被重新包装为未经核实的项目 Release。关联项目仓库均未修改。
+
+## T24 余下详情与可见性
+
+- Ravenis 与 Occult Atlas 的项目事实页分别链接既有 `/ravenis/`、`/occult-atlas/` 应用；事实页和应用页都继续 noindex，旧应用 URL 不变。
+- Gate 的事实页可从 BUILD 了解项目，但 catalog 仍不提供 `/gate/` 动作；详情页 noindex，不公开 NAVI 或浏览器本地配置。
+- OfficeSpire 详情仅链接公开仓库与 README，保留来源明确的 `implemented_unverified`。README 明示 M9 不是已发布 Release，因此 catalog 仍不添加 `releases`。
+- 四项当前都没有站内 Project Log 记录；模板显示自然空状态，不借用聊天记忆或把开发文档伪装成文章。

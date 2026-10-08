@@ -94,7 +94,8 @@
           "kind": "site",
           "path": "ravenis/index.html"
         }
-      ]
+      ],
+      "detail_url": "/build/ravenis/"
     },
     {
       "id": "occult-atlas",
@@ -113,7 +114,8 @@
           "kind": "site",
           "path": "_hidden_pages/occult-atlas.md"
         }
-      ]
+      ],
+      "detail_url": "/build/occult-atlas/"
     },
     {
       "id": "gate",
@@ -136,7 +138,8 @@
           "kind": "site",
           "path": "GATE_ROADMAP.md"
         }
-      ]
+      ],
+      "detail_url": "/build/gate/"
     },
     {
       "id": "officespire",
@@ -148,14 +151,16 @@
       "visibility": "listed",
       "status": "implemented_unverified",
       "links": {
-        "repository": "https://github.com/AplusNeutrino/OfficeSpire"
+        "repository": "https://github.com/AplusNeutrino/OfficeSpire",
+        "documentation": "https://github.com/AplusNeutrino/OfficeSpire/blob/main/README.md"
       },
       "sources": [
         {
           "kind": "external",
           "url": "https://github.com/AplusNeutrino/OfficeSpire/blob/main/README.md"
         }
-      ]
+      ],
+      "detail_url": "/build/officespire/"
     }
   ]
 }

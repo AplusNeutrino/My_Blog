@@ -45,9 +45,10 @@ class BuildProjectListTest(unittest.TestCase):
             "fitzsight": "/build/fitzsight/",
             "akasha-notes": "/build/akasha-notes/",
             "toyosatomimis-headphone": "/build/toyosatomimis-headphone/",
-            "ravenis": "/ravenis/",
-            "occult-atlas": "/occult-atlas/",
-            "officespire": "https://github.com/AplusNeutrino/OfficeSpire",
+            "ravenis": "/build/ravenis/",
+            "occult-atlas": "/build/occult-atlas/",
+            "gate": "/build/gate/",
+            "officespire": "/build/officespire/",
         }
         resolved = {}
         for project in CATALOG:
@@ -66,8 +67,8 @@ class BuildProjectListTest(unittest.TestCase):
         gate = next(project for project in CATALOG if project["id"] == "gate")
         self.assertEqual(gate["visibility"], "unlisted_noindex")
         self.assertNotIn("links", gate)
+        self.assertEqual(gate["detail_url"], "/build/gate/")
         self.assertNotIn("/gate/", INCLUDE)
-        self.assertIn("工具入口保持未公开", INCLUDE)
 
     def test_status_filter_uses_only_catalog_status_and_unspecified(self):
         known = [project["status"] for project in CATALOG if project.get("status")]

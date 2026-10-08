@@ -15,23 +15,28 @@ LAYOUT = (ROOT / "_layouts" / "neutriverse-project.html").read_text(
 CARDS = (ROOT / "_includes" / "neutriverse-project-list.html").read_text(
     encoding="utf-8"
 )
+METADATA = (ROOT / "_includes" / "metadata-hook.html").read_text(encoding="utf-8")
 CSS = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(
     encoding="utf-8"
 )
 
 
 class ProjectDetailPagesTest(unittest.TestCase):
-    FIRST_GROUP = {
+    PROJECTS = {
         "fitzsight": ("FitzSight", "/build/fitzsight/"),
         "akasha-notes": ("Akasha Notes", "/build/akasha-notes/"),
         "toyosatomimis-headphone": (
             "Toyosatomimi's Headphone",
             "/build/toyosatomimis-headphone/",
         ),
+        "ravenis": ("Ravenis", "/build/ravenis/"),
+        "occult-atlas": ("Occult Atlas", "/build/occult-atlas/"),
+        "gate": ("Gate", "/build/gate/"),
+        "officespire": ("OfficeSpire", "/build/officespire/"),
     }
 
-    def test_first_group_has_canonical_data_driven_pages(self):
-        for project_id, (title, permalink) in self.FIRST_GROUP.items():
+    def test_all_catalog_projects_have_canonical_data_driven_pages(self):
+        for project_id, (title, permalink) in self.PROJECTS.items():
             with self.subTest(project=project_id):
                 page = (
                     ROOT / "build" / project_id / "index.md"
@@ -42,12 +47,20 @@ class ProjectDetailPagesTest(unittest.TestCase):
                 self.assertIn(title, page)
                 self.assertEqual(BY_ID[project_id]["detail_url"], permalink)
 
-    def test_remaining_projects_are_left_for_t24(self):
-        remaining = {"ravenis", "occult-atlas", "gate", "officespire"}
-        self.assertTrue(all("detail_url" not in BY_ID[item] for item in remaining))
-        self.assertTrue(
-            all(not (ROOT / "build" / item / "index.md").exists() for item in remaining)
+    def test_noindex_project_pages_keep_visibility_boundaries(self):
+        for project_id in ("ravenis", "occult-atlas", "gate"):
+            page = (ROOT / "build" / project_id / "index.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn("robots: noindex,nofollow", page)
+            self.assertIn("sitemap: false", page)
+        self.assertIn("page.layout == 'neutriverse-project'", METADATA)
+        self.assertIn("page.robots", METADATA)
+        office = (ROOT / "build" / "officespire" / "index.md").read_text(
+            encoding="utf-8"
         )
+        self.assertNotIn("robots:", office)
+        self.assertNotIn("sitemap: false", office)
 
     def test_layout_has_overview_status_actions_logs_and_sources(self):
         for marker in (
@@ -62,34 +75,41 @@ class ProjectDetailPagesTest(unittest.TestCase):
         self.assertIn("project.sources", LAYOUT)
 
     def test_unknown_status_is_explicit_without_invented_state(self):
-        for project_id in self.FIRST_GROUP:
-            self.assertNotIn("status", BY_ID[project_id])
+        for project_id in self.PROJECTS:
+            if project_id != "officespire":
+                self.assertNotIn("status", BY_ID[project_id])
+        self.assertEqual(BY_ID["officespire"]["status"], "implemented_unverified")
         self.assertIn("公开 catalog 尚未单独记录状态", LAYOUT)
         self.assertIn("不根据版本号、页面可达性或文章日期推断", LAYOUT)
 
-    def test_real_actions_and_related_posts_remain_separate(self):
+    def test_remaining_project_actions_respect_public_boundaries(self):
+        self.assertEqual(BY_ID["ravenis"]["links"], {"application": "/ravenis/"})
         self.assertEqual(
-            BY_ID["fitzsight"]["links"],
+            BY_ID["occult-atlas"]["links"], {"application": "/occult-atlas/"}
+        )
+        self.assertNotIn("links", BY_ID["gate"])
+        self.assertEqual(
+            BY_ID["officespire"]["links"],
             {
-                "application": "/projfitzgerald/",
-                "repository": "https://github.com/AplusNeutrino/FitzSight",
+                "repository": "https://github.com/AplusNeutrino/OfficeSpire",
+                "documentation": (
+                    "https://github.com/AplusNeutrino/OfficeSpire/blob/main/README.md"
+                ),
             },
         )
-        for project_id in ("akasha-notes", "toyosatomimis-headphone"):
-            project = BY_ID[project_id]
-            self.assertTrue(project["links"]["repository"].startswith("https://github.com/"))
-            self.assertEqual(len(project["related_posts"]), 1)
-            self.assertTrue(project["related_posts"][0]["url"].startswith("/posts/"))
-        self.assertIn('data-project-action="application"', LAYOUT)
-        self.assertIn('data-project-action="repository"', LAYOUT)
+        self.assertNotIn("releases", BY_ID["officespire"])
+        for project_id in ("ravenis", "occult-atlas", "gate", "officespire"):
+            self.assertNotIn("related_posts", BY_ID[project_id])
 
-    def test_build_cards_prefer_detail_without_replacing_old_routes(self):
+    def test_build_cards_prefer_the_unique_detail_pages(self):
         self.assertLess(
             CARDS.index("if project.detail_url"),
             CARDS.index("elsif project.links.application"),
         )
-        for project_id, (_title, permalink) in self.FIRST_GROUP.items():
-            self.assertEqual(BY_ID[project_id]["detail_url"], permalink)
+        self.assertEqual(
+            {project["detail_url"] for project in CATALOG},
+            {permalink for _title, permalink in self.PROJECTS.values()},
+        )
 
     def test_detail_styles_are_mobile_safe_and_theme_token_based(self):
         for token in (

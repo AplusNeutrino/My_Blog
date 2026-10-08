@@ -739,10 +739,10 @@ def main():
                 "fitzsight": "/build/fitzsight/",
                 "akasha-notes": "/build/akasha-notes/",
                 "toyosatomimis-headphone": "/build/toyosatomimis-headphone/",
-                "ravenis": "/ravenis/",
-                "occult-atlas": "/occult-atlas/",
-                "gate": None,
-                "officespire": "https://github.com/AplusNeutrino/OfficeSpire",
+                "ravenis": "/build/ravenis/",
+                "occult-atlas": "/build/occult-atlas/",
+                "gate": "/build/gate/",
+                "officespire": "/build/officespire/",
             },
             f"BUILD actions expose a hidden or incorrect route: {build_initial}",
         )
@@ -755,6 +755,8 @@ def main():
             "/build/fitzsight/": {
                 "id": "fitzsight",
                 "name": "FitzSight",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
                 "actions": {
                     "application": "/projfitzgerald/",
                     "repository": "https://github.com/AplusNeutrino/FitzSight",
@@ -765,6 +767,8 @@ def main():
             "/build/akasha-notes/": {
                 "id": "akasha-notes",
                 "name": "Akasha Notes",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
                 "actions": {
                     "repository": "https://github.com/AplusNeutrino/DesktopTextBoard",
                 },
@@ -774,10 +778,56 @@ def main():
             "/build/toyosatomimis-headphone/": {
                 "id": "toyosatomimis-headphone",
                 "name": "Toyosatomimi's Headphone",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
                 "actions": {
                     "repository": "https://github.com/AplusNeutrino/Toyosatomimis-headphones",
                 },
                 "related": 1,
+                "sources": 1,
+            },
+            "/build/ravenis/": {
+                "id": "ravenis",
+                "name": "Ravenis",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
+                "actions": {"application": "/ravenis/"},
+                "related": 0,
+                "sources": 1,
+                "robots": "noindex,nofollow",
+            },
+            "/build/occult-atlas/": {
+                "id": "occult-atlas",
+                "name": "Occult Atlas",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
+                "actions": {"application": "/occult-atlas/"},
+                "related": 0,
+                "sources": 1,
+                "robots": "noindex,nofollow",
+            },
+            "/build/gate/": {
+                "id": "gate",
+                "name": "Gate",
+                "status": "unspecified",
+                "status_phrase": "尚未单独记录状态",
+                "actions": {},
+                "related": 0,
+                "sources": 3,
+                "robots": "noindex,nofollow",
+            },
+            "/build/officespire/": {
+                "id": "officespire",
+                "name": "OfficeSpire",
+                "status": "implemented_unverified",
+                "status_phrase": "implemented unverified",
+                "actions": {
+                    "repository": "https://github.com/AplusNeutrino/OfficeSpire",
+                    "documentation": (
+                        "https://github.com/AplusNeutrino/OfficeSpire/blob/main/README.md"
+                    ),
+                },
+                "related": 0,
                 "sources": 1,
             },
         }
@@ -812,23 +862,33 @@ def main():
                   related: root.querySelectorAll(
                     '#project-related-posts + ul li'
                   ).length,
+                  releases: root.querySelectorAll('#project-releases').length,
                   sources: root.querySelectorAll(
                     '#project-sources + ul li'
                   ).length,
+                  robots: document.querySelector('meta[name="robots"]')
+                    ?.getAttribute('content') || null,
                   back: href(root.querySelector('.nv-project-breadcrumb a')),
                   bodyClientWidth: document.body.clientWidth,
                   bodyScrollWidth: document.body.scrollWidth
                 };
                 """
             )
+            robots_ok = (
+                "robots" not in expected
+                or expected["robots"]
+                == (detail["robots"] or "").replace(" ", "")
+            )
             require(
                 detail["id"] == expected["id"]
                 and detail["name"] == expected["name"]
-                and detail["status"] == "unspecified"
-                and "尚未单独记录状态" in detail["statusText"]
+                and detail["status"] == expected["status"]
+                and expected["status_phrase"] in detail["statusText"]
                 and detail["actions"] == expected["actions"]
                 and detail["related"] == expected["related"]
+                and detail["releases"] == 0
                 and detail["sources"] == expected["sources"]
+                and robots_ok
                 and detail["back"] == "/build/"
                 and detail["bodyScrollWidth"] <= detail["bodyClientWidth"],
                 f"project detail contract failed at {detail_path}: {detail}",

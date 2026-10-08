@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="{{ '/assets/css/ProsperoLight.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
 <link rel="stylesheet" href="{{ '/assets/css/neutriverse-sections.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
 <script defer src="{{ '/assets/js/neutriverse-navigation.js' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}"></script>
+{% if page.layout == 'neutriverse-project' and page.robots %}
+  <meta name="robots" content="{{ page.robots | escape }}">
+{% endif %}
 {% if page.ravenis %}
   <meta name="robots" content="noindex,nofollow">
   <link rel="stylesheet" href="{{ '/assets/css/ravenis.css' | relative_url }}?v={{ site.github.build_revision | default: site.time | date: '%Y%m%d%H%M%S' }}">
