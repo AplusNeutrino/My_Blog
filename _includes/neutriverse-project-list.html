@@ -1,0 +1,84 @@
+{% assign project_catalog = site.data.neutriverse_projects.projects | default: empty %}
+{% assign project_statuses = project_catalog | map: 'status' | compact | uniq | sort %}
+{% assign project_unspecified_count = 0 %}
+{% for project in project_catalog %}
+  {% unless project.status %}
+    {% assign project_unspecified_count = project_unspecified_count | plus: 1 %}
+  {% endunless %}
+{% endfor %}
+
+<section class="nv-project-catalog" data-project-catalog aria-labelledby="nv-project-catalog-title">
+  <div class="nv-project-catalog-heading">
+    <div>
+      <p>PROJECT DIRECTORY</p>
+      <h2 id="nv-project-catalog-title">项目目录</h2>
+    </div>
+    <p><span data-project-visible-count>{{ project_catalog.size }}</span> / {{ project_catalog.size }} projects</p>
+  </div>
+
+  <div class="nv-project-filters" data-project-filters role="group" aria-label="按公开状态筛选项目">
+    <button type="button" data-project-filter="all" aria-pressed="true">
+      全部 <span>{{ project_catalog.size }}</span>
+    </button>
+    {% for status in project_statuses %}
+      {% assign status_count = project_catalog | where: 'status', status | size %}
+      <button type="button" data-project-filter="{{ status | escape }}" aria-pressed="false">
+        {{ status | replace: '_', ' ' }} <span>{{ status_count }}</span>
+      </button>
+    {% endfor %}
+    {% if project_unspecified_count > 0 %}
+      <button type="button" data-project-filter="unspecified" aria-pressed="false">
+        状态未记录 <span>{{ project_unspecified_count }}</span>
+      </button>
+    {% endif %}
+  </div>
+
+  {% if project_catalog.size > 0 %}
+    <ol class="nv-project-grid" data-project-list>
+      {% for project in project_catalog %}
+        {% assign project_status = project.status | default: 'unspecified' %}
+        {% assign project_primary_url = nil %}
+        {% assign project_primary_label = nil %}
+        {% if project.links.application %}
+          {% assign project_primary_url = project.links.application %}
+          {% assign project_primary_label = '打开应用' %}
+        {% elsif project.related_posts and project.related_posts.size > 0 %}
+          {% assign project_primary_url = project.related_posts.first.url %}
+          {% assign project_primary_label = '阅读 Project Log' %}
+        {% elsif project.links.repository %}
+          {% assign project_primary_url = project.links.repository %}
+          {% assign project_primary_label = '查看 Repository' %}
+        {% endif %}
+
+        <li data-project-card data-project-id="{{ project.id | escape }}" data-project-status="{{ project_status | escape }}">
+          <article class="nv-project-card">
+            <div class="nv-project-card-meta">
+              <span>{{ project.contexts | join: ' + ' | upcase }}</span>
+              {% if project.status %}
+                <span class="is-status-known">{{ project.status | replace: '_', ' ' }}</span>
+              {% else %}
+                <span>状态未记录</span>
+              {% endif %}
+            </div>
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.summary }}</p>
+            <div class="nv-project-card-action">
+              {% if project_primary_url %}
+                {% if project_primary_url contains '://' %}
+                  <a href="{{ project_primary_url }}">{{ project_primary_label }}</a>
+                {% else %}
+                  <a href="{{ project_primary_url | relative_url }}">{{ project_primary_label }}</a>
+                {% endif %}
+              {% else %}
+                <span>项目实体已记录；工具入口保持未公开。</span>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+    <p class="nv-project-filter-empty" data-project-filter-empty hidden>当前状态下没有项目记录。</p>
+  {% else %}
+    <p class="nv-home-empty">暂无公开项目记录。</p>
+  {% endif %}
+</section>

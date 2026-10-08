@@ -1279,3 +1279,167 @@ article.nv-post .content video {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* BUILD project directory */
+.nv-project-catalog {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.nv-project-catalog-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nv-project-catalog-heading p,
+.nv-project-card-meta,
+.nv-project-filters button {
+  font-family: var(--nv-font-mono);
+  letter-spacing: 0.06em;
+}
+
+.nv-project-catalog-heading > div > p {
+  margin: 0 0 0.3rem;
+  color: var(--nv-accent);
+  font-size: 0.75rem;
+}
+
+.nv-project-catalog-heading h2,
+.nv-project-catalog-heading > p {
+  margin: 0;
+}
+
+.nv-project-catalog-heading > p {
+  color: var(--nv-text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.nv-project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+
+.nv-project-filters button {
+  min-height: 44px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--nv-border);
+  border-radius: 999px;
+  background: var(--nv-surface-1);
+  color: var(--nv-text);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.nv-project-filters button:hover,
+.nv-project-filters button[aria-pressed='true'] {
+  border-color: var(--nv-accent);
+  background: var(--nv-surface-2);
+  color: var(--nv-text-strong);
+}
+
+.nv-project-filters button:focus-visible,
+.nv-project-card-action a:focus-visible {
+  outline: 2px solid var(--nv-focus);
+  outline-offset: 3px;
+}
+
+.nv-project-filters button span {
+  margin-left: 0.35rem;
+  color: var(--nv-accent);
+}
+
+.nv-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nv-project-grid > li[hidden] {
+  display: none;
+}
+
+.nv-project-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  border: 1px solid var(--nv-border);
+  border-radius: var(--nv-radius-lg);
+  background: var(--nv-surface-1);
+  box-shadow: var(--nv-shadow-soft);
+}
+
+.nv-project-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.45rem 0.75rem;
+  color: var(--nv-text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.nv-project-card-meta .is-status-known {
+  color: var(--nv-accent);
+}
+
+.nv-project-card h3,
+.nv-project-card p {
+  margin: 0;
+}
+
+.nv-project-card h3 {
+  color: var(--nv-text-strong);
+}
+
+.nv-project-card > p {
+  color: var(--nv-text);
+}
+
+.nv-project-card-action {
+  margin-top: auto;
+  padding-top: 0.3rem;
+}
+
+.nv-project-card-action a {
+  color: var(--nv-accent);
+  font-weight: 700;
+}
+
+.nv-project-card-action span,
+.nv-project-filter-empty {
+  color: var(--nv-text-muted);
+  font-size: 0.88rem;
+}
+
+.nv-project-filter-empty {
+  padding: 1rem;
+  border: 1px dashed var(--nv-border);
+  border-radius: var(--nv-radius-md);
+  background: var(--nv-surface-1);
+}
+
+@media (max-width: 767.98px) {
+  .nv-project-catalog-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nv-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nv-project-filters button {
+    flex: 1 1 9rem;
+  }
+}

@@ -681,6 +681,130 @@ def main():
         navigated = read_state(driver)
         require(navigated["expanded"] == "false", f"navigation did not close menu: {navigated}")
 
+        build_url = site_url + "/build/"
+        driver.get(build_url)
+        wait.until(
+            lambda current: current.execute_script(
+                "return document.querySelector('[data-project-catalog]')"
+                "?.dataset.projectFilterReady"
+            ) == "true"
+        )
+
+        def read_projects(current):
+            return current.execute_script(
+                r"""
+                const catalog = document.querySelector('[data-project-catalog]');
+                const cards = [...catalog.querySelectorAll('[data-project-card]')];
+                const path = (link) => {
+                  if (!link) return null;
+                  const raw = link.getAttribute('href');
+                  if (raw?.startsWith('http')) return raw;
+                  return new URL(link.href).pathname;
+                };
+                return {
+                  current: catalog.dataset.projectFilterCurrent,
+                  ids: cards.map((card) => card.dataset.projectId),
+                  visibleIds: cards.filter((card) => !card.hidden)
+                    .map((card) => card.dataset.projectId),
+                  actions: Object.fromEntries(cards.map((card) => [
+                    card.dataset.projectId,
+                    path(card.querySelector('.nv-project-card-action a'))
+                  ])),
+                  pressed: catalog.querySelector(
+                    '[data-project-filter][aria-pressed="true"]'
+                  )?.dataset.projectFilter,
+                  urlSearch: window.location.search,
+                  bodyClientWidth: document.body.clientWidth,
+                  bodyScrollWidth: document.body.scrollWidth
+                };
+                """
+            )
+
+        build_initial = read_projects(driver)
+        require(
+            build_initial["ids"] == [
+                "fitzsight",
+                "akasha-notes",
+                "toyosatomimis-headphone",
+                "ravenis",
+                "occult-atlas",
+                "gate",
+                "officespire",
+            ]
+            and build_initial["visibleIds"] == build_initial["ids"],
+            f"BUILD project catalog changed: {build_initial}",
+        )
+        require(
+            build_initial["actions"] == {
+                "fitzsight": "/projfitzgerald/",
+                "akasha-notes": "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+                "toyosatomimis-headphone": "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+                "ravenis": "/ravenis/",
+                "occult-atlas": "/occult-atlas/",
+                "gate": None,
+                "officespire": "https://github.com/AplusNeutrino/OfficeSpire",
+            },
+            f"BUILD actions expose a hidden or incorrect route: {build_initial}",
+        )
+        require(
+            build_initial["bodyScrollWidth"] <= build_initial["bodyClientWidth"],
+            f"BUILD has mobile overflow: {build_initial}",
+        )
+
+        implemented_filter = driver.find_element(
+            By.CSS_SELECTOR,
+            '[data-project-filter="implemented_unverified"]',
+        )
+        driver.execute_script("arguments[0].click();", implemented_filter)
+        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
+        implemented = read_projects(driver)
+        require(
+            implemented["urlSearch"] == "?status=implemented_unverified"
+            and implemented["pressed"] == "implemented_unverified",
+            f"BUILD known-status state is not shareable: {implemented}",
+        )
+
+        driver.refresh()
+        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
+        refreshed = read_projects(driver)
+        require(
+            refreshed["pressed"] == "implemented_unverified",
+            f"BUILD status did not survive refresh: {refreshed}",
+        )
+
+        all_filter = driver.find_element(
+            By.CSS_SELECTOR,
+            '[data-project-filter="all"]',
+        )
+        driver.execute_script("arguments[0].click();", all_filter)
+        wait.until(lambda current: len(read_projects(current)["visibleIds"]) == 7)
+        driver.back()
+        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
+
+        unspecified_filter = driver.find_element(
+            By.CSS_SELECTOR,
+            '[data-project-filter="unspecified"]',
+        )
+        driver.execute_script("arguments[0].click();", unspecified_filter)
+        wait.until(lambda current: len(read_projects(current)["visibleIds"]) == 6)
+        unspecified = read_projects(driver)
+        require(
+            "officespire" not in unspecified["visibleIds"]
+            and unspecified["urlSearch"] == "?status=unspecified",
+            f"BUILD unspecified filter failed: {unspecified}",
+        )
+
+        driver.get(build_url + "?status=unknown")
+        wait.until(
+            lambda current: read_projects(current)["current"] == "all"
+            and read_projects(current)["urlSearch"] == ""
+        )
+        invalid_project_filter = read_projects(driver)
+        require(
+            len(invalid_project_filter["visibleIds"]) == 7,
+            f"BUILD invalid status did not fall back: {invalid_project_filter}",
+        )
+
         driver.get(site_url + "/")
         wait.until(
             lambda current: current.find_element(
