@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-10-09T22:35:41Z",
-  "last_success_at": "2026-10-09T22:35:41Z",
+  "fetched_at": "2026-10-10T21:39:58Z",
+  "last_success_at": "2026-10-10T21:39:58Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.7,
-        "community_rating_count": 481,
+        "community_rating_count": 484,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }
@@ -69,7 +69,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.0,
-        "community_rating_count": 822,
+        "community_rating_count": 821,
         "comment_text": null,
         "api_url": "/api/movie/0p2zNbJGVlkmWckcdSLhRL"
       }
@@ -261,7 +261,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 1358,
+        "community_rating_count": 1359,
         "comment_text": null,
         "api_url": "/api/movie/5VHXvvI05hLkzedOSVa4z2"
       }
@@ -295,7 +295,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.3,
-        "community_rating_count": 2213,
+        "community_rating_count": 2214,
         "comment_text": null,
         "api_url": "/api/movie/6tNNgF982mcDPHXUM8Bj4K"
       }
@@ -327,7 +327,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.3,
-        "community_rating_count": 2135,
+        "community_rating_count": 2134,
         "comment_text": null,
         "api_url": "/api/movie/2V5JzwI8AsHEqfEYqx0pzY"
       }
@@ -2339,7 +2339,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 2246,
+        "community_rating_count": 2245,
         "comment_text": null,
         "api_url": "/api/movie/33LWgbD3AIK7K8wSxAhtTp"
       }
@@ -2520,7 +2520,7 @@
       "year": null,
       "release_date": null,
       "cover_url": "https://neodb.social/m/item/movie/2025/09/11/8a17cb9d-deb8-4706-966b-7ca07043e139.webp",
-      "summary": "2021 film directed by Masaaki Yuasa",
+      "summary": "Inu-Ou is a musical fantasy film based on Hideo Furukawa's Heike Monogatari: Inu-Ou no Maki (Tales of the Heike: Inu-Ou) novel. The film will screen in theaters in Japan in 2021.  The historical novel is based on the life of Inu-Ou, a famous Sarugaku Noh performer in the 14th-century. Inu-Ou tells the story of brotherhood between the legendary playwright and a certain Biwa musician, incorporating both modern song and dance.",
       "status": "completed",
       "rating": null,
       "progress": null,
@@ -2539,7 +2539,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 415,
+        "community_rating_count": 416,
         "comment_text": null,
         "api_url": "/api/movie/4bGPeRLWa56Fvpr0uhOYVD"
       }
@@ -4501,7 +4501,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.2,
-        "community_rating_count": 1882,
+        "community_rating_count": 1881,
         "comment_text": null,
         "api_url": "/api/movie/2XVVTKOPucKGQqmmb5GaNX"
       }
@@ -4599,7 +4599,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 1921,
+        "community_rating_count": 1922,
         "comment_text": null,
         "api_url": "/api/movie/5CI5m5EoxnKbgZOzQF75tN"
       }
@@ -4631,7 +4631,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.3,
-        "community_rating_count": 1893,
+        "community_rating_count": 1894,
         "comment_text": null,
         "api_url": "/api/movie/289rnzs8hJXucvSJ9wePcU"
       }
@@ -4663,7 +4663,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 1898,
+        "community_rating_count": 1899,
         "comment_text": null,
         "api_url": "/api/movie/56Z9VAwpYIGpj65EHGkoBA"
       }
@@ -4695,7 +4695,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.1,
-        "community_rating_count": 1744,
+        "community_rating_count": 1745,
         "comment_text": null,
         "api_url": "/api/movie/5ZD3Nli9yTkWQw9uTdUrv2"
       }
@@ -4727,7 +4727,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.7,
-        "community_rating_count": 1665,
+        "community_rating_count": 1667,
         "comment_text": null,
         "api_url": "/api/movie/29pQbA6Ht8DiEnpsgFVgWi"
       }
@@ -4759,7 +4759,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.5,
-        "community_rating_count": 1593,
+        "community_rating_count": 1594,
         "comment_text": null,
         "api_url": "/api/movie/4TsDMaWhEelk2MJHAANyLA"
       }
@@ -4791,7 +4791,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.9,
-        "community_rating_count": 1663,
+        "community_rating_count": 1664,
         "comment_text": null,
         "api_url": "/api/movie/2DJf49NMgDNJuBaNa9rlj8"
       }
@@ -4823,7 +4823,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.3,
-        "community_rating_count": 1266,
+        "community_rating_count": 1265,
         "comment_text": null,
         "api_url": "/api/movie/4i77XtzQUoz8ORPTdB3uOL"
       }
