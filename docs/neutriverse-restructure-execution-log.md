@@ -12,6 +12,12 @@
 - 验收：可按指南添加 Note/Essay、Fragment 或已授权项目；Type/Topic/Series/Tags/categories/可见性边界明确；纯数字或 YAML 隐式类型 Tags 必须引用为字符串；项目 status/links/releases 不提供伪造默认；当前 44 posts / 5 Fragments / 7 projects 通过新校验，全回归、T01 baseline、production Jekyll、既有门禁和精确 head Pages 成功。
 - 边界：不创建公开示例内容，不改现有文章/Fragment/project 数据、front matter、正文、旧 URL、主题、应用、hidden/noindex 或外部项目；不提前执行 T37。
 - 用户问题：无；字段和可见性规则均已有 taxonomy、project schema、ADR 与主计划决定。
+- 范围 / 实现及 final implementation head：`60a388280bd0f999bb4472c9494efc14716dc7e3` / `f5bd45eec4c8359b439d374d42438d3f17050368`；均以 expected head 非强推更新 main。
+- 实际交付：新增单一作者指南与 Post、Fragment、Project 三份模板；明确三种权威来源、Type/Topic/Series/Tags/categories、Fragment 稳定 ID、项目来源/可见性/详情页接线和未知可选字段省略规则。模板只含尖括号占位符，没有伪造 status、links、related_posts、releases 或个人事实。
+- 校验门禁：新增仅依赖标准库的 `tools/check_authoring.py`，检查 44 个 Post 的文件名/date/type/topic/Series/字符串 Tags、5 个 Fragment 的稳定唯一 ID/日期/type/topic/字符串 Tags，以及 7 个项目的 stable ID、来源、contexts/visibility、可选字段和详情页一致性。production workflow 在 Jekyll 前运行该门禁；7 项新契约测试覆盖正常库存、模板、枚举、YAML 隐式数字 tag、畸形 related_posts 与 workflow 顺序。
+- 本地验证：authoring JSON = `44 posts / 5 Fragments / 7 projects / passed`；190/190 tests；T01 baseline protection passed（44 posts / 5 Fragments / 5 hidden，Type essay/note/fragment = 5/39/5）；`git diff --check` 通过。
+- 精确验证：[Actions run 38114018949](https://github.com/AplusNeutrino/My_Blog/actions/runs/38114018949) 对应 final implementation head，completed/success；build `114395196199` 的 regression、Validate authoring sources、production Jekyll、Search/Atom、SEO/路由、资源/集成、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114395417776` 成功。artifact `11693345312` / `sha256:4f6fa8efb74eb48cbedfbfa257aa33d6fa40a752c1333b513a4452a52282a14b`。
+- 保护 / 结论：未创建公开示例内容，未改现有文章/Fragment/project 数据、front matter、正文、文件名/date/slug/permalink、旧 URL、主题、应用、hidden/noindex 或外部项目；未提前执行 T37。T36 done；active_run = none；checkpoint = T36 done；next = T37 ready；无新增用户问题。
 
 ## Run 2026-10-11 11:57 — T35 长期架构评估及旧 categories 维护策略
 

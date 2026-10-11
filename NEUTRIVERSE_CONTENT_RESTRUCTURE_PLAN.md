@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T35 done; T36 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T36 done; T37 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T35 done，T36 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T35 已接受继续使用 Jekyll/Chirpy + GitHub Pages 的长期架构决定，并把旧 categories 固化为只读兼容层；精确 CI/Pages 通过。当前执行 T36 作者操作指南、新增内容/项目模板与必要校验。
+**当前状态：计划细化与启动决定已完成，T00–T36 done，T37 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T36 已交付作者操作指南、Post/Fragment/Project 模板、标准库 authoring 校验器与 production workflow 门禁；精确 CI/Pages 通过。下一项为 T37 正文/URL/hidden 基线对照与完整回归。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T35 = done，T36 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T36 = done，T37 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T36；branch = main；base = 9adb3713b6b2a4bca71fcc7147629d04ad064434；checkpoint = T35 done；next = T36 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；final implementation head = f5bd45eec4c8359b439d374d42438d3f17050368；checkpoint = T36 done；next = T37 ready；completion = IN PROGRESS.
 
 T36 本次范围：新增单一作者操作指南，说明 Post、Fragment、Project 的权威来源、命名、必填/可选字段、发布步骤、可见性与兼容边界；提供不包含虚构状态、链接、Release 或个人事实的可复制模板。新增仅依赖 Python 标准库的 authoring 校验器并接入 production workflow，机械检查文章 type/topic/date/Series/字符串 Tags、Fragment 稳定 ID 与来源、项目 stable ID/来源/可见性/详情页一致性，并以静态回归固定指南、模板和 workflow 契约。拟改 `docs/neutriverse-authoring-guide.md`、`docs/templates/neutriverse-post.md`、`docs/templates/neutriverse-fragment.yml`、`docs/templates/neutriverse-project.json`、`tools/check_authoring.py`、`tests/test_authoring_contract.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为作者可按指南添加 Note/Essay、Fragment 或已获授权的项目记录；Type 仅 fragment/note/essay、Topic 仅四项、Tags 在 YAML 中保持字符串、categories 可选兼容、项目可选字段无伪造默认；当前 44 posts / 5 Fragments / 7 projects 通过新校验，全回归、T01 baseline、production Jekyll、既有门禁及精确实现 head Pages build/deploy 成功。边界是不创建示例公开内容、不改现有文章/Fragment/project 数据、旧 URL、主题、应用、可见性或外部项目；不提前执行 T37。无新增用户问题。
+
+T36 验收证据：新增 `docs/neutriverse-authoring-guide.md` 与三份复制模板，分别把 Post、Fragment、Project 路由到 `_posts/`、`_tabs/thoughts.md`、`_data/neutriverse_projects.yml`；说明 Type 仅 fragment/note/essay、四 Topic、已定义 Series、字符串 Tags、categories 只读兼容、Fragment 稳定 ID、项目来源/可见性/详情页接线及未知 status/links/releases 省略规则。新增标准库 `tools/check_authoring.py`，当前 44 posts / 5 Fragments / 7 projects 全部通过，并接入 Jekyll build 前的 production 门禁；新增 7 项契约测试，含 YAML 隐式数字 tag 与畸形 related_posts 的可读失败。范围提交 `60a388280bd0f999bb4472c9494efc14716dc7e3`；实现及 final implementation head `f5bd45eec4c8359b439d374d42438d3f17050368`。本地 190/190 tests、T01 baseline protection 与 diff check 通过。[Actions run 38114018949](https://github.com/AplusNeutrino/My_Blog/actions/runs/38114018949) 精确对应实现 head，build `114395196199` 的回归、authoring source、production Jekyll、Search/Atom、SEO/路由、资源/集成、移动 Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114395417776` 成功。artifact `11693345312` / `sha256:4f6fa8efb74eb48cbedfbfa257aa33d6fa40a752c1333b513a4452a52282a14b`。未创建公开示例内容，未改现有文章/Fragment/project 数据、front matter、正文、文件名/date/slug/permalink、旧 URL、主题、应用、hidden/noindex 或外部项目。T36 done，T37 ready，无新增用户问题。
 
 T35 本次范围：在 `docs/adr/` 建立长期架构决策记录，以当前源码、T01 基线、路由契约和 T34 production 证据评估 Jekyll/Chirpy + GitHub Pages 是否仍满足 Neutriverse；明确平台迁移的触发条件、未来评估步骤和不触发迁移的事项。同步固化旧 `categories` 的兼容职责：Type/Topic/Series/Tags 是权威语义，44 篇旧文章的 15 个 category / 87 次关联、`/categories/` 与 `/categories/:name/` 当前保留，不从 category 推断新 taxonomy；新内容不强制添加 category；任何将来删除必须先有真实使用证据、逐路由兼容映射和全量旧 URL 验证。拟改 ADR、主计划与执行日志；不改运行时代码、`_posts/`/Fragments、front matter、旧 URL、导航、主题、应用、数据、CI 或外部项目。验收为决策、理由、后果、迁移触发器与 categories 生命周期可直接执行且无歧义；全回归、T01 baseline、diff check 与精确实现 head 的 Pages build/deploy 成功。无新增用户问题。
 
