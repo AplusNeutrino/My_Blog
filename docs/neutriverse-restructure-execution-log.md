@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-11 13:56 — T37 正文、URL、hidden 基线与完整回归
+
+- Task / parent：T37；status = in-progress；依赖 T36 done。
+- Base SHA / branch：`afb62c9b8f79a0d0bcc4f9dab0ad429e5ac588be` / main；远端精确 head 的 T36 文档 [Actions run 38114217660](https://github.com/AplusNeutrino/My_Blog/actions/runs/38114217660) completed/success，无 validation-pending。
+- 预检证据：T01 baseline 只读对照通过，当前为 44 posts / 5 Fragments / 5 hidden，Type essay/note/fragment = 5/39/5，保护差异 0；authoring 44/5/7 passed；190/190 tests passed。
+- 本次最小交付：新增 T37 验收说明与契约测试；把不可覆盖的 T01 baseline 对照加入 production workflow，并显式安装其 PyYAML 依赖；由同一精确实现 head 完成完整 regression、Jekyll、构建产物门禁、浏览器矩阵和 Pages 部署。
+- 拟改文件：`docs/neutriverse-restructure-acceptance.md`、`tests/test_restructure_acceptance.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
+- 验收：44 篇旧文章均存在，正文 LF 哈希、date/slug/permalink、候选旧 URL、hidden/published 与 T01 一致；5 条原 Fragment 的 text/date 全在；T05 仅有据修改 Tags；工作流在 Jekyll 前自动执行基线门禁；完整回归和精确 head build/deploy 成功。
+- 边界：不刷新 T01 baseline，不改文章/Fragment/project 源、正文、front matter、文件名/date/slug/permalink、旧 URL、可见性、主题、应用、数据或外部项目；不提前执行 T38。
+- 用户问题：无；T01、T05、T33 与 T36 已提供保护范围、唯一 metadata 例外及构建产物职责。
+
 ## Run 2026-10-11 13:04 — T36 作者操作指南、模板与校验
 
 - Task / parent：T36；status = in-progress；依赖 T35 done。
@@ -690,3 +701,4 @@
 - 保护：0 篇文章/Fragment/front matter/文件名/日期/slug/permalink 改动。
 - 下一步：CI 成功后 T02 done、T03/T04 ready；T06 已 ready，可在 CI 等待或 T02 阻塞时独立推进。
 - 用户问题：没有新增需用户决定的事项。
+

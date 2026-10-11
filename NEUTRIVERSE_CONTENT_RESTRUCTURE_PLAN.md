@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T36 done; T37 ready; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T36 done; T37 in-progress; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T36 done，T37 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T36 已交付作者操作指南、Post/Fragment/Project 模板、标准库 authoring 校验器与 production workflow 门禁；精确 CI/Pages 通过。下一项为 T37 正文/URL/hidden 基线对照与完整回归。
+**当前状态：计划细化与启动决定已完成，T00–T36 done，T37 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T36 已交付作者操作指南、Post/Fragment/Project 模板、标准库 authoring 校验器与 production workflow 门禁；精确 CI/Pages 通过。当前执行 T37 正文/URL/hidden 基线对照与完整回归。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T36 = done，T37 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T36 = done，T37 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；final implementation head = f5bd45eec4c8359b439d374d42438d3f17050368；checkpoint = T36 done；next = T37 ready；completion = IN PROGRESS.
+主计划当前运行字段：active_run = T37；branch = main；base = afb62c9b8f79a0d0bcc4f9dab0ad429e5ac588be；checkpoint = T36 done；next = T37 in-progress；completion = IN PROGRESS.
+
+T37 本次范围：以 T01 冻结的 `docs/neutriverse-restructure-baseline.json` 为不可刷新基准，对全部 44 篇旧文章的文件存在性、正文 LF 哈希、date/slug/permalink、候选旧 URL、hidden/published，以及 5 条原 Fragment 的 text/date 做全量对照；把该只读检查加入 production workflow，使后续 T38–T39 不能绕过。新增验收说明与静态回归，解释本轮唯一获授权的 T05 Tags metadata 变更不属于正文/URL/hidden 差异，并汇总 T33 构建产物旧路由门禁、T36 authoring 门禁与完整测试的职责边界。拟改 `docs/neutriverse-restructure-acceptance.md`、`tests/test_restructure_acceptance.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为当前源得到 44 posts / 5 Fragments / 5 hidden，保护差异为空；工作流显式安装 PyYAML 并在 Jekyll 前运行基线门禁；全回归、authoring、production Jekyll、Search/feed、SEO/旧路由、资源/集成、390px 与 40 项响应式/无障碍矩阵以及精确实现 head Pages build/deploy 全部成功。边界是不刷新 T01 基线、不改任何文章/Fragment/project 源、正文、front matter、文件名/date/slug/permalink、旧 URL、可见性、主题、应用、数据或外部项目；不提前执行 T38。无新增用户问题。
 
 T36 本次范围：新增单一作者操作指南，说明 Post、Fragment、Project 的权威来源、命名、必填/可选字段、发布步骤、可见性与兼容边界；提供不包含虚构状态、链接、Release 或个人事实的可复制模板。新增仅依赖 Python 标准库的 authoring 校验器并接入 production workflow，机械检查文章 type/topic/date/Series/字符串 Tags、Fragment 稳定 ID 与来源、项目 stable ID/来源/可见性/详情页一致性，并以静态回归固定指南、模板和 workflow 契约。拟改 `docs/neutriverse-authoring-guide.md`、`docs/templates/neutriverse-post.md`、`docs/templates/neutriverse-fragment.yml`、`docs/templates/neutriverse-project.json`、`tools/check_authoring.py`、`tests/test_authoring_contract.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为作者可按指南添加 Note/Essay、Fragment 或已获授权的项目记录；Type 仅 fragment/note/essay、Topic 仅四项、Tags 在 YAML 中保持字符串、categories 可选兼容、项目可选字段无伪造默认；当前 44 posts / 5 Fragments / 7 projects 通过新校验，全回归、T01 baseline、production Jekyll、既有门禁及精确实现 head Pages build/deploy 成功。边界是不创建示例公开内容、不改现有文章/Fragment/project 数据、旧 URL、主题、应用、可见性或外部项目；不提前执行 T37。无新增用户问题。
 
@@ -1385,3 +1387,4 @@ T10 拆分：T10.a 桌面折叠键盘/焦点与状态（done）；T10.b 手机�
 - 可复现真浏览器：`tools/check_mobile_sidebar.py` 在 Pages workflow 构建后启动 Chrome 390×844，实测 `innerWidth=390`、trigger `46×44`、HOME + THINK/BUILD/OBSERVE/ABOUT、3 个辅助入口、Light/Night、Escape/遮罩/导航关闭与焦点。关闭态 `bodyScrollWidth=bodyClientWidth`；抽屉打开时根页面 `overflow-x:hidden`，用户不可横向滚动。
 - 最终证据：[run 37600119191](https://github.com/AplusNeutrino/My_Blog/actions/runs/37600119191)，head `337132987101fcb170db718a9713619013fe12d7`；build `112722158257`、deploy `112722471895` success，77 tests、Jekyll、Chrome 验收及 Pages 部署通过。artifact `11471544488`，digest `sha256:ebf2eab52a17774d669d1a34deb1d77efa7487881ea4f3808ba1e0c8847bf2a7`。
 - 保护：实现链未触及 `_posts/`、`_thoughts/`、文件名、date/slug/permalink、正文、旧路由或外部项目仓库。无新增待答问题；下一项 T11。
+
