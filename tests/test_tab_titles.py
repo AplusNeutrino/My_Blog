@@ -1,4 +1,3 @@
-import re
 import unittest
 from pathlib import Path
 
@@ -19,9 +18,13 @@ class TabTitlesTest(unittest.TestCase):
     def test_custom_tab_front_matter_titles_have_locale_aliases(self):
         for filename, expected in EXPECTED.items():
             source = (ROOT / "_tabs" / filename).read_text(encoding="utf-8")
-            match = re.search(r"^title:\\s*[\"']?(.+?)[\"']?\\s*$", source, re.MULTILINE)
-            self.assertIsNotNone(match, filename)
-            self.assertEqual(match.group(1), expected, filename)
+            title_line = next(
+                (line for line in source.splitlines() if line.startswith("title:")),
+                None,
+            )
+            self.assertIsNotNone(title_line, filename)
+            actual = title_line.split(":", 1)[1].strip().strip("\"'")
+            self.assertEqual(actual, expected, filename)
             self.assertIn(f"  {expected}: {expected}", LOCALE, filename)
 
     def test_aliases_are_documented_as_head_title_contract(self):
