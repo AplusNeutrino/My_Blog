@@ -1,0 +1,16 @@
+{
+  "id": "<stable-kebab-id>",
+  "name": "<public project name>",
+  "summary": "<source-supported public summary>",
+  "contexts": [
+    "build"
+  ],
+  "visibility": "<listed-listed_noindex-or-unlisted_noindex>",
+  "sources": [
+    {
+      "kind": "site",
+      "path": "<existing repository source path>"
+    }
+  ],
+  "detail_url": "/build/<stable-kebab-id>/"
+}

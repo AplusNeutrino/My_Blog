@@ -1,0 +1,6 @@
+- text: "<replace with the fragment text>"
+  id: "fragment-<YYYY-MM-DD>"
+  date: <YYYY-MM-DD>
+  type: fragment
+  topic: "<computation-humanity-otaku-or-arts>"
+  tags: ["<canonical string tag>"]
