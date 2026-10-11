@@ -12,6 +12,7 @@ from xml.etree import ElementTree
 
 ORIGIN = "https://neutriverse.uk"
 PUBLIC_ROUTES = ("/", "/think/", "/build/", "/observe/", "/about/")
+TAB_ROUTES = ("/about/", "/archives/", "/categories/", "/library/", "/links/", "/tags/", "/thoughts/")
 NOINDEX_ROUTES = (
     "/gate/",
     "/navi/",
@@ -182,6 +183,11 @@ def check(site: Path, repo: Path) -> list[str]:
         if document and (not document.title or not any(value.strip() for value in document.descriptions)):
             errors.append(f"public entrance lacks title or description: {route}")
 
+    for route in TAB_ROUTES:
+        document = documents.get(route)
+        if document and (not document.title or document.title.startswith("|")):
+            errors.append(f"tab page lacks a contextual document title: {route} -> {document.title!r}")
+
     for route in NOINDEX_ROUTES:
         document = documents.get(route)
         if document and (
@@ -258,7 +264,7 @@ def main() -> int:
         return 1
     print(
         "SEO and route validation passed: protected routes, canonical targets, noindex/sitemap, "
-        "redirects, robots, and internal page links are consistent."
+        "redirects, contextual tab titles, robots, and internal page links are consistent."
     )
     return 0
 

@@ -51,6 +51,8 @@ class SeoRoutesTest(unittest.TestCase):
         self.assertLess(build, validate)
         self.assertLess(validate, upload)
         self.assertIn('python tools/check_seo_routes.py "_site${{ steps.pages.outputs.base_path }}"', WORKFLOW)
+        self.assertIn("TAB_ROUTES", CHECKER)
+        self.assertIn("tab page lacks a contextual document title", CHECKER)
 
 
 if __name__ == "__main__":

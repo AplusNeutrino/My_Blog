@@ -7,3 +7,12 @@ tabs:
   archives: 中间层时间线
   about: 中间层漫游指南
   links: 友情链接
+  # Chirpy's head resolves tab titles through page.title | downcase. Keep
+  # aliases for localized/custom front matter titles so <title> never loses its page segment.
+  中间层漫游指南: 中间层漫游指南
+  中间层时间线: 中间层时间线
+  中间文段索引: 中间文段索引
+  中间层大图书馆: 中间层大图书馆
+  中间层友情链接: 中间层友情链接
+  中间文段标签: 中间文段标签
+  中间思维片段: 中间思维片段
