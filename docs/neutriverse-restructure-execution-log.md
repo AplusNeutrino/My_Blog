@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-11 13:04 — T36 作者操作指南、模板与校验
+
+- Task / parent：T36；status = in-progress；依赖 T35 done。
+- Base SHA / branch：`9adb3713b6b2a4bca71fcc7147629d04ad064434` / main；从远端精确 head 建立干净工作树，T35 文档 [Actions run 38110496445](https://github.com/AplusNeutrino/My_Blog/actions/runs/38110496445) completed/success，无 validation-pending。
+- 现状证据：Post 使用 `_posts/YYYY-MM-DD-*.md` 与 `type/topic/series/tags`；Fragment 唯一来源为 `_tabs/thoughts.md` 且有稳定 ID；七个项目唯一来源为 JSON 语法的 `_data/neutriverse_projects.yml`，详情页按 stable ID 接线。当前没有统一作者指南、可复制模板或一次性 authoring source 校验命令。
+- 本次最小交付：新增 Post/Fragment/Project 操作指南及无虚构默认值模板；新增标准库校验器并接入 production workflow，覆盖枚举、字符串 Tags、日期/文件名、Series、稳定 Fragment ID、项目来源/可见性/详情页一致性；用静态回归固定模板与接线。
+- 拟改文件：`docs/neutriverse-authoring-guide.md`、`docs/templates/neutriverse-post.md`、`docs/templates/neutriverse-fragment.yml`、`docs/templates/neutriverse-project.json`、`tools/check_authoring.py`、`tests/test_authoring_contract.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
+- 验收：可按指南添加 Note/Essay、Fragment 或已授权项目；Type/Topic/Series/Tags/categories/可见性边界明确；纯数字或 YAML 隐式类型 Tags 必须引用为字符串；项目 status/links/releases 不提供伪造默认；当前 44 posts / 5 Fragments / 7 projects 通过新校验，全回归、T01 baseline、production Jekyll、既有门禁和精确 head Pages 成功。
+- 边界：不创建公开示例内容，不改现有文章/Fragment/project 数据、front matter、正文、旧 URL、主题、应用、hidden/noindex 或外部项目；不提前执行 T37。
+- 用户问题：无；字段和可见性规则均已有 taxonomy、project schema、ADR 与主计划决定。
+
 ## Run 2026-10-11 11:57 — T35 长期架构评估及旧 categories 维护策略
 
 - Task / parent：T35；status = done；依赖 T34 done。
