@@ -4,20 +4,58 @@
     <h2>&#35780;&#35770;&#21306;</h2>
   </div>
   <div id="tcomment"></div>
+  <p data-twikoo-status role="status" hidden></p>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof twikoo === 'undefined') {
-      return;
-    }
+  (() => {
+    const section = document.getElementById('twikoo-comments');
+    const status = section?.querySelector('[data-twikoo-status]');
+    if (!section) return;
 
-    twikoo.init({
-      envId: '{{ site.comments.twikoo.env_id }}',
-      el: '#tcomment',
-      path: '{{ page.url | relative_url }}',
-      lang: '{{ site.comments.twikoo.lang | default: site.lang | default: "zh-CN" }}'
-    });
-  });
+    let loadPromise = null;
+    const showFailure = () => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = '评论服务暂时不可用，文章正文不受影响。';
+    };
+    const loadTwikoo = () => {
+      if (loadPromise) return loadPromise;
+      loadPromise = new Promise((resolve, reject) => {
+        if (typeof twikoo !== 'undefined') { resolve(); return; }
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/twikoo@1.7.9/dist/twikoo.all.min.js';
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.append(script);
+      }).then(() => {
+        if (typeof twikoo === 'undefined') throw new Error('Twikoo did not initialize');
+        return Promise.resolve(twikoo.init({
+          envId: '{{ site.comments.twikoo.env_id }}',
+          el: '#tcomment',
+          path: '{{ page.url | relative_url }}',
+          lang: '{{ site.comments.twikoo.lang | default: site.lang | default: "zh-CN" }}'
+        }));
+      }).catch((error) => {
+        showFailure();
+        throw error;
+      });
+      return loadPromise;
+    };
+
+    const requestLoad = () => { loadTwikoo().catch(() => {}); };
+    section.addEventListener('pointerdown', requestLoad, { once: true, passive: true });
+    section.addEventListener('focusin', requestLoad, { once: true });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        requestLoad();
+      }, { rootMargin: '480px 0px' });
+      observer.observe(section);
+    } else {
+      requestLoad();
+    }
+  })();
 </script>

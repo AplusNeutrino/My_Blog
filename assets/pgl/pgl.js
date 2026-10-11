@@ -33,6 +33,8 @@
   let items = [];
   let stats = {};
   let itemById = new Map();
+  let libraryDataPromise = null;
+  let libraryDataError = null;
   let searchTimer = null;
   let previousNonSearchState = null;
 
@@ -128,6 +130,12 @@
     state.page = Math.max(1, Number(state.page) || 1);
     writeHistory(state, options);
     render();
+  }
+
+  async function navigateWithData(next, options = {}) {
+    const loaded = await loadLibraryData();
+    navigate(next, options);
+    if (!loaded && resultCount) resultCount.textContent = `PGL data unavailable: ${libraryDataError?.message || 'unknown error'}`;
   }
 
   function itemSources(item) { return Object.keys(item.sources || {}); }
@@ -423,6 +431,34 @@
     });
   }
 
+  function loadLibraryData() {
+    if (libraryDataPromise) return libraryDataPromise;
+
+    root.setAttribute('aria-busy', 'true');
+    libraryDataPromise = Promise.all([loadJson(root.dataset.libraryUrl), loadJson(root.dataset.statsUrl)])
+      .then(([library, loadedStats]) => {
+        items = Array.isArray(library.items) ? library.items : [];
+        stats = loadedStats || {};
+        itemById = new Map(items.map((item) => [item.id, item]));
+        populateYears();
+        setLayout(currentLayout());
+        renderRatingChart('all');
+        render();
+        return true;
+      })
+      .catch((error) => {
+        libraryDataError = error;
+        // Root SSR remains useful. Direct browser views fail visibly instead of
+        // presenting an empty grid that looks like a valid empty library.
+        if (state.view !== 'index' && resultCount) resultCount.textContent = `PGL data unavailable: ${error.message}`;
+        render();
+        return false;
+      })
+      .finally(() => root.removeAttribute('aria-busy'));
+
+    return libraryDataPromise;
+  }
+
   // Drawer ------------------------------------------------------------------
   const dialog = $('pgl-drawer');
   const dialogContent = $('pgl-drawer-content');
@@ -467,9 +503,9 @@
 
   function openById(id) { if (id && itemById.has(id)) openItem(itemById.get(id)); }
 
-  document.addEventListener('click', (event) => {
+  document.addEventListener('click', async (event) => {
     const opener = event.target.closest('[data-open-pgl]');
-    if (opener) { openById(opener.dataset.openPgl); return; }
+    if (opener) { await loadLibraryData(); openById(opener.dataset.openPgl); return; }
     const card = event.target.closest('.pgl-card');
     if (card && grid?.contains(card)) openById(card.dataset.pglId);
   });
@@ -553,8 +589,9 @@
     document.querySelectorAll('[data-rating-scope]').forEach((button) => button.classList.toggle('is-active', button.dataset.ratingScope === scope));
   }
 
-  document.getElementById('pgl-rating-scopes')?.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-rating-scope]'); if (button) renderRatingChart(button.dataset.ratingScope);
+  document.getElementById('pgl-rating-scopes')?.addEventListener('click', async (event) => {
+    const button = event.target.closest('[data-rating-scope]');
+    if (button) { await loadLibraryData(); renderRatingChart(button.dataset.ratingScope); }
   });
 
   // Timeline ----------------------------------------------------------------
@@ -579,20 +616,20 @@
   $('pgl-load-timeline')?.addEventListener('click', loadTimeline);
 
   // Navigation/events -------------------------------------------------------
-  document.addEventListener('click', (event) => {
+  document.addEventListener('click', async (event) => {
     const category = event.target.closest('[data-pgl-category]');
-    if (category) { event.preventDefault(); navigate({ ...defaultState(), view: 'category', category: category.dataset.pglCategory }); return; }
+    if (category) { event.preventDefault(); await navigateWithData({ ...defaultState(), view: 'category', category: category.dataset.pglCategory }); return; }
     const wishlist = event.target.closest('[data-pgl-wishlist]');
-    if (wishlist) { event.preventDefault(); navigate({ ...defaultState(), view: 'wishlist' }); return; }
+    if (wishlist) { event.preventDefault(); await navigateWithData({ ...defaultState(), view: 'wishlist' }); return; }
     const wishlistCategory = event.target.closest('[data-pgl-wishlist-category]');
-    if (wishlistCategory) { event.preventDefault(); navigate({ ...defaultState(), view: 'wishlist', category: wishlistCategory.dataset.pglWishlistCategory }); return; }
+    if (wishlistCategory) { event.preventDefault(); await navigateWithData({ ...defaultState(), view: 'wishlist', category: wishlistCategory.dataset.pglWishlistCategory }); return; }
     const statusButton = event.target.closest('[data-pgl-status]');
-    if (statusButton && state.category) { navigate({ ...state, view: 'other', status: statusButton.dataset.pglStatus, page: 1 }); }
+    if (statusButton && state.category) { await navigateWithData({ ...state, view: 'other', status: statusButton.dataset.pglStatus, page: 1 }); }
   });
 
-  back?.addEventListener('click', () => {
-    if (state.view === 'wishlist' && state.category) navigate({ ...defaultState(), view: 'wishlist' });
-    else if (state.view === 'search' && previousNonSearchState) navigate(previousNonSearchState);
+  back?.addEventListener('click', async () => {
+    if (state.view === 'wishlist' && state.category) await navigateWithData({ ...defaultState(), view: 'wishlist' });
+    else if (state.view === 'search' && previousNonSearchState) await navigateWithData(previousNonSearchState);
     else navigate(defaultState());
   });
 
@@ -608,7 +645,7 @@
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
       const q = search.value.trim();
-      if (q) navigate({ ...defaultState(), view: 'search', q }, { replace: true });
+      if (q) navigateWithData({ ...defaultState(), view: 'search', q }, { replace: true });
       else if (state.view === 'search') navigate(previousNonSearchState || defaultState(), { replace: true });
     }, 140);
   });
@@ -619,31 +656,30 @@
     const open = !root.classList.contains('is-search-open'); root.classList.toggle('is-search-open', open); searchToggle.setAttribute('aria-expanded', String(open)); if (open) search?.focus();
   });
 
-  sort?.addEventListener('change', () => navigate({ ...state, sort: sort.value, page: 1 }));
-  source?.addEventListener('change', () => navigate({ ...state, source: source.value, page: 1 }));
-  year?.addEventListener('change', () => navigate({ ...state, year: year.value, page: 1 }));
-  clearFilters?.addEventListener('click', () => navigate({ ...state, source: '', year: '', sort: 'updated', page: 1 }));
+  sort?.addEventListener('change', () => navigateWithData({ ...state, sort: sort.value, page: 1 }));
+  source?.addEventListener('change', () => navigateWithData({ ...state, source: source.value, page: 1 }));
+  year?.addEventListener('change', () => navigateWithData({ ...state, year: year.value, page: 1 }));
+  clearFilters?.addEventListener('click', () => navigateWithData({ ...state, source: '', year: '', sort: 'updated', page: 1 }));
   layoutGrid?.addEventListener('click', () => setLayout('grid'));
   layoutList?.addEventListener('click', () => setLayout('list'));
-  window.addEventListener('popstate', () => { state = parseState(); render(); });
+  window.addEventListener('popstate', async () => {
+    state = parseState();
+    if (state.view !== 'index') await loadLibraryData();
+    render();
+  });
 
-  // Load static public artifacts and initialize. --------------------------------
-  Promise.all([loadJson(root.dataset.libraryUrl), loadJson(root.dataset.statsUrl)])
-    .then(([library, loadedStats]) => {
-      items = Array.isArray(library.items) ? library.items : [];
-      stats = loadedStats || {};
-      itemById = new Map(items.map((item) => [item.id, item]));
-      populateYears();
-      setLayout(currentLayout());
-      renderRatingChart('all');
-      render();
-      // Normalize legacy ?type= and view=grid/list URLs without adding history.
-      if (location.search.includes('type=') || /(?:^|[?&])view=(?:grid|list)(?:&|$)/.test(location.search)) writeHistory(state, { replace: true });
-    })
-    .catch((error) => {
-      // Root SSR remains useful. Direct browser views fail visibly instead of
-      // presenting an empty grid that looks like a valid empty library.
-      if (state.view !== 'index' && resultCount) resultCount.textContent = `PGL data unavailable: ${error.message}`;
-      render();
-    });
+  // Preserve the useful server-rendered Library index. Load the large catalog
+  // only for a direct browser view, first interaction intent, or browser idle.
+  setLayout(currentLayout());
+  render();
+  if (location.search.includes('type=') || /(?:^|[?&])view=(?:grid|list)(?:&|$)/.test(location.search)) writeHistory(state, { replace: true });
+  if (state.view !== 'index') {
+    loadLibraryData();
+  } else {
+    const prime = () => loadLibraryData();
+    root.addEventListener('pointerdown', prime, { once: true, passive: true });
+    root.addEventListener('focusin', prime, { once: true });
+    if ('requestIdleCallback' in window) window.requestIdleCallback(prime, { timeout: 5000 });
+    else window.setTimeout(prime, 3000);
+  }
 })();

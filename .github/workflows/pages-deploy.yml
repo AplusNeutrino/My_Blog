@@ -78,6 +78,9 @@ jobs:
       - name: Validate SEO, sitemap, redirects, and internal routes
         run: python tools/check_seo_routes.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Validate resource scope and integration fallbacks
+        run: python tools/check_performance_integrations.py "_site${{ steps.pages.outputs.base_path }}"
+
       - name: Validate mobile sidebar in Chrome
         run: python tools/check_mobile_sidebar.py "_site${{ steps.pages.outputs.base_path }}"
 
