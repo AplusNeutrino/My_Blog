@@ -2,6 +2,17 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-11 11:57 — T35 长期架构评估及旧 categories 维护策略
+
+- Task / parent：T35；status = in-progress；依赖 T34 done。
+- Base SHA / branch：`71722702dc4099dca98b750bdf8d64715da2a3ac` / main；从远端精确 head 建立干净工作树，T34 文档 [Actions run 38107335941](https://github.com/AplusNeutrino/My_Blog/actions/runs/38107335941) completed/success，无 validation-pending。
+- 现状证据：站点继续由 Jekyll/Chirpy、GitHub Pages 与 production workflow 构建部署；T34 精确实现 head 已通过 183 项回归、production Jekyll、Search/Atom、SEO/旧路由、资源/集成与响应式/无障碍门禁。T01 基线中的 44 篇文章全部保留旧 categories，共 15 个名称 / 87 次关联；`jekyll-archives` 继续生成 `/categories/:name/`，文章详情与 `/categories/` 继续链接这些路由。THINK 的 Type/Topic/Series/Tags 已不依赖 category，Series 旧回退亦已移除。
+- 本次最小交付：建立正式 ADR，评估现有平台的适配性、成本与边界；记录继续使用 Jekyll/GitHub Pages 的决定、可验证的平台迁移触发条件和未来迁移护栏；固化旧 categories 的兼容职责、未来新内容规则与退役门槛。
+- 拟改文件：`docs/adr/0001-retain-jekyll-and-legacy-categories.md`、主计划与本日志。
+- 验收：ADR 有 status/context/evidence/decision/consequences/revisit triggers；明确当前不迁移平台、不删除旧分类、不从 category 推断 Type/Topic/Series/Tags、新内容不强制 categories；将来退役必须有使用证据、逐路由映射和基线旧 URL 验证；全回归、T01 baseline、`git diff --check` 与精确实现 head Pages build/deploy 成功。
+- 边界：不改运行时代码、`_posts/`/Fragments、front matter、旧 URL、导航、主题、应用、数据、workflow 或外部项目；不提前执行 T36。
+- 用户问题：无；Q8 已决定本轮保持 Jekyll/GitHub Pages，T35 只把长期标准与兼容生命周期写成可执行决策。
+
 ## Run 2026-10-09 01:58 — T34 性能、资源降级与现有集成回归
 
 - Task / parent：T34；status = done；依赖 T33 done。
