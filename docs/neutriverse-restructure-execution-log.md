@@ -12,6 +12,12 @@
 - 验收：44 篇旧文章均存在，正文 LF 哈希、date/slug/permalink、候选旧 URL、hidden/published 与 T01 一致；5 条原 Fragment 的 text/date 全在；T05 仅有据修改 Tags；工作流在 Jekyll 前自动执行基线门禁；完整回归和精确 head build/deploy 成功。
 - 边界：不刷新 T01 baseline，不改文章/Fragment/project 源、正文、front matter、文件名/date/slug/permalink、旧 URL、可见性、主题、应用、数据或外部项目；不提前执行 T38。
 - 用户问题：无；T01、T05、T33 与 T36 已提供保护范围、唯一 metadata 例外及构建产物职责。
+- 范围 / 实现及 final implementation head：`b8fcd16527830a7145e0884562032342e8660ff7` / `c7c748bfcac5b64cc646992a9218a9e22c039fee`；均以 expected head 非强推更新 main。
+- 实际交付：新增 `docs/neutriverse-restructure-acceptance.md`，明确源基线、构建 URL、authoring 和后续线上 E2E 四层证据边界；新增 5 项回归，把 44 篇旧文章、5 条原 Fragment、5 篇 hidden 与唯一两项 T05 Tags 例外固定为可重复契约。工作流显式安装 PyYAML，并在 regression 后、authoring/Jekyll 前运行不可覆盖的 T01 baseline 对照，输出只写 runner 临时目录。
+- 差异结论：44/44 原文章文件存在；正文 LF hash、title、date/slug/permalink、候选 URL、Type/Topic/Series/categories、hidden/published/sitemap/robots 无差异；5/5 Fragment 的 text/date/Type/Topic/Tags/hidden 一致。只有 `_posts/2025-05-07-计组-06.md` 的 `Bus → System Bus` 与 `_posts/2026-05-24-neutriverse-site-changelog.md` 删除 `Changelog` 使整体文件 hash 变化，均精确对应 T05 已授权审计，正文和保护字段未变。
+- 本地验证：195/195 tests；T01 baseline = 44 posts / 5 Fragments / 5 hidden、passed、errors 0；authoring = 44 posts / 5 Fragments / 7 projects、passed；`git diff --check` 通过。
+- 精确验证：[Actions run 38116819602](https://github.com/AplusNeutrino/My_Blog/actions/runs/38116819602) 对应 final implementation head，completed/success；build `114403239588` 的 regression、Validate protected restructure baseline、Validate authoring sources、production Jekyll、Search/Atom、SEO/旧路由、资源/集成、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114403465323` 成功。artifact `11693621146` / `sha256:dc67cc1979e0b77c108785e087994d94321d086b04474e6f4d03ef8ed1659ca3`。
+- 保护 / 结论：未刷新基线，未改文章/Fragment/project 源、正文、front matter、文件名/date/slug/permalink、旧 URL、可见性、主题、应用、数据或外部项目；未提前执行 T38。T37 done；active_run = none；checkpoint = T37 done；next = T38 ready；无新增用户问题。
 
 ## Run 2026-10-11 13:04 — T36 作者操作指南、模板与校验
 
