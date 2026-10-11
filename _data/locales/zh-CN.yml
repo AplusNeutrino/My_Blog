@@ -6,7 +6,4 @@ tabs:
   thoughts: 中间思维片段
   archives: 中间层时间线
   about: 中间层漫游指南
-  links: 中间层友情链接
-  library: 中间层大图书馆
-  # Keep _tabs front matter titles as stable identifier keys. Chirpy resolves
-  # both visible headings and contextual <title> values through this mapping.
+  links: 友情链接
