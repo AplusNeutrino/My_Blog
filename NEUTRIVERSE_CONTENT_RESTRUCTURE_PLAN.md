@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T34 done; T35 in-progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T35 done; T36 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T34 done，T35 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T34 已延后 Library 全量目录与 Twikoo 评论资源，建立 production-build 资源作用域/集成降级门禁；精确 CI/Pages 通过。当前执行 T35 长期架构评估及旧 categories 维护策略。
+**当前状态：计划细化与启动决定已完成，T00–T35 done，T36 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T35 已接受继续使用 Jekyll/Chirpy + GitHub Pages 的长期架构决定，并把旧 categories 固化为只读兼容层；精确 CI/Pages 通过。下一项 T36 作者操作指南、新增内容/项目模板与必要校验。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T34 = done，T35 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T35 = done，T36 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T35；branch = main；base = 71722702dc4099dca98b750bdf8d64715da2a3ac；checkpoint = T34 done；next = T35 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = 773ba06a9cf4212e0fc1a54e255ac163f65b72a9；checkpoint = T35 done；next = T36 ready；completion = IN PROGRESS.
 
 T35 本次范围：在 `docs/adr/` 建立长期架构决策记录，以当前源码、T01 基线、路由契约和 T34 production 证据评估 Jekyll/Chirpy + GitHub Pages 是否仍满足 Neutriverse；明确平台迁移的触发条件、未来评估步骤和不触发迁移的事项。同步固化旧 `categories` 的兼容职责：Type/Topic/Series/Tags 是权威语义，44 篇旧文章的 15 个 category / 87 次关联、`/categories/` 与 `/categories/:name/` 当前保留，不从 category 推断新 taxonomy；新内容不强制添加 category；任何将来删除必须先有真实使用证据、逐路由兼容映射和全量旧 URL 验证。拟改 ADR、主计划与执行日志；不改运行时代码、`_posts/`/Fragments、front matter、旧 URL、导航、主题、应用、数据、CI 或外部项目。验收为决策、理由、后果、迁移触发器与 categories 生命周期可直接执行且无歧义；全回归、T01 baseline、diff check 与精确实现 head 的 Pages build/deploy 成功。无新增用户问题。
+
+T35 验收证据：新增已接受的 `docs/adr/0001-retain-jekyll-and-legacy-categories.md`。决定继续使用 Jekyll/Chirpy、GitHub Actions 与 GitHub Pages，不因框架流行度、视觉改版、单次 CI 波动或增加静态内容而迁移；只有服务端/用户状态、持续构建阻塞、客户端模块无法隔离、内容模型无法可靠校验或平台阻止已批准功能的能力缺口有实际证据时，才另建 ADR、proof of concept、双构建 URL/正文/metadata 对照与回滚方案。旧 categories 明确为只读兼容层：现有 44 篇文章的 15 个名称 / 87 次关联、`/categories/`、`/categories/:name/` 及文章详情链接继续保留；Type/Topic/Series/Tags 唯一权威，新内容不强制 categories。未来退役必须先有真实使用证据、逐路由映射、T01/SEO/断链/部署全检和 superseding ADR。范围提交 `8c36917d81b0cb6ab540e7a085974d7103cffab2`；实现及 final head `773ba06a9cf4212e0fc1a54e255ac163f65b72a9`。本地 183/183 tests、T01 baseline protection 与 diff check 通过。[Actions run 38110334170](https://github.com/AplusNeutrino/My_Blog/actions/runs/38110334170) 精确对应实现 head，build `114384379647` 的回归、production Jekyll、Search/Atom、SEO/路由、资源/集成、移动 Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114384572599` 成功。artifact `11691392541` / `sha256:f905d99c20ec6f05faa61ef5baddc80f0c8ad9895dc8e64d079baa37a78bd789`。未改运行时代码、文章/Fragment、front matter、旧 URL、导航、主题、应用、数据、workflow 或外部项目。T35 done，T36 ready，无新增用户问题。
 
 T34 本次范围：建立资源作用域与既有集成的 production-build 门禁，并收敛两个真实首屏成本。Library 保留服务端摘要、统计与分类入口，但 `library.json` / `stats.json` 改为首次 Library 交互、深链接请求或浏览器空闲时才加载，不在初始解析阶段请求约 1.47 MB 全量目录；文章评论保留 Twikoo provider/env/path，却改为评论区临近视口或获得交互意图时异步加载，并提供脚本失败可见降级。Ravenis 继续只在自身应用加载 manifest/当日日报，历史搜索索引仍仅搜索时加载；Occult Atlas、旅行地球、PGL 资源不得泄漏到首页或四入口；点赞 endpoint 与 localStorage 失败回退、Night/Prospero Light controller、Search/feed 保持原契约。拟改 `assets/pgl/pgl.js`、`_includes/comments/twikoo.html`、`tools/check_performance_integrations.py`、`tests/test_performance_integrations.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为构建产物作用域、defer/lazy、深链接与降级契约可机械核对，全回归、T01 baseline、production Jekyll、既有 SEO/Search/浏览器门禁及精确实现 head Pages build/deploy 成功。边界是不改文章/Fragment、URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API 或外部项目；无新增用户问题。
 

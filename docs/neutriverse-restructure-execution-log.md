@@ -4,7 +4,7 @@
 
 ## Run 2026-10-11 11:57 — T35 长期架构评估及旧 categories 维护策略
 
-- Task / parent：T35；status = in-progress；依赖 T34 done。
+- Task / parent：T35；status = done；依赖 T34 done。
 - Base SHA / branch：`71722702dc4099dca98b750bdf8d64715da2a3ac` / main；从远端精确 head 建立干净工作树，T34 文档 [Actions run 38107335941](https://github.com/AplusNeutrino/My_Blog/actions/runs/38107335941) completed/success，无 validation-pending。
 - 现状证据：站点继续由 Jekyll/Chirpy、GitHub Pages 与 production workflow 构建部署；T34 精确实现 head 已通过 183 项回归、production Jekyll、Search/Atom、SEO/旧路由、资源/集成与响应式/无障碍门禁。T01 基线中的 44 篇文章全部保留旧 categories，共 15 个名称 / 87 次关联；`jekyll-archives` 继续生成 `/categories/:name/`，文章详情与 `/categories/` 继续链接这些路由。THINK 的 Type/Topic/Series/Tags 已不依赖 category，Series 旧回退亦已移除。
 - 本次最小交付：建立正式 ADR，评估现有平台的适配性、成本与边界；记录继续使用 Jekyll/GitHub Pages 的决定、可验证的平台迁移触发条件和未来迁移护栏；固化旧 categories 的兼容职责、未来新内容规则与退役门槛。
@@ -12,6 +12,12 @@
 - 验收：ADR 有 status/context/evidence/decision/consequences/revisit triggers；明确当前不迁移平台、不删除旧分类、不从 category 推断 Type/Topic/Series/Tags、新内容不强制 categories；将来退役必须有使用证据、逐路由映射和基线旧 URL 验证；全回归、T01 baseline、`git diff --check` 与精确实现 head Pages build/deploy 成功。
 - 边界：不改运行时代码、`_posts/`/Fragments、front matter、旧 URL、导航、主题、应用、数据、workflow 或外部项目；不提前执行 T36。
 - 用户问题：无；Q8 已决定本轮保持 Jekyll/GitHub Pages，T35 只把长期标准与兼容生命周期写成可执行决策。
+- 范围 / 实现及 final head：`8c36917d81b0cb6ab540e7a085974d7103cffab2` / `773ba06a9cf4212e0fc1a54e255ac163f65b72a9`；均以 expected head 非强推更新 main。
+- 实际交付：新增 Accepted ADR `docs/adr/0001-retain-jekyll-and-legacy-categories.md`。当前平台继续保留；只有服务端/用户状态、持续构建阻塞、客户端模块无法隔离、内容模型不可维护或平台阻塞已批准功能且有实际证据时，才进入新的架构评估。迁移必须另建 ADR/验证分支、proof of concept、旧版/候选版双构建对照、逐 URL 兼容与回滚方案。
+- categories 策略：现有 44 篇文章的 15 个名称 / 87 次关联、`/categories/`、`/categories/:name/` 与文章详情旧分类链接继续作为只读兼容层；Type/Topic/Series/Tags 唯一权威，禁止 category 推断，新内容不强制 categories。未来退役无预设日期，须先有真实使用证据、逐路由映射、T01/SEO/断链/部署全检及 superseding ADR。
+- 本地验证：183/183 tests；T01 baseline protection passed（44 posts / 5 Fragments / 5 hidden；Type essay/note/fragment = 5/39/5）；`git diff --check` 通过。本项为文档决策，未额外制造纯文档测试。
+- 精确验证：[Actions run 38110334170](https://github.com/AplusNeutrino/My_Blog/actions/runs/38110334170) 对应 final head `773ba06a9cf4212e0fc1a54e255ac163f65b72a9`，completed/success；build `114384379647` 的 183 tests、production Jekyll、Search/Atom、SEO/路由、资源/集成、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114384572599` 成功。artifact `11691392541` / `sha256:f905d99c20ec6f05faa61ef5baddc80f0c8ad9895dc8e64d079baa37a78bd789`。
+- 保护 / 结论：未改运行时代码、文章/Fragment、front matter、文件名/date/slug/permalink、旧 URL、导航、主题、应用、数据、workflow、hidden/noindex 或外部项目；未提前执行 T36。T35 done；active_run = none；checkpoint = T35 done；next = T36 ready；无新增用户问题。
 
 ## Run 2026-10-09 01:58 — T34 性能、资源降级与现有集成回归
 
