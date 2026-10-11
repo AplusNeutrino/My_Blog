@@ -4,14 +4,20 @@
 
 ## Run 2026-10-09 01:58 — T34 性能、资源降级与现有集成回归
 
-- Task / parent：T34；status = in-progress；依赖 T33 done。
-- Base SHA / branch：`46a960848da150229ee164f90eb10b2e1278ac3c` / main；与远端最新文档 head 一致，独立干净 worktree。
+- Task / parent：T34；status = done；依赖 T33 done。
+- Base SHA / branch：范围基线 `46a960848da150229ee164f90eb10b2e1278ac3c` / main；实施前远端已有三次独立 PGL 数据同步，故实施基线安全前移至 `9691737e685cb2a3170fad33a595c7f015f1c185`，未覆盖数据提交。
 - 现状证据：公开首页/四入口未引用 PGL、Ravenis、Occult Atlas 或旅行地球专属 JS；Ravenis 初始化仅取 manifest 与当日数据，历史搜索索引按搜索加载；但 Library 脚本解析后立即请求约 1.47 MB `library.json` 与 stats，Twikoo 为文章页解析阻塞式第三方 script。点赞已有 endpoint 失败后的 localStorage 回退。
 - 本次最小交付：PGL 全量数据改为 Library 首次交互、深链接或空闲阶段加载；Twikoo 改为评论区临近视口/交互时异步加载并显示失败降级；新增构建产物资源作用域和主题/评论/点赞/Search/feed/观察数据契约门禁。
 - 拟改文件：`assets/pgl/pgl.js`、`_includes/comments/twikoo.html`、`tools/check_performance_integrations.py`、`tests/test_performance_integrations.py`、`.github/workflows/pages-deploy.yml`、主计划与本日志。
 - 验收：首页及 THINK/BUILD/OBSERVE/ABOUT 不请求 Library/观察应用/旅行地球专属资源；Library SSR 摘要先可用且全量 JSON 不在解析阶段获取，深链接和首次交互仍可加载；Twikoo provider/env/path 不变且第三方失败可见；Ravenis 搜索索引不在初始加载，Occult Atlas 资源只在应用，点赞保留远端与本地回退，双主题/Search/feed 不回退；全回归、基线、Jekyll、现有门禁、新门禁及精确 head Pages 成功。
 - 边界：不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API、hidden/noindex 或外部项目；不提前执行 T35。
 - 用户问题：无；本轮仅优化已存在资源的加载时机并固化既定集成契约。
+- 范围 / 主体实现 / 门禁修复及 final head：`af9479dd7e054814a7c2b119b2bbfe28f3081e99` / `506a3d3f25cf4703cc45b51cd27419b9d2c52c69` / `fd9395f12e356728602a017d483a5f7fa4d38e83`；均以 expected head 非强推更新 main。
+- 实际交付：PGL 保留服务端首屏摘要、统计与分类入口，全量目录和 stats 改为直接深链接、首次 pointer/focus 意图或浏览器 idle 时单次加载；分类、愿望单、搜索、筛选、抽屉及失败提示保留。Twikoo 改为距视口 480px 或交互时动态注入 async script，保留 env/path/lang，并在第三方失败时显示可见降级。新增无第三方依赖的构建产物门禁，验证五个公开入口资源作用域、双主题/Atom、Library/两个观察应用资源边界、评论、点赞与 Ravenis 搜索按需契约。
+- 本地检查：183/183 tests、JavaScript/Python 语法、`git diff --check` 与 T01 baseline protection 通过；基线为 44 posts / 5 Fragments / 5 hidden，Type essay/note/fragment = 5/39/5。执行环境无 Bundler，未宣称本地 Jekyll 成功。
+- 真实失败：[run 38106988732](https://github.com/AplusNeutrino/My_Blog/actions/runs/38106988732) 中 182 tests、production Jekyll、Search/Atom 与 SEO 均成功；新门禁因硬编码小写 baseline 候选 URL、未使用实际大小写生成路由而失败，后续浏览器门禁/部署跳过，未记为通过。修复后门禁从构建产物按评论和点赞标记选择真实公开文章，并新增静态回归。
+- 最终精确验证：[run 38107144418](https://github.com/AplusNeutrino/My_Blog/actions/runs/38107144418) 对应 final head `fd9395f12e356728602a017d483a5f7fa4d38e83`，completed/success；build `114374941416` 的 183 tests、production Jekyll、Search/Atom、SEO/路由、资源/集成、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功；deploy `114375143134` 成功。artifact `11689393813` / `sha256:d2b67ba283b17ea5d720d1533a33b4e14b99a03d95122cbd3ea01da6c03174a6`。
+- 保护 / 结论：未改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API、hidden/noindex 或外部项目；未提前执行 T35。T34 done；active_run = none；checkpoint = T34 done；next = T35 ready；无新增用户问题。
 
 ## Run 2026-10-09 01:03 — T33 canonical、SEO、sitemap 与旧链接检查
 

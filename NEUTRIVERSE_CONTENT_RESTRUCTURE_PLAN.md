@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T33 done; T34 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1 and Phase 2 completed; T00–T34 done; T35 ready; implementation decisions resolved; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T33 done，T34 in progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T33 已收敛 canonical、noindex、robots 与 sitemap 契约，并用 production build 门禁验证保护路由、兼容重定向、旧 URL 与站内页面链接；精确 CI/Pages 通过。下一项 T34 性能/资源降级与现有集成回归。
+**当前状态：计划细化与启动决定已完成，T00–T34 done，T35 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T34 已延后 Library 全量目录与 Twikoo 评论资源，建立 production-build 资源作用域/集成降级门禁；精确 CI/Pages 通过。下一项 T35 长期架构评估及旧 categories 维护策略。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T33 = done，T34 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T34 = done，T35 = ready；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T34-20261009-0158；branch = main；base = 46a960848da150229ee164f90eb10b2e1278ac3c；checkpoint = T33 done；next = T34 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = fd9395f12e356728602a017d483a5f7fa4d38e83；checkpoint = T34 done；next = T35 ready；completion = IN PROGRESS.
 
 T34 本次范围：建立资源作用域与既有集成的 production-build 门禁，并收敛两个真实首屏成本。Library 保留服务端摘要、统计与分类入口，但 `library.json` / `stats.json` 改为首次 Library 交互、深链接请求或浏览器空闲时才加载，不在初始解析阶段请求约 1.47 MB 全量目录；文章评论保留 Twikoo provider/env/path，却改为评论区临近视口或获得交互意图时异步加载，并提供脚本失败可见降级。Ravenis 继续只在自身应用加载 manifest/当日日报，历史搜索索引仍仅搜索时加载；Occult Atlas、旅行地球、PGL 资源不得泄漏到首页或四入口；点赞 endpoint 与 localStorage 失败回退、Night/Prospero Light controller、Search/feed 保持原契约。拟改 `assets/pgl/pgl.js`、`_includes/comments/twikoo.html`、`tools/check_performance_integrations.py`、`tests/test_performance_integrations.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为构建产物作用域、defer/lazy、深链接与降级契约可机械核对，全回归、T01 baseline、production Jekyll、既有 SEO/Search/浏览器门禁及精确实现 head Pages build/deploy 成功。边界是不改文章/Fragment、URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API 或外部项目；无新增用户问题。
+
+T34 验收证据：Library 首页继续保留服务端摘要/统计/分类账，`library.json` 与 `stats.json` 由单次 loader 在直接深链接、首次 pointer/focus 意图或浏览器 idle 时加载，分类/愿望单/搜索/筛选与抽屉仍共用原数据；Twikoo 不再是 parser-blocking 外链，而在评论区进入 480px 邻域或收到交互时异步加载，provider/env/path/lang 不变，失败显示“评论服务暂时不可用，文章正文不受影响”。新增 `tools/check_performance_integrations.py` 并接入 production workflow，检查首页与四入口无 PGL/Ravenis/Occult Atlas/旅行地球专属资源泄漏、双主题与 Atom discovery、Library defer/数据端点、两个观察应用资源边界、Twikoo 可见降级、点赞 endpoint/localStorage 回退及 Ravenis 搜索索引按需契约。范围提交 `af9479dd7e054814a7c2b119b2bbfe28f3081e99`；期间三次 PGL 自动数据同步把实施基线前移至 `9691737e685cb2a3170fad33a595c7f015f1c185`，数据提交原样保留；主体实现 `506a3d3f25cf4703cc45b51cd27419b9d2c52c69`，门禁真实路由修复及 final head `fd9395f12e356728602a017d483a5f7fa4d38e83`。首轮 [run 38106988732](https://github.com/AplusNeutrino/My_Blog/actions/runs/38106988732) 的 182 tests、production Jekyll、Search/Atom 与 SEO 成功，但新门禁把大小写敏感的 baseline 候选 URL 当实际生成路由而失败，部署跳过，未记为通过；门禁随后改为在构建产物中按评论/点赞标记选取真实公开文章。最终 [run 38107144418](https://github.com/AplusNeutrino/My_Blog/actions/runs/38107144418) 对应精确 final head，build `114374941416` 的 183 tests、production Jekyll、Search/Atom、SEO/路由、新资源/集成门禁、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部成功，deploy `114375143134` 成功；artifact `11689393813` / `sha256:d2b67ba283b17ea5d720d1533a33b4e14b99a03d95122cbd3ea01da6c03174a6`。T01 baseline protection 通过（44 posts / 5 Fragments / 5 hidden；Type essay/note/fragment = 5/39/5）；未改文章/Fragment、front matter、文件名/date/slug/permalink/旧 URL、taxonomy、项目/ABOUT 事实、Library/观察数据、应用 API、hidden/noindex 或外部项目。T34 done，T35 ready，无新增用户问题。
 
 T33 本次范围：依据 `docs/neutriverse-route-visibility-map.md` 收敛 canonical、robots 与 sitemap 契约，并新增 production build 产物门禁。明确修复 Gate 的 sitemap 排除与 head 内 noindex、NAVI 的显式 noindex、Occult Atlas 兼容入口 canonical，以及 Ravenis 的 robots.txt `Disallow`/页面 noindex 冲突；新增无第三方依赖的构建产物检查器，核对 canonical 单值与内部目标、公开入口 SEO 元数据、noindex/sitemap 排除、兼容重定向无环、T01 基线旧 URL 可生成及站内链接无断链，并接入 Pages workflow 和静态契约测试。拟改 `gate/index.md`、`_hidden_pages/navi.md`、`_layouts/gate.html`、`_includes/metadata-hook.html`、`occult-atlas-app/index.html`、`assets/robots.txt`、`tools/check_seo_routes.py`、`tests/test_seo_routes.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。边界是不改文章/Fragment 原文或 front matter、文件名/date/slug/permalink/旧 URL、项目/ABOUT 事实、Library/友链/旅行、应用数据或外部项目；Gate/NAVI 隐蔽程度与 URL 不变，Ravenis/Occult Atlas 应用及相关项目详情继续 noindex。验收为全回归、T01 baseline、production Jekyll、新 SEO/路由产物门禁、既有浏览器门禁以及精确实现 head 的 Pages build/deploy 全部成功；无新增用户问题。
 
