@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1–8 implementation and T00–T38 acceptance completed; T39 final delivery ready; hourly execution authorized**
+> Current state: **Phase 1–8 implementation and T00–T38 acceptance completed; T39 final delivery in progress; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,7 +877,7 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T38 done，T39 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+**当前状态：计划细化与启动决定已完成，T00–T38 done，T39 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
 最新完成：T38 已完成线上端到端浏览、浏览器标题缺陷修复、精确 head 全流水线与部署后复核。下一项为 T39 最终报告、COMPLETE 与自动化收尾。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T38 = done，T39 = ready；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T38 = done，T39 = in-progress；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,7 +1097,9 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = none；branch = main；base = 8d098915034234cd2f5d622237e5022cbaf2a42a；final implementation head = 8bdff68e54fd14bdaad559da790b62289864d3f3；checkpoint = T38 done；next = T39 ready；completion = IN PROGRESS.
+主计划当前运行字段：active_run = T39；branch = main；base = e6811ed308680517342e44d94dc94b3725a2d28a；final implementation head = 8bdff68e54fd14bdaad559da790b62289864d3f3；checkpoint = T38 done；next = T39 in-progress；completion = IN PROGRESS.
+
+T39 本次范围：以 main 精确 base `e6811ed308680517342e44d94dc94b3725a2d28a` 和该 head 的 completed/success Actions run `38127806280` 为起点，只做最终交付收敛。新增 `docs/neutriverse-restructure-final-report.md`，按第 24 节 13 项标准汇总 T00–T38 的交付、关键实现 SHA、最终保护/构建/线上证据、维护入口、已知非阻塞限制与明确 future 项；同步本计划与执行日志。先提交可审计报告并让同一精确 head 跑完整 production workflow，成功后再以独立状态提交把 T39 和 T00–T39 标记 done、completion 标记 COMPLETE，并核对最终 main/head/Actions/线上站点，最后暂停第 25 节登记的自动化。拟改文件仅为最终报告、主计划与执行日志；不再修改站点功能、文章/Fragment/Project Log、metadata、旧 URL、hidden/noindex、主题、应用、数据或外部项目。验收为 13 项最终标准逐项有证据、无未解释 blocker/待答问题、报告提交和最终 COMPLETE 状态提交各自精确 head 的 build/deploy 成功，自动化确认 paused。
 
 T38 本次范围：以 main 精确 base `8d098915034234cd2f5d622237e5022cbaf2a42a` 和已完成的 T37 文档 Actions run `38117001874` 为起点，对已上线 `https://neutriverse.uk/` 执行真实浏览器端到端验收并写入独立报告。桌面端覆盖 Night 与 Prospero Light、首页 → THINK / BUILD / OBSERVE / ABOUT → 代表性详情 → 返回、THINK Type/Topic/Series/Tags/Search/Archive 筛选与查询状态、主题持久化；390px 覆盖侧栏开关/焦点/核心链接；逐项访问 `/thoughts/`、`/categories/`、`/tags/`、`/archives/`、`/tags/bus/`、`/tags/changelog/` 等兼容入口；核对 BUILD 精确七项目且无 MMXProj、Gate 不暴露隐藏工具、OBSERVE 的 Ravenis/Occult Atlas 可达且继续 noindex、ABOUT 的 Library/友链/旅行状态准确。若发现站点自身可复现缺陷，仅做最小修复并增加回归；否则记录无缺陷结论。拟改 `docs/neutriverse-online-e2e-report.md`、必要的缺陷修复/回归、主计划与执行日志。验收为报告逐场景区分线上浏览证据与 source/build 契约，所有已批准流程通过，任何修复在同一精确实现 head 的完整 CI/Jekyll/Pages 部署成功。边界是不改旧文章/Fragment/Project Log 原文、metadata、文件名/date/slug/permalink、旧 URL、hidden/noindex、主题气质、外部项目或未授权内容，不提前执行 T39。无新增用户问题。
 
