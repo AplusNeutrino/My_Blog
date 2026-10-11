@@ -2,6 +2,16 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-10-11 15:03 — T38 线上端到端浏览与缺陷修复
+
+- Task / parent：T38；status = in-progress；依赖 T37 done。
+- Base SHA / branch：`8d098915034234cd2f5d622237e5022cbaf2a42a` / main；远端精确 head 的 T37 文档 [Actions run 38117001874](https://github.com/AplusNeutrino/My_Blog/actions/runs/38117001874) completed/success，无 validation-pending。
+- 本次最小交付：用真实浏览器验收已上线站点的四入口往返、THINK 检索状态、双主题、390px 导航、旧链、BUILD/OBSERVE/ABOUT 公开边界；形成独立线上 E2E 报告，发现站点自身缺陷时才做最小修复与回归。
+- 拟改文件：`docs/neutriverse-online-e2e-report.md`、必要的缺陷修复/回归、主计划与本日志。
+- 验收：线上场景逐项留证并与 source/build 契约分开；Night / Prospero Light、首页 → 四入口 → 详情 → 返回、筛选/查询状态、移动导航、兼容入口、七项目/noindex/隐藏边界全部正确；精确实现 head 的完整回归、production Jekyll、浏览器矩阵及 Pages build/deploy 成功。
+- 边界：不改文章/Fragment/Project Log 原文或保护 metadata，不改旧 URL、hidden/noindex、外部项目或未授权内容，不提前执行 T39。
+- 集中问题：无新增问题。
+
 ## Run 2026-10-11 13:56 — T37 正文、URL、hidden 基线与完整回归
 
 - Task / parent：T37；status = in-progress；依赖 T36 done。
