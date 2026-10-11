@@ -1,6 +1,6 @@
 ---
 layout: archives
-title: 中间层时间线
+title: archives
 icon: fas fa-archive
 order: 4
 ---

@@ -1,5 +1,5 @@
 ---
-title: 中间层友情链接
+title: links
 icon: fas fa-link
 order: 6
 ---

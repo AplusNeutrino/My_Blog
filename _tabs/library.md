@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "中间层大图书馆"
+title: library
 icon: fas fa-book-open
 order: 6
 permalink: /library/

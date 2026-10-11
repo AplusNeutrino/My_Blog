@@ -1,6 +1,6 @@
 ---
 layout: thoughts
-title: 中间思维片段
+title: thoughts
 icon: fas fa-quote-left
 order: 3
 fragments:

@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-title: 中间层漫游指南
+title: about
 icon: fas fa-info-circle
 order: 5
 excerpt_separator: <!-- about-excerpt-end -->

@@ -1,6 +1,6 @@
 ---
 layout: categories
-title: 中间文段索引
+title: categories
 icon: fas fa-stream
 order: 1
 ---
