@@ -4,13 +4,22 @@
 
 ## Run 2026-10-11 15:03 — T38 线上端到端浏览与缺陷修复
 
-- Task / parent：T38；status = in-progress；依赖 T37 done。
+- Task / parent：T38；status = done；依赖 T37 done。
 - Base SHA / branch：`8d098915034234cd2f5d622237e5022cbaf2a42a` / main；远端精确 head 的 T37 文档 [Actions run 38117001874](https://github.com/AplusNeutrino/My_Blog/actions/runs/38117001874) completed/success，无 validation-pending。
 - 本次最小交付：用真实浏览器验收已上线站点的四入口往返、THINK 检索状态、双主题、390px 导航、旧链、BUILD/OBSERVE/ABOUT 公开边界；形成独立线上 E2E 报告，发现站点自身缺陷时才做最小修复与回归。
 - 拟改文件：`docs/neutriverse-online-e2e-report.md`、必要的缺陷修复/回归、主计划与本日志。
 - 验收：线上场景逐项留证并与 source/build 契约分开；Night / Prospero Light、首页 → 四入口 → 详情 → 返回、筛选/查询状态、移动导航、兼容入口、七项目/noindex/隐藏边界全部正确；精确实现 head 的完整回归、production Jekyll、浏览器矩阵及 Pages build/deploy 成功。
 - 边界：不改文章/Fragment/Project Log 原文或保护 metadata，不改旧 URL、hidden/noindex、外部项目或未授权内容，不提前执行 T39。
 - 集中问题：无新增问题。
+
+- 范围提交：`ae95601613192789b6eea59a9190b60419a91f24`；最终实现 head：`8bdff68e54fd14bdaad559da790b62289864d3f3`。实现涉及 `_includes/head.html`、`tools/check_seo_routes.py`、`tests/test_seo_routes.py`、`tests/test_tab_titles.py` 与本次报告；七个 tab 原有中文 front matter 最终保持不变。
+- 线上桌面验收：首页状态与四入口正确；THINK 44 条，Fragment 5 条、Fragment+Humanity 4 条、Computer Networks 10 条，刷新与后退/前进保留筛选；代表文章正文/taxonomy/系列导航可用；Search “哥德尔”唯一命中；双主题切换与刷新持久。BUILD 恰为七项目且无 MMXProj、Gate 不暴露隐藏工具；OBSERVE 恰为 Ravenis/Occult Atlas 且应用页继续 noindex；ABOUT 的 Currently/Library/友链/旅行边界正确。
+- 旧路由验收：`/thoughts/`、`/categories/`、`/tags/`、`/archives/` 原地可用；`/tags/bus/`→`/tags/system-bus/`、`/tags/changelog/`→`/tags/neutriverse/`、`/occult-atlas-app/`→`/occult-atlas/` 的兼容与 canonical/noindex 符合既定契约。
+- 缺陷与恢复：线上发现七个 tab 的浏览器标题为 `| 中间层`。首版提交 `3d05bf02662ce6ef25f4152d7f0c849b6812f8c8` 的 run 38127191223 因新增测试正则转义错误失败；修正提交 `57e632b76cbd6ef3557c3b82a0c0aac54dabe7aa` 的 run 38127286837 让 197 tests/Jekyll 通过，并由新 SEO 门禁真实拦截空标题；标识符尝试 `b3cd20ecb625c8bf565b2e1900ef1b533e31f172` 的 run 38127446476 仍被同一门禁拦截。最终根因修复是在 Chirpy 7.6 head 的 tab locale lookup 加 `default: page.title`，没有删除或放宽门禁。
+- 精确验证：[Actions run 38127605436](https://github.com/AplusNeutrino/My_Blog/actions/runs/38127605436) 对应最终 head，completed/success；build `114435118603`、deploy `114435385689` 成功。197 tests、T01 protected baseline、authoring、production Jekyll、Search/Atom、SEO/旧路由、资源/集成、390px Chrome、40 项响应式/无障碍矩阵、Ravenis 与 artifact upload 全部通过。artifact `11696999318` / `sha256:f7357e0222b87c0002c375df5c909c231c02215f03b4660540a30a556a5c9941`。
+- 部署后复核：`/about/`、`/archives/`、`/categories/`、`/library/`、`/links/`、`/tags/`、`/thoughts/` 依次返回“中间层漫游指南 / 中间层时间线 / 中间文段索引 / 中间层大图书馆 / 中间层友情链接 / 中间文段标签 / 中间思维片段 | 中间层”的正确 contextual title。
+- 证据边界：云浏览器固定 1363×936，没有冒充 390px 线上手测；移动/键盘/焦点/双主题/reduced-motion 由同一精确 head 的 CI 浏览器矩阵承担。没有改文章、Fragment、Project Log、保护 metadata、旧 URL、hidden/noindex 或外部项目。
+- 结论 / 下一步：T38 done；T39 ready。集中问题无新增。
 
 ## Run 2026-10-11 13:56 — T37 正文、URL、hidden 基线与完整回归
 

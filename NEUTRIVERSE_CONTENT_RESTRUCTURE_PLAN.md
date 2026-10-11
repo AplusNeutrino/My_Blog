@@ -3,7 +3,7 @@
 > Status: **living master plan**
 > Repository: `AplusNeutrino/My_Blog`
 > Purpose: capture the long-term redesign direction for Neutriverse and preserve implementation history
-> Current state: **Phase 1 and Phase 2 completed; T00–T37 done; T38 in progress; implementation decisions resolved; hourly execution authorized**
+> Current state: **Phase 1–8 implementation and T00–T38 acceptance completed; T39 final delivery ready; hourly execution authorized**
 > Principle: Neutriverse is not merely a blog; it is a long-lived personal digital universe for thinking, building, observing, and leaving a trace on the internet.
 
 ---
@@ -877,8 +877,8 @@ This document should continue to act as the **single high-level design and imple
 
 本节及后续执行清单把上面的愿景落实为有限、可验收的本轮重构。历史 Phase 1 记录保持原样；未来设想不是无限扩展当前任务的理由。
 
-**当前状态：计划细化与启动决定已完成，T00–T37 done，T38 in-progress。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
-最新完成：T37 已完成正文、URL metadata、hidden 与 Fragment 的 T01 全量基线对照，将保护门禁接入 production workflow，并完成精确 CI/Pages 完整回归。下一项为 T38 线上端到端浏览与缺陷修复。
+**当前状态：计划细化与启动决定已完成，T00–T38 done，T39 ready。用户已于 2026-10-03 23:10 授权设置每小时执行任务；自动化登记见第 25 节。**
+最新完成：T38 已完成线上端到端浏览、浏览器标题缺陷修复、精确 head 全流水线与部署后复核。下一项为 T39 最终报告、COMPLETE 与自动化收尾。
 本轮完成状态：准备、维护项 T01–T05，以及 Phase 2 基线/设计/T08 骨架已完成；其余 Phase 2–8 实现按依赖继续。
 
 ### 18.1 已确定，不再重复询问
@@ -999,7 +999,7 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 
 ## 22. 有依赖的小时任务清单
 
-当前 T00–T37 = done，T38 = in-progress；其余 = pending（仅待各自依赖）；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
+当前 T00–T38 = done，T39 = ready；没有 awaiting-user 的启动项。后续每次运行更新真实状态。任务是小时候选单位，执行时可按第 21 节继续拆小。除维护 Phase 1 的项外，不重新迁移全部文章.
 
 | ID | 阶段 | 依赖 | 本小时交付 | 验收标准 |
 |---|---|---|---|---|
@@ -1097,9 +1097,11 @@ pending：依赖或决定未满足；ready：可开始；done：交付与必要�
 - Next task / remaining work:
 ~~~
 
-主计划当前运行字段：active_run = T38；branch = main；base = 8d098915034234cd2f5d622237e5022cbaf2a42a；final implementation head = c7c748bfcac5b64cc646992a9218a9e22c039fee；checkpoint = T37 done；next = T38 in-progress；completion = IN PROGRESS.
+主计划当前运行字段：active_run = none；branch = main；base = 8d098915034234cd2f5d622237e5022cbaf2a42a；final implementation head = 8bdff68e54fd14bdaad559da790b62289864d3f3；checkpoint = T38 done；next = T39 ready；completion = IN PROGRESS.
 
 T38 本次范围：以 main 精确 base `8d098915034234cd2f5d622237e5022cbaf2a42a` 和已完成的 T37 文档 Actions run `38117001874` 为起点，对已上线 `https://neutriverse.uk/` 执行真实浏览器端到端验收并写入独立报告。桌面端覆盖 Night 与 Prospero Light、首页 → THINK / BUILD / OBSERVE / ABOUT → 代表性详情 → 返回、THINK Type/Topic/Series/Tags/Search/Archive 筛选与查询状态、主题持久化；390px 覆盖侧栏开关/焦点/核心链接；逐项访问 `/thoughts/`、`/categories/`、`/tags/`、`/archives/`、`/tags/bus/`、`/tags/changelog/` 等兼容入口；核对 BUILD 精确七项目且无 MMXProj、Gate 不暴露隐藏工具、OBSERVE 的 Ravenis/Occult Atlas 可达且继续 noindex、ABOUT 的 Library/友链/旅行状态准确。若发现站点自身可复现缺陷，仅做最小修复并增加回归；否则记录无缺陷结论。拟改 `docs/neutriverse-online-e2e-report.md`、必要的缺陷修复/回归、主计划与执行日志。验收为报告逐场景区分线上浏览证据与 source/build 契约，所有已批准流程通过，任何修复在同一精确实现 head 的完整 CI/Jekyll/Pages 部署成功。边界是不改旧文章/Fragment/Project Log 原文、metadata、文件名/date/slug/permalink、旧 URL、hidden/noindex、主题气质、外部项目或未授权内容，不提前执行 T39。无新增用户问题。
+
+T38 验收证据：真实线上桌面浏览完成首页、四入口、代表详情、返回、THINK Type/Topic/Series 组合状态与刷新/历史恢复、Search、双主题持久化、BUILD 七项目、OBSERVE 两应用 noindex、ABOUT 关联面及旧路由/兼容跳转。云浏览器固定 1363×936，因此没有伪称 390px 线上手测；精确 head CI 承担 390/768/1024/1366px、键盘、焦点、双主题与 reduced-motion 矩阵。线上发现七个 tab 浏览器标题退化为 `| 中间层`，根因为 Chirpy 7.6 `_includes/head.html` 的 locale lookup 无 fallback；仓库内覆盖同版本 head，仅加入 `| default: page.title`，并用 production SEO 门禁固定七路由。失败 run `38127191223` 暴露首版测试转义错误，修正后 run `38127286837` 与 `38127446476` 继续真实暴露构建标题未修复；没有绕过门禁。最终实现 head `8bdff68e54fd14bdaad559da790b62289864d3f3` 的 [Actions run 38127605436](https://github.com/AplusNeutrino/My_Blog/actions/runs/38127605436) completed/success：build `114435118603` 与 deploy `114435385689` 成功，197 tests、T01 protection、authoring、production Jekyll、Search/Atom、SEO/旧路由、资源/集成、移动及响应式/无障碍矩阵全部通过；artifact `11696999318` / `sha256:f7357e0222b87c0002c375df5c909c231c02215f03b4660540a30a556a5c9941`。部署后 `/about/`、`/archives/`、`/categories/`、`/library/`、`/links/`、`/tags/`、`/thoughts/` 七个 contextual title 均逐页正确。未改文章/Fragment/Project Log、受保护 metadata、旧 URL、hidden/noindex 或外部项目。T38 done，T39 ready，无新增用户问题。
 
 T37 本次范围：以 T01 冻结的 `docs/neutriverse-restructure-baseline.json` 为不可刷新基准，对全部 44 篇旧文章的文件存在性、正文 LF 哈希、date/slug/permalink、候选旧 URL、hidden/published，以及 5 条原 Fragment 的 text/date 做全量对照；把该只读检查加入 production workflow，使后续 T38–T39 不能绕过。新增验收说明与静态回归，解释本轮唯一获授权的 T05 Tags metadata 变更不属于正文/URL/hidden 差异，并汇总 T33 构建产物旧路由门禁、T36 authoring 门禁与完整测试的职责边界。拟改 `docs/neutriverse-restructure-acceptance.md`、`tests/test_restructure_acceptance.py`、`.github/workflows/pages-deploy.yml`、主计划与执行日志。验收为当前源得到 44 posts / 5 Fragments / 5 hidden，保护差异为空；工作流显式安装 PyYAML 并在 Jekyll 前运行基线门禁；全回归、authoring、production Jekyll、Search/feed、SEO/旧路由、资源/集成、390px 与 40 项响应式/无障碍矩阵以及精确实现 head Pages build/deploy 全部成功。边界是不刷新 T01 基线、不改任何文章/Fragment/project 源、正文、front matter、文件名/date/slug/permalink、旧 URL、可见性、主题、应用、数据或外部项目；不提前执行 T38。无新增用户问题。
 
