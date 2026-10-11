@@ -46,6 +46,12 @@ class PerformanceIntegrationContracts(unittest.TestCase):
         self.assertLess(gate, upload)
         self.assertIn('python tools/check_performance_integrations.py "_site${{ steps.pages.outputs.base_path }}"', workflow)
 
+    def test_built_post_probe_uses_rendered_markers_not_a_guessed_slug(self):
+        checker = (ROOT / "tools/check_performance_integrations.py").read_text(encoding="utf-8")
+        self.assertIn('site.rglob("*.html")', checker)
+        self.assertIn('"data-post-like" not in candidate', checker)
+        self.assertNotIn('/posts/dbms-01/', checker)
+
 
 if __name__ == "__main__":
     unittest.main()

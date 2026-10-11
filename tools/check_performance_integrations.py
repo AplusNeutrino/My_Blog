@@ -95,10 +95,22 @@ def validate(site: Path, source_root: Path) -> list[str]:
     for token in ("/assets/pgl/", "/assets/js/ravenis.js", "/assets/js/travel-globe.js"):
         require(not any(token in value for value in occult_urls), f"/occult-atlas/ loads unrelated resource {token}", errors)
 
-    post_text, post = read_route(site, "/posts/dbms-01/", errors)
-    require(not any("twikoo" in str(item.get("src")).lower() for item in post.scripts), "post parser-loads Twikoo", errors)
-    require("data-twikoo-status" in post_text and "评论服务暂时不可用" in post_text, "post lost visible Twikoo fallback", errors)
-    require("data-post-like" in post_text and "data-like-endpoint" in post_text, "post lost like integration markers", errors)
+    # Select a real built post by its integration markers rather than guessing
+    # Jekyll's case-sensitive slug normalization from a source filename.
+    post_text = ""
+    post = Resources()
+    for path in site.rglob("*.html"):
+        candidate = path.read_text(encoding="utf-8", errors="replace")
+        if "data-post-like" not in candidate or 'id="twikoo-comments"' not in candidate:
+            continue
+        post_text = candidate
+        post.feed(candidate)
+        break
+    require(bool(post_text), "no built public post exposes both comments and likes", errors)
+    if post_text:
+        require(not any("twikoo" in str(item.get("src")).lower() for item in post.scripts), "post parser-loads Twikoo", errors)
+        require("data-twikoo-status" in post_text and "评论服务暂时不可用" in post_text, "post lost visible Twikoo fallback", errors)
+        require("data-like-endpoint" in post_text, "post lost like integration markers", errors)
 
     pgl_source = (source_root / "assets/pgl/pgl.js").read_text(encoding="utf-8")
     require("function loadLibraryData()" in pgl_source and "requestIdleCallback" in pgl_source, "PGL lazy/idle loader contract missing", errors)
