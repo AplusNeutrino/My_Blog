@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-10-13T00:36:09Z",
+  "last_run": "2026-10-13T22:41:09Z",
   "overall": "degraded",
   "sources": {
     "bangumi": {
       "status": "ok",
-      "last_success": "2026-10-13T00:36:09Z",
+      "last_success": "2026-10-13T22:41:09Z",
       "record_count": 371,
       "private_filter_applied": true
     },
     "neodb": {
       "status": "ok",
-      "last_success": "2026-10-13T00:36:09Z",
+      "last_success": "2026-10-13T22:41:09Z",
       "record_count": 155
     },
     "steam": {

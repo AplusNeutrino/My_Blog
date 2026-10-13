@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-10-13T00:36:09Z",
-  "last_success_at": "2026-10-13T00:36:09Z",
+  "fetched_at": "2026-10-13T22:41:09Z",
+  "last_success_at": "2026-10-13T22:41:09Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -327,7 +327,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.3,
-        "community_rating_count": 2135,
+        "community_rating_count": 2136,
         "comment_text": null,
         "api_url": "/api/movie/2V5JzwI8AsHEqfEYqx0pzY"
       }
@@ -2471,7 +2471,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.1,
-        "community_rating_count": 465,
+        "community_rating_count": 466,
         "comment_text": null,
         "api_url": "/api/movie/382W6PZc3fVQu4rkcCg83R"
       }
@@ -2639,7 +2639,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.2,
-        "community_rating_count": 1051,
+        "community_rating_count": 1052,
         "comment_text": null,
         "api_url": "/api/movie/5P5rawCZmazL0NHXI2Hepd"
       }
@@ -4535,7 +4535,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.8,
-        "community_rating_count": 1540,
+        "community_rating_count": 1541,
         "comment_text": null,
         "api_url": "/api/movie/3SohF1ozWD2KgLfHbMYBSK"
       }
@@ -4599,7 +4599,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 1923,
+        "community_rating_count": 1924,
         "comment_text": null,
         "api_url": "/api/movie/5CI5m5EoxnKbgZOzQF75tN"
       }
@@ -4791,7 +4791,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.9,
-        "community_rating_count": 1665,
+        "community_rating_count": 1666,
         "comment_text": null,
         "api_url": "/api/movie/2DJf49NMgDNJuBaNa9rlj8"
       }
