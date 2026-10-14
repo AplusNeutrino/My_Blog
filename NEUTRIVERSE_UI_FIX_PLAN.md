@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A07生产通过、待main/live：审计head2c60e4e1aeff6897447e6a0a90a65251869f547f / run38588924737 success；205 tests、4项Ruby、T01/authoring/Jekyll/旧门禁、176+14通过。新增16阅读场景、真实移动touch/桌面arrow/关闭及复制提示通过；人工看40张viewport/gallery/feedback联系表，放大代表原图，无新增确认产品缺陷。审计与[证据](docs/ui-evidence/uia07-checks.md)非强推main，精确head线上矩阵仍validation-pending；UI-A07b剪贴板实际字节pending，不以成功提示代替。下轮先核对main/live再继续复制实值/未检页面，无新增用户问题。
+
 UI-A07（检查，不预设缺陷）：base c5b99ed2284ac327270de5c952f0a026d85d87b3，run38577189934 completed/success已核对。范围现有浏览器审计、计划/日志及公开证据；代表计组07plain代码、FF1公开图片，390/768/1024/1366×Night/Light，共16场景。验收代码/图片可见且不引起整页溢出、图片逐张lazy加载及弹层下一张/返回/关闭、复制链接反馈；剪贴板实际字节明确pending。候选高亮示例因hidden排除，不生成公开截图。桌面1363×936已看代码/图片并操作弹层翻页，没有新增确认缺陷，不猜测改产品。先ui/audit-007验证；本轮不改旧文章/metadata/URL/hidden/noindex。无新增待答问题。
 
 UI-005 done：base/main5922412f7fc82af68984091e75c142242c290cec，[run38570020301](https://github.com/AplusNeutrino/My_Blog/actions/runs/38570020301) build115872459830、deploy115874598655、verify-live-ui115874783745均success。4项Ruby渲染回归、205 tests、T01/authoring/production Jekyll/全部旧门禁、生产与live各160+14通过。下载live artifact11898410699，看8张表格viewport联系表并放大四宽度代表图，1366 Light全页两表复核，行列恢复且横向阅读通过。只回写计划/日志/公开证据，本次没有额外产品修改；文档提交CI另行核对。下一项代码/图片/复制/媒体阅读场景，完整矩阵仍IN PROGRESS，无新增用户问题。[证据](docs/ui-evidence/ui005-comparison.md)。

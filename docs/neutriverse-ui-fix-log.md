@@ -10,6 +10,9 @@
 - 初始审计head17f592ee1d6ab8af1ce7479829c3936ec43a153d / run38587265953失败：205 tests/4项Ruby/T01/authoring/Jekyll/原门禁通过，新矩阵390 Night图片弹层Next为ElementNotInteractable。下载artifact11905583133并看reading-failure.png，移动弹层显示图片和关闭按钮但无桌面箭头；这是脚本点隐藏控件，尚不是产品故障。调整为箭头可见时真实click，否则真实W3C touch swipe，仍严格核对下一张/上一张/关闭和URL，不JS调用gallery API、不删断言。main c5b99ed2未改，完整生产/live仍pending。
 - head952047504e9c64cc3edf3e8d32d632ad052fffeb / run38587922497在W3C swipe动作报MoveTargetOutOfBounds：WebElement.rect是document坐标，文章已滚动后y超出viewport。改用getBoundingClientRect的viewport坐标，真实touch动作与所有翻页断言保留，不改产品。前次非强推ref工具出现一次RemoteProtocolError，读取分支确认未移动后按原expected SHA安全更新成功，没有强推。尚未完成16场景，继续工作分支。
 - head5068d0f0f6bdc5d25f9d3bb3108f728c8304bd01 / run38588368297失败：触摸动作不再越界，但390 Night下一张src等待超时。推测新浏览器仅改窗口宽度、没有在gallery初始化前启用触摸能力；现在390/768显式启用CDP touch emulation（maxTouchPoints=1），其余宽度关闭，补失败JSON触摸能力诊断，保留原swiper/下一张src断言。官方源码网络读取失败，未用其作根因证据；不把此推测称产品故障。完整production/live仍pending，main未改。
+- 最终审计head2c60e4e1aeff6897447e6a0a90a65251869f547f / run38588924737 completed/success，build115938279064 success（branch deploy/live skipped）。205 tests、4项Ruby渲染回归、T01/authoring/production Jekyll/全部原门禁、176场景+14侧栏专项通过。
+- 下载production artifact11906433178，16新阅读记录全部通过：代码可见、3图lazy加载、移动touch swipe/桌面arrow下一张上一张关闭及URL保持、复制提示。看40张viewport/gallery/copy-feedback四宽度双主题联系表，放大390 Light代码、390 Night弹层、1024 Light图片、1366 Light复制提示，无新确认产品缺陷；不猜测改样式。JSON、四联系表及1363px线上Light媒体截图入docs/ui-evidence/uia07*。
+- 本机205tests/T01/authoring/diff通过；不冒称本机Ruby或浏览器。审计及证据非强推main（expected c5b99ed2）后，实际main head build/deploy/live176+14与16阅读场景线上截图仍validation-pending；下一轮先核对。不把production通过或cloud桌面图当移动线上验收。UI-A07b复制实际字节pending，其余矩阵继续IN PROGRESS；无新增待答问题，保护项未改。
 
 ## 2026-10-14 — UI-005 精确main部署复验
 
