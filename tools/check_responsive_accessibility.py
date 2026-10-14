@@ -333,9 +333,14 @@ def main():
                     cards = require_navigation_alignment(driver, f"{width}px {theme} {path}")
                     if screenshot_dir:
                         name = path.strip('/').replace('/', '-') or 'home'
-                        driver.find_element(By.CSS_SELECTOR, '.nv-primary-nav').screenshot(
-                            str(Path(screenshot_dir) / f'{width}-{theme}-{name}-navigation.png')
+                        navigation = driver.find_element(By.CSS_SELECTOR, '.nv-primary-nav')
+                        driver.execute_script(
+                            "arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});",
+                            navigation,
                         )
+                        require(driver.save_screenshot(
+                            str(Path(screenshot_dir) / f'{width}-{theme}-{name}-navigation.png')
+                        ), f"could not save navigation screenshot: {width} {theme} {path}")
                     results.append({"width": width, "theme": theme, "path": path, "cards": cards})
 
                 require_article_reading(driver, site_url, wait, theme)
