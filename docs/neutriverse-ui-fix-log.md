@@ -24,3 +24,10 @@
 - 门禁修复提交c7ec321ba9cf458fda7fea9ec43ad0fe4ea580b5 / run38499644956：移动门禁已通过；新导航矩阵执行到截图阶段发生Chrome element screenshot renderer timeout，部署跳过。产生25张部分截图artifact11865630083，不称40项全部通过。改为先instant滚动到导航，再保存带页面上下文的viewport截图，保存失败仍阻断，所有几何/焦点/对比门禁保持。
 
 - 人工看run38499644956的25张部分导航截图：Light中文正常、Night显示方框；线上Night中文正常。这是CI系统缺少CJK fallback字体，不作为网站缺陷。给production浏览器环境安装fonts-noto-cjk以取得有效中文截图。此前element截图有被视口截断，已改上下文viewport截图；不会将这些部分截图当全站验收。
+
+- 截图收敛head eb43672fffdc7288ebaa2f221f024be5c4f30414 / run38499996282被新中文字体环境提交取消；不视为通过。
+- 最终实现head：0348b33c7e00a5f4584181c8d7244da88fc50244；[Actions38500122266](https://github.com/AplusNeutrino/My_Blog/actions/runs/38500122266) completed/success，build115644835170、deploy115645302262均成功；200 tests、T01保护、authoring、production Jekyll、Search/feed、SEO/旧路由、资源/集成、390px移动门禁、40项响应式/无障碍与导航几何、Ravenis及artifact均通过。
+- 视觉artifact11865525942含40张viewport截图+40项JSON，已下载并人工查看联系表；中文方框问题已消除。导航几何最大bottomDifference=0px。github-pages artifact11865278209。截图artifact保留14天；代表性线上前后截图与完整几何JSON写入docs/ui-evidence永久保留。
+- 线上部署后Chrome1363×936：/think/ Light和Night展开侧栏均4张卡片144.5625px、cell144.5625px；前后截图逐一确认边框底部对齐，中文换行与文字/入口原样保留。双主题切换正常。
+- 本轮额外看到THINK Light1363px列表、Fragment筛选、分页/辅助导航区，未在这些画面确认新的显示缺陷；首页Night首屏已看。未冒称全页面/全尺寸审计完成。
+- UI-001 done。原文、metadata、文件名/date/slug/permalink、旧URL、hidden/noindex、应用业务与外部仓库未改变。gh不可用已记；无新增待答问题。下一项THINK筛选/分页与BUILD列表/详情的全页视觉矩阵。

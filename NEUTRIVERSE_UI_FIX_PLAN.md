@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | validation-pending | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
+| UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
 
 ## 检查矩阵
 
@@ -25,7 +25,7 @@
 
 | 页面组 | 视觉检查 | 交互 |
 |---|---|---|
-| 首页、THINK、BUILD、OBSERVE、ABOUT | pending；THINK 1363px双主题已看，UI-001复现 | THINK侧栏展开/收起、双主题切换已操作；其他pending |
+| 首页、THINK、BUILD、OBSERVE、ABOUT | 导航UI-001：40项截图与几何通过；THINK 1363px双主题已部署复验。全页检查仍pending | THINK侧栏展开/收起、双主题切换已操作；其他pending |
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | pending | 筛选/刷新/历史/分页/锚点pending |
 | 七个BUILD详情 | pending | 详情/返回/来源链接pending |
 | 代表文章：代码、表格、图片 | pending | 滚动/阅读/复制/媒体pending |
@@ -43,4 +43,6 @@
 
 ## 当前运行
 
-UI-001；base = dd2e52ee17322519190fdacf1a12e5d35f035ead；范围：共享四入口导航CSS、真实浏览器几何回归与截图artifact、本计划/日志。下一项：完成精确head验证后继续页面矩阵排查。
+UI-001 done；base = dd2e52ee17322519190fdacf1a12e5d35f035ead；最终实现head = 0348b33c7e00a5f4584181c8d7244da88fc50244；[run38500122266](https://github.com/AplusNeutrino/My_Blog/actions/runs/38500122266) build/deploy成功；无待答问题。下一项：THINK筛选/分页/阅读区与BUILD列表/七详情全页视觉检查，继续补矩阵，不把导航截图当全站通过。
+
+UI-001证据：[前后对照](docs/ui-evidence/ui001-comparison.md)，40项几何JSON与两主题线上截图持久保存。必要CI修复包含推荐预期模块/3项测试、viewport截图与CJK字体；内容/数据/URL未改。
