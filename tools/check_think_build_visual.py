@@ -260,7 +260,19 @@ def main():
                 for theme in ('dark', 'light'):
                     for name, path, count in SCENARIOS:
                         driver.get(base + path)
-                        settle(driver, wait, theme)
+                        print(json.dumps({'scene':name,'window':[width,height],'theme':theme}), flush=True)
+                        try:
+                            settle(driver, wait, theme)
+                        except Exception:
+                            driver.save_screenshot(str(output / 'scene-failure.png'))
+                            failure = driver.execute_script("""
+                              const e=document.querySelector('#mode-toggle'),r=e?.getBoundingClientRect();
+                              return {url:location.href,mode:document.documentElement.dataset.mode,
+                                open:document.body.hasAttribute('sidebar-display'),focus:document.activeElement.id,
+                                toggle:r?{x:r.x,y:r.y,w:r.width,h:r.height,display:getComputedStyle(e).display}:null};
+                            """)
+                            (output / 'scene-failure.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2),encoding='utf-8')
+                            raise
                         kind = 'think' if name.startswith('think') else 'build'
                         if count is not None:
                             wait.until(lambda d: visible_count(d, kind) == count)
