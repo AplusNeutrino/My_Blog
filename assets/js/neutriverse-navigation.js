@@ -47,7 +47,12 @@
       );
 
       if (isOpen && !mobileOpen) {
-        window.requestAnimationFrame(() => mobileFocusable()[0]?.focus());
+        window.requestAnimationFrame(() => {
+          // A fast mask/Escape close may happen before this frame is delivered.
+          if (mobileQuery.matches && document.body.hasAttribute('sidebar-display')) {
+            mobileFocusable()[0]?.focus();
+          }
+        });
       } else if (!isOpen && mobileOpen && mobileQuery.matches) {
         mobileTrigger.focus();
       }

@@ -19,6 +19,10 @@ class MobileTopbarTests(unittest.TestCase):
         for rule in ('min-width: 0', 'overflow: hidden', 'text-overflow: ellipsis'):
             self.assertIn(rule, block)
 
+    def test_delayed_drawer_focus_checks_that_drawer_is_still_open(self):
+        source = (ROOT / 'assets/js/neutriverse-navigation.js').read_text(encoding='utf-8')
+        self.assertIn("if (mobileQuery.matches && document.body.hasAttribute('sidebar-display'))", source)
+
 
 if __name__ == '__main__':
     unittest.main()
