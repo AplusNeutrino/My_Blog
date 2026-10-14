@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A07b生产验收与main交付
+
+- Base main536281728dcc314c71c64936b06334b2f74bb800，工作分支head e431aeaced355ccb155595fe912860a4007f59dd；已读最新AGENTS/domain/ADR0001、旧COMPLETE计划/报告与UI计划日志，CONTEXT不存在、gh不可用，无新Issue或用户问题。另建干净worktree，不覆盖原repo用户修改。
+- 本轮最小范围仅已有审计的验收/证据/计划日志，不改产品。先核对run38604621533实际head匹配e431aeac，build115992207806 completed/success；分支deploy/live skipped。207 Python tests、4项Ruby渲染回归、T01/authoring/production Jekyll/旧门禁与176页面+14侧栏专项通过。
+- 下载production artifact11915342655，完整JSON176记录，其中16代码/图片阅读场景clipboardBytes=verified、clipboardSentinelReplaced=true，copiedUrl逐项严格等于当前URL；这些是localhost production URL，不当线上证据。原提示/媒体/视觉断言全部保留，没有用spy或mock替代真实clipboard。
+- 人工查看16复制反馈viewport的四宽度双主题联系表，放大1366 Light代码反馈原图，无新增确认遮挡或内容消失。JSON和四联系表永久保存docs/ui-evidence/uia07b*；原PNG由artifact保留14天。本轮不猜测改样式，旧正文/metadata/URL/hidden/noindex与旧COMPLETE历史不动。
+- 已通过的审计及证据准备以expected main5362817非强推main。UI-A07b保持validation-pending，必须核对新main实际head build/deploy/live、16线上真实剪贴板URL和同场景截图，不能用分支生产成功冒称部署复验。其他Library/友链/应用/hover-focus矩阵继续pending，无新待答问题。
+
 ## 2026-10-15 — UI-A07b 复制实值与文档部署恢复
 
 - Base main536281728dcc314c71c64936b06334b2f74bb800，已读最新AGENTS/domain/ADR0001、旧COMPLETE计划/报告与本UI计划日志；CONTEXT不存在、gh不可用。原repo有用户/历史未提交修改，本次另建干净worktree，不覆盖它们。

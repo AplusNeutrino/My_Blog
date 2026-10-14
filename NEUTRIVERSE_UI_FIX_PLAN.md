@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A07b生产通过、待main/live：base main536281728dcc314c71c64936b06334b2f74bb800，审计验收head e431aeaced355ccb155595fe912860a4007f59dd / run38604621533 build115992207806 success，分支deploy/live skipped。207 tests、4项Ruby、T01/authoring/Jekyll/旧门禁、176+14场景通过；16实际剪贴板内容精确等于当前URL，sentinel均替换。人工查看16复制反馈截图的四联系表并放大1366 Light代码原图，没有新确认缺陷。仅将已验证审计和[证据](docs/ui-evidence/uia07b-checks.md)非强推main，状态仍validation-pending；下一轮核对实际main head build/deploy/live与16线上复制记录/截图，不以localhost复制通过代替线上。其余矩阵IN PROGRESS，无新用户问题。
+
 UI-A07b validation-pending：审计实现2892b031dc0e0de8493bbe03a7b10ce1a24620b9，本机207 tests/authoring/T01/diff通过，未冒称真实剪贴板或视觉验收。上一文档head536281728dcc314c71c64936b06334b2f74bb800的run38595958153重试build115988897946、deploy115988897534、live115989007513均success，部署恢复；首次超时历史保留。现在将实现和状态非强推保存ui/audit-007b，main不改，下一轮先核对其精确head生产CI与剪贴板16记录/截图，再决定main及live。无新增用户问题。
 
 UI-A07b in-progress：base536281728dcc314c71c64936b06334b2f74bb800；范围仅tools/check_think_build_visual.py、必要审计回归、本UI计划/日志。补16公开阅读场景复制实际字节：浏览器测试origin授予clipboard读写权限，先写不等于URL的sentinel，真实点击原按钮，再读系统clipboard并严格等于当前完整URL，保留原成功提示和所有视觉/媒体门禁。未确认产品缺陷不改样式。先工作分支production，通过后main/live；没有把未运行的检查标done。上次文档run38595958153部署十分钟updating_pages超时，已重试失败jobs；同head重试deploy成功、live尚在运行，不暂停任务或修改部署超时阈值。无新用户问题。
