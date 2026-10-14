@@ -338,6 +338,9 @@ def main():
             base = live or f'http://127.0.0.1:{port}'
             for width, height in VIEWPORTS:
                 driver.set_window_size(width, height)
+                driver.execute_cdp_cmd('Emulation.setTouchEmulationEnabled', {
+                    'enabled': width <= 768, 'maxTouchPoints': 1,
+                })
                 for theme in ('dark', 'light'):
                     for name, path, count in SCENARIOS:
                         driver.get(base + path)
@@ -421,6 +424,7 @@ def main():
                                 (output / 'reading-failure.json').write_text(json.dumps({
                                     'scene': name, 'window': [width,height], 'theme': theme,
                                     'url': driver.current_url, 'dialog': bool(driver.find_elements(By.ID, 'glightbox-body')),
+                                    'touch': driver.execute_script('return {points:navigator.maxTouchPoints,events:"ontouchstart" in window}'),
                                 }, ensure_ascii=False, indent=2), encoding='utf-8')
                                 raise
             sidebar_results = sidebar_checks(driver, wait, base, output)

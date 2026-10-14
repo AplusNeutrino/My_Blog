@@ -9,6 +9,7 @@
 - 尚未确认新产品缺陷；先ui/audit-007生产完整16截图/交互（总矩阵176+14），再main/live精确head；复制链接反馈与实际剪贴板字节分开记证，后者pending。其他矩阵不冒称完成，无新增待答问题。
 - 初始审计head17f592ee1d6ab8af1ce7479829c3936ec43a153d / run38587265953失败：205 tests/4项Ruby/T01/authoring/Jekyll/原门禁通过，新矩阵390 Night图片弹层Next为ElementNotInteractable。下载artifact11905583133并看reading-failure.png，移动弹层显示图片和关闭按钮但无桌面箭头；这是脚本点隐藏控件，尚不是产品故障。调整为箭头可见时真实click，否则真实W3C touch swipe，仍严格核对下一张/上一张/关闭和URL，不JS调用gallery API、不删断言。main c5b99ed2未改，完整生产/live仍pending。
 - head952047504e9c64cc3edf3e8d32d632ad052fffeb / run38587922497在W3C swipe动作报MoveTargetOutOfBounds：WebElement.rect是document坐标，文章已滚动后y超出viewport。改用getBoundingClientRect的viewport坐标，真实touch动作与所有翻页断言保留，不改产品。前次非强推ref工具出现一次RemoteProtocolError，读取分支确认未移动后按原expected SHA安全更新成功，没有强推。尚未完成16场景，继续工作分支。
+- head5068d0f0f6bdc5d25f9d3bb3108f728c8304bd01 / run38588368297失败：触摸动作不再越界，但390 Night下一张src等待超时。推测新浏览器仅改窗口宽度、没有在gallery初始化前启用触摸能力；现在390/768显式启用CDP touch emulation（maxTouchPoints=1），其余宽度关闭，补失败JSON触摸能力诊断，保留原swiper/下一张src断言。官方源码网络读取失败，未用其作根因证据；不把此推测称产品故障。完整production/live仍pending，main未改。
 
 ## 2026-10-14 — UI-005 精确main部署复验
 
