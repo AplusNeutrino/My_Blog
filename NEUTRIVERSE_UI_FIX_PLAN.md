@@ -30,7 +30,7 @@
 | 页面组 | 视觉检查 | 交互 |
 |---|---|---|
 | 首页、THINK、BUILD、OBSERVE、ABOUT | 导航UI-001：40项截图与几何通过；THINK 1363px双主题已部署复验。全页检查仍pending | THINK侧栏展开/收起、双主题切换已操作；其他pending |
-| THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态×两主题×四宽度已生成并看联系表，390px正文/控件分段放大；Series/Tags/Archive/Thoughts独立页pending | THINK筛选/刷新/返回、四视口自动交互通过；Night桌面搜索/取消实际操作；其他pending |
+| THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | pending | 滚动/阅读/复制/媒体pending |
 | Library、友链 | pending | 目录/延迟加载/链接pending |
@@ -46,6 +46,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-A05 done（限定检索页截图与已列交互）：base/main head f755f17c3e1f1a1b66eee714ef4b8ff8aec73cfb，[run38554989713](https://github.com/AplusNeutrino/My_Blog/actions/runs/38554989713) build/deploy/verify-live-ui全部success；205 tests、T01/authoring/production Jekyll/旧门禁、production与live各152+14通过。下载live artifact11890351589，人工查看32张检索viewport（四张分宽度联系表）及390 Light Tags、768 Night Thoughts、1024 Light Archive、1366 Night Series原图。未确认新产品缺陷，本次仅证据文档更新，不修改网站样式/内容；文档提交CI另行核对，不冒称其已通过。下一项代表文章代码/表格/图片阅读矩阵，Thought点赞等仍pending；全站IN PROGRESS，无新增待答问题。
 
 UI-A05生产检查通过，等待main/线上复验：head f3d51b79f1b8e813fa7e94b4ebc2592772566277 / run38554138564 success；205 tests、保护/authoring/Jekyll/旧门禁、152场景+14侧栏专项通过。新增32检索截图与32组往返操作已核对，联系表人工查看；未确认新产品缺陷，没有改样式。将审计+证据非强推main，状态validation-pending。下一轮先核对本次main head的build/deploy/live152+14与截图，然后继续Thought其他交互/代表文章等矩阵。详见[UI-A05记录](docs/ui-evidence/uia05-checks.md)，无新增待答问题。
 

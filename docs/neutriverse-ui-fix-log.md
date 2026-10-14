@@ -9,6 +9,16 @@
 - head f3d51b79f1b8e813fa7e94b4ebc2592772566277 / run38554138564 build115818958254 success（分支deploy/live skipped符合规则）。205 tests/T01/authoring/Jekyll/原门禁、152场景+14侧栏专项全部通过。artifact11888706352已下载，JSON含32检索场景/32组交互；看32张viewport联系表并放大1024 Light Thoughts，结合390 Night四页与云端Tags/Archive检查暂无新增确认缺陷。没有凭审美改网站。
 - 将验证过的审计及本文档证据非强推提交main（expected93825c66），UI-A05仍validation-pending，下一轮核对本次main实际head的build/deploy/live152+14以及同场景截图，不用分支成功代替。矩阵只补该四类核心浏览；Thought点赞/所有focus/代表文章/Library与应用共享导航仍pending。无新增待答问题。
 
+## 2026-10-14 — UI-A05 精确main线上验收
+
+- Task UI-A05；base/main `f755f17c3e1f1a1b66eee714ef4b8ff8aec73cfb`，独立worktree且工作区干净；读取AGENTS/三domain docs/ADR0001、旧计划已COMPLETE及最终报告、本轮计划/日志。CONTEXT不存在，gh不可用，未编造Issue。
+- 本轮最小范围：核对同一实现head的Actions/build/deploy/live与32张检索页面截图；只更新NEUTRIVERSE_UI_FIX_PLAN.md、本日志、docs/ui-evidence/uia05-checks.md及live JSON/四张联系表，不改产品、旧内容或旧COMPLETE历史。
+- run38554989713 completed/success，head严格匹配base：build115821799412、deploy115823409636、verify-live-ui115823632192均success。205 tests、T01保护、authoring、production Jekyll及所有原门禁通过。生产152+14通过；直接线上152+14通过。deploy完成11:17:36 UTC，live检查11:17:58–11:20:43 UTC，不使用别的提交成功代替。
+- 下载live artifact11890351589，核对152项JSON/32组新往返操作；查看390/768/1024/1366两主题32张viewport联系表，并放大390 Light Tags、768 Night Thoughts、1024 Light Archive、1366 Night Series原图。无新增确认遮挡/溢出或内容消失；与生产场景一致，本轮没有猜测改样式。
+- 已验证长标签打开/返回、归档文章打开/返回、Series数量/URL/返回、Thought末条稳定锚点/返回；不把这些操作冒充Thought点赞或全部文章阅读。UI-A05 done，完整矩阵仍IN PROGRESS。证据链接见docs/ui-evidence/uia05-checks.md；无新增待答问题。
+- 本机复核205 tests和authoring44/5/7通过。基线首个命令遗漏必填--output，CLI拒绝且未改基准；补临时输出路径后44 posts/5 Fragments/5 hidden保护通过，git diff --check通过。本机不冒称production构建或浏览器，以上精确head的Actions承担该验证。
+- 本次证据文档提交后的CI尚需下一轮核对，不影响以上明确实现head的已完成验收。下一最小检查组：代表文章代码/表格/图片，两主题四宽度及阅读控件；剩余Library/友链/观察与隐蔽应用仍pending。正文/metadata/文件名/URL/hidden/noindex/外部项目均未改。
+
 ## 2026-10-14 — UI-A05 检索页视觉矩阵
 
 - Base main93825c661a073c949335538dad8dd48620e11605，run38541205915 completed/success已核对。已读最新AGENTS/domain/ADR/旧主计划与最终报告/本轮计划日志；CONTEXT不存在，gh不可用，不虚构Issue。
