@@ -1,9 +1,15 @@
-require 'minitest/autorun'
 require 'kramdown'
 require 'kramdown-parser-gfm'
 require_relative '../_plugins/markdown-table-boundaries'
 
-class TestMarkdownTableBoundaries < Minitest::Test
+class TestMarkdownTableBoundaries
+  def assert_equal(expected, actual)
+    raise "Expected #{expected.inspect}, got #{actual.inspect}" unless expected == actual
+  end
+
+  def assert_includes(actual, expected)
+    raise "Missing #{expected.inspect} in #{actual.inspect}" unless actual.include?(expected)
+  end
   def normalize(text)
     NeutriverseTableBoundaries.normalize(text)
   end
@@ -39,3 +45,8 @@ class TestMarkdownTableBoundaries < Minitest::Test
     assert_includes html, 'CISC'
   end
 end
+
+checks = TestMarkdownTableBoundaries.new
+tests = TestMarkdownTableBoundaries.instance_methods(false).grep(/^test_/)
+tests.each { |name| checks.public_send(name) }
+puts "#{tests.length} render-only table regression tests passed"

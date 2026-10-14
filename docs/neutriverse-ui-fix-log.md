@@ -6,6 +6,7 @@
 - 线上1363×936 Light实际点击计组04目录“三、寻址方式”，待滚动完成后截图看到两张表格变为竖线连续正文；DOM确认article.content table数量0，合法表格文本被p承载。截图ui005-before-table.jpg；根因候选为ATX heading后缺空行，先Ruby实际渲染回归验证，不凭CSS猜测。
 - 任务UI-005（P1，阅读行列关系丢失）；范围_plugins/markdown-table-boundaries.rb、tests/test_markdown_table_boundaries.rb、tools/check_think_build_visual.py、现有workflow、计划/日志/公开证据。不修改旧md正文或metadata；仅post pre_render内存输入补表格边界，限定合法header/separator紧邻标题，fenced代码示例与普通文本原样保留。不是全站parser迁移。
 - 验收：真实原文渲染两张table、helper幂等/代码示例不变，T01源哈希保持；390/768/1024/1366×Night/Light截图、横向滚轮阅读与无整页溢出；精确branch生产、main部署及live复验。半成品先ui/fix-005，状态validation-pending。代表文章代码/图片及全部阅读控件尚未完成，无新增待答问题。
+- 初始head98a03cc161ea45dfb3a23e9a9c1ef582ef092990 / run38568937714在Ruby新测试启动失败：bundle未包含minitest（LoadError），尚未执行渲染断言/production/浏览器，无修复后截图。改为零额外依赖的Ruby断言入口，保留全部4项渲染/保护断言，不改变产品实现、不放宽门禁。205本机tests、authoring44/5/7与44/5/5基线通过；Night桌面亦确认0 tables。
 
 ## 2026-10-14 — UI-A05接续：侧栏状态诊断
 
