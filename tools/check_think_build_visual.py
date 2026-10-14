@@ -40,7 +40,15 @@ def visible_count(driver, kind):
 def settle(driver, wait, theme):
     wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
     if driver.execute_script('return document.documentElement.dataset.mode') != theme:
+        toggle = driver.find_element(By.ID, 'mode-toggle')
+        mobile_menu = not toggle.is_displayed()
+        if mobile_menu:
+            driver.find_element(By.ID, 'sidebar-trigger').click()
+            wait.until(lambda d: d.find_element(By.ID, 'mode-toggle').is_displayed())
         driver.find_element(By.ID, 'mode-toggle').click()
+        if mobile_menu:
+            driver.find_element(By.ID, 'mode-toggle').send_keys(Keys.ESCAPE)
+            wait.until(lambda d: d.find_element(By.ID, 'sidebar-trigger').get_attribute('aria-expanded') == 'false')
     wait.until(lambda d: d.execute_script('return document.documentElement.dataset.mode') == theme)
     driver.execute_async_script(
         'const done = arguments[arguments.length - 1]; document.fonts.ready.then(() => done(true));'
