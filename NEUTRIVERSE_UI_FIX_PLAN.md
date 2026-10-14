@@ -33,7 +33,7 @@
 | 首页、THINK、BUILD、OBSERVE、ABOUT | 导航UI-001：40项截图与几何通过；THINK 1363px双主题已部署复验。全页检查仍pending | THINK侧栏展开/收起、双主题切换已操作；其他pending |
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
-| 代表文章：代码、表格、图片 | 计组04表格：UI-005四宽度双主题生产/live8张viewport已查看，1366 Light全页两表已复核；代码/图片仍pending | 两table/两wrapper、真实横向滚轮阅读8场景通过，无整页溢出；复制/媒体/其余阅读控件pending |
+| 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭和复制提示通过；UI-A07b剪贴板实际字节及其余阅读控件pending |
 | Library、友链 | pending | 目录/延迟加载/链接pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
@@ -47,6 +47,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-A07 done（限定代码/图片/媒体与复制提示）：验收main/base cd4ec29eb1ab500563b9247af7ae98ac1661438a，[run38590193242](https://github.com/AplusNeutrino/My_Blog/actions/runs/38590193242) build115942706728、deploy115945097313、verify-live-ui115945238565全部success。176+14线上检查通过，人工查看新增40张截图的四联系表并放大四宽度代表图，代码/图片/弹层无新增确认缺陷。本轮只回写计划/日志与公开live证据；正文/metadata/样式未改，旧COMPLETE历史不动。文档提交CI另行核对；UI-A07b剪贴板实际字节仍pending，下一项先核对文档head再补实际复制或Library/友链矩阵，全站IN PROGRESS。无新增用户问题。
 
 UI-A07生产通过、待main/live：审计head2c60e4e1aeff6897447e6a0a90a65251869f547f / run38588924737 success；205 tests、4项Ruby、T01/authoring/Jekyll/旧门禁、176+14通过。新增16阅读场景、真实移动touch/桌面arrow/关闭及复制提示通过；人工看40张viewport/gallery/feedback联系表，放大代表原图，无新增确认产品缺陷。审计与[证据](docs/ui-evidence/uia07-checks.md)非强推main，精确head线上矩阵仍validation-pending；UI-A07b剪贴板实际字节pending，不以成功提示代替。下轮先核对main/live再继续复制实值/未检页面，无新增用户问题。
 

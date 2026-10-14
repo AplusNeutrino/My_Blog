@@ -33,4 +33,18 @@ Base main `c5b99ed2284ac327270de5c952f0a026d85d87b3`；上一文档head的run385
 
 ## 当前状态
 
-UI-A07限定生产检查通过；审计与证据非强推main后，需核对其实际head build/deploy/live176+14和相同16线上阅读场景，状态validation-pending。复制实际字节另列UI-A07b pending，其他页面/hover-focus/阅读控件未冒称完成。gh不可用、无新增待答问题，全站仍IN PROGRESS。
+UI-A07限定检查done，复制实际字节另列UI-A07b pending，其他页面/hover-focus/阅读控件未冒称完成。gh不可用、无新增待答问题，全站仍IN PROGRESS。
+
+## 2026-10-15 线上复验
+
+验收main head `cd4ec29eb1ab500563b9247af7ae98ac1661438a`，[run38590193242](https://github.com/AplusNeutrino/My_Blog/actions/runs/38590193242)：build115942706728、deploy115945097313、verify-live-ui115945238565均completed/success。205 Python tests、4项Ruby、T01/authoring/production Jekyll及旧门禁通过；production/live各176场景+14侧栏专项通过。
+
+live artifact11906993444含16阅读记录与40张新增viewport/gallery/feedback截图。人工查看以下四联系表，并放大390 Light代码、768 Night弹层、1024 Light图片、1366 Night复制提示原图；未发现新增遮挡、整页溢出或内容消失。八图片场景的三图加载、下一张/上一张/关闭及URL保持通过；390/768真实touch，1024/1366真实arrow。16复制反馈通过但实际字节未验证，不能据此清除UI-A07b。
+
+- [完整live JSON](uia07-live-audit.json)
+- [390px两主题](uia07-live-contact-390.jpg)
+- [768px两主题](uia07-live-contact-768.jpg)
+- [1024px两主题](uia07-live-contact-1024.jpg)
+- [1366px两主题](uia07-live-contact-1366.jpg)
+
+本次仅保存验收证据，不改产品样式/文章/metadata/URL。原PNG在上述artifact保留14天；JSON/联系表永久留仓库。证据文档的新提交CI独立核对，不与本次验收head混淆。

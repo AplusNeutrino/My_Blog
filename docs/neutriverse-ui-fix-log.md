@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A07 精确main线上验收
+
+- Task UI-A07限定验收；base/current main cd4ec29eb1ab500563b9247af7ae98ac1661438a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和本UI计划日志；CONTEXT不存在、gh不可用，未虚构Issue。独立干净worktree，保护用户修改。
+- 先记录范围：仅本UI计划/日志、docs/ui-evidence/uia07-checks.md及live JSON/四联系表；验收对应head部署、176+14检查、16阅读记录和40张真实线上截图，不重复修改已验收产品，不把CI替代视觉复核。
+- run38590193242精确匹配上述head；build115942706728、deploy115945097313、verify-live-ui115945238565 completed/success。205 Python tests、4项Ruby渲染回归、T01/authoring/production Jekyll/旧门禁与production/live各176+14通过。
+- 下载live artifact11906993444，核对16阅读记录：8代码可见、8图片三图加载、8移动touch或桌面arrow下一张/上一张/关闭、16复制反馈；实际clipboardBytes均not-verified。人工看40张viewport/gallery/feedback四联系表，并放大390 Light代码、768 Night弹层、1024 Light图片、1366 Night复制反馈原图。无新增确认显示缺陷，不猜测改样式。
+- JSON与四联系表永久入仓库；原PNG留artifact14天。源正文/metadata/URL/hidden/noindex、关联仓库、旧COMPLETE记录未变。本机205 tests、authoring44/5/7、T01保护44/5/5与git diff --check通过；Ruby/production/live证据来自上述CI，不冒称本机执行。
+- UI-A07限定done；UI-A07b实际剪贴板内容与其他完整页面/hover-focus矩阵继续pending。非强推文档提交后其CI另行核对，不冒称新文档head已部署；下一项先核对文档head再补复制实值或Library/友链。全站IN PROGRESS，没有新增待答问题，不暂停任务。
+
 ## 2026-10-14 — UI-A07 代码/图片/复制与媒体检查
 
 - Base main c5b99ed2284ac327270de5c952f0a026d85d87b3，run38577189934 completed/success已核对。已读AGENTS/domain/ADR0001、旧COMPLETE计划/报告和本UI计划/日志；CONTEXT不存在、gh不可用，不虚构Issue。独立干净worktree，不覆盖用户修改。
