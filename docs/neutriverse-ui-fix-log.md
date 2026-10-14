@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-005 / UI-A06 表格渲染
+
+- Base9708457fee99f7a00d8d74bb13bf59d669687ad4，run38560753961 completed/success；独立worktree未覆盖用户修改。AGENTS/domain/ADR/旧COMPLETE报告与计划、本UI计划日志已读；CONTEXT不存在，gh不在PATH，未虚构Issue。
+- 线上1363×936 Light实际点击计组04目录“三、寻址方式”，待滚动完成后截图看到两张表格变为竖线连续正文；DOM确认article.content table数量0，合法表格文本被p承载。截图ui005-before-table.jpg；根因候选为ATX heading后缺空行，先Ruby实际渲染回归验证，不凭CSS猜测。
+- 任务UI-005（P1，阅读行列关系丢失）；范围_plugins/markdown-table-boundaries.rb、tests/test_markdown_table_boundaries.rb、tools/check_think_build_visual.py、现有workflow、计划/日志/公开证据。不修改旧md正文或metadata；仅post pre_render内存输入补表格边界，限定合法header/separator紧邻标题，fenced代码示例与普通文本原样保留。不是全站parser迁移。
+- 验收：真实原文渲染两张table、helper幂等/代码示例不变，T01源哈希保持；390/768/1024/1366×Night/Light截图、横向滚轮阅读与无整页溢出；精确branch生产、main部署及live复验。半成品先ui/fix-005，状态validation-pending。代表文章代码/图片及全部阅读控件尚未完成，无新增待答问题。
+
 ## 2026-10-14 — UI-A05接续：侧栏状态诊断
 
 - 最新main93825c66、工作分支2114197f83fbba92cd430b94ded82c892d08b307，run38548101812 failure / deploy skipped。已读最新AGENTS/domain/ADR/旧计划及最终报告/本计划日志；CONTEXT不存在、gh不可用。范围仅审计脚本settle/计划日志，内容/URL/样式不改。

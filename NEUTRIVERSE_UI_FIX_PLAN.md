@@ -22,6 +22,7 @@
 | UI-003 | P2 | 390/768px截图顶栏显示内部布局名 Neutriverse-section / Neutriverse-project，而不是页面标题 | done | 120项production与120项部署后live场景、32张viewport、标题/tooltip/控件不重叠门禁通过；移动双主题截图复验 |
 | UI-003a | P2 | 快速关闭移动菜单时延迟焦点可能回到已关闭侧栏；390px mask焦点门禁超时 | done | production及live390/768双主题各3次快速mask关闭、跨两帧焦点保持在trigger；原mask/Escape门禁通过 |
 | UI-004 | P1 | 1024/1366×900窗口的实际viewport截图显示侧栏DISCOVER检索组与社交/主题组重叠 | done | production及live14短/高窗口场景无重叠、按钮hit-test/主题/搜索通过；人工查看本次live截图 |
+| UI-005 | P1 | 计组04两张Markdown表格紧邻标题，线上渲染为连续竖线正文，失去行列结构 | validation-pending | 原md/metadata不改；仅构建时补边界；两张语义table、四宽度双主题截图、溢出/横向阅读、T01及精确head部署复验 |
 
 ## 检查矩阵
 
@@ -46,6 +47,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-005 / UI-A06：base9708457fee99f7a00d8d74bb13bf59d669687ad4，run38560753961 completed/success已核对。1363×936线上计组04 Light实际截图确认两张表格为pipe prose，DOM为0 table；原md有合法header/separator但紧邻ATX标题。最小范围：render-only post hook、Ruby渲染回归、现有CI与8场景表格截图/横向操作、计划日志；不改正文源/metadata、配置全局parser或其他页面设计。先ui/fix-005，生产与线上截图pending；完整代码/图片阅读检查仍pending。无新增用户问题。
 
 UI-A05 done（限定检索页截图与已列交互）：base/main head f755f17c3e1f1a1b66eee714ef4b8ff8aec73cfb，[run38554989713](https://github.com/AplusNeutrino/My_Blog/actions/runs/38554989713) build/deploy/verify-live-ui全部success；205 tests、T01/authoring/production Jekyll/旧门禁、production与live各152+14通过。下载live artifact11890351589，人工查看32张检索viewport（四张分宽度联系表）及390 Light Tags、768 Night Thoughts、1024 Light Archive、1366 Night Series原图。未确认新产品缺陷，本次仅证据文档更新，不修改网站样式/内容；文档提交CI另行核对，不冒称其已通过。下一项代表文章代码/表格/图片阅读矩阵，Thought点赞等仍pending；全站IN PROGRESS，无新增待答问题。
 

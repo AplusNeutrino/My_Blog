@@ -73,6 +73,9 @@ jobs:
       - name: Run regression tests
         run: python -m unittest discover -s tests -v
 
+      - name: Validate render-only legacy table boundaries
+        run: bundle exec ruby tests/test_markdown_table_boundaries.rb
+
       - name: Validate protected restructure baseline
         run: >-
           python tools/content_restructure_baseline.py

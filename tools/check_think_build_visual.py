@@ -32,6 +32,7 @@ SCENARIOS = [
     ('archives', '/archives/', None),
     ('thoughts', '/thoughts/', None),
     ('series-directory', '/think/#nv-series-browser-title', None),
+    ('article-tables', '/posts/%E8%AE%A1%E7%BB%84-04/', None),
     *((f'project-{project}', f'/build/{project}/', None) for project in PROJECTS),
 ]
 
@@ -296,9 +297,29 @@ def main():
                         (output / f'{width}-{theme}-{name}.png').write_bytes(base64.b64decode(png))
                         if name == 'series-directory':
                             driver.execute_script("document.querySelector('[data-writing-series-browser]').scrollIntoView({behavior:'instant',block:'center'});")
+                        if name == 'article-tables':
+                            tables = driver.find_elements(By.CSS_SELECTOR, 'article .content table')
+                            require(len(tables) == 2, 'legacy Markdown tables rendered as pipe prose')
+                            driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", tables[0])
+                            driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
+                            wrappers = driver.find_elements(By.CSS_SELECTOR, 'article .content .table-wrapper')
+                            require(len(wrappers) == 2, 'reading tables lost horizontal containment')
+                            result['tables'] = driver.execute_script("""
+                              return [...document.querySelectorAll('article .content .table-wrapper')].map(n=>({
+                                width:n.clientWidth, scrollWidth:n.scrollWidth, overflow:getComputedStyle(n).overflowX}));
+                            """)
+                            require(all(x['overflow'] in ('auto', 'scroll') for x in result['tables']), 'tables not scrollable')
+                            # Real pointer-wheel horizontal scrolling, not a JS click/scroll substitute.
+                            scrollable = next((w for w in wrappers if driver.execute_script('return arguments[0].scrollWidth > arguments[0].clientWidth', w)), None)
+                            if scrollable:
+                                from selenium.webdriver.common.actions.wheel_input import ScrollOrigin
+                                driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", scrollable)
+                                ActionChains(driver).scroll_from_origin(ScrollOrigin.from_element(scrollable), 400, 0).perform()
+                                wait.until(lambda d: d.execute_script('return arguments[0].scrollLeft', scrollable) > 0)
+                            result['interactions'] = {'tableScroll': bool(scrollable), 'tables': 2}
                         if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
-                        if g['titleVisible']:
+                        if g['titleVisible'] and name != 'article-tables':
                             require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
                             require(g['titleTooltip'] == g['pageTitle'], f'full title is unavailable: {result}')
                             require(g['titleLeft'] >= g['menuRight'] - 1 and
