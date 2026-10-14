@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-003
+
+- Base main c12d9d2ac262e924ce800f7e303f59279a0e9741，上一文档head的run38506420729 completed/success，保护原工作目录使用独立worktree。
+- 已读最新AGENTS/domain/issue/triage、ADR0001、主计划/最终报告、本轮计划日志；CONTEXT不存在。gh不在PATH，未编造Issue。
+- 复现来自上一精确head的390/768px实际Chrome截图：顶栏为Neutriverse-section / Neutriverse-project。根因：Chirpy topbar在未识别layout的分支回退到page.layout；自定义布局已有page.title但没进入该分支。
+- 范围先记录：仅section/project顶栏以page.title呈现；长标题约束在菜单和搜索之间，必要回归覆盖语义标题/完整辅助标题/控件不重叠。四宽度双主题Chrome截图，viewport与侧栏几何补充；其他布局/内容/URL/noindex/外部项目不改。
+- 当前in-progress，无新增用户问题。云浏览器仅1363×936，移动视觉与线上复验通过CI浏览器取得；不能用桌面截图冒充手机验收。
+
 ## 2026-10-14 — UI-002 / UI-A02
 
 - Base main：bc3efad53188f1ff86ae5b49d5a159a136643792；上一轮文档head的run38500584485 completed/success，实际核对，无并发移动。

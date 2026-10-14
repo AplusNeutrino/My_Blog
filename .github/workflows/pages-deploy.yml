@@ -170,3 +170,30 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
+  verify-live-ui:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install live browser audit dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install selenium PyYAML
+      - name: Verify deployed THINK and BUILD UI
+        env:
+          UI_LIVE_BASE: https://neutriverse.uk
+          UI_AUDIT_DIR: ${{ runner.temp }}/neutriverse-live-ui
+        run: python tools/check_think_build_visual.py .
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neutriverse-live-ui-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-live-ui
+          retention-days: 14
+          if-no-files-found: ignore
+

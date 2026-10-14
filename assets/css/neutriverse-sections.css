@@ -42,6 +42,18 @@
 }
 
 /* Global desktop navigation keeps the four entrances primary and utilities secondary. */
+#topbar-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#sidebar-trigger,
+#search-trigger {
+  flex-shrink: 0;
+}
+
 #sidebar .nv-sidebar-navigation {
   display: flex;
   min-height: 0;

@@ -69,7 +69,17 @@ def geometry(driver):
         '.nv-project-card, .nv-project-hero, .nv-project-detail-grid > section'
       )].filter(visible).map(n => ({radius: getComputedStyle(n).borderTopLeftRadius}));
       const mono = detail?.querySelector('.nv-project-breadcrumb');
+      const title = document.getElementById('topbar-title');
+      const sidebar = document.getElementById('sidebar').getBoundingClientRect();
+      const titleRect = title.getBoundingClientRect();
+      const menu = document.getElementById('sidebar-trigger').getBoundingClientRect();
+      const search = document.getElementById('search-trigger').getBoundingClientRect();
       return {
+        title: title.textContent.trim(), titleTooltip: title.title,
+        pageTitle: document.querySelector('main h1')?.textContent.trim(),
+        titleVisible: visible(title), titleLeft: titleRect.left, titleRight: titleRect.right,
+        menuRight: menu.right, searchLeft: search.left,
+        sidebar: {left: sidebar.left, right: sidebar.right, width: sidebar.width},
         width: innerWidth, body: document.body.scrollWidth,
         document: document.documentElement.scrollWidth,
         headings: [...document.querySelectorAll('main h1, main h2, main h3')]
@@ -122,7 +132,9 @@ def main():
         with serve(site) as port, webdriver.Chrome(options=options) as driver:
             driver.set_script_timeout(30)
             wait = WebDriverWait(driver, 20)
-            base = f'http://127.0.0.1:{port}'
+            live = os.environ.get('UI_LIVE_BASE', '')
+            require(not live or live == 'https://neutriverse.uk', 'unexpected live audit target')
+            base = live or f'http://127.0.0.1:{port}'
             for width, height in VIEWPORTS:
                 driver.set_window_size(width, height)
                 for theme in ('dark', 'light'):
@@ -143,6 +155,14 @@ def main():
                                      'scale': 1},
                         })['data']
                         (output / f'{width}-{theme}-{name}.png').write_bytes(base64.b64decode(png))
+                        if name in ('think-all', 'build-all', 'project-toyosatomimis-headphone'):
+                            driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
+                        if g['titleVisible']:
+                            require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
+                            require(g['titleTooltip'] == g['pageTitle'], f'full title is unavailable: {result}')
+                            require(g['titleLeft'] >= g['menuRight'] - 1 and
+                                    g['titleRight'] <= g['searchLeft'] + 1,
+                                    f'topbar controls overlap title: {result}')
                         require(g['body'] <= g['width'] + 1 and g['document'] <= g['width'] + 1,
                                 f'page overflow: {result}')
                         require(not g['headings'], f'heading clipping: {result}')
