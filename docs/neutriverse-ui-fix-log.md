@@ -8,6 +8,7 @@
 - FF1第一次用基线source_url_candidate的小写ff1路径得到404；通过公开Archive真实链接核对为/posts/FF1%E8%AE%B0%E5%BD%95/，只修审计目标，不改旧路由。页面初始lazy图片未加载不是缺陷；待complete后首图加载成功，实际点击图片打开GLightbox、Next切换成功，动画结束后截图可见。
 - 尚未确认新产品缺陷；先ui/audit-007生产完整16截图/交互（总矩阵176+14），再main/live精确head；复制链接反馈与实际剪贴板字节分开记证，后者pending。其他矩阵不冒称完成，无新增待答问题。
 - 初始审计head17f592ee1d6ab8af1ce7479829c3936ec43a153d / run38587265953失败：205 tests/4项Ruby/T01/authoring/Jekyll/原门禁通过，新矩阵390 Night图片弹层Next为ElementNotInteractable。下载artifact11905583133并看reading-failure.png，移动弹层显示图片和关闭按钮但无桌面箭头；这是脚本点隐藏控件，尚不是产品故障。调整为箭头可见时真实click，否则真实W3C touch swipe，仍严格核对下一张/上一张/关闭和URL，不JS调用gallery API、不删断言。main c5b99ed2未改，完整生产/live仍pending。
+- head952047504e9c64cc3edf3e8d32d632ad052fffeb / run38587922497在W3C swipe动作报MoveTargetOutOfBounds：WebElement.rect是document坐标，文章已滚动后y超出viewport。改用getBoundingClientRect的viewport坐标，真实touch动作与所有翻页断言保留，不改产品。前次非强推ref工具出现一次RemoteProtocolError，读取分支确认未移动后按原expected SHA安全更新成功，没有强推。尚未完成16场景，继续工作分支。
 
 ## 2026-10-14 — UI-005 精确main部署复验
 

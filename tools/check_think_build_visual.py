@@ -281,7 +281,9 @@ def reading_controls(driver, wait, name, output, width, theme):
             # GLightbox hides arrows on narrow touch layouts; use its actual
             # touch navigation rather than clicking a hidden control.
             from selenium.webdriver.common.actions.pointer_input import PointerInput
-            box = current(driver).rect
+            # W3C move_to_location takes viewport coordinates; WebElement.rect
+            # uses document coordinates after scrolling far down an article.
+            box = driver.execute_script('const r=arguments[0].getBoundingClientRect(); return {x:r.x,y:r.y,width:r.width,height:r.height}', current(driver))
             start = box['x'] + box['width'] * (0.8 if direction == 'next' else 0.2)
             end = box['x'] + box['width'] * (0.2 if direction == 'next' else 0.8)
             y = box['y'] + box['height'] * 0.5
