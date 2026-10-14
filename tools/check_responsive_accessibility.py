@@ -2,6 +2,7 @@
 """Validate the built Neutriverse UI across breakpoints, themes and input modes."""
 
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -252,6 +253,29 @@ def require_article_reading(driver, site_url, wait, theme):
     require_contrast(driver, "article.nv-post .content", "article body")
 
 
+def require_navigation_alignment(driver, context):
+    """UI-001: a Grid cell and its clickable card must share the same bounds."""
+    cards = driver.execute_script(
+        """
+        return [...document.querySelectorAll('.nv-primary-nav-item')].map(cell => {
+          const link = cell.querySelector('.nv-primary-nav-link');
+          const a = cell.getBoundingClientRect();
+          const b = link.getBoundingClientRect();
+          return {label: link.innerText, cellHeight: a.height, cardHeight: b.height,
+                  topDifference: Math.abs(a.top - b.top),
+                  bottomDifference: Math.abs(a.bottom - b.bottom),
+                  widthDifference: Math.abs(a.width - b.width)};
+        });
+        """
+    )
+    require(len(cards) == 4, f"missing entrance cards {context}: {cards}")
+    for card in cards:
+        require(card['topDifference'] <= 1 and card['bottomDifference'] <= 1
+                and card['widthDifference'] <= 1,
+                f"entrance card does not fill its Grid cell {context}: {card}")
+    return cards
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
     for relative_path in ("index.html", "think/index.html", "build/index.html", "observe/index.html", "about/index.html"):
@@ -273,6 +297,9 @@ def main():
         options.add_argument(argument)
 
     results = []
+    screenshot_dir = os.environ.get('UI_SCREENSHOT_DIR')
+    if screenshot_dir:
+        Path(screenshot_dir).mkdir(parents=True, exist_ok=True)
     with serve(site) as port, webdriver.Chrome(options=options) as driver:
         wait = WebDriverWait(driver, 12)
         site_url = f"http://127.0.0.1:{port}"
@@ -303,7 +330,13 @@ def main():
                         require_focus(driver, ".nv-project-filters button", "BUILD filter")
                     if path == "/observe/":
                         require_focus(driver, ".nv-observe-card-actions a", "OBSERVE action")
-                    results.append({"width": width, "theme": theme, "path": path})
+                    cards = require_navigation_alignment(driver, f"{width}px {theme} {path}")
+                    if screenshot_dir:
+                        name = path.strip('/').replace('/', '-') or 'home'
+                        driver.find_element(By.CSS_SELECTOR, '.nv-primary-nav').screenshot(
+                            str(Path(screenshot_dir) / f'{width}-{theme}-{name}-navigation.png')
+                        )
+                    results.append({"width": width, "theme": theme, "path": path, "cards": cards})
 
                 require_article_reading(driver, site_url, wait, theme)
 
@@ -311,6 +344,10 @@ def main():
             wait.until(lambda current: current.find_element(By.CSS_SELECTOR, "[data-section-identity='think']").is_displayed())
             require_reduced_motion(driver)
 
+    if screenshot_dir:
+        (Path(screenshot_dir) / 'navigation-metrics.json').write_text(
+            json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8'
+        )
     print(json.dumps({"checks": len(results), "viewports": VIEWPORTS, "themes": THEMES}, sort_keys=True))
 
 

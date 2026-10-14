@@ -335,6 +335,16 @@
   list-style: none;
 }
 
+/* Fill the Grid cell so wrapping summaries do not leave uneven card borders. */
+.nv-primary-nav-item {
+  display: flex;
+  min-width: 0;
+}
+
+.nv-primary-nav-item > .nv-primary-nav-link {
+  flex: 1;
+}
+
 .nv-primary-nav-link,
 .nv-section-link {
   position: relative;

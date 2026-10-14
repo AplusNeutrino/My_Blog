@@ -95,6 +95,17 @@ jobs:
 
       - name: Validate responsive accessibility matrix in Chrome
         run: python tools/check_responsive_accessibility.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_SCREENSHOT_DIR: ${{ runner.temp }}/neutriverse-ui-screenshots
+
+      - name: Upload public navigation visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-navigation-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-ui-screenshots
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Fetch verified Ravenis public release
         id: ravenis
