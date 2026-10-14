@@ -21,7 +21,7 @@
 | UI-002 | P2 | 项目/观察组件引用未定义的圆角、阴影与等宽字体变量；圆角失效、数据文本字体回退 | done | 变量默认值与运行时圆角/字体通过，112截图/交互与旧门禁通过，精确head main部署和双主题线上复验通过 |
 | UI-003 | P2 | 390/768px截图顶栏显示内部布局名 Neutriverse-section / Neutriverse-project，而不是页面标题 | done | 120项production与120项部署后live场景、32张viewport、标题/tooltip/控件不重叠门禁通过；移动双主题截图复验 |
 | UI-003a | P2 | 快速关闭移动菜单时延迟焦点可能回到已关闭侧栏；390px mask焦点门禁超时 | validation-pending | 延迟callback只在菜单仍打开时移动焦点；原mask/Escape焦点门禁通过，线上复验 |
-| UI-004 | P1 | 1024/1366×900窗口的实际viewport截图显示侧栏DISCOVER检索组与社交/主题组重叠 | ready | 短桌面可滚动或重新分配空间，按钮无遮挡且可操作；双主题/菜单/焦点回归及部署复验 |
+| UI-004 | P1 | 1024/1366×900窗口的实际viewport截图显示侧栏DISCOVER检索组与社交/主题组重叠 | in-progress | 短桌面可滚动或重新分配空间，按钮无遮挡且可操作；双主题/菜单/焦点回归及部署复验 |
 
 ## 检查矩阵
 
@@ -46,6 +46,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+2026-10-14 UI-004：base 7d376af1f05329dca43861c47c4dde83ded20786，run38526904330 success已核对。先记录范围：共享侧栏CSS、短窗口几何/指针/截图回归、UI-003a快速mask关闭专项、计划日志。已查看上一head线上1024px BUILD Night截图确认重叠；桌面1363×936测量nav flex-shrink=1/min-height=0，其children不随压缩而缩小。保留组高度，让容器滚动，不改变内容/尺寸风格。先工作分支验证；尚未部署验收。
 
 UI-003已部署并验收：实现head e020fb73e9de4fcd91732c2bc7e281575f3395af；[main run38526220139](https://github.com/AplusNeutrino/My_Blog/actions/runs/38526220139) build/deploy/verify-live-ui success。UI-003a保护代码已部署、原production菜单焦点门禁通过，但快速mask关闭的同场景线上焦点专项检查仍validation-pending（live矩阵只操作主题菜单/Escape，不冒称mask复验）。下一项优先UI-004，并补UI-003a线上专项；其他独立页面矩阵仍pending。无待答问题。[证据与局限](docs/ui-evidence/ui003-comparison.md)。
 

@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select, WebDriverWait
@@ -117,6 +119,69 @@ def exercise_controls(driver, wait, kind):
     return {'filter': True, 'refresh': True, 'back': True}
 
 
+def sidebar_checks(driver, wait, base, output):
+    """UI-004 short-window flow and UI-003a rapid real-pointer mask close."""
+    results = []
+    for width, height in ((390, 700), (768, 700), (1024, 700), (1366, 700),
+                          (1024, 900), (1366, 900), (1366, 1100)):
+        driver.set_window_size(width, height)
+        for theme in ('dark', 'light'):
+            driver.get(base + '/build/')
+            settle(driver, wait, theme)
+            mobile = width < 850
+            if mobile:
+                driver.find_element(By.ID, 'sidebar-trigger').click()
+                wait.until(lambda d: d.execute_script("return document.body.hasAttribute('sidebar-display')"))
+            sidebar = driver.find_element(By.ID, 'sidebar')
+            driver.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight;', sidebar)
+            wait.until(lambda d: d.execute_script("return document.getAnimations().every(a => a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+            g = driver.execute_script("""
+              const box = s => {const r=document.querySelector(s).getBoundingClientRect();
+                return {top:r.top,bottom:r.bottom};};
+              const controls=[...document.querySelectorAll('.nv-sidebar-utilities .nav-link, .sidebar-bottom button, .sidebar-bottom > a')]
+                .filter(e=>e.getBoundingClientRect().width>0);
+              return {viewport:[innerWidth,innerHeight], primary:box('.nv-sidebar-primary'),
+                utilities:box('.nv-sidebar-utility-group'), bottom:box('.sidebar-bottom'),
+                scroll:document.querySelector('#sidebar').scrollTop,
+                accessible:controls.map(e=>{const r=e.getBoundingClientRect(),
+                  hit=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);
+                  return {name:e.getAttribute('aria-label')||e.textContent.trim(),
+                    hit:!!hit&&(hit===e||e.contains(hit)),top:r.top,bottom:r.bottom};})};
+            """)
+            row = {'window':[width,height], 'theme':theme, 'geometry':g}
+            results.append(row)
+            driver.save_screenshot(str(output / f'sidebar-{width}-{height}-{theme}.png'))
+            require(g['primary']['bottom'] <= g['utilities']['top'] + 1, f'primary overlaps utilities: {row}')
+            require(g['utilities']['bottom'] <= g['bottom']['top'] + 1, f'utility/social overlap: {row}')
+            require(all(c['hit'] and c['top'] >= 0 and c['bottom'] <= g['viewport'][1]+1 for c in g['accessible']),
+                    f'sidebar controls obscured: {row}')
+            driver.find_element(By.ID, 'mode-toggle').click()
+            other = 'light' if theme == 'dark' else 'dark'
+            wait.until(lambda d: d.execute_script('return document.documentElement.dataset.mode') == other)
+            if mobile:
+                driver.find_element(By.ID, 'mode-toggle').send_keys(Keys.ESCAPE)
+                wait.until(lambda d: d.execute_script("return !document.body.hasAttribute('sidebar-display') && document.activeElement.id==='sidebar-trigger'"))
+                # No wait between pointer actions: cover the delayed-open-focus race.
+                for _ in range(3):
+                    trigger = driver.find_element(By.ID, 'sidebar-trigger')
+                    ActionChains(driver, duration=0).click(trigger).perform()
+                    # Click mask at a known point outside the 260px drawer.
+                    action = ActionBuilder(driver)
+                    action.pointer_action.move_to_location(width-20, 100)
+                    action.pointer_action.click()
+                    action.perform()
+                    wait.until(lambda d: d.execute_script("return !document.body.hasAttribute('sidebar-display') && document.activeElement.id==='sidebar-trigger'"))
+                    driver.execute_async_script('const done=arguments[arguments.length-1]; requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+                    require(driver.execute_script("return document.activeElement.id==='sidebar-trigger'"), 'late focus returned to closed drawer')
+                row['rapidMaskClose'] = 3
+            else:
+                driver.find_element(By.CSS_SELECTOR, '[data-nv-search-trigger]').click()
+                wait.until(lambda d: d.find_element(By.ID, 'search-input').is_displayed())
+                driver.find_element(By.ID, 'search-cancel').click()
+            row['themeAndSearchOrMask'] = True
+    return results
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else '_site').resolve()
     output = Path(os.environ.get('UI_AUDIT_DIR', '/tmp/neutriverse-think-build-audit'))
@@ -129,6 +194,7 @@ def main():
     for arg in ('--headless=new', '--no-sandbox', '--disable-dev-shm-usage'):
         options.add_argument(arg)
     results = []
+    sidebar_results = []
     try:
         with serve(site) as port, webdriver.Chrome(options=options) as driver:
             driver.set_script_timeout(30)
@@ -175,8 +241,10 @@ def main():
                                 require('noindex' in g['noindex'], f'noindex changed: {result}')
                         if name in ('think-all', 'build-all'):
                             result['interactions'] = exercise_controls(driver, wait, kind)
+            sidebar_results = sidebar_checks(driver, wait, base, output)
     finally:
         (output / 'audit.json').write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
+        (output / 'sidebar-audit.json').write_text(json.dumps(sidebar_results, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'screenshots': len(results), 'viewports': VIEWPORTS, 'themes': 2}))
 
 
