@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-005生产通过，待main/live：实现head c20396fa62672943eda5d675955cc6eeb394d3ea，[run38569176497](https://github.com/AplusNeutrino/My_Blog/actions/runs/38569176497) build success；4项Ruby渲染回归、205 tests、T01/authoring/Jekyll/旧门禁、160+14浏览器矩阵通过。已查看8张表格截图并放大390 Light/1366 Night，真实横向滚动通过；没有更改旧md。准备非强推main并核对其实际head部署后同场景，UI-005保持validation-pending；[前后记录](docs/ui-evidence/ui005-comparison.md)。无新增待答问题，代码/图片阅读仍pending。
+
 UI-005 / UI-A06：base9708457fee99f7a00d8d74bb13bf59d669687ad4，run38560753961 completed/success已核对。1363×936线上计组04 Light实际截图确认两张表格为pipe prose，DOM为0 table；原md有合法header/separator但紧邻ATX标题。最小范围：render-only post hook、Ruby渲染回归、现有CI与8场景表格截图/横向操作、计划日志；不改正文源/metadata、配置全局parser或其他页面设计。先ui/fix-005，生产与线上截图pending；完整代码/图片阅读检查仍pending。无新增用户问题。
 
 UI-A05 done（限定检索页截图与已列交互）：base/main head f755f17c3e1f1a1b66eee714ef4b8ff8aec73cfb，[run38554989713](https://github.com/AplusNeutrino/My_Blog/actions/runs/38554989713) build/deploy/verify-live-ui全部success；205 tests、T01/authoring/production Jekyll/旧门禁、production与live各152+14通过。下载live artifact11890351589，人工查看32张检索viewport（四张分宽度联系表）及390 Light Tags、768 Night Thoughts、1024 Light Archive、1366 Night Series原图。未确认新产品缺陷，本次仅证据文档更新，不修改网站样式/内容；文档提交CI另行核对，不冒称其已通过。下一项代表文章代码/表格/图片阅读矩阵，Thought点赞等仍pending；全站IN PROGRESS，无新增待答问题。
