@@ -285,7 +285,14 @@ def relationship_controls(driver, wait, name, output, width, theme):
     driver.save_screenshot(str(output / f'drawer-{width}-{theme}-library.png'))
     dialog.find_element(By.CSS_SELECTOR, '.pgl-close').click()
     wait.until(lambda d: dialog.get_attribute('open') is None)
-    driver.find_element(By.CSS_SELECTOR, '[data-pgl-category="book"]').click()
+    # The dialog close event asynchronously restores opener focus, which can
+    # scroll the document back after WebDriver has begun its next click.
+    wait.until(lambda d: d.execute_script('return document.activeElement === arguments[0]', current[0]))
+    driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    category = driver.find_element(By.CSS_SELECTOR, '[data-pgl-category="book"]')
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", category)
+    wait.until(lambda d: d.execute_script("const e=arguments[0],r=e.getBoundingClientRect();return r.y>=0 && r.bottom<=innerHeight && e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));", category))
+    category.click()
     wait.until(lambda d: d.find_element(By.ID, 'pgl-browser-view').is_displayed())
     wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card'))
     require('category=book' in driver.current_url, 'Library category URL not stored')
@@ -491,6 +498,14 @@ def main():
                                 result['interactions'] = relationship_controls(driver, wait, name, output, width, theme)
                             except Exception:
                                 driver.save_screenshot(str(output / 'relationship-failure.png'))
+                                failure = driver.execute_script("""
+                                  const e=document.querySelector('[data-pgl-category="book"]'),r=e?.getBoundingClientRect();
+                                  return {url:location.href,focus:document.activeElement.id,
+                                    drawerOpen:document.querySelector('#pgl-drawer')?.open,
+                                    scrollY,viewport:[innerWidth,innerHeight],
+                                    category:r?{x:r.x,y:r.y,w:r.width,h:r.height}:null};
+                                """)
+                                (output / 'relationship-failure.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2),encoding='utf-8')
                                 raise
                         if name in ('article-code', 'article-images'):
                             try:

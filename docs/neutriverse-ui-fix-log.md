@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a关闭弹层后的审计时序
+
+- 最新main a5738952dc9584e4e8282dbd5090bfe17992e2af、ui/audit-008 head57efc919fbcf4980ac184f890ce7639cd29dce22，run38628620429 build116074140246 failure，deploy/live skipped。已读最新AGENTS/domain/ADR/旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh不可用。独立worktree不覆盖用户修改。
+- 最小任务仍UI-A08a，仅tools/check_think_build_visual.py、计划日志。207 tests、Ruby/T01/authoring/production Jekyll/旧门禁通过，新增390 Night Library弹层open/title/bounds/close通过，但随后的目录真实click报ElementClickIntercepted（187,1621），完整矩阵未通过。
+- 下载artifact11926170787并实际看relationship-failure.png：弹层关闭、页面停在首屏而目录在下方。核对pgl.js close listener异步恢复lastFocused；推测其焦点滚动与WebDriver下一次自动滚动竞争，不把该脚本失败当产品菜单故障。现在等待document.activeElement为原opener且跨两帧，再instant滚动目录居中，确认viewport内hit-test后真实click；不JS click、不清焦点或改产品行为、不删原断言。
+- 补失败JSON记录URL/焦点/drawerOpen/scrollY/viewport/category rect；生产192+14、截图与main/live仍validation-pending，main不改。无新确认产品缺陷或待答问题，其余矩阵保持pending。
+
 ## 2026-10-15 — UI-A08a Library/友链有限检查
 
 - Base a5738952dc9584e4e8282dbd5090bfe17992e2af；run38620953323 build116048019821、deploy116050963127、live116051204385全部success。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和本UI计划日志，CONTEXT不存在、gh不可用，不虚构Issue；另建干净worktree，不覆盖用户修改。
