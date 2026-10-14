@@ -8,6 +8,9 @@
 - 先工作分支执行新增矩阵，不凭猜测修改样式。状态validation-pending；待精确head截图人工检查及交互后更新矩阵。无新增待答问题。
 - 初始head6bcac453adc10b7e7eb87628c6d55d13141e8d04 / run38546863646失败：390px Night四类截图已生成，Tags/Archive打开返回、Thought稳定锚点返回通过；Series跳转的精确URL断言超时。源码writeState从当前URL创建对象、保留hash，脚本未计入既有目录锚点，改为仍精确核对path/query而容许原hash；数量与返回断言保留，网站行为未改。artifact11885560243已下载，人工看390px Tags与Series viewport，无确认遮挡/溢出；其他视口仍pending。
 - 修正head6d0df28f2ba197bcbf3e04385ef9187b25fc9a3c / run38547296531失败：settle主题按钮ElementNotInteractable，不能据此猜测网站根因。新增逐场景日志与失败PNG/JSON（url/mode/open/focus/toggle rect/display），保持所有原断言与真实click；半成品继续ui/audit-005，不合入main。云端Tags双主题/详情返回、Archive Night首屏和滚动到末尾已检查，暂无新增确认缺陷；其他尺寸/完整32矩阵pending。205本地tests、authoring、44/5/5保护通过。
+- 已下载artifact11885131572，95项JSON包括390/768两主题及1024 Night；看20张retrieval viewport联系表并放大390 Tags/Archive/Thoughts/Series，中文/换行和目录可见，暂无确认产品缺陷。Thought点赞/更多功能不属于已验证stableAnchor往返，不能冒称通过。
+- 诊断head a38ff743a005f311b7d3265ece4a61548a053b86 / run38547751557失败在未修改的原check_mobile_sidebar.py733：Escape后菜单trigger正处于关闭动画，点击point(133,24)被topbar-title拦截。新增等待有限动画结束后再进行原pointer click，所有open/mask/focus断言仍在；没有关闭动画、JS click替代或删除门禁。诊断script尚未运行到新场景，其失败诊断未产生，不虚构截图。
+- 本轮范围追加必要原gate的点击稳定等待；实现半成品仍ui/audit-005，main93825c66未改，新增CI/完整32截图与live复验pending。新待答问题无。下轮从本分支最新head核对，而非拿main旧CI当本次成功；公开桌面Archive Night截图与部分联系表保存证据。
 
 ## 2026-10-14 — UI-004部署复核 / UI-003a失败诊断
 

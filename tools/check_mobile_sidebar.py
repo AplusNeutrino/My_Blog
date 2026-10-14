@@ -730,6 +730,12 @@ def main():
         escaped = read_state(driver)
         require(escaped["expanded"] == "false" and escaped["focusIsTrigger"], f"Escape close contract failed: {escaped}")
 
+        # The trigger travels with the closing shell; keep the real pointer
+        # click on its settled position without weakening the focus contract.
+        wait.until(lambda current: current.execute_script(
+            "return document.getAnimations().every(a => a.playState !== 'running'"
+            " || a.effect.getTiming().iterations === Infinity);"
+        ))
         trigger.click()
         wait.until(lambda current: read_state(current)["open"])
         mask = driver.find_element(By.ID, "mask")
