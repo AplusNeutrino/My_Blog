@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-004部署复核 / UI-003a失败诊断
+
+- Base main 787a4a61bb6fa468874968f49acb3d2731555859，AGENTS/三domain docs/ADR/旧主计划与最终报告/本计划日志已读取；CONTEXT不存在，gh不可用。独立worktree，未覆盖用户修改。
+- 精确head run38535247898：build115756443059 success、deploy115757821072 success、verify-live-ui115758159364 failure。production205 tests/保护/authoring/Jekyll/全部旧门禁/120场景/14侧栏专项通过；live120场景已完成，但快速mask关闭wait超时。不能将deploy成功或分支通过当线上验收。
+- 本轮最小范围：只修正tools/check_think_build_visual.py的点击起始时序并补失败截图/状态诊断、计划/日志。UI-003a/004不改为done。源码与日志显示快速循环开始前只等关闭attribute/focus，没等shell关闭transition；移动中的trigger可能造成指针误点。这是待验证推断，尚未凭它修改网站JS。
+- 保留“打开→立即mask点击”的快速场景，仅在每轮开始前等已关闭shell稳定；焦点/两帧/非重叠/hit-test断言全部保留。失败时保存open/focus/trigger rect/mask位置命中与截图，避免无证据重试。先工作分支验证，再精确main/live复验。无新增待答问题。
+
 ## 2026-10-14 — UI-004 / UI-003a专项
 
 - Base main 7d376af1f05329dca43861c47c4dde83ded20786，run38526904330 completed/success；独立worktree保留用户修改。已读AGENTS/三domain docs/ADR/旧主计划与最终报告/本轮计划日志，CONTEXT不存在，gh不在PATH，未虚构Issue。

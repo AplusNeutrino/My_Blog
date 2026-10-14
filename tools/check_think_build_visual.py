@@ -165,6 +165,9 @@ def sidebar_checks(driver, wait, base, output):
                 wait.until(lambda d: d.execute_script("return !document.body.hasAttribute('sidebar-display') && document.activeElement.id==='sidebar-trigger'"))
                 # No wait between pointer actions: cover the delayed-open-focus race.
                 for _ in range(3):
+                    # Begin on a stable closed shell. Its menu trigger moves during
+                    # Chirpy's closing transition; clicking it mid-move can miss.
+                    wait.until(lambda d: d.execute_script("return document.getAnimations().every(a => a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
                     trigger = driver.find_element(By.ID, 'sidebar-trigger')
                     ActionChains(driver, duration=0).click(trigger).perform()
                     # Click mask at a known point outside the 260px drawer.
@@ -172,7 +175,18 @@ def sidebar_checks(driver, wait, base, output):
                     action.pointer_action.move_to_location(width-20, 100)
                     action.pointer_action.click()
                     action.perform()
-                    wait.until(lambda d: d.execute_script("return !document.body.hasAttribute('sidebar-display') && document.activeElement.id==='sidebar-trigger'"))
+                    try:
+                        wait.until(lambda d: d.execute_script("return !document.body.hasAttribute('sidebar-display') && document.activeElement.id==='sidebar-trigger'"))
+                    except Exception:
+                        row['failureState'] = driver.execute_script("""
+                          const r = document.querySelector('#sidebar-trigger').getBoundingClientRect();
+                          return {open:document.body.hasAttribute('sidebar-display'),
+                            focus:document.activeElement.id, trigger:[r.left,r.top,r.right,r.bottom],
+                            hit:document.elementFromPoint(innerWidth-20,100)?.id};
+                        """)
+                        (output / 'sidebar-failure.json').write_text(json.dumps(row, ensure_ascii=False, indent=2), encoding='utf-8')
+                        driver.save_screenshot(str(output / 'sidebar-failure.png'))
+                        raise
                     driver.execute_async_script('const done=arguments[arguments.length-1]; requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
                     require(driver.execute_script("return document.activeElement.id==='sidebar-trigger'"), 'late focus returned to closed drawer')
                 row['rapidMaskClose'] = 3

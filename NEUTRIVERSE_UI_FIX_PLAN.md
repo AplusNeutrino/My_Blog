@@ -47,6 +47,8 @@
 
 ## 当前运行
 
+2026-10-14接续：base main787a4a61，run38535247898 build/deploy success，但verify-live-ui快速mask关闭焦点wait失败。UI-003a/UI-004仍validation-pending。本轮仅诊断/修正审计起始点击时序，补失败状态截图，不放宽断言、不推测改产品；下轮/本轮以修正后的精确head重新核对production+live。其他独立页矩阵未冒称完成。
+
 UI-004接续：实现与审计head ba75465277be11c48c7f4242138842a88effc953，工作分支run38534716282 success；205 tests、T01/authoring/Jekyll/全部旧门禁、120场景与14短/高窗口专项通过。a93f494f在main的run38534120830因新脚本焦点/滚动时序失败，未部署；ba754652补等待焦点完成后滚动，没有放宽断言。将修复与此状态记录非强推提交main，UI-004/UI-003a均validation-pending；下轮先核对该main head的build/deploy/verify-live-ui和同场景截图，再继续独立页面矩阵。[前后证据](docs/ui-evidence/ui004-comparison.md)。无新增待答问题。
 
 2026-10-14 UI-004：base 7d376af1f05329dca43861c47c4dde83ded20786，run38526904330 success已核对。先记录范围：共享侧栏CSS、短窗口几何/指针/截图回归、UI-003a快速mask关闭专项、计划日志。已查看上一head线上1024px BUILD Night截图确认重叠；桌面1363×936测量nav flex-shrink=1/min-height=0，其children不随压缩而缩小。保留组高度，让容器滚动，不改变内容/尺寸风格。先工作分支验证；尚未部署验收。
