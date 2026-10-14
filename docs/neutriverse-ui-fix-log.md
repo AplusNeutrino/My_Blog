@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a Library/友链有限检查
+
+- Base a5738952dc9584e4e8282dbd5090bfe17992e2af；run38620953323 build116048019821、deploy116050963127、live116051204385全部success。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和本UI计划日志，CONTEXT不存在、gh不可用，不虚构Issue；另建干净worktree，不覆盖用户修改。
+- 任务UI-A08a范围仅现有浏览器审计、本UI计划日志。先检查Library根页、当前条目弹层、书籍目录返回和友链卡片href/键盘焦点；两页四宽度两主题共16场景，总192+14，保留所有原门禁。不访问hidden条目或外部项目仓库，不改Library同步数据。
+- 云浏览器1363×936 Light首屏和友链截图实际查看；Library当前条目click打开dialog，待下一次paint截图确认标题/关闭/内容可见，关闭后实际click书籍分类显示目录。刚click截图仍是前一帧不作为弹层失效证据。暂无新增确认显示缺陷，不猜测改样式。
+- UI-A08a先ui/audit-008生产验收，真实截图/交互及main/live仍pending；时间线/搜索/高级筛选/分页和外部友链服务可用性不冒称已检查。全站IN PROGRESS，无新增待答问题。
+- 本机207 tests、authoring44/5/7、T01保护44/5/5与diff通过，不冒称Ruby/Jekyll/Chrome本机验证。Library/友链保留旧page/tab顶栏契约，内部布局名称专项断言只适用于原section/project范围；通用标题裁切和整页溢出断言仍保留。新真实浏览器矩阵待工作分支CI。
+
 ## 2026-10-15 — UI-A07b 精确main线上验收
 
 - Task UI-A07b限定验收；base/current main aa3dbcec717bbbec27e02c0dd196fb0822a6fdec。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划/最终报告和本UI计划日志；CONTEXT不存在、gh不可用，不虚构Issue。独立干净worktree，原repo修改不覆盖。

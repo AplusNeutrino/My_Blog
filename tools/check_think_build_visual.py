@@ -35,6 +35,8 @@ SCENARIOS = [
     ('article-tables', '/posts/%E8%AE%A1%E7%BB%84-04/', None),
     ('article-code', '/posts/%E8%AE%A1%E7%BB%84-07/', None),
     ('article-images', '/posts/FF1%E8%AE%B0%E5%BD%95/', None),
+    ('library', '/library/', None),
+    ('links', '/links/', None),
     *((f'project-{project}', f'/build/{project}/', None) for project in PROJECTS),
 ]
 
@@ -254,6 +256,47 @@ def load_reading_images(driver, wait):
     return images
 
 
+def relationship_controls(driver, wait, name, output, width, theme):
+    """Limited public Library browsing and friend-card inspection, no external writes."""
+    if name == 'links':
+        cards = driver.find_elements(By.CSS_SELECTOR, '.about-friend-node')
+        require(cards, 'friend cards missing')
+        require(all(c.get_attribute('href').startswith(('https://', 'http://')) for c in cards),
+                'friend URL missing')
+        cards[0].send_keys(Keys.TAB)
+        # Focus the link itself with the keyboard, without opening external sites.
+        cards[0].send_keys(Keys.SHIFT, Keys.TAB)
+        require(driver.execute_script('return document.activeElement === arguments[0]', cards[0]),
+                'friend card keyboard focus unavailable')
+        driver.save_screenshot(str(output / f'focus-{width}-{theme}-links.png'))
+        return {'friendCards': len(cards), 'hrefsPresent': True, 'keyboardFocus': True,
+                'externalDestinations': 'not-verified'}
+    current = driver.find_elements(By.CSS_SELECTOR, '#pgl-current-list [data-open-pgl]')
+    require(current, 'Library current entries missing')
+    current[0].click()
+    dialog = driver.find_element(By.ID, 'pgl-drawer')
+    wait.until(lambda d: dialog.get_attribute('open') is not None)
+    wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+    require(driver.find_element(By.CSS_SELECTOR, '#pgl-drawer-content h2').text,
+            'Library drawer title missing')
+    box = driver.execute_script('const r=arguments[0].getBoundingClientRect();return {x:r.x,y:r.y,right:r.right,bottom:r.bottom,w:innerWidth,h:innerHeight}', dialog)
+    require(box['x'] >= -1 and box['y'] >= -1 and box['right'] <= box['w']+1 and box['bottom'] <= box['h']+1,
+            f'Library drawer outside viewport: {box}')
+    driver.save_screenshot(str(output / f'drawer-{width}-{theme}-library.png'))
+    dialog.find_element(By.CSS_SELECTOR, '.pgl-close').click()
+    wait.until(lambda d: dialog.get_attribute('open') is None)
+    driver.find_element(By.CSS_SELECTOR, '[data-pgl-category="book"]').click()
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-browser-view').is_displayed())
+    wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card'))
+    require('category=book' in driver.current_url, 'Library category URL not stored')
+    driver.save_screenshot(str(output / f'category-{width}-{theme}-library.png'))
+    driver.find_element(By.ID, 'pgl-back').click()
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require('category=' not in driver.current_url, 'Library back retained category')
+    return {'drawerOpenClose': True, 'categoryOpenBack': True,
+            'timelineSearchPagination': 'not-verified'}
+
+
 def clipboard_text(driver, value=None):
     """Read/write only the isolated audit browser's real clipboard, no API mock."""
     result = driver.execute_async_script("""
@@ -387,6 +430,8 @@ def main():
                             wait.until(lambda d: visible_count(d, kind) == count)
                         if name == 'article-images':
                             load_reading_images(driver, wait)
+                        if name == 'library':
+                            wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-current-list [data-open-pgl]'))
                         g = geometry(driver)
                         result = {'name': name, 'path': path, 'window': [width, height],
                                   'theme': theme, 'geometry': g, 'count': count}
@@ -420,9 +465,9 @@ def main():
                                 ActionChains(driver).scroll_from_origin(ScrollOrigin.from_element(scrollable), 400, 0).perform()
                                 wait.until(lambda d: d.execute_script('return arguments[0].scrollLeft', scrollable) > 0)
                             result['interactions'] = {'tableScroll': bool(scrollable), 'tables': 2}
-                        if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory'):
+                        if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory', 'library', 'links'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
-                        if g['titleVisible'] and not name.startswith('article-'):
+                        if g['titleVisible'] and not name.startswith('article-') and name not in ('library', 'links'):
                             require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
                             require(g['titleTooltip'] == g['pageTitle'], f'full title is unavailable: {result}')
                             require(g['titleLeft'] >= g['menuRight'] - 1 and
@@ -441,6 +486,12 @@ def main():
                             result['interactions'] = exercise_controls(driver, wait, kind)
                         if name in ('tags', 'archives', 'thoughts', 'series-directory'):
                             result['interactions'] = retrieval_controls(driver, wait, name)
+                        if name in ('library', 'links'):
+                            try:
+                                result['interactions'] = relationship_controls(driver, wait, name, output, width, theme)
+                            except Exception:
+                                driver.save_screenshot(str(output / 'relationship-failure.png'))
+                                raise
                         if name in ('article-code', 'article-images'):
                             try:
                                 result['interactions'] = reading_controls(driver, wait, name, output, width, theme)
