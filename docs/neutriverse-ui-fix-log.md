@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-A05接续：侧栏状态诊断
+
+- 最新main93825c66、工作分支2114197f83fbba92cd430b94ded82c892d08b307，run38548101812 failure / deploy skipped。已读最新AGENTS/domain/ADR/旧计划及最终报告/本计划日志；CONTEXT不存在、gh不可用。范围仅审计脚本settle/计划日志，内容/URL/样式不改。
+- 下载artifact11884993704并查看scene-failure.png/JSON：1024×900 THINK Light目标，实际Night、主题button x=-228且sidebar关闭，图中左上“召回”控制可见。不是圆角/标题缺陷，也不是按钮加载消失。
+- 根因已核对metadata-hook：Archive实际打开文章，post自动收起并写入neutriverse-sidebar-collapsed=true；返回后THINK按存储恢复collapsed。此前脚本只考虑手机抽屉、不考虑desktop已收起状态；在inert侧栏上点击主题失败。
+- 本次先通过真实召回按钮恢复展开，再执行主题/截图检查；不清localStorage、不JS click、不改网站默认文章行为或删门禁。保留32检索交互与152整体场景。UI-A05仍validation-pending，先分支production与截图，之后main/live。无新增待答问题。
+
 ## 2026-10-14 — UI-A05 检索页视觉矩阵
 
 - Base main93825c661a073c949335538dad8dd48620e11605，run38541205915 completed/success已核对。已读最新AGENTS/domain/ADR/旧主计划与最终报告/本轮计划日志；CONTEXT不存在，gh不可用，不虚构Issue。

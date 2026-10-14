@@ -47,6 +47,8 @@
 
 ## 当前运行
 
+UI-A05本轮接续：base main93825c66 / branch2114197f，run38548101812失败诊断已取回；Archive打开post按既有规则存储侧栏collapsed，下一页主题按钮因此在inert侧栏。审计补真实召回按钮后再检查主题，不修改产品规则。先ui/audit-005精确head验收，32新检索截图与main/live仍pending；失败PNG/JSON来源artifact11884993704。
+
 UI-A05检查进行中：base93825c66/run38541205915 success；Tags/Archive/Thoughts独立页+THINK内Series目录32双主题四宽度截图及往返操作。Tags桌面首屏与长标签详情跳转已实际检查，尚未确认新缺陷；不猜测改样式。工作分支新增检查pending，其他页面矩阵仍保留pending。
 
 UI-A05工作分支ui/audit-005：6bcac453的Series hash预期失败已修正；6d0df28f生成95场景但主题按钮不可交互失败；诊断a38ff743/run38547751557在原mobile gate关闭动画中的pointer点击被topbar-title拦截，未进入新矩阵。补原gate点击前等待有限动画结束，焦点/真实click/所有断言不变。部分20张检索viewport联系表已看（390/768双主题+1024 Night），暂无新增确认产品缺陷；1366和1024 Light/完整生产及live矩阵pending。下轮先检出该工作分支精确head核对CI，不重做历史已done事项。

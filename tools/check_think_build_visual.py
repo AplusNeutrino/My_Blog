@@ -46,6 +46,13 @@ def visible_count(driver, kind):
 
 def settle(driver, wait, theme):
     wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
+    # Visiting an article through Archive deliberately stores a collapsed
+    # desktop sidebar. Reopen it through its public control before auditing.
+    if not driver.find_element(By.ID, 'sidebar-trigger').is_displayed():
+        recalls = driver.find_elements(By.CSS_SELECTOR, '.site-sidebar-recall')
+        if recalls and recalls[0].is_displayed():
+            recalls[0].click()
+            wait.until(lambda d: not d.execute_script("return document.querySelector('#sidebar').inert"))
     if driver.execute_script('return document.documentElement.dataset.mode') != theme:
         toggle = driver.find_element(By.ID, 'mode-toggle')
         mobile_menu = driver.find_element(By.ID, 'sidebar-trigger').is_displayed()
