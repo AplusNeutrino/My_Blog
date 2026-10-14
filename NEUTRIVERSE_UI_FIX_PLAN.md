@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A07b validation-pending：审计实现2892b031dc0e0de8493bbe03a7b10ce1a24620b9，本机207 tests/authoring/T01/diff通过，未冒称真实剪贴板或视觉验收。上一文档head536281728dcc314c71c64936b06334b2f74bb800的run38595958153重试build115988897946、deploy115988897534、live115989007513均success，部署恢复；首次超时历史保留。现在将实现和状态非强推保存ui/audit-007b，main不改，下一轮先核对其精确head生产CI与剪贴板16记录/截图，再决定main及live。无新增用户问题。
+
 UI-A07b in-progress：base536281728dcc314c71c64936b06334b2f74bb800；范围仅tools/check_think_build_visual.py、必要审计回归、本UI计划/日志。补16公开阅读场景复制实际字节：浏览器测试origin授予clipboard读写权限，先写不等于URL的sentinel，真实点击原按钮，再读系统clipboard并严格等于当前完整URL，保留原成功提示和所有视觉/媒体门禁。未确认产品缺陷不改样式。先工作分支production，通过后main/live；没有把未运行的检查标done。上次文档run38595958153部署十分钟updating_pages超时，已重试失败jobs；同head重试deploy成功、live尚在运行，不暂停任务或修改部署超时阈值。无新用户问题。
 
 UI-A07 done（限定代码/图片/媒体与复制提示）：验收main/base cd4ec29eb1ab500563b9247af7ae98ac1661438a，[run38590193242](https://github.com/AplusNeutrino/My_Blog/actions/runs/38590193242) build115942706728、deploy115945097313、verify-live-ui115945238565全部success。176+14线上检查通过，人工查看新增40张截图的四联系表并放大四宽度代表图，代码/图片/弹层无新增确认缺陷。本轮只回写计划/日志与公开live证据；正文/metadata/样式未改，旧COMPLETE历史不动。文档提交CI另行核对；UI-A07b剪贴板实际字节仍pending，下一项先核对文档head再补实际复制或Library/友链矩阵，全站IN PROGRESS。无新增用户问题。

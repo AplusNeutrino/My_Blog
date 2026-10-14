@@ -7,6 +7,7 @@
 - 任务UI-A07b，范围现有公开阅读审计、必要审计回归与本计划日志。Chirpy现有Copy link复制window.location.href；先为测试origin授予读写clipboard权限，写入非URL sentinel，再真实click原按钮，既要求成功提示，也读实际系统clipboard严格等于当前URL。不替换/spy clipboard API，不JS click，不访问用户剪贴板（仅隔离CI浏览器）。两篇公开文章×四宽度×双主题16场景；旧视觉和媒体断言全部保留。
 - 先ui/audit-007b验证production，未验证不提交main。实际剪贴板与精确head生产/线上仍pending；本轮不改网站产品、旧正文/metadata/URL/hidden/noindex或旧COMPLETE历史。无新增待答问题。
 - 本机207 tests（含新增2项审计回归）、authoring44/5/7、T01保护44/5/5、diff通过，不代替真实Chrome剪贴板验收。云浏览器1363×936 Light实际点击Copy link，截图成功提示正常，但cloud clipboard API仍读空；仅记验证局限，未确认产品复制故障。等待旧head live完成后才推ui分支，避免共享pages concurrency取消本次恢复验证。
+- 旧文档head5362817的run38595958153重试最终build115988897946、deploy115988897534、verify-live-ui115989007513全部completed/success，恢复完成；未重写第一次部署失败记录。审计实现2892b031dc0e0de8493bbe03a7b10ce1a24620b9加本状态后保存ui/audit-007b，main仍5362817。新审计的production/live和实际剪贴板16记录仍validation-pending，下一轮先核对该工作分支精确head及截图，不以旧head成功替代它。
 
 ## 2026-10-15 — UI-A07 精确main线上验收
 
