@@ -95,9 +95,13 @@ def exercise_controls(driver, wait, kind):
     driver.back()
     wait.until(lambda d: visible_count(d, kind) == (12 if kind == 'think' else 7))
     if kind == 'build':
-        driver.find_element(By.CSS_SELECTOR, '[data-project-filter="unspecified"]').click()
+        button = driver.find_element(By.CSS_SELECTOR, '[data-project-filter="unspecified"]')
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", button)
+        button.click()
         wait.until(lambda d: visible_count(d, kind) == 6)
-        driver.find_element(By.CSS_SELECTOR, '[data-project-filter="all"]').click()
+        button = driver.find_element(By.CSS_SELECTOR, '[data-project-filter="all"]')
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", button)
+        button.click()
         wait.until(lambda d: visible_count(d, kind) == 7)
     return {'filter': True, 'refresh': True, 'back': True}
 
