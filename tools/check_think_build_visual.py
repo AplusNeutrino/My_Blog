@@ -25,6 +25,7 @@ SCENARIOS = [
     ('build-all', '/build/', 7),
     ('build-known', '/build/?status=implemented_unverified', 1),
     ('build-unspecified', '/build/?status=unspecified', 6),
+    ('observe', '/observe/', None),
     *((f'project-{project}', f'/build/{project}/', None) for project in PROJECTS),
 ]
 
@@ -155,7 +156,7 @@ def main():
                                      'scale': 1},
                         })['data']
                         (output / f'{width}-{theme}-{name}.png').write_bytes(base64.b64decode(png))
-                        if name in ('think-all', 'build-all', 'project-toyosatomimis-headphone'):
+                        if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
                         if g['titleVisible']:
                             require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
