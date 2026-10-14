@@ -6,6 +6,7 @@
 - 先记录范围：assets/css/neutriverse-sections.css、tests/test_sidebar_height.py、tools/check_think_build_visual.py、计划日志。验收：组间无重叠，短窗侧栏可滚动、主题/搜索可点；390/768移动快速mask关闭焦点恢复。两主题，窗口700/900/1100高，记录实际innerHeight，生产与线上同场景截图；旧门禁不放宽。
 - 人工查看ui003-live-build-night.png（精确head e020fb73部署后1024×900窗口）确认DISCOVER和社交区重叠。线上1363×936计算：nav min-height=0、flex-shrink=1，内部primary/utility保留内容高度；短窗口nav压缩后内容绘制越界。CSS让profile/nav/bottom不压缩，侧栏纵向滚动；没有缩小字体/隐藏导航或新增设计。
 - 状态in-progress，先ui/fix-004分支；UI-003a仍pending。无新增待答问题，其他全站矩阵继续pending。
+- 初稿2a8068f5246e7ffd49b3a6f64ea304ea683e7cf1 / run38533201661：205 tests、基线、authoring、production Jekyll、原移动与40项响应式门禁通过；THINK/BUILD脚本在主题点击处失败，坐标x=-214。滚动容器中的关闭侧栏按钮被is_displayed误判为可操作；审计改用实际可见mobile trigger判断抽屉模式，打开后等transition结束并真实滚动到按钮，再pointer点击。未改变主题功能或放宽断言，未合入main。
 
 ## 2026-10-14 — UI-003
 

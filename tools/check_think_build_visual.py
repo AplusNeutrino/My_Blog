@@ -44,10 +44,12 @@ def settle(driver, wait, theme):
     wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
     if driver.execute_script('return document.documentElement.dataset.mode') != theme:
         toggle = driver.find_element(By.ID, 'mode-toggle')
-        mobile_menu = not toggle.is_displayed()
+        mobile_menu = driver.find_element(By.ID, 'sidebar-trigger').is_displayed()
         if mobile_menu:
             driver.find_element(By.ID, 'sidebar-trigger').click()
-            wait.until(lambda d: d.find_element(By.ID, 'mode-toggle').is_displayed())
+            wait.until(lambda d: d.execute_script("return document.body.hasAttribute('sidebar-display')"))
+        wait.until(lambda d: d.execute_script("return document.getAnimations().every(a => a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", toggle)
         driver.find_element(By.ID, 'mode-toggle').click()
         if mobile_menu:
             driver.find_element(By.ID, 'mode-toggle').send_keys(Keys.ESCAPE)
