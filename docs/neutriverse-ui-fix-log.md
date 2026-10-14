@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A07b 复制实值与文档部署恢复
+
+- Base main536281728dcc314c71c64936b06334b2f74bb800，已读最新AGENTS/domain/ADR0001、旧COMPLETE计划/报告与本UI计划日志；CONTEXT不存在、gh不可用。原repo有用户/历史未提交修改，本次另建干净worktree，不覆盖它们。
+- run38595958153 build115962616665 success，但deploy115965315382持续updating_pages十分钟超时并取消，live skipped；这是部署状态未完成，不宣称该head上线或视觉通过，不把上一个cd4ec29e成功替代它。重试失败jobs已获工具确认；同head新deploy115988897534 success，verify-live-ui115989007513仍运行。未改workflow超时/门禁，不暂停自动化。
+- 任务UI-A07b，范围现有公开阅读审计、必要审计回归与本计划日志。Chirpy现有Copy link复制window.location.href；先为测试origin授予读写clipboard权限，写入非URL sentinel，再真实click原按钮，既要求成功提示，也读实际系统clipboard严格等于当前URL。不替换/spy clipboard API，不JS click，不访问用户剪贴板（仅隔离CI浏览器）。两篇公开文章×四宽度×双主题16场景；旧视觉和媒体断言全部保留。
+- 先ui/audit-007b验证production，未验证不提交main。实际剪贴板与精确head生产/线上仍pending；本轮不改网站产品、旧正文/metadata/URL/hidden/noindex或旧COMPLETE历史。无新增待答问题。
+- 本机207 tests（含新增2项审计回归）、authoring44/5/7、T01保护44/5/5、diff通过，不代替真实Chrome剪贴板验收。云浏览器1363×936 Light实际点击Copy link，截图成功提示正常，但cloud clipboard API仍读空；仅记验证局限，未确认产品复制故障。等待旧head live完成后才推ui分支，避免共享pages concurrency取消本次恢复验证。
+
 ## 2026-10-15 — UI-A07 精确main线上验收
 
 - Task UI-A07限定验收；base/current main cd4ec29eb1ab500563b9247af7ae98ac1661438a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和本UI计划日志；CONTEXT不存在、gh不可用，未虚构Issue。独立干净worktree，保护用户修改。

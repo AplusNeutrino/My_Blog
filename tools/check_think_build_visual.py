@@ -254,6 +254,19 @@ def load_reading_images(driver, wait):
     return images
 
 
+def clipboard_text(driver, value=None):
+    """Read/write only the isolated audit browser's real clipboard, no API mock."""
+    result = driver.execute_async_script("""
+      const value = arguments[0], done = arguments[arguments.length - 1];
+      const operation = value === null ? navigator.clipboard.readText()
+        : navigator.clipboard.writeText(value).then(() => value);
+      operation.then(text => done({ok:true,text}))
+        .catch(error => done({ok:false,error:String(error)}));
+    """, value)
+    require(result.get('ok'), f'clipboard operation failed: {result}')
+    return result['text']
+
+
 def reading_controls(driver, wait, name, output, width, theme):
     original = driver.current_url
     result = {}
@@ -308,10 +321,17 @@ def reading_controls(driver, wait, name, output, width, theme):
                        'nextInput': next_method, 'previousInput': previous_method})
     copy = driver.find_element(By.ID, 'copy-link')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", copy)
+    # Prevent a previous scene's clipboard contents from producing a false pass.
+    sentinel = f'neutriverse-audit-before-copy:{width}:{theme}:{name}'
+    clipboard_text(driver, sentinel)
+    require(clipboard_text(driver) == sentinel, 'clipboard sentinel not stored')
     copy.click()
     expected = copy.get_attribute('data-title-succeed')
     wait.until(lambda d: any(t.text == expected for t in d.find_elements(By.CSS_SELECTOR, '.tooltip-inner')))
-    result.update({'copyLinkFeedback': True, 'clipboardBytes': 'not-verified'})
+    actual = wait.until(lambda d: (text if (text := clipboard_text(d)) != sentinel else False))
+    require(actual == driver.current_url, f'copied URL mismatch: {actual!r}')
+    result.update({'copyLinkFeedback': True, 'clipboardBytes': 'verified',
+                   'copiedUrl': actual, 'clipboardSentinelReplaced': True})
     driver.save_screenshot(str(output / f'copy-feedback-{width}-{theme}-{name}.png'))
     return result
 
@@ -336,6 +356,11 @@ def main():
             live = os.environ.get('UI_LIVE_BASE', '')
             require(not live or live == 'https://neutriverse.uk', 'unexpected live audit target')
             base = live or f'http://127.0.0.1:{port}'
+            # This permission applies only to the disposable audit origin/browser.
+            driver.execute_cdp_cmd('Browser.grantPermissions', {
+                'origin': base,
+                'permissions': ['clipboardReadWrite', 'clipboardSanitizedWrite'],
+            })
             for width, height in VIEWPORTS:
                 driver.set_window_size(width, height)
                 driver.execute_cdp_cmd('Emulation.setTouchEmulationEnabled', {
