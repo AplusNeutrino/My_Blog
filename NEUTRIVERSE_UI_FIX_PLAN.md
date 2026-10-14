@@ -22,7 +22,7 @@
 | UI-003 | P2 | 390/768px截图顶栏显示内部布局名 Neutriverse-section / Neutriverse-project，而不是页面标题 | done | 120项production与120项部署后live场景、32张viewport、标题/tooltip/控件不重叠门禁通过；移动双主题截图复验 |
 | UI-003a | P2 | 快速关闭移动菜单时延迟焦点可能回到已关闭侧栏；390px mask焦点门禁超时 | done | production及live390/768双主题各3次快速mask关闭、跨两帧焦点保持在trigger；原mask/Escape门禁通过 |
 | UI-004 | P1 | 1024/1366×900窗口的实际viewport截图显示侧栏DISCOVER检索组与社交/主题组重叠 | done | production及live14短/高窗口场景无重叠、按钮hit-test/主题/搜索通过；人工查看本次live截图 |
-| UI-005 | P1 | 计组04两张Markdown表格紧邻标题，线上渲染为连续竖线正文，失去行列结构 | validation-pending | 原md/metadata不改；仅构建时补边界；两张语义table、四宽度双主题截图、溢出/横向阅读、T01及精确head部署复验 |
+| UI-005 | P1 | 计组04两张Markdown表格紧邻标题，线上渲染为连续竖线正文，失去行列结构 | done | 原md/metadata不改；4项渲染回归与T01通过；精确main部署和live四宽度双主题8截图/两table/横向阅读通过，已人工复验 |
 
 ## 检查矩阵
 
@@ -33,7 +33,7 @@
 | 首页、THINK、BUILD、OBSERVE、ABOUT | 导航UI-001：40项截图与几何通过；THINK 1363px双主题已部署复验。全页检查仍pending | THINK侧栏展开/收起、双主题切换已操作；其他pending |
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
-| 代表文章：代码、表格、图片 | pending | 滚动/阅读/复制/媒体pending |
+| 代表文章：代码、表格、图片 | 计组04表格：UI-005四宽度双主题生产/live8张viewport已查看，1366 Light全页两表已复核；代码/图片仍pending | 两table/两wrapper、真实横向滚轮阅读8场景通过，无整页溢出；复制/媒体/其余阅读控件pending |
 | Library、友链 | pending | 目录/延迟加载/链接pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
@@ -47,6 +47,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-005 done：base/main5922412f7fc82af68984091e75c142242c290cec，[run38570020301](https://github.com/AplusNeutrino/My_Blog/actions/runs/38570020301) build115872459830、deploy115874598655、verify-live-ui115874783745均success。4项Ruby渲染回归、205 tests、T01/authoring/production Jekyll/全部旧门禁、生产与live各160+14通过。下载live artifact11898410699，看8张表格viewport联系表并放大四宽度代表图，1366 Light全页两表复核，行列恢复且横向阅读通过。只回写计划/日志/公开证据，本次没有额外产品修改；文档提交CI另行核对。下一项代码/图片/复制/媒体阅读场景，完整矩阵仍IN PROGRESS，无新增用户问题。[证据](docs/ui-evidence/ui005-comparison.md)。
 
 UI-005生产通过，待main/live：实现head c20396fa62672943eda5d675955cc6eeb394d3ea，[run38569176497](https://github.com/AplusNeutrino/My_Blog/actions/runs/38569176497) build success；4项Ruby渲染回归、205 tests、T01/authoring/Jekyll/旧门禁、160+14浏览器矩阵通过。已查看8张表格截图并放大390 Light/1366 Night，真实横向滚动通过；没有更改旧md。准备非强推main并核对其实际head部署后同场景，UI-005保持validation-pending；[前后记录](docs/ui-evidence/ui005-comparison.md)。无新增待答问题，代码/图片阅读仍pending。
 

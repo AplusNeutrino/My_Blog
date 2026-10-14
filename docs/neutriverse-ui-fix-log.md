@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-005 精确main部署复验
+
+- Task UI-005验收；base/current main5922412f7fc82af68984091e75c142242c290cec，独立干净worktree；已读最新AGENTS/三domain docs/ADR0001/旧主计划与最终报告/本轮计划日志，CONTEXT不存在，gh不可用，未虚构Issue。用户补充无新决定。
+- 本次范围仅本计划/日志和docs/ui-evidence/ui005-comparison.md、live JSON/联系表；先核对精确head，再看线上截图，不再重复改已验证产品实现或旧COMPLETE记录。
+- run38570020301 head严格匹配base，build115872459830、deploy115874598655、verify-live-ui115874783745均completed/success。4项Ruby渲染回归、205 Python tests、T01/authoring/Jekyll/原门禁与production160+14通过；直接线上160+14通过。CI成功不作为人工视觉验收替代。
+- 下载live artifact11898410699；人工看8张表格viewport联系表并放大390 Light/768 Night/1024 Light/1366 Night，另看1366 Light全页两表；行列恢复，原先连续竖线正文消失。8项均2table/2wrapper、局部横向滚轮阅读成功，无整页溢出。对应JSON/联系表永久入docs/ui-evidence，源PNG仍在artifact14天。
+- 本机205 tests、authoring44/5/7、T01保护44/5/5与git diff --check再核对通过；没有Ruby/Chrome本机假验证。源md/metadata/URL/hidden/noindex/外部项目未变。
+- UI-005 done；其产品实现c20396fa、验收main5922412f，证据文档提交触发的CI另行核对。不把表格一项算完整阅读审计；下一项代码/图片/复制/媒体，Library/友链/观察应用和隐蔽应用仍pending，完整UI计划IN PROGRESS。无新增待答问题。
+
 ## 2026-10-14 — UI-005 / UI-A06 表格渲染
 
 - Base9708457fee99f7a00d8d74bb13bf59d669687ad4，run38560753961 completed/success；独立worktree未覆盖用户修改。AGENTS/domain/ADR/旧COMPLETE报告与计划、本UI计划日志已读；CONTEXT不存在，gh不在PATH，未虚构Issue。
