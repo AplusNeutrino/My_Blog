@@ -1,0 +1,4842 @@
+[
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  }
+]

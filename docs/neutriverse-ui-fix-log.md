@@ -7,6 +7,14 @@
 - 复现来自上一精确head的390/768px实际Chrome截图：顶栏为Neutriverse-section / Neutriverse-project。根因：Chirpy topbar在未识别layout的分支回退到page.layout；自定义布局已有page.title但没进入该分支。
 - 范围先记录：仅section/project顶栏以page.title呈现；长标题约束在菜单和搜索之间，必要回归覆盖语义标题/完整辅助标题/控件不重叠。四宽度双主题Chrome截图，viewport与侧栏几何补充；其他布局/内容/URL/noindex/外部项目不改。
 - 当前in-progress，无新增用户问题。云浏览器仅1363×936，移动视觉与线上复验通过CI浏览器取得；不能用桌面截图冒充手机验收。
+- 接续复核：main c12d9d2ac262e924ce800f7e303f59279a0e9741 / run38506420729 success；工作分支实际head e020fb73e9de4fcd91732c2bc7e281575f3395af / run38509991407 success，非强推快进main后run38526220139验证中。未覆盖用户修改。
+- 实现链：b55a54ef93c7aae20a80a1e8ad253e2aa91dc6ec为title模板/溢出样式/新门禁；d86e300d99a073904bdd17174a1db1540da14452补OBSERVE。run38509680549在原390px mask关闭焦点门禁超时，未部署。源码推断竞态为开菜单的rAF在快速关闭后移回焦点；e020fb73e9de4fcd91732c2bc7e281575f3395af增加callback执行时菜单仍打开的条件。原断言没有放宽，204测试/原移动门禁重新通过，记UI-003a。
+- 已下载artifact11869786736：120项production场景、16组筛选/刷新/返回、32张viewport截图。看8张viewport联系表，390/768pxTHINK/BUILD/OBSERVE及长项目名标题正常、按钮无遮挡。新JSON记录desktop sidebar rect为[0,260]，viewport展开完整；前轮全页CDP部分裁切并非该viewport实际状态，不凭它改transform。
+- 新确认UI-004（P1）：1024/1366×900窗口、两主题viewport，侧栏底部DISCOVER检索组与主题/社交组重叠；不是全页合成疑点。下轮优先以短窗口复现并修复高度布局。截图证据来自精确head artifact，不把测试通过视为视觉正常。
+- 本次本地204 tests、authoring44/5/7、T01基线44/5/5与diff check通过。gh仍不在PATH，未虚构Issue；旧正文/metadata/URL/noindex/隐藏应用边界未改。UI-003/UI-003a待main精确head部署与live120场景复验。
+- 精确head e020fb73e9de4fcd91732c2bc7e281575f3395af的main run38526220139：build115727074632、deploy115727829396、verify-live-ui115727902355均success。204 tests/T01/authoring/Jekyll/原门禁/production120通过。部署后直接访问neutriverse.uk的live120场景与16组筛选/刷新/返回通过，artifact11875927572已下载；人工查看390pxTHINK Light、长项目名Night、768pxOBSERVE Light与1024pxBUILD Night截图，移动标题正确、控件无遮挡；UI-004在线viewport同样复现。
+- 云浏览器1363×936线上THINK：reload后topbar文本/tooltip均THINK，主题Light→Night切换正常。这仅是桌面补充，手机视觉证据以上述live浏览器为准。UI-003 done。
+- UI-003a仍validation-pending：保护代码已部署，旧production mask/Escape焦点门禁通过；live120的菜单操作覆盖主题与Escape，但没有独立快速mask关闭焦点断言。下一轮与UI-004短桌面布局优先补此专项，不将已部署当全面交互验收。无新增用户问题。
 
 ## 2026-10-14 — UI-002 / UI-A02
 
