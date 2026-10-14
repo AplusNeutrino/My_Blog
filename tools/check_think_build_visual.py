@@ -263,11 +263,19 @@ def relationship_controls(driver, wait, name, output, width, theme):
         require(cards, 'friend cards missing')
         require(all(c.get_attribute('href').startswith(('https://', 'http://')) for c in cards),
                 'friend URL missing')
-        cards[0].send_keys(Keys.TAB)
-        # Focus the link itself with the keyboard, without opening external sites.
-        cards[0].send_keys(Keys.SHIFT, Keys.TAB)
+        # Element.send_keys re-focuses its target before each call: sending
+        # Shift+Tab to the card itself moves away from it, not back to it.
+        # Traverse the actual page tab order without JS focus or navigation.
+        for _ in range(80):
+            if driver.execute_script('return document.activeElement === arguments[0]', cards[0]):
+                break
+            ActionChains(driver).send_keys(Keys.TAB).perform()
         require(driver.execute_script('return document.activeElement === arguments[0]', cards[0]),
                 'friend card keyboard focus unavailable')
+        ActionChains(driver).send_keys(Keys.TAB).perform()
+        ActionChains(driver).key_down(Keys.SHIFT).send_keys(Keys.TAB).key_up(Keys.SHIFT).perform()
+        require(driver.execute_script('return document.activeElement === arguments[0]', cards[0]),
+                'friend card reverse tab return unavailable')
         driver.save_screenshot(str(output / f'focus-{width}-{theme}-links.png'))
         return {'friendCards': len(cards), 'hrefsPresent': True, 'keyboardFocus': True,
                 'externalDestinations': 'not-verified'}
@@ -506,7 +514,8 @@ def main():
                                 driver.save_screenshot(str(output / 'relationship-failure.png'))
                                 failure = driver.execute_script("""
                                   const e=document.querySelector('[data-pgl-category="book"]'),r=e?.getBoundingClientRect();
-                                  return {url:location.href,focus:document.activeElement.id,
+                                  const a=document.activeElement;
+                                  return {url:location.href,focus:a.id,focusTag:a.tagName,focusClass:a.className,focusHref:a.getAttribute('href'),
                                     drawerOpen:document.querySelector('#pgl-drawer')?.open,
                                     scrollY,viewport:[innerWidth,innerHeight],
                                     category:r?{x:r.x,y:r.y,w:r.width,h:r.height}:null};

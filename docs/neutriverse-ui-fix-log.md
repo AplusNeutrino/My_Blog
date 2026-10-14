@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a友链键盘审计纠正
+
+- Base main9809089372832f3d6ff7a499a85c48755da7208e；工作head22b184d360fc39e44ba3a204a57ea847747cca0c的run38644349352 completed/failure，build116127411671失败、deploy/live skipped。读取最新AGENTS/domain/ADR、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不在PATH，独立worktree保护原目录和最新同步数据。
+- 207 tests/Ruby/T01/authoring/Jekyll/旧门禁通过；390 Night Library弹层、目录打开及返回已通过，友链键盘焦点断言失败。下载artifact11931034197，人工看drawer/category/relationship-failure实际PNG；友链卡片可见、无遮挡，焦点JSON仅id为空不能判断目标。目录截图封面尚未加载，不冒称延迟加载通过（原范围明确pending）。
+- 原脚本cards[0].send_keys(Tab)再cards[0].send_keys(Shift,Tab)会在第二次先重聚焦卡片再向前移动；不等于全局键盘往返。仅tools/check_think_build_visual.py改ActionChains全局Tab遍历最多80步，必须自然到达卡片，再Tab及Shift+Tab严格回到同一卡片；无JS focus/click，无外部导航，不放宽activeElement断言。失败JSON补焦点tag/class/href，原截图/几何/URL门禁保留。
+- 任务UI-A08a，范围上述审计与UI计划日志；先工作分支production192+14及16关系场景，精确head通过并人工看图才交付main，随后同head部署/live复验。当前validation-pending，无新增确认产品缺陷或待答问题；不改正文/metadata/URL/noindex/hidden、产品样式或旧COMPLETE历史。
+
 ## 2026-10-15 — UI-A08a目录返回与最新同步保护
 
 - 最新main9809089372832f3d6ff7a499a85c48755da7208e、branch7ca4df8af0304512d49a7cf2d9d79def67813474。已读AGENTS/domain/ADR、旧COMPLETE计划报告/UI计划日志，CONTEXT不存在、gh不可用；独立worktree。main新提交仅9个Library同步数据文件，不改它们；无冲突合并进工作分支，以新数据重新验收，禁止用旧生产结果替代。
