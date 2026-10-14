@@ -6,6 +6,10 @@
 - 精确head run38535247898：build115756443059 success、deploy115757821072 success、verify-live-ui115758159364 failure。production205 tests/保护/authoring/Jekyll/全部旧门禁/120场景/14侧栏专项通过；live120场景已完成，但快速mask关闭wait超时。不能将deploy成功或分支通过当线上验收。
 - 本轮最小范围：只修正tools/check_think_build_visual.py的点击起始时序并补失败截图/状态诊断、计划/日志。UI-003a/004不改为done。源码与日志显示快速循环开始前只等关闭attribute/focus，没等shell关闭transition；移动中的trigger可能造成指针误点。这是待验证推断，尚未凭它修改网站JS。
 - 保留“打开→立即mask点击”的快速场景，仅在每轮开始前等已关闭shell稳定；焦点/两帧/非重叠/hit-test断言全部保留。失败时保存open/focus/trigger rect/mask位置命中与截图，避免无证据重试。先工作分支验证，再精确main/live复验。无新增待答问题。
+- 实现/诊断head8415050ddd200f51c471b84e0011e3d46260a305的工作分支run38539640916 build success后，expected-main787a4a61非强推合入main；本机205 tests与authoring通过。
+- 精确head的main run38540154437：build115772623467、deploy115774058340、verify-live-ui115774185770均completed/success。production205 tests/T01/authoring/Jekyll/全部原门禁/120场景/14侧栏专项通过，部署后直接neutriverse.uk的120场景/16组筛选返回与14侧栏专项通过。
+- 下载live artifact11882032589（120全页+32viewport+14sidebar截图、audit/sidebar JSON），人工看14截图联系表并放大1024×900 Light，短窗滚到底后检索与主题区分开，中文与控件正常；390/768两主题各3次快速mask关闭（共12次），跨两帧焦点仍为trigger，主题切换/Escape与桌面搜索取消均通过。UI-004/UI-003a done；live JSON与联系表持久留docs/ui-evidence。截图表不代替未检查页面，全站未COMPLETE。
+- 下一项Series/Tags/Archive/Thoughts四宽度双主题独立视觉/交互检查。无新增待答问题；旧正文/metadata/URL/hidden/noindex未改，gh仍不可用。最终证据文档提交的CI另行核对，不把它冒称已通过。
 
 ## 2026-10-14 — UI-004 / UI-003a专项
 

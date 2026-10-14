@@ -11,3 +11,10 @@
 - 原图artifact11879545786保留14天；联系表与sidebar JSON长期留仓库。网页原文/metadata/URL/noindex/hidden边界不变。此局部通过不代表全站矩阵COMPLETE。
 - main run38534120830在新专项768×700抽屉滚动前焦点尚未完成时失败，deploy/live skipped。脚本补等待抽屉开启动作的焦点完成后再滚动；不将分支success视为main/线上验收。
 - 修正head ba75465277be11c48c7f4242138842a88effc953 / [run38534716282](https://github.com/AplusNeutrino/My_Blog/actions/runs/38534716282) success，全部生产门禁重新通过；样式与已查看联系表的a93f494f相同，只有审计等待时序修正。下轮必须下载本次main的live截图同场景复验；当前UI-004/UI-003a仍validation-pending。
+
+## 最终部署与复验（2026-10-14）
+
+- 787a4a61 / run38535247898 build/deploy success，但live在快速mask wait超时。未冒称通过。诊断8415050d仅稳定每次循环开始前的已关闭shell，保留open→立即mask点击；失败时新增状态和截图。网站JS/CSS本次没有再改变。
+- 精确head8415050ddd200f51c471b84e0011e3d46260a305：[main run38540154437](https://github.com/AplusNeutrino/My_Blog/actions/runs/38540154437) build115772623467 / deploy115774058340 / verify-live-ui115774185770均success。205 tests、保护/authoring/Jekyll/所有原门禁、production120+14与live120+14通过。
+- live artifact11882032589已下载、人工看14张[联系表](ui004-live-contact.jpg)并放大1024×900 Light原图。短/高窗口实际innerHeight557/757/957；桌面检索与底部组间8px、移动不重叠，全部按钮中心hit-test通过且位于可见viewport。真实主题切换、desktop搜索取消、mobile Escape与12次快速mask关闭通过，跨两帧focus保持trigger。
+- [线上专项JSON](ui004-live-sidebar-audit.json)永久留仓库；原始120+32+14截图在本次artifact保存14天。UI-004与UI-003a done；全站矩阵仍未COMPLETE。
