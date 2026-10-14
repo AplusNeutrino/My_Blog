@@ -296,8 +296,14 @@ def relationship_controls(driver, wait, name, output, width, theme):
     wait.until(lambda d: d.find_element(By.ID, 'pgl-browser-view').is_displayed())
     wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card'))
     require('category=book' in driver.current_url, 'Library category URL not stored')
+    back = driver.find_element(By.ID, 'pgl-back')
+    # Category navigation starts a smooth scroll. Cancel/settle that scroll
+    # before screenshot and the real pointer click, not by bypassing hit tests.
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
+    driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    wait.until(lambda d: d.execute_script("const e=arguments[0],r=e.getBoundingClientRect();return r.y>=0 && r.bottom<=innerHeight && e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));", back))
     driver.save_screenshot(str(output / f'category-{width}-{theme}-library.png'))
-    driver.find_element(By.ID, 'pgl-back').click()
+    back.click()
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
     return {'drawerOpenClose': True, 'categoryOpenBack': True,

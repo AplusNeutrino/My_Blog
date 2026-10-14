@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a目录返回与最新同步保护
+
+- 最新main9809089372832f3d6ff7a499a85c48755da7208e、branch7ca4df8af0304512d49a7cf2d9d79def67813474。已读AGENTS/domain/ADR、旧COMPLETE计划报告/UI计划日志，CONTEXT不存在、gh不可用；独立worktree。main新提交仅9个Library同步数据文件，不改它们；无冲突合并进工作分支，以新数据重新验收，禁止用旧生产结果替代。
+- run38636477276 build116100824511 failure，deploy/live skipped；207 tests/Ruby/T01/authoring/Jekyll/原门禁通过。此前目录click已通过，新增失败是390 Night pgl-back click。下载artifact11928481822，实际看relationship-failure.png与JSON：目录书籍卡片正常，URL category=book、drawerOpen=false、scrollY161，不是目录内容消失。
+- 核对pgl.js分类事件对browserView scrollIntoView smooth；审计马上截图并返回click可能仍在滚动中。本次仅返回按钮instant滚动居中、跨两帧、viewport hit-test后真实click；不JS click、不放宽返回/目录/弹层断言、不改产品样式。推测脚本时序不能当确认产品故障。
+- 任务与文件范围仍UI-A08a：现有审计/本计划日志。生产192+14、完整16关系场景截图及main/live验收仍pending，无新确认产品缺陷或待答问题；main不改，其他未检查矩阵不冒称完成。
+
 ## 2026-10-15 — UI-A08a关闭弹层后的审计时序
 
 - 最新main a5738952dc9584e4e8282dbd5090bfe17992e2af、ui/audit-008 head57efc919fbcf4980ac184f890ce7639cd29dce22，run38628620429 build116074140246 failure，deploy/live skipped。已读最新AGENTS/domain/ADR/旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh不可用。独立worktree不覆盖用户修改。

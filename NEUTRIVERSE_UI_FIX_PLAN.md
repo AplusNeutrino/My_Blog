@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A08a接续 validation-pending：branch7ca4df8a/run38636477276失败于390 Night目录打开后的返回click；已下载artifact11928481822查看目录截图/JSON，category=book、drawerOpen=false、scrollY161。原弹层与目录click已通过，pgl分类事件启动smooth scroll，返回点击可能在滚动中。只补返回按钮instant居中、两帧与viewport hit-test再真实click，截图在稳定视口记录，所有原断言保留。main新增9809089372832f3d6ff7a499a85c48755da7208e为9个Library同步数据文件，已无冲突合并进工作分支并原样保护；不回退同步。范围仍审计/计划日志，main不改、192+14与线上验收pending，无新用户问题。
+
 UI-A08a接续 validation-pending：base maina5738952、branch57efc919，run38628620429 build116074140246失败于390 Night弹层关闭后目录click坐标y1621被拦截；此前207 tests/Ruby/T01/authoring/Jekyll/旧门禁通过。下载artifact11926170787查看失败截图，页面在首屏、弹层已闭；close事件异步恢复opener焦点可能与下次自动滚动竞争。本轮仅修审计：等待恢复焦点及两帧，再instant滚动目录、hit-test后真实click，补失败几何JSON，不放宽目录/弹层/URL断言，不猜测改产品。main未改，完整192+14和线上矩阵仍pending，无新用户问题。
 
 UI-A08a in-progress：base a5738952dc9584e4e8282dbd5090bfe17992e2af，run38620953323 build/deploy/live全部success已核对。范围仅tools/check_think_build_visual.py、本计划/日志；Library根页/当前条目弹层/书籍目录返回、友链卡片href与键盘焦点，四宽度双主题16页面场景（总192+14）。云1363×936 Light已实际查看上述界面和操作弹层/目录，无新增确认缺陷，不改产品。时间线/高级筛选/分页/搜索与外部站点可用性另留pending；先ui/audit-008分支production，未验证不进main，无新用户问题。
