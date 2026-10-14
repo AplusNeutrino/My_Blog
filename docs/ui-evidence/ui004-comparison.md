@@ -10,3 +10,4 @@
 - UI-003a保护callback的production专项也通过；仍需本次main线上专项，不以存在代码或他次CI成功代替。
 - 原图artifact11879545786保留14天；联系表与sidebar JSON长期留仓库。网页原文/metadata/URL/noindex/hidden边界不变。此局部通过不代表全站矩阵COMPLETE。
 - main run38534120830在新专项768×700抽屉滚动前焦点尚未完成时失败，deploy/live skipped。脚本补等待抽屉开启动作的焦点完成后再滚动；不将分支success视为main/线上验收。
+- 修正head ba75465277be11c48c7f4242138842a88effc953 / [run38534716282](https://github.com/AplusNeutrino/My_Blog/actions/runs/38534716282) success，全部生产门禁重新通过；样式与已查看联系表的a93f494f相同，只有审计等待时序修正。下轮必须下载本次main的live截图同场景复验；当前UI-004/UI-003a仍validation-pending。
