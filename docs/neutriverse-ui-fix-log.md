@@ -6,6 +6,7 @@
 - 先记录任务UI-A05（检查，不预设缺陷）：范围tools/check_think_build_visual.py、计划/日志和公开截图证据。Tags/Archive/Thoughts各独立页、Series按现有THINK内目录，无/series/独立路由；不新增路由。390/768/1024/1366双主题32场景，fullpage+viewport；长标签/归档链接/Series筛选及返回、Thought末条稳定锚点及返回。保留旧门禁与全部内容/URL/hidden边界。
 - 云浏览器1363×936 Light Tags首屏截图已查看：三列长标签文字和计数可见，暂未确认缺陷；实际点击Cantor Diagonal Argument打开既有详情成功。不能据此宣称移动端或全站通过。
 - 先工作分支执行新增矩阵，不凭猜测修改样式。状态validation-pending；待精确head截图人工检查及交互后更新矩阵。无新增待答问题。
+- 初始head6bcac453adc10b7e7eb87628c6d55d13141e8d04 / run38546863646失败：390px Night四类截图已生成，Tags/Archive打开返回、Thought稳定锚点返回通过；Series跳转的精确URL断言超时。源码writeState从当前URL创建对象、保留hash，脚本未计入既有目录锚点，改为仍精确核对path/query而容许原hash；数量与返回断言保留，网站行为未改。artifact11885560243已下载，人工看390px Tags与Series viewport，无确认遮挡/溢出；其他视口仍pending。
 
 ## 2026-10-14 — UI-004部署复核 / UI-003a失败诊断
 

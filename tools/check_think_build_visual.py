@@ -224,7 +224,8 @@ def retrieval_controls(driver, wait, name):
     destination = link.get_attribute('href')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", link)
     link.send_keys(Keys.ENTER)
-    wait.until(lambda d: d.current_url == destination)
+    # The existing in-page Series filter preserves the directory's hash.
+    wait.until(lambda d: d.current_url.split('#')[0] == destination.split('#')[0])
     if name == 'series-directory':
         wait.until(lambda d: visible_count(d, 'think') == expected)
     else:
