@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - master
+      - 'ui/**'
     paths-ignore:
       - .gitignore
       - README.md
@@ -112,6 +113,20 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+      - name: Check THINK and BUILD visual states
+        run: python tools/check_think_build_visual.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_AUDIT_DIR: ${{ runner.temp }}/neutriverse-think-build-audit
+
+      - name: Upload public THINK and BUILD visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-think-build-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-think-build-audit
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Fetch verified Ravenis public release
         id: ravenis
         env:
@@ -144,6 +159,7 @@ jobs:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

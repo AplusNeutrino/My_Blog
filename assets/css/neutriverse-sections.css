@@ -17,6 +17,9 @@
   --nv-font-interface: inherit;
   --nv-font-inscription: serif;
   --nv-font-data: ui-monospace, monospace;
+  --nv-radius-lg: 0.5rem;
+  --nv-radius-md: 0.35rem;
+  --nv-shadow-soft: none;
 }
 
 .nv-section,
@@ -1454,7 +1457,7 @@ article.nv-post .content video {
 .nv-project-catalog-heading p,
 .nv-project-card-meta,
 .nv-project-filters button {
-  font-family: var(--nv-font-mono);
+  font-family: var(--nv-font-data);
   letter-spacing: 0.06em;
 }
 
@@ -1618,7 +1621,7 @@ article.nv-post .content video {
   gap: 0.45rem;
   margin-bottom: 1rem;
   color: var(--nv-text-muted);
-  font-family: var(--nv-font-mono);
+  font-family: var(--nv-font-data);
   font-size: 0.78rem;
 }
 
@@ -1641,7 +1644,7 @@ article.nv-post .content video {
 .nv-project-section-index {
   margin: 0 0 0.45rem;
   color: var(--nv-accent);
-  font-family: var(--nv-font-mono);
+  font-family: var(--nv-font-data);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
 }
@@ -1692,7 +1695,7 @@ article.nv-post .content video {
 
 .nv-project-status-value {
   color: var(--nv-accent);
-  font-family: var(--nv-font-mono);
+  font-family: var(--nv-font-data);
   text-transform: uppercase;
 }
 

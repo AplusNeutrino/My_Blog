@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-002 / UI-A02
+
+- Base main：bc3efad53188f1ff86ae5b49d5a159a136643792；上一轮文档head的run38500584485 completed/success，实际核对，无并发移动。
+- 读取最新AGENTS、domain/issue/triage、ADR0001、主计划、最终报告、本轮计划/日志。gh依然不在PATH，未编造Issue；独立worktree保护原工作目录。
+- 线上Chrome1363×936 Light：BUILD全页截图、implemented_unverified筛选到1/7、进入OfficeSpire详情均已实际操作；列表/详情没有发现遮挡或横向溢出。
+- UI-002复现：项目详情hero/section computed borderTopLeftRadius=0px；--nv-radius-lg和--nv-font-mono为空。仓库CSS引用--nv-radius-lg、--nv-radius-md、--nv-shadow-soft、--nv-font-mono，但全assets/css没有定义。这是无效样式引用，不按审美偏好重新设计。
+- 范围与验收先记录：共享CSS补圆角默认值（沿用现有0.5/0.35rem），等宽文本复用--nv-font-data；阴影显式none保持现有表现。新增未定义变量回归与112个THINK/BUILD状态/详情截图场景，四视口两主题。workflow允许ui/**工作分支build但仅main/master可部署。先工作分支通过后合入，main精确headCI/Pages与线上同场景复验。
+- 保护：旧正文/metadata/URL/hidden/noindex/项目事实/私有边界/外部仓库不改。暂无新增用户问题。状态in-progress。
+
 ## 2026-10-14 — UI-001 / 初始化
 
 - Base：`dd2e52ee17322519190fdacf1a12e5d35f035ead`，最新main包含用户后续首页推荐更新和Library同步；独立worktree保护旧工作目录。
@@ -31,3 +40,5 @@
 - 线上部署后Chrome1363×936：/think/ Light和Night展开侧栏均4张卡片144.5625px、cell144.5625px；前后截图逐一确认边框底部对齐，中文换行与文字/入口原样保留。双主题切换正常。
 - 本轮额外看到THINK Light1363px列表、Fragment筛选、分页/辅助导航区，未在这些画面确认新的显示缺陷；首页Night首屏已看。未冒称全页面/全尺寸审计完成。
 - UI-001 done。原文、metadata、文件名/date/slug/permalink、旧URL、hidden/noindex、应用业务与外部仓库未改变。gh不可用已记；无新增待答问题。下一项THINK筛选/分页与BUILD列表/详情的全页视觉矩阵。
+
+- 本地：201项测试通过；44文章/5Fragment/5hidden基线通过；authoring44/5/7通过；审计脚本编译和diff check通过。工作分支仍待真实浏览器/Jekyll，未称视觉验收通过。
