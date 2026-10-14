@@ -47,6 +47,8 @@
 
 ## 当前运行
 
+UI-A05生产检查通过，等待main/线上复验：head f3d51b79f1b8e813fa7e94b4ebc2592772566277 / run38554138564 success；205 tests、保护/authoring/Jekyll/旧门禁、152场景+14侧栏专项通过。新增32检索截图与32组往返操作已核对，联系表人工查看；未确认新产品缺陷，没有改样式。将审计+证据非强推main，状态validation-pending。下一轮先核对本次main head的build/deploy/live152+14与截图，然后继续Thought其他交互/代表文章等矩阵。详见[UI-A05记录](docs/ui-evidence/uia05-checks.md)，无新增待答问题。
+
 UI-A05本轮接续：base main93825c66 / branch2114197f，run38548101812失败诊断已取回；Archive打开post按既有规则存储侧栏collapsed，下一页主题按钮因此在inert侧栏。审计补真实召回按钮后再检查主题，不修改产品规则。先ui/audit-005精确head验收，32新检索截图与main/live仍pending；失败PNG/JSON来源artifact11884993704。
 
 UI-A05检查进行中：base93825c66/run38541205915 success；Tags/Archive/Thoughts独立页+THINK内Series目录32双主题四宽度截图及往返操作。Tags桌面首屏与长标签详情跳转已实际检查，尚未确认新缺陷；不猜测改样式。工作分支新增检查pending，其他页面矩阵仍保留pending。

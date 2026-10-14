@@ -6,6 +6,8 @@
 - 下载artifact11884993704并查看scene-failure.png/JSON：1024×900 THINK Light目标，实际Night、主题button x=-228且sidebar关闭，图中左上“召回”控制可见。不是圆角/标题缺陷，也不是按钮加载消失。
 - 根因已核对metadata-hook：Archive实际打开文章，post自动收起并写入neutriverse-sidebar-collapsed=true；返回后THINK按存储恢复collapsed。此前脚本只考虑手机抽屉、不考虑desktop已收起状态；在inert侧栏上点击主题失败。
 - 本次先通过真实召回按钮恢复展开，再执行主题/截图检查；不清localStorage、不JS click、不改网站默认文章行为或删门禁。保留32检索交互与152整体场景。UI-A05仍validation-pending，先分支production与截图，之后main/live。无新增待答问题。
+- head f3d51b79f1b8e813fa7e94b4ebc2592772566277 / run38554138564 build115818958254 success（分支deploy/live skipped符合规则）。205 tests/T01/authoring/Jekyll/原门禁、152场景+14侧栏专项全部通过。artifact11888706352已下载，JSON含32检索场景/32组交互；看32张viewport联系表并放大1024 Light Thoughts，结合390 Night四页与云端Tags/Archive检查暂无新增确认缺陷。没有凭审美改网站。
+- 将验证过的审计及本文档证据非强推提交main（expected93825c66），UI-A05仍validation-pending，下一轮核对本次main实际head的build/deploy/live152+14以及同场景截图，不用分支成功代替。矩阵只补该四类核心浏览；Thought点赞/所有focus/代表文章/Library与应用共享导航仍pending。无新增待答问题。
 
 ## 2026-10-14 — UI-A05 检索页视觉矩阵
 
