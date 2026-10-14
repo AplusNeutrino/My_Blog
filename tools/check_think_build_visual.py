@@ -133,7 +133,7 @@ def sidebar_checks(driver, wait, base, output):
             mobile = width < 850
             if mobile:
                 driver.find_element(By.ID, 'sidebar-trigger').click()
-                wait.until(lambda d: d.execute_script("return document.body.hasAttribute('sidebar-display')"))
+                wait.until(lambda d: d.execute_script("return document.body.hasAttribute('sidebar-display') && document.querySelector('#sidebar').contains(document.activeElement)"))
             sidebar = driver.find_element(By.ID, 'sidebar')
             driver.execute_script('arguments[0].scrollTop = arguments[0].scrollHeight;', sidebar)
             wait.until(lambda d: d.execute_script("return document.getAnimations().every(a => a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))

@@ -7,6 +7,7 @@
 - 人工查看ui003-live-build-night.png（精确head e020fb73部署后1024×900窗口）确认DISCOVER和社交区重叠。线上1363×936计算：nav min-height=0、flex-shrink=1，内部primary/utility保留内容高度；短窗口nav压缩后内容绘制越界。CSS让profile/nav/bottom不压缩，侧栏纵向滚动；没有缩小字体/隐藏导航或新增设计。
 - 状态in-progress，先ui/fix-004分支；UI-003a仍pending。无新增待答问题，其他全站矩阵继续pending。
 - 初稿2a8068f5246e7ffd49b3a6f64ea304ea683e7cf1 / run38533201661：205 tests、基线、authoring、production Jekyll、原移动与40项响应式门禁通过；THINK/BUILD脚本在主题点击处失败，坐标x=-214。滚动容器中的关闭侧栏按钮被is_displayed误判为可操作；审计改用实际可见mobile trigger判断抽屉模式，打开后等transition结束并真实滚动到按钮，再pointer点击。未改变主题功能或放宽断言，未合入main。
+- a93f494fc10da59d65154a9ff2abf7f1096e3139工作分支run38533540459 success：120场景/14侧栏专项通过，artifact11879545786已下载，人工看14截图联系表并放大1024×900 Night与390×700 Light。非强推main至同一head后run38534120830失败（deploy/live skipped）：新脚本768×700 Night scroll=0、底部在viewport外。开菜单的延迟焦点回到avatar会重置刚设置的滚动；测试需先等原开菜单焦点完成，再滚到底截图。未放宽hit-test/范围/非重叠断言。此前分支success不替代main/live验收；UI-004/UI-003a仍pending，线上尚未更新。
 
 ## 2026-10-14 — UI-003
 
