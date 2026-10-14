@@ -6,6 +6,7 @@
 - 207 tests/Ruby/T01/authoring/Jekyll/旧门禁通过；390 Night Library弹层、目录打开及返回已通过，友链键盘焦点断言失败。下载artifact11931034197，人工看drawer/category/relationship-failure实际PNG；友链卡片可见、无遮挡，焦点JSON仅id为空不能判断目标。目录截图封面尚未加载，不冒称延迟加载通过（原范围明确pending）。
 - 原脚本cards[0].send_keys(Tab)再cards[0].send_keys(Shift,Tab)会在第二次先重聚焦卡片再向前移动；不等于全局键盘往返。仅tools/check_think_build_visual.py改ActionChains全局Tab遍历最多80步，必须自然到达卡片，再Tab及Shift+Tab严格回到同一卡片；无JS focus/click，无外部导航，不放宽activeElement断言。失败JSON补焦点tag/class/href，原截图/几何/URL门禁保留。
 - 任务UI-A08a，范围上述审计与UI计划日志；先工作分支production192+14及16关系场景，精确head通过并人工看图才交付main，随后同head部署/live复验。当前validation-pending，无新增确认产品缺陷或待答问题；不改正文/metadata/URL/noindex/hidden、产品样式或旧COMPLETE历史。
+- 审计修正实现提交0c77fd29792d92820565d430f2debdf444d4af5c已用expected-head非强推保存ui/audit-008。实际本地207 tests、authoring44/5/7、T01保护44/5/5及diff check通过；本机未执行Ruby/Jekyll/Chrome。状态记录提交后以最终分支head核对Actions，main仍98090893，尚未部署；不得拿失败head或其他提交的CI替代本次验收。
 
 ## 2026-10-15 — UI-A08a目录返回与最新同步保护
 
