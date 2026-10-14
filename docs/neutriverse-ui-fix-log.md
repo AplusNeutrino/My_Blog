@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A07b 精确main线上验收
+
+- Task UI-A07b限定验收；base/current main aa3dbcec717bbbec27e02c0dd196fb0822a6fdec。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划/最终报告和本UI计划日志；CONTEXT不存在、gh不可用，不虚构Issue。独立干净worktree，原repo修改不覆盖。
+- 本次范围仅UI计划/日志、docs/ui-evidence/uia07b-checks.md和live JSON/四联系表。先核对精确head与部署，再查看16线上复制反馈图；不重复修改已验证审计或网站产品，不把CI当视觉验收。
+- run38611417490实际head严格匹配base，build116015462124、deploy116017753847、verify-live-ui116018039763 completed/success。207 Python tests、4项Ruby渲染回归、T01/authoring/production Jekyll及全部旧门禁、production与live各176+14通过。
+- 下载live artifact11918142663，核对16阅读记录clipboardBytes=verified、clipboardSentinelReplaced=true，copiedUrl逐项严格等于当前线上完整URL；不是localhost或旧记录。真实按钮click、原成功提示和媒体断言保留，无clipboard mock/spy，没有访问用户私人剪贴板。
+- 人工查看16复制反馈viewport四宽度双主题联系表，并放大390 Light代码、768 Night图片、1024 Light图片、1366 Night代码原图；无新增确认遮挡、整页溢出或内容消失。JSON/联系表永久入仓库，原PNG在artifact保留14天。本轮不改样式/旧正文/metadata/URL/hidden/noindex、旧COMPLETE历史或关联仓库。
+- UI-A07b限定done，其余阅读/hover-focus、Library/友链及应用矩阵仍pending。本次证据文档提交触发的CI另行核对，不冒称其已部署；下一项Library/友链独立检查，全站IN PROGRESS，无新待答问题。
+- 本机207 tests、authoring44/5/7、T01保护44/5/5与git diff --check再次通过；本机未执行Ruby/Jekyll/Chrome，相关结果来自上述精确head CI。
+
 ## 2026-10-15 — UI-A07b生产验收与main交付
 
 - Base main536281728dcc314c71c64936b06334b2f74bb800，工作分支head e431aeaced355ccb155595fe912860a4007f59dd；已读最新AGENTS/domain/ADR0001、旧COMPLETE计划/报告与UI计划日志，CONTEXT不存在、gh不可用，无新Issue或用户问题。另建干净worktree，不覆盖原repo用户修改。
