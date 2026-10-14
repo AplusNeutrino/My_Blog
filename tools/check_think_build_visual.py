@@ -273,17 +273,37 @@ def reading_controls(driver, wait, name, output, width, theme):
         wait.until(lambda d: d.execute_script('return arguments[0].complete && arguments[0].naturalWidth > 0', current(d)))
         wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
         driver.save_screenshot(str(output / f'gallery-{width}-{theme}.png'))
-        driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gnext').click()
+        def gallery_step(direction):
+            button = driver.find_element(By.CSS_SELECTOR, '#glightbox-body ' + ('.gnext' if direction == 'next' else '.gprev'))
+            if button.is_displayed():
+                button.click()
+                return 'pointer-button'
+            # GLightbox hides arrows on narrow touch layouts; use its actual
+            # touch navigation rather than clicking a hidden control.
+            from selenium.webdriver.common.actions.pointer_input import PointerInput
+            box = current(driver).rect
+            start = box['x'] + box['width'] * (0.8 if direction == 'next' else 0.2)
+            end = box['x'] + box['width'] * (0.2 if direction == 'next' else 0.8)
+            y = box['y'] + box['height'] * 0.5
+            action = ActionBuilder(driver, mouse=PointerInput('touch', 'reading-swipe'))
+            action.pointer_action.move_to_location(int(start), int(y))
+            action.pointer_action.pointer_down()
+            action.pointer_action.move_to_location(int(end), int(y))
+            action.pointer_action.pointer_up()
+            action.perform()
+            return 'touch-swipe'
+        next_method = gallery_step('next')
         wait.until(lambda d: current(d).get_attribute('src').endswith('FF1-03.jpg'))
         wait.until(lambda d: d.execute_script('return arguments[0].complete && arguments[0].naturalWidth > 0', current(d)))
         wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
-        driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gprev').click()
+        previous_method = gallery_step('previous')
         wait.until(lambda d: current(d).get_attribute('src').endswith('FF1-02.jpg'))
         wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
         driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gclose').click()
         wait.until(lambda d: not d.find_elements(By.ID, 'glightbox-body'))
         require(driver.current_url == original, 'gallery changed article URL')
-        result.update({'imagesLoaded': 3, 'galleryNextPreviousClose': True})
+        result.update({'imagesLoaded': 3, 'galleryNextPreviousClose': True,
+                       'nextInput': next_method, 'previousInput': previous_method})
     copy = driver.find_element(By.ID, 'copy-link')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", copy)
     copy.click()
