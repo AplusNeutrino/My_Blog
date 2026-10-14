@@ -9,6 +9,10 @@ from contextlib import contextmanager
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+import yaml
+
+from homepage_featured_contract import expected_featured_paths
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -1297,15 +1301,17 @@ def main():
             },
             f"Current Signal does not use the approved source: {homepage}",
         )
+        source_root = Path(__file__).resolve().parents[1]
+        expected_featured = expected_featured_paths(
+            yaml.safe_load((source_root / '_data/neutriverse_home.yml').read_text()),
+            yaml.safe_load((source_root / '_data/home_popular.yml').read_text()),
+            json.loads(search_index),
+        )
         require(
-            homepage["featuredPaths"] == [
-                "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
-                "/posts/FF1%E8%AE%B0%E5%BD%95/",
-                "/posts/%E8%AE%A1%E7%BB%84-02/",
-                "/posts/%E8%AE%A1%E7%BD%91-03/",
-            ]
-            and len(set(homepage["featuredPaths"])) == 4,
-            f"featured fallback order or visibility changed: {homepage}",
+            homepage["featuredPaths"] == expected_featured
+            and len(set(homepage["featuredPaths"])) == len(expected_featured),
+            f"featured fallback order or public visibility changed: "
+            f"actual={homepage['featuredPaths']} expected={expected_featured}",
         )
         require(
             homepage["status"] == {
