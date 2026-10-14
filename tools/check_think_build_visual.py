@@ -28,6 +28,10 @@ SCENARIOS = [
     ('build-known', '/build/?status=implemented_unverified', 1),
     ('build-unspecified', '/build/?status=unspecified', 6),
     ('observe', '/observe/', None),
+    ('tags', '/tags/', None),
+    ('archives', '/archives/', None),
+    ('thoughts', '/thoughts/', None),
+    ('series-directory', '/think/#nv-series-browser-title', None),
     *((f'project-{project}', f'/build/{project}/', None) for project in PROJECTS),
 ]
 
@@ -198,6 +202,38 @@ def sidebar_checks(driver, wait, base, output):
     return results
 
 
+def retrieval_controls(driver, wait, name):
+    original = driver.current_url
+    if name == 'tags':
+        links = driver.find_elements(By.CSS_SELECTOR, '.tag-ledger-entry')
+        link = max(links, key=lambda e: len(e.text))
+    elif name == 'archives':
+        link = driver.find_element(By.CSS_SELECTOR, '.archive-entry-title')
+    elif name == 'series-directory':
+        link = driver.find_element(By.CSS_SELECTOR, '[data-writing-series-link]')
+        expected = int(link.find_element(By.CSS_SELECTOR, 'strong').text)
+    else:
+        fragments = driver.find_elements(By.CSS_SELECTOR, '.thought-fragment-card[id]')
+        require(len(fragments) == 5, 'original Thoughts records missing')
+        target = fragments[-1]
+        driver.get(original.split('#')[0] + '#' + target.get_attribute('id'))
+        wait.until(lambda d: d.execute_script('return location.hash') != '')
+        driver.back()
+        wait.until(lambda d: d.current_url == original)
+        return {'stableAnchor': True, 'back': True}
+    destination = link.get_attribute('href')
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", link)
+    link.send_keys(Keys.ENTER)
+    wait.until(lambda d: d.current_url == destination)
+    if name == 'series-directory':
+        wait.until(lambda d: visible_count(d, 'think') == expected)
+    else:
+        wait.until(lambda d: bool(d.find_elements(By.CSS_SELECTOR, 'main h1')))
+    driver.back()
+    wait.until(lambda d: d.current_url == original)
+    return {'open': True, 'back': True, 'destination': destination}
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else '_site').resolve()
     output = Path(os.environ.get('UI_AUDIT_DIR', '/tmp/neutriverse-think-build-audit'))
@@ -238,7 +274,9 @@ def main():
                                      'scale': 1},
                         })['data']
                         (output / f'{width}-{theme}-{name}.png').write_bytes(base64.b64decode(png))
-                        if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone'):
+                        if name == 'series-directory':
+                            driver.execute_script("document.querySelector('[data-writing-series-browser]').scrollIntoView({behavior:'instant',block:'center'});")
+                        if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
                         if g['titleVisible']:
                             require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
@@ -257,6 +295,8 @@ def main():
                                 require('noindex' in g['noindex'], f'noindex changed: {result}')
                         if name in ('think-all', 'build-all'):
                             result['interactions'] = exercise_controls(driver, wait, kind)
+                        if name in ('tags', 'archives', 'thoughts', 'series-directory'):
+                            result['interactions'] = retrieval_controls(driver, wait, name)
             sidebar_results = sidebar_checks(driver, wait, base, output)
     finally:
         (output / 'audit.json').write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
