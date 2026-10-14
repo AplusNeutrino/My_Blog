@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A07（检查，不预设缺陷）：base c5b99ed2284ac327270de5c952f0a026d85d87b3，run38577189934 completed/success已核对。范围现有浏览器审计、计划/日志及公开证据；代表计组07plain代码、FF1公开图片，390/768/1024/1366×Night/Light，共16场景。验收代码/图片可见且不引起整页溢出、图片逐张lazy加载及弹层下一张/返回/关闭、复制链接反馈；剪贴板实际字节明确pending。候选高亮示例因hidden排除，不生成公开截图。桌面1363×936已看代码/图片并操作弹层翻页，没有新增确认缺陷，不猜测改产品。先ui/audit-007验证；本轮不改旧文章/metadata/URL/hidden/noindex。无新增待答问题。
+
 UI-005 done：base/main5922412f7fc82af68984091e75c142242c290cec，[run38570020301](https://github.com/AplusNeutrino/My_Blog/actions/runs/38570020301) build115872459830、deploy115874598655、verify-live-ui115874783745均success。4项Ruby渲染回归、205 tests、T01/authoring/production Jekyll/全部旧门禁、生产与live各160+14通过。下载live artifact11898410699，看8张表格viewport联系表并放大四宽度代表图，1366 Light全页两表复核，行列恢复且横向阅读通过。只回写计划/日志/公开证据，本次没有额外产品修改；文档提交CI另行核对。下一项代码/图片/复制/媒体阅读场景，完整矩阵仍IN PROGRESS，无新增用户问题。[证据](docs/ui-evidence/ui005-comparison.md)。
 
 UI-005生产通过，待main/live：实现head c20396fa62672943eda5d675955cc6eeb394d3ea，[run38569176497](https://github.com/AplusNeutrino/My_Blog/actions/runs/38569176497) build success；4项Ruby渲染回归、205 tests、T01/authoring/Jekyll/旧门禁、160+14浏览器矩阵通过。已查看8张表格截图并放大390 Light/1366 Night，真实横向滚动通过；没有更改旧md。准备非强推main并核对其实际head部署后同场景，UI-005保持validation-pending；[前后记录](docs/ui-evidence/ui005-comparison.md)。无新增待答问题，代码/图片阅读仍pending。

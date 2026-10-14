@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-14 — UI-A07 代码/图片/复制与媒体检查
+
+- Base main c5b99ed2284ac327270de5c952f0a026d85d87b3，run38577189934 completed/success已核对。已读AGENTS/domain/ADR0001、旧COMPLETE计划/报告和本UI计划/日志；CONTEXT不存在、gh不可用，不虚构Issue。独立干净worktree，不覆盖用户修改。
+- 先限定范围tools/check_think_build_visual.py、计划/日志和公开截图证据，不改产品样式/正文/metadata/URL。UI-A07代表计组07plain代码、FF1图片；两页×四宽度×双主题共16场景，真实控件和截图。候选高亮代码示例经metadata核对为hidden，已排除，不浏览或生成公开证据；plain未提供代码复制按钮属于既有渲染分支，不自行新增功能。
+- 云浏览器1363×936 Light：计组07目录跳转代码块后待paint完成，代码5行可读；Copy link点击后出现“链接已复制！”提示，但云clipboard API读为空，记实际字节未验证，不据此报告网站复制故障。
+- FF1第一次用基线source_url_candidate的小写ff1路径得到404；通过公开Archive真实链接核对为/posts/FF1%E8%AE%B0%E5%BD%95/，只修审计目标，不改旧路由。页面初始lazy图片未加载不是缺陷；待complete后首图加载成功，实际点击图片打开GLightbox、Next切换成功，动画结束后截图可见。
+- 尚未确认新产品缺陷；先ui/audit-007生产完整16截图/交互（总矩阵176+14），再main/live精确head；复制链接反馈与实际剪贴板字节分开记证，后者pending。其他矩阵不冒称完成，无新增待答问题。
+
 ## 2026-10-14 — UI-005 精确main部署复验
 
 - Task UI-005验收；base/current main5922412f7fc82af68984091e75c142242c290cec，独立干净worktree；已读最新AGENTS/三domain docs/ADR0001/旧主计划与最终报告/本轮计划日志，CONTEXT不存在，gh不可用，未虚构Issue。用户补充无新决定。

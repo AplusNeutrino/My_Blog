@@ -33,6 +33,8 @@ SCENARIOS = [
     ('thoughts', '/thoughts/', None),
     ('series-directory', '/think/#nv-series-browser-title', None),
     ('article-tables', '/posts/%E8%AE%A1%E7%BB%84-04/', None),
+    ('article-code', '/posts/%E8%AE%A1%E7%BB%84-07/', None),
+    ('article-images', '/posts/FF1%E8%AE%B0%E5%BD%95/', None),
     *((f'project-{project}', f'/build/{project}/', None) for project in PROJECTS),
 ]
 
@@ -243,6 +245,55 @@ def retrieval_controls(driver, wait, name):
     return {'open': True, 'back': True, 'destination': destination}
 
 
+def load_reading_images(driver, wait):
+    images = driver.find_elements(By.CSS_SELECTOR, 'article img')
+    require(len(images) == 3, 'representative image inventory changed')
+    for img in images:
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", img)
+        wait.until(lambda d: d.execute_script('return arguments[0].complete && arguments[0].naturalWidth > 0', img))
+    return images
+
+
+def reading_controls(driver, wait, name, output, width, theme):
+    original = driver.current_url
+    result = {}
+    if name == 'article-code':
+        code = driver.find_element(By.CSS_SELECTOR, 'article .content pre code')
+        require('LOAD 005' in code.text and 'HALT' in code.text, 'code text missing')
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", code)
+        driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
+        result['codeVisible'] = True
+    else:
+        images = load_reading_images(driver, wait)
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", images[1])
+        driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
+        images[1].find_element(By.XPATH, '..').click()
+        current = lambda d: d.find_element(By.CSS_SELECTOR, '#glightbox-body .gslide.current img')
+        wait.until(lambda d: current(d).get_attribute('src').endswith('FF1-02.jpg'))
+        wait.until(lambda d: d.execute_script('return arguments[0].complete && arguments[0].naturalWidth > 0', current(d)))
+        wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+        driver.save_screenshot(str(output / f'gallery-{width}-{theme}.png'))
+        driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gnext').click()
+        wait.until(lambda d: current(d).get_attribute('src').endswith('FF1-03.jpg'))
+        wait.until(lambda d: d.execute_script('return arguments[0].complete && arguments[0].naturalWidth > 0', current(d)))
+        wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+        driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gprev').click()
+        wait.until(lambda d: current(d).get_attribute('src').endswith('FF1-02.jpg'))
+        wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState !== 'running' || a.effect.getTiming().iterations === Infinity)"))
+        driver.find_element(By.CSS_SELECTOR, '#glightbox-body .gclose').click()
+        wait.until(lambda d: not d.find_elements(By.ID, 'glightbox-body'))
+        require(driver.current_url == original, 'gallery changed article URL')
+        result.update({'imagesLoaded': 3, 'galleryNextPreviousClose': True})
+    copy = driver.find_element(By.ID, 'copy-link')
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", copy)
+    copy.click()
+    expected = copy.get_attribute('data-title-succeed')
+    wait.until(lambda d: any(t.text == expected for t in d.find_elements(By.CSS_SELECTOR, '.tooltip-inner')))
+    result.update({'copyLinkFeedback': True, 'clipboardBytes': 'not-verified'})
+    driver.save_screenshot(str(output / f'copy-feedback-{width}-{theme}-{name}.png'))
+    return result
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else '_site').resolve()
     output = Path(os.environ.get('UI_AUDIT_DIR', '/tmp/neutriverse-think-build-audit'))
@@ -284,6 +335,8 @@ def main():
                         kind = 'think' if name.startswith('think') else 'build'
                         if count is not None:
                             wait.until(lambda d: visible_count(d, kind) == count)
+                        if name == 'article-images':
+                            load_reading_images(driver, wait)
                         g = geometry(driver)
                         result = {'name': name, 'path': path, 'window': [width, height],
                                   'theme': theme, 'geometry': g, 'count': count}
@@ -319,7 +372,7 @@ def main():
                             result['interactions'] = {'tableScroll': bool(scrollable), 'tables': 2}
                         if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
-                        if g['titleVisible'] and name != 'article-tables':
+                        if g['titleVisible'] and not name.startswith('article-'):
                             require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
                             require(g['titleTooltip'] == g['pageTitle'], f'full title is unavailable: {result}')
                             require(g['titleLeft'] >= g['menuRight'] - 1 and
@@ -338,6 +391,16 @@ def main():
                             result['interactions'] = exercise_controls(driver, wait, kind)
                         if name in ('tags', 'archives', 'thoughts', 'series-directory'):
                             result['interactions'] = retrieval_controls(driver, wait, name)
+                        if name in ('article-code', 'article-images'):
+                            try:
+                                result['interactions'] = reading_controls(driver, wait, name, output, width, theme)
+                            except Exception:
+                                driver.save_screenshot(str(output / 'reading-failure.png'))
+                                (output / 'reading-failure.json').write_text(json.dumps({
+                                    'scene': name, 'window': [width,height], 'theme': theme,
+                                    'url': driver.current_url, 'dialog': bool(driver.find_elements(By.ID, 'glightbox-body')),
+                                }, ensure_ascii=False, indent=2), encoding='utf-8')
+                                raise
             sidebar_results = sidebar_checks(driver, wait, base, output)
     finally:
         (output / 'audit.json').write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
