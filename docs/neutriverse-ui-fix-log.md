@@ -7,6 +7,7 @@
 - 验收拟覆盖390/768/1024/1366双主题：真实加载、非空最多100条且日期格式正常、首尾滚动/边界截图、再次加载不重复、整页刷新回到未加载状态后键盘Enter加载同一记录。新增24状态截图和JSON，保留全部192+14门禁，先工作分支production，main/live未验收。完整库存/离屏加载和排序/列表/摘置等其他控件不由本项推断通过；无新待答问题。
 - 已实现上述审计；重复加载等待真实异步ul被替换后比较整组textContent，不以仍未返回的旧列表冒充成功。首/尾/刷新三状态截图同步保存逐行client/scroll宽度、左右界、根scrollWidth与scrollX，严格拒绝行内或页面横向溢出。补两项审计契约回归，仅证明接线/断言存在，视觉仍需Chrome与人工截图复核。
 - 本地222 tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机未执行Ruby/Jekyll/Chrome。公开1363×936 Light加载图已保存，不能代替390/768/1024/1366双主题24图。状态validation-pending，先保存ui/audit-008d，不合main；未改旧正文/Thought/Project Log、metadata/URL/hidden/noindex、同步数据、产品样式或关联项目仓库。
+- 真实审计实现提交1ce495f6722c9ea17cf6e640633ce2963fd4aa04已保存ui/audit-008d，6个上传blob与本地git hash-object逐项一致；随后仅追加此SHA检查点。main仍2e3d2844，未部署新审计；下轮必须核对最终分支head production192+14与24新截图、8时间线流程，不借前置main成功声称本次通过。
 
 ## 2026-10-15 — UI-007/UI-008与UI-A08c2限定线上验收
 

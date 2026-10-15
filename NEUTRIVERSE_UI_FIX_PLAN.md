@@ -53,6 +53,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08d真实审计实现1ce495f6722c9ea17cf6e640633ce2963fd4aa04已保存ui/audit-008d，6个远程blob与本地hash一致；本次随后仅追加SHA检查点，最终分支head CI需单独核对，main仍2e3d2844。状态validation-pending，下轮优先核对该分支最终head production192+14及24图/8流程，未部署或验收不进main。
+
 UI-A08d validation-pending：已新增真实时间线加载/首尾滚动/重复加载等待实际ul替换/刷新lazy重置/Enter加载同记录审计，新增24图及逐行溢出JSON；222本地tests、authoring44/5/7、T01保护44/5/5与diff check通过。本机未运行Ruby/Jekyll/Chrome，先ui/audit-008d精确head production192+14与24图，再决定main和live；main保持2e3d2844，未改产品，无新用户问题。[限定桌面证据](docs/ui-evidence/uia08d-checks.md)。
 
 UI-A08d in-progress：base main 2e3d2844af408504cb616b9596ea682c97c3edd0，上次run38749174621 build116470712739/deploy116473447923/live116473729990全部success。范围仅tools/check_think_build_visual.py、必要审计回归、UI计划日志与公开时间线证据；不改产品样式/数据。云Chrome1363×936 Light真实加载时间线46条，截图未确认新显示缺陷；拟补四宽度双主题加载、首尾截图/滚动边界、重复加载不重复、刷新后键盘Enter加载同记录。未验收留ui/audit-008d，完整production192+14及新24图、main/live pending；不把DOM/静态测试当视觉通过。gh不可用未编造Issue，无新用户问题，其他Library控件/全站矩阵仍pending。
