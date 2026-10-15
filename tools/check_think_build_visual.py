@@ -372,9 +372,20 @@ def library_filter_pagination_controls(driver, wait, output, width, theme):
         element.click()
     def capture(state, selector):
         position(driver.find_element(By.CSS_SELECTOR, selector))
+        geometry = driver.execute_script('''
+          const panel=document.querySelector('.pgl-advanced-panel'),r=panel.getBoundingClientRect();
+          return {scrollX,viewport:innerWidth,open:document.querySelector('.pgl-advanced').open,
+            panel:{left:r.left,right:r.right,top:r.top,bottom:r.bottom},
+            years:[...document.querySelectorAll('#pgl-grid .pgl-meta')].map(e=>({visible:e.innerText,text:e.textContent}))};
+        ''')
+        driver.save_screenshot(str(output / f'filters-{state}-{width}-{theme}-library.png'))
+        (output / f'filters-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry, indent=2))
+        if geometry['open']:
+            require(geometry['panel']['left'] >= -1 and geometry['panel']['right'] <= geometry['viewport']+1,
+                    f'Library {state} advanced panel outside viewport: {geometry}')
+        require(abs(geometry['scrollX']) <= 1, f'Library {state} horizontal scroll offset: {geometry}')
         require(driver.execute_script('return document.documentElement.scrollWidth <= innerWidth+1'),
                 f'Library {state} page overflow')
-        driver.save_screenshot(str(output / f'filters-{state}-{width}-{theme}-library.png'))
     def open_filters():
         if not driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'):
             click('.pgl-advanced summary')
@@ -410,8 +421,9 @@ def library_filter_pagination_controls(driver, wait, output, width, theme):
     wait.until(lambda d: params().get('year') == [selected_year] and ids())
     ready()
     filtered_ids, filtered_url = ids(), driver.current_url
-    require(all(selected_year in e.text for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-meta')),
-            'Library year filter contains mismatched visible year')
+    year_texts = [e.get_attribute('textContent') for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-meta')]
+    require(year_texts and all(selected_year in text for text in year_texts),
+            f'Library year filter contains mismatched card year: {selected_year}, {year_texts}')
     driver.refresh()
     ready()
     wait.until(lambda d: ids() == filtered_ids)

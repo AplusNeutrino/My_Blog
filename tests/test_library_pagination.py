@@ -44,3 +44,16 @@ class LibraryPaginationTests(unittest.TestCase):
         self.assertIn('Library reload lost page 2 despite page URL',source)
         self.assertIn('ids() == second_page',source)
         self.assertIn('Library filter reload changed URL',source)
+
+    def test_filter_panel_geometry_and_card_year_remain_strict(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        self.assertIn('advanced panel outside viewport',source)
+        self.assertIn('horizontal scroll offset',source)
+        self.assertIn("year_texts and all(selected_year in text for text in year_texts)",source)
+        self.assertIn("get_attribute('textContent')",source)
+
+    def test_mobile_filter_panel_uses_toolbar_bounds(self):
+        css=Path('assets/pgl/pgl.css').read_text().split('@media (max-width: 720px) {',1)[1]
+        self.assertIn('.pgl-view-toolbar { position:relative; }',css)
+        self.assertIn('.pgl-advanced { position:static; }',css)
+        self.assertIn('.pgl-advanced-panel { left:0; right:0; width:auto; }',css)

@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | validation-pending | 浮层以toolbar左右边界定位；四宽度双主题面板在viewport内、无scrollX偏移，原分页/筛选/刷新断言与截图全部通过后部署复验 |
 | UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | validation-pending | 异步加载前保留请求页码，加载后合法页/越界均正确；四宽度双主题翻页、刷新ID一致、上一页、筛选与清除及线上截图复验 |
 | UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
 | UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
@@ -49,6 +50,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-007/UI-008接续validation-pending：base main eb016b52、工作head ab85af5a，run38724996114 build116388845796 failure（年份可见文本断言），deploy/live skipped；218 tests/T01/authoring/Jekyll/旧门禁此前通过。已下载artifact11967657119并看390 Night page2/open/failure原图，第2页刷新保留已通过；高级筛选浮层超出窄屏并触发水平偏移，标题左侧被裁，新增确认UI-008 P2。只修720px内浮层以整个toolbar为定位参照、左右约束；审计补panel真实矩形/scrollX与年份textContent诊断，保留严格年份/URL/ID/刷新断言。文件范围pgl.css、现有审计/必要回归、UI计划日志/证据，不扩大重新设计。先ui/fix-007重新完整192+14及32图，main不变，无新用户问题。
 
 UI-007 validation-pending：实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04保存ui/fix-007，main仍eb016b52。本地218 tests、authoring、T01与diff通过，原函数负对照准确捕获加载前页码丢失。计划/日志及公开复现截图已持久化；下轮先核对最终分支head production192+14、新32张分页/筛选图和真实交互，通过后再非强推main与live复验，不以helper单测代替视觉通过。无新用户问题。
 

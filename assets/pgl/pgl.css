@@ -192,6 +192,9 @@
   .pgl-rating-scopes { justify-content:flex-start; }
   .pgl-view-toolbar { align-items:flex-start; }
   .pgl-toolbar-left { flex-wrap:wrap; }
+  .pgl-view-toolbar { position:relative; }
+  .pgl-advanced { position:static; }
+  .pgl-advanced-panel { left:0; right:0; width:auto; }
   .pgl-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
   .pgl-card-body { padding:.42rem .45rem .48rem; }
   .pgl-grid.is-list .pgl-card { grid-template-columns:56px minmax(0,1fr); min-height:70px; }

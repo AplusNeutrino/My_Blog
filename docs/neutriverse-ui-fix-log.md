@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-007 CI失败复核与UI-008窄屏筛选浮层
+
+- Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea、工作head ab85af5a022eb9b0a27126f2613fa7e7dadb0772。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh不可用未虚构Issue，独立worktree保护用户修改。
+- run38724996114精确head匹配，build116388845796 failure；deploy116389683304/live116389683512 skipped。218 tests、T01 baseline、authoring44/5/7、production Jekyll与此前旧门禁通过；新Library流程390 Night页2翻页/刷新同ID/上一页已过，但年份visible text断言失败。未将局部通过说成完整192+14或视觉通过。
+- 下载artifact11967657119并独立sha256匹配5a489b51123bc5c00d0999fe21a1050da36e6df862cd78b64fc274b1809de92a；实际查看filters-page2-390-dark、filters-open-390-dark与relationship-failure原图。页2截图当前按钮2；筛选浮层展开后标题左侧裁切，页面被横向平移，确认UI-008 P2。浮层left0相对summary处的details，宽min(19rem,82vw)溢出窄屏可用右边界，原页面scrollWidth门禁未捕获被裁切/平移状态。
+- 本轮最小范围assets/pgl/pgl.css、现有审计/必要回归、UI计划日志及失败证据；只在720px内以toolbar作定位参照并左右约束panel。审计保留年份与URL/ID断言，年份比较改取卡片真实textContent避免布局可见性影响语义读取，并保存可见text/textContent及panel几何；严格拒绝panel出viewport或scrollX偏移。不将overlay覆盖卡片本身视为缺陷，也不修改产品筛选/同步数据。
+- UI-007/UI-008均validation-pending，main不动。新head完整生产192+14/32新状态图及main/live待验收，无新增用户问题。
+- 本地220 tests、authoring44/5/7、T01保护44/5/5及diff check通过；本机未运行Ruby/Jekyll/Chrome。截图和[证据](ui-evidence/ui008-checks.md)持久保存公开目录部分，不包含隐藏应用；失败CI历史保留，不用原head局部页2成功宣称修复已完成。
+
 ## 2026-10-15 — UI-007分页刷新丢失，UI-A08c2范围
 
 - Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea；run38717518673 build116363722730/deploy116366321159/live116366415960全部success。已读最新AGENTS/domain/ADR0001、旧COMPLETE计划报告和UI计划日志；CONTEXT不存在，gh未安装，独立worktree保护用户修改。
