@@ -6,6 +6,7 @@
 - 云Chrome1363×936 Light通过实际select评分和点击列表模式，首项2001太空漫游评分10，封面/标题/评分可见，未确认新显示缺陷。源码契约保留进行中优先，再按所选键排序；不把这一既有规则当缺陷。
 - 文件范围tools/check_think_build_visual.py、必要审计回归、UI计划日志与公开证据；拟覆盖四宽度双主题评分/年份数值次序、标题排序刷新同ID、列表切换保持ID/刷新持久化/键盘恢复网格，新增32图和几何诊断，保留全部192+14、T01/authoring/Jekyll门禁。未验证留ui/audit-008e，production/main/live均pending；不改产品样式/数据/正文/metadata/URL/hidden/noindex或旧COMPLETE历史。无新待答问题，其他Library及全站矩阵继续pending。
 - 已实现上述审计及必要接线回归。本地225 tests、authoring44/5/7、T01保护44/5/5、diff check通过。云实际刷新后评分URL/首项/列表偏好保持、Enter恢复网格成功，截图已保存[限定证据](ui-evidence/uia08e-checks.md)。本机未运行Ruby/Jekyll/Chrome，新head production192+14和新增32图仍pending，不以本地测试代替视觉验收。
+- 真实审计实现c7e248e18e222584a65d6fc277e679d8978d4837已expected_sha非强推保存ui/audit-008e；6个上传blob与本地hash逐项相同，随后只追加此SHA检查点。main保持5a3b947f，不合main或宣称部署；下一轮优先核对最终分支head CI与32图/8流程，通过再交付main及live。全站IN PROGRESS，无新待答问题。
 
 ## 2026-10-16 — UI-009与UI-A08d限定线上验收
 
