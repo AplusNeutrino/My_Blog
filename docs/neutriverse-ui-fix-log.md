@@ -6,6 +6,7 @@
 - 下载production artifact11942794466（sha256:c5036b3e3f0445d463baca49c1ef233b8c150633765c4d878ef9915773e8b25d），8 covers JSON共56次可见图片complete=true且naturalWidth/naturalHeight>0。人工查看8张covers两联系表及390 Night后续category原图：前者390 Night第二封面、768 Night下排部分为空，后者390 Night已显示相同封面，不把CI成功/DOM尺寸当视觉通过。
 - 核对现有pgl.js封面decoding=async，可能complete早于decode/paint，未确认产品故障；不猜测修改CSS或图片源。本次最小范围仍审计、tests/test_library_cover_audit.py、计划日志，仅在load完成后await现有图片原生decode()及两帧再截图，decode拒绝仍严格失败并保存证据；不写src/loading、不mock加载、不增加外部代理请求。helper单测增加decode/paint契约检查，不替代真实Chrome。
 - UI-A08b validation-pending；修正先ui/audit-008b重新production192+14和8图验证，main保持不变。未把第一次截图写成视觉正常或持久验收证据；搜索/筛选/分页及全站剩余矩阵pending，无新用户决策问题。
+- 修正实现78cf342ba1a14863888805393d23bbbe2d818915；本机211 tests、authoring44/5/7、T01保护44/5/5及diff check再次通过，本机Ruby/Jekyll/Chrome未执行。以随后日志提交后的最终分支head跑真实production，下一轮核对同head的JSON/8截图，再决定main交付；不发布本轮未验收联系表。
 
 ## 2026-10-15 — UI-A08b可见目录封面加载诊断
 
