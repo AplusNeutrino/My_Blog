@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A08b生产通过、待main/live：base main30e26ead4ee97aa6bc3120aec3372897bb1285bc，验收head aa328fa7b8f5e09d58adbe3d8aada6f7ae0f8b03 / run38674518402 build116224939740 success，分支deploy/live skipped。8场景56次可见封面complete/尺寸/原生decode通过；人工查看8张解码后截图两联系表并放大390 Night原图，均显示封面，无新增确认产品缺陷。211 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及192+14通过；只交付审计和公开证据，不改样式或图片源。非强推main后核对实际head部署及live8图/加载记录，仍validation-pending，搜索/筛选/分页等另项pending，无新问题。[证据](docs/ui-evidence/uia08b-checks.md)。
+
 UI-A08b接续validation-pending：base main30e26ead、工作head de7dbdf4；run38668866802 build116206975426 success、deploy/live skipped。下载artifact11942794466，8场景56次可见封面complete/尺寸全部通过；实际看8张covers截图及390 Night后续category原图，前者局部空白、后者封面已显示，不能以尺寸成功替代视觉。现有decoding=async可在load后下一paint显示，审计仅补原生decode()与两帧后采图，不修改src/loading或网站产品。文件范围现有审计/4项helper回归/计划日志；生产192+14与新截图待精确head重验，不进main，无新用户问题。
 
 UI-A08b in-progress：base30e26ead4ee97aa6bc3120aec3372897bb1285bc，run38663584681 build116190250811/deploy116192067722/live116192142932全部success已核对。最小范围tools/check_think_build_visual.py、封面审计回归、本计划日志；仅检查书籍目录当前viewport内img.pgl-cover，等待真实complete并记录naturalWidth/currentSrc，再截图；不改src/loading、不强制加载、不猜测修产品。四宽度双主题8加载场景，完整192+14及线上验证pending。搜索/筛选/分页等另项pending，先工作分支，无新用户问题。

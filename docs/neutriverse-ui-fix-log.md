@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08b解码后生产验收与main交付
+
+- Task UI-A08b本次范围仅UI计划/日志、docs/ui-evidence/uia08b*生产JSON/两联系表/说明，交付已通过审计；base main30e26ead4ee97aa6bc3120aec3372897bb1285bc、分支head aa328fa7b8f5e09d58adbe3d8aada6f7ae0f8b03。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不可用；独立worktree保护用户修改。
+- run38674518402实际head匹配、build116224939740 success，分支deploy/live skipped。211 tests、4项Ruby、T01/authoring/production Jekyll/旧门禁、192页面+14侧栏专项通过，精确job日志核对。下载artifact11945044852，sha256:1ea5e0c902c998a32139ca4a067b66c82adb273936f3653cc92602bf44b15ae8。
+- 8 covers JSON共56次可见封面complete=true、原生尺寸>0；审计同时严格等待原生decode()成功及两帧。人工查看8张covers双主题四宽度截图两联系表并放大390 Night原图，之前局部空白已在此采图时序下显示正确封面，未确认产品故障；不将旧截图/DOM尺寸代替此次视觉复核，不改产品。
+- 完整audit192记录、8项covers记录与两联系表永久保存；原PNG在artifact保留14天。通过的审计及证据以expected-main非强推交付main，UI-A08b仍validation-pending，需核对新main实际head build/deploy/live与8张同场景截图，localhost不代替线上。
+- 本次本地211 tests、authoring44/5/7、T01保护44/5/5及diff check复核；本机Ruby/Jekyll/Chrome未运行，其结果来自精确head CI。旧文章/metadata/URL/hidden/noindex、同步数据、样式、关联仓库、旧COMPLETE历史均未改，无新增待答问题。完整Library图片库存/搜索/筛选/分页/时间线仍pending。
+
 ## 2026-10-15 — UI-A08b加载完成与绘制时序复核
 
 - Base main30e26ead4ee97aa6bc3120aec3372897bb1285bc、工作head de7dbdf4e97e916742b417134b501092e1853083；最新AGENTS/domain/ADR0001、旧COMPLETE计划报告/UI计划日志已读，CONTEXT不存在、gh不可用、独立worktree不覆盖用户修改。run38668866802 build116206975426 success，分支deploy/live skipped；211 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过（精确head日志核对）。
