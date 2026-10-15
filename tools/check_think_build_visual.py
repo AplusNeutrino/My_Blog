@@ -6,6 +6,7 @@ import os
 import shutil
 import sys
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -293,6 +294,52 @@ def library_visible_covers(driver, wait, output, width, theme):
     return {'visibleImages':len(rows),'loaded':True}
 
 
+def library_search_controls(driver, wait, output, width, theme, query, expected_id):
+    """Real input, reload, empty-state and clear; no scripted UI state writes."""
+    def q_value():
+        return parse_qs(urlsplit(driver.current_url).query).get('q', [''])[0]
+    def input_box():
+        field = driver.find_element(By.ID, 'pgl-search')
+        if not field.is_displayed():
+            driver.find_element(By.ID, 'pgl-search-toggle').click()
+            wait.until(lambda d: d.find_element(By.ID, 'pgl-search').is_displayed())
+        return driver.find_element(By.ID, 'pgl-search')
+    def type_query(value):
+        field = input_box()
+        field.send_keys(Keys.CONTROL, 'a')
+        field.send_keys(Keys.BACKSPACE)
+        if value:
+            field.send_keys(value)
+        wait.until(lambda d: q_value() == value)
+    def capture(state):
+        header = driver.find_element(By.CSS_SELECTOR, '.pgl-header')
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", header)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        require(driver.execute_script('return document.documentElement.scrollWidth <= innerWidth+1'),
+                f'Library {state} page overflow')
+        driver.save_screenshot(str(output / f'search-{state}-{width}-{theme}-library.png'))
+    type_query(query)
+    wait.until(lambda d: expected_id in [e.get_attribute('data-pgl-id') for e in d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')])
+    search_url = driver.current_url
+    driver.refresh()
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-search').get_attribute('value') == query)
+    wait.until(lambda d: expected_id in [e.get_attribute('data-pgl-id') for e in d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')])
+    require(driver.current_url == search_url, 'Library search reload changed URL')
+    capture('results')
+    sentinel = 'neutriverse-ui-audit-no-match-008c'
+    type_query(sentinel)
+    wait.until(lambda d: bool(d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-empty')))
+    require(not driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card'), 'Library empty query retained cards')
+    require(driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty').text.strip(), 'Library empty message missing')
+    capture('empty')
+    type_query('')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require(not urlsplit(driver.current_url).query, 'Library clear did not restore root URL')
+    capture('cleared')
+    return {'query':query,'expectedId':expected_id,'reloadPreserved':True,
+            'emptyMessage':True,'clearRestoredRoot':True}
+
+
 def relationship_controls(driver, wait, name, output, width, theme):
     """Limited public Library browsing and friend-card inspection, no external writes."""
     if name == 'links':
@@ -349,10 +396,14 @@ def relationship_controls(driver, wait, name, output, width, theme):
     wait.until(lambda d: d.execute_script("const e=arguments[0],r=e.getBoundingClientRect();return r.y>=0 && r.bottom<=innerHeight && e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));", back))
     covers = library_visible_covers(driver, wait, output, width, theme)
     driver.save_screenshot(str(output / f'category-{width}-{theme}-library.png'))
+    first = driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
+    query = first.find_element(By.CSS_SELECTOR, '.pgl-card-title').text
+    expected_id = first.get_attribute('data-pgl-id')
     back.click()
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
-    return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers,
+    search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
+    return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
             'timelineSearchPagination': 'not-verified'}
 
 

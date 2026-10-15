@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08c1 Library搜索最小流程
+
+- Base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb；run38684810581 build116257125018、deploy116258814970、verify-live-ui116258877904全部success。最新AGENTS/domain/ADR0001、旧COMPLETE计划报告/UI计划日志已读，CONTEXT不存在、gh不可用、独立worktree保护原目录；不重复做旧重构。
+- Task UI-A08c1先拆出独立搜索流程，文件范围现有浏览器审计、必要helper回归及UI计划日志。四宽度双主题：公开目录已有书名真实输入→结果/URL匹配→刷新保留→无匹配搜索提示→清空恢复根页。新增两状态截图和几何检查，不使用JS写input/触发事件，不固定同步后会变化的结果总数。筛选/分页后续UI-A08c2，时间线/全库存/离屏加载另pending。
+- 云Chrome1363×936 Prospero Light实际输入站内公开书名“猎魔人”，9项结果且URL含对应q；截图看到标题/搜索框/结果卡片可见，无新增确认产品缺陷。不从私人记忆生成测试词或公开信息，不修改样式/原文/metadata/URL/hidden/noindex/同步数据或关联仓库。
+- 先ui/audit-008c生产192+14及8新搜索流程，未验证不进main；真实截图/刷新/空状态/清空与部署后复验pending，无新待答问题。
+- 云1363×936 Light继续真实输入不存在词，显示“未找到匹配藏品”、0卡片，截图已看；清空后URL恢复/library/、根页可见、browser view隐藏。此桌面局部手动检查不替代四宽度两主题CI。新增审计使用已有公开目录首卡标题与ID动态核对搜索，不硬编码9条或公开私人信息；213本地tests、authoring44/5/7、T01保护44/5/5及diff check通过，本机Ruby/Jekyll/Chrome未执行。
+
 ## 2026-10-15 — UI-A08b精确main线上验收
 
 - Task UI-A08b限定验收；base/current main57a6817cd90f27f41039c92040c38ff3de53a03e。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh不可用不虚构Issue，独立worktree保护用户修改。本次范围仅计划/日志、docs/ui-evidence/uia08b*线上JSON/两联系表与说明，不改产品。

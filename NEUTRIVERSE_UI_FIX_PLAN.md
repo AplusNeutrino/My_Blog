@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A08c1 in-progress：base c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb，run38684810581 build116257125018/deploy116258814970/live116258877904全部success。最小范围现有审计/必要helper回归/计划日志：Library输入站内公开书名、结果/URL、刷新保留、无结果提示、清空返回，四宽度双主题8流程截图。云1363×936 Light实际输入“猎魔人”显示9条结果，截图已看未确认新缺陷；不改产品。筛选/分页拆至UI-A08c2后续，先工作分支production192+14，main/live pending，无新用户问题。
+
 UI-A08b限定done：验收main/base57a6817cd90f27f41039c92040c38ff3de53a03e / run38679922788 build116241892225、deploy116243565530、verify-live-ui116243614933全部success。211 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live192+14通过。下载live artifact11946904727，8场景56次可见封面complete/原生尺寸/解码通过；人工看8张线上截图两联系表并放大390 Light原图，没有空白封面或新增确认缺陷。仅回写计划/日志/公开证据，新文档head CI另核对。下一项UI-A08c Library搜索/筛选/分页，完整库存/离屏加载及全站剩余矩阵pending，无新待答问题。[证据](docs/ui-evidence/uia08b-checks.md)。
 
 UI-A08b生产通过、待main/live：base main30e26ead4ee97aa6bc3120aec3372897bb1285bc，验收head aa328fa7b8f5e09d58adbe3d8aada6f7ae0f8b03 / run38674518402 build116224939740 success，分支deploy/live skipped。8场景56次可见封面complete/尺寸/原生decode通过；人工查看8张解码后截图两联系表并放大390 Night原图，均显示封面，无新增确认产品缺陷。211 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及192+14通过；只交付审计和公开证据，不改样式或图片源。非强推main后核对实际head部署及live8图/加载记录，仍validation-pending，搜索/筛选/分页等另项pending，无新问题。[证据](docs/ui-evidence/uia08b-checks.md)。
