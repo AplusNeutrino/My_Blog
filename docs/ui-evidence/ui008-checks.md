@@ -13,3 +13,9 @@
 审计新增panel真实矩形、viewport、scrollX与卡片年份innerText/textContent记录；严格拒绝展开panel超出视口或页面横向偏移。年份语义比较读取实际textContent，避免将布局可见性与数据过滤混为一谈；所有年份匹配、分页、刷新URL/ID、清除断言仍保留，新的截图仍必须人工复核。原失败图未保存年份textContent，不能仅据此次断言宣称网站年份筛选失效。
 
 本地220 tests、authoring、T01及diff检查通过；修复后32张分页/面板/组合筛选/清除四宽度双主题截图、完整production192+14、精确main部署和live复验均pending。代码先保留ui/fix-007，不放宽门禁或将静态测试当视觉验收。无新用户决定问题；其他全站矩阵未完成。
+
+## 2026-10-15 生产验收通过，线上待验收
+
+精确head51f5e999 / run38731750252的build116411370430 success，220 tests、T01/authoring/Jekyll/旧门禁、192+14及8分页/筛选流程通过。实际查看32张四宽度双主题截图两联系表，放大390 Night面板原图，浮层与标题/页面左缘均在屏内；32份几何scrollX=0，展开面板左右界均通过。
+
+完整artifact摘要、JSON与截图见[UI-007共同生产证据](ui007-checks.md#2026-10-15-ui-007ui-008生产验收)。仍须精确main部署和线上同场景复验，状态validation-pending；不以CI成功单独替代视觉。

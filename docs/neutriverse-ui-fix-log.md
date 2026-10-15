@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-007/UI-008生产验收与main交付
+
+- Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea、验收分支head51f5e99947ccf1bfce29754efac93d1b5f9740a0；产品实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04与bada5371158fb52728bf04f70da4721beb4a6a8a。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh未安装未编造Issue；独立worktree保护用户修改。本次范围仅计划/日志与docs/ui-evidence/ui007*、ui008-checks.md证据，不添加产品变更。
+- run38731750252精确head匹配，build116411370430 success，deploy116414200494与live116414201501 skipped（工作分支，不当作已上线）。日志核对220 tests、T01 baseline、authoring44/5/7、production Jekyll及旧门禁通过；192页面+14侧栏专项完整通过，未借前一失败head局部结果验收。
+- 下载artifact11971222460，独立sha256匹配16e9da6fbfb21213aaa06ca6c2ef94307441aceae894adf1463da2c48e9548c5。实际看32张四宽度双主题page2/open/combined/cleared截图两联系表，放大390 Night面板、390 Light页2、1024 Light组合原图：移动标题左侧不再被裁，浮层控件在屏内，第2页刷新后当前按钮2与同一组藏品保持，清除后目录恢复。
+- 8条filtersPagination记录均page2ReloadIds/previousPageRestored/filterReloadIds/clearRestored=true；来源bangumi与从公开卡片动态选择的2013年份匹配。32份几何诊断scrollX均0、展开面板左右界在viewport内；截图确认不是仅DOM通过。完整audit192、32诊断与两联系表永久入库，原PNG留artifact14天。
+- 本机220 tests、authoring44/5/7、T01保护44/5/5、diff check再次通过；Ruby/Jekyll/Chrome来自上述精确CI。非强推main交付后仍validation-pending，下一轮核对实际新main build/deploy/live及线上32图/交互，localhost不代替线上。全站其他矩阵仍IN PROGRESS，无新待答问题。未修改旧正文/metadata/URL/hidden/noindex、同步数据或关联仓库，旧COMPLETE历史不动。
+
 ## 2026-10-15 — UI-007 CI失败复核与UI-008窄屏筛选浮层
 
 - Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea、工作head ab85af5a022eb9b0a27126f2613fa7e7dadb0772。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh不可用未虚构Issue，独立worktree保护用户修改。
