@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a精确main线上验收
+
+- Task UI-A08a限定验收，base/current main85980c7e95f2407bbfb9232fafaf5e8cf9f485b4。读取最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和本UI计划日志，CONTEXT不存在、gh不可用不编造Issue；独立worktree保护原目录。本次文件范围仅计划/日志、docs/ui-evidence/uia08a*线上JSON及四联系表，先核对部署后看截图，不重复修改产品。
+- run38657575079精确head匹配base、completed/success；build116170877784、deploy116172735660、verify-live-ui116172823721全部success。207 Python tests、4项Ruby、T01/authoring/production Jekyll/全部旧门禁及production/live各192页面+14侧栏专项通过；分支或旧head结果没有替代此head。
+- 下载live artifact11937374039（sha256:141adf7ebbb3828ff951b70a66b4f169d2506836fabf5bf08c127e783ea38965）；JSON192记录，其中16关系场景：8 Library弹层打开/关闭、目录打开/返回，8友链href/真实全局Tab自然到达与往返严格焦点均通过。线上浏览器直接访问neutriverse.uk，不使用localhost生产结果替代。
+- 人工查看新增40张线上viewport/drawer/category/focus图四联系表，并放大390 Light弹层和768 Night友链焦点原图：标题/中文换行/关闭/来源按钮可见，目录布局与返回正常，友链焦点边框明确，无新增确认遮挡或内容消失。390两主题及其他目录图存在尚未加载的封面；现有审计未等待图片完成，证据不足以判断图片故障或证明完整lazy加载正常，保留UI-A08b专项pending。不凭截图瞬时状态改样式，不用CI成功掩盖此局限。
+- UI-A08a仅根页布局/弹层/目录往返/友链href与焦点done；图片加载、时间线、搜索、高级筛选、分页和外部目的地仍pending。JSON/四联系表永久保存，原PNG在artifact保留14天。网站样式/正文/metadata/URL/hidden/noindex、同步数据、关联仓库、旧COMPLETE历史未改。
+- 本次证据文档提交的CI另行核对，不冒称新文档head已部署。下一项UI-A08b优先补可见封面真实加载状态，再推进其他Library控件；全站IN PROGRESS，无新增需用户决定问题，不暂停任务。
+
 ## 2026-10-15 — UI-A08a生产验收与main交付
 
 - Base main9809089372832f3d6ff7a499a85c48755da7208e、工作head d770c3565f03c537ef23273423b6ee98f139dcef；最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告、本UI计划日志已读，CONTEXT不存在、gh不可用不虚构Issue。独立干净worktree，不覆盖用户修改。
