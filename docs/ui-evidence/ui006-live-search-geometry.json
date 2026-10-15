@@ -1,0 +1,482 @@
+{
+  "search-cleared-1024-dark-library.json": {
+    "header": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 954.5,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 526.359375,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 714.5,
+      "right": 954.5,
+      "top": 80
+    }
+  },
+  "search-cleared-1024-light-library.json": {
+    "header": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 958.40625,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 529.625,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 718.40625,
+      "right": 958.40625,
+      "top": 80
+    }
+  },
+  "search-cleared-1366-dark-library.json": {
+    "header": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 1044.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 804.25,
+      "right": 1044.25,
+      "top": 80
+    }
+  },
+  "search-cleared-1366-light-library.json": {
+    "header": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 1047.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 807.25,
+      "right": 1047.25,
+      "top": 80
+    }
+  },
+  "search-cleared-390-dark-library.json": {
+    "header": {
+      "bottom": 144.78125,
+      "left": 16,
+      "right": 359,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 144.78125,
+      "left": 16,
+      "right": 311.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0
+    }
+  },
+  "search-cleared-390-light-library.json": {
+    "header": {
+      "bottom": 146.0625,
+      "left": 16,
+      "right": 363,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 146.0625,
+      "left": 16,
+      "right": 315.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0
+    }
+  },
+  "search-cleared-768-dark-library.json": {
+    "header": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 725,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 485,
+      "right": 725,
+      "top": 88
+    }
+  },
+  "search-cleared-768-light-library.json": {
+    "header": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 729,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 489,
+      "right": 729,
+      "top": 88
+    }
+  },
+  "search-empty-1024-dark-library.json": {
+    "header": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 954.5,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 526.359375,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 714.5,
+      "right": 954.5,
+      "top": 80
+    }
+  },
+  "search-empty-1024-light-library.json": {
+    "header": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 958.40625,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 529.625,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 718.40625,
+      "right": 958.40625,
+      "top": 80
+    }
+  },
+  "search-empty-1366-dark-library.json": {
+    "header": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 1044.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 804.25,
+      "right": 1044.25,
+      "top": 80
+    }
+  },
+  "search-empty-1366-light-library.json": {
+    "header": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 1047.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 807.25,
+      "right": 1047.25,
+      "top": 80
+    }
+  },
+  "search-empty-390-dark-library.json": {
+    "header": {
+      "bottom": 189.5625,
+      "left": 16,
+      "right": 374,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 144.78125,
+      "left": 16,
+      "right": 326.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 189.5625,
+      "left": 16,
+      "right": 320,
+      "top": 155.96875
+    }
+  },
+  "search-empty-390-light-library.json": {
+    "header": {
+      "bottom": 190.84375,
+      "left": 16,
+      "right": 374,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 146.0625,
+      "left": 16,
+      "right": 326.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 190.84375,
+      "left": 16,
+      "right": 320,
+      "top": 157.25
+    }
+  },
+  "search-empty-768-dark-library.json": {
+    "header": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 740,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 500,
+      "right": 740,
+      "top": 88
+    }
+  },
+  "search-empty-768-light-library.json": {
+    "header": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 740,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 500,
+      "right": 740,
+      "top": 88
+    }
+  },
+  "search-results-1024-dark-library.json": {
+    "header": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 954.5,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 147.109375,
+      "left": 314.5,
+      "right": 526.359375,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 770.5,
+      "right": 954.5,
+      "top": 80
+    }
+  },
+  "search-results-1024-light-library.json": {
+    "header": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 958.40625,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 149.8125,
+      "left": 314.578125,
+      "right": 529.625,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 774.40625,
+      "right": 958.40625,
+      "top": 80
+    }
+  },
+  "search-results-1366-dark-library.json": {
+    "header": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 1044.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 152.078125,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 860.25,
+      "right": 1044.25,
+      "top": 80
+    }
+  },
+  "search-results-1366-light-library.json": {
+    "header": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 1047.25,
+      "top": 80
+    },
+    "heading": {
+      "bottom": 154.234375,
+      "left": 300,
+      "right": 540.75,
+      "top": 80
+    },
+    "search": {
+      "bottom": 113.59375,
+      "left": 863.25,
+      "right": 1047.25,
+      "top": 80
+    }
+  },
+  "search-results-390-dark-library.json": {
+    "header": {
+      "bottom": 189.5625,
+      "left": 16,
+      "right": 359,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 144.78125,
+      "left": 16,
+      "right": 311.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 189.5625,
+      "left": 16,
+      "right": 320,
+      "top": 155.96875
+    }
+  },
+  "search-results-390-light-library.json": {
+    "header": {
+      "bottom": 190.84375,
+      "left": 16,
+      "right": 363,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 146.0625,
+      "left": 16,
+      "right": 315.015625,
+      "top": 88
+    },
+    "search": {
+      "bottom": 190.84375,
+      "left": 16,
+      "right": 320,
+      "top": 157.25
+    }
+  },
+  "search-results-768-dark-library.json": {
+    "header": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 725,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 150.484375,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 541,
+      "right": 725,
+      "top": 88
+    }
+  },
+  "search-results-768-light-library.json": {
+    "header": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 729,
+      "top": 88
+    },
+    "heading": {
+      "bottom": 152.640625,
+      "left": 28,
+      "right": 215.09375,
+      "top": 88
+    },
+    "search": {
+      "bottom": 121.59375,
+      "left": 545,
+      "right": 729,
+      "top": 88
+    }
+  }
+}

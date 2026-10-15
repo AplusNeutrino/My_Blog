@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | validation-pending | 移动搜索独占布局行；结果/空状态/清空标题不重叠、搜索不逃出header；四宽度双主题生产与精确main部署后截图复验 |
+| UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
 | UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
 | UI-002 | P2 | 项目/观察组件引用未定义的圆角、阴影与等宽字体变量；圆角失效、数据文本字体回退 | done | 变量默认值与运行时圆角/字体通过，112截图/交互与旧门禁通过，精确head main部署和双主题线上复验通过 |
 | UI-003 | P2 | 390/768px截图顶栏显示内部布局名 Neutriverse-section / Neutriverse-project，而不是页面标题 | done | 120项production与120项部署后live场景、32张viewport、标题/tooltip/控件不重叠门禁通过；移动双主题截图复验 |
@@ -35,7 +35,7 @@
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
-| Library、友链 | UI-A08a限定done：生产及线上40张根页/弹层/目录布局/友链/焦点图已看；UI-A08b限定done：8张固定viewport可见书籍封面解码后生产/live图已看，56次线上加载通过；无新增确认缺陷 | 生产及线上16场景弹层开闭、书籍目录返回、友链href与真实Tab往返通过；时间线/搜索/高级筛选/分页/完整库存及离屏延迟加载、外部站点仍pending |
+| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b固定viewport可见书籍封面8图已看；UI-006修复搜索遮挡，UI-A08c1四宽度双主题三状态24张生产/live图已看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索结果/刷新/空状态/清空与24重叠矩形通过；时间线/高级筛选/分页/完整库存及离屏延迟加载、外部站点仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -48,6 +48,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-006 done / UI-A08c1限定done：验收main/base ea8b62d58414465661d1f7d88d883e353b9b5b90 / run38710416815 build116340121129、deploy116342302377、verify-live-ui116342443999全部success。215 tests、T01/authoring/production Jekyll/旧门禁及production/live各192+14通过。下载live artifact11960851998并核对摘要，人工看24张线上搜索三状态图两联系表，放大390 Light空状态、390 Night结果与1024 Light清空原图；副标题完整、搜索独立行、未遮挡后续内容。8组搜索刷新/结果/空提示/清空和24矩形通过。本次仅计划/日志与公开live证据，不改产品；文档head CI另核对。全站IN PROGRESS，无新用户问题；下一项UI-A08c2高级筛选/分页，完整库存/离屏加载等仍pending。[证据](docs/ui-evidence/ui006-checks.md)。
 
 UI-006 / UI-A08c1生产验收通过、待main/live：base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb；验收head1edcde07cb948b60a0fac2e275229a0c70769686 / run38703172752 build116316270106 success，工作分支deploy/live skipped。215 tests、T01/authoring/Jekyll/全部旧门禁及192+14通过；下载artifact11956813908并核对摘要，人工看24张搜索三状态截图两联系表并放大390 Light空状态、390 Night结果、1366 Light清空原图，副标题不再被搜索框覆盖。8搜索流程及24真实矩形JSON通过。仅将已通过修复与公开证据非强推main，状态仍validation-pending；必须再核对实际main head build/deploy/live及同24场景截图，不能用localhost替代。文件范围计划/日志与docs/ui-evidence/ui006*，不追加产品改动；其余全站矩阵未完成，无新增用户问题。
 

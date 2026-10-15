@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-006与UI-A08c1限定线上验收
+
+- Task UI-006 / UI-A08c1；base/current main ea8b62d58414465661d1f7d88d883e353b9b5b90，修复960fa5a51518453d85a1f6bccf2b0529197ac40d。读取最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在，gh未安装不虚构Issue，独立worktree保护用户修改。本轮范围仅UI计划/日志、docs/ui-evidence/ui006*线上证据，不增加产品改动。
+- [run38710416815](https://github.com/AplusNeutrino/My_Blog/actions/runs/38710416815)精确head匹配、completed/success；build116340121129、deploy116342302377、verify-live-ui116342443999全部success。日志核对215 tests、T01 baseline、authoring44/5/7、production Jekyll及旧门禁通过；production/live各192页面+14侧栏场景通过，不用工作分支或旧head冒充线上。
+- 下载live artifact11960851998，sha256:118f943c583b640080f74525a940f72111a0a12da6f95e28b8c7ebf116318caf独立匹配。实际查看24张线上四宽度双主题搜索结果/空状态/清空图两联系表，并放大390 Light空状态、390 Night结果及1024 Light清空原图：副标题完整、搜索在其下独立一行，无后续返回/控件遮挡；桌面没有新增确认显示缺陷。线上job明确UI_LIVE_BASE=https://neutriverse.uk，不是localhost。
+- 8组真实输入/刷新保留/匹配书籍ID/空提示/清空恢复根页通过；24份实际矩形JSON分别核对标题与搜索不相交、搜索不超出header。UI-006 done；UI-A08c1仅上述搜索路径限定done，不宣称高级筛选/分页/时间线或全站矩阵通过。完整live audit192、24矩形与两联系表永久保存；原PNG留artifact14天。
+- 本地215 tests、authoring44/5/7、T01保护44/5/5、diff check通过；Ruby/Jekyll/Chrome来自上述精确CI。本次证据文档head CI另核对；旧正文/Thought/Project Log、metadata/URL/hidden/noindex、同步数据、关联仓库、样式及旧COMPLETE历史未改，无新待答问题。下一项UI-A08c2高级筛选/分页；全站IN PROGRESS，不暂停任务。
+
 ## 2026-10-15 — UI-006生产验收与main交付
 
 - Base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb、验收工作head1edcde07cb948b60a0fac2e275229a0c70769686；真实修复960fa5a51518453d85a1f6bccf2b0529197ac40d。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和UI计划日志；CONTEXT不存在，gh未安装未虚构Issue，独立worktree保护用户修改。本轮文件范围UI计划/日志、docs/ui-evidence/ui006*生产证据，不增加产品变更。

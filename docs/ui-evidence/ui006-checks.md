@@ -1,6 +1,6 @@
 # UI-006 Library移动搜索遮挡副标题
 
-状态：validation-pending；不是视觉已通过报告。
+状态：UI-006 done，UI-A08c1上述搜索路径限定done。各阶段历史状态保留，最终线上验收见末节；全站检查未完成。
 
 ## 修复前实际证据
 
@@ -38,3 +38,17 @@ artifact11951832064（sha256:c2e1b65ce679fe223d0bd0b7cce819d8275c1c6064bc9ebac21
 8搜索流程均刷新保留、空提示、清空返回通过。390 Light空状态标题区bottom146.0625、搜索top157.25、搜索bottom与header.bottom均190.84375，标题与搜索约11px间隔。未展开搜索时保持隐藏，不额外公开信息。JSON与联系表永久入仓，原PNG在artifact保留14天。
 
 UI-006/UI-A08c1仍validation-pending：交付main后核对实际新head build/deploy/live及线上同场景截图；本节不等于线上验收。Library高级筛选/分页/时间线及全站余下矩阵仍pending。
+
+## 2026-10-15 精确main部署与线上复验
+
+验收main `ea8b62d58414465661d1f7d88d883e353b9b5b90`，
+[run38710416815](https://github.com/AplusNeutrino/My_Blog/actions/runs/38710416815) build116340121129、deploy116342302377、verify-live-ui116342443999全部success。215 tests、T01/authoring/production Jekyll/旧门禁及production/live各192+14通过。
+
+live artifact11960851998，sha256:118f943c583b640080f74525a940f72111a0a12da6f95e28b8c7ebf116318caf下载独立核对。线上job目标为https://neutriverse.uk；8组搜索路径与24矩形检查通过。实际看24张搜索三状态线上截图两联系表，放大390 Light空状态、390 Night结果、1024 Light清空原图，移动搜索不再覆盖副标题或后续返回/工具栏，桌面无新增确认缺陷。
+
+- [完整live audit192记录](ui006-live-audit.json)
+- [24份live搜索矩形](ui006-live-search-geometry.json)
+- [线上390/768双主题三状态](ui006-live-search-390.jpg)
+- [线上1024/1366双主题三状态](ui006-live-search-1024.jpg)
+
+UI-006 done；UI-A08c1限定搜索结果/刷新保留/空结果提示/清空恢复根页done。高级筛选/分页、时间线、完整库存/离屏加载和其他全站矩阵仍pending，不将局部验收扩写为全站正常。JSON及联系表永久入库，原PNG留artifact14天。本次只持久化证据，无产品/内容/URL/隐藏边界改变；文档提交CI另核对。
