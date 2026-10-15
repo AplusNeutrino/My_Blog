@@ -12,3 +12,16 @@
 - [1024/1366双主题](uia08b-production-contact-1024.jpg)
 
 来源artifact11945044852，sha256:1ea5e0c902c998a32139ca4a067b66c82adb273936f3653cc92602bf44b15ae8，原PNG保留14天，JSON/联系表永久留仓库。固定视口可见图片通过不等于完整库存或离屏滚动加载通过；搜索/筛选/分页/时间线另项pending。UI-A08b仍validation-pending：main交付后核对精确head部署和线上相同8场景记录/截图，不能用localhost替代，无新待答问题。
+
+## 2026-10-15 线上复验：限定done
+
+验收main `57a6817cd90f27f41039c92040c38ff3de53a03e`，[run38679922788](https://github.com/AplusNeutrino/My_Blog/actions/runs/38679922788) build116241892225、deploy116243565530、verify-live-ui116243614933全部success。211 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live192+14通过。
+
+线上8场景56次可见书籍封面complete/原生尺寸/原生decode全部通过，实际等待解码及两帧后截图。人工看8张线上截图两联系表并放大390 Light原图，没有空白封面或新增确认显示缺陷。此结论仅针对固定viewport可见书籍封面，不覆盖全库存/离屏图片/时间线或检索交互。
+
+- [完整live audit](uia08b-live-audit.json)
+- [8场景live加载记录](uia08b-live-covers.json)
+- [390/768双主题](uia08b-live-contact-390.jpg)
+- [1024/1366双主题](uia08b-live-contact-1024.jpg)
+
+来源live artifact11946904727，sha256:b16ca99d4828149863d34acf498e4ca12c40d2ce6280d080cb268f50af538f9c，原PNG保留14天，JSON/联系表永久保存。UI-A08b限定done，全站IN PROGRESS；没有为采图修改产品图片加载/样式/同步数据，旧COMPLETE历史保持原样。

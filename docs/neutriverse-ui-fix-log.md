@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08b精确main线上验收
+
+- Task UI-A08b限定验收；base/current main57a6817cd90f27f41039c92040c38ff3de53a03e。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh不可用不虚构Issue，独立worktree保护用户修改。本次范围仅计划/日志、docs/ui-evidence/uia08b*线上JSON/两联系表与说明，不改产品。
+- run38679922788精确head匹配、completed/success；build116241892225、deploy116243565530、verify-live-ui116243614933全部success。211 tests、4 Ruby渲染回归、T01/authoring/production Jekyll/所有旧门禁与production/live各192页面+14侧栏专项通过；没有用旧head或分支成功替代线上。
+- 下载live artifact11946904727，sha256:b16ca99d4828149863d34acf498e4ca12c40d2ce6280d080cb268f50af538f9c。8 covers JSON共56次可见封面complete=true且原生尺寸>0；原生decode()成功及两帧后采图，实际访问neutriverse.uk，不是localhost结果。
+- 人工查看8张线上covers图两联系表并放大390 Light原图，可见封面均显示，没有此前早于绘制造成的空白；布局/标题/菜单/卡片没有新增确认缺陷。UI-A08b仅固定viewport可见书籍封面限定done，未宣称全库存/滚动离屏图片/时间线/搜索/筛选/分页通过。
+- 完整live audit192记录、8项covers与两联系表永久入库，原PNG留artifact14天。本次本地211 tests/authoring44/5/7/T01保护44/5/5/diff复核；Ruby/Jekyll/Chrome结果来自上述精确CI而非本机。旧正文/metadata/URL/hidden/noindex、同步数据、样式、外部项目和旧COMPLETE历史未改，无新待答问题。
+- 本次证据文档提交CI另核对，不把新文档head写成已部署；下一项UI-A08c优先检查Library搜索/高级筛选/分页，其他全站矩阵仍IN PROGRESS，不暂停任务。
+
 ## 2026-10-15 — UI-A08b解码后生产验收与main交付
 
 - Task UI-A08b本次范围仅UI计划/日志、docs/ui-evidence/uia08b*生产JSON/两联系表/说明，交付已通过审计；base main30e26ead4ee97aa6bc3120aec3372897bb1285bc、分支head aa328fa7b8f5e09d58adbe3d8aada6f7ae0f8b03。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不可用；独立worktree保护用户修改。
