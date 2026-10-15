@@ -7,6 +7,7 @@
 - 云Chrome1363×936 Prospero Light实际输入站内公开书名“猎魔人”，9项结果且URL含对应q；截图看到标题/搜索框/结果卡片可见，无新增确认产品缺陷。不从私人记忆生成测试词或公开信息，不修改样式/原文/metadata/URL/hidden/noindex/同步数据或关联仓库。
 - 先ui/audit-008c生产192+14及8新搜索流程，未验证不进main；真实截图/刷新/空状态/清空与部署后复验pending，无新待答问题。
 - 云1363×936 Light继续真实输入不存在词，显示“未找到匹配藏品”、0卡片，截图已看；清空后URL恢复/library/、根页可见、browser view隐藏。此桌面局部手动检查不替代四宽度两主题CI。新增审计使用已有公开目录首卡标题与ID动态核对搜索，不硬编码9条或公开私人信息；213本地tests、authoring44/5/7、T01保护44/5/5及diff check通过，本机Ruby/Jekyll/Chrome未执行。
+- 实现提交1900a71aa306b56b8d61bee9076f3a2eb89139ef；日志检查点后保存ui/audit-008c，状态validation-pending。main仍c5c40820，未部署新审计；下轮先核对最终分支head的production192+14与24张搜索状态截图，不把桌面或本地helper测试当全部通过。
 
 ## 2026-10-15 — UI-A08b精确main线上验收
 
