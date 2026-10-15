@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-007分页刷新丢失，UI-A08c2范围
+
+- Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea；run38717518673 build116363722730/deploy116366321159/live116366415960全部success。已读最新AGENTS/domain/ADR0001、旧COMPLETE计划报告和UI计划日志；CONTEXT不存在，gh未安装，独立worktree保护用户修改。
+- 云Chrome1363×936 Prospero Light实际展开高级筛选，Bangumi来源显示16条、加2011年份显示2条，清除恢复124条/分页；只记当前公开库存，不固定未来同步数量。实际点击下一页，URL含page=2且当前页按钮2；reload后稳定UI按钮1、首卡猎魔人卷四，URL仍page=2。确认UI-007 P2，不将刷新瞬间图片未加载当网站缺陷；截图桌面局部不代替四宽度双主题。
+- 根因renderCards首次在items=[]时计算totalPages=1并改写state.page，随后loadLibraryData成功render已丢失原页码。最小范围assets/pgl/pgl.js、tools/check_think_build_visual.py、必要回归及UI计划日志：加载成功前不校正页码；合法page2刷新保持、加载后越界仍收缩。增加实际JS函数回归与8组真实下一页/刷新ID一致/上一页、来源/年份/清除审计，不放宽旧门禁。
+- 先工作分支production192+14和新截图，未验收不进main；保护原文/metadata/URL/hidden/noindex/同步数据及关联仓库，旧COMPLETE历史不改。无新待答问题。
+- 实现libraryDataLoaded标志只在目录请求成功后设true，renderCards仅在其true时收缩越界page；失败/未加载不冒充空目录。新增Node执行真实renderCards的加载前page2、加载后第二页切片、越界页和合法空目录回归，另补标志接线/浏览器契约。现有Library场景新增真实翻页→刷新同ID→上一页及公开来源/动态可见年份组合→刷新→清除，32张新状态图，完整192+14不减。218本地tests、authoring44/5/7、T01保护44/5/5与diff check通过；本机无Ruby/Chrome，真实浏览器及Jekyll交给工作分支精确head，未声称修复后视觉/部署通过。
+- 原HEAD的真实renderCards作为负对照运行相同Node测试，被“empty pending data destroyed requested page”拒绝，证明新增回归捕获本次根因；修复函数测试通过。[复现证据](ui-evidence/ui007-checks.md)与截图仅含公开Library内容。修复及新审计先保存ui/fix-007，production/live仍pending。
+
 ## 2026-10-15 — UI-006与UI-A08c1限定线上验收
 
 - Task UI-006 / UI-A08c1；base/current main ea8b62d58414465661d1f7d88d883e353b9b5b90，修复960fa5a51518453d85a1f6bccf2b0529197ac40d。读取最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在，gh未安装不虚构Issue，独立worktree保护用户修改。本轮范围仅UI计划/日志、docs/ui-evidence/ui006*线上证据，不增加产品改动。

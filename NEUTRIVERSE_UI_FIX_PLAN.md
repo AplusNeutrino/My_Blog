@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | validation-pending | 异步加载前保留请求页码，加载后合法页/越界均正确；四宽度双主题翻页、刷新ID一致、上一页、筛选与清除及线上截图复验 |
 | UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
 | UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
 | UI-002 | P2 | 项目/观察组件引用未定义的圆角、阴影与等宽字体变量；圆角失效、数据文本字体回退 | done | 变量默认值与运行时圆角/字体通过，112截图/交互与旧门禁通过，精确head main部署和双主题线上复验通过 |
@@ -48,6 +49,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-007 in-progress / UI-A08c2：base eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea，run38717518673 build116363722730/deploy116366321159/live116366415960全部success已核对。云1363×936 Light实际打开书籍高级筛选、来源Bangumi与年份2011组合、清除及下一页；刷新前页码2，刷新后URL仍category=book&page=2而界面页码1/首项猎魔人卷四，确认P2分页状态丢失。根因首次renderCards在异步目录加载前按空items把page收缩为1。最小范围pgl.js、现有审计/必要回归、UI计划日志；仅在目录加载成功后校正越界页，保留合法page2。四宽度双主题真实下一页/刷新相同ID/上一页、来源/年份/清除及截图为验收；先工作分支production192+14，未验收不进main。高级筛选桌面局部未确认显示缺陷，不猜测改样式；gh未安装不虚构Issue，无新用户问题。
 
 UI-006 done / UI-A08c1限定done：验收main/base ea8b62d58414465661d1f7d88d883e353b9b5b90 / run38710416815 build116340121129、deploy116342302377、verify-live-ui116342443999全部success。215 tests、T01/authoring/production Jekyll/旧门禁及production/live各192+14通过。下载live artifact11960851998并核对摘要，人工看24张线上搜索三状态图两联系表，放大390 Light空状态、390 Night结果与1024 Light清空原图；副标题完整、搜索独立行、未遮挡后续内容。8组搜索刷新/结果/空提示/清空和24矩形通过。本次仅计划/日志与公开live证据，不改产品；文档head CI另核对。全站IN PROGRESS，无新用户问题；下一项UI-A08c2高级筛选/分页，完整库存/离屏加载等仍pending。[证据](docs/ui-evidence/ui006-checks.md)。
 

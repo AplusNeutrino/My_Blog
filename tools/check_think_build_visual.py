@@ -354,6 +354,80 @@ def library_search_controls(driver, wait, output, width, theme, query, expected_
             'emptyMessage':True,'clearRestoredRoot':True}
 
 
+def library_filter_pagination_controls(driver, wait, output, width, theme):
+    """UI-007: preserve the actual second-page IDs across a full reload."""
+    def ids():
+        return [e.get_attribute('data-pgl-id') for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')]
+    def params():
+        return parse_qs(urlsplit(driver.current_url).query)
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def click(selector):
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+        element.click()
+    def capture(state, selector):
+        position(driver.find_element(By.CSS_SELECTOR, selector))
+        require(driver.execute_script('return document.documentElement.scrollWidth <= innerWidth+1'),
+                f'Library {state} page overflow')
+        driver.save_screenshot(str(output / f'filters-{state}-{width}-{theme}-library.png'))
+    def open_filters():
+        if not driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'):
+            click('.pgl-advanced summary')
+        wait.until(lambda d: d.find_element(By.ID, 'pgl-source').is_displayed())
+
+    ready()
+    first_page = ids()
+    require(first_page, 'Library first page empty')
+    next_selector = '#pgl-pagination .pgl-page-nav:last-child'
+    require(driver.find_element(By.CSS_SELECTOR, next_selector).is_enabled(), 'Library needs a real second page')
+    click(next_selector)
+    wait.until(lambda d: params().get('page') == ['2'] and ids() and ids() != first_page)
+    second_page, second_url = ids(), driver.current_url
+    require(not set(first_page).intersection(second_page), 'Library pages repeat IDs')
+    driver.refresh()
+    ready()
+    wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-pagination [aria-current="page"]'))
+    require(driver.find_element(By.CSS_SELECTOR, '#pgl-pagination [aria-current="page"]').text == '2',
+            'Library reload lost page 2 despite page URL')
+    require(driver.current_url == second_url and ids() == second_page, 'Library reload changed second-page IDs or URL')
+    capture('page2', '#pgl-pagination')
+    click('#pgl-pagination .pgl-page-nav:first-child')
+    wait.until(lambda d: ids() == first_page and 'page' not in params())
+    open_filters()
+    capture('open', '.pgl-advanced-panel')
+    Select(driver.find_element(By.ID, 'pgl-source')).select_by_value('bangumi')
+    wait.until(lambda d: params().get('source') == ['bangumi'] and ids())
+    ready()
+    years = driver.execute_script("return [...document.querySelectorAll('#pgl-grid .pgl-meta span')].map(e=>e.textContent.trim()).filter(t=>/^\\d{4}$/.test(t));")
+    require(years, 'Library public source has no year fixture')
+    selected_year = years[0]
+    Select(driver.find_element(By.ID, 'pgl-year')).select_by_value(selected_year)
+    wait.until(lambda d: params().get('year') == [selected_year] and ids())
+    ready()
+    filtered_ids, filtered_url = ids(), driver.current_url
+    require(all(selected_year in e.text for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-meta')),
+            'Library year filter contains mismatched visible year')
+    driver.refresh()
+    ready()
+    wait.until(lambda d: ids() == filtered_ids)
+    require(driver.current_url == filtered_url, 'Library filter reload changed URL')
+    require(Select(driver.find_element(By.ID, 'pgl-source')).first_selected_option.get_attribute('value') == 'bangumi', 'Library source selection lost')
+    require(Select(driver.find_element(By.ID, 'pgl-year')).first_selected_option.get_attribute('value') == selected_year, 'Library year selection lost')
+    open_filters()
+    capture('combined', '.pgl-advanced-panel')
+    click('#pgl-clear-filters')
+    wait.until(lambda d: ids() == first_page and 'source' not in params() and 'year' not in params())
+    click('.pgl-advanced summary')
+    capture('cleared', '.pgl-view-toolbar')
+    return {'page2ReloadIds':True,'previousPageRestored':True,'source':'bangumi',
+            'year':selected_year,'filterReloadIds':True,'clearRestored':True}
+
+
 def relationship_controls(driver, wait, name, output, width, theme):
     """Limited public Library browsing and friend-card inspection, no external writes."""
     if name == 'links':
@@ -413,12 +487,16 @@ def relationship_controls(driver, wait, name, output, width, theme):
     first = driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
     query = first.find_element(By.CSS_SELECTOR, '.pgl-card-title').text
     expected_id = first.get_attribute('data-pgl-id')
+    filters_pagination = library_filter_pagination_controls(driver, wait, output, width, theme)
+    back = driver.find_element(By.ID, 'pgl-back')
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
+    driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
     back.click()
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'timelineSearchPagination': 'not-verified'}
+            'filtersPagination':filters_pagination,'timeline':'not-verified'}
 
 
 def clipboard_text(driver, value=None):

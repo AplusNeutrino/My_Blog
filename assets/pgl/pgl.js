@@ -34,6 +34,7 @@
   let stats = {};
   let itemById = new Map();
   let libraryDataPromise = null;
+  let libraryDataLoaded = false;
   let libraryDataError = null;
   let searchTimer = null;
   let previousNonSearchState = null;
@@ -295,7 +296,7 @@
   function renderCards(allSelected) {
     if (!grid) return;
     const totalPages = Math.max(1, Math.ceil(allSelected.length / PAGE_SIZE));
-    if (state.page > totalPages) state.page = totalPages;
+    if (libraryDataLoaded && state.page > totalPages) state.page = totalPages;
     const start = (state.page - 1) * PAGE_SIZE;
     const pageItems = allSelected.slice(start, start + PAGE_SIZE);
     const fragment = document.createDocumentFragment();
@@ -439,6 +440,7 @@
       .then(([library, loadedStats]) => {
         items = Array.isArray(library.items) ? library.items : [];
         stats = loadedStats || {};
+        libraryDataLoaded = true;
         itemById = new Map(items.map((item) => [item.id, item]));
         populateYears();
         setLayout(currentLayout());
