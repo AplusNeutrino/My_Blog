@@ -7,6 +7,7 @@
 - UI-006 P2确认；CSS720px内label绝对定位于按钮wrap，未为搜索行留空间。最小文件范围assets/pgl/pgl.css、tools/check_think_build_visual.py、必要测试、UI计划日志及公开证据；标题/按钮一行、展开搜索另占行，不改内容、metadata、URL、同步数据或隐藏边界。新增实际矩形无重叠断言；四宽度两主题截图与完整生产/线上复验为验收条件，先工作分支。
 - c5fd955a的run38695811401 completed/success，build116292008997 success、deploy116294154889/live116294155610 skipped；只确认该历史检查点CI，不替代本次修复。当前本地213 tests、authoring44/5/7、T01保护通过；Ruby/Jekyll仍来自CI。无新增用户决策问题，筛选/分页等继续pending。
 - 已实现移动header两列Grid、搜索wrap display:contents、搜索label第二行跨列正常流；不改DOM/JS搜索行为或桌面布局。审计在三状态保存真实矩形JSON与PNG，严格拒绝搜索与heading/subtitle交集、搜索bottom超出header；新增两项静态契约回归。本地215 tests、authoring44/5/7、T01保护44/5/5与diff check通过，本机未运行Ruby/Jekyll/Chrome。状态validation-pending，先工作分支对应head生产CI和新24图，未合main或部署；没有以旧图或测试成功声明修复完成。[修复前证据](ui-evidence/ui006-checks.md)。
+- 实现960fa5a51518453d85a1f6bccf2b0529197ac40d已expected_sha非强推保存ui/audit-008c，8个上传blob与本地git hash-object逐项一致。精确实现[run38703062082](https://github.com/AplusNeutrino/My_Blog/actions/runs/38703062082)已触发，核对时in-progress，未声称生产通过。此后仅追加计划/日志记录SHA，新检查点CI需另核对；main仍c5c40820，未部署。下一轮最终分支head production192+14、24图与重叠矩形JSON通过后再交付main、核对新main部署和live同场景。
 
 ## 2026-10-15 — UI-A08c1生产CI核对，视觉证据待可用环境复核
 
