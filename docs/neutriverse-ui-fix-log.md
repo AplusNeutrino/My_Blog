@@ -8,6 +8,7 @@
 - 本轮最小范围assets/pgl/pgl.css、现有审计/必要回归、UI计划日志及失败证据；只在720px内以toolbar作定位参照并左右约束panel。审计保留年份与URL/ID断言，年份比较改取卡片真实textContent避免布局可见性影响语义读取，并保存可见text/textContent及panel几何；严格拒绝panel出viewport或scrollX偏移。不将overlay覆盖卡片本身视为缺陷，也不修改产品筛选/同步数据。
 - UI-007/UI-008均validation-pending，main不动。新head完整生产192+14/32新状态图及main/live待验收，无新增用户问题。
 - 本地220 tests、authoring44/5/7、T01保护44/5/5及diff check通过；本机未运行Ruby/Jekyll/Chrome。截图和[证据](ui-evidence/ui008-checks.md)持久保存公开目录部分，不包含隐藏应用；失败CI历史保留，不用原head局部页2成功宣称修复已完成。
+- UI-008布局修复与诊断实现bada5371158fb52728bf04f70da4721beb4a6a8a已expected_sha非强推保存ui/fix-007；随后仅追加实现SHA检查点。main仍eb016b52，未部署。下一轮先核对最终分支head的新production192+14与32图/面板矩形/年份诊断，再决定main交付；不得复用ab85af5a的局部成功。
 
 ## 2026-10-15 — UI-007分页刷新丢失，UI-A08c2范围
 

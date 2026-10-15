@@ -51,6 +51,8 @@
 
 ## 当前运行
 
+UI-008修复实现bada5371158fb52728bf04f70da4721beb4a6a8a已保存ui/fix-007；本地220 tests/authoring/T01/diff通过，main eb016b52不改。UI-007与UI-008均validation-pending，新检查点head完整production192+14、32新图/矩形/年份诊断及main/live未验收，无新待答问题。
+
 UI-007/UI-008接续validation-pending：base main eb016b52、工作head ab85af5a，run38724996114 build116388845796 failure（年份可见文本断言），deploy/live skipped；218 tests/T01/authoring/Jekyll/旧门禁此前通过。已下载artifact11967657119并看390 Night page2/open/failure原图，第2页刷新保留已通过；高级筛选浮层超出窄屏并触发水平偏移，标题左侧被裁，新增确认UI-008 P2。只修720px内浮层以整个toolbar为定位参照、左右约束；审计补panel真实矩形/scrollX与年份textContent诊断，保留严格年份/URL/ID/刷新断言。文件范围pgl.css、现有审计/必要回归、UI计划日志/证据，不扩大重新设计。先ui/fix-007重新完整192+14及32图，main不变，无新用户问题。
 
 UI-007 validation-pending：实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04保存ui/fix-007，main仍eb016b52。本地218 tests、authoring、T01与diff通过，原函数负对照准确捕获加载前页码丢失。计划/日志及公开复现截图已持久化；下轮先核对最终分支head production192+14、新32张分页/筛选图和真实交互，通过后再非强推main与live复验，不以helper单测代替视觉通过。无新用户问题。
