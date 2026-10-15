@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08d生产截图复核发现UI-009文字遮挡
+
+- Base main2e3d2844af408504cb616b9596ea682c97c3edd0、验收head47b3c294711c77abb62b321f71f5ae1eb658f855。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改。
+- run38765012413精确head匹配，build116526426682 success、deploy116529172398/live116529172648 skipped。223 tests、4 Ruby、T01 baseline、authoring44/5/7、production Jekyll/旧门禁与192+14通过。下载artifact11989890630 /159222185 bytes，sha256:5264018373f168f4969b4c74c618e65078b65c79ff0af80553f1cc0a2b0861b9独立匹配。8时间线流程均46条且单列表/一次性加载按钮替换/滚动内容保持/刷新lazy/Enter同组记录通过，24行/页面溢出诊断通过，但不代表视觉无缺陷。
+- 实际看24张四宽度双主题start/tail/reloaded图两联系表，放大390 Light start/tail与1024 Night reloaded原图。390 Light start中2026-09-04行长作品名尾部被右下固定返回顶部按钮覆盖，确认UI-009 P2；首尾截图几何scrollWidth均正常，说明原溢出门禁未捕获固定按钮与文本相交。未将纯审美偏好、按钮本身或一时加载状态当缺陷；不合main。
+- UI-009最小范围assets/pgl/pgl.css、现有审计/必要回归、UI计划日志与公开证据；仅在窄屏时间线列表预留按钮避让空间，不移动全站共享按钮/不改数据文字。补Range真实文字行矩形与可见按钮不相交诊断和严格断言；保持原首尾/刷新24图、8交互、192+14、authoring/T01/Jekyll验收。新head完整production和main/live未验收，继续validation-pending，无新待答问题；旧正文/metadata/URL/hidden/noindex、同步数据、关联仓库及旧COMPLETE历史不改。
+- 已实现720px内.pgl-timeline-list padding-right3.5rem，只调整时间线文字避让；TreeWalker遍历真实文本、Range.getClientRects采可见文字行，与#back-to-top实际可见矩形严格不相交，PNG/JSON先保存便于失败诊断。新增回归固定实际文字行/按钮接线和限定CSS，不隐藏按钮或改变全站主题。224本地tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机无Ruby/Chrome，修复后视觉/production192+14/main/live仍pending，不用原成功CI冒充修复通过。原audit192、24诊断和两联系表永久保存，视觉失败UI-009明示，不把它们标作验收成功。
+
 ## 2026-10-15 — UI-A08d失败复核：一次性加载按钮生命周期
 
 - Base main2e3d2844af408504cb616b9596ea682c97c3edd0，工作head02d11892f9d9741a0f5739a423e01bedabd3fe7f，精确run38757230686 build116499547427 failure，deploy116500623040/live116500622929 skipped。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改。

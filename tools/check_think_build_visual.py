@@ -456,8 +456,28 @@ def library_timeline_controls(driver, wait, output, width, theme):
         settle(anchor)
         geometry = driver.execute_script("""
           const root=document.querySelector('#pgl-timeline');
+          const button=document.querySelector('#back-to-top');
+          const b=button?.getBoundingClientRect();
+          const style=button && getComputedStyle(button);
+          const buttonVisible=!!b && b.width>0 && b.height>0 &&
+            style.display!=='none' && style.visibility!=='hidden' && Number(style.opacity)>0;
+          const textRects=[];
+          const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+          while(walker.nextNode()){
+            const node=walker.currentNode;
+            if(!node.textContent.trim())continue;
+            const range=document.createRange();range.selectNodeContents(node);
+            for(const r of range.getClientRects()){
+              if(r.width>0 && r.height>0 && r.bottom>0 && r.top<innerHeight)
+                textRects.push({left:r.left,right:r.right,top:r.top,bottom:r.bottom,text:node.textContent});
+            }
+          }
+          const overlaps=buttonVisible ? textRects.filter(r=>
+            r.left<b.right && r.right>b.left && r.top<b.bottom && r.bottom>b.top) : [];
           return {width:innerWidth,scrollX,body:document.body.scrollWidth,
             document:document.documentElement.scrollWidth,
+            backToTop:buttonVisible ? {left:b.left,right:b.right,top:b.top,bottom:b.bottom}:null,
+            textRects,overlaps,
             rows:[...root.querySelectorAll('li')].map(e=>{
               const r=e.getBoundingClientRect();return {left:r.left,right:r.right,
                 client:e.clientWidth,scroll:e.scrollWidth,text:e.textContent};
@@ -466,6 +486,9 @@ def library_timeline_controls(driver, wait, output, width, theme):
         (output / f'timeline-{state}-{width}-{theme}-library.json').write_text(
             json.dumps(geometry,ensure_ascii=False,indent=2),encoding='utf-8')
         driver.save_screenshot(str(output / f'timeline-{state}-{width}-{theme}-library.png'))
+        require(geometry['backToTop'], 'Library timeline fixed-button scenario not active')
+        require(not geometry['overlaps'],
+                f'Library timeline text covered by back-to-top: {geometry["overlaps"]}')
         require(abs(geometry['scrollX']) <= 1, 'Library timeline shifted horizontally')
         require(max(geometry['body'],geometry['document']) <= geometry['width']+1,
                 'Library timeline page overflow')

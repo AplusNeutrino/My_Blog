@@ -19,3 +19,16 @@ Base main：2e3d2844af408504cb616b9596ea682c97c3edd0。
 下载artifact11983209912，11611426 bytes，sha256:1cc7a1ff7bb4b6ba843b1628990badc56bc48a48041731e097ad2d92c1abb839独立匹配。人工看[390 Night首段](uia08d-initial-start-390-dark.png)及[尾段](uia08d-initial-tail-390-dark.png)，未确认显示缺陷；失败发生在之后再次访问旧加载按钮。既有markup将按钮放在时间线容器内、成功时replaceChildren(list)，旧button引用必然失效。初始“重复加载”验收不适用于当前一次性lazy界面，不能据此宣称网站故障或增加新按钮。
 
 新审计明确核对加载后按钮移除且只有一个ul、首尾滚动记录不变，再刷新恢复未加载状态、键盘Enter重新加载同组文本；保留日期/数量/溢出/24图及所有原门禁，不捕获Stale异常后假装通过。新head production/live仍pending。
+
+## 2026-10-16 生产机械通过，但截图发现UI-009
+
+精确head47b3c294711c77abb62b321f71f5ae1eb658f855 / run38765012413，build116526426682 success，deploy/live skipped。223 tests/4 Ruby/T01/authoring/Jekyll/旧门禁、192+14与8时间线流程机械通过；24首/尾/刷新诊断无行/页面横向溢出、scrollX=0，每组46条、单列表、一次性按钮替换、滚动保持和刷新lazy/Enter同组记录均通过。
+
+artifact11989890630摘要独立匹配。人工看24张图两联系表并放大390 Light首/尾与1024 Night刷新原图，确认390 Light长作品名尾部被固定返回顶部按钮遮住，详见[UI-009](ui009-checks.md)。故UI-A08d不标done、不合main；以下保存的“production”文件是此次机械记录与视觉失败证据，不是视觉验收通过：
+
+- [完整audit192](uia08d-production-audit.json)
+- [24行/页面诊断](uia08d-production-timeline.json)
+- [390/768双主题三状态](uia08d-production-contact-390.jpg)
+- [1024/1366双主题三状态](uia08d-production-contact-1024.jpg)
+
+修复及真实文字行/按钮不相交门禁先工作分支，新head完整production/live和修复后截图仍pending；其他Library控件/全站矩阵不由本项推断完成。

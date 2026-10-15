@@ -38,3 +38,12 @@ class LibraryTimelineAuditTests(unittest.TestCase):
         for text in ("r['scroll'] <= r['client']+1", "geometry['scrollX']", 'row overflow',
                      'page overflow', "timeline-{state}-{width}-{theme}-library.json"):
             self.assertIn(text, helper)
+
+    def test_fixed_button_overlap_uses_real_rendered_text_lines(self):
+        _, helper = self.helper()
+        for text in ('document.createTreeWalker', 'range.getClientRects()',
+                     "document.querySelector('#back-to-top')", "geometry['backToTop']",
+                     "not geometry['overlaps']", 'text covered by back-to-top'):
+            self.assertIn(text, helper)
+        css = Path('assets/pgl/pgl.css').read_text().split('@media (max-width: 720px) {', 1)[1]
+        self.assertIn('.pgl-timeline-list { padding-right:3.5rem; }', css)

@@ -178,6 +178,8 @@
 }
 
 @media (max-width: 720px) {
+  /* Keep timeline text clear of the existing fixed 44px back-to-top control. */
+  .pgl-timeline-list { padding-right:3.5rem; }
   .pgl-header { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.7rem; }
   .pgl-header-search-wrap { display:contents; }
   .pgl-search-toggle { display:grid; place-items:center; grid-column:2; grid-row:1; }

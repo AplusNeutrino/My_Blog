@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | validation-pending | 窄屏时间线预留按钮避让空间；四宽度双主题首/尾/刷新截图人工复验，真实文字行矩形不与按钮相交，原内容/加载/刷新/溢出断言保持；精确main部署/live复验 |
 | UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
 | UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | done | 3a6258a2精确main部署/live通过；8组下一页/刷新同URL与ID/上一页、来源年份组合刷新与清除通过，32图人工复验 |
 | UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
@@ -52,6 +53,10 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-009修复及诊断已实现，先ui/audit-008d：720px内时间线padding-right3.5rem，仅为固定按钮留空间；审计新增真实可见文字行与#back-to-top矩形相交检查，按钮必须可见，原全部断言/24图/8流程保留。本地224 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机未运行Ruby/Jekyll/Chrome，修复后production192+14和精确main/live均待新head验收。UI-A08d/UI-009保持validation-pending，main不改，无新待答问题。[缺陷证据](docs/ui-evidence/ui009-checks.md)。
+
+UI-009 in-progress / UI-A08d继续validation-pending：base main2e3d2844、工作head47b3c294；run38765012413 build116526426682 success，deploy116529172398/live116529172648 skipped。223 tests/4 Ruby/T01/authoring/Jekyll/192+14及8时间线流程通过，artifact11989890630摘要匹配。实际看24张时间线首/尾/刷新两联系表并放大390 Light首/尾、1024 Night刷新，确认390 Light固定返回顶部按钮覆盖长作品名尾部，不能以原机械通过说视觉正常或合main。最小范围pgl.css、现有审计/必要回归、计划日志/公开证据：窄屏timeline列表预留按钮避让，不移动全站按钮或重新设计，补真实文字行矩形与按钮不相交门禁。新head完整production/24图与main/live待验收；gh未安装未编造Issue，无新待答问题。
 
 UI-A08d审计修正实现e8ab0dbc2f3090454cc7933370639c0d956cd75a已expected_sha非强推保存ui/audit-008d；7个上传blob与本地hash相同。随后仅追加实现SHA记录，最终检查点head需单独验证，main仍2e3d2844；本地223 tests/authoring/T01/diff通过，production192+14、新24图/8流程及main/live未验收。无新待答问题，不将审计错误当网站缺陷。
 
