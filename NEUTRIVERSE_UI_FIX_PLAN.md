@@ -34,7 +34,7 @@
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
-| Library、友链 | pending | 目录/延迟加载/链接pending |
+| Library、友链 | UI-A08a生产四宽度双主题40张根页/弹层/目录/友链/焦点截图已查看，无新增确认缺陷；线上validation-pending | 生产16场景弹层开闭、书籍目录返回、友链href与真实Tab往返通过；时间线/搜索/高级筛选/分页/完整延迟加载及外部站点仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -47,6 +47,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-A08a生产通过、待main/live：base main9809089372832f3d6ff7a499a85c48755da7208e；验收head d770c3565f03c537ef23273423b6ee98f139dcef / run38651914436 build116152939726 success，工作分支deploy/live skipped。207 tests、4项Ruby、T01/authoring/production Jekyll/旧门禁及192+14通过；下载artifact11935087411、人工查看40张关系场景截图四联系表并放大390 Light弹层和1024 Night友链焦点原图，未确认新产品缺陷。仅审计/计划日志与公开证据非强推main，保留同步数据；实际main head部署及live同场景仍validation-pending。全站IN PROGRESS，无新待答问题。[证据](docs/ui-evidence/uia08a-checks.md)。
 
 UI-A08a接续 validation-pending：base main98090893、branch22b184d3；run38644349352 build116127411671 failure，deploy/live skipped。390 Night Library弹层/目录/返回已通过，友链焦点失败。下载artifact11931034197并实际看弹层、目录和友链失败截图，无新增确认产品缺陷；Element.send_keys每次先聚焦目标，原脚本对同一卡片发Shift+Tab实际移走焦点，不是全局反向Tab。仅改审计为ActionChains真实全局Tab遍历、Tab/Shift+Tab往返，保留严格activeElement断言，并补焦点tag/class/href诊断。范围审计/计划日志；192+14、四宽度两主题完整截图与线上仍pending，main不改，无新用户问题。
 

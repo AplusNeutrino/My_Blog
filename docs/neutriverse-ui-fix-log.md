@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08a生产验收与main交付
+
+- Base main9809089372832f3d6ff7a499a85c48755da7208e、工作head d770c3565f03c537ef23273423b6ee98f139dcef；最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告、本UI计划日志已读，CONTEXT不存在、gh不可用不虚构Issue。独立干净worktree，不覆盖用户修改。
+- Task UI-A08a本次范围仅本计划/日志、docs/ui-evidence/uia08a*公开生产证据；核对精确head后人工看图，再交付已经通过的审计。run38651914436 completed/success，build116152939726 success、deploy/live按分支规则skipped。207 Python tests、4 Ruby渲染回归、T01/authoring/production Jekyll/全部旧门禁、192页面+14侧栏专项通过。
+- 下载artifact11935087411（sha256:cca44ac135a726db1b5492eae2842763494924bcbce7bd3e89f72725014d3579），JSON192项，16关系场景全部符合限定断言：8弹层开闭及目录打开/返回，8友链href和自然键盘Tab/Shift+Tab往返。未用JS focus/click绕过验证。
+- 人工查看40张viewport/drawer/category/focus截图四联系表，并放大390 Light弹层、1024 Night友链焦点原图；弹层内容换行/关闭/来源按钮可见，目录卡片正常，友链焦点边框明确，无新增确认遮挡/消失/整页溢出。390 Night根页个别封面尚未加载，不能将这张图当完整延迟加载验收；完整图片加载专项继续pending，不凭此猜测改样式。
+- JSON/四联系表永久保存仓库，原PNG在artifact保留14天。已验证审计及证据以expected main98090893非强推交付；UI-A08a仍validation-pending，必须核对实际新main head build/deploy/live192+14及40张同场景截图，localhost结果不替代线上。
+- 时间线/搜索/高级筛选/分页/完整延迟加载、外部友链目的地、其他全站矩阵仍pending。产品样式/原文/metadata/URL/hidden/noindex、同步数据、旧COMPLETE历史及关联项目仓库均未改，无新用户问题；本次本地207 tests/authoring/T01/diff复核另记，真实浏览器结果来自上述精确head。
+
 ## 2026-10-15 — UI-A08a友链键盘审计纠正
 
 - Base main9809089372832f3d6ff7a499a85c48755da7208e；工作head22b184d360fc39e44ba3a204a57ea847747cca0c的run38644349352 completed/failure，build116127411671失败、deploy/live skipped。读取最新AGENTS/domain/ADR、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不在PATH，独立worktree保护原目录和最新同步数据。
