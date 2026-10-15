@@ -3,6 +3,7 @@
 import base64
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -440,6 +441,66 @@ def library_filter_pagination_controls(driver, wait, output, width, theme):
             'year':selected_year,'filterReloadIds':True,'clearRestored':True}
 
 
+def library_timeline_controls(driver, wait, output, width, theme):
+    """Load public history through real controls, including reload and keyboard."""
+    def rows():
+        return [e.get_attribute('textContent') for e in
+                driver.find_elements(By.CSS_SELECTOR, '#pgl-timeline li')]
+
+    def settle(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return r.top>=0 && r.bottom<=innerHeight && e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+
+    def capture(state, anchor):
+        settle(anchor)
+        geometry = driver.execute_script("""
+          const root=document.querySelector('#pgl-timeline');
+          return {width:innerWidth,scrollX,body:document.body.scrollWidth,
+            document:document.documentElement.scrollWidth,
+            rows:[...root.querySelectorAll('li')].map(e=>{
+              const r=e.getBoundingClientRect();return {left:r.left,right:r.right,
+                client:e.clientWidth,scroll:e.scrollWidth,text:e.textContent};
+            })};
+        """)
+        (output / f'timeline-{state}-{width}-{theme}-library.json').write_text(
+            json.dumps(geometry,ensure_ascii=False,indent=2),encoding='utf-8')
+        driver.save_screenshot(str(output / f'timeline-{state}-{width}-{theme}-library.png'))
+        require(abs(geometry['scrollX']) <= 1, 'Library timeline shifted horizontally')
+        require(max(geometry['body'],geometry['document']) <= geometry['width']+1,
+                'Library timeline page overflow')
+        require(all(r['left'] >= -1 and r['right'] <= geometry['width']+1 and
+                    r['scroll'] <= r['client']+1 for r in geometry['rows']),
+                'Library timeline row overflow')
+
+    require(not rows(), 'Library timeline unexpectedly loaded before activation')
+    button = driver.find_element(By.ID, 'pgl-load-timeline')
+    settle(button)
+    button.click()
+    wait.until(lambda d: rows())
+    expected = rows()
+    require(0 < len(expected) <= 100 and all(re.match(r'^\d{4}-\d{2}-\d{2} · .+ · .+', t) for t in expected),
+            'Library timeline dates or event labels missing')
+    capture('start', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:first-child'))
+    capture('tail', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:last-child'))
+    old_list = driver.find_element(By.CSS_SELECTOR, '#pgl-timeline ul')
+    settle(button)
+    button.click()
+    # Wait for the real asynchronous replacement, not merely the unchanged old rows.
+    wait.until(lambda d: d.find_element(By.CSS_SELECTOR, '#pgl-timeline ul').id != old_list.id)
+    require(rows() == expected, 'Library repeated load duplicated or changed rows')
+    driver.refresh()
+    wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-current-list [data-open-pgl]'))
+    require(not rows(), 'Library reload did not reset lazy timeline')
+    button = driver.find_element(By.ID, 'pgl-load-timeline')
+    settle(button)
+    button.send_keys(Keys.ENTER)
+    wait.until(lambda d: rows())
+    require(rows() == expected, 'Library keyboard reload changed timeline rows')
+    capture('reloaded', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:first-child'))
+    return {'rows':len(expected),'repeatSameRows':True,'reloadLazy':True,'keyboardSameRows':True}
+
+
 def relationship_controls(driver, wait, name, output, width, theme):
     """Limited public Library browsing and friend-card inspection, no external writes."""
     if name == 'links':
@@ -507,8 +568,9 @@ def relationship_controls(driver, wait, name, output, width, theme):
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
+    timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'timeline':'not-verified'}
+            'filtersPagination':filters_pagination,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):

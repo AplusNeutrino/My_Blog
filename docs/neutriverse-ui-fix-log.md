@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08d Library时间线最小检查范围
+
+- Base main 2e3d2844af408504cb616b9596ea682c97c3edd0；run38749174621 build116470712739/deploy116473447923/live116473729990全部success。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改，不虚构Issue。
+- Task UI-A08d：最小范围现有浏览器审计、必要审计契约测试、UI计划日志及公开证据，不改产品或旧内容。云Chrome1363×936 Prospero Light点击“加载时间线”，实际46条记录、scrollX=0，截图已看标题/日期/事件/作品名称可见，未确认新显示缺陷；浏览器遥测oaistatsig连接错误与目标站点无关，目标页面可正常操作，不判为网站故障。
+- 验收拟覆盖390/768/1024/1366双主题：真实加载、非空最多100条且日期格式正常、首尾滚动/边界截图、再次加载不重复、整页刷新回到未加载状态后键盘Enter加载同一记录。新增24状态截图和JSON，保留全部192+14门禁，先工作分支production，main/live未验收。完整库存/离屏加载和排序/列表/摘置等其他控件不由本项推断通过；无新待答问题。
+- 已实现上述审计；重复加载等待真实异步ul被替换后比较整组textContent，不以仍未返回的旧列表冒充成功。首/尾/刷新三状态截图同步保存逐行client/scroll宽度、左右界、根scrollWidth与scrollX，严格拒绝行内或页面横向溢出。补两项审计契约回归，仅证明接线/断言存在，视觉仍需Chrome与人工截图复核。
+- 本地222 tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机未执行Ruby/Jekyll/Chrome。公开1363×936 Light加载图已保存，不能代替390/768/1024/1366双主题24图。状态validation-pending，先保存ui/audit-008d，不合main；未改旧正文/Thought/Project Log、metadata/URL/hidden/noindex、同步数据、产品样式或关联项目仓库。
+
 ## 2026-10-15 — UI-007/UI-008与UI-A08c2限定线上验收
 
 - Task UI-007/UI-008/UI-A08c2；base/current main 3a6258a2cfaca97c281d3d96843c238508f57f63，产品实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04与bada5371158fb52728bf04f70da4721beb4a6a8a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录用户修改；本次范围仅UI计划/日志及docs/ui-evidence/ui007*、ui008-checks.md公开线上证据，验收精确head部署与32截图/8流程，不增加产品改动。
