@@ -7,6 +7,7 @@
 - 范围仅tools/check_think_build_visual.py、必要审计接线回归、UI计划日志及docs/ui-evidence/uia08f*公开证据；拟四宽度双主题书籍搁置空提示/游戏搁置/已放弃/清除四状态32图、状态与category隔离、刷新同URL/ID、清除恢复默认ID、返回根及恢复书籍原ID，保留原192+14与全部门禁。先ui/audit-008f，production/main/live未验收，无新待答问题，不改产品/数据/旧原文/metadata/URL/hidden/noindex或旧COMPLETE历史。
 - 实现前核对既有清除语义：clearFilters保留state.status，只重置来源/年份/排序；验收“默认ID”指该已放弃状态的默认排序ID，保持status，不擅改成清除状态。通过既有返回按钮回分类根，再进入书籍恢复原ID。
 - 已实现真实状态/刷新/清除/返回审计及必要接线回归，32新PNG/JSON待CI生成。本地226 tests、authoring44/5/7、T01保护44/5/5及diff check通过；云实际清除保持已放弃、返回根成功，公开桌面图已保存。本机未运行Ruby/Jekyll/Chrome，新head production192+14/32图与main/live仍pending，先ui/audit-008f，不合main，不用单测代替视觉验收。
+- 真实审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5已expected_sha非强推保存ui/audit-008f，6个上传blob与本地hash逐一相同；随后只追加此SHA记录，最终检查点head CI需单独核对。main仍40824656，未合main或部署；下轮先核对最终head production192+14、新32图及8流程，继续validation-pending，无新待答问题。
 
 ## 2026-10-16 — UI-A08e最新main线上复验
 

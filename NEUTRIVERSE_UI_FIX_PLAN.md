@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08f真实审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5已expected_sha非强推保存ui/audit-008f，6个远程blob与本地hash逐一相同；随后仅追加此SHA记录。最终检查点head需单独核对production192+14及新32图/8流程，main保持40824656，未部署新审计或标视觉通过。无新待答问题，继续validation-pending。
+
 UI-A08f validation-pending：已实现真实状态切换/三次刷新同URL与ID、标签/空提示/category隔离、清除保留状态并恢复状态内默认ID、返回根/书籍原ID审计，四宽度双主题32图/JSON待CI。本地226 tests、authoring44/5/7、T01保护44/5/5、diff通过；云1363 Light实际清除仍已放弃、返回根成功。未确认新产品缺陷，未改样式/数据；先ui/audit-008f，main仍40824656，production192+14/32图和main/live未验收。无新用户问题。
 
 UI-A08f验收契约补充：源码既有“清除筛选”只重置来源/年份/排序，不清除搁置或已放弃状态；因此验证清除后仍处该状态、恢复该状态默认排序ID，通过返回按钮回分类根。不得为审计擅改产品清除语义。
