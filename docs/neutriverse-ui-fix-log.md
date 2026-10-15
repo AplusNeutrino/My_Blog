@@ -7,6 +7,7 @@
 - 仓库既有_includes/pgl/library.html将按钮放在#pgl-timeline内；loadTimeline成功box.replaceChildren(list)，因此按钮消失是既有一次性lazy加载行为。上一轮提出“重复点击同按钮”是审计假设错误，不是网站菜单/数据故障；保留失败历史并修正验收为一次性按钮移除、单ul、首尾滚动记录保持，再整页刷新lazy重置/键盘Enter加载同组记录。不得为测试擅加重复加载功能，也不隐藏Stale异常继续运行。
 - 本轮范围现有审计、必要契约回归、UI计划日志与公开失败证据。日期/非空上限100/逐行与页面溢出/scrollX/整组文本/刷新/键盘断言和24截图仍保留；新增契约核对真实markup/replaceChildren，禁止加载后复用已移除按钮。不改产品、同步数据、原文/metadata/旧URL/hidden/noindex、关联仓库或旧COMPLETE历史；继续validation-pending，无新待答问题。
 - 修正后本地223 tests、authoring44/5/7、T01保护44/5/5与diff check通过；本机未运行Ruby/Jekyll/Chrome。先保存ui/audit-008d新head，完整production192+14与24新图/8流程需重新验收，main保持2e3d2844，不复用本次失败head的局部通过。
+- 审计修正实现e8ab0dbc2f3090454cc7933370639c0d956cd75a已expected_sha非强推保存ui/audit-008d，7个上传blob与本地hash逐项相同；随后仅追加SHA检查点，新最终head CI仍需单独核对。没有合main或宣称完整浏览器/视觉通过；下一轮先核对最终分支head，保持validation-pending。
 
 ## 2026-10-15 — UI-A08d Library时间线最小检查范围
 

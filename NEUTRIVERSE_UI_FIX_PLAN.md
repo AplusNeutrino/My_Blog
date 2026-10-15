@@ -53,6 +53,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08d审计修正实现e8ab0dbc2f3090454cc7933370639c0d956cd75a已expected_sha非强推保存ui/audit-008d；7个上传blob与本地hash相同。随后仅追加实现SHA记录，最终检查点head需单独验证，main仍2e3d2844；本地223 tests/authoring/T01/diff通过，production192+14、新24图/8流程及main/live未验收。无新待答问题，不将审计错误当网站缺陷。
+
 UI-A08d继续validation-pending：base main2e3d2844、验收branch02d11892；run38757230686 build116499547427 failure，deploy116500623040/live116500622929 skipped。222 tests/4 Ruby/T01/authoring/Jekyll与此前门禁通过，但完整192+14未完成。下载artifact11983209912摘要匹配，实际看390 Night时间线start/tail原图未确认新产品缺陷；失败为审计再次点击已被既有replaceChildren移除的按钮。范围仍现有审计/必要契约回归/计划日志/公开证据，仅修审计为一次性按钮替换+单列表、滚动保持，再刷新lazy/Enter同记录，不新增产品按钮或降低内容/溢出/刷新断言。新head完整24图/8流程与main/live待验收，无新用户问题。
 
 UI-A08d真实审计实现1ce495f6722c9ea17cf6e640633ce2963fd4aa04已保存ui/audit-008d，6个远程blob与本地hash一致；本次随后仅追加SHA检查点，最终分支head CI需单独核对，main仍2e3d2844。状态validation-pending，下轮优先核对该分支最终head production192+14及24图/8流程，未部署或验收不进main。
