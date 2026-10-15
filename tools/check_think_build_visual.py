@@ -269,6 +269,20 @@ def library_visible_covers(driver, wait, output, width, theme):
     require(initial, 'no visible Library cover images to audit')
     try:
         wait.until(lambda d: all(r['complete'] for r in d.execute_script(script)))
+        # complete/naturalWidth can precede decoding and the next paint when
+        # the existing image uses decoding=async. Await native decoding only
+        # after load; do not change src/loading or replace the browser loader.
+        decoded = driver.execute_async_script("""
+          const done=arguments[arguments.length-1];
+          const images=[...document.querySelectorAll('#pgl-grid img.pgl-cover')].filter(e=>{
+            const r=e.getBoundingClientRect();return r.width>0 && r.height>0 &&
+              r.bottom>0 && r.top<innerHeight && r.right>0 && r.left<innerWidth;
+          });
+          Promise.all(images.map(e=>e.decode())).then(()=>{
+            requestAnimationFrame(()=>requestAnimationFrame(()=>done({ok:true})));
+          }).catch(error=>done({ok:false,error:String(error)}));
+        """)
+        require(decoded.get('ok'), f'Library cover decoding failed: {decoded}')
     finally:
         rows = driver.execute_script(script)
         (output / f'covers-{width}-{theme}-library.json').write_text(

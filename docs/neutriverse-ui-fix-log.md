@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08b加载完成与绘制时序复核
+
+- Base main30e26ead4ee97aa6bc3120aec3372897bb1285bc、工作head de7dbdf4e97e916742b417134b501092e1853083；最新AGENTS/domain/ADR0001、旧COMPLETE计划报告/UI计划日志已读，CONTEXT不存在、gh不可用、独立worktree不覆盖用户修改。run38668866802 build116206975426 success，分支deploy/live skipped；211 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过（精确head日志核对）。
+- 下载production artifact11942794466（sha256:c5036b3e3f0445d463baca49c1ef233b8c150633765c4d878ef9915773e8b25d），8 covers JSON共56次可见图片complete=true且naturalWidth/naturalHeight>0。人工查看8张covers两联系表及390 Night后续category原图：前者390 Night第二封面、768 Night下排部分为空，后者390 Night已显示相同封面，不把CI成功/DOM尺寸当视觉通过。
+- 核对现有pgl.js封面decoding=async，可能complete早于decode/paint，未确认产品故障；不猜测修改CSS或图片源。本次最小范围仍审计、tests/test_library_cover_audit.py、计划日志，仅在load完成后await现有图片原生decode()及两帧再截图，decode拒绝仍严格失败并保存证据；不写src/loading、不mock加载、不增加外部代理请求。helper单测增加decode/paint契约检查，不替代真实Chrome。
+- UI-A08b validation-pending；修正先ui/audit-008b重新production192+14和8图验证，main保持不变。未把第一次截图写成视觉正常或持久验收证据；搜索/筛选/分页及全站剩余矩阵pending，无新用户决策问题。
+
 ## 2026-10-15 — UI-A08b可见目录封面加载诊断
 
 - Base main30e26ead4ee97aa6bc3120aec3372897bb1285bc；run38663584681 build116190250811、deploy116192067722、verify-live-ui116192142932全部success。已读AGENTS/domain/ADR0001、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不可用，不虚构Issue；独立worktree保护用户修改。

@@ -22,6 +22,9 @@ class LibraryCoverAuditTests(unittest.TestCase):
                 return rows
             def save_screenshot(self, path):
                 self.screenshot = path
+            def execute_async_script(self, script):
+                self.decode_script = script
+                return {'ok': True}
         driver = Driver()
         class Wait:
             def until(self, callback):
@@ -36,6 +39,9 @@ class LibraryCoverAuditTests(unittest.TestCase):
                     self.assertEqual(evidence['images'],rows)
                     self.assertTrue(driver.screenshot.endswith('.png'))
                     self.assertNotIn('setAttribute',driver.script)
+                    if all(row['complete'] for row in rows):
+                        self.assertIn('e.decode()',driver.decode_script)
+                        self.assertIn('requestAnimationFrame',driver.decode_script)
 
     def test_loaded_visible_images_pass(self):
         self.assertEqual(self.run_helper([{'complete':True,'naturalWidth':100,'naturalHeight':150}]),
