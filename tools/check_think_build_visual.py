@@ -256,6 +256,29 @@ def load_reading_images(driver, wait):
     return images
 
 
+def library_visible_covers(driver, wait, output, width, theme):
+    """Observe native lazy loading in the current viewport without changing it."""
+    script = """
+      return [...document.querySelectorAll('#pgl-grid img.pgl-cover')].filter(e=>{
+        const r=e.getBoundingClientRect();return r.width>0 && r.height>0 &&
+          r.bottom>0 && r.top<innerHeight && r.right>0 && r.left<innerWidth;
+      }).map(e=>({src:e.currentSrc || e.src,complete:e.complete,
+        naturalWidth:e.naturalWidth,naturalHeight:e.naturalHeight}));
+    """
+    initial = driver.execute_script(script)
+    require(initial, 'no visible Library cover images to audit')
+    try:
+        wait.until(lambda d: all(r['complete'] for r in d.execute_script(script)))
+    finally:
+        rows = driver.execute_script(script)
+        (output / f'covers-{width}-{theme}-library.json').write_text(
+            json.dumps({'windowWidth':width,'theme':theme,'images':rows},ensure_ascii=False,indent=2),encoding='utf-8')
+        driver.save_screenshot(str(output / f'covers-{width}-{theme}-library.png'))
+    require(len(rows) == len(initial) and all(r['complete'] and r['naturalWidth'] > 0
+            and r['naturalHeight'] > 0 for r in rows), f'Library cover failed to load: {rows}')
+    return {'visibleImages':len(rows),'loaded':True}
+
+
 def relationship_controls(driver, wait, name, output, width, theme):
     """Limited public Library browsing and friend-card inspection, no external writes."""
     if name == 'links':
@@ -310,11 +333,12 @@ def relationship_controls(driver, wait, name, output, width, theme):
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
     driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
     wait.until(lambda d: d.execute_script("const e=arguments[0],r=e.getBoundingClientRect();return r.y>=0 && r.bottom<=innerHeight && e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));", back))
+    covers = library_visible_covers(driver, wait, output, width, theme)
     driver.save_screenshot(str(output / f'category-{width}-{theme}-library.png'))
     back.click()
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
-    return {'drawerOpenClose': True, 'categoryOpenBack': True,
+    return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers,
             'timelineSearchPagination': 'not-verified'}
 
 
