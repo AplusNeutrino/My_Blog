@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-A08d失败复核：一次性加载按钮生命周期
+
+- Base main2e3d2844af408504cb616b9596ea682c97c3edd0，工作head02d11892f9d9741a0f5739a423e01bedabd3fe7f，精确run38757230686 build116499547427 failure，deploy116500623040/live116500622929 skipped。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改。
+- 222 tests、4 Ruby、T01 baseline、authoring44/5/7、production Jekyll及此前门禁通过；新审计在390 Night时间线首尾截图后第二次settle旧button时StaleElementReferenceException，完整192+14未完成，不说通过或部署。下载artifact11983209912 /11611426 bytes，sha256:1cc7a1ff7bb4b6ba843b1628990badc56bc48a48041731e097ad2d92c1abb839独立匹配；人工看timeline-start/tail-390-dark原图，首段/日期可读、尾部无横向裁切，未确认新产品缺陷，不以局部图代替24图。
+- 仓库既有_includes/pgl/library.html将按钮放在#pgl-timeline内；loadTimeline成功box.replaceChildren(list)，因此按钮消失是既有一次性lazy加载行为。上一轮提出“重复点击同按钮”是审计假设错误，不是网站菜单/数据故障；保留失败历史并修正验收为一次性按钮移除、单ul、首尾滚动记录保持，再整页刷新lazy重置/键盘Enter加载同组记录。不得为测试擅加重复加载功能，也不隐藏Stale异常继续运行。
+- 本轮范围现有审计、必要契约回归、UI计划日志与公开失败证据。日期/非空上限100/逐行与页面溢出/scrollX/整组文本/刷新/键盘断言和24截图仍保留；新增契约核对真实markup/replaceChildren，禁止加载后复用已移除按钮。不改产品、同步数据、原文/metadata/旧URL/hidden/noindex、关联仓库或旧COMPLETE历史；继续validation-pending，无新待答问题。
+- 修正后本地223 tests、authoring44/5/7、T01保护44/5/5与diff check通过；本机未运行Ruby/Jekyll/Chrome。先保存ui/audit-008d新head，完整production192+14与24新图/8流程需重新验收，main保持2e3d2844，不复用本次失败head的局部通过。
+
 ## 2026-10-15 — UI-A08d Library时间线最小检查范围
 
 - Base main 2e3d2844af408504cb616b9596ea682c97c3edd0；run38749174621 build116470712739/deploy116473447923/live116473729990全部success。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改，不虚构Issue。

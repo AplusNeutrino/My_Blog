@@ -53,6 +53,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08d继续validation-pending：base main2e3d2844、验收branch02d11892；run38757230686 build116499547427 failure，deploy116500623040/live116500622929 skipped。222 tests/4 Ruby/T01/authoring/Jekyll与此前门禁通过，但完整192+14未完成。下载artifact11983209912摘要匹配，实际看390 Night时间线start/tail原图未确认新产品缺陷；失败为审计再次点击已被既有replaceChildren移除的按钮。范围仍现有审计/必要契约回归/计划日志/公开证据，仅修审计为一次性按钮替换+单列表、滚动保持，再刷新lazy/Enter同记录，不新增产品按钮或降低内容/溢出/刷新断言。新head完整24图/8流程与main/live待验收，无新用户问题。
+
 UI-A08d真实审计实现1ce495f6722c9ea17cf6e640633ce2963fd4aa04已保存ui/audit-008d，6个远程blob与本地hash一致；本次随后仅追加SHA检查点，最终分支head CI需单独核对，main仍2e3d2844。状态validation-pending，下轮优先核对该分支最终head production192+14及24图/8流程，未部署或验收不进main。
 
 UI-A08d validation-pending：已新增真实时间线加载/首尾滚动/重复加载等待实际ul替换/刷新lazy重置/Enter加载同记录审计，新增24图及逐行溢出JSON；222本地tests、authoring44/5/7、T01保护44/5/5与diff check通过。本机未运行Ruby/Jekyll/Chrome，先ui/audit-008d精确head production192+14与24图，再决定main和live；main保持2e3d2844，未改产品，无新用户问题。[限定桌面证据](docs/ui-evidence/uia08d-checks.md)。

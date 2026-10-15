@@ -483,12 +483,13 @@ def library_timeline_controls(driver, wait, output, width, theme):
             'Library timeline dates or event labels missing')
     capture('start', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:first-child'))
     capture('tail', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:last-child'))
-    old_list = driver.find_element(By.CSS_SELECTOR, '#pgl-timeline ul')
-    settle(button)
-    button.click()
-    # Wait for the real asynchronous replacement, not merely the unchanged old rows.
-    wait.until(lambda d: d.find_element(By.CSS_SELECTOR, '#pgl-timeline ul').id != old_list.id)
-    require(rows() == expected, 'Library repeated load duplicated or changed rows')
+    # The shipped UI is a one-shot lazy loader: replaceChildren(list) removes
+    # its button. Do not click that detached element or invent a reload control.
+    require(not driver.find_elements(By.ID, 'pgl-load-timeline'),
+            'Library timeline loader remained after successful replacement')
+    require(len(driver.find_elements(By.CSS_SELECTOR, '#pgl-timeline ul')) == 1,
+            'Library timeline rendered duplicate lists')
+    require(rows() == expected, 'Library timeline scrolling changed rows')
     driver.refresh()
     wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-current-list [data-open-pgl]'))
     require(not rows(), 'Library reload did not reset lazy timeline')
@@ -498,7 +499,8 @@ def library_timeline_controls(driver, wait, output, width, theme):
     wait.until(lambda d: rows())
     require(rows() == expected, 'Library keyboard reload changed timeline rows')
     capture('reloaded', driver.find_element(By.CSS_SELECTOR, '#pgl-timeline li:first-child'))
-    return {'rows':len(expected),'repeatSameRows':True,'reloadLazy':True,'keyboardSameRows':True}
+    return {'rows':len(expected),'oneShotLoaderReplaced':True,'singleList':True,
+            'scrollSameRows':True,'reloadLazy':True,'keyboardSameRows':True}
 
 
 def relationship_controls(driver, wait, name, output, width, theme):
