@@ -7,6 +7,7 @@
 - 实际看24张四宽度双主题start/tail/reloaded图两联系表，放大390 Light start/tail与1024 Night reloaded原图。390 Light start中2026-09-04行长作品名尾部被右下固定返回顶部按钮覆盖，确认UI-009 P2；首尾截图几何scrollWidth均正常，说明原溢出门禁未捕获固定按钮与文本相交。未将纯审美偏好、按钮本身或一时加载状态当缺陷；不合main。
 - UI-009最小范围assets/pgl/pgl.css、现有审计/必要回归、UI计划日志与公开证据；仅在窄屏时间线列表预留按钮避让空间，不移动全站共享按钮/不改数据文字。补Range真实文字行矩形与可见按钮不相交诊断和严格断言；保持原首尾/刷新24图、8交互、192+14、authoring/T01/Jekyll验收。新head完整production和main/live未验收，继续validation-pending，无新待答问题；旧正文/metadata/URL/hidden/noindex、同步数据、关联仓库及旧COMPLETE历史不改。
 - 已实现720px内.pgl-timeline-list padding-right3.5rem，只调整时间线文字避让；TreeWalker遍历真实文本、Range.getClientRects采可见文字行，与#back-to-top实际可见矩形严格不相交，PNG/JSON先保存便于失败诊断。新增回归固定实际文字行/按钮接线和限定CSS，不隐藏按钮或改变全站主题。224本地tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机无Ruby/Chrome，修复后视觉/production192+14/main/live仍pending，不用原成功CI冒充修复通过。原audit192、24诊断和两联系表永久保存，视觉失败UI-009明示，不把它们标作验收成功。
+- UI-009真实修复提交063053c23b287432dd7ff76328da2e22f9509c1a已expected_sha非强推保存ui/audit-008d，12个远程blob与本地git hash-object逐项一致；随后只追加SHA检查点。main仍2e3d2844，未部署修复；下一轮必须核对最终分支head的新完整production/24图及文字按钮不相交，再决定main交付和线上复验，继续validation-pending。
 
 ## 2026-10-15 — UI-A08d失败复核：一次性加载按钮生命周期
 

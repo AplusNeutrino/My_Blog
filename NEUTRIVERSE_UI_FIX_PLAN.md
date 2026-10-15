@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-009真实修复063053c23b287432dd7ff76328da2e22f9509c1a已expected_sha非强推保存ui/audit-008d，12个上传blob与本地hash一致；随后仅追加实现SHA记录。最终检查点head的production192+14/新24图/文字按钮相交诊断及main/live需单独验收，main仍2e3d2844，UI-009/UI-A08d validation-pending；无新待答问题。
+
 UI-009修复及诊断已实现，先ui/audit-008d：720px内时间线padding-right3.5rem，仅为固定按钮留空间；审计新增真实可见文字行与#back-to-top矩形相交检查，按钮必须可见，原全部断言/24图/8流程保留。本地224 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机未运行Ruby/Jekyll/Chrome，修复后production192+14和精确main/live均待新head验收。UI-A08d/UI-009保持validation-pending，main不改，无新待答问题。[缺陷证据](docs/ui-evidence/ui009-checks.md)。
 
 UI-009 in-progress / UI-A08d继续validation-pending：base main2e3d2844、工作head47b3c294；run38765012413 build116526426682 success，deploy116529172398/live116529172648 skipped。223 tests/4 Ruby/T01/authoring/Jekyll/192+14及8时间线流程通过，artifact11989890630摘要匹配。实际看24张时间线首/尾/刷新两联系表并放大390 Light首/尾、1024 Night刷新，确认390 Light固定返回顶部按钮覆盖长作品名尾部，不能以原机械通过说视觉正常或合main。最小范围pgl.css、现有审计/必要回归、计划日志/公开证据：窄屏timeline列表预留按钮避让，不移动全站按钮或重新设计，补真实文字行矩形与按钮不相交门禁。新head完整production/24图与main/live待验收；gh未安装未编造Issue，无新待答问题。
