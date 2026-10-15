@@ -317,7 +317,21 @@ def library_search_controls(driver, wait, output, width, theme, query, expected_
         driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
         require(driver.execute_script('return document.documentElement.scrollWidth <= innerWidth+1'),
                 f'Library {state} page overflow')
+        search_geometry = driver.execute_script('''
+          const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();
+            return {left:r.left,right:r.right,top:r.top,bottom:r.bottom};};
+          return {heading:rect('.pgl-heading-block'),search:rect('#pgl-search-box'),
+            header:rect('.pgl-header')};
+        ''')
         driver.save_screenshot(str(output / f'search-{state}-{width}-{theme}-library.png'))
+        (output / f'search-{state}-{width}-{theme}-library.json').write_text(
+            json.dumps(search_geometry, indent=2))
+        heading, search, bounds = (search_geometry[k] for k in ('heading','search','header'))
+        overlap = (min(heading['right'],search['right']) > max(heading['left'],search['left'])+1
+                   and min(heading['bottom'],search['bottom']) > max(heading['top'],search['top'])+1)
+        require(not overlap, f'Library {state} search overlaps heading/subtitle')
+        require(search['bottom'] <= bounds['bottom']+1,
+                f'Library {state} search escapes header into following content')
     type_query(query)
     wait.until(lambda d: expected_id in [e.get_attribute('data-pgl-id') for e in d.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')])
     search_url = driver.current_url

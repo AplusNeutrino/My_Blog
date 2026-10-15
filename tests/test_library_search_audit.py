@@ -22,3 +22,19 @@ class LibrarySearchAuditTests(unittest.TestCase):
         source=Path('tools/check_think_build_visual.py').read_text()
         self.assertIn("query = first.find_element(By.CSS_SELECTOR, '.pgl-card-title').text",source)
         self.assertIn("expected_id = first.get_attribute('data-pgl-id')",source)
+
+    def test_search_capture_rejects_internal_overlap(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        self.assertIn('search overlaps heading/subtitle',source)
+        self.assertIn('search escapes header into following content',source)
+        self.assertIn("rect('.pgl-heading-block')",source)
+        self.assertIn("rect('#pgl-search-box')",source)
+
+    def test_mobile_search_occupies_its_own_layout_row(self):
+        css=Path('assets/pgl/pgl.css').read_text().split('@media (max-width: 720px) {',1)[1]
+        self.assertIn('.pgl-header { display:grid;',css)
+        self.assertIn('.pgl-header-search-wrap { display:contents; }',css)
+        rule=css.split('.pgl-search-box {',1)[1].split('}',1)[0]
+        self.assertIn('grid-column:1 / -1',rule)
+        self.assertIn('grid-row:2',rule)
+        self.assertNotIn('position:absolute',rule)

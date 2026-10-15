@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | validation-pending | 移动搜索独占布局行；结果/空状态/清空标题不重叠、搜索不逃出header；四宽度双主题生产与精确main部署后截图复验 |
 | UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
 | UI-002 | P2 | 项目/观察组件引用未定义的圆角、阴影与等宽字体变量；圆角失效、数据文本字体回退 | done | 变量默认值与运行时圆角/字体通过，112截图/交互与旧门禁通过，精确head main部署和双主题线上复验通过 |
 | UI-003 | P2 | 390/768px截图顶栏显示内部布局名 Neutriverse-section / Neutriverse-project，而不是页面标题 | done | 120项production与120项部署后live场景、32张viewport、标题/tooltip/控件不重叠门禁通过；移动双主题截图复验 |
@@ -47,6 +48,8 @@
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
 ## 当前运行
+
+UI-006 in-progress（UI-A08c1截图发现）：base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb / 工作head c5fd955a632a1722b1c9f73618041a7f0738307d。环境已恢复，下载e6a54de2 artifact11951832064并核对sha256；人工看24张搜索状态图两联系表及390 Light空状态、1024 Night结果、768 Night清空原图，确认390px双主题搜索框遮挡副标题。P2，根因为720px内搜索框绝对定位于按钮容器、未占布局空间。拟改assets/pgl/pgl.css、现有搜索审计、必要回归、UI计划日志及公开前后证据；改为标题/按钮一行、搜索独立一行，保留展开收起/输入/URL，不重新设计。验收四宽度双主题结果/空状态/清空无标题或后续内容遮挡、页面不溢出，原213 tests/T01/authoring/Jekyll/旧门禁保持，精确head生产与线上截图复验。未验收留工作分支，不以原CI成功宣称无缺陷；gh未安装不虚构Issue，无新用户问题。
 
 UI-A08c1 validation-pending（2026-10-15 远程证据核对）：base/main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb；验收分支head e6a54de259b8c67d5bc6e6f0214e1bd519eaea7f。[run38689759158](https://github.com/AplusNeutrino/My_Blog/actions/runs/38689759158) completed/success，build116272713219 success，deploy/live按工作分支规则skipped。213 tests、T01保护、authoring44/5/7、production Jekyll与192场景浏览器检查通过；artifact11951832064，sha256:c2e1b65ce679fe223d0bd0b7cce819d8275c1c6064bc9ebac21b8b213fa35df9。当前执行环境握手失败且无可调用本地执行/浏览器工具，不能下载解包并人工查看24张搜索状态截图；仅核对日志与artifact元数据，不宣称视觉通过。范围仅本UI计划/日志远程检查点，代码、main、线上和旧COMPLETE历史不改；新检查点head CI另核对。恢复后先查看同一验收head四宽度双主题结果/空状态/清空截图，再决定main与部署后复验。gh CLI本轮无法执行，未创建Issue；无新用户问题，临时环境故障不标COMPLETE或永久blocked。
 

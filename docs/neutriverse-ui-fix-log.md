@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-006移动Library搜索遮挡，先记录范围
+
+- Base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb，工作head c5fd955a632a1722b1c9f73618041a7f0738307d，main未变。读取最新AGENTS/domain/ADR、旧COMPLETE计划报告和本UI计划日志；独立worktree保护原目录用户改动，CONTEXT不存在、gh未安装。
+- 执行环境恢复；下载e6a54de2生产artifact11951832064并独立sha256匹配c2e1b65ce679fe223d0bd0b7cce819d8275c1c6064bc9ebac21b8b213fa35df9。人工查看24张search-results/empty/cleared截图两联系表及三张原图：390px双主题搜索框覆盖副标题“对曾经品鉴过的作品进行记录”，不是审美偏好。原8搜索交互与192场景机械通过，但原几何检查仅防页面溢出、未捕获内部重叠，故不合入旧审计当作正常。
+- UI-006 P2确认；CSS720px内label绝对定位于按钮wrap，未为搜索行留空间。最小文件范围assets/pgl/pgl.css、tools/check_think_build_visual.py、必要测试、UI计划日志及公开证据；标题/按钮一行、展开搜索另占行，不改内容、metadata、URL、同步数据或隐藏边界。新增实际矩形无重叠断言；四宽度两主题截图与完整生产/线上复验为验收条件，先工作分支。
+- c5fd955a的run38695811401 completed/success，build116292008997 success、deploy116294154889/live116294155610 skipped；只确认该历史检查点CI，不替代本次修复。当前本地213 tests、authoring44/5/7、T01保护通过；Ruby/Jekyll仍来自CI。无新增用户决策问题，筛选/分页等继续pending。
+- 已实现移动header两列Grid、搜索wrap display:contents、搜索label第二行跨列正常流；不改DOM/JS搜索行为或桌面布局。审计在三状态保存真实矩形JSON与PNG，严格拒绝搜索与heading/subtitle交集、搜索bottom超出header；新增两项静态契约回归。本地215 tests、authoring44/5/7、T01保护44/5/5与diff check通过，本机未运行Ruby/Jekyll/Chrome。状态validation-pending，先工作分支对应head生产CI和新24图，未合main或部署；没有以旧图或测试成功声明修复完成。[修复前证据](ui-evidence/ui006-checks.md)。
+
 ## 2026-10-15 — UI-A08c1生产CI核对，视觉证据待可用环境复核
 
 - Task UI-A08c1；base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb，工作分支 ui/audit-008c / e6a54de259b8c67d5bc6e6f0214e1bd519eaea7f，实际审计实现1900a71aa306b56b8d61bee9076f3a2eb89139ef。本次文件范围仅NEUTRIVERSE_UI_FIX_PLAN.md与本日志：持久记录CI结果和真实验证限制，不猜测修改产品。
