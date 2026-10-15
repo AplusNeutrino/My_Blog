@@ -1,6 +1,6 @@
 # UI-009 窄屏时间线文字被固定按钮遮住
 
-状态：validation-pending。
+状态：done；以下保留复现、生产和精确main线上验收历史。
 Base main2e3d2844af408504cb616b9596ea682c97c3edd0，复现验收head47b3c294711c77abb62b321f71f5ae1eb658f855。
 [run38765012413](https://github.com/AplusNeutrino/My_Blog/actions/runs/38765012413) build116526426682 success，分支deploy116529172398/live116529172648 skipped。
 
@@ -28,3 +28,17 @@ artifact11993626620 /159632592 bytes / sha256:24ef1ed4db15f96d41254d1eee6d3dd18e
 24诊断返回顶部按钮实际可见、真实文字Range非空、overlaps=[]；无行/页面横向溢出且scrollX=0。8时间线流程46条、一次性按钮替换、单列表、滚动同组文本、刷新lazy重置、Enter加载同记录通过。JSON/联系表永久保存、原PNG留artifact14天。
 
 这是localhost production验收，不是部署后线上验收。UI-009/UI-A08d仍validation-pending：交付main后必须核对实际新head build/deploy/live和同24场景截图。其他Library控件/全站矩阵未完成，不标COMPLETE。
+
+## 2026-10-16 精确main线上验收
+
+main8eb17637def2f3b185d0d1733fe62a611351e222，
+[run38781988055](https://github.com/AplusNeutrino/My_Blog/actions/runs/38781988055) build116584281245、deploy116587790492、verify-live-ui116587884313全部success。224 tests、4 Ruby、T01/authoring44/5/7、production Jekyll/旧门禁、production/live各192+14通过；线上job指定https://neutriverse.uk。
+
+live artifact11997335321 /159656779 bytes / sha256:aea0cc572e6249b49c0051fa6c3de7e2c9ec7e2b2d35b52e4cbc0736b4fe1868下载独立匹配。人工看24张四宽度双主题首/尾/刷新图两联系表，放大390 Light首段、390 Night刷新、1024 Light尾段原图，长作品名完整换行，不再被固定按钮遮住。
+
+- [完整192项线上记录](ui009-live-audit.json)
+- [24份线上真实文字/按钮诊断](ui009-live-timeline.json)
+- [390/768双主题线上三状态](ui009-live-contact-390.jpg)
+- [1024/1366双主题线上三状态](ui009-live-contact-1024.jpg)
+
+24诊断按钮实际可见、可见文字Range非空、overlaps=[]，无行/页面溢出、scrollX=0。8时间线流程的单列表/一次性按钮替换/滚动保持/刷新lazy与Enter同组记录通过。JSON与联系表永久保存，原PNG留artifact14天。UI-009 done、UI-A08d只在这些流程限定done；完整库存/离屏加载、其他Library控件及全站剩余矩阵未验收。此次仅证据更新，文档新head CI需单独核对。

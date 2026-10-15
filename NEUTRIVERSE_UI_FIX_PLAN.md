@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | validation-pending | 窄屏时间线预留按钮避让空间；四宽度双主题首/尾/刷新截图人工复验，真实文字行矩形不与按钮相交，原内容/加载/刷新/溢出断言保持；精确main部署/live复验 |
+| UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
 | UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
 | UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | done | 3a6258a2精确main部署/live通过；8组下一页/刷新同URL与ID/上一页、来源年份组合刷新与清除通过，32图人工复验 |
 | UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
@@ -38,7 +38,7 @@
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
-| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b固定viewport可见书籍封面8图已看；UI-006修复搜索遮挡，UI-A08c1三状态24图及UI-007/008四状态32张四宽度双主题生产/live图已看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索及24重叠矩形通过；UI-A08c2限定分页/刷新/上一页/来源年份/清除8流程与32面板诊断线上通过；时间线/完整库存及离屏延迟加载、外部站点仍pending |
+| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d四宽度双主题24张时间线首/尾/刷新生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8组加载/单列表/滚动保持/刷新lazy/Enter同记录、24文字按钮不相交线上通过；完整库存/离屏加载、排序/列表/摘置等其他控件及外部站点仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -53,6 +53,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-009 done / UI-A08d限定done（2026-10-16）：base与验收main8eb17637def2f3b185d0d1733fe62a611351e222，[run38781988055](https://github.com/AplusNeutrino/My_Blog/actions/runs/38781988055) build116584281245/deploy116587790492/verify-live-ui116587884313全部success；224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact11997335321摘要独立匹配；人工看24张四宽度双主题时间线首/尾/刷新图两联系表，放大390 Light首段、390 Night刷新及1024 Light尾段，长作品名完整换行、未被固定按钮遮住。24真实文字诊断按钮可见、overlaps=[]，8时间线流程同记录通过。本轮仅计划日志与公开live证据，不改产品，文档新head CI另核对；无新用户问题。全站IN PROGRESS，下一项Library排序/列表与剩余控件，不从此限定done推断完整库存或全站已验收。[证据](docs/ui-evidence/ui009-checks.md#2026-10-16-精确main线上验收)。
 
 UI-009/UI-A08d生产验收通过、待main/live：base main2e3d2844af408504cb616b9596ea682c97c3edd0，验收head2fcde494768cd4f45c10ae6615e85219f8c8fd62 / run38774806960 build116560105866 success，分支deploy116563569328/live116563569815 skipped。224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；artifact11993626620摘要独立匹配。人工看24张四宽度双主题start/tail/reloaded图两联系表，放大390 Light首段、390 Night刷新、1024 Light尾段：长作品名完整换行、不再被返回顶部按钮覆盖。24实际文字/按钮诊断均按钮可见且overlaps=[]、无行/页面溢出/scrollX，8时间线流程46条/单列表/滚动保持/刷新lazy/Enter同记录通过。范围仅计划日志与公开生产证据，不追加产品改动；验收后非强推main，仍validation-pending，需新main精确部署/live同24图，不用localhost代替。全站仍IN PROGRESS，无新用户问题。[证据](docs/ui-evidence/ui009-checks.md)。
 

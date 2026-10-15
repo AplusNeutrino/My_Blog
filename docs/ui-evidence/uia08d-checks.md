@@ -1,6 +1,6 @@
 # UI-A08d Library时间线限定检查
 
-状态：validation-pending，非已确认产品缺陷。
+状态：限定done；检查中发现UI-009已修复并完成精确main线上验收，以下保留历史。
 Base main：2e3d2844af408504cb616b9596ea682c97c3edd0。
 2026-10-15 云Chrome，实际1363×936，Prospero Light。
 
@@ -38,3 +38,9 @@ artifact11989890630摘要独立匹配。人工看24张图两联系表并放大39
 head2fcde494 / run38774806960 build116560105866 success，224 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及192+14通过；分支deploy/live skipped。人工看四宽度双主题24张新图两联系表和三张代表原图，长作品名完整换行，24文字行/按钮诊断均无相交。8时间线加载/单列表/滚动保持/刷新lazy/Enter同记录通过；完整摘要/JSON/截图见[UI-009修复后证据](ui009-checks.md#2026-10-16-修复后生产验收通过)。
 
 本项仍validation-pending，待实际main部署和线上同24图；既有失败与UI-009遮挡历史保留，没有以原机械通过或静态测试冒充视觉正常。
+
+## 2026-10-16 限定线上验收完成
+
+main8eb17637 / run38781988055 build116584281245/deploy116587790492/verify-live-ui116587884313全部success；224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与production/live192+14通过。实际看线上24张四宽度双主题首/尾/刷新截图两联系表并放大三张代表原图，文字不再被固定按钮遮住；24真实文字按钮诊断无相交、8组时间线加载/单列表/滚动保持/刷新lazy/Enter同组记录通过。
+
+完整artifact摘要、JSON与截图见[UI-009线上证据](ui009-checks.md#2026-10-16-精确main线上验收)。本项限定done，排序/列表/摘置等其他控件、完整库存/离屏加载与全站其他矩阵未完成，不标全站COMPLETE。
