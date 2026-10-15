@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08e生产截图与交互验收
+
+- Base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd、验收head b392d508df2e340285694426acdf72abbd0cc63d，真实审计实现c7e248e18e222584a65d6fc277e679d8978d4837。本轮先读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在，gh未安装未编造Issue。新独立worktree保护原目录用户修改。范围仅UI计划日志与docs/ui-evidence/uia08e*公开生产证据，不追加产品改动。
+- run38799655164精确匹配验收head，build116645533313 success，deploy116648196476/live116648198287 skipped（不当作部署）。日志核对225 tests、4 render-only Ruby、T01保护、authoring44/5/7、production Jekyll、Search/feed/SEO/资源旧门禁及192页面+14侧栏场景通过。
+- 下载artifact12004835019 /171829101 bytes，sha256:97aad4943c455eaa3152baf3ddff5d3cdb4c8ab9e7e77aeee013156dc8ad5e7e独立匹配。人工看32张四宽度双主题rating/year/list/reloaded两联系表，放大390 Light列表、390 Night年份和1024 Light刷新原图：标题/封面/评分与切换按钮可见，未确认新显示缺陷，不凭偏好改样式。
+- 8流程评分/年份在进行中优先组内降序、标题排序刷新同URL/ID、列表切换同ID、刷新保留偏好、Enter恢复网格及默认排序恢复通过；32几何均无页面/card横向溢出、scrollX=0、pressed状态与实际布局一致。标题只核对刷新稳定性，不跨Python/JS强断locale语义；未验收Steam排序、完整库存/离屏加载、摘置等其他控件。完整audit192、32 JSON及两联系表保存，原PNG保留在artifact14天。
+- 验收后非强推main仍validation-pending，须实际新main build/deploy/live与同32图，不用localhost代替。未改旧原文/metadata/URL/hidden/noindex、产品样式、同步数据、关联仓库或旧COMPLETE历史；无新待答问题，全站IN PROGRESS。
+
 ## 2026-10-16 — UI-A08e 排序与列表最小检查范围
 
 - Base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd；精确run38790272247 build116612728961/deploy116616173047/live116616346613全部success。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，不虚构Issue。独立worktree保护原目录修改。

@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08e生产验收通过、待main/live：本轮base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd、验收head b392d508df2e340285694426acdf72abbd0cc63d，run38799655164 build116645533313 success；deploy116648196476/live116648198287 skipped（工作分支）。225 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12004835019摘要独立匹配，人工看32张四宽度双主题评分/年份/列表/刷新图两联系表，放大390 Light列表、390 Night年份和1024 Light刷新原图，未确认新产品缺陷。8排序/刷新/列表偏好/键盘恢复流程通过，32几何无横向溢出/scrollX且pressed一致。本轮范围仅本UI计划/日志、docs/ui-evidence/uia08e*公开生产证据，不改产品；验收后非强推main仍validation-pending，须新main部署/live同场景验收。无新用户问题，完整库存/其余控件及全站仍pending。
+
 UI-A08e validation-pending：真实审计实现c7e248e18e222584a65d6fc277e679d8978d4837已expected_sha非强推保存ui/audit-008e，6个远程blob与本地hash逐项相同。本地225 tests/authoring/T01/diff通过；云1363 Light评分列表刷新保持及Enter网格恢复通过。main仍5a3b947f；随后仅记录SHA检查点，最终head production192+14、新32图/8流程与main/live需分别验收。无确认新产品缺陷、未改样式/数据，无新用户问题。
 
 UI-A08e in-progress：base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd，run38790272247 build116612728961/deploy116616173047/live116616346613全部success。范围仅现有浏览器审计、必要接线回归、计划日志与公开证据，不改产品。云1363×936 Light真实评分排序及列表切换已看截图，未确认新缺陷；验收补四宽度双主题评分/年份排序、标题排序刷新同ID、列表切换保持ID/刷新持久化/键盘恢复网格及32状态图，保留进行中优先契约和全部192+14。未验证先工作分支ui/audit-008e，不合main；完整库存/摘置/评分等其余控件仍pending，无新待答问题。
