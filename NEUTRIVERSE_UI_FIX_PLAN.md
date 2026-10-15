@@ -38,7 +38,7 @@
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
-| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d四宽度双主题24张时间线首/尾/刷新生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8组加载/单列表/滚动保持/刷新lazy/Enter同记录、24文字按钮不相交线上通过；完整库存/离屏加载、排序/列表/摘置等其他控件及外部站点仍pending |
+| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d时间线24图、UI-A08e排序/列表32张四宽度双主题生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8流程与24文字按钮不相交通过；UI-A08e书籍评分/年份组内降序、标题排序刷新同URL/ID、列表偏好刷新、Enter网格及默认恢复8流程线上通过；完整库存/离屏加载、Steam排序/摘置等其他控件及外部站点仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -53,6 +53,10 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-A08e限定done（2026-10-16）：验收main/base ae9e1b40aaf2824b91c0ceb1076db3f6a826902c，[run38809080788](https://github.com/AplusNeutrino/My_Blog/actions/runs/38809080788) build116677946585/deploy116681317407/live116681407285全部success。最新head保留同步数据，production/live各192+14、225 tests、4 Ruby、T01/authoring/Jekyll/旧门禁通过。live artifact12007758338摘要独立匹配，人工看32张四宽度双主题评分/年份/列表/刷新两联系表，放大390 Light刷新、390 Night评分、1024 Light列表原图，未新增确认缺陷；8排序/列表流程和32几何通过。计划日志与公开live证据回写，不改产品；新文档head CI另核对。无新待答问题，全站IN PROGRESS；下一项Library摘置/已放弃与剩余控件，不从限定done推断完整库存/全部排序/全站通过。[证据](docs/ui-evidence/uia08e-checks.md#2026-10-16-最新main线上验收)。
+
+UI-A08e线上复验进行中（2026-10-16）：base/current main ae9e1b40aaf2824b91c0ceb1076db3f6a826902c，9f411fdf之后为既有Library同步7文件，本轮保留不覆盖；原run38807345479 build/deploy success但live cancelled，不以取消当通过。改验最新head自身run38809080788 build116677946585/deploy116681317407/live116681407285全部success，下载live artifact12007758338摘要独立匹配。范围仅UI计划日志与docs/ui-evidence/uia08e*公开live证据；逐张人工看同32图、核对8流程及32几何后才限定done。其他Library/全站矩阵仍pending，无新待答问题，不改产品/数据/旧COMPLETE。
 
 UI-A08e生产验收通过、待main/live：本轮base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd、验收head b392d508df2e340285694426acdf72abbd0cc63d，run38799655164 build116645533313 success；deploy116648196476/live116648198287 skipped（工作分支）。225 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12004835019摘要独立匹配，人工看32张四宽度双主题评分/年份/列表/刷新图两联系表，放大390 Light列表、390 Night年份和1024 Light刷新原图，未确认新产品缺陷。8排序/刷新/列表偏好/键盘恢复流程通过，32几何无横向溢出/scrollX且pressed一致。本轮范围仅本UI计划/日志、docs/ui-evidence/uia08e*公开生产证据，不改产品；验收后非强推main仍validation-pending，须新main部署/live同场景验收。无新用户问题，完整库存/其余控件及全站仍pending。
 

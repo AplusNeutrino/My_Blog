@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08e最新main线上复验
+
+- Base/current main ae9e1b40aaf2824b91c0ceb1076db3f6a826902c；9f411fdf315f9a0c5178d45f5cbc17830db279ae之后新增既有Library数据同步7文件，保留不覆盖。原run38807345479 build116671501389/deploy116674931585 success但live116675023479 cancelled，不把取消当线上通过；改核对最新main自身run38809080788，build116677946585/deploy116681317407/live116681407285全部success，head完全匹配，不借其他提交CI代替。
+- 已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在、gh未安装未编造Issue。独立worktree保护原目录修改；本轮范围仅UI计划/日志与docs/ui-evidence/uia08e*公开live证据，不追加产品/数据/旧内容改动。
+- 精确head日志225 tests、4 Ruby、T01保护、authoring44/5/7、production Jekyll及production/live各192+14通过，线上job明确UI_LIVE_BASE=https://neutriverse.uk。下载live artifact12007758338 /173697696 bytes，sha256:52d171f883f110454b7c092e65c0de67ada282492ebcef3c92bc61c98eed5745独立匹配；拟人工查看四宽度双主题32图及代表原图，核对8流程/32诊断后才标限定done，不将CI成功当视觉正常。
+- 实际人工看32张四宽度双主题rating/year/list/reloaded两联系表，并放大390 Light刷新、390 Night评分及1024 Light列表原图：封面/标题/评分和按钮可见，未确认新显示缺陷；与此前生产图同状态表现一致。8流程评分/年份组内降序、标题排序刷新URL/ID、列表切换同ID、刷新偏好、Enter网格及默认恢复通过，32几何无页面/card溢出、scrollX=0、pressed与布局一致。完整192 audit、32诊断与两联系表保存，原PNG留artifact14天。
+- UI-A08e限定done。仅此书籍排序/列表状态，未推断完整库存/离屏加载、Steam排序、摘置/已放弃或其他全站矩阵。计划/日志与公开live证据回写，新文档head CI另行核对；无新增用户决策，不改产品/数据/原文/metadata/URL/hidden/noindex或旧COMPLETE。下一项Library摘置/已放弃与剩余控件，全站仍IN PROGRESS。
+- 本次文档证据本地复核225 tests、authoring44/5/7、T01保护44/5/5与diff check通过；Ruby/Jekyll/Chrome来自上述精确CI，不谎称本机运行。只提交7个计划/日志/公开证据文件，新head需单独核对CI。
+
 ## 2026-10-16 — UI-A08e生产截图与交互验收
 
 - Base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd、验收head b392d508df2e340285694426acdf72abbd0cc63d，真实审计实现c7e248e18e222584a65d6fc277e679d8978d4837。本轮先读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在，gh未安装未编造Issue。新独立worktree保护原目录用户修改。范围仅UI计划日志与docs/ui-evidence/uia08e*公开生产证据，不追加产品改动。
