@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08e in-progress：base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd，run38790272247 build116612728961/deploy116616173047/live116616346613全部success。范围仅现有浏览器审计、必要接线回归、计划日志与公开证据，不改产品。云1363×936 Light真实评分排序及列表切换已看截图，未确认新缺陷；验收补四宽度双主题评分/年份排序、标题排序刷新同ID、列表切换保持ID/刷新持久化/键盘恢复网格及32状态图，保留进行中优先契约和全部192+14。未验证先工作分支ui/audit-008e，不合main；完整库存/摘置/评分等其余控件仍pending，无新待答问题。
+
 UI-009 done / UI-A08d限定done（2026-10-16）：base与验收main8eb17637def2f3b185d0d1733fe62a611351e222，[run38781988055](https://github.com/AplusNeutrino/My_Blog/actions/runs/38781988055) build116584281245/deploy116587790492/verify-live-ui116587884313全部success；224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact11997335321摘要独立匹配；人工看24张四宽度双主题时间线首/尾/刷新图两联系表，放大390 Light首段、390 Night刷新及1024 Light尾段，长作品名完整换行、未被固定按钮遮住。24真实文字诊断按钮可见、overlaps=[]，8时间线流程同记录通过。本轮仅计划日志与公开live证据，不改产品，文档新head CI另核对；无新用户问题。全站IN PROGRESS，下一项Library排序/列表与剩余控件，不从此限定done推断完整库存或全站已验收。[证据](docs/ui-evidence/ui009-checks.md#2026-10-16-精确main线上验收)。
 
 UI-009/UI-A08d生产验收通过、待main/live：base main2e3d2844af408504cb616b9596ea682c97c3edd0，验收head2fcde494768cd4f45c10ae6615e85219f8c8fd62 / run38774806960 build116560105866 success，分支deploy116563569328/live116563569815 skipped。224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；artifact11993626620摘要独立匹配。人工看24张四宽度双主题start/tail/reloaded图两联系表，放大390 Light首段、390 Night刷新、1024 Light尾段：长作品名完整换行、不再被返回顶部按钮覆盖。24实际文字/按钮诊断均按钮可见且overlaps=[]、无行/页面溢出/scrollX，8时间线流程46条/单列表/滚动保持/刷新lazy/Enter同记录通过。范围仅计划日志与公开生产证据，不追加产品改动；验收后非强推main，仍validation-pending，需新main精确部署/live同24图，不用localhost代替。全站仍IN PROGRESS，无新用户问题。[证据](docs/ui-evidence/ui009-checks.md)。

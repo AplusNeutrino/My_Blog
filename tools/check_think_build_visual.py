@@ -441,6 +441,87 @@ def library_filter_pagination_controls(driver, wait, output, width, theme):
             'year':selected_year,'filterReloadIds':True,'clearRestored':True}
 
 
+def library_sort_layout_controls(driver, wait, output, width, theme):
+    """Real sort/layout controls; keep the locked in-progress-first grouping."""
+    def ids():
+        return [e.get_attribute('data-pgl-id') for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')]
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy') and ids())
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def sort(key):
+        element = driver.find_element(By.ID, 'pgl-sort')
+        position(element)
+        Select(element).select_by_value(key)
+        wait.until(lambda d: parse_qs(urlsplit(d.current_url).query).get('sort', ['updated']) == [key])
+        ready()
+        require('page' not in parse_qs(urlsplit(driver.current_url).query), 'Library sort retained page')
+    def capture(state):
+        position(driver.find_element(By.CSS_SELECTOR, '.pgl-view-toolbar'))
+        geometry = driver.execute_script('''
+          return {scrollX,viewport:innerWidth,page:document.documentElement.scrollWidth,
+            list:document.querySelector('#pgl-grid').classList.contains('is-list'),
+            gridPressed:document.querySelector('#pgl-layout-grid').getAttribute('aria-pressed'),
+            listPressed:document.querySelector('#pgl-layout-list').getAttribute('aria-pressed'),
+            cards:[...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>{
+              const r=e.getBoundingClientRect();return {id:e.dataset.pglId,status:e.dataset.status,
+                left:r.left,right:r.right,client:e.clientWidth,scroll:e.scrollWidth,
+                title:e.querySelector('.pgl-card-title').textContent,
+                meta:[...e.querySelectorAll('.pgl-meta span')].map(s=>s.textContent.trim())};})};
+        ''')
+        driver.save_screenshot(str(output / f'sort-layout-{state}-{width}-{theme}-library.png'))
+        (output / f'sort-layout-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry, indent=2))
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['viewport']+1, 'Library sort/layout page overflow')
+        require(all(c['left'] >= -1 and c['right'] <= geometry['viewport']+1 and c['scroll'] <= c['client']+1
+                    for c in geometry['cards']), f'Library {state} card overflow: {geometry}')
+        require(geometry['listPressed'] == str(geometry['list']).lower() and
+                geometry['gridPressed'] == str(not geometry['list']).lower(), 'Library layout pressed state mismatch')
+        return geometry
+    def numeric_order(geometry, key):
+        groups = {}
+        ranks = []
+        for card in geometry['cards']:
+            rank = 0 if card['status'] == 'in_progress' else 1
+            ranks.append(rank)
+            values = card['meta']
+            if key == 'rating':
+                value = next((float(t.replace('★', '').strip()) for t in values if t.startswith('★')), -1)
+            else:
+                value = next((int(t) for t in values if len(t) == 4 and t.isdigit()), 0)
+            groups.setdefault(rank, []).append(value)
+        require(ranks == sorted(ranks), 'Library lost in-progress priority')
+        require(all(values == sorted(values, reverse=True) for values in groups.values()), f'Library {key} order incorrect: {groups}')
+
+    ready()
+    initial_ids = ids()
+    sort('rating')
+    numeric_order(capture('rating'), 'rating')
+    sort('year')
+    numeric_order(capture('year'), 'year')
+    sort('title')
+    title_ids, title_url = ids(), driver.current_url
+    button = driver.find_element(By.ID, 'pgl-layout-list')
+    position(button)
+    button.click()
+    require(ids() == title_ids, 'Library list toggle changed IDs')
+    require(capture('list')['list'], 'Library list toggle failed')
+    driver.refresh()
+    ready()
+    require(driver.current_url == title_url and ids() == title_ids, 'Library title sort reload lost URL/IDs')
+    require(Select(driver.find_element(By.ID, 'pgl-sort')).first_selected_option.get_attribute('value') == 'title', 'Library reload lost selected sort')
+    require(capture('reloaded')['list'], 'Library reload lost list preference')
+    button = driver.find_element(By.ID, 'pgl-layout-grid')
+    position(button)
+    button.send_keys(Keys.ENTER)
+    require(not driver.find_element(By.ID, 'pgl-grid').get_attribute('class').split().count('is-list'), 'Library keyboard grid restore failed')
+    require(ids() == title_ids, 'Library grid restore changed IDs')
+    sort('updated')
+    require(ids() == initial_ids, 'Library default sort did not restore initial IDs')
+    return {'ratingOrder':True,'yearOrder':True,'titleReloadIds':True,'listKeepsIds':True,
+            'listReloadPreference':True,'keyboardGridRestored':True,'defaultRestored':True}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -586,6 +667,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     query = first.find_element(By.CSS_SELECTOR, '.pgl-card-title').text
     expected_id = first.get_attribute('data-pgl-id')
     filters_pagination = library_filter_pagination_controls(driver, wait, output, width, theme)
+    sort_layout = library_sort_layout_controls(driver, wait, output, width, theme)
     back = driver.find_element(By.ID, 'pgl-back')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
     driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
@@ -595,7 +677,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):

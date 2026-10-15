@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08e 排序与列表最小检查范围
+
+- Base main5a3b947fd9ea9ad2d6d7135d52b8afbebfcfb9cd；精确run38790272247 build116612728961/deploy116616173047/live116616346613全部success。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，不虚构Issue。独立worktree保护原目录修改。
+- 云Chrome1363×936 Light通过实际select评分和点击列表模式，首项2001太空漫游评分10，封面/标题/评分可见，未确认新显示缺陷。源码契约保留进行中优先，再按所选键排序；不把这一既有规则当缺陷。
+- 文件范围tools/check_think_build_visual.py、必要审计回归、UI计划日志与公开证据；拟覆盖四宽度双主题评分/年份数值次序、标题排序刷新同ID、列表切换保持ID/刷新持久化/键盘恢复网格，新增32图和几何诊断，保留全部192+14、T01/authoring/Jekyll门禁。未验证留ui/audit-008e，production/main/live均pending；不改产品样式/数据/正文/metadata/URL/hidden/noindex或旧COMPLETE历史。无新待答问题，其他Library及全站矩阵继续pending。
+- 已实现上述审计及必要接线回归。本地225 tests、authoring44/5/7、T01保护44/5/5、diff check通过。云实际刷新后评分URL/首项/列表偏好保持、Enter恢复网格成功，截图已保存[限定证据](ui-evidence/uia08e-checks.md)。本机未运行Ruby/Jekyll/Chrome，新head production192+14和新增32图仍pending，不以本地测试代替视觉验收。
+
 ## 2026-10-16 — UI-009与UI-A08d限定线上验收
 
 - Task UI-009/UI-A08d；base/current main8eb17637def2f3b185d0d1733fe62a611351e222，真实修复063053c23b287432dd7ff76328da2e22f9509c1a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装未虚构Issue，独立worktree保护用户修改。本轮范围仅UI计划/日志与docs/ui-evidence/ui009*、uia08d-checks.md公开线上证据，不追加产品改动。
