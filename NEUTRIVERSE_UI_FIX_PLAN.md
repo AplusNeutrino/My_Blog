@@ -48,6 +48,8 @@
 
 ## 当前运行
 
+UI-A08c1 validation-pending（2026-10-15 远程证据核对）：base/main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb；验收分支head e6a54de259b8c67d5bc6e6f0214e1bd519eaea7f。[run38689759158](https://github.com/AplusNeutrino/My_Blog/actions/runs/38689759158) completed/success，build116272713219 success，deploy/live按工作分支规则skipped。213 tests、T01保护、authoring44/5/7、production Jekyll与192场景浏览器检查通过；artifact11951832064，sha256:c2e1b65ce679fe223d0bd0b7cce819d8275c1c6064bc9ebac21b8b213fa35df9。当前执行环境握手失败且无可调用本地执行/浏览器工具，不能下载解包并人工查看24张搜索状态截图；仅核对日志与artifact元数据，不宣称视觉通过。范围仅本UI计划/日志远程检查点，代码、main、线上和旧COMPLETE历史不改；新检查点head CI另核对。恢复后先查看同一验收head四宽度双主题结果/空状态/清空截图，再决定main与部署后复验。gh CLI本轮无法执行，未创建Issue；无新用户问题，临时环境故障不标COMPLETE或永久blocked。
+
 UI-A08c1 in-progress：base c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb，run38684810581 build116257125018/deploy116258814970/live116258877904全部success。最小范围现有审计/必要helper回归/计划日志：Library输入站内公开书名、结果/URL、刷新保留、无结果提示、清空返回，四宽度双主题8流程截图。云1363×936 Light实际输入“猎魔人”显示9条结果，截图已看未确认新缺陷；不改产品。筛选/分页拆至UI-A08c2后续，先工作分支production192+14，main/live pending，无新用户问题。
 
 UI-A08b限定done：验收main/base57a6817cd90f27f41039c92040c38ff3de53a03e / run38679922788 build116241892225、deploy116243565530、verify-live-ui116243614933全部success。211 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live192+14通过。下载live artifact11946904727，8场景56次可见封面complete/原生尺寸/解码通过；人工看8张线上截图两联系表并放大390 Light原图，没有空白封面或新增确认缺陷。仅回写计划/日志/公开证据，新文档head CI另核对。下一项UI-A08c Library搜索/筛选/分页，完整库存/离屏加载及全站剩余矩阵pending，无新待答问题。[证据](docs/ui-evidence/uia08b-checks.md)。
