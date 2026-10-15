@@ -54,6 +54,12 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08f validation-pending：已实现真实状态切换/三次刷新同URL与ID、标签/空提示/category隔离、清除保留状态并恢复状态内默认ID、返回根/书籍原ID审计，四宽度双主题32图/JSON待CI。本地226 tests、authoring44/5/7、T01保护44/5/5、diff通过；云1363 Light实际清除仍已放弃、返回根成功。未确认新产品缺陷，未改样式/数据；先ui/audit-008f，main仍40824656，production192+14/32图和main/live未验收。无新用户问题。
+
+UI-A08f验收契约补充：源码既有“清除筛选”只重置来源/年份/排序，不清除搁置或已放弃状态；因此验证清除后仍处该状态、恢复该状态默认排序ID，通过返回按钮回分类根。不得为审计擅改产品清除语义。
+
+UI-A08f in-progress：base main40824656997ec79b0bfe875b33705acef33e65f1，保留用户新增_data/home_popular.yml，不覆盖；上次文档bcc58e47/run38814934654 build116697108846/deploy116699969989/live116700077492全部success。已读最新AGENTS/domain/ADR、旧COMPLETE计划报告和UI日志；CONTEXT不存在、gh未安装。范围仅现有浏览器审计/必要回归/计划日志及公开状态证据，不改产品。云1363×936 Light书籍搁置空提示、游戏9条搁置刷新保持、4条已放弃实际切换及截图未确认新缺陷；拟补四宽度双主题状态/刷新同URL与ID/状态标签与category隔离/清除恢复/返回目录32图8流程，未验证留ui/audit-008f，production/main/live pending。无新用户问题，其他Library/全站矩阵仍pending。
+
 UI-A08e限定done（2026-10-16）：验收main/base ae9e1b40aaf2824b91c0ceb1076db3f6a826902c，[run38809080788](https://github.com/AplusNeutrino/My_Blog/actions/runs/38809080788) build116677946585/deploy116681317407/live116681407285全部success。最新head保留同步数据，production/live各192+14、225 tests、4 Ruby、T01/authoring/Jekyll/旧门禁通过。live artifact12007758338摘要独立匹配，人工看32张四宽度双主题评分/年份/列表/刷新两联系表，放大390 Light刷新、390 Night评分、1024 Light列表原图，未新增确认缺陷；8排序/列表流程和32几何通过。计划日志与公开live证据回写，不改产品；新文档head CI另核对。无新待答问题，全站IN PROGRESS；下一项Library摘置/已放弃与剩余控件，不从限定done推断完整库存/全部排序/全站通过。[证据](docs/ui-evidence/uia08e-checks.md#2026-10-16-最新main线上验收)。
 
 UI-A08e线上复验进行中（2026-10-16）：base/current main ae9e1b40aaf2824b91c0ceb1076db3f6a826902c，9f411fdf之后为既有Library同步7文件，本轮保留不覆盖；原run38807345479 build/deploy success但live cancelled，不以取消当通过。改验最新head自身run38809080788 build116677946585/deploy116681317407/live116681407285全部success，下载live artifact12007758338摘要独立匹配。范围仅UI计划日志与docs/ui-evidence/uia08e*公开live证据；逐张人工看同32图、核对8流程及32几何后才限定done。其他Library/全站矩阵仍pending，无新待答问题，不改产品/数据/旧COMPLETE。

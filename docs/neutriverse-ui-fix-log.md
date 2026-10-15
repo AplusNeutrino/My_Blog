@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08f 搁置与已放弃最小检查范围
+
+- Base main40824656997ec79b0bfe875b33705acef33e65f1，新增用户首页推荐_data/home_popular.yml完整保留；读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志，CONTEXT不存在、gh未安装未编造Issue。独立worktree保护用户修改。上次bcc58e47精确run38814934654 build116697108846/deploy116699969989/live116700077492全部success，不借此冒充本次新head验收。
+- 云Chrome1363×936 Light真实打开书籍高级筛选并查看搁置，0条有暂无记录；返回根目录进入游戏，9条搁置刷新保持，切换已放弃显示4条且实际category全game。已看真实截图，未确认新产品显示缺陷；不根据ID前缀猜测category，也不把同步数据数目永久写死。
+- 范围仅tools/check_think_build_visual.py、必要审计接线回归、UI计划日志及docs/ui-evidence/uia08f*公开证据；拟四宽度双主题书籍搁置空提示/游戏搁置/已放弃/清除四状态32图、状态与category隔离、刷新同URL/ID、清除恢复默认ID、返回根及恢复书籍原ID，保留原192+14与全部门禁。先ui/audit-008f，production/main/live未验收，无新待答问题，不改产品/数据/旧原文/metadata/URL/hidden/noindex或旧COMPLETE历史。
+- 实现前核对既有清除语义：clearFilters保留state.status，只重置来源/年份/排序；验收“默认ID”指该已放弃状态的默认排序ID，保持status，不擅改成清除状态。通过既有返回按钮回分类根，再进入书籍恢复原ID。
+- 已实现真实状态/刷新/清除/返回审计及必要接线回归，32新PNG/JSON待CI生成。本地226 tests、authoring44/5/7、T01保护44/5/5及diff check通过；云实际清除保持已放弃、返回根成功，公开桌面图已保存。本机未运行Ruby/Jekyll/Chrome，新head production192+14/32图与main/live仍pending，先ui/audit-008f，不合main，不用单测代替视觉验收。
+
 ## 2026-10-16 — UI-A08e最新main线上复验
 
 - Base/current main ae9e1b40aaf2824b91c0ceb1076db3f6a826902c；9f411fdf315f9a0c5178d45f5cbc17830db279ae之后新增既有Library数据同步7文件，保留不覆盖。原run38807345479 build116671501389/deploy116674931585 success但live116675023479 cancelled，不把取消当线上通过；改核对最新main自身run38809080788，build116677946585/deploy116681317407/live116681407285全部success，head完全匹配，不借其他提交CI代替。

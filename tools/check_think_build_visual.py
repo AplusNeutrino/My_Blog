@@ -522,6 +522,116 @@ def library_sort_layout_controls(driver, wait, output, width, theme):
             'listReloadPreference':True,'keyboardGridRestored':True,'defaultRestored':True}
 
 
+def library_other_status_controls(driver, wait, output, width, theme):
+    """Read-only public status navigation; clear filters intentionally keeps status."""
+    def params():
+        return parse_qs(urlsplit(driver.current_url).query)
+    def ids():
+        return [e.get_attribute('data-pgl-id') for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')]
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def click(selector):
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+        element.click()
+    def open_filters():
+        if not driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'):
+            click('.pgl-advanced summary')
+        wait.until(lambda d: d.find_element(By.CSS_SELECTOR, '[data-pgl-status="on_hold"]').is_displayed())
+    def close_filters():
+        if driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'):
+            click('.pgl-advanced summary')
+    def verify(category, status):
+        wait.until(lambda d: params().get('category') == [category] and params().get('status') == [status])
+        ready()
+        cards = driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
+        require(all(c.get_attribute('data-category') == category and c.get_attribute('data-status') == status
+                    for c in cards), 'Library status/category leaked records')
+        if not cards:
+            empty = driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty')
+            require(empty.is_displayed() and empty.text.strip(), 'Library empty status has no visible message')
+        else:
+            require(all(c.find_element(By.CSS_SELECTOR, '.pgl-status').text.strip() for c in cards), 'Library status label missing')
+        require(driver.find_element(By.ID, 'pgl-browser-title').text.strip(), 'Library status heading missing')
+    def reload_same(category, status):
+        expected, url = ids(), driver.current_url
+        driver.refresh()
+        verify(category, status)
+        require(driver.current_url == url and ids() == expected, 'Library status reload lost URL/IDs')
+    def capture(state):
+        position(driver.find_element(By.CSS_SELECTOR, '.pgl-view-toolbar'))
+        geometry = driver.execute_script('''
+          const panel=document.querySelector('.pgl-advanced-panel'),p=panel.getBoundingClientRect();
+          return {scrollX,viewport:innerWidth,page:document.documentElement.scrollWidth,
+            open:document.querySelector('.pgl-advanced').open,panel:{left:p.left,right:p.right},
+            heading:document.querySelector('#pgl-browser-title').textContent,
+            empty:document.querySelector('#pgl-grid .pgl-empty')?.textContent||'',
+            cards:[...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>{
+              const r=e.getBoundingClientRect();return {id:e.dataset.pglId,category:e.dataset.category,status:e.dataset.status,
+                left:r.left,right:r.right,client:e.clientWidth,scroll:e.scrollWidth};})};
+        ''')
+        driver.save_screenshot(str(output / f'other-status-{state}-{width}-{theme}-library.png'))
+        (output / f'other-status-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry, indent=2))
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['viewport']+1, 'Library status page overflow')
+        require(all(c['left'] >= -1 and c['right'] <= geometry['viewport']+1 and c['scroll'] <= c['client']+1
+                    for c in geometry['cards']), 'Library status card overflow')
+        if geometry['open']:
+            require(geometry['panel']['left'] >= -1 and geometry['panel']['right'] <= geometry['viewport']+1,
+                    'Library status panel outside viewport')
+
+    ready()
+    book_ids = ids()
+    require(book_ids, 'Library book fixture empty before status audit')
+    open_filters()
+    click('[data-pgl-status="on_hold"]')
+    verify('book', 'on_hold')
+    book_empty = not ids()
+    reload_same('book', 'on_hold')
+    capture('book-hold')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    click('[data-pgl-category="game"]')
+    wait.until(lambda d: params().get('category') == ['game'] and ids())
+    open_filters()
+    click('[data-pgl-status="on_hold"]')
+    verify('game', 'on_hold')
+    require(ids(), 'Library game hold fixture empty')
+    reload_same('game', 'on_hold')
+    capture('game-hold')
+    open_filters()
+    click('[data-pgl-status="dropped"]')
+    verify('game', 'dropped')
+    require(ids(), 'Library game dropped fixture empty')
+    reload_same('game', 'dropped')
+    dropped_ids = ids()
+    capture('game-dropped')
+    element = driver.find_element(By.ID, 'pgl-sort')
+    position(element)
+    Select(element).select_by_value('rating')
+    wait.until(lambda d: params().get('sort') == ['rating'])
+    ready()
+    open_filters()
+    click('#pgl-clear-filters')
+    verify('game', 'dropped')
+    require(ids() == dropped_ids and all(k not in params() for k in ('source', 'year', 'sort', 'page')),
+            'Library clear filters did not keep status and restore its default sort')
+    close_filters()
+    capture('cleared')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require('status' not in params() and 'category' not in params(), 'Library back retained status/category')
+    click('[data-pgl-category="book"]')
+    ready()
+    wait.until(lambda d: ids() == book_ids)
+    return {'bookHoldEmpty':book_empty,'bookHoldReloadIds':True,'gameHoldReloadIds':True,
+            'gameDroppedReloadIds':True,'statusCategoryIsolation':True,'clearKeepsStatus':True,
+            'clearDefaultIds':True,'backRestoresBook':True}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -668,6 +778,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     expected_id = first.get_attribute('data-pgl-id')
     filters_pagination = library_filter_pagination_controls(driver, wait, output, width, theme)
     sort_layout = library_sort_layout_controls(driver, wait, output, width, theme)
+    other_status = library_other_status_controls(driver, wait, output, width, theme)
     back = driver.find_element(By.ID, 'pgl-back')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
     driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
@@ -677,7 +788,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):
