@@ -1,6 +1,6 @@
 # UI-008 窄屏高级筛选浮层溢出
 
-状态：validation-pending。
+状态：done；以下保留失败、生产与线上验收历史。
 
 证据head `ab85af5a022eb9b0a27126f2613fa7e7dadb0772`，
 [run38724996114](https://github.com/AplusNeutrino/My_Blog/actions/runs/38724996114)，build116388845796 failure；deploy/live skipped。
@@ -19,3 +19,9 @@
 精确head51f5e999 / run38731750252的build116411370430 success，220 tests、T01/authoring/Jekyll/旧门禁、192+14及8分页/筛选流程通过。实际查看32张四宽度双主题截图两联系表，放大390 Night面板原图，浮层与标题/页面左缘均在屏内；32份几何scrollX=0，展开面板左右界均通过。
 
 完整artifact摘要、JSON与截图见[UI-007共同生产证据](ui007-checks.md#2026-10-15-ui-007ui-008生产验收)。仍须精确main部署和线上同场景复验，状态validation-pending；不以CI成功单独替代视觉。
+
+## 2026-10-15 线上验收通过
+
+精确main 3a6258a2cfaca97c281d3d96843c238508f57f63 / run38739750905，build116438041048、deploy116441394565、verify-live-ui116441674267全部success。live artifact11975492793摘要独立匹配，32张四宽度双主题截图已人工查看，并放大390 Night展开面板原图：标题左侧完整、面板左右均在viewport内，32诊断scrollX=0；原分页/筛选/刷新/清除8流程保持通过。相比修复前页面横向偏移与标题裁切，本次相同窄屏展开场景不再出现。
+
+共同的完整线上audit、32诊断、两联系表及验收局限见[UI-007线上证据](ui007-checks.md#2026-10-15-精确main线上验收)。UI-008 done，不将此限定验收当全站COMPLETE；本次没有追加产品样式改动。

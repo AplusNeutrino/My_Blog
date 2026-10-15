@@ -17,8 +17,8 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | validation-pending | 浮层以toolbar左右边界定位；四宽度双主题面板在viewport内、无scrollX偏移，原分页/筛选/刷新断言与截图全部通过后部署复验 |
-| UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | validation-pending | 异步加载前保留请求页码，加载后合法页/越界均正确；四宽度双主题翻页、刷新ID一致、上一页、筛选与清除及线上截图复验 |
+| UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
+| UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | done | 3a6258a2精确main部署/live通过；8组下一页/刷新同URL与ID/上一页、来源年份组合刷新与清除通过，32图人工复验 |
 | UI-006 | P2 | 390px双主题Library搜索框覆盖副标题，绝对定位未占用布局空间 | done | ea8b62d5精确main部署/live通过；四宽度双主题24张线上三状态截图已看，8搜索流程及24矩形无重叠通过；移动搜索独占布局行 |
 | UI-001 | P2 | 四入口导航卡片同一行底部不齐，长中文摘要使内部链接未撑满 Grid 单元格 | done | 两主题、四视口：首页及四入口卡片边框撑满各自单元格，保留换行/链接/焦点；production CI 与线上复验 |
 | UI-002 | P2 | 项目/观察组件引用未定义的圆角、阴影与等宽字体变量；圆角失效、数据文本字体回退 | done | 变量默认值与运行时圆角/字体通过，112截图/交互与旧门禁通过，精确head main部署和双主题线上复验通过 |
@@ -37,7 +37,7 @@
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
-| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b固定viewport可见书籍封面8图已看；UI-006修复搜索遮挡，UI-A08c1四宽度双主题三状态24张生产/live图已看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索结果/刷新/空状态/清空与24重叠矩形通过；时间线/高级筛选/分页/完整库存及离屏延迟加载、外部站点仍pending |
+| Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b固定viewport可见书籍封面8图已看；UI-006修复搜索遮挡，UI-A08c1三状态24图及UI-007/008四状态32张四宽度双主题生产/live图已看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索及24重叠矩形通过；UI-A08c2限定分页/刷新/上一页/来源年份/清除8流程与32面板诊断线上通过；时间线/完整库存及离屏延迟加载、外部站点仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -49,7 +49,11 @@
 
 全部矩阵有明确截图和交互证据；所有确认缺陷完成部署复验；无validation-pending或未解释阻塞。写 docs/neutriverse-ui-fix-final-report.md，标 COMPLETE、最终main/线上核对后暂停“修复 Neutriverse UI”。不无限审美修改。
 
+Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
+
 ## 当前运行
+
+UI-007/UI-008 done / UI-A08c2限定done（2026-10-15）：base与验收main 3a6258a2cfaca97c281d3d96843c238508f57f63，[run38739750905](https://github.com/AplusNeutrino/My_Blog/actions/runs/38739750905) build116438041048、deploy116441394565、verify-live-ui116441674267全部success；220 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact11975492793摘要独立匹配；人工看32张线上四宽度双主题page2/open/combined/cleared图两联系表并放大390 Night面板、390 Light页2、1024 Light组合原图。8分页/筛选流程URL与ID保持、上一页/清除恢复，32诊断scrollX=0且展开面板在viewport内。仅本UI计划/日志及公开live证据回写，不改产品或旧COMPLETE；文档新head CI另核对，无新用户问题。下一项Library时间线，完整库存/离屏加载和其余全站矩阵仍pending，不标全站完成。[证据](docs/ui-evidence/ui007-checks.md#2026-10-15-精确main线上验收)。
 
 UI-007/UI-008生产验收通过、待main/live：base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea，验收head51f5e99947ccf1bfce29754efac93d1b5f9740a0 / run38731750252 build116411370430 success，工作分支deploy/live skipped。220 tests、T01/authoring/Jekyll/旧门禁及192+14通过；下载artifact11971222460并核对摘要。实际看32张分页/展开浮层/组合筛选/清除四宽度双主题图两联系表，放大390 Night面板、390 Light页2与1024 Light组合原图；第2页刷新同ID、上一页恢复、来源/年份刷新/清除8流程通过，面板均在viewport内且scrollX=0。只交付已通过修复和公开证据，不追加产品改动；状态仍validation-pending，需实际main head部署/live同场景，不以localhost代替。全站IN PROGRESS，无新增用户问题。[证据](docs/ui-evidence/ui007-checks.md)。
 

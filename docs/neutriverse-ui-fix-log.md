@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-007/UI-008与UI-A08c2限定线上验收
+
+- Task UI-007/UI-008/UI-A08c2；base/current main 3a6258a2cfaca97c281d3d96843c238508f57f63，产品实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04与bada5371158fb52728bf04f70da4721beb4a6a8a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录用户修改；本次范围仅UI计划/日志及docs/ui-evidence/ui007*、ui008-checks.md公开线上证据，验收精确head部署与32截图/8流程，不增加产品改动。
+- [run38739750905](https://github.com/AplusNeutrino/My_Blog/actions/runs/38739750905)精确head匹配、completed/success；build116438041048、deploy116441394565、verify-live-ui116441674267全部success。日志核对220 tests、4项Ruby渲染回归、T01 baseline、authoring44/5/7、production Jekyll及旧门禁；production/live各192页面+14侧栏场景通过。线上job明确UI_LIVE_BASE=https://neutriverse.uk，不以localhost替代部署后验收。
+- 下载live artifact11975492793，156048323 bytes，sha256:ab9da0d2e3f933a2ec7db4b691846d9030c0336188ade78569c9752d15a9e8db独立匹配。首次HTTP/2下载连接中断；HTTP/1.1重试成功，不把网络故障当UI缺陷。人工看32张线上四宽度双主题page2/open/combined/cleared图两联系表，放大390 Night面板、390 Light页2与1024 Light组合原图：标题左侧完整，筛选面板在屏内，当前页2与内容保持，组合来源/年份和清除后目录显示正常。
+- 8条filtersPagination记录均page2ReloadIds/previousPageRestored/filterReloadIds/clearRestored=true；来源bangumi、从公开卡片动态读取年份2013。32份几何诊断scrollX=0，展开panel左右均在viewport内。完整audit192、32诊断与两联系表永久保存；原PNG在artifact留14天。UI-007/UI-008 done，UI-A08c2只在上述分页与组合筛选路径限定done，不宣称排序/列表模式/摘置/已放弃或时间线、完整库存/离屏加载已验收。
+- 本机220 tests、authoring44/5/7、T01保护44/5/5、diff check通过；Ruby/Jekyll/Chrome来自上述精确CI。此后文档提交CI另核对，不借本次成功冒充新head通过。旧正文/metadata/URL/hidden/noindex、同步数据、外部仓库与旧COMPLETE历史未改，无新待答问题；下一项Library时间线，其他全站矩阵仍IN PROGRESS，不暂停任务。
+
 ## 2026-10-15 — UI-007/UI-008生产验收与main交付
 
 - Base main eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea、验收分支head51f5e99947ccf1bfce29754efac93d1b5f9740a0；产品实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04与bada5371158fb52728bf04f70da4721beb4a6a8a。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志，CONTEXT不存在、gh未安装未编造Issue；独立worktree保护用户修改。本次范围仅计划/日志与docs/ui-evidence/ui007*、ui008-checks.md证据，不添加产品变更。

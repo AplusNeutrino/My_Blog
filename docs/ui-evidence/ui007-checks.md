@@ -1,6 +1,6 @@
 # UI-007 Library分页刷新状态丢失
 
-状态：validation-pending；修复后浏览器矩阵与部署未验收。
+状态：done；以下保留复现、生产验收和精确main线上验收历史。
 
 Base main `eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea`。
 2026-10-15 云Chrome，实际innerWidth1363、innerHeight936，Prospero Light。
@@ -32,3 +32,20 @@ artifact11971222460，sha256:16e9da6fbfb21213aaa06ca6c2ef94307441aceae894adf1463
 8条分页/筛选流程均通过：页2刷新URL与ID一致、上一页恢复、来源Bangumi与动态公开年份组合刷新ID一致、清除恢复；32份几何诊断scrollX=0，所有展开面板在viewport内。前一head的失败历史与UI-008记录保留，没有降低断言换取成功。JSON和联系表永久保存，原PNG在artifact留14天。
 
 本节是localhost production验收，UI-007/UI-008仍validation-pending：main交付后核对实际head部署/live同32场景，不宣称已上线。时间线、完整库存/离屏加载及全站其他矩阵仍pending。
+
+## 2026-10-15 精确main线上验收
+
+main `3a6258a2cfaca97c281d3d96843c238508f57f63`，
+[run38739750905](https://github.com/AplusNeutrino/My_Blog/actions/runs/38739750905) completed/success；build116438041048、deploy116441394565、verify-live-ui116441674267全部success。
+220 tests、4 Ruby、T01/authoring44/5/7、production Jekyll/旧门禁及production/live各192+14通过。线上job指定https://neutriverse.uk。
+
+live artifact11975492793 / 156048323 bytes / sha256:ab9da0d2e3f933a2ec7db4b691846d9030c0336188ade78569c9752d15a9e8db下载并独立核对。实际查看32张四宽度双主题page2/open/combined/cleared截图两联系表，放大390 Night面板、390 Light第2页、1024 Light组合原图：浮层不再横向移动页面或裁切标题左侧，第2页按钮和藏品显示一致，来源Bangumi/2013组合及清除恢复正常。
+
+- [完整192项线上记录](ui007-live-audit.json)
+- [32份线上面板/年份诊断](ui007-live-filters.json)
+- [390/768双主题线上四状态](ui007-live-contact-390.jpg)
+- [1024/1366双主题线上四状态](ui007-live-contact-1024.jpg)
+
+8组真实交互均通过：第2页刷新同URL/同ID、上一页恢复、来源/动态年份组合刷新同ID、清除恢复。32诊断scrollX=0，所有展开panel在viewport内；截图人工核对与机械结果分别记证。JSON和联系表永久入库，原PNG在artifact保留14天。
+
+UI-007与UI-008 done，UI-A08c2仅以上路径限定done；排序、列表模式、摘置/已放弃、时间线、完整库存/离屏加载及其他全站矩阵未验收，不据此标全站COMPLETE。此次仅证据文档更新，新文档head CI另核对。
