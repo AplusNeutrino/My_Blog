@@ -5,6 +5,7 @@
 - Base main30e26ead4ee97aa6bc3120aec3372897bb1285bc；run38663584681 build116190250811、deploy116192067722、verify-live-ui116192142932全部success。已读AGENTS/domain/ADR0001、旧COMPLETE计划报告和UI计划日志，CONTEXT不存在、gh不可用，不虚构Issue；独立worktree保护用户修改。
 - Task UI-A08b仅现有审计、tests/test_library_cover_audit.py、计划日志。此前live目录截图部分封面为空，但脚本未等待加载，证据不足确认产品缺陷。本次在同一目录返回按钮稳定后的viewport内选择真实img.pgl-cover，等待complete，再严格naturalWidth>0，记录currentSrc、complete、尺寸与viewport；失败/超时也保存JSON及截图，不将占位/失败当通过。
 - 不写src/loading、不mock图片、不另行fetch/代理封面、不改变同步数据或产品。四宽度双主题8加载场景，保留192+14原门禁。先ui/audit-008b生产验收，真实截图/外部图片加载与main/live均pending；书籍目录可见图片专项不冒称全Library图片库存、搜索/筛选/分页或外部站点完成。无新增确认缺陷或用户决策问题。
+- 实现提交63ab500dda94cee943d16d39abc54aa1047d4e7c；本地211 tests（新增4项helper契约：成功、破图、超时、空视图）、authoring44/5/7、T01保护44/5/5及diff check通过。helper单测不是浏览器图片证明；本机Ruby/Jekyll/Chrome未运行，交由最终工作分支head的Actions执行。main未改，UI-A08b validation-pending，下一轮先核对同一head及covers JSON/PNG，不跳过失败。
 
 ## 2026-10-15 — UI-A08a精确main线上验收
 
