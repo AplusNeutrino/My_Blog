@@ -8,6 +8,7 @@
 - 先工作分支production192+14和新截图，未验收不进main；保护原文/metadata/URL/hidden/noindex/同步数据及关联仓库，旧COMPLETE历史不改。无新待答问题。
 - 实现libraryDataLoaded标志只在目录请求成功后设true，renderCards仅在其true时收缩越界page；失败/未加载不冒充空目录。新增Node执行真实renderCards的加载前page2、加载后第二页切片、越界页和合法空目录回归，另补标志接线/浏览器契约。现有Library场景新增真实翻页→刷新同ID→上一页及公开来源/动态可见年份组合→刷新→清除，32张新状态图，完整192+14不减。218本地tests、authoring44/5/7、T01保护44/5/5与diff check通过；本机无Ruby/Chrome，真实浏览器及Jekyll交给工作分支精确head，未声称修复后视觉/部署通过。
 - 原HEAD的真实renderCards作为负对照运行相同Node测试，被“empty pending data destroyed requested page”拒绝，证明新增回归捕获本次根因；修复函数测试通过。[复现证据](ui-evidence/ui007-checks.md)与截图仅含公开Library内容。修复及新审计先保存ui/fix-007，production/live仍pending。
+- 真实实现提交35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04，通过连接GitHub保存ui/fix-007；本次随后仅追加SHA检查点。main未改，修复后Chrome/Jekyll/完整矩阵及部署未验收；下轮必须核对最终检查点head而非复用别的head成功。7个上传blob可与本地hash逐一复核，旧内容保护不变。
 
 ## 2026-10-15 — UI-006与UI-A08c1限定线上验收
 

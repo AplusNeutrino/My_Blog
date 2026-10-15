@@ -50,6 +50,8 @@
 
 ## 当前运行
 
+UI-007 validation-pending：实现35139d7bfe0f3cc0620bbd4bfbdbbd3b4d5abe04保存ui/fix-007，main仍eb016b52。本地218 tests、authoring、T01与diff通过，原函数负对照准确捕获加载前页码丢失。计划/日志及公开复现截图已持久化；下轮先核对最终分支head production192+14、新32张分页/筛选图和真实交互，通过后再非强推main与live复验，不以helper单测代替视觉通过。无新用户问题。
+
 UI-007 in-progress / UI-A08c2：base eb016b52ab6d167a8b1594cef96c6ea3eb1f0dea，run38717518673 build116363722730/deploy116366321159/live116366415960全部success已核对。云1363×936 Light实际打开书籍高级筛选、来源Bangumi与年份2011组合、清除及下一页；刷新前页码2，刷新后URL仍category=book&page=2而界面页码1/首项猎魔人卷四，确认P2分页状态丢失。根因首次renderCards在异步目录加载前按空items把page收缩为1。最小范围pgl.js、现有审计/必要回归、UI计划日志；仅在目录加载成功后校正越界页，保留合法page2。四宽度双主题真实下一页/刷新相同ID/上一页、来源/年份/清除及截图为验收；先工作分支production192+14，未验收不进main。高级筛选桌面局部未确认显示缺陷，不猜测改样式；gh未安装不虚构Issue，无新用户问题。
 
 UI-006 done / UI-A08c1限定done：验收main/base ea8b62d58414465661d1f7d88d883e353b9b5b90 / run38710416815 build116340121129、deploy116342302377、verify-live-ui116342443999全部success。215 tests、T01/authoring/production Jekyll/旧门禁及production/live各192+14通过。下载live artifact11960851998并核对摘要，人工看24张线上搜索三状态图两联系表，放大390 Light空状态、390 Night结果与1024 Light清空原图；副标题完整、搜索独立行、未遮挡后续内容。8组搜索刷新/结果/空提示/清空和24矩形通过。本次仅计划/日志与公开live证据，不改产品；文档head CI另核对。全站IN PROGRESS，无新用户问题；下一项UI-A08c2高级筛选/分页，完整库存/离屏加载等仍pending。[证据](docs/ui-evidence/ui006-checks.md)。
