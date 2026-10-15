@@ -23,3 +23,18 @@ artifact11951832064（sha256:c2e1b65ce679fe223d0bd0b7cce819d8275c1c6064bc9ebac21
 新增浏览器回归：结果/空状态/清空每次记录heading、search、header实际矩形；拒绝搜索与标题区相交，拒绝搜索超出header进入后续内容，保留页面溢出检查。隐藏搜索不占行，打开后正常布局推下后续内容，不用遮罩掩盖缺陷。
 
 本机215项测试、authoring、T01保护与diff check通过；真实修复后Chrome截图、production Jekyll和精确main部署/live均待验收，不能借用修复前head成功。无新增用户决定问题；筛选/分页、时间线和其他全站矩阵仍pending。
+
+## 2026-10-15 修复后生产验收
+
+验收head `1edcde07cb948b60a0fac2e275229a0c70769686`，[run38703172752](https://github.com/AplusNeutrino/My_Blog/actions/runs/38703172752)，build116316270106 success；分支deploy/live skipped。215 tests、T01、authoring44/5/7、production Jekyll、既有门禁与192+14真实浏览器场景通过。
+
+下载artifact11956813908，sha256:1a92c572c41e5f6eafe48c323548c86ef21ae006738e8481698d6ab0ceb5c136。人工查看24张四宽度双主题三状态截图两联系表，放大390 Light空状态、390 Night结果、1366 Light清空；移动搜索已在副标题下方正常流占行，没有标题/返回/后续控件遮挡。桌面没有新增确认缺陷。
+
+- [修复后390/768两主题三状态](ui006-production-search-390.jpg)
+- [修复后1024/1366两主题三状态](ui006-production-search-1024.jpg)
+- [完整192场景记录](ui006-production-audit.json)
+- [24份搜索矩形](ui006-production-search-geometry.json)
+
+8搜索流程均刷新保留、空提示、清空返回通过。390 Light空状态标题区bottom146.0625、搜索top157.25、搜索bottom与header.bottom均190.84375，标题与搜索约11px间隔。未展开搜索时保持隐藏，不额外公开信息。JSON与联系表永久入仓，原PNG在artifact保留14天。
+
+UI-006/UI-A08c1仍validation-pending：交付main后核对实际新head build/deploy/live及线上同场景截图；本节不等于线上验收。Library高级筛选/分页/时间线及全站余下矩阵仍pending。

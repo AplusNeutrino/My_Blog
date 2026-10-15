@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-15 — UI-006生产验收与main交付
+
+- Base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb、验收工作head1edcde07cb948b60a0fac2e275229a0c70769686；真实修复960fa5a51518453d85a1f6bccf2b0529197ac40d。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告和UI计划日志；CONTEXT不存在，gh未安装未虚构Issue，独立worktree保护用户修改。本轮文件范围UI计划/日志、docs/ui-evidence/ui006*生产证据，不增加产品变更。
+- run38703172752精确head匹配、completed/success，build116316270106 success；deploy116318753958、verify-live-ui116318754762 skipped（工作分支，不算部署）。日志核对215 tests、T01 baseline、authoring44/5/7、production Jekyll和旧门禁全部通过；产物192页面+14侧栏场景。
+- 下载artifact11956813908并独立sha256匹配1a92c572c41e5f6eafe48c323548c86ef21ae006738e8481698d6ab0ceb5c136；实际看24张四宽度双主题搜索结果/空状态/清空截图两联系表，放大390 Light空状态、390 Night结果和1366 Light清空原图。390副标题完整可见，搜索行在其下方，返回/控件/内容未被遮挡；桌面布局无新增确认缺陷。
+- 24份真实搜索矩形JSON与8条搜索刷新/结果/空提示/清空交互通过：例如390 Light空状态heading.bottom146.0625、search.top157.25、search.bottom=header.bottom190.84375，约11px分离，不再覆盖。完整audit192、24矩形与两联系表永久入库；原PNG保留14天，后续不得用此localhost结果替代线上。
+- 本机215 tests、authoring44/5/7、T01保护44/5/5及diff check再通过；Ruby/Jekyll/Chrome来自上述精确CI。本轮验收后非强推main，UI-006/UI-A08c1仍validation-pending，待实际main head部署/live同场景；筛选/分页UI-A08c2及其他矩阵pending，无新待答问题。未改旧正文/metadata/URL/hidden/noindex、Library同步数据、关联仓库或旧COMPLETE历史。
+
 ## 2026-10-15 — UI-006移动Library搜索遮挡，先记录范围
 
 - Base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb，工作head c5fd955a632a1722b1c9f73618041a7f0738307d，main未变。读取最新AGENTS/domain/ADR、旧COMPLETE计划报告和本UI计划日志；独立worktree保护原目录用户改动，CONTEXT不存在、gh未安装。

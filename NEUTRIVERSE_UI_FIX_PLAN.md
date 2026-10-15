@@ -49,6 +49,8 @@
 
 ## 当前运行
 
+UI-006 / UI-A08c1生产验收通过、待main/live：base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb；验收head1edcde07cb948b60a0fac2e275229a0c70769686 / run38703172752 build116316270106 success，工作分支deploy/live skipped。215 tests、T01/authoring/Jekyll/全部旧门禁及192+14通过；下载artifact11956813908并核对摘要，人工看24张搜索三状态截图两联系表并放大390 Light空状态、390 Night结果、1366 Light清空原图，副标题不再被搜索框覆盖。8搜索流程及24真实矩形JSON通过。仅将已通过修复与公开证据非强推main，状态仍validation-pending；必须再核对实际main head build/deploy/live及同24场景截图，不能用localhost替代。文件范围计划/日志与docs/ui-evidence/ui006*，不追加产品改动；其余全站矩阵未完成，无新增用户问题。
+
 UI-006 validation-pending：修复实现960fa5a51518453d85a1f6bccf2b0529197ac40d保存在ui/audit-008c；[run38703062082](https://github.com/AplusNeutrino/My_Blog/actions/runs/38703062082)已触发、当前in-progress，尚无修复后视觉或线上验收。本地215 tests/authoring/T01/diff通过，8个远程blob哈希与本地逐一相同。仅追加此实现SHA检查点，新文档head CI另核对；main仍c5c40820。下轮先核对最终分支head完整production和24张搜索状态截图/矩形JSON，通过再非强推main及live复验。无新待答问题。
 
 UI-006 in-progress（UI-A08c1截图发现）：base main c5c40820a23e7d64b7fbdd42ff6d95d1093eb6fb / 工作head c5fd955a632a1722b1c9f73618041a7f0738307d。环境已恢复，下载e6a54de2 artifact11951832064并核对sha256；人工看24张搜索状态图两联系表及390 Light空状态、1024 Night结果、768 Night清空原图，确认390px双主题搜索框遮挡副标题。P2，根因为720px内搜索框绝对定位于按钮容器、未占布局空间。拟改assets/pgl/pgl.css、现有搜索审计、必要回归、UI计划日志及公开前后证据；改为标题/按钮一行、搜索独立一行，保留展开收起/输入/URL，不重新设计。验收四宽度双主题结果/空状态/清空无标题或后续内容遮挡、页面不溢出，原213 tests/T01/authoring/Jekyll/旧门禁保持，精确head生产与线上截图复验。未验收留工作分支，不以原CI成功宣称无缺陷；gh未安装不虚构Issue，无新用户问题。
