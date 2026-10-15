@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-009/UI-A08d生产验收通过、待main/live：base main2e3d2844af408504cb616b9596ea682c97c3edd0，验收head2fcde494768cd4f45c10ae6615e85219f8c8fd62 / run38774806960 build116560105866 success，分支deploy116563569328/live116563569815 skipped。224 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；artifact11993626620摘要独立匹配。人工看24张四宽度双主题start/tail/reloaded图两联系表，放大390 Light首段、390 Night刷新、1024 Light尾段：长作品名完整换行、不再被返回顶部按钮覆盖。24实际文字/按钮诊断均按钮可见且overlaps=[]、无行/页面溢出/scrollX，8时间线流程46条/单列表/滚动保持/刷新lazy/Enter同记录通过。范围仅计划日志与公开生产证据，不追加产品改动；验收后非强推main，仍validation-pending，需新main精确部署/live同24图，不用localhost代替。全站仍IN PROGRESS，无新用户问题。[证据](docs/ui-evidence/ui009-checks.md)。
+
 UI-009真实修复063053c23b287432dd7ff76328da2e22f9509c1a已expected_sha非强推保存ui/audit-008d，12个上传blob与本地hash一致；随后仅追加实现SHA记录。最终检查点head的production192+14/新24图/文字按钮相交诊断及main/live需单独验收，main仍2e3d2844，UI-009/UI-A08d validation-pending；无新待答问题。
 
 UI-009修复及诊断已实现，先ui/audit-008d：720px内时间线padding-right3.5rem，仅为固定按钮留空间；审计新增真实可见文字行与#back-to-top矩形相交检查，按钮必须可见，原全部断言/24图/8流程保留。本地224 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机未运行Ruby/Jekyll/Chrome，修复后production192+14和精确main/live均待新head验收。UI-A08d/UI-009保持validation-pending，main不改，无新待答问题。[缺陷证据](docs/ui-evidence/ui009-checks.md)。

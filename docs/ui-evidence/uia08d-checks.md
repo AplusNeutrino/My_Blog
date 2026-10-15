@@ -32,3 +32,9 @@ artifact11989890630摘要独立匹配。人工看24张图两联系表并放大39
 - [1024/1366双主题三状态](uia08d-production-contact-1024.jpg)
 
 修复及真实文字行/按钮不相交门禁先工作分支，新head完整production/live和修复后截图仍pending；其他Library控件/全站矩阵不由本项推断完成。
+
+## 2026-10-16 UI-009修复后生产检查
+
+head2fcde494 / run38774806960 build116560105866 success，224 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及192+14通过；分支deploy/live skipped。人工看四宽度双主题24张新图两联系表和三张代表原图，长作品名完整换行，24文字行/按钮诊断均无相交。8时间线加载/单列表/滚动保持/刷新lazy/Enter同记录通过；完整摘要/JSON/截图见[UI-009修复后证据](ui009-checks.md#2026-10-16-修复后生产验收通过)。
+
+本项仍validation-pending，待实际main部署和线上同24图；既有失败与UI-009遮挡历史保留，没有以原机械通过或静态测试冒充视觉正常。

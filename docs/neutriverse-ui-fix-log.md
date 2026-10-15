@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-009/UI-A08d生产验收与main交付
+
+- Base main2e3d2844af408504cb616b9596ea682c97c3edd0，验收分支head2fcde494768cd4f45c10ae6615e85219f8c8fd62，真实UI修复063053c23b287432dd7ff76328da2e22f9509c1a。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装不虚构Issue。独立worktree保护用户修改；本轮范围仅UI计划/日志及docs/ui-evidence/ui009*、uia08d-checks.md生产证据，不追加产品改动。
+- run38774806960精确head匹配，build116560105866 success，deploy116563569328/verify-live-ui116563569815 skipped（工作分支，不当作部署）。日志核对224 tests、4 Ruby、T01 baseline、authoring44/5/7、production Jekyll/旧门禁及192页面+14侧栏场景通过。
+- 下载artifact11993626620 /159632592 bytes，sha256:24ef1ed4db15f96d41254d1eee6d3dd18e61b6687a43ca623a73f34f9b756c92独立匹配。人工查看24张四宽度双主题start/tail/reloaded两联系表，放大390 Light首段、390 Night刷新、1024 Light尾段原图：先前被按钮遮住的长作品名完整换行，按钮处有避让空间，没有新增确认显示缺陷。
+- 24份诊断都要求返回顶部按钮实际可见、真实可见文字Range非空且overlaps=[]，行内和页面无横向溢出、scrollX=0。8时间线流程均46条、单列表、一次性按钮替换、首尾滚动同组文本、刷新lazy重置及Enter加载同记录通过。不固定未来同步46条、不改历史文字；此结论限时间线这些场景，不能当完整库存/其他控件或全站已通过。
+- 完整audit192、24诊断和两联系表永久入库，原PNG留artifact14天；失败历史不覆盖。本机224 tests、authoring44/5/7、T01保护44/5/5与diff check通过，Ruby/Jekyll/Chrome来自上述精确CI。非强推main后UI-009/UI-A08d仍validation-pending，必须核对实际新main build/deploy/live及同24图；其余全站矩阵未完成，无新待答问题，旧正文/metadata/URL/hidden/noindex、同步数据、关联仓库和旧COMPLETE历史不改。
+
 ## 2026-10-16 — UI-A08d生产截图复核发现UI-009文字遮挡
 
 - Base main2e3d2844af408504cb616b9596ea682c97c3edd0、验收head47b3c294711c77abb62b321f71f5ae1eb658f855。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，独立worktree保护用户修改。
