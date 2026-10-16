@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08j最新同步数据生产验收
+
+- head8eef170b98feea451bd210fe6190b8488fa36451 /run38967018561 build117196107879 success，deploy117200632292/live117200633470 skipped（分支）。241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/192+14通过，本机241 tests/authoring44/5/7/T01保护44/5/5/diff再次通过，本机无Jekyll/Chrome，不冒称本机视觉验收。
+- artifact12075822645 /277938344 bytes /sha256:e56263183ff636d7d5c3c3bde28fc9e01c9cb089c1b16bf7c7bfedb4ddf72488独立匹配；人工看新数据96截图8联系表并放大390 Light第1页首、768 Night第6页首，浮层关闭/封面可见，未确认新产品缺陷。
+- 独立核对8流程完整124书籍6页/992原生加载/完整无重复ID/末页刷新URL与ID/prev/返回根重入与96几何通过；不复用6613d252旧截图替代。中间区域完整视觉与其他分类/全站仍pending。
+- 本轮仅已验收审计和新公开生产证据回写，9个同步数据文件保持最新main dda8dc31原值；fresh main/expected_sha非强推交付后，须核对实际新main build/deploy/live与96线上截图，仍validation-pending。保护旧正文/metadata/URL/hidden/noindex、数据、关联仓库和旧COMPLETE；无新用户决策，gh不可用不编造Issue。
+
 ## 2026-10-17 — 交付前发现并发同步，保留新数据
 
 - expected_sha复核发现main已变为dda8dc3172f69163975cc0d082833feb13b9cb67（Library同步），不是原325db4d0；main更新未执行，未强推/覆盖同步。9个数据/来源/统计文件变动，没有产品源码变动。

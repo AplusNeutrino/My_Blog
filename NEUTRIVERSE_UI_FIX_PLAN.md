@@ -61,6 +61,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08j最新数据生产验收（2026-10-17）：8eef170b98feea451bd210fe6190b8488fa36451 /run38967018561 build117196107879 success，deploy117200632292/live117200633470 skipped；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/192+14通过。artifact12075822645独立摘要匹配，人工看新数据四宽度双主题96页首尾图8联系表并放大390 Light首/768 Night末页首，未新增确认缺陷。8流程/完整124书籍6页/992原生加载/末页刷新返回与96几何通过；9个同步数据blob保持dda8dc31原值。只交付已验证审计/证据，不改样式；精确新main head build/deploy/live及96线上图仍validation-pending。中间卡片完整视觉、其他分类与全站余项仍pending，无新用户决策。
+
 UI-A08j数据接续（2026-10-17）：生产6613d252限定范围已验收；交付前main并发前进dda8dc3172f69163975cc0d082833feb13b9cb67，9个Library同步数据文件更新，expected_sha复核已停止main操作，未覆盖同步。将审计/证据基于最新main保存ui/audit-008j-sync，9文件精确保留main blob；默认书籍仍124，仍须新精确head production及96图重验，不能用同数量或旧截图替代。main/deploy/live仍validation-pending，无新用户决策，全站IN PROGRESS。
 
 UI-A08j生产验收（2026-10-17）：精确6613d252 /run38960141641 build117173359902 success，deploy117177120300/live117177121847 skipped（分支）。241 tests/4 Ruby/T01/authoring/Jekyll/既有门禁/192+14通过；下载artifact12073100672独立摘要匹配，人工查看四宽度双主题96页首/尾图8联系表，放大390 Light首/768 Night末页首原图，浮层关闭后封面可见，无新确认缺陷。8组完整124书籍6页/992原生加载/末页刷新与返回、96几何通过。仅此范围生产通过，中间卡片完整视觉和其他分类仍pending；非强推交付main后，精确新head build/deploy/live及96线上图仍validation-pending。全站IN PROGRESS，无新用户决策。[证据](docs/ui-evidence/uia08j-checks.md)。

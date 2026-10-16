@@ -2,6 +2,16 @@
 
 状态：validation-pending；修正后生产已验收，交付main后仍须精确head build/deploy/live与同场景截图复验。
 
+## 2026-10-17 — 最新同步数据精确head生产验收
+
+- head8eef170b98feea451bd210fe6190b8488fa36451，父main dda8dc3172f69163975cc0d082833feb13b9cb67；[run38967018561](https://github.com/AplusNeutrino/My_Blog/actions/runs/38967018561) build117196107879 success、deploy117200632292/live117200633470 skipped（分支）。241 tests、4 Ruby渲染回归、T01保护44/5/5、authoring44/5/7、production Jekyll/SEO/资源/原门禁及192页面+14侧栏通过。本机同241 tests/authoring/T01/diff复核通过，本机未运行Ruby/Jekyll/Chrome。
+- artifact12075822645 /277938344 bytes /sha256:e56263183ff636d7d5c3c3bde28fc9e01c9cb089c1b16bf7c7bfedb4ddf72488独立下载校验一致。人工查看新数据96图8联系表，放大390 Light第1页首、768 Night第6页首原图；关闭浮层后封面/标题可见，末页和分页正常，无新增确认缺陷。
+- 独立核对8流程各124书籍、6页24/24/24/24/24/4、完整ID集合/无重复、992次原生complete/decode/自然尺寸与初始离屏覆盖、末页刷新URL/ID、上一页/返回根/重入；96几何诊断scrollX=0且页面/卡片在clientWidth内。新证据独立生成，没有沿用6613d252旧图代替同步后的验收。
+- 保留9个最新main数据blob；本轮仅回写计划日志与公开新证据，已验证审计交付main后仍需精确新head Actions/build/deploy/live及96线上截图验收，状态validation-pending。不改产品样式/原文/metadata/URL/hidden/noindex、数据或关联仓库，不改旧COMPLETE。
+- 中间卡片完整视觉、其他分类与全站矩阵仍pending；不将全书籍加载成功当作完整库存视觉通过。无新用户决策，gh不可用不编造Issue。
+
+新数据联系表：390 [Night](uia08j-sync-production-contact-390-dark.jpg)/[Light](uia08j-sync-production-contact-390-light.jpg)，768 [Night](uia08j-sync-production-contact-768-dark.jpg)/[Light](uia08j-sync-production-contact-768-light.jpg)，1024 [Night](uia08j-sync-production-contact-1024-dark.jpg)/[Light](uia08j-sync-production-contact-1024-light.jpg)，1366 [Night](uia08j-sync-production-contact-1366-dark.jpg)/[Light](uia08j-sync-production-contact-1366-light.jpg)；[192审计](uia08j-sync-production-audit.json)、[96诊断](uia08j-sync-production-diagnostics.json)。原PNG在上述artifact保留14天。
+
 ## 2026-10-17 — 并发数据同步，暂缓main交付
 
 - 最终expected_sha复核发现main已由325db4d0前进至dda8dc3172f69163975cc0d082833feb13b9cb67（chore(pgl): sync personal library [2026-10-16]），9个公开Library数据/来源/统计文件更新。main更新操作没有执行，没有覆盖同步数据或强推。
