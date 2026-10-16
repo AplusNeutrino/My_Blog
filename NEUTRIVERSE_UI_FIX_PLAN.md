@@ -40,6 +40,7 @@
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
 | Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d时间线24图、UI-A08e排序/列表32张四宽度双主题生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8流程与24文字按钮不相交通过；UI-A08e书籍评分/年份组内降序、标题排序刷新同URL/ID、列表偏好刷新、Enter网格及默认恢复8流程线上通过；完整库存/离屏加载、Steam排序/摘置等其他控件及外部站点仍pending |
 | Library搁置/已放弃（UI-A08f） | 32张四宽度双主题生产/live四状态截图已人工查看，空提示/状态标签/卡片可见，无新增确认缺陷 | 8组状态刷新URL/ID、category/status隔离、清除保留status并恢复状态内默认ID、返回根/书籍原ID线上通过；此限定项done，不代表其他Library控件通过 |
+| Library愿望单（UI-A08g） | 32张四宽度双主题生产/live目录/分类/刷新/空状态图已人工查看，长标题/封面/计数/空提示可见，无新增确认缺陷 | 8组目录计数、category/status隔离、整页刷新URL/ID、空提示及刷新、两级返回与书籍原ID恢复线上通过；限定done，完整库存/离屏加载及评分控件仍pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -54,6 +55,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-A08g限定done（2026-10-16）：base/验收main b95bba7ccf511b0797c004621764c79112acf792，[run38843916122](https://github.com/AplusNeutrino/My_Blog/actions/runs/38843916122) build116789975836/deploy116792410025/live116792468638全部success；227 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12022769374摘要独立匹配，人工看32张四宽度双主题目录/分类/刷新/空状态两联系表，放大390 Light分类长标题、390 Night空提示与1024 Light刷新原图，未新增确认缺陷。8愿望单流程与32元素诊断和生产一致，计数/分类隔离/刷新URL与ID/空提示/两级返回及书籍原ID恢复通过，无横向溢出/scrollX。本轮仅UI计划日志及docs/ui-evidence/uia08g*公开live证据，不改产品/数据/旧COMPLETE；新文档head CI另核对。无新用户决策，全站IN PROGRESS，下一项Library评分控件，完整库存/离屏加载、Steam及其他全站项pending。[证据](docs/ui-evidence/uia08g-checks.md#2026-10-16-精确main线上验收)。
 
 UI-A08g生产验收通过、待main/live（2026-10-16）：base main23343d67baba17dbe787f5611eea39ed90ad0b79、验收head8240a3b192e32b935541208532fd491cd3b75033，run38838899369 build116774445703 success，deploy116776769147/live116776770483 skipped（工作分支，不作部署）。227 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12020114567摘要独立匹配；人工看32张四宽度双主题index/category/reloaded/empty两联系表，放大390 Light刷新、390 Night目录和1024 Light空提示原图，未确认新产品缺陷。8愿望单计数/分类与status隔离、刷新同URL/ID、空提示、两级返回与书籍原ID恢复通过，32几何无横向溢出/scrollX。本轮只改UI计划日志及docs/ui-evidence/uia08g*公开生产证据，不改产品/数据/旧COMPLETE；验收后非强推main仍validation-pending，须新main部署/live同32图。无新待答问题，评分及其他全站项仍pending。
 

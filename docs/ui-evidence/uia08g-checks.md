@@ -1,6 +1,6 @@
 # UI-A08g：Library 愿望单
 
-状态：生产验收通过、main/live validation-pending。Base main `23343d67baba17dbe787f5611eea39ed90ad0b79`；只补真实浏览器审计与证据，未确认新产品缺陷，不改样式/数据。以下保留初始pending历史。
+状态：限定done（精确main线上验收见文末）。初始Base main `23343d67baba17dbe787f5611eea39ed90ad0b79`；只补真实浏览器审计与证据，未确认新产品缺陷，不改样式/数据。以下保留阶段pending历史。
 
 2026-10-16云Chrome1363×936实际操作：Prospero Light愿望单目录含七分类，漫画3项可打开、刷新同URL/ID、封面加载完成可见，返回仍是愿望单目录；书籍0项有“暂无记录”，刷新保持，再切到Night确认空提示可见。两级返回确实回Library根URL。数量仅当前观察，不写死未来同步数目；首次异步封面尚未完成不作永久缺失结论。
 
@@ -22,3 +22,16 @@
 [完整192 audit](uia08g-production-audit.json)中8组wishlist流程目录计数、category/status隔离、整页刷新同URL/ID、真实空提示/刷新、两级返回与书籍原ID恢复通过。[32几何诊断](uia08g-production-wishlist.json)均无页面/元素横向溢出、scrollX=0。当前非空comic、空book来自真实数据，不写死未来数量，未验收离屏封面或完整库存；原PNG留artifact14天。
 
 生产验收通过，交付main后仍validation-pending，必须新main部署/live同32图复验。评分控件、Steam及其余全站项未验收，无新用户决策，不改产品/数据/旧COMPLETE。
+
+## 2026-10-16 精确main线上验收
+
+验收main `b95bba7ccf511b0797c004621764c79112acf792`，[run38843916122](https://github.com/AplusNeutrino/My_Blog/actions/runs/38843916122) build116789975836/deploy116792410025/verify-live-ui116792468638全部success。227 tests、4 Ruby、T01/authoring44/5/7、production Jekyll/旧门禁及production/live各192+14通过；live job明确 `UI_LIVE_BASE=https://neutriverse.uk`。
+
+下载live artifact12022769374 /197974539 bytes，sha256 `ab17b5e7d01b99aff8cd156d39f6f77f0bf839767e7670ca0f2b4db929162874` 独立匹配。人工看以下32张四宽度双主题同状态图，放大390 Light分类长标题、390 Night空提示、1024 Light刷新原图：计数/封面/标题/空提示可见，同状态与生产表现一致，未新增确认显示缺陷。
+
+![线上390/768愿望单四状态双主题](uia08g-live-contact-390.jpg)
+![线上1024/1366愿望单四状态双主题](uia08g-live-contact-1024.jpg)
+
+[线上192 audit](uia08g-live-audit.json)中8组wishlist目录计数、category/status隔离、整页刷新URL/ID、真实空提示及刷新、两级返回与书籍原ID恢复通过。[32几何诊断](uia08g-live-wishlist.json)均无页面/元素横向溢出、scrollX=0；8流程与32元素诊断逐项和生产一致。原PNG留artifact14天，公开联系表和JSON持久保存，不把可见封面当离屏/完整库存验收。
+
+UI-A08g限定done。评分控件、完整库存/离屏加载、Steam及其余全站项未验收，无新用户决策；新文档head CI另核对，不改产品/数据或旧COMPLETE历史。
