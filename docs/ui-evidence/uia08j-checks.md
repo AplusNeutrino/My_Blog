@@ -1,6 +1,17 @@
 # UI-A08j — 默认书籍全分页与封面加载
 
-状态：validation-pending；修正后生产已验收，交付main后仍须精确head build/deploy/live与同场景截图复验。
+状态：限定done；验收main4140b667ef00b8b4723d29687306e2fdc5d1ef01。仅默认书籍完整分页/原生加载与各页首尾viewport视觉；其他范围继续pending。
+
+## 2026-10-17 — 精确main部署与线上验收
+
+- main4140b667ef00b8b4723d29687306e2fdc5d1ef01 / [run38973034490](https://github.com/AplusNeutrino/My_Blog/actions/runs/38973034490)：build117215745464、deploy117219743993、verify-live-ui117219913508全部success。241 tests、4 Ruby渲染回归、T01保护44/5/5、authoring44/5/7、production Jekyll/SEO/资源/原门禁通过，production与live各192页面+14侧栏；live日志明确UI_LIVE_BASE=https://neutriverse.uk，不用localhost或其他head成功代替。
+- live artifact12079130735 /277678321 bytes /sha256:b6cbd8946d08a46bb81715c7e7160c112a2b8b1b5d5c1ab80205faedb9a36eea，下载后独立匹配。人工查看96张四宽度双主题页首/尾线上图8联系表，放大390 Light第1页首与768 Night第6页首原图；浮层关闭、首排封面标题可见、末页/分页正常，无新增确认缺陷。
+- 8组每组完整124书籍6页24/24/24/24/24/4，ID无重复且并集等于公开默认集合；992次complete/decode/自然尺寸和初始离屏覆盖、末页刷新URL/ID、上一页/返回根/重入首批ID全部通过。各页ID/图片src与natural尺寸及通过标记同8eef170b生产记录一致。
+- 96截图几何独立通过scrollX=0、page/卡片不超clientWidth；与生产记录相比，仅卡片top/bottom不同，最大0.30645751953125px，其他字段完全一致；18/96几何完全相同，不虚称全部字节相同。逐卡初始滚动位置也有纵坐标差异，原始数据保留，不据此推断产品缺陷，截图已人工核查。
+- UI-A08j限定done，不等于中间卡片完整视觉、其他分类或全站COMPLETE。下一项默认库存其余分类/中间区域及其他全站矩阵；无新用户决策。旧失败取景/并发同步历史不改写，9个同步数据blob保留。
+- 本轮只回写计划日志与公开live证据，无产品/数据/旧正文/metadata/URL/hidden/noindex、关联仓库或旧COMPLETE修改。本机241 tests/authoring/T01/diff复核通过，本机未运行Jekyll/Chrome；本次证据文档新head CI另行核对，不借4140b667成功冒充新head通过。
+
+线上联系表：390 [Night](uia08j-live-contact-390-dark.jpg)/[Light](uia08j-live-contact-390-light.jpg)，768 [Night](uia08j-live-contact-768-dark.jpg)/[Light](uia08j-live-contact-768-light.jpg)，1024 [Night](uia08j-live-contact-1024-dark.jpg)/[Light](uia08j-live-contact-1024-light.jpg)，1366 [Night](uia08j-live-contact-1366-dark.jpg)/[Light](uia08j-live-contact-1366-light.jpg)；[192审计](uia08j-live-audit.json)、[96诊断](uia08j-live-diagnostics.json)。原PNG在上述artifact保留14天。
 
 ## 2026-10-17 — 最新同步数据精确head生产验收
 

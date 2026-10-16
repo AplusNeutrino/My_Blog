@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08j精确main线上验收
+
+- main4140b667ef00b8b4723d29687306e2fdc5d1ef01 /run38973034490 build117215745464/deploy117219743993/live117219913508全部success；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁及production/live各192+14通过。live日志UI_LIVE_BASE=https://neutriverse.uk，未用localhost代替线上。
+- artifact12079130735 /277678321 bytes /sha256:b6cbd8946d08a46bb81715c7e7160c112a2b8b1b5d5c1ab80205faedb9a36eea下载后独立匹配；人工看96线上图8联系表，放大390 Light第1页首、768 Night第6页首，封面/标题可见、浮层关闭、分页正常，未确认新产品缺陷。
+- 8组完整124书籍6页/992原生加载、完整无重复ID、末页刷新URL/ID、prev/返回根/重入通过；ID/图片记录与8eef170b生产相同。96截图几何横向边界完全一致，18组几何完全相同，其他仅top/bottom差异最大0.30645751953125px；逐卡初始滚动位置纵坐标也有差异，不虚称全部字节一致，不据此当产品缺陷。
+- UI-A08j限定done，仅完整书籍分页/加载和各页首尾视觉；中间区域完整视觉、其他分类与全站矩阵仍pending，无新用户决策。只回写计划日志/live证据，不改产品/数据/原文/metadata/URL/hidden/noindex、关联仓库或旧COMPLETE，9个同步数据blob保持；本机241 tests/authoring/T01/diff复核通过。本次证据新head CI另核对，下一项其余默认分类/中间区域及其他全站检查。
+
 ## 2026-10-17 — UI-A08j最新同步数据生产验收
 
 - head8eef170b98feea451bd210fe6190b8488fa36451 /run38967018561 build117196107879 success，deploy117200632292/live117200633470 skipped（分支）。241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/192+14通过，本机241 tests/authoring44/5/7/T01保护44/5/5/diff再次通过，本机无Jekyll/Chrome，不冒称本机视觉验收。
