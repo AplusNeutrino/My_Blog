@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08i生产取景缺口修正
+
+- 修正后本地237 tests、authoring44/5/7、T01保护44/5/5及diff通过，本机未运行Ruby/Jekyll/Chrome，不把测试当视觉通过。
+- Base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4、branch53b536052b7e6443ca2795d23a60c440c0f0ca9a；最新main未移动。已读AGENTS/三docs/ADR、本轮计划日志与旧COMPLETE相关边界，旧约束相对已读head无差异；CONTEXT不存在，gh未安装。独立worktree保留用户字体/缓存/基线文件，不强推、不改旧历史。
+- run38905074465 build116986945525 success；deploy116991131418/live116991132144 skipped（分支规则，不当部署）。236 tests、4 render-only Ruby、T01保护/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/移动无障碍、192+14全部通过。
+- 下载artifact12047752802 /226394901 bytes，sha256:5ca17bbbf26e618c5f540f6bf5bbf16c0a6d4583cc7d8cd692b375addc91b3e0独立匹配；人工查看40图两联系表，放大390 Light末端、390 Night来源、1024 Light统计原图。8流程/游戏120条/第一页24卡×8=192次原生封面加载及初始离屏、排序/来源刷新URL与ID、清除/返回通过，未确认新产品缺陷。
+- 真实视觉缺口：来源截图正常高级筛选浮层仍打开，空提示被浮层遮住；DOM is_displayed不能作为可读证据。最小范围tools/check_think_build_visual.py、tests/test_library_steam_cover_audit.py、UI计划日志与uia08i证据，仅新增真实summary关闭/等待后再截图及1项回归；不改产品/数据/宽松断言。首次40图/诊断只标首次取景，不称完整视觉通过。
+- Steam状态privacy_boundary_unavailable、来源0条，只验不可用/空数据契约；不绕过边界或注入伪遥测，有数据时成就/时长视觉pending-no-data。完整库存/其余分页/其他全站项pending；无新用户决策。修正后精确分支head production40图/8流程及main部署/live尚待验证，仍validation-pending，不进main。
+
 ## 2026-10-16 — UI-A08i 范围先记录
 
 - 真实实现9f6f0fb021c35167d5419afc9a05f4c174f7a4e6已保存ui/audit-008i，5个blob与本地hash逐项一致；随后仅追加SHA检查点。main仍f2d463cf；精确最终head生产40图/8流程及main/live验收尚待核对，保持validation-pending。

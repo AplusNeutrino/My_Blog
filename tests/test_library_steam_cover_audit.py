@@ -38,3 +38,9 @@ class LibrarySteamCoverAuditTests(unittest.TestCase):
         self.assertIn("geometry['clientViewport']+1", helper)
         self.assertIn("len(set(ordered)) == len(ordered)", helper)
         self.assertIn("len(ids()) == min(page_size,len(expected_steam))", helper)
+
+    def test_empty_visual_capture_follows_real_panel_close(self):
+        _, helper = self.helper()
+        before_capture = helper.split("capture('source'", 1)[0]
+        self.assertIn("click('.pgl-advanced summary')", before_capture.rsplit('Steam empty message missing', 1)[1])
+        self.assertIn("not d.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open')", before_capture)

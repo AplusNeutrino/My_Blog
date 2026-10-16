@@ -60,6 +60,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08i接续validation-pending：base main仍f2d463cf、工作head53b53605；run38905074465 build116986945525 success、deploy/live skipped。236 tests/Ruby/T01/authoring/Jekyll/192+14及8流程/192次逐卡原生加载通过；下载artifact12047752802独立摘要匹配，人工看40图及代表原图未确认新产品缺陷。但8张来源图的正常高级筛选浮层覆盖空提示，不能以is_displayed当视觉验收；本轮仅审计补真实关闭浮层后同场景采图及1项回归，不改产品或放宽断言。首次图/JSON按局限保存，修正后精确head完整40图/8流程与main/live仍待验收，main不改；无新用户决策，有遥测时Steam视觉pending-no-data，不突破隐私边界。
+
 UI-A08i真实审计实现9f6f0fb021c35167d5419afc9a05f4c174f7a4e6已保存ui/audit-008i，5个blob与本地hash一致；随后仅追加SHA检查点。main仍f2d463cf，未部署新审计；最终分支head production40图/8流程与main/live必须分别核对，保持validation-pending，无新用户决策。
 
 UI-A08i validation-pending：仅新增审计与3项接线回归；目标统计/游戏Steam排序首屏/离屏末端/刷新/来源5状态共40图和8流程。逐卡真实滚动、原生complete/decode/两帧、初始离屏与natural尺寸记录、数据库存/状态组内时长排序、刷新/清除/返回和clientWidth门禁已实现，本地236 tests/authoring/T01/diff通过；不代表响应式视觉/Jekyll通过。本机无Ruby/Chrome，先工作分支ui/audit-008i，main不改；完整库存/其余分页图片/真实Steam成就等仍pending，无新产品缺陷或用户决策。

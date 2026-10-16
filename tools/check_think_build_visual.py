@@ -1019,6 +1019,10 @@ def library_steam_cover_controls(driver, wait, output, width, theme):
     filtered, filtered_url = ids(), driver.current_url
     if not expected_steam:
         require(driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty').is_displayed(), 'Steam empty message missing')
+    # An open advanced panel intentionally overlays the empty message. Close
+    # it with the real control before taking visual evidence, not DOM-only QA.
+    click('.pgl-advanced summary')
+    wait.until(lambda d: not d.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'))
     capture('source', '.pgl-view-toolbar')
     driver.refresh()
     ready()

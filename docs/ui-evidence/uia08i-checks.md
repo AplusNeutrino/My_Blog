@@ -2,6 +2,17 @@
 
 状态：in-progress；base f2d463cfb75168b7ca0a883915ef56efa0b7b4e4。
 
+## 2026-10-16 — 首次生产检查与视觉取景修正
+
+- 验收head53b536052b7e6443ca2795d23a60c440c0f0ca9a / [run38905074465](https://github.com/AplusNeutrino/My_Blog/actions/runs/38905074465)：build116986945525 success；deploy116991131418/live116991132144 skipped（工作分支，不作部署通过）。236 tests、4项render-only Ruby、T01/authoring44/5/7、production Jekyll/Search/feed/SEO/资源/移动无障碍及192+14通过。
+- artifact12047752802 /226394901 bytes /sha256:5ca17bbbf26e618c5f540f6bf5bbf16c0a6d4583cc7d8cd692b375addc91b3e0，下载后摘要独立匹配。人工看四宽度双主题40图两联系表，放大390 Light末端封面、390 Night来源、1024 Light统计原图，未确认产品缺陷。原PNG在artifact保留14天；本次40诊断、192审计与两联系表永久保存，均标production首次取景，不能冒充最终视觉验收。
+- 8流程记录：游戏库存120，第1页24卡×8=192次原生封面complete/decode/natural尺寸通过，初始离屏条目有覆盖；进行中优先/时长组内降序、排序刷新URL/ID、Steam来源0条/刷新、清除与返回通过。Steam状态privacy_boundary_unavailable，不绕过隐私边界、不补造时长/成就；有遥测时视觉仍pending-no-data。
+- **验收缺口而非产品缺陷**：8张source截图均在高级筛选浮层打开时拍摄，“暂无记录”被正常浮层遮住；is_displayed不等于截图中可读。此组不能据CI成功写视觉通过。仅修审计：真实点击summary关闭浮层并等待关闭，再同场景截图；空提示、数据对照与全部原断言不放宽，新增1项接线回归。
+- 本次范围：现有审计/回归、UI计划日志与uia08i公开证据，不改产品/数据。修正后精确head完整40图/8流程及main/live仍validation-pending；main仍f2d463cf，无新用户决策，gh未安装不编造Issue。完整库存/其余分页与其他全站矩阵继续pending。
+- 修正后本地237 tests、authoring44/5/7、T01保护44/5/5及diff通过；没有本机Ruby/Jekyll/Chrome，未将接线测试当视觉验收。
+
+首次生产联系表：[390/768](uia08i-production-contact-narrow.jpg)、[1024/1366](uia08i-production-contact-wide.jpg)；[192审计](uia08i-production-audit.json)、[40诊断](uia08i-production-diagnostics.json)。
+
 范围：游戏目录Steam游玩时间排序第1页原生封面滚动加载、排序刷新、Steam来源实际结果/空提示、刷新与清除恢复、返回根目录；不代表完整Library库存验收。
 
 2026-10-16云浏览器1363×936 Light实际操作排序、来源、刷新并看图：当前Steam来源0条，暂无记录可见，刷新保留状态；未确认新产品缺陷。当前数据不支持有遥测时的成就/时长视觉验收，不注入伪数据替代。
