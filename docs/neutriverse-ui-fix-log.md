@@ -7,6 +7,7 @@
 - 下载artifact12029150207 /202758715 bytes，sha256:83a90b333cd19a8782f7dd36bb0ba469c31860e1fa16410471d930423f1e94ca独立匹配。人工看32张四宽度双主题book/music/首末提示两联系表，再放大390 Light/Night末端提示原图，确认末尾“条目”被右侧滚动条裁切；Light tip.right390.390625，document可用宽379，innerWidth390，旧断言用含滚动条宽度漏报。8组分类/摘要/真实键盘/退出隐藏/刷新默认流程通过但不据此接受UI-A08h。
 - UI-010 P2实际复现（不是偏好）：两个现有renderer均以评分点百分比作提示中心，无半宽避让。文件范围assets/pgl/pgl.js、assets/pgl/pgl-rating-polish.js、现有评分审计/必要回归、UI计划日志与ui010/uia08h公开证据；只将提示中心限制在shell内，新增可用视口clientWidth与shell边界检查，不放宽旧门禁、不重构renderer/数据。先ui/audit-008h，production/main/live仍pending，无新用户决策。
 - 已实现两个renderer的实际宽度clamp避让、clientWidth/shell边界断言与必要回归。本地230 tests、authoring44/5/7、T01保护44/5/5、diff通过；修复前390双主题原PNG公开保存，修复后32图/8流程及production/main/live仍pending，不以代码存在当视觉正常。本机未运行Ruby/Jekyll/Chrome，不合main。
+- 真实修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1已expected_sha非强推保存ui/audit-008h，10个上传blob与本地hash逐项相同；随后仅追加此实现SHA记录。最终检查点head的production完整192+14/32图/8流程及新clientWidth/shell边界、main部署/live必须独立核对；main仍3d822d56，无新待答问题。
 
 ## 2026-10-16 — UI-A08h异步重绘审计读取修复
 

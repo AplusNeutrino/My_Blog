@@ -57,6 +57,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-010 / UI-A08h validation-pending：真实修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1已expected_sha非强推保存ui/audit-008h，10个上传blob与本地hash逐项相同；随后只追加此SHA记录。本地230 tests/authoring/T01/diff通过，不等于修复后视觉验收；新head须完整192+14、新32图/8流程/clientWidth与shell边界，再交付main/live。main仍3d822d56，未部署；无新用户决策。
+
 UI-010 / UI-A08h修复in-progress（2026-10-16）：base main3d822d563af3b798a98887d3f35505496931d63c、工作分支base9d8d3c0869853fd69e4623c50b68ebf1607c8b12；run38858665322 build116836040776 success、deploy116838599413/live116838599804 skipped，229 tests/4 Ruby/T01/authoring/Jekyll/192+14通过但不作视觉通过。artifact12029150207摘要独立匹配，人工看32评分图并放大390 Light/Night末端提示，确认尾字被滚动条裁切；Light提示right390.39，实际可用页宽379，旧innerWidth390检查漏报。范围assets/pgl/pgl.js与pgl-rating-polish.js两renderer提示定位、现有审计/必要回归、UI计划日志与ui010/uia08h公开证据；只夹紧提示到shell且新增clientWidth/shell边界断言，不放宽门禁/重新设计。不合main，gh未安装不编造Issue，无新用户决策。
 
 UI-A08h审计竞争修复validation-pending：实现7577e4cff209073f438a2f41bd2e718292ecccc7已expected_sha非强推保存ui/audit-008h，5个上传blob与本地hash一致。本地229 tests/authoring/T01/diff通过，但新head production完整192+14/32图/8流程及main/live仍待验证；旧fb511faf因刷新异步SVG逐节点读取stale失败，不是已确认产品缺陷。不改产品/放宽门禁，main仍3d822d56；随后仅追加此SHA检查点，无新用户决策。
