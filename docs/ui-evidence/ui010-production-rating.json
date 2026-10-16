@@ -1,0 +1,1346 @@
+{
+  "rating-book-1024-dark-library.json": {
+    "chart": {
+      "bottom": 494.984375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 278.21875
+    },
+    "clientViewport": 1009,
+    "focused": null,
+    "page": 1009,
+    "scopes": {
+      "bottom": 530.375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 494.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 536.96875,
+      "client": 640,
+      "left": 314.5,
+      "right": 954.5,
+      "scroll": 640,
+      "top": 268.421875
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1024
+  },
+  "rating-book-1024-light-library.json": {
+    "chart": {
+      "bottom": 495.171875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 277.109375
+    },
+    "clientViewport": 1013,
+    "focused": null,
+    "page": 1013,
+    "scopes": {
+      "bottom": 532.296875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 495.171875
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 538.890625,
+      "client": 644,
+      "left": 314.578125,
+      "right": 958.40625,
+      "scroll": 644,
+      "top": 267.3125
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1024
+  },
+  "rating-book-1366-dark-library.json": {
+    "chart": {
+      "bottom": 513.09375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 260.671875
+    },
+    "clientViewport": 1351,
+    "focused": null,
+    "page": 1351,
+    "scopes": {
+      "bottom": 548.484375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 513.09375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 555.078125,
+      "client": 744,
+      "left": 300,
+      "right": 1044.25,
+      "scroll": 744,
+      "top": 250.875
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1366
+  },
+  "rating-book-1366-light-library.json": {
+    "chart": {
+      "bottom": 512.984375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 259.53125
+    },
+    "clientViewport": 1355,
+    "focused": null,
+    "page": 1355,
+    "scopes": {
+      "bottom": 550.109375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 512.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 556.703125,
+      "client": 747,
+      "left": 300,
+      "right": 1047.25,
+      "scroll": 747,
+      "top": 249.734375
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1366
+  },
+  "rating-book-390-dark-library.json": {
+    "chart": {
+      "bottom": 448.375,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 268.375
+    },
+    "clientViewport": 375,
+    "focused": null,
+    "page": 375,
+    "scopes": {
+      "bottom": 483.765625,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 448.375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 490.359375,
+      "client": 343,
+      "left": 16,
+      "right": 359,
+      "scroll": 343,
+      "top": 258.578125
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 390
+  },
+  "rating-book-390-light-library.json": {
+    "chart": {
+      "bottom": 448.515625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 268.515625
+    },
+    "clientViewport": 379,
+    "focused": null,
+    "page": 379,
+    "scopes": {
+      "bottom": 485.0625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 448.515625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 491.65625,
+      "client": 347,
+      "left": 16,
+      "right": 363,
+      "scroll": 347,
+      "top": 258.71875
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 390
+  },
+  "rating-book-768-dark-library.json": {
+    "chart": {
+      "bottom": 504.859375,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 268.59375
+    },
+    "clientViewport": 753,
+    "focused": null,
+    "page": 753,
+    "scopes": {
+      "bottom": 540.25,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 504.859375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 546.84375,
+      "client": 697,
+      "left": 28,
+      "right": 725,
+      "scroll": 697,
+      "top": 258.796875
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 768
+  },
+  "rating-book-768-light-library.json": {
+    "chart": {
+      "bottom": 505.5625,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 267.9375
+    },
+    "clientViewport": 757,
+    "focused": null,
+    "page": 757,
+    "scopes": {
+      "bottom": 542.6875,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 505.5625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 549.28125,
+      "client": 701,
+      "left": 28,
+      "right": 729,
+      "scroll": 701,
+      "top": 258.140625
+    },
+    "summary": "21 个已评分作品 · 均值 7.5 · 峰值 7",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 768
+  },
+  "rating-music-1024-dark-library.json": {
+    "chart": {
+      "bottom": 494.984375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 278.21875
+    },
+    "clientViewport": 1009,
+    "focused": null,
+    "page": 1009,
+    "scopes": {
+      "bottom": 530.375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 494.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 536.96875,
+      "client": 640,
+      "left": 314.5,
+      "right": 954.5,
+      "scroll": 640,
+      "top": 268.421875
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1024
+  },
+  "rating-music-1024-light-library.json": {
+    "chart": {
+      "bottom": 495.171875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 277.109375
+    },
+    "clientViewport": 1013,
+    "focused": null,
+    "page": 1013,
+    "scopes": {
+      "bottom": 532.296875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 495.171875
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 538.890625,
+      "client": 644,
+      "left": 314.578125,
+      "right": 958.40625,
+      "scroll": 644,
+      "top": 267.3125
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1024
+  },
+  "rating-music-1366-dark-library.json": {
+    "chart": {
+      "bottom": 513.09375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 260.671875
+    },
+    "clientViewport": 1351,
+    "focused": null,
+    "page": 1351,
+    "scopes": {
+      "bottom": 548.484375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 513.09375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 555.078125,
+      "client": 744,
+      "left": 300,
+      "right": 1044.25,
+      "scroll": 744,
+      "top": 250.875
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1366
+  },
+  "rating-music-1366-light-library.json": {
+    "chart": {
+      "bottom": 512.984375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 259.53125
+    },
+    "clientViewport": 1355,
+    "focused": null,
+    "page": 1355,
+    "scopes": {
+      "bottom": 550.109375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 512.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 556.703125,
+      "client": 747,
+      "left": 300,
+      "right": 1047.25,
+      "scroll": 747,
+      "top": 249.734375
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 1366
+  },
+  "rating-music-390-dark-library.json": {
+    "chart": {
+      "bottom": 448.375,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 268.375
+    },
+    "clientViewport": 375,
+    "focused": null,
+    "page": 375,
+    "scopes": {
+      "bottom": 483.765625,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 448.375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 490.359375,
+      "client": 343,
+      "left": 16,
+      "right": 359,
+      "scroll": 343,
+      "top": 258.578125
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 390
+  },
+  "rating-music-390-light-library.json": {
+    "chart": {
+      "bottom": 448.515625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 268.515625
+    },
+    "clientViewport": 379,
+    "focused": null,
+    "page": 379,
+    "scopes": {
+      "bottom": 485.0625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 448.515625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 491.65625,
+      "client": 347,
+      "left": 16,
+      "right": 363,
+      "scroll": 347,
+      "top": 258.71875
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 390
+  },
+  "rating-music-768-dark-library.json": {
+    "chart": {
+      "bottom": 504.859375,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 268.59375
+    },
+    "clientViewport": 753,
+    "focused": null,
+    "page": 753,
+    "scopes": {
+      "bottom": 540.25,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 504.859375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 546.84375,
+      "client": 697,
+      "left": 28,
+      "right": 725,
+      "scroll": 697,
+      "top": 258.796875
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 768
+  },
+  "rating-music-768-light-library.json": {
+    "chart": {
+      "bottom": 505.5625,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 267.9375
+    },
+    "clientViewport": 757,
+    "focused": null,
+    "page": 757,
+    "scopes": {
+      "bottom": 542.6875,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 505.5625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 549.28125,
+      "client": 701,
+      "left": 28,
+      "right": 729,
+      "scroll": 701,
+      "top": 258.140625
+    },
+    "summary": "0 个已评分作品",
+    "tooltip": {
+      "bottom": 0,
+      "client": 0,
+      "left": 0,
+      "right": 0,
+      "scroll": 0,
+      "text": "",
+      "top": 0,
+      "visible": false
+    },
+    "viewport": 768
+  },
+  "rating-tooltip-first-1024-dark-library.json": {
+    "chart": {
+      "bottom": 494.984375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 278.21875
+    },
+    "clientViewport": 1009,
+    "focused": "评分 1: 0",
+    "page": 1009,
+    "scopes": {
+      "bottom": 530.375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 494.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 536.96875,
+      "client": 640,
+      "left": 314.5,
+      "right": 954.5,
+      "scroll": 640,
+      "top": 268.421875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 488.2445373535156,
+      "client": 60,
+      "left": 322.4921875,
+      "right": 384.1015625,
+      "scroll": 60,
+      "text": "1 · 0 条目",
+      "top": 457.1664123535156,
+      "visible": true
+    },
+    "viewport": 1024
+  },
+  "rating-tooltip-first-1024-light-library.json": {
+    "chart": {
+      "bottom": 495.171875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 277.109375
+    },
+    "clientViewport": 1013,
+    "focused": "评分 1: 0",
+    "page": 1013,
+    "scopes": {
+      "bottom": 532.296875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 495.171875
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 538.890625,
+      "client": 644,
+      "left": 314.578125,
+      "right": 958.40625,
+      "scroll": 644,
+      "top": 267.3125
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 489.40625,
+      "client": 63,
+      "left": 322.5703125,
+      "right": 387.3984375,
+      "scroll": 63,
+      "text": "1 · 0 条目",
+      "top": 456.59375,
+      "visible": true
+    },
+    "viewport": 1024
+  },
+  "rating-tooltip-first-1366-dark-library.json": {
+    "chart": {
+      "bottom": 513.09375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 260.671875
+    },
+    "clientViewport": 1351,
+    "focused": "评分 1: 0",
+    "page": 1351,
+    "scopes": {
+      "bottom": 548.484375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 513.09375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 555.078125,
+      "client": 744,
+      "left": 300,
+      "right": 1044.25,
+      "scroll": 744,
+      "top": 250.875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 500.5882873535156,
+      "client": 60,
+      "left": 310.3203125,
+      "right": 371.9296875,
+      "scroll": 60,
+      "text": "1 · 0 条目",
+      "top": 469.5101623535156,
+      "visible": true
+    },
+    "viewport": 1366
+  },
+  "rating-tooltip-first-1366-light-library.json": {
+    "chart": {
+      "bottom": 512.984375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 259.53125
+    },
+    "clientViewport": 1355,
+    "focused": "评分 1: 0",
+    "page": 1355,
+    "scopes": {
+      "bottom": 550.109375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 512.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 556.703125,
+      "client": 747,
+      "left": 300,
+      "right": 1047.25,
+      "scroll": 747,
+      "top": 249.734375
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 501.515625,
+      "client": 63,
+      "left": 308.8671875,
+      "right": 373.6953125,
+      "scroll": 63,
+      "text": "1 · 0 条目",
+      "top": 468.703125,
+      "visible": true
+    },
+    "viewport": 1366
+  },
+  "rating-tooltip-first-390-dark-library.json": {
+    "chart": {
+      "bottom": 448.375,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 268.375
+    },
+    "clientViewport": 375,
+    "focused": "评分 1: 0",
+    "page": 375,
+    "scopes": {
+      "bottom": 483.765625,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 448.375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 490.359375,
+      "client": 343,
+      "left": 16,
+      "right": 359,
+      "scroll": 343,
+      "top": 258.578125
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 447.5726623535156,
+      "client": 60,
+      "left": 23.9921875,
+      "right": 85.6015625,
+      "scroll": 60,
+      "text": "1 · 0 条目",
+      "top": 416.4945373535156,
+      "visible": true
+    },
+    "viewport": 390
+  },
+  "rating-tooltip-first-390-light-library.json": {
+    "chart": {
+      "bottom": 448.515625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 268.515625
+    },
+    "clientViewport": 379,
+    "focused": "评分 1: 0",
+    "page": 379,
+    "scopes": {
+      "bottom": 485.0625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 448.515625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 491.65625,
+      "client": 347,
+      "left": 16,
+      "right": 363,
+      "scroll": 347,
+      "top": 258.71875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 448.50860595703125,
+      "client": 63,
+      "left": 23.9921875,
+      "right": 88.8203125,
+      "scroll": 63,
+      "text": "1 · 0 条目",
+      "top": 416.27423095703125,
+      "visible": true
+    },
+    "viewport": 390
+  },
+  "rating-tooltip-first-768-dark-library.json": {
+    "chart": {
+      "bottom": 504.859375,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 268.59375
+    },
+    "clientViewport": 753,
+    "focused": "评分 1: 0",
+    "page": 753,
+    "scopes": {
+      "bottom": 540.25,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 504.859375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 546.84375,
+      "client": 697,
+      "left": 28,
+      "right": 725,
+      "scroll": 697,
+      "top": 258.796875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 494.9632873535156,
+      "client": 60,
+      "left": 35.9921875,
+      "right": 97.6015625,
+      "scroll": 60,
+      "text": "1 · 0 条目",
+      "top": 463.8851623535156,
+      "visible": true
+    },
+    "viewport": 768
+  },
+  "rating-tooltip-first-768-light-library.json": {
+    "chart": {
+      "bottom": 505.5625,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 267.9375
+    },
+    "clientViewport": 757,
+    "focused": "评分 1: 0",
+    "page": 757,
+    "scopes": {
+      "bottom": 542.6875,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 505.5625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 549.28125,
+      "client": 701,
+      "left": 28,
+      "right": 729,
+      "scroll": 701,
+      "top": 258.140625
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 496.640625,
+      "client": 63,
+      "left": 35.9921875,
+      "right": 100.8203125,
+      "scroll": 63,
+      "text": "1 · 0 条目",
+      "top": 463.828125,
+      "visible": true
+    },
+    "viewport": 768
+  },
+  "rating-tooltip-last-1024-dark-library.json": {
+    "chart": {
+      "bottom": 494.984375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 278.21875
+    },
+    "clientViewport": 1009,
+    "focused": "评分 10: 4",
+    "page": 1009,
+    "scopes": {
+      "bottom": 530.375,
+      "client": 634,
+      "left": 317.6875,
+      "right": 951.3125,
+      "scroll": 634,
+      "top": 494.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 536.96875,
+      "client": 640,
+      "left": 314.5,
+      "right": 954.5,
+      "scroll": 640,
+      "top": 268.421875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 478.5882873535156,
+      "client": 65,
+      "left": 879.1640625,
+      "right": 946.4921875,
+      "scroll": 65,
+      "text": "10 · 4 条目",
+      "top": 447.5101623535156,
+      "visible": true
+    },
+    "viewport": 1024
+  },
+  "rating-tooltip-last-1024-light-library.json": {
+    "chart": {
+      "bottom": 495.171875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 277.109375
+    },
+    "clientViewport": 1013,
+    "focused": "评分 10: 4",
+    "page": 1013,
+    "scopes": {
+      "bottom": 532.296875,
+      "client": 637,
+      "left": 317.765625,
+      "right": 955.21875,
+      "scroll": 637,
+      "top": 495.171875
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 538.890625,
+      "client": 644,
+      "left": 314.578125,
+      "right": 958.40625,
+      "scroll": 644,
+      "top": 267.3125
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 479.65625,
+      "client": 69,
+      "left": 879.1875,
+      "right": 950.40625,
+      "scroll": 69,
+      "text": "10 · 4 条目",
+      "top": 446.84375,
+      "visible": true
+    },
+    "viewport": 1024
+  },
+  "rating-tooltip-last-1366-dark-library.json": {
+    "chart": {
+      "bottom": 513.09375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 260.671875
+    },
+    "clientViewport": 1351,
+    "focused": "评分 10: 4",
+    "page": 1351,
+    "scopes": {
+      "bottom": 548.484375,
+      "client": 738,
+      "left": 303.1875,
+      "right": 1041.0625,
+      "scroll": 738,
+      "top": 513.09375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 555.078125,
+      "client": 744,
+      "left": 300,
+      "right": 1044.25,
+      "scroll": 744,
+      "top": 250.875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 489.6507873535156,
+      "client": 65,
+      "left": 968.9140625,
+      "right": 1036.2421875,
+      "scroll": 65,
+      "text": "10 · 4 条目",
+      "top": 458.5726623535156,
+      "visible": true
+    },
+    "viewport": 1366
+  },
+  "rating-tooltip-last-1366-light-library.json": {
+    "chart": {
+      "bottom": 512.984375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 259.53125
+    },
+    "clientViewport": 1355,
+    "focused": "评分 10: 4",
+    "page": 1355,
+    "scopes": {
+      "bottom": 550.109375,
+      "client": 741,
+      "left": 303.1875,
+      "right": 1044.0625,
+      "scroll": 741,
+      "top": 512.984375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 556.703125,
+      "client": 747,
+      "left": 300,
+      "right": 1047.25,
+      "scroll": 747,
+      "top": 249.734375
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 490.46875,
+      "client": 69,
+      "left": 968.03125,
+      "right": 1039.25,
+      "scroll": 69,
+      "text": "10 · 4 条目",
+      "top": 457.65625,
+      "visible": true
+    },
+    "viewport": 1366
+  },
+  "rating-tooltip-last-390-dark-library.json": {
+    "chart": {
+      "bottom": 448.375,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 268.375
+    },
+    "clientViewport": 375,
+    "focused": "评分 10: 4",
+    "page": 375,
+    "scopes": {
+      "bottom": 483.765625,
+      "client": 337,
+      "left": 19.1875,
+      "right": 355.8125,
+      "scroll": 337,
+      "top": 448.375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 490.359375,
+      "client": 343,
+      "left": 16,
+      "right": 359,
+      "scroll": 343,
+      "top": 258.578125
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 439.2601623535156,
+      "client": 65,
+      "left": 283.6640625,
+      "right": 350.9921875,
+      "scroll": 65,
+      "text": "10 · 4 条目",
+      "top": 408.1820373535156,
+      "visible": true
+    },
+    "viewport": 390
+  },
+  "rating-tooltip-last-390-light-library.json": {
+    "chart": {
+      "bottom": 448.515625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 268.515625
+    },
+    "clientViewport": 379,
+    "focused": "评分 10: 4",
+    "page": 379,
+    "scopes": {
+      "bottom": 485.0625,
+      "client": 341,
+      "left": 19.1875,
+      "right": 359.8125,
+      "scroll": 341,
+      "top": 448.515625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 491.65625,
+      "client": 347,
+      "left": 16,
+      "right": 363,
+      "scroll": 347,
+      "top": 258.71875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 440.14923095703125,
+      "client": 69,
+      "left": 283.78125,
+      "right": 355,
+      "scroll": 69,
+      "text": "10 · 4 条目",
+      "top": 407.91485595703125,
+      "visible": true
+    },
+    "viewport": 390
+  },
+  "rating-tooltip-last-768-dark-library.json": {
+    "chart": {
+      "bottom": 504.859375,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 268.59375
+    },
+    "clientViewport": 753,
+    "focused": "评分 10: 4",
+    "page": 753,
+    "scopes": {
+      "bottom": 540.25,
+      "client": 691,
+      "left": 31.1875,
+      "right": 721.8125,
+      "scroll": 691,
+      "top": 504.859375
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 546.84375,
+      "client": 697,
+      "left": 28,
+      "right": 725,
+      "scroll": 697,
+      "top": 258.796875
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 484.6195373535156,
+      "client": 65,
+      "left": 649.6640625,
+      "right": 716.9921875,
+      "scroll": 65,
+      "text": "10 · 4 条目",
+      "top": 453.5414123535156,
+      "visible": true
+    },
+    "viewport": 768
+  },
+  "rating-tooltip-last-768-light-library.json": {
+    "chart": {
+      "bottom": 505.5625,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 267.9375
+    },
+    "clientViewport": 757,
+    "focused": "评分 10: 4",
+    "page": 757,
+    "scopes": {
+      "bottom": 542.6875,
+      "client": 695,
+      "left": 31.1875,
+      "right": 725.8125,
+      "scroll": 695,
+      "top": 505.5625
+    },
+    "scrollX": 0,
+    "shell": {
+      "bottom": 549.28125,
+      "client": 701,
+      "left": 28,
+      "right": 729,
+      "scroll": 701,
+      "top": 258.140625
+    },
+    "summary": "196 个已评分作品 · 均值 7.2 · 峰值 7",
+    "tooltip": {
+      "bottom": 486.171875,
+      "client": 69,
+      "left": 649.78125,
+      "right": 721,
+      "scroll": 69,
+      "text": "10 · 4 条目",
+      "top": 453.359375,
+      "visible": true
+    },
+    "viewport": 768
+  }
+}

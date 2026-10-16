@@ -29,3 +29,9 @@ Production32图、8流程、main部署/live同场景尚未验收，先ui/audit-0
 head `9d8d3c0869853fd69e4623c50b68ebf1607c8b12` / [run38858665322](https://github.com/AplusNeutrino/My_Blog/actions/runs/38858665322) build116836040776 success，deploy116838599413/live116838599804 skipped；229 tests、4 Ruby、T01/authoring/Jekyll/旧门禁和完整192+14通过。artifact12029150207 /202758715 bytes / sha256 `83a90b333cd19a8782f7dd36bb0ba469c31860e1fa16410471d930423f1e94ca` 独立匹配。
 
 人工看32张四宽度双主题book/music/首末提示两联系表，放大390双主题末端后确认[UI-010](ui010-checks.md)：提示尾字被滚动条裁切。8组分类/摘要/键盘/刷新通过但不能替代视觉验收，UI-A08h不接受、不合main。最小修复夹紧两个renderer提示至shell，新增可用视口clientWidth及shell边界断言；修复后新head32图/8流程和main/live仍pending，不改数据/重新设计，无新用户决策。
+
+## 2026-10-16 UI-010修复后生产验收
+
+head `c9d2280d4c139158371496798782933ac3c88bdd` / [run38864744419](https://github.com/AplusNeutrino/My_Blog/actions/runs/38864744419) build116855162216 success；deploy116857968018/live116857968151 skipped，不作部署。230 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；artifact12031007024独立摘要匹配。32评分图人工看两联系表、放大390双主题首末端与1024 Light原图，提示全文可见；8分类/摘要/真实键盘/退出隐藏/刷新流程及32新clientWidth/shell诊断通过。详见[UI-010证据与前后差异](ui010-checks.md#2026-10-16-修复后生产验收)。
+
+本限定项生产验收通过，待新main自身部署/live同场景复验，UI-A08h仍validation-pending。完整库存/离屏加载、Steam及其他全站项仍pending，无新待答问题；本轮不追加产品或数据改动。

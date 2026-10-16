@@ -57,6 +57,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-010 / UI-A08h生产验收通过、待main/live（2026-10-16）：base main仍3d822d563af3b798a98887d3f35505496931d63c；验收head c9d2280d4c139158371496798782933ac3c88bdd（实际修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1），run38864744419 build116855162216 success，deploy116857968018/live116857968151 skipped（分支，不作部署）。230 tests、4 Ruby、T01/authoring/production Jekyll/旧门禁及192+14通过。artifact12031007024完整下载后独立sha256匹配；人工看四宽度双主题32评分图两联系表，并放大390 Light/Night末端、390 Night首端和1024 Light书籍原图，提示尾字完整、首末提示在shell内。8评分分类/摘要/真实键盘/退出隐藏/刷新默认流程及32诊断通过；390 Light末端right由390.39收回355（clientWidth379），Night350.99（clientWidth375）。本轮仅UI计划日志及ui010/uia08h公开生产证据，不追加产品改动；验收后非强推main，仍validation-pending，须新main精确head部署/live同32图复验。无新用户决策；完整库存/离屏加载、Steam与全站余项pending。[证据](docs/ui-evidence/ui010-checks.md#2026-10-16-修复后生产验收)。
+
 UI-010 / UI-A08h validation-pending：真实修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1已expected_sha非强推保存ui/audit-008h，10个上传blob与本地hash逐项相同；随后只追加此SHA记录。本地230 tests/authoring/T01/diff通过，不等于修复后视觉验收；新head须完整192+14、新32图/8流程/clientWidth与shell边界，再交付main/live。main仍3d822d56，未部署；无新用户决策。
 
 UI-010 / UI-A08h修复in-progress（2026-10-16）：base main3d822d563af3b798a98887d3f35505496931d63c、工作分支base9d8d3c0869853fd69e4623c50b68ebf1607c8b12；run38858665322 build116836040776 success、deploy116838599413/live116838599804 skipped，229 tests/4 Ruby/T01/authoring/Jekyll/192+14通过但不作视觉通过。artifact12029150207摘要独立匹配，人工看32评分图并放大390 Light/Night末端提示，确认尾字被滚动条裁切；Light提示right390.39，实际可用页宽379，旧innerWidth390检查漏报。范围assets/pgl/pgl.js与pgl-rating-polish.js两renderer提示定位、现有审计/必要回归、UI计划日志与ui010/uia08h公开证据；只夹紧提示到shell且新增clientWidth/shell边界断言，不放宽门禁/重新设计。不合main，gh未安装不编造Issue，无新用户决策。
