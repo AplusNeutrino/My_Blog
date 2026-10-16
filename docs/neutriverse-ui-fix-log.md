@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08j范围先记录
+
+- 实现只补真实分类/逐页next/末页刷新/prev/返回重入流程；逐卡原生解码与clientWidth几何断言、每页首尾截图，记录bookInventory而不改原门禁。新增3接线回归，本机240 tests、authoring44/5/7、T01保护44/5/5、diff通过；本机无Ruby/Jekyll/Chrome，未声称浏览器/视觉验收。
+- base325db4d0771c3fd518d52ebf908e7d6b45962453精确run38944307535 build117119432424/deploy117122814466/live117122895755全部success。新worktree隔离原目录用户修改，不覆盖、不强推。
+- 选择默认书籍全分页与逐卡原生封面加载；当前124条/6页，目标8流程/992次加载与各页首尾96图，动态按数据计算。文件范围、条件与验收先记uia08j-checks.md；中间卡片不冒充视觉通过。
+- 仅审计/回归/证据，无新确认产品缺陷，不改产品样式或数据。gh不可用不虚构Issue，无新用户决策。先工作分支验证，本次production/main/live仍validation-pending，全站IN PROGRESS。
+
 ## 2026-10-17 — UI-A08i精确main线上验收
 
 - 验收main b4a502396bd02650738f4b69912ef2bdca437173；先读最新main/head、AGENTS/三docs/ADR/旧COMPLETE边界、UI计划日志与补充，旧约束相对已读head无差异，CONTEXT不存在、gh未安装不编造Issue。独立worktree保护用户字体/缓存/基线修改；本轮范围仅UI计划日志及uia08i公开live证据，保留0a12dac8首次超时记录，不改产品/数据/旧历史。

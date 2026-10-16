@@ -1043,6 +1043,115 @@ def library_steam_cover_controls(driver, wait, output, width, theme):
             'telemetryVisual':'pending-no-data' if not expected_steam else 'not-covered'}
 
 
+def library_book_inventory_controls(driver, wait, output, width, theme):
+    """Traverse every default book page; screenshots cover page ends only."""
+    data = json.loads(Path('assets/data/prospero_great_library/library.json').read_text())
+    inventory = data['items'] if isinstance(data, dict) else data
+    books = {i['id']: i for i in inventory if i['category'] == 'book'
+             and i['status'] in ('in_progress', 'completed')}
+    def params():
+        return parse_qs(urlsplit(driver.current_url).query)
+    def ids():
+        return driver.execute_script("return [...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>e.dataset.pglId)")
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def click(selector):
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+        element.click()
+    def geometry():
+        return driver.execute_script('''
+          return {scrollX,clientViewport:document.documentElement.clientWidth,page:document.documentElement.scrollWidth,
+            cards:[...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>{const r=e.getBoundingClientRect();
+              return {id:e.dataset.pglId,left:r.left,right:r.right,top:r.top,bottom:r.bottom,client:e.clientWidth,scroll:e.scrollWidth};})};
+        ''')
+    def check_bounds(observed):
+        require(abs(observed['scrollX']) <= 1 and observed['page'] <= observed['clientViewport']+1, 'Book inventory page overflow')
+        require(all(c['left'] >= -1 and c['right'] <= observed['clientViewport']+1 and c['scroll'] <= c['client']+1
+                    for c in observed['cards']), 'Book inventory card overflow')
+    def capture(page_number, state, selector):
+        position(driver.find_element(By.CSS_SELECTOR, selector))
+        observed = geometry()
+        stem = f'book-inventory-page-{page_number}-{state}-{width}-{theme}-library'
+        (output / f'{stem}.json').write_text(json.dumps(observed, ensure_ascii=False, indent=2))
+        driver.save_screenshot(str(output / f'{stem}.png'))
+        check_bounds(observed)
+    ready()
+    require(driver.find_element(By.ID, 'pgl-root-view').is_displayed(), 'Book inventory must start at root')
+    require(books, 'No default book inventory to exercise')
+    click('[data-pgl-category="book"]')
+    ready()
+    wait.until(lambda d: ids())
+    page_size = int(driver.find_element(By.ID, 'prospero-great-library').get_attribute('data-page-size') or 24)
+    page_count = (len(books)+page_size-1)//page_size
+    first_ids, pages, seen = ids(), [], []
+    for number in range(1, page_count+1):
+        ordered = ids()
+        require(params().get('category') == ['book'] and 'status' not in params(), 'Book traversal changed category/status')
+        require(int(params().get('page', ['1'])[0]) == number, 'Book traversal URL page mismatch')
+        require(len(ordered) == min(page_size, len(books)-(number-1)*page_size), 'Book page size mismatch')
+        require(len(set(ordered)) == len(ordered) and not set(ordered).intersection(seen), 'Book page duplicate IDs')
+        require(set(ordered).issubset(books), 'Book page includes other category/status')
+        if page_count > 1:
+            require(driver.find_element(By.CSS_SELECTOR, '#pgl-pagination [aria-current="page"]').text == str(number), 'Book pager differs from URL')
+        position(driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-card:first-child'))
+        initial = geometry()
+        viewport_height = driver.execute_script('return innerHeight')
+        covers = []
+        for index, card in enumerate(driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')):
+            position(card)
+            images = card.find_elements(By.CSS_SELECTOR, 'img.pgl-cover')
+            record = {'id':ordered[index], 'before':initial['cards'][index], 'viewportHeight':viewport_height}
+            if books[ordered[index]].get('cover', {}).get('url'):
+                require(len(images) == 1, 'Book inventory cover element missing')
+                wait.until(lambda d: d.execute_script('return arguments[0].complete', images[0]))
+                decoded = driver.execute_async_script('const e=arguments[0],done=arguments[arguments.length-1];e.decode().then(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)))).catch(()=>done(false));', images[0])
+                image = driver.execute_script('const e=arguments[0];return {src:e.currentSrc,loading:e.loading,complete:e.complete,width:e.naturalWidth,height:e.naturalHeight};', images[0])
+                record['image'] = image
+                require(decoded and image['complete'] and image['width'] > 0 and image['height'] > 0, f'Book inventory cover failed: {record}')
+            else:
+                require(card.find_element(By.CSS_SELECTOR, '.pgl-cover-placeholder').is_displayed(), 'Book placeholder missing')
+                record['placeholder'] = True
+            check_bounds(geometry())
+            covers.append(record)
+        capture(number, 'first', '#pgl-grid .pgl-card:first-child')
+        capture(number, 'last', '#pgl-grid .pgl-card:last-child')
+        pages.append({'page':number, 'ids':ordered, 'covers':covers})
+        seen.extend(ordered)
+        if number < page_count:
+            click('#pgl-pagination .pgl-page-nav:last-child')
+            wait.until(lambda d: ids() != ordered and int(params().get('page', ['1'])[0]) == number+1)
+            ready()
+    require(len(seen) == len(books) and set(seen) == set(books), 'Book traversal omitted inventory')
+    require(any(c['before']['top'] >= c['viewportHeight'] for p in pages for c in p['covers']), 'No initially offscreen book exercised')
+    last_ids, last_url = ids(), driver.current_url
+    driver.refresh()
+    ready()
+    wait.until(lambda d: ids() == last_ids)
+    require(driver.current_url == last_url, 'Last book page reload changed URL')
+    if page_count > 1:
+        click('#pgl-pagination .pgl-page-nav:first-child')
+        wait.until(lambda d: ids() == pages[-2]['ids'])
+        require(int(params().get('page', ['1'])[0]) == page_count-1, 'Book previous page changed URL incorrectly')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require(not urlsplit(driver.current_url).query, 'Book return retained query')
+    click('[data-pgl-category="book"]')
+    ready()
+    wait.until(lambda d: ids() == first_ids)
+    require('page' not in params(), 'Book reentry retained last page')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require(not urlsplit(driver.current_url).query, 'Book final return retained query')
+    return {'bookTotal':len(books), 'pageSize':page_size, 'pages':pages, 'completeIdSet':True,
+            'lastPageReloadIds':True, 'previousPageIds':page_count > 1, 'firstPageRestored':True,
+            'returnedRoot':True, 'visualScope':'first-and-last-card-viewport-per-page-only'}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -1201,9 +1310,10 @@ def relationship_controls(driver, wait, name, output, width, theme):
     rating_result = library_rating_controls(driver, wait, output, width, theme)
     ledger_result = library_ledger_controls(driver, wait, output, width, theme)
     steam_covers = library_steam_cover_controls(driver, wait, output, width, theme)
+    book_inventory = library_book_inventory_controls(driver, wait, output, width, theme)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'ledger':ledger_result,'steamCovers':steam_covers,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'ledger':ledger_result,'steamCovers':steam_covers,'bookInventory':book_inventory,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):
