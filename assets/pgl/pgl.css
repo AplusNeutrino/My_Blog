@@ -177,6 +177,11 @@
   .pgl * { scroll-behavior:auto !important; transition:none !important; }
 }
 
+@media (max-width: 1199px) {
+  /* Without the side panel, the fixed 44px back-to-top shares this edge. */
+  .pgl-category-ledger-item,.pgl-wishlist-entry { padding-inline-end:3.5rem; }
+}
+
 @media (max-width: 720px) {
   /* Keep timeline text clear of the existing fixed 44px back-to-top control. */
   .pgl-timeline-list { padding-right:3.5rem; }

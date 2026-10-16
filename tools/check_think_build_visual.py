@@ -840,6 +840,81 @@ def rating_chart_snapshot(driver):
     ''')
 
 
+def library_ledger_controls(driver, wait, output, width, theme):
+    """Scroll real counts past the fixed button; inspect text, not row boxes."""
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+
+    def inspect(element, state=None, root=False):
+        position(element)
+        # Put this count in the fixed control's vertical band when page length
+        # permits. Short wishlist pages may have no visible fixed control.
+        driver.execute_script('''
+          const r=arguments[0].getBoundingClientRect();
+          const b=document.querySelector('#back-to-top').getBoundingClientRect();
+          window.scrollBy({top:(r.top+r.bottom-b.top-b.bottom)/2,behavior:'instant'});
+        ''', element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        geometry = driver.execute_script('''
+          const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+          const button=document.querySelector('#back-to-top');
+          const b=button.getBoundingClientRect(),s=getComputedStyle(button);
+          const visible=b.width>0 && b.height>0 && s.display!=='none' &&
+            s.visibility!=='hidden' && Number(s.opacity)>0;
+          const scope=arguments[1] ? document.querySelector('#pgl-root-view') : document.querySelector('#pgl-wishlist-ledger');
+          const lines=[];
+          for(const e of scope.querySelectorAll('.pgl-ledger-count')){
+            const range=document.createRange();range.selectNodeContents(e);
+            for(const r of range.getClientRects())if(r.width>0 && r.height>0 && r.bottom>0 && r.top<innerHeight)
+              lines.push({...rect(r),text:e.textContent});
+          }
+          const overlaps=visible ? lines.filter(r=>r.left<b.right && r.right>b.left && r.top<b.bottom && r.bottom>b.top):[];
+          const selected=arguments[0].getBoundingClientRect();
+          return {viewport:innerWidth,clientViewport:document.documentElement.clientWidth,
+            page:document.documentElement.scrollWidth,scrollX,scrollY,
+            backToTop:visible?rect(b):null,lines,overlaps,selected:{...rect(selected),text:arguments[0].textContent},
+            selectedInButtonBand:visible && selected.top<b.bottom && selected.bottom>b.top,
+            buttonHit:visible && button.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2))};
+        ''', element, root)
+        if state:
+            driver.save_screenshot(str(output / f'ledger-{state}-{width}-{theme}-library.png'))
+            (output / f'ledger-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry,ensure_ascii=False,indent=2),encoding='utf-8')
+        require(not geometry['overlaps'], f'Library ledger count covered by back-to-top: {geometry["overlaps"]}')
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['clientViewport']+1, 'Library ledger page overflow')
+        require(all(r['left'] >= -1 and r['right'] <= geometry['clientViewport']+1 for r in geometry['lines']), 'Library ledger count outside viewport')
+        if root:
+            require(geometry['backToTop'] and geometry['buttonHit'], 'Library ledger fixed-button scenario not active')
+        return geometry
+
+    counts = driver.find_elements(By.CSS_SELECTOR, '#pgl-root-view .pgl-ledger-count')
+    require(len(counts) == 8, 'Library root ledger count set incomplete')
+    expected = [e.text for e in counts]
+    root_checks = []
+    for index, element in enumerate(counts):
+        state = {0:'book',1:'comic',6:'music',7:'wishlist-entry'}.get(index)
+        root_checks.append(inspect(element,state,root=True))
+    require(any(g['selectedInButtonBand'] for g in root_checks), 'Library ledger scroll never exercised fixed-button band')
+    entry = driver.find_element(By.CSS_SELECTOR, '.pgl-wishlist-entry')
+    position(entry)
+    entry.click()
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-wishlist-ledger').is_displayed())
+    wishlist_counts = driver.find_elements(By.CSS_SELECTOR, '#pgl-wishlist-ledger .pgl-ledger-count')
+    require(len(wishlist_counts) == 7, 'Wishlist ledger count set incomplete')
+    wishlist_checks = [inspect(e, {0:'wishlist-first',6:'wishlist-last'}.get(i)) for i,e in enumerate(wishlist_counts)]
+    back = driver.find_element(By.ID, 'pgl-back')
+    position(back)
+    back.click()
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require([e.text for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-root-view .pgl-ledger-count')] == expected, 'Library ledger back changed counts')
+    inspect(driver.find_element(By.CSS_SELECTOR, '#pgl-root-view .pgl-ledger-count'),root=True)
+    top = driver.find_element(By.ID, 'back-to-top')
+    top.click()
+    wait.until(lambda d: d.execute_script('return scrollY <= 1'))
+    require('view=' not in driver.current_url and 'category=' not in driver.current_url, 'Library ledger return retained view')
+    return {'root':root_checks,'wishlist':wishlist_checks,'countsPreserved':True,'backToTopClick':True,'returnedRoot':True}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -996,9 +1071,10 @@ def relationship_controls(driver, wait, name, output, width, theme):
     require('category=' not in driver.current_url, 'Library back retained category')
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     rating_result = library_rating_controls(driver, wait, output, width, theme)
+    ledger_result = library_ledger_controls(driver, wait, output, width, theme)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'ledger':ledger_result,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):

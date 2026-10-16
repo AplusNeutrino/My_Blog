@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数，需独立定位滚动场景 | confirmed / ready | 四宽度双主题滚动目录，计数文字与可见固定按钮无相交且按钮可操作；必要回归、保护/构建及精确main部署/live同场景复验 |
+| UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | confirmed / validation-pending | 四宽度双主题逐行滚动目录，计数文字与可见固定按钮无相交且按钮可操作；48状态图/8流程、保护/构建及精确main部署/live同场景复验 |
 | UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | done | 41dca277精确main build/deploy/live通过；四宽度双主题32线上评分图已人工看，首末提示全文可见且在clientWidth/shell内；8分类/摘要/真实键盘/退出隐藏/刷新和192+14通过 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
 | UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
@@ -58,6 +58,10 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-011 validation-pending：已实现<=1199px仅Library目录/愿望单入口padding-inline-end:3.5rem，保持按钮/字号/数据不变；新增真实逐行滚动、count文字与固定按钮不相交/可用视口、根目录场景必须显示按钮并hit-test、目录往返计数不变及真实按钮回顶部审计，目标48图/8流程。新增3项接线回归，本地233 tests、authoring44/5/7、T01保护44/5/5及diff通过；没有本机Ruby/Jekyll/Chrome，不把单测当视觉通过。先保存ui/fix-011，main保持600f2907；精确head生产192+14、新48图与main部署/live均待验证，无新用户决策。
+
+UI-011 in-progress（2026-10-16）：base main600f29073e94b2d8ad17e3365db4c262e9d398f6；run38878173427 build116898172377/deploy116901351049/live116901426946全部success。已读当前仓库约束、ADR、旧COMPLETE计划报告与UI计划日志，CONTEXT不存在，gh未安装不编造Issue。原始1024 Light目录漫画计数遮挡截图已保存；本轮云1363×936 Light滚动目录实际截图/DOM测量无相交（计数right1041.81、按钮left1240.41），不能冒充1024已复测。源码定位目录行无固定按钮避让；拟仅assets/pgl/pgl.css在<=1199px给目录/愿望单入口保留右侧空间，tools/check_think_build_visual.py新增真实逐行滚动/文字按钮不相交及返回顶部操作、必要回归、计划日志与ui011证据。保留192+14及原门禁，未验证存ui/fix-011，不合main。无新用户决策，不改数据/原文/metadata/URL/hidden/noindex/外部仓库。
 
 UI-010 done / UI-A08h限定done（2026-10-16）：base/验收main41dca277eace9aa053bcb87e3cd21892b5ae6390，run38871666487 build116876943806/deploy116880022801/live116880240197全部success；230 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12033767964摘要独立匹配；人工看32评分图两联系表并放大390双主题末端/Night首端及1024 Light书籍原图，提示全文可见，8流程/32诊断与生产相同，UI-010闭合。另从1024 Light同原图确认UI-011固定返回顶部按钮覆盖目录漫画计数，独立记录ready、下一项优先复现根因；不将评分验收扩写全页通过。本轮仅UI计划日志与ui010/uia08h线上证据、ui011复现记录，不改产品/数据/旧COMPLETE，无新用户决策；新文档head CI另核对。全站仍IN PROGRESS，完整库存/离屏加载、Steam及其余矩阵pending。[线上证据](docs/ui-evidence/ui010-checks.md#2026-10-16-精确main线上验收)。
 
