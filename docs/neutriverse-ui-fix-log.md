@@ -7,6 +7,7 @@
 - 下载失败产物artifact12026791958 /54244746 bytes，sha256:beb9aa59f0a97c444bbd6846c0af1af71f9ae0d7e5c68a1f3decba39f5c37c8e独立匹配。实际仅12张评分图（390双主题/768 Night），已放大看390 Light首末端提示与768 Night书籍原图；只是部分截图证据，不宣称32图或8流程全部通过。
 - 文件范围tools/check_think_build_visual.py、tests/test_library_rating_audit.py、UI计划日志与docs/ui-evidence/uia08h-checks.md。改同一帧原子只读图表快照，保留各分箱/摘要/单一分类/真实键盘/刷新/几何断言，新增读取接线回归；不增加忽略异常、不放宽断言、不改产品/数据或旧COMPLETE。未验证保留ui/audit-008h，production/main/live pending，无新用户决策。
 - 本地229 tests、authoring44/5/7、T01保护44/5/5、diff通过；新增回归核对一次只读快照包含全部字段、verify使用快照而非逐个WebElement且无except吞错。仅修复审计读取竞争，不能据此宣称Chrome或完整视觉验收通过；本机未运行Ruby/Jekyll/Chrome，等待新分支head。
+- 真实审计竞争修复7577e4cff209073f438a2f41bd2e718292ecccc7已expected_sha非强推保存ui/audit-008h，5个上传blob与本地hash逐项一致；随后仅追加此SHA记录。最终检查点head需独立核对production完整192+14/32图/8流程，再考虑main/live，不使用旧失败产物或本地单测当视觉通过；main仍3d822d56，无新待答问题。
 
 ## 2026-10-16 — UI-A08h评分控件最小检查范围
 

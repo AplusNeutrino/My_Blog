@@ -56,6 +56,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08h审计竞争修复validation-pending：实现7577e4cff209073f438a2f41bd2e718292ecccc7已expected_sha非强推保存ui/audit-008h，5个上传blob与本地hash一致。本地229 tests/authoring/T01/diff通过，但新head production完整192+14/32图/8流程及main/live仍待验证；旧fb511faf因刷新异步SVG逐节点读取stale失败，不是已确认产品缺陷。不改产品/放宽门禁，main仍3d822d56；随后仅追加此SHA检查点，无新用户决策。
+
 UI-A08h审计修复in-progress（2026-10-16）：base main仍3d822d563af3b798a98887d3f35505496931d63c，工作分支base fb511faf9d364e9907f07ee71958d9547d996532 / run38854460953 build116822998597 failure，deploy116823893916/live116823894777 skipped。准确失败是刷新verify(all)逐节点读取时SVG异步重绘引发StaleElementReferenceException，不作产品缺陷。artifact12026791958摘要独立匹配；只生成390双主题/768 Night共12张评分状态图，人工放大390 Light首末端与768 Night书籍图，不能冒充32图/8流程通过。范围仅评分审计/必要回归、UI计划日志与uia08h公开证据；拟改同一帧原子只读快照保留全部断言和真实键盘，不改产品/放宽门禁，仍工作分支validation-pending，无新用户决策。
 
 UI-A08h validation-pending：真实评分审计实现585126e1533ea5aeb2b9b2c822499955b4702da8已expected_sha非强推保存ui/audit-008h，6个上传blob与本地hash逐项相同。本地228 tests、authoring44/5/7、T01保护44/5/5和diff通过；云1363 Light分类切换与真实键盘提示/退出隐藏正常，未确认新产品缺陷。main仍3d822d56；随后仅追加实现SHA记录，最终检查点head production192+14、新32图/8流程与main部署/live需分别验收，不以单测或其他提交CI替代。无新用户决策，完整库存/离屏加载、Steam与其他全站项pending。
