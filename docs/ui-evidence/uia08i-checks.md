@@ -1,6 +1,16 @@
 # UI-A08i — Steam 空数据与游戏离屏封面
 
-状态：in-progress；base f2d463cfb75168b7ca0a883915ef56efa0b7b4e4。
+状态：production通过，main部署/live validation-pending；base f2d463cfb75168b7ca0a883915ef56efa0b7b4e4。
+
+## 2026-10-16 — 修正取景后生产验收
+
+- 精确验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a / [run38913520936](https://github.com/AplusNeutrino/My_Blog/actions/runs/38913520936)：build117015038501 success，deploy117019410328/live117019410572 skipped（分支，不作部署）。237 tests、4 render-only Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/资源/移动无障碍及192页面+14侧栏通过；本机回归/authoring/T01/diff也通过，本机未运行Jekyll/Chrome。
+- 下载artifact12051129960 /226689222 bytes /sha256:b6865cf6fb81b892f9717e1b9151ccdb6ce9d663c9269423b13dd9d73970afe9，独立摘要匹配。人工查看40张四宽度双主题统计/排序首屏/末端/刷新/来源图两联系表，放大390 Light来源空提示、768 Night末端封面及1024 Light来源原图。8张来源图在真实关闭浮层后，“暂无记录”清晰可见；其他状态没有新增确认缺陷，不凭偏好修改产品。
+- 8流程、40诊断重新核对通过：游戏120条、第一页24×8=192次原生封面complete/decode/自然尺寸、初始离屏覆盖；进行中优先与当前数据时长组内降序、排序刷新同URL/ID、来源0条/空提示刷新、清除恢复与返回根目录通过，scrollX=0且page<=clientWidth+1。
+- Steam现状privacy_boundary_unavailable，只有无遥测数据路径有真实证据；不等同有时长/成就数据场景已验收，不绕过隐私边界或编造数据。完整库存/其余分页图片/其他全站矩阵仍pending。没有新用户决策，gh未安装，不编造Issue。
+- 本轮只回写计划日志与uia08i-verified-production-*公开证据，不改产品/数据/旧COMPLETE。已验证审计交付main后，必须核对新main精确head build/deploy/live和同40图，现阶段保持validation-pending，不以分支通过冒充线上。
+
+修正后联系表：[390/768](uia08i-verified-production-contact-narrow.jpg)、[1024/1366](uia08i-verified-production-contact-wide.jpg)；[192审计](uia08i-verified-production-audit.json)、[40诊断](uia08i-verified-production-diagnostics.json)。原PNG在上述artifact保留14天。首次取景证据仍原样保留，不能与本组混称。
 
 ## 2026-10-16 — 首次生产检查与视觉取景修正
 

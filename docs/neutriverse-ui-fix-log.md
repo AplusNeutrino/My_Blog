@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08i修正取景后生产验收
+
+- Base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4、验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a。已读最新AGENTS/三docs/ADR0001/旧COMPLETE计划报告与本轮计划日志，旧约束相对已读head无差异，CONTEXT不存在、gh未安装不编造Issue；独立worktree保护用户修改。本次范围仅计划日志、uia08i-checks和uia08i-verified-production-*公开证据，不追加产品/数据或旧历史改动。
+- 精确run38913520936 build117015038501 success；deploy117019410328/verify-live-ui117019410572 skipped（工作分支，不作部署）。237 tests、4 render-only Ruby、T01保护/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/移动无障碍、192页面+14侧栏通过。
+- 下载artifact12051129960 /226689222 bytes，sha256:b6865cf6fb81b892f9717e1b9151ccdb6ce9d663c9269423b13dd9d73970afe9独立匹配。人工看40张四宽度双主题统计/排序首屏/离屏末端/刷新/来源两联系表，放大390 Light来源、768 Night末端封面、1024 Light来源原图。真实关闭浮层后“暂无记录”清晰可见，取景缺口已补；未确认新产品缺陷，未作偏好调整。
+- 8流程/40诊断、游戏库存120/第一页24卡×8=192次原生封面加载与初始离屏通过；进行中优先、当前数据时长降序、排序刷新URL/ID、Steam来源0条/空提示刷新、清除恢复/返回通过，无横向溢出。Steam状态privacy_boundary_unavailable，只有无遥测路径有证据，不突破隐私/注入数据，不冒称有时长或成就场景通过；完整库存/其余分页和其他全站矩阵pending。
+- 通过后非强推main，须新main精确head build/deploy/live与40截图复验，保持validation-pending。公开JSON/两联系表永久保存，原PNG在artifact保留14天，首次取景记录原样保留。无新用户决策。
 ## 2026-10-16 — UI-A08i生产取景缺口修正
 
 - 修正后本地237 tests、authoring44/5/7、T01保护44/5/5及diff通过，本机未运行Ruby/Jekyll/Chrome，不把测试当视觉通过。

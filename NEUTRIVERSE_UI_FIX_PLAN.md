@@ -46,6 +46,7 @@
 | Library评分（UI-A08h / UI-010） | 四宽度双主题32张生产/live评分状态图已人工查看、放大390双主题首末提示及1024 Light原图，评分提示裁切已修复；另确认UI-011目录计数被固定按钮覆盖，不作全页通过 | 8组八分类分箱/摘要、真实Shift+Tab/Tab首末提示及退出隐藏、刷新恢复全域线上通过，32诊断与生产一致；评分限定done，完整库存/离屏加载/Steam及全站余项pending |
 | Library目录计数/固定按钮（UI-011） | 四宽度双主题根目录四状态/愿望单首末48生产/live图已人工看并放大1024 Light漫画、390 Night愿望单入口、390 Light愿望单末端，计数无遮挡；限定done | 8组根8/愿望单7计数逐行滚动真实文字不与按钮相交、目录往返计数不变、真实返回顶部点击通过；48诊断与生产相同，不据此推断完整库存/离屏加载通过 |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
+| Library Steam/游戏首批离屏封面（UI-A08i） | 707b6d49 production四宽度双主题40图已人工看，关闭浮层后8张空提示清晰可见，统计/首屏/末端/刷新无新确认缺陷；main/live pending | 8组游戏第一页24卡原生滚动/解码共192次加载、时长排序分组、刷新URL/ID、Steam空来源刷新/清除/返回通过；仅当前无遥测路径，不推断完整库存或有数据时成就通过 |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
 ## 集中问题队列
@@ -59,6 +60,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-A08i生产验收通过、待main/live（2026-10-16）：base main仍f2d463cf，验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a / run38913520936 build117015038501 success，deploy117019410328/live117019410572 skipped（分支）。237 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过；artifact12051129960摘要独立匹配，人工看40图两联系表并放大390 Light来源、768 Night末端、1024 Light来源原图，关闭浮层后的空提示清晰可读，未确认新产品缺陷。8流程、40诊断、192次原生封面加载通过。仅交付已验收审计及计划日志/公开证据，main精确head部署/live同40图仍validation-pending；Steam隐私边界未变，只有无遥测路径已检查，完整库存/其余分页和全站矩阵仍pending，无新用户决策。
 
 UI-A08i接续validation-pending：base main仍f2d463cf、工作head53b53605；run38905074465 build116986945525 success、deploy/live skipped。236 tests/Ruby/T01/authoring/Jekyll/192+14及8流程/192次逐卡原生加载通过；下载artifact12047752802独立摘要匹配，人工看40图及代表原图未确认新产品缺陷。但8张来源图的正常高级筛选浮层覆盖空提示，不能以is_displayed当视觉验收；本轮仅审计补真实关闭浮层后同场景采图及1项回归，不改产品或放宽断言。首次图/JSON按局限保存，修正后精确head完整40图/8流程与main/live仍待验收，main不改；无新用户决策，有遥测时Steam视觉pending-no-data，不突破隐私边界。
 
