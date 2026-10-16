@@ -60,6 +60,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08i真实审计实现9f6f0fb021c35167d5419afc9a05f4c174f7a4e6已保存ui/audit-008i，5个blob与本地hash一致；随后仅追加SHA检查点。main仍f2d463cf，未部署新审计；最终分支head production40图/8流程与main/live必须分别核对，保持validation-pending，无新用户决策。
+
 UI-A08i validation-pending：仅新增审计与3项接线回归；目标统计/游戏Steam排序首屏/离屏末端/刷新/来源5状态共40图和8流程。逐卡真实滚动、原生complete/decode/两帧、初始离屏与natural尺寸记录、数据库存/状态组内时长排序、刷新/清除/返回和clientWidth门禁已实现，本地236 tests/authoring/T01/diff通过；不代表响应式视觉/Jekyll通过。本机无Ruby/Chrome，先工作分支ui/audit-008i，main不改；完整库存/其余分页图片/真实Steam成就等仍pending，无新产品缺陷或用户决策。
 
 UI-A08i in-progress（2026-10-16）：base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4；run38897628035 build116961810761/deploy116964440787/live116964525050全部success。范围仅现有浏览器审计、必要接线回归、本计划日志与uia08i公开证据；限定Steam统计不可用展示、游戏Steam游玩时间排序/刷新同URL与ID、Steam来源真实库存或空提示/刷新/清除/返回，以及该排序第1页逐卡滚动原生离屏封面加载。云1363×936 Light实际排序、Steam空状态刷新截图已看，无新增确认产品缺陷，不改产品/数据；四宽度双主题目标32状态图和8流程尚待精确工作分支验收。完整库存/其余分页图片及有数据时Steam成就等不冒称通过；无新用户决策，gh未安装不编造Issue。

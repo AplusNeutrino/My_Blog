@@ -2,6 +2,7 @@
 
 ## 2026-10-16 — UI-A08i 范围先记录
 
+- 真实实现9f6f0fb021c35167d5419afc9a05f4c174f7a4e6已保存ui/audit-008i，5个blob与本地hash逐项一致；随后仅追加SHA检查点。main仍f2d463cf；精确最终head生产40图/8流程及main/live验收尚待核对，保持validation-pending。
 - 实现后：新增5状态（增加根统计图）×8=40图目标，严格对照当前数据库存与第一页时长优先值；逐卡原生滚动/complete/decode/两帧，不改src/loading或注入数据；记录初始离屏、实际自然尺寸，排序/来源整页刷新/清除/返回与可用clientWidth门禁。本地236 tests、authoring44/5/7、T01保护44/5/5、diff通过。本机无Ruby/Jekyll/Chrome，生产/40图/8流程和main/live仍validation-pending，先工作分支，不把接线测试当视觉验收。
 - Base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4，精确run38897628035 build116961810761/deploy116964440787/live116964525050全部success。独立worktree保留原目录用户修改；已重读AGENTS/docs/agents/ADR、UI计划日志、旧COMPLETE报告及主计划相关边界，旧历史与上次已读head无差异，CONTEXT不存在。
 - 线上1363×936 Light实际游戏目录选择Steam游玩时间、Steam来源、整页刷新，已看游戏卡片与刷新后“0 条目/暂无记录”实际截图；未确认新产品缺陷。统计已有“Steam 数据暂不可用”，不将无数据等同UI故障，不补造Steam遥测或修改同步。

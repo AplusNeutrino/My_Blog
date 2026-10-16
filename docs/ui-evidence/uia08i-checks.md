@@ -11,3 +11,5 @@
 实现：只新增真实控件/逐卡滚动审计。按当前公开JSON验证游戏category/status、分页数量、无重复、进行中优先及Steam分钟降序；逐卡scrollIntoView，保留原生loading/src、等待complete/decode/两帧并记录natural尺寸、初始离屏几何；不要求缓存未命中，不强制图片请求。Steam状态对照sync_status，缺数据只接受已有不可用提示，不造数字。排序/来源刷新、实际空提示、清除/返回与clientWidth溢出均保留严格断言。
 
 本地236项测试、authoring44/5/7、T01保护44/5/5与diff检查通过；本机无Ruby/Jekyll/Chrome，不能冒称视觉或构建通过。完整40截图/8流程/production及main/live仍validation-pending。
+
+真实审计实现：9f6f0fb021c35167d5419afc9a05f4c174f7a4e6，保存ui/audit-008i；5个上传blob与本地git hash-object逐项一致。随后仅追加此SHA记录，须核对最终分支head的CI，不用其他提交成功代替。
