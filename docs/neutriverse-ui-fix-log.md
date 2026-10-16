@@ -2,6 +2,7 @@
 
 ## 2026-10-17 — UI-A08j范围先记录
 
+- 审计实现cf03a5ad663271603b50347c3cc9edc90f111d38已保存ui/audit-008j，5个远程blob与本地hash逐项相同；随后只追加SHA检查点。main仍325db4d0，未部署。本次最终分支head的Actions/production截图及main/live继续validation-pending；下轮先核对同一head，不以base成功代替。
 - 实现只补真实分类/逐页next/末页刷新/prev/返回重入流程；逐卡原生解码与clientWidth几何断言、每页首尾截图，记录bookInventory而不改原门禁。新增3接线回归，本机240 tests、authoring44/5/7、T01保护44/5/5、diff通过；本机无Ruby/Jekyll/Chrome，未声称浏览器/视觉验收。
 - base325db4d0771c3fd518d52ebf908e7d6b45962453精确run38944307535 build117119432424/deploy117122814466/live117122895755全部success。新worktree隔离原目录用户修改，不覆盖、不强推。
 - 选择默认书籍全分页与逐卡原生封面加载；当前124条/6页，目标8流程/992次加载与各页首尾96图，动态按数据计算。文件范围、条件与验收先记uia08j-checks.md；中间卡片不冒充视觉通过。
