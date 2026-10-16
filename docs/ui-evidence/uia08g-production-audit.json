@@ -1,0 +1,8146 @@
+[
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 871,
+        "width": 343
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 506,
+        "width": 343
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "touch-swipe",
+      "previousInput": "touch-swipe",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 4,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 390,
+      "document": 390,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 344,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 58.5,
+      "titleRight": 331.5,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 375,
+      "document": 375,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 329,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 56.25,
+      "titleRight": 318.75,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 878,
+        "width": 345
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 515,
+        "width": 345
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "touch-swipe",
+      "previousInput": "touch-swipe",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 4,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 390,
+      "document": 390,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 344,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 58.5,
+      "titleRight": 331.5,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      390,
+      844
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 379,
+      "document": 379,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 333,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 56.859375,
+      "titleRight": 322.15625,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 390
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 915,
+        "width": 697
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 697,
+        "width": 697
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "touch-swipe",
+      "previousInput": "touch-swipe",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 768,
+      "document": 768,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 722,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 115.203125,
+      "titleRight": 652.796875,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 753,
+      "document": 753,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 707,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 112.953125,
+      "titleRight": 640.046875,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "BUILD",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "THINK",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 916,
+        "width": 699
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 699,
+        "width": 699
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "touch-swipe",
+      "previousInput": "touch-swipe",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 768,
+      "document": 768,
+      "font": null,
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 722,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 115.203125,
+      "titleRight": 652.796875,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "FitzSight",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Ravenis",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "Gate",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      768,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 757,
+      "document": 757,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 46,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 711,
+      "sidebar": {
+        "left": -260,
+        "right": 0,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 113.5625,
+      "titleRight": 643.453125,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": true,
+      "width": 768
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 915,
+        "width": 736
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 736,
+        "width": 736
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "pointer-button",
+      "previousInput": "pointer-button",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1009,
+      "document": 1009,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 916,
+        "width": 734
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 734,
+        "width": 734
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "pointer-button",
+      "previousInput": "pointer-button",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1024,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1013,
+      "document": 1013,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1024
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 915,
+        "width": 736
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 736,
+        "width": 736
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "pointer-button",
+      "previousInput": "pointer-button",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "dark",
+    "geometry": {
+      "body": 1351,
+      "document": 1351,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "think-all",
+    "path": "/think/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 12,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "think-fragments",
+    "path": "/think/?type=fragment",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 5
+  },
+  {
+    "name": "think-empty",
+    "path": "/think/?type=essay&topic=arts",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 0
+  },
+  {
+    "name": "think-last-page",
+    "path": "/think/?page=4",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 8
+  },
+  {
+    "name": "build-all",
+    "path": "/build/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 7,
+    "interactions": {
+      "filter": true,
+      "refresh": true,
+      "back": true
+    }
+  },
+  {
+    "name": "build-known",
+    "path": "/build/?status=implemented_unverified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 1
+  },
+  {
+    "name": "build-unspecified",
+    "path": "/build/?status=unspecified",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "BUILD",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "8px"
+        }
+      ],
+      "title": "BUILD",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "BUILD",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": 6
+  },
+  {
+    "name": "observe",
+    "path": "/observe/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OBSERVE",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "OBSERVE",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OBSERVE",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "tags",
+    "path": "/tags/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间文段标签",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间文段标签",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间文段标签",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/tags/instruction-set-architecture/"
+    }
+  },
+  {
+    "name": "archives",
+    "path": "/archives/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层时间线",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层时间线",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层时间线",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/"
+    }
+  },
+  {
+    "name": "thoughts",
+    "path": "/thoughts/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间思维片段",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间思维片段",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间思维片段",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "stableAnchor": true,
+      "back": true
+    }
+  },
+  {
+    "name": "series-directory",
+    "path": "/think/#nv-series-browser-title",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "THINK",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "THINK",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "THINK",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "open": true,
+      "back": true,
+      "destination": "http://127.0.0.1:45923/think/?series=database-systems"
+    }
+  },
+  {
+    "name": "article-tables",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-04/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 04 指令系统",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 04 指令系统",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "tables": [
+      {
+        "overflow": "auto",
+        "scrollWidth": 916,
+        "width": 734
+      },
+      {
+        "overflow": "auto",
+        "scrollWidth": 734,
+        "width": 734
+      }
+    ],
+    "interactions": {
+      "tableScroll": true,
+      "tables": 2
+    }
+  },
+  {
+    "name": "article-code",
+    "path": "/posts/%E8%AE%A1%E7%BB%84-07/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "计组笔记 07 微型计算机原理及接口基础",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "计组笔记 07 微型计算机原理及接口基础",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "codeVisible": true,
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/%E8%AE%A1%E7%BB%84-07/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "article-images",
+    "path": "/posts/FF1%E8%AE%B0%E5%BD%95/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "游戏记录：Final Fantasy 1",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "文章",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "游戏记录：Final Fantasy 1",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "imagesLoaded": 3,
+      "galleryNextPreviousClose": true,
+      "nextInput": "pointer-button",
+      "previousInput": "pointer-button",
+      "copyLinkFeedback": true,
+      "clipboardBytes": "verified",
+      "copiedUrl": "http://127.0.0.1:45923/posts/FF1%E8%AE%B0%E5%BD%95/",
+      "clipboardSentinelReplaced": true
+    }
+  },
+  {
+    "name": "library",
+    "path": "/library/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层大图书馆",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "中间层大图书馆",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层大图书馆",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "drawerOpenClose": true,
+      "categoryOpenBack": true,
+      "covers": {
+        "visibleImages": 8,
+        "loaded": true
+      },
+      "search": {
+        "query": "猎魔人",
+        "expectedId": "book:b1e3992478",
+        "reloadPreserved": true,
+        "emptyMessage": true,
+        "clearRestoredRoot": true
+      },
+      "filtersPagination": {
+        "page2ReloadIds": true,
+        "previousPageRestored": true,
+        "source": "bangumi",
+        "year": "2013",
+        "filterReloadIds": true,
+        "clearRestored": true
+      },
+      "sortLayout": {
+        "ratingOrder": true,
+        "yearOrder": true,
+        "titleReloadIds": true,
+        "listKeepsIds": true,
+        "listReloadPreference": true,
+        "keyboardGridRestored": true,
+        "defaultRestored": true
+      },
+      "otherStatus": {
+        "bookHoldEmpty": true,
+        "bookHoldReloadIds": true,
+        "gameHoldReloadIds": true,
+        "gameDroppedReloadIds": true,
+        "statusCategoryIsolation": true,
+        "clearKeepsStatus": true,
+        "clearDefaultIds": true,
+        "backRestoresBook": true
+      },
+      "wishlist": {
+        "ledgerCounts": {
+          "book": 0,
+          "comic": 3,
+          "movie": 8,
+          "drama": 0,
+          "anime": 57,
+          "game": 55,
+          "music": 0
+        },
+        "nonemptyCategory": "comic",
+        "emptyCategory": "book",
+        "categoryStatusIsolation": true,
+        "reloadIds": true,
+        "twoLevelBack": true,
+        "restoredBookIds": true
+      },
+      "timeline": {
+        "rows": 46,
+        "oneShotLoaderReplaced": true,
+        "singleList": true,
+        "scrollSameRows": true,
+        "reloadLazy": true,
+        "keyboardSameRows": true
+      }
+    }
+  },
+  {
+    "name": "links",
+    "path": "/links/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": null,
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "中间层友情链接",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [],
+      "title": "友情链接",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "中间层友情链接",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null,
+    "interactions": {
+      "friendCards": 1,
+      "hrefsPresent": true,
+      "keyboardFocus": true,
+      "externalDestinations": "not-verified"
+    }
+  },
+  {
+    "name": "project-fitzsight",
+    "path": "/build/fitzsight/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "FitzSight",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "FitzSight",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "FitzSight",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-akasha-notes",
+    "path": "/build/akasha-notes/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Akasha Notes",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Akasha Notes",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Akasha Notes",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-toyosatomimis-headphone",
+    "path": "/build/toyosatomimis-headphone/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "Toyosatomimi's Headphone",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Toyosatomimi's Headphone",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Toyosatomimi's Headphone",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-ravenis",
+    "path": "/build/ravenis/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Ravenis",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Ravenis",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Ravenis",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-occult-atlas",
+    "path": "/build/occult-atlas/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Occult Atlas",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Occult Atlas",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Occult Atlas",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-gate",
+    "path": "/build/gate/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "noindex,nofollow",
+      "pageTitle": "Gate",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "Gate",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "Gate",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  },
+  {
+    "name": "project-officespire",
+    "path": "/build/officespire/",
+    "window": [
+      1366,
+      900
+    ],
+    "theme": "light",
+    "geometry": {
+      "body": 1355,
+      "document": 1355,
+      "font": "\"IBM Plex Mono\", \"Sarasa Mono SC\", \"Noto Sans Mono CJK SC\", ui-monospace, monospace",
+      "headings": [],
+      "menuRight": 0,
+      "noindex": "",
+      "pageTitle": "OfficeSpire",
+      "searchLeft": 0,
+      "sidebar": {
+        "left": 0,
+        "right": 260,
+        "width": 260
+      },
+      "surfaces": [
+        {
+          "radius": "8px"
+        },
+        {
+          "radius": "5.6px"
+        },
+        {
+          "radius": "5.6px"
+        }
+      ],
+      "title": "OfficeSpire",
+      "titleLeft": 0,
+      "titleRight": 0,
+      "titleTooltip": "OfficeSpire",
+      "titleVisible": false,
+      "width": 1366
+    },
+    "count": null
+  }
+]

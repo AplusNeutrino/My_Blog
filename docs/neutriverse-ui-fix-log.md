@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08g生产截图与交互验收
+
+- Base main23343d67baba17dbe787f5611eea39ed90ad0b79、验收head8240a3b192e32b935541208532fd491cd3b75033，审计实现e5f3b3bfc369763951d1374eeb7756b1e9b7190d。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告与本UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录修改；本轮范围仅UI计划日志与docs/ui-evidence/uia08g*公开生产证据，不追加产品改动。
+- 精确run38838899369 build116774445703 success，deploy116776769147/verify-live-ui116776770483 skipped（工作分支，不作部署）。日志核对227 tests、4 render-only Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/资源/移动无障碍门禁及192页面+14侧栏场景通过。
+- 下载artifact12020114567 /198131424 bytes，sha256:ff71298bccc979568bc672d6c06ee426059a9be228bba4803efacc64e215ed69独立匹配。人工看四宽度双主题32张index/category/reloaded/empty两联系表，放大390 Light刷新长标题、390 Night目录与1024 Light空提示原图：标题/计数/加载完成的可见封面/空提示正常，无新增确认产品缺陷，不凭偏好改样式。
+- 8流程目录七分类计数合计、漫画愿望单category/status隔离、整页刷新同URL/ID、书籍真实空提示及刷新、两级返回和书籍原ID恢复通过；32几何均无页面/元素横向溢出、scrollX=0。公开完整192 audit、32诊断与两联系表保存，原PNG留artifact14天；数据数量不是未来同步硬编码，不以此推断完整库存/离屏加载通过。
+- 验收后非强推main仍validation-pending，必须新main自身build/deploy/live与同32图复验，不以localhost代替线上。评分控件、Steam及其余全站项仍pending，无新用户决策；不改原文/metadata/URL/hidden/noindex、产品/数据、关联仓库或旧COMPLETE历史。
+- 本次证据回写本地227 tests、authoring44/5/7、T01保护44/5/5和diff check通过；Ruby/Jekyll/Chrome来自上述精确CI，不谎称本机执行。仅7个计划日志/公开证据文件；main交付head必须单独核对CI及部署/live。
+
 ## 2026-10-16 — UI-A08g 愿望单最小检查范围
 
 - Base main23343d67baba17dbe787f5611eea39ed90ad0b79，精确run38833481298 build116757262447/deploy116759522336/verify-live-ui116759587790全部success。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录修改。

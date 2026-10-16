@@ -55,6 +55,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08g生产验收通过、待main/live（2026-10-16）：base main23343d67baba17dbe787f5611eea39ed90ad0b79、验收head8240a3b192e32b935541208532fd491cd3b75033，run38838899369 build116774445703 success，deploy116776769147/live116776770483 skipped（工作分支，不作部署）。227 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12020114567摘要独立匹配；人工看32张四宽度双主题index/category/reloaded/empty两联系表，放大390 Light刷新、390 Night目录和1024 Light空提示原图，未确认新产品缺陷。8愿望单计数/分类与status隔离、刷新同URL/ID、空提示、两级返回与书籍原ID恢复通过，32几何无横向溢出/scrollX。本轮只改UI计划日志及docs/ui-evidence/uia08g*公开生产证据，不改产品/数据/旧COMPLETE；验收后非强推main仍validation-pending，须新main部署/live同32图。无新待答问题，评分及其他全站项仍pending。
+
 UI-A08g validation-pending：真实愿望单审计实现e5f3b3bfc369763951d1374eeb7756b1e9b7190d已expected_sha非强推保存ui/audit-008g，6个远程blob与本地hash逐项相同。本地227 tests、authoring44/5/7、T01保护44/5/5、diff通过；云1363 Light非空分类刷新、Night空分类刷新与两级返回已实际操作并看截图，未确认新缺陷。main仍23343d67，随后仅追加此实现SHA记录；最终检查点head的production192+14、新32图/8流程、main部署/live必须分别核对，不以单测或其他提交CI替代。无新待答问题，评分控件及其余全站矩阵pending。
 
 UI-A08g in-progress（2026-10-16）：base main23343d67baba17dbe787f5611eea39ed90ad0b79，精确run38833481298 build116757262447/deploy116759522336/live116759587790全部success。先读仓库约束与旧COMPLETE历史；CONTEXT不存在、gh未安装。范围仅tools/check_think_build_visual.py、必要接线回归、UI计划日志和docs/ui-evidence/uia08g*公开证据。云1363×936 Light实际愿望单目录、漫画分类、刷新与返回目录截图未确认新缺陷（初始封面异步加载，刷新后全部完成）；拟补四宽度双主题目录/非空分类/刷新/空分类32图和URL/ID/status/category隔离、目录计数及两级返回，未验证留ui/audit-008g，不改产品/数据/旧内容，不合main。评分控件与其他全站项仍pending，无新用户决策。
