@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-10-15T21:20:00Z",
-  "last_success_at": "2026-10-15T21:20:00Z",
+  "fetched_at": "2026-10-16T21:03:53Z",
+  "last_success_at": "2026-10-16T21:03:53Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.7,
-        "community_rating_count": 490,
+        "community_rating_count": 492,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }
@@ -425,7 +425,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 1604,
+        "community_rating_count": 1606,
         "comment_text": null,
         "api_url": "/api/movie/3P6wROk9oIqMCxD1v4d3hN"
       }
@@ -2339,7 +2339,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 2246,
+        "community_rating_count": 2247,
         "comment_text": null,
         "api_url": "/api/movie/33LWgbD3AIK7K8wSxAhtTp"
       }
@@ -2639,7 +2639,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.2,
-        "community_rating_count": 1053,
+        "community_rating_count": 1054,
         "comment_text": null,
         "api_url": "/api/movie/5P5rawCZmazL0NHXI2Hepd"
       }
@@ -3282,8 +3282,8 @@
       "raw_type": "book",
       "extra": {
         "raw_collection_status": "complete",
-        "community_rating": 7.8,
-        "community_rating_count": 36,
+        "community_rating": 7.7,
+        "community_rating_count": 37,
         "comment_text": null,
         "api_url": "/api/book/15O3H0gONYnRhQK8mQm8IN"
       }
@@ -4501,7 +4501,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.2,
-        "community_rating_count": 1882,
+        "community_rating_count": 1883,
         "comment_text": null,
         "api_url": "/api/movie/2XVVTKOPucKGQqmmb5GaNX"
       }
