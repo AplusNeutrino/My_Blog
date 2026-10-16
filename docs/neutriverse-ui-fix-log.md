@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08j首次生产与取景修正
+
+- 修正后本机241 tests、authoring44/5/7、T01保护44/5/5和diff通过；本机无Ruby/Jekyll/Chrome，真实新head视觉验收待CI，不合main。
+- 精确57a95067 /run38952889668 build117148951098 success；deploy117153638838/live117153640466 skipped。240 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过。artifact12069319714 /272044392 bytes /sha256:ef6db3f5f6bb6eee87c99902851970cf1f1c4593e579851fe90cc41c901d2be4独立匹配；人工看96截图四联系表，放大390 Light第1页首、768 Night第6页首。
+- 8组完整124书籍/6页/992原生加载、精确ID集合/无重复/末页刷新/prev/返回重入与96几何通过；但首部被前置Steam操作留下的open筛选浮层遮住，不能写视觉通过。它是取景状态隔离缺口，非新确认产品缺陷，不猜测改样式。
+- 仅补进入书籍真实summary关闭、等待关闭与capture前断言，新增1接线回归，不放宽旧门禁。首次证据保留，修正后production/main/live仍validation-pending；main325db4d0未改，gh不可用不虚构Issue，无新用户决策，全站IN PROGRESS。
+
 ## 2026-10-17 — UI-A08j范围先记录
 
 - 审计实现cf03a5ad663271603b50347c3cc9edc90f111d38已保存ui/audit-008j，5个远程blob与本地hash逐项相同；随后只追加SHA检查点。main仍325db4d0，未部署。本次最终分支head的Actions/production截图及main/live继续validation-pending；下轮先核对同一head，不以base成功代替。

@@ -1074,6 +1074,8 @@ def library_book_inventory_controls(driver, wait, output, width, theme):
         require(all(c['left'] >= -1 and c['right'] <= observed['clientViewport']+1 and c['scroll'] <= c['client']+1
                     for c in observed['cards']), 'Book inventory card overflow')
     def capture(page_number, state, selector):
+        require(not driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'),
+                'Book inventory screenshot obscured by advanced panel')
         position(driver.find_element(By.CSS_SELECTOR, selector))
         observed = geometry()
         stem = f'book-inventory-page-{page_number}-{state}-{width}-{theme}-library'
@@ -1086,6 +1088,11 @@ def library_book_inventory_controls(driver, wait, output, width, theme):
     click('[data-pgl-category="book"]')
     ready()
     wait.until(lambda d: ids())
+    # The preceding Steam flow may leave this real details panel open. It is
+    # valid UI state, but would obscure covers in a page-end screenshot.
+    if driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'):
+        click('.pgl-advanced summary')
+    wait.until(lambda d: not d.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'))
     page_size = int(driver.find_element(By.ID, 'prospero-great-library').get_attribute('data-page-size') or 24)
     page_count = (len(books)+page_size-1)//page_size
     first_ids, pages, seen = ids(), [], []

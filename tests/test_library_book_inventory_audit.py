@@ -40,3 +40,10 @@ class LibraryBookInventoryAuditTests(unittest.TestCase):
                      "click('#pgl-pagination .pgl-page-nav:last-child')", "ids() == first_ids",
                      "click('#pgl-back')", "'page' not in params()", 'not urlsplit(driver.current_url).query'):
             self.assertIn(text, helper)
+
+    def test_capture_requires_real_panel_close_not_dom_visibility_alone(self):
+        _, helper = self.helper()
+        self.assertIn("click('.pgl-advanced summary')", helper)
+        self.assertIn("wait.until(lambda d: not d.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'))", helper)
+        capture = helper.split('def capture(page_number, state, selector):', 1)[1].split('    ready()', 1)[0]
+        self.assertLess(capture.index("get_attribute('open')"), capture.index('save_screenshot'))
