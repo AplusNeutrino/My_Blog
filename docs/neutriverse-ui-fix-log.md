@@ -2,6 +2,7 @@
 
 ## 2026-10-17 — UI-A08j首次生产与取景修正
 
+- 真实修正提交1d729d33f692141c749e214e02009b52470c0d87已expected_sha非强推保存ui/audit-008j，11个远程blob与本地hash一致；随后仅追加SHA检查点。下一轮核对最终分支head CI及无遮挡96图，再决定main交付，不借旧head成功冒充通过。
 - 修正后本机241 tests、authoring44/5/7、T01保护44/5/5和diff通过；本机无Ruby/Jekyll/Chrome，真实新head视觉验收待CI，不合main。
 - 精确57a95067 /run38952889668 build117148951098 success；deploy117153638838/live117153640466 skipped。240 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过。artifact12069319714 /272044392 bytes /sha256:ef6db3f5f6bb6eee87c99902851970cf1f1c4593e579851fe90cc41c901d2be4独立匹配；人工看96截图四联系表，放大390 Light第1页首、768 Night第6页首。
 - 8组完整124书籍/6页/992原生加载、精确ID集合/无重复/末页刷新/prev/返回重入与96几何通过；但首部被前置Steam操作留下的open筛选浮层遮住，不能写视觉通过。它是取景状态隔离缺口，非新确认产品缺陷，不猜测改样式。

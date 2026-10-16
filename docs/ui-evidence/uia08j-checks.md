@@ -10,6 +10,7 @@
 - **验收缺口**：前置Steam流程在刷新并清除筛选后留下open的高级筛选details，书籍各页首截图被其正常浮层遮住（包括768末页）。这是审计起始状态未隔离，不凭此将预期浮层判为产品缺陷，也不将CI成功写成视觉通过。
 - 最小修正仅审计：进入书籍后若面板open，真实点击summary关闭并等待；每次capture另断言无open面板，再定位/截图。新增1接线回归，所有既有断言保留。不改产品/数据/旧正文/metadata/URL/hidden/noindex。
 - 修正后本机241 tests、authoring44/5/7、T01保护44/5/5及diff通过；本机没有Ruby/Jekyll/Chrome，未将接线通过当视觉通过。
+- 真实修正实现1d729d33f692141c749e214e02009b52470c0d87已expected_sha非强推保存ui/audit-008j，11个远程blob与本地hash逐项一致；随后只追加此SHA检查点。必须核对最终分支head完整production和修正后的96图，不能复用57a95067的局部检查结论。
 - 修正后96图、production精确head及main/live仍pending；main保持325db4d0，不合入未验收项，无新用户决策。中间卡片完整视觉、其他分类与全站矩阵仍pending。
 
 首次取景联系表：[390](uia08j-production-contact-390.jpg)、[768](uia08j-production-contact-768.jpg)、[1024](uia08j-production-contact-1024.jpg)、[1366](uia08j-production-contact-1366.jpg)；[192审计](uia08j-production-audit.json)、[96诊断](uia08j-production-diagnostics.json)。仅保留真实历史，不冒充修正后视觉验收。原PNG保留在上述artifact14天。
