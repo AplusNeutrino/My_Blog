@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08h评分控件最小检查范围
+
+- Base main3d822d563af3b798a98887d3f35505496931d63c，精确run38849000797 build116805821290/deploy116808150183/verify-live-ui116808204281全部success。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录修改。
+- 云Chrome1363×936 Light真实书籍评分21项/均值7.5/峰值7、音乐0项平线，Shift+Tab聚焦末端评分点显示10·0条目提示，实际焦点circle、提示在viewport内；已看真实截图，未确认新缺陷。数量只作当前观察不硬编码未来同步，短暂截图尚未更新待下一帧稳定后确认。
+- 范围仅tools/check_think_build_visual.py、必要审计回归、UI计划日志和docs/ui-evidence/uia08h*公开证据；拟四宽度双主题八分类计数/摘要/图形、真实键盘首末端点提示/退出隐藏、刷新默认全域恢复及32状态图/几何，保留192+14与所有门禁。不改产品/数据/旧内容，未验证留ui/audit-008h，production/main/live仍pending，无新待答问题。
+- 已实现上述真实分类/键盘/刷新审计及接线回归，本地228 tests、authoring44/5/7、T01保护44/5/5和diff通过；云真实Tab从末端点退出到全域按钮，提示hidden=true，未确认新缺陷。公开桌面证据已保存，窄屏tooltip是待验证风险而非确认缺陷；本机未运行Ruby/Jekyll/Chrome，32图/8流程与production/main/live仍validation-pending，不合main。
+
 ## 2026-10-16 — UI-A08g精确main线上验收
 
 - Base/验收main b95bba7ccf511b0797c004621764c79112acf792，审计实现e5f3b3bfc369763951d1374eeb7756b1e9b7190d。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录修改；本轮范围仅UI计划日志与docs/ui-evidence/uia08g*公开live证据，不追加产品改动。

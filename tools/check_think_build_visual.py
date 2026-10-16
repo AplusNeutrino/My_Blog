@@ -731,6 +731,93 @@ def library_wishlist_controls(driver, wait, output, width, theme):
             'categoryStatusIsolation':True,'reloadIds':True,'twoLevelBack':True,'restoredBookIds':True}
 
 
+def library_rating_controls(driver, wait, output, width, theme):
+    """Exercise public rating scopes and real keyboard tooltips, not synthetic focus."""
+    distribution = json.loads(Path('_data/prospero_great_library/stats.json').read_text())['rating_curve_distribution']
+    bins, scopes = distribution['bins'], distribution['scopes']
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def verify(scope):
+        counts = scopes[scope]
+        expected = [f'{b}: {n}' for b, n in zip(bins, counts)]
+        wait.until(lambda d: [e.get_attribute('aria-label').split(' ', 1)[-1] for e in d.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-hit')] == expected)
+        wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-area'))
+        wait.until(lambda d: d.find_element(By.CSS_SELECTOR, f'[data-rating-scope="{scope}"]').get_attribute('class').split().count('is-active') == 1)
+        require(len(driver.find_elements(By.CSS_SELECTOR, '[data-rating-scope].is-active')) == 1, 'Multiple rating scopes active')
+        require([e.text for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-label')] == [str(b) for b in bins], 'Rating axis bins differ from data')
+        summary = driver.find_element(By.ID, 'pgl-rating-summary').text
+        numbers = [float(v) for v in re.findall(r'\d+(?:\.\d+)?', summary)]
+        total = sum(counts)
+        require(numbers and numbers[0] == total, 'Rating summary total differs from data')
+        if total:
+            mean = sum(float(b)*n for b,n in zip(bins,counts))/total
+            peak = bins[counts.index(max(counts))]
+            require(len(numbers) == 3 and abs(numbers[1]-mean) <= .051 and numbers[2] == peak, 'Rating mean/peak differs from distribution')
+        else:
+            require(len(numbers) == 1, 'Empty rating summary retained mean/peak')
+        return {'counts':counts,'summary':summary}
+    def choose(scope):
+        element = driver.find_element(By.CSS_SELECTOR, f'[data-rating-scope="{scope}"]')
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));',element))
+        element.click()
+        ready()
+        return verify(scope)
+    def tooltip(index):
+        wait.until(lambda d: d.execute_script('return document.activeElement === document.querySelectorAll("#pgl-rating-chart .pgl-chart-hit")[arguments[0]]', index))
+        wait.until(lambda d: d.find_element(By.ID, 'pgl-rating-tooltip').is_displayed())
+        text = driver.find_element(By.ID, 'pgl-rating-tooltip').text
+        require(text.startswith(f'{bins[index]} · {scopes["all"][index]} '), 'Keyboard rating tooltip differs from focused bin')
+    def capture(state):
+        position(driver.find_element(By.CSS_SELECTOR, '.pgl-rating-section'))
+        geometry = driver.execute_script('''
+          const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,client:e.clientWidth,scroll:e.scrollWidth};};
+          const tip=document.querySelector('#pgl-rating-tooltip');
+          return {scrollX,viewport:innerWidth,page:document.documentElement.scrollWidth,
+            chart:rect(document.querySelector('#pgl-rating-chart')),scopes:rect(document.querySelector('#pgl-rating-scopes')),
+            summary:document.querySelector('#pgl-rating-summary').textContent,
+            tooltip:{...rect(tip),visible:!tip.hidden,text:tip.textContent},
+            focused:document.activeElement.getAttribute('aria-label')};
+        ''')
+        driver.save_screenshot(str(output / f'rating-{state}-{width}-{theme}-library.png'))
+        (output / f'rating-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry, indent=2))
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['viewport']+1, 'Rating chart page overflow')
+        for key in ('chart','scopes'):
+            r = geometry[key]
+            require(r['left'] >= -1 and r['right'] <= geometry['viewport']+1 and r['scroll'] <= r['client']+1, 'Rating chart/scope overflow')
+        if geometry['tooltip']['visible']:
+            r = geometry['tooltip']
+            require(r['left'] >= -1 and r['right'] <= geometry['viewport']+1, 'Rating tooltip outside viewport')
+
+    results = {}
+    for scope in ('all','book','comic','movie','drama','anime','game','music'):
+        results[scope] = choose(scope)
+        if scope in ('book','music'):
+            capture(scope)
+    choose('all')
+    all_button = driver.find_element(By.CSS_SELECTOR, '[data-rating-scope="all"]')
+    position(all_button)
+    all_button.send_keys(Keys.SHIFT, Keys.TAB)
+    tooltip(len(bins)-1)
+    capture('tooltip-last')
+    for _ in range(len(bins)-1):
+        ActionChains(driver).key_down(Keys.SHIFT).send_keys(Keys.TAB).key_up(Keys.SHIFT).perform()
+    tooltip(0)
+    capture('tooltip-first')
+    for _ in bins:
+        ActionChains(driver).send_keys(Keys.TAB).perform()
+    wait.until(lambda d: not d.find_element(By.ID, 'pgl-rating-tooltip').is_displayed())
+    require(driver.execute_script('return document.activeElement === arguments[0]', driver.find_element(By.CSS_SELECTOR, '[data-rating-scope="all"]')), 'Rating keyboard exit did not reach scope button')
+    choose('book')
+    driver.refresh()
+    ready()
+    verify('all')
+    return {'scopes':results,'keyboardEndpoints':True,'tooltipBlurHidden':True,'reloadDefaultAll':True}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -886,9 +973,10 @@ def relationship_controls(driver, wait, name, output, width, theme):
     wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
     require('category=' not in driver.current_url, 'Library back retained category')
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
+    rating_result = library_rating_controls(driver, wait, output, width, theme)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):
