@@ -6,6 +6,7 @@
 - 云Chrome1363×936 Light实际进入愿望单目录、漫画分类、刷新同URL及返回目录，截图查看标题/计数/卡片与加载完成的封面，未确认新显示缺陷；不把首次异步封面加载尚未完成当永久缺失，也不凭偏好改样式。
 - 文件范围tools/check_think_build_visual.py、必要接线回归、UI计划日志及docs/ui-evidence/uia08g*公开证据；验收补四宽度双主题目录/非空分类/刷新/空分类32图、真实目录计数、刷新同URL/ID、status/category隔离、两级返回并恢复书籍原ID，保留全部192+14与既有门禁。先ui/audit-008g，production/main/live未验收；不改产品/数据/原文/metadata/URL/hidden/noindex或旧COMPLETE。评分控件与其余全站矩阵仍pending，无新待答问题。
 - 已实现上述真实点击/刷新/返回审计及接线回归，本地227 tests、authoring44/5/7、T01保护44/5/5、diff通过；云实际书籍空分类刷新保持、Night切换完成后暂无记录可见、两级返回根URL成功，[限定证据](ui-evidence/uia08g-checks.md)已保存。当前预计新32图，若未来没有真实空分类则报告emptyCategory=null，不伪造数据。本机未运行Ruby/Jekyll/Chrome，production/main/live仍validation-pending。
+- 真实审计实现e5f3b3bfc369763951d1374eeb7756b1e9b7190d已expected_sha非强推保存ui/audit-008g，6个上传blob与本地hash逐一相同；随后仅追加此实现SHA记录，最终检查点head CI需单独核对。main保持23343d67，未合main/部署；新32图及8流程production验收后才交付main/live，全站仍IN PROGRESS，无新待答问题。
 
 ## 2026-10-16 — UI-A08f精确main线上验收
 
