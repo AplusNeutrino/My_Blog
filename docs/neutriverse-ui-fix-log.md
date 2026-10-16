@@ -7,6 +7,7 @@
 - 开始前范围：仅assets/pgl/pgl.css的<=1199px目录/愿望单入口右侧避让，现有浏览器审计新增真实逐行滚动到固定按钮高度、文字rect不相交、按钮hit-test/真实点击回顶部及目录往返，必要静态回归、UI计划日志与ui011证据。不全局隐藏/移动按钮，不改字号/数据/旧内容/URL/hidden/noindex或关联仓库。新48图（根目录四状态+愿望单两端）与8流程待精确head CI；全部192+14和既有门禁保留，未验证留ui/fix-011，不合main，无新用户决策。
 - 已实现上述最小避让和审计：逐个根目录8计数与愿望单7计数滚动到按钮高度（短页面如无法到达则记录实际位置，不伪造高度）；检查所有可见计数真实Range文字行与按钮无相交、可用clientWidth内无溢出，根目录必须按钮可见且中心hit-test正确，至少一计数确实进入按钮垂直带。真实entry/back/top.click，返回目录计数不变且点击按钮scrollY<=1。每宽度/主题根book/comic/music/wishlist-entry与愿望单首末共6图，目标48图/JSON；保留旧门禁。
 - 本地233 tests（新增3项接线回归）、authoring44/5/7、T01保护44/5/5、diff check通过。本机未运行Ruby/Jekyll/Chrome，未取得修复后1024/手机截图；只存工作分支validation-pending，main仍600f2907，production完整192+14/48图/8流程及main部署/live待精确head验证。不以静态测试、源码推断或1363无重叠代替窄屏验收。
+- 真实实现86d8453820eec1eda59f604d4524381a121b25a5已保存ui/fix-011，6个上传blob与本地git hash-object逐一一致；随后只追加SHA检查点，不再改代码。main仍600f2907，未合main/部署，最终分支head生产192+14/48图/8流程与main/live待独立验收，validation-pending，无新用户决策。
 
 ## 2026-10-16 — UI-010精确main线上验收；UI-011排队
 

@@ -59,6 +59,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-011真实实现86d8453820eec1eda59f604d4524381a121b25a5已保存ui/fix-011，6个上传blob与本地hash逐项一致；随后仅追加此SHA检查点。main仍600f2907，未部署/未合main；最终分支head精确production192+14/48图/8流程及main/live必须分别验收，保持validation-pending，无新用户决定。
+
 UI-011 validation-pending：已实现<=1199px仅Library目录/愿望单入口padding-inline-end:3.5rem，保持按钮/字号/数据不变；新增真实逐行滚动、count文字与固定按钮不相交/可用视口、根目录场景必须显示按钮并hit-test、目录往返计数不变及真实按钮回顶部审计，目标48图/8流程。新增3项接线回归，本地233 tests、authoring44/5/7、T01保护44/5/5及diff通过；没有本机Ruby/Jekyll/Chrome，不把单测当视觉通过。先保存ui/fix-011，main保持600f2907；精确head生产192+14、新48图与main部署/live均待验证，无新用户决策。
 
 UI-011 in-progress（2026-10-16）：base main600f29073e94b2d8ad17e3365db4c262e9d398f6；run38878173427 build116898172377/deploy116901351049/live116901426946全部success。已读当前仓库约束、ADR、旧COMPLETE计划报告与UI计划日志，CONTEXT不存在，gh未安装不编造Issue。原始1024 Light目录漫画计数遮挡截图已保存；本轮云1363×936 Light滚动目录实际截图/DOM测量无相交（计数right1041.81、按钮left1240.41），不能冒充1024已复测。源码定位目录行无固定按钮避让；拟仅assets/pgl/pgl.css在<=1199px给目录/愿望单入口保留右侧空间，tools/check_think_build_visual.py新增真实逐行滚动/文字按钮不相交及返回顶部操作、必要回归、计划日志与ui011证据。保留192+14及原门禁，未验证存ui/fix-011，不合main。无新用户决策，不改数据/原文/metadata/URL/hidden/noindex/外部仓库。
