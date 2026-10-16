@@ -61,6 +61,14 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08j数据接续（2026-10-17）：生产6613d252限定范围已验收；交付前main并发前进dda8dc3172f69163975cc0d082833feb13b9cb67，9个Library同步数据文件更新，expected_sha复核已停止main操作，未覆盖同步。将审计/证据基于最新main保存ui/audit-008j-sync，9文件精确保留main blob；默认书籍仍124，仍须新精确head production及96图重验，不能用同数量或旧截图替代。main/deploy/live仍validation-pending，无新用户决策，全站IN PROGRESS。
+
+UI-A08j生产验收（2026-10-17）：精确6613d252 /run38960141641 build117173359902 success，deploy117177120300/live117177121847 skipped（分支）。241 tests/4 Ruby/T01/authoring/Jekyll/既有门禁/192+14通过；下载artifact12073100672独立摘要匹配，人工查看四宽度双主题96页首/尾图8联系表，放大390 Light首/768 Night末页首原图，浮层关闭后封面可见，无新确认缺陷。8组完整124书籍6页/992原生加载/末页刷新与返回、96几何通过。仅此范围生产通过，中间卡片完整视觉和其他分类仍pending；非强推交付main后，精确新head build/deploy/live及96线上图仍validation-pending。全站IN PROGRESS，无新用户决策。[证据](docs/ui-evidence/uia08j-checks.md)。
+
+UI-A08j取景修正（2026-10-17）：57a95067/run38952889668 build通过，deploy/live按分支skipped；人工看96图四联系表及390 Light首/768 Night末页首原图，发现前置Steam流程残留open筛选浮层遮住封面，不是已确认产品缺陷。8流程/124书籍6页/992原生加载和96几何通过不能替代视觉验收。只修审计真实关闭面板及拍摄前断言，新增1回归，原断言不放宽；本次修正留ui/audit-008j，production新head/main/live继续validation-pending。main保持325db4d0，无新用户决策，完整矩阵仍IN PROGRESS。[证据](docs/ui-evidence/uia08j-checks.md)。
+
+UI-A08j（2026-10-17）validation-pending：base325db4d0771c3fd518d52ebf908e7d6b45962453；该head run38944307535 build117119432424/deploy117122814466/live117122895755全部success。范围先记录：默认书籍完整分页、逐卡原生封面滚动/解码、末页刷新及返回；当前124条/6页，动态按公开数据计算。四宽度双主题各页首尾截图，中间卡片只有加载/几何检查，不冒充逐卡视觉验收。只改现有审计、必要回归、本计划日志及uia08j证据，不改产品/数据。无新确认缺陷或用户决策；gh不可用不虚构Issue。工作分支ui/audit-008j，production及main/live待验证；其他分类与全站矩阵仍pending。
+
 UI-A08i限定done（2026-10-17）：验收main b4a502396bd02650738f4b69912ef2bdca437173 / run38920457806 attempt2 build117067139721/deploy117071593206/live117071699364全部success。237 tests/4 Ruby/T01/authoring/Jekyll/旧门禁、production/live各192+14通过。live artifact12058453192独立摘要匹配，人工看四宽度双主题40图并放大390 Light来源、768 Night末端原图，空提示可读、封面正常；8流程/192次原生加载/40诊断通过且与生产相同。首次失败与0a12dac8记录合入保留，不改产品/数据或旧COMPLETE；本轮仅计划日志与公开live证据，新证据head CI另核对。当前无遥测路径限定通过，有数据时成就等未检不冒称通过；全站IN PROGRESS，无新用户决策，下一项完整库存/其余分页图片及其他全站矩阵。
 
 UI-A08i main接续validation-pending（2026-10-17）：精确main b4a502396bd02650738f4b69912ef2bdca437173 / run38920457806首次build117038739414 failure，deploy117041059374/live117041060364 skipped。237 tests/Ruby/T01/authoring/Jekyll与前置门禁通过；Chrome在390 Night Library场景结束后的下一次driver.get（按场景顺序为友链）控制通道localhost:52101读取120s超时，未收到目标场景日志，不能断言目标页面UI故障。部分artifact12054128548摘要独立匹配，只有390 Night本项5张图，已看source原图空提示可见，不代替完整40图/线上验收。已重试同一run失败jobs，第二次build117067139721运行中；不改产品/审计/超时门槛。为不取消同head重试，仅在verification/ui-a08i-retry-log保存本次3文档诊断记录，不移动main。无新用户决策，完整库存与其他全站项仍pending。
