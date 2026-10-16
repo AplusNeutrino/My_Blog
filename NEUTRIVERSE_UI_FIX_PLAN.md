@@ -60,6 +60,10 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08i validation-pending：仅新增审计与3项接线回归；目标统计/游戏Steam排序首屏/离屏末端/刷新/来源5状态共40图和8流程。逐卡真实滚动、原生complete/decode/两帧、初始离屏与natural尺寸记录、数据库存/状态组内时长排序、刷新/清除/返回和clientWidth门禁已实现，本地236 tests/authoring/T01/diff通过；不代表响应式视觉/Jekyll通过。本机无Ruby/Chrome，先工作分支ui/audit-008i，main不改；完整库存/其余分页图片/真实Steam成就等仍pending，无新产品缺陷或用户决策。
+
+UI-A08i in-progress（2026-10-16）：base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4；run38897628035 build116961810761/deploy116964440787/live116964525050全部success。范围仅现有浏览器审计、必要接线回归、本计划日志与uia08i公开证据；限定Steam统计不可用展示、游戏Steam游玩时间排序/刷新同URL与ID、Steam来源真实库存或空提示/刷新/清除/返回，以及该排序第1页逐卡滚动原生离屏封面加载。云1363×936 Light实际排序、Steam空状态刷新截图已看，无新增确认产品缺陷，不改产品/数据；四宽度双主题目标32状态图和8流程尚待精确工作分支验收。完整库存/其余分页图片及有数据时Steam成就等不冒称通过；无新用户决策，gh未安装不编造Issue。
+
 UI-011 done（2026-10-16）：base/验收main831f2898372f37bb9f226748073cdeca45962085，run38891686220 build116942440784/deploy116945366767/live116945432409全部success；233 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12042547968摘要独立匹配，人工看四宽度双主题48图三联系表并放大1024 Light漫画、390 Night愿望单入口与390 Light愿望单末端，计数全文可见、不再被按钮遮住，未新增确认缺陷。8组逐行滚动/往返/真实返回顶部和48诊断与生产逐项相同，评分/目录限定通过，不代表全Library正常。本轮仅UI计划日志及ui011公开live证据，不追加产品/数据改动，新文档head CI另核对；无新用户决策。全站仍IN PROGRESS，下一项完整库存/离屏加载与Steam及其余矩阵。[线上证据](docs/ui-evidence/ui011-checks.md#2026-10-16-精确main线上验收)。
 
 UI-011生产验收通过、待main/live（2026-10-16）：base main600f29073e94b2d8ad17e3365db4c262e9d398f6，验收head55c41c973f179e3c500bbe846eba76fd61bc6204（实际修复86d8453820eec1eda59f604d4524381a121b25a5）。run38885320771 build116921858701 success、deploy116924481966/live116924483260 skipped（分支，不作部署）；233 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12038779445摘要独立匹配；人工看48张四宽度双主题根目录四状态/愿望单首末三联系表，再放大1024 Light漫画、390 Night愿望单入口及390 Light愿望单末端原图，对照修复前1024截图，计数全文可见、不再被按钮遮挡。8组根8/愿望单7计数逐行滚动、不相交、目录往返计数不变及真实返回顶部点击通过，48诊断无横向溢出。仅UI计划日志与ui011公开生产证据，不追加产品改动；验收后非强推main仍validation-pending，须新main精确head build/deploy/live同48图复验。无新增确认缺陷/用户决策，其他全站项仍pending。[证据](docs/ui-evidence/ui011-checks.md#2026-10-16-生产截图与交互验收)。

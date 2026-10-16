@@ -915,6 +915,130 @@ def library_ledger_controls(driver, wait, output, width, theme):
     return {'root':root_checks,'wishlist':wishlist_checks,'countsPreserved':True,'backToTopClick':True,'returnedRoot':True}
 
 
+def library_steam_cover_controls(driver, wait, output, width, theme):
+    """Observe real Steam availability and native offscreen game covers, no fixtures."""
+    data = json.loads(Path('assets/data/prospero_great_library/library.json').read_text())
+    inventory = data['items'] if isinstance(data, dict) else data
+    games = {i['id']: i for i in inventory if i['category'] == 'game'
+             and i['status'] in ('in_progress', 'completed')}
+    sync = json.loads(Path('_data/prospero_great_library/sync_status.json').read_text())
+    steam_status = sync.get('sources', {}).get('steam', {}).get('status', 'disabled')
+    def params():
+        return parse_qs(urlsplit(driver.current_url).query)
+    def ids():
+        return driver.execute_script("return [...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>e.dataset.pglId)")
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def click(selector):
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+        element.click()
+    def capture(state, selector):
+        position(driver.find_element(By.CSS_SELECTOR, selector))
+        geometry = driver.execute_script('''
+          const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,client:e.clientWidth,scroll:e.scrollWidth};};
+          return {scrollX,scrollY,clientViewport:document.documentElement.clientWidth,page:document.documentElement.scrollWidth,
+            source:document.querySelector('#pgl-source').value,sort:document.querySelector('#pgl-sort').value,
+            result:document.querySelector('#pgl-result-count').textContent,
+            cards:[...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>({id:e.dataset.pglId,...rect(e)})),
+            steamStats:[...document.querySelectorAll('.pgl-stat-steam')].map(e=>({text:e.textContent.trim(),unavailable:e.classList.contains('is-unavailable')}))};
+        ''')
+        (output / f'steam-covers-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry,ensure_ascii=False,indent=2))
+        driver.save_screenshot(str(output / f'steam-covers-{state}-{width}-{theme}-library.png'))
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['clientViewport']+1, 'Steam/game page overflow')
+        require(all(c['left'] >= -1 and c['right'] <= geometry['clientViewport']+1 and c['scroll'] <= c['client']+1
+                    for c in geometry['cards']), 'Steam/game card overflow')
+        return geometry
+    ready()
+    require(driver.find_element(By.ID, 'pgl-root-view').is_displayed(), 'Steam audit must start at root')
+    stats_geometry = capture('stats', '.pgl-stats-wrap')
+    require(len(stats_geometry['steamStats']) == 2, 'Steam stats missing')
+    known = steam_status in ('ok', 'stale')
+    require(all(s['unavailable'] == (not known) for s in stats_geometry['steamStats']), 'Steam availability differs from sync state')
+    if not known:
+        require(all('—' in s['text'] for s in stats_geometry['steamStats']), 'Unavailable Steam stats fabricated numeric zero')
+    click('[data-pgl-category="game"]')
+    ready()
+    wait.until(lambda d: ids())
+    position(driver.find_element(By.ID, 'pgl-sort'))
+    Select(driver.find_element(By.ID, 'pgl-sort')).select_by_value('playtime')
+    wait.until(lambda d: params().get('sort') == ['playtime'])
+    ready()
+    ordered = ids()
+    page_size = int(driver.find_element(By.ID, 'prospero-great-library').get_attribute('data-page-size') or 24)
+    require(len(ordered) == min(page_size, len(games)) and len(set(ordered)) == len(ordered), 'Game page inventory mismatch')
+    require(all(i in games for i in ordered), 'Game page includes other category/status')
+    ranks = [0 if games[i]['status'] == 'in_progress' else 1 for i in ordered]
+    require(ranks == sorted(ranks), 'Steam sort lost in-progress priority')
+    minutes = lambda item: float(item.get('telemetry', {}).get('steam', {}).get('playtime_minutes', 0) or 0)
+    expected_values = sorted([(0 if g['status'] == 'in_progress' else 1, -minutes(g))
+                              for g in games.values()])[:page_size]
+    require([(r, -minutes(games[i])) for r,i in zip(ranks,ordered)] == expected_values,
+            'Steam first page omitted a higher-priority/playtime game')
+    for status in ('in_progress', 'completed'):
+        values = [minutes(games[i]) for i in ordered if games[i]['status'] == status]
+        require(values == sorted(values, reverse=True), 'Steam playtime order incorrect')
+    # Real scroll brings each cover into view. Native lazy/eager loading may
+    # prefetch it already: record offscreen geometry, never require a cache miss.
+    covers = []
+    cards = driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
+    initial_boxes = driver.execute_script("return [...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:innerHeight};})")
+    for index, card in enumerate(cards):
+        before = initial_boxes[index]
+        position(card)
+        image = card.find_elements(By.CSS_SELECTOR, 'img.pgl-cover')
+        if image:
+            wait.until(lambda d: d.execute_script('return arguments[0].complete', image[0]))
+            decoded = driver.execute_async_script('const e=arguments[0],done=arguments[arguments.length-1];e.decode().then(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)))).catch(()=>done(false));', image[0])
+            observed = driver.execute_script('const e=arguments[0];return {src:e.currentSrc,loading:e.loading,complete:e.complete,width:e.naturalWidth,height:e.naturalHeight};', image[0])
+            covers.append({'id':ordered[index],'before':before,'image':observed})
+            require(decoded and observed['complete'] and observed['width'] > 0 and observed['height'] > 0, f'Game cover load failed: {covers[-1]}')
+        else:
+            require(card.find_element(By.CSS_SELECTOR, '.pgl-cover-placeholder').is_displayed(), 'Game has neither cover nor placeholder')
+            covers.append({'id':ordered[index],'before':before,'placeholder':True})
+        if index == 0:
+            capture('playtime', '.pgl-view-toolbar')
+    require(any(c['before']['top'] >= c['before']['height'] for c in covers), 'No offscreen game cover was exercised')
+    capture('last', '#pgl-grid .pgl-card:last-child')
+    ordered_url = driver.current_url
+    driver.refresh()
+    ready()
+    wait.until(lambda d: ids() == ordered)
+    require(driver.current_url == ordered_url, 'Steam sort reload changed URL')
+    require(Select(driver.find_element(By.ID, 'pgl-sort')).first_selected_option.get_attribute('value') == 'playtime', 'Steam sort reload lost selected control')
+    capture('reloaded', '.pgl-view-toolbar')
+    click('.pgl-advanced summary')
+    Select(driver.find_element(By.ID, 'pgl-source')).select_by_value('steam')
+    expected_steam = {i for i,g in games.items() if 'steam' in g.get('sources', {})}
+    wait.until(lambda d: params().get('source') == ['steam'])
+    require(set(ids()).issubset(expected_steam) and len(ids()) == min(page_size,len(expected_steam)), 'Steam source inventory mismatch')
+    filtered, filtered_url = ids(), driver.current_url
+    if not expected_steam:
+        require(driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty').is_displayed(), 'Steam empty message missing')
+    capture('source', '.pgl-view-toolbar')
+    driver.refresh()
+    ready()
+    wait.until(lambda d: ids() == filtered)
+    require(driver.current_url == filtered_url and params().get('source') == ['steam'], 'Steam source reload changed state')
+    if not expected_steam:
+        require(driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty').is_displayed(), 'Steam empty reload lost message')
+    click('.pgl-advanced summary')
+    click('#pgl-clear-filters')
+    wait.until(lambda d: ids() and 'source' not in params() and 'sort' not in params())
+    require(all(i in games for i in ids()), 'Steam clear failed to restore game inventory')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require(not urlsplit(driver.current_url).query, 'Steam return retained filters')
+    return {'steamStatus':steam_status,'gameTotal':len(games),'sourceTotal':len(expected_steam),
+            'covers':covers,'groupedPlaytimeOrder':True,'sortReloadIds':True,'sourceReloadIds':True,
+            'emptyCovered':not expected_steam,'clearRestored':True,'returnedRoot':True,
+            'telemetryVisual':'pending-no-data' if not expected_steam else 'not-covered'}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -1072,9 +1196,10 @@ def relationship_controls(driver, wait, name, output, width, theme):
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     rating_result = library_rating_controls(driver, wait, output, width, theme)
     ledger_result = library_ledger_controls(driver, wait, output, width, theme)
+    steam_covers = library_steam_cover_controls(driver, wait, output, width, theme)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'ledger':ledger_result,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'rating':rating_result,'ledger':ledger_result,'steamCovers':steam_covers,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):

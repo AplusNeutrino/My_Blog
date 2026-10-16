@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08i 范围先记录
+
+- 实现后：新增5状态（增加根统计图）×8=40图目标，严格对照当前数据库存与第一页时长优先值；逐卡原生滚动/complete/decode/两帧，不改src/loading或注入数据；记录初始离屏、实际自然尺寸，排序/来源整页刷新/清除/返回与可用clientWidth门禁。本地236 tests、authoring44/5/7、T01保护44/5/5、diff通过。本机无Ruby/Jekyll/Chrome，生产/40图/8流程和main/live仍validation-pending，先工作分支，不把接线测试当视觉验收。
+- Base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4，精确run38897628035 build116961810761/deploy116964440787/live116964525050全部success。独立worktree保留原目录用户修改；已重读AGENTS/docs/agents/ADR、UI计划日志、旧COMPLETE报告及主计划相关边界，旧历史与上次已读head无差异，CONTEXT不存在。
+- 线上1363×936 Light实际游戏目录选择Steam游玩时间、Steam来源、整页刷新，已看游戏卡片与刷新后“0 条目/暂无记录”实际截图；未确认新产品缺陷。统计已有“Steam 数据暂不可用”，不将无数据等同UI故障，不补造Steam遥测或修改同步。
+- 最小范围：tools/check_think_build_visual.py、必要审计接线回归、UI计划日志与docs/ui-evidence/uia08i*。补四宽度双主题游戏排序第1页逐卡滚动/原生封面decode、排序刷新同URL/ID、真实Steam来源与空提示/刷新/清除恢复、返回目录。目标32图/8流程；完整库存和其他分页/真实Steam成就等仍pending。
+- 证据分层：上述为实际桌面观察；响应式截图、production Jekyll和main/live验收未运行，不写done。gh不在PATH，不编造Issue；无新用户问题，不改旧正文/metadata/URL/hidden/noindex/外部仓库。先ui/audit-008i，未验证不进main。
+
 ## 2026-10-16 — UI-011精确main线上验收
 
 - Base/验收main831f2898372f37bb9f226748073cdeca45962085，实际修复86d8453820eec1eda59f604d4524381a121b25a5。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；旧约束相对已读55c41c97无差异，CONTEXT不存在，gh未安装不编造Issue。独立worktree保留原目录用户修改；本轮仅UI计划日志、docs/ui-evidence/ui011-checks.md与ui011-live-*公开证据，不追加产品或数据改动。
