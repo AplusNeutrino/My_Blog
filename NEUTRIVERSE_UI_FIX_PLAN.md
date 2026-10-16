@@ -17,7 +17,8 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | confirmed / validation-pending | 同32评分图首末提示全文可见，提示在图表shell与documentElement.clientWidth内；原8分类/键盘/刷新及192+14全部保留，精确head production/main/live复验 |
+| UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数，需独立定位滚动场景 | confirmed / ready | 四宽度双主题滚动目录，计数文字与可见固定按钮无相交且按钮可操作；必要回归、保护/构建及精确main部署/live同场景复验 |
+| UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | done | 41dca277精确main build/deploy/live通过；四宽度双主题32线上评分图已人工看，首末提示全文可见且在clientWidth/shell内；8分类/摘要/真实键盘/退出隐藏/刷新和192+14通过 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
 | UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
 | UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | done | 3a6258a2精确main部署/live通过；8组下一页/刷新同URL与ID/上一页、来源年份组合刷新与清除通过，32图人工复验 |
@@ -42,6 +43,7 @@
 | Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d时间线24图、UI-A08e排序/列表32张四宽度双主题生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8流程与24文字按钮不相交通过；UI-A08e书籍评分/年份组内降序、标题排序刷新同URL/ID、列表偏好刷新、Enter网格及默认恢复8流程线上通过；完整库存/离屏加载、Steam排序/摘置等其他控件及外部站点仍pending |
 | Library搁置/已放弃（UI-A08f） | 32张四宽度双主题生产/live四状态截图已人工查看，空提示/状态标签/卡片可见，无新增确认缺陷 | 8组状态刷新URL/ID、category/status隔离、清除保留status并恢复状态内默认ID、返回根/书籍原ID线上通过；此限定项done，不代表其他Library控件通过 |
 | Library愿望单（UI-A08g） | 32张四宽度双主题生产/live目录/分类/刷新/空状态图已人工查看，长标题/封面/计数/空提示可见，无新增确认缺陷 | 8组目录计数、category/status隔离、整页刷新URL/ID、空提示及刷新、两级返回与书籍原ID恢复线上通过；限定done，完整库存/离屏加载及评分控件仍pending |
+| Library评分（UI-A08h / UI-010） | 四宽度双主题32张生产/live评分状态图已人工查看、放大390双主题首末提示及1024 Light原图，评分提示裁切已修复；另确认UI-011目录计数被固定按钮覆盖，不作全页通过 | 8组八分类分箱/摘要、真实Shift+Tab/Tab首末提示及退出隐藏、刷新恢复全域线上通过，32诊断与生产一致；评分限定done，完整库存/离屏加载/Steam及全站余项pending |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -56,6 +58,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-010 done / UI-A08h限定done（2026-10-16）：base/验收main41dca277eace9aa053bcb87e3cd21892b5ae6390，run38871666487 build116876943806/deploy116880022801/live116880240197全部success；230 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12033767964摘要独立匹配；人工看32评分图两联系表并放大390双主题末端/Night首端及1024 Light书籍原图，提示全文可见，8流程/32诊断与生产相同，UI-010闭合。另从1024 Light同原图确认UI-011固定返回顶部按钮覆盖目录漫画计数，独立记录ready、下一项优先复现根因；不将评分验收扩写全页通过。本轮仅UI计划日志与ui010/uia08h线上证据、ui011复现记录，不改产品/数据/旧COMPLETE，无新用户决策；新文档head CI另核对。全站仍IN PROGRESS，完整库存/离屏加载、Steam及其余矩阵pending。[线上证据](docs/ui-evidence/ui010-checks.md#2026-10-16-精确main线上验收)。
 
 UI-010 / UI-A08h生产验收通过、待main/live（2026-10-16）：base main仍3d822d563af3b798a98887d3f35505496931d63c；验收head c9d2280d4c139158371496798782933ac3c88bdd（实际修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1），run38864744419 build116855162216 success，deploy116857968018/live116857968151 skipped（分支，不作部署）。230 tests、4 Ruby、T01/authoring/production Jekyll/旧门禁及192+14通过。artifact12031007024完整下载后独立sha256匹配；人工看四宽度双主题32评分图两联系表，并放大390 Light/Night末端、390 Night首端和1024 Light书籍原图，提示尾字完整、首末提示在shell内。8评分分类/摘要/真实键盘/退出隐藏/刷新默认流程及32诊断通过；390 Light末端right由390.39收回355（clientWidth379），Night350.99（clientWidth375）。本轮仅UI计划日志及ui010/uia08h公开生产证据，不追加产品改动；验收后非强推main，仍validation-pending，须新main精确head部署/live同32图复验。无新用户决策；完整库存/离屏加载、Steam与全站余项pending。[证据](docs/ui-evidence/ui010-checks.md#2026-10-16-修复后生产验收)。
 

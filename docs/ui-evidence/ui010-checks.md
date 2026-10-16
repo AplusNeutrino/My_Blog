@@ -1,6 +1,6 @@
 # UI-010：评分末端提示被滚动条裁切
 
-状态：confirmed / validation-pending。2026-10-16实际复现；初始main `3d822d563af3b798a98887d3f35505496931d63c`，复现工作分支head `9d8d3c0869853fd69e4623c50b68ebf1607c8b12`。
+当前状态：done（精确main线上验收见末节）。下文复现/修复/生产阶段的pending为历史记录。2026-10-16实际复现；初始main `3d822d563af3b798a98887d3f35505496931d63c`，复现工作分支head `9d8d3c0869853fd69e4623c50b68ebf1607c8b12`。
 
 复现：Library根页，390×844，Night或Prospero Light；切换全域，用Shift+Tab从全域按钮进入评分10端点。提示“10 · 4 条目”末尾被右侧滚动条裁切，影响完整读数，不是审美偏好。
 
@@ -38,3 +38,16 @@ artifact12031007024：203323040 bytes，sha256 `481775ceecbfc251fc4dd252573a5b7d
 - [32评分几何诊断](ui010-production-rating.json)
 
 生产验收通过后交付main；UI-010仍validation-pending，须核对新main精确head的Actions/build/deploy及线上同32图/8流程，不以此分支localhost证据当部署后复验。无新用户问题，其余全站矩阵仍pending；本轮不增加产品改动。
+
+## 2026-10-16 精确main线上验收
+
+验收main `41dca277eace9aa053bcb87e3cd21892b5ae6390`，包含实际修复 `dc3454d778d628c60576ab5fa57dd9b416e9a4f1`。[run38871666487](https://github.com/AplusNeutrino/My_Blog/actions/runs/38871666487) build116876943806、deploy116880022801、verify-live-ui116880240197全部success。230 tests、4 Ruby、T01保护/authoring44/5/7/production Jekyll/Search/feed/SEO/资源及production/live各192+14通过；线上job明确`UI_LIVE_BASE=https://neutriverse.uk`。
+
+live artifact12033767964 /203043902 bytes，sha256 `39edaa4a63d2f035c1606cd398dc0da391823cd244faa4aa3ad547e46b9d596c` 独立匹配。已人工看32张四宽度双主题同四状态两联系表，放大390双主题末端、Night首端及1024 Light书籍原图。评分首末提示全文可读、不被滚动条裁切；390 Light末端right355/clientWidth379，Night350.9921875/clientWidth375，和生产相同。8组当前数据八分类/摘要/真实键盘首末提示/退出隐藏/刷新默认全域及32几何诊断全部通过，逐项与生产记录相同。
+
+- [线上390/768四状态](ui010-live-contact-390.jpg)
+- [线上1024/1366四状态](ui010-live-contact-1024.jpg)
+- [线上完整192 audit与交互](ui010-live-audit.json)
+- [线上32评分诊断](ui010-live-rating.json)
+
+UI-010 done、UI-A08h评分限定done。另在1024 Light原图确认[UI-011目录计数被固定按钮遮挡](ui011-checks.md)，单独排队，不由评分通过推断全页正常。无新用户决策，完整库存/离屏加载、Steam及全站余项pending；本轮不追加产品改动，新证据文档head的CI另核对。

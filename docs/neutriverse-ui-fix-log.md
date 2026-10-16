@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-010精确main线上验收；UI-011排队
+
+- Base/验收main41dca277eace9aa053bcb87e3cd21892b5ae6390，实际修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告与本UI计划日志；旧约束文档相对已读c9d2280d无差异，CONTEXT不存在、gh未安装不编造Issue。独立worktree保护原目录用户修改。范围仅UI计划日志及docs/ui-evidence/ui010-live-*、ui010-checks.md、uia08h-checks.md、ui011-checks.md与原始复现PNG，不改产品/数据。
+- 精确run38871666487 build116876943806、deploy116880022801、verify-live-ui116880240197全部success。核对230 tests、4 render-only Ruby、T01保护、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及production/live各192页面+14侧栏通过；live日志明确UI_LIVE_BASE=https://neutriverse.uk，不用localhost代替线上。
+- live artifact12033767964 /203043902 bytes，sha256:39edaa4a63d2f035c1606cd398dc0da391823cd244faa4aa3ad547e46b9d596c独立匹配。人工看32张四宽度双主题book/music/tooltip-first/tooltip-last两联系表，再放大390 Light/Night末端、390 Night首端及1024 Light书籍原图；首末评分提示全文可见、未被滚动条裁切。390 Light末端right355/clientWidth379、Night350.9921875/clientWidth375，相比修复前Light390.390625收回；图形与音乐空状态保持。
+- 8组八分类分箱/摘要、真实Shift+Tab/Tab首末提示/退出隐藏、刷新默认全域和32几何边界诊断通过，逐项和生产证据相同；公开完整audit192、32诊断及两联系表，原PNG在artifact保留14天。UI-010 done，UI-A08h评分限定done，不推断全Library正常。
+- 新确认UI-011（P2）：1024×900 Light同线上原图，评分区滚动居中后固定返回顶部圆钮覆盖下方Library目录“漫画”右侧计数，文字被圆形表面/箭头遮住。实际截图证据，不是审美偏好；根因/其他滚动位置及双主题完整矩阵尚未定位验证，记ready优先下一项，详见ui011-checks.md。不混入评分修复，不将CI通过当全页视觉正常；gh不可用不虚构Issue，无新用户决定。
+- 全站仍IN PROGRESS；UI-011、完整库存/离屏加载/Steam及其他矩阵pending。本轮只回写证据、状态和问题队列，新文档head CI另核对；不改旧正文/metadata/URL/hidden/noindex、外部项目或旧COMPLETE历史。
+- 本次10个文档/公开证据文件回写后，本地230 tests、authoring44/5/7、T01保护44/5/5与diff check通过。本机未执行Ruby/Jekyll/Chrome，构建和真实线上截图证据来自上述精确CI；不为纯证据回写增加无关测试。
+
 ## 2026-10-16 — UI-010修复后生产截图与交互验收
 
 - Base main仍3d822d563af3b798a98887d3f35505496931d63c，验收head c9d2280d4c139158371496798782933ac3c88bdd、实际修复dc3454d778d628c60576ab5fa57dd9b416e9a4f1。读取最新仓库约束/ADR、旧COMPLETE计划报告及本UI计划日志；CONTEXT不存在、gh未安装未编造Issue。独立worktree保留原目录用户字体/缓存/基线文件修改。本轮范围仅UI计划日志及docs/ui-evidence/ui010-production-*、ui010-checks.md、uia08h-checks.md，不追加产品/数据改动。

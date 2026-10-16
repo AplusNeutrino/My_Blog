@@ -1,6 +1,6 @@
 # UI-A08h：Library 评分控件
 
-状态：validation-pending。Base main `3d822d563af3b798a98887d3f35505496931d63c`。仅浏览器审计/回归/证据，不改产品或数据，未确认新显示缺陷。
+当前状态：评分限定done，精确main `41dca277eace9aa053bcb87e3cd21892b5ae6390` 上线验收见末节；以下pending/未确认缺陷为各阶段历史，不覆盖后续UI-010/UI-011记录。Base main `3d822d563af3b798a98887d3f35505496931d63c`。
 
 2026-10-16云Chrome1363×936 Prospero Light实际操作书籍与音乐分类：书籍21个已评分作品、均值7.5、峰值7；音乐0项并显示水平零线。数目只为当前观察，不硬编码未来同步。Shift+Tab从全域按钮进入末端点，真实activeElement为评分10 circle，提示“10 · 0 条目”显示在viewport内。
 
@@ -35,3 +35,9 @@ head `9d8d3c0869853fd69e4623c50b68ebf1607c8b12` / [run38858665322](https://githu
 head `c9d2280d4c139158371496798782933ac3c88bdd` / [run38864744419](https://github.com/AplusNeutrino/My_Blog/actions/runs/38864744419) build116855162216 success；deploy116857968018/live116857968151 skipped，不作部署。230 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；artifact12031007024独立摘要匹配。32评分图人工看两联系表、放大390双主题首末端与1024 Light原图，提示全文可见；8分类/摘要/真实键盘/退出隐藏/刷新流程及32新clientWidth/shell诊断通过。详见[UI-010证据与前后差异](ui010-checks.md#2026-10-16-修复后生产验收)。
 
 本限定项生产验收通过，待新main自身部署/live同场景复验，UI-A08h仍validation-pending。完整库存/离屏加载、Steam及其他全站项仍pending，无新待答问题；本轮不追加产品或数据改动。
+
+## 2026-10-16 精确main线上评分验收
+
+main `41dca277eace9aa053bcb87e3cd21892b5ae6390` / [run38871666487](https://github.com/AplusNeutrino/My_Blog/actions/runs/38871666487) build116876943806/deploy116880022801/live116880240197全部success。230 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过，live明确访问neutriverse.uk。artifact12033767964独立摘要匹配，人工看32张四宽度双主题评分图两联系表、放大390双主题末端/Night首端及1024 Light原图；评分提示全文可见。8流程与32诊断和生产逐项相同，UI-010/评分限定done。[完整证据](ui010-checks.md#2026-10-16-精确main线上验收)。
+
+同1024 Light原图新确认UI-011目录漫画计数被固定返回顶部按钮盖住，独立ready；不因评分通过宣称全Library正常。完整库存/离屏加载、Steam及全站其他项仍pending，无新用户决策；本轮仅证据文档，新head CI另核对。
