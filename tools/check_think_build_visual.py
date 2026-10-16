@@ -743,12 +743,17 @@ def library_rating_controls(driver, wait, output, width, theme):
     def verify(scope):
         counts = scopes[scope]
         expected = [f'{b}: {n}' for b, n in zip(bins, counts)]
-        wait.until(lambda d: [e.get_attribute('aria-label').split(' ', 1)[-1] for e in d.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-hit')] == expected)
-        wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-area'))
-        wait.until(lambda d: d.find_element(By.CSS_SELECTOR, f'[data-rating-scope="{scope}"]').get_attribute('class').split().count('is-active') == 1)
-        require(len(driver.find_elements(By.CSS_SELECTOR, '[data-rating-scope].is-active')) == 1, 'Multiple rating scopes active')
-        require([e.text for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-rating-chart .pgl-chart-label')] == [str(b) for b in bins], 'Rating axis bins differ from data')
-        summary = driver.find_element(By.ID, 'pgl-rating-summary').text
+        def matching_snapshot(d):
+            # Both existing renderers replace SVG children after a refresh.
+            # Read one DOM task, not WebElements that may detach between calls.
+            snapshot = rating_chart_snapshot(d)
+            return snapshot if (snapshot['hits'] == expected and snapshot['area']
+                                and snapshot['active'] == [scope]
+                                and snapshot['summary'].strip()) else False
+        snapshot = wait.until(matching_snapshot)
+        require(snapshot['active'] == [scope], 'Multiple rating scopes active')
+        require(snapshot['labels'] == [str(b) for b in bins], 'Rating axis bins differ from data')
+        summary = snapshot['summary']
         numbers = [float(v) for v in re.findall(r'\d+(?:\.\d+)?', summary)]
         total = sum(counts)
         require(numbers and numbers[0] == total, 'Rating summary total differs from data')
@@ -816,6 +821,18 @@ def library_rating_controls(driver, wait, output, width, theme):
     ready()
     verify('all')
     return {'scopes':results,'keyboardEndpoints':True,'tooltipBlurHidden':True,'reloadDefaultAll':True}
+
+
+def rating_chart_snapshot(driver):
+    """Atomic read-only DOM sample: never return replaceable SVG WebElements."""
+    return driver.execute_script('''
+      const chart=document.querySelector('#pgl-rating-chart');
+      return {hits:[...chart.querySelectorAll('.pgl-chart-hit')].map(e=>e.getAttribute('aria-label').split(' ').slice(1).join(' ')),
+        labels:[...chart.querySelectorAll('.pgl-chart-label')].map(e=>e.textContent),
+        area:Boolean(chart.querySelector('.pgl-chart-area')),
+        active:[...document.querySelectorAll('[data-rating-scope].is-active')].map(e=>e.dataset.ratingScope),
+        summary:document.querySelector('#pgl-rating-summary').textContent};
+    ''')
 
 
 def library_timeline_controls(driver, wait, output, width, theme):

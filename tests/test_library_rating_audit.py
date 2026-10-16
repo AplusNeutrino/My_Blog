@@ -23,3 +23,38 @@ class LibraryRatingAuditTests(unittest.TestCase):
         self.assertNotIn('dispatchEvent', helper)
         self.assertNotIn('.focus()', helper)
         self.assertNotIn('localStorage.setItem', helper)
+
+    def test_refresh_validation_uses_one_atomic_dom_sample(self):
+        source = Path('tools/check_think_build_visual.py').read_text()
+        tree = ast.parse(source)
+        sample = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
+                      and n.name == 'rating_chart_snapshot')
+        namespace = {}
+        exec(compile(ast.Module(body=[sample], type_ignores=[]), '<rating-snapshot>', 'exec'), namespace)
+
+        class Driver:
+            calls = 0
+            def execute_script(self, script):
+                self.calls += 1
+                for value in ('.pgl-chart-hit', '.pgl-chart-label', '.pgl-chart-area',
+                              '[data-rating-scope].is-active', '#pgl-rating-summary'):
+                    self.assert_selector(value, script)
+                return {'hits':['1: 0'], 'labels':['1'], 'area':True,
+                        'active':['all'], 'summary':'0 rated works'}
+            def assert_selector(self, value, script):
+                if value not in script:
+                    raise AssertionError(value)
+
+        driver = Driver()
+        result = namespace['rating_chart_snapshot'](driver)
+        self.assertEqual(driver.calls, 1)
+        self.assertEqual(result['active'], ['all'])
+        helper = next(n for n in tree.body if isinstance(n, ast.FunctionDef)
+                      and n.name == 'library_rating_controls')
+        verify = next(n for n in helper.body if isinstance(n, ast.FunctionDef) and n.name == 'verify')
+        contract = ast.get_source_segment(source, verify)
+        self.assertIn('snapshot = rating_chart_snapshot(d)', contract)
+        self.assertIn("snapshot['hits'] == expected", contract)
+        self.assertIn("snapshot['active'] == [scope]", contract)
+        self.assertNotIn('find_elements', contract)
+        self.assertNotIn('except', contract)
