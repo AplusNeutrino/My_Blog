@@ -2,6 +2,13 @@
 
 状态：production通过，main部署/live validation-pending；base f2d463cfb75168b7ca0a883915ef56efa0b7b4e4。
 
+## 2026-10-17 — 精确main首次超时，原head重试
+
+- main b4a502396bd02650738f4b69912ef2bdca437173 / [run38920457806](https://github.com/AplusNeutrino/My_Blog/actions/runs/38920457806)：首次build117038739414 failure；deploy117041059374/live117041060364 skipped，尚未部署/线上验收。前置237 tests、4 Ruby、T01、authoring、production Jekyll通过，不能据分支成功声称main矩阵通过。
+- Chrome在390 Night Library场景后的下一次导航driver.get中发生控制通道ReadTimeoutError localhost:52101（120s）。按代码顺序下一页为友链；没有该目标页面的scene日志/DOM/截图，不能判定产品缺陷或具体网络根因。完整浏览器矩阵未完成。
+- 部分artifact12054128548 /16327844 bytes /sha256:f4d97a6a5ee31ed9678edf2cf5df1ce04e5816406284c4db99077f63f870ed72下载后独立匹配，仅有本项390 Night5状态，source原图已实际查看，“暂无记录”清晰可见，不代表完整40图或live。
+- 已重试同一run失败jobs；第二次build117067139721运行中，仍是b4a50239，不改产品/审计/门槛。3文档诊断记录仅存verification/ui-a08i-retry-log，避免新main提交取消同head重试；下轮验收最新attempt和实际部署/live。无新用户决策，状态validation-pending。
+
 ## 2026-10-16 — 修正取景后生产验收
 
 - 精确验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a / [run38913520936](https://github.com/AplusNeutrino/My_Blog/actions/runs/38913520936)：build117015038501 success，deploy117019410328/live117019410572 skipped（分支，不作部署）。237 tests、4 render-only Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/资源/移动无障碍及192页面+14侧栏通过；本机回归/authoring/T01/diff也通过，本机未运行Jekyll/Chrome。

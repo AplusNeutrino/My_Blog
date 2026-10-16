@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08i精确main浏览器超时重试
+
+- Base/精确main b4a502396bd02650738f4b69912ef2bdca437173，尚未移动。已读最新AGENTS/三docs/本轮计划日志/证据与相关ADR及旧COMPLETE边界，旧计划报告相对已读707b6d49无差异，CONTEXT不存在；gh未安装，不编造Issue。独立worktree保护用户字体/缓存/基线修改。
+- run38920457806首次build117038739414 failure；deploy117041059374/live117041060364 skipped，未部署，不标UI-A08i done。日志237 tests、4 Ruby、T01/authoring/production Jekyll及前置导航门禁通过，完整192+14没有通过。
+- 失败栈main line1323 driver.get(base+path)，urllib3 ReadTimeoutError localhost:52101/read timeout120；最后scene日志为390 Night Library。按脚本driver.get后才打印scene及既有场景顺序，失败发生在Library完成后的下一次导航（友链），没有目标页DOM/截图证据，不能推断为Library或友链产品缺陷，也不编造站点宕机/网络根因。
+- 下载部分artifact12054128548 /16327844 bytes，sha256:f4d97a6a5ee31ed9678edf2cf5df1ce04e5816406284c4db99077f63f870ed72独立匹配。实际仅有390 Night本项stats/playtime/last/reloaded/source5张截图，已查看source原图“暂无记录”清晰可见；不能代替完整40图/四宽度双主题/线上验收。
+- 已调用失败jobs重试，仍同run、同b4a50239，第二次build117067139721运行中；不改产品、审计断言或超时门槛。为避免当前pages并发组被新提交取消，本轮只将3文档诊断记录保存verification/ui-a08i-retry-log，不移动main，不创建额外定时任务。下轮核对同head最新attempt build/deploy/live及其实际产物。
+- 状态validation-pending，无新增确认产品缺陷/用户决策；不停止任务，完整库存/其他页面矩阵仍pending。旧正文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE不改。
+
 ## 2026-10-16 — UI-A08i修正取景后生产验收
 
 - Base main f2d463cfb75168b7ca0a883915ef56efa0b7b4e4、验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a。已读最新AGENTS/三docs/ADR0001/旧COMPLETE计划报告与本轮计划日志，旧约束相对已读head无差异，CONTEXT不存在、gh未安装不编造Issue；独立worktree保护用户修改。本次范围仅计划日志、uia08i-checks和uia08i-verified-production-*公开证据，不追加产品/数据或旧历史改动。

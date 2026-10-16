@@ -61,6 +61,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08i main接续validation-pending（2026-10-17）：精确main b4a502396bd02650738f4b69912ef2bdca437173 / run38920457806首次build117038739414 failure，deploy117041059374/live117041060364 skipped。237 tests/Ruby/T01/authoring/Jekyll与前置门禁通过；Chrome在390 Night Library场景结束后的下一次driver.get（按场景顺序为友链）控制通道localhost:52101读取120s超时，未收到目标场景日志，不能断言目标页面UI故障。部分artifact12054128548摘要独立匹配，只有390 Night本项5张图，已看source原图空提示可见，不代替完整40图/线上验收。已重试同一run失败jobs，第二次build117067139721运行中；不改产品/审计/超时门槛。为不取消同head重试，仅在verification/ui-a08i-retry-log保存本次3文档诊断记录，不移动main。无新用户决策，完整库存与其他全站项仍pending。
+
 UI-A08i生产验收通过、待main/live（2026-10-16）：base main仍f2d463cf，验收head707b6d49c3066bcfaa54ed3f10bfe811608e966a / run38913520936 build117015038501 success，deploy117019410328/live117019410572 skipped（分支）。237 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过；artifact12051129960摘要独立匹配，人工看40图两联系表并放大390 Light来源、768 Night末端、1024 Light来源原图，关闭浮层后的空提示清晰可读，未确认新产品缺陷。8流程、40诊断、192次原生封面加载通过。仅交付已验收审计及计划日志/公开证据，main精确head部署/live同40图仍validation-pending；Steam隐私边界未变，只有无遥测路径已检查，完整库存/其余分页和全站矩阵仍pending，无新用户决策。
 
 UI-A08i接续validation-pending：base main仍f2d463cf、工作head53b53605；run38905074465 build116986945525 success、deploy/live skipped。236 tests/Ruby/T01/authoring/Jekyll/192+14及8流程/192次逐卡原生加载通过；下载artifact12047752802独立摘要匹配，人工看40图及代表原图未确认新产品缺陷。但8张来源图的正常高级筛选浮层覆盖空提示，不能以is_displayed当视觉验收；本轮仅审计补真实关闭浮层后同场景采图及1项回归，不改产品或放宽断言。首次图/JSON按局限保存，修正后精确head完整40图/8流程与main/live仍待验收，main不改；无新用户决策，有遥测时Steam视觉pending-no-data，不突破隐私边界。
