@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08f生产截图与交互验收
+
+- Base main40824656997ec79b0bfe875b33705acef33e65f1、验收head63bb246c655ffba55df566daf6dcda7c4f0e11c0，真实审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5。读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告与本UI计划日志；CONTEXT不存在、gh未安装未虚构Issue。独立worktree保护原目录修改；本轮范围仅UI计划日志及docs/ui-evidence/uia08f*公开生产证据，不追加产品改动，完整保留用户首页推荐。
+- run38821881510精确head匹配，build116720567164 success，deploy116723405622/live116723406291 skipped（工作分支，不作部署）。日志核对226 tests、4 render-only Ruby、T01保护、authoring44/5/7、production Jekyll、旧门禁及192页面+14侧栏场景通过。
+- 下载artifact12013457997 /187646207 bytes，sha256:f5f78f266281992611241327717fc6bcef595abb2a215cdf4ad9ddc5e50b850c独立匹配。人工看32张四宽度双主题book-hold/game-hold/game-dropped/cleared两联系表，放大390 Light空状态、390 Night已放弃和1024 Light搁置原图：空提示、标题、状态标签与卡片可见，未确认新显示缺陷，不凭偏好改样式。
+- 8状态流程书籍搁置空提示/刷新、游戏搁置与已放弃刷新同URL/ID、category/status隔离、清除保留status并恢复其默认排序ID、返回根/书籍原ID通过；32几何无页面/card横向溢出、scrollX=0。公开192 audit、32 JSON与两联系表保存，原PNG留artifact14天。数量来自真实数据，不写死未来同步数量，ID前缀不作category依据。
+- 验收后非强推main仍validation-pending，必须实际新main build/deploy/live与同32图，不用localhost代替。无新增用户决策；完整库存/离屏加载、Steam排序、愿望单/评分控件与其他全站矩阵仍pending；不改原文/metadata/URL/hidden/noindex、数据、产品样式、关联仓库或旧COMPLETE历史。
+- 本次证据回写本地226 tests、authoring44/5/7、T01保护44/5/5与diff check通过；Ruby/Jekyll/Chrome来自上述精确CI，不谎称本机执行。仅7个计划日志与公开证据文件，新main head部署/live需独立核对。
+
 ## 2026-10-16 — UI-A08f 搁置与已放弃最小检查范围
 
 - Base main40824656997ec79b0bfe875b33705acef33e65f1，新增用户首页推荐_data/home_popular.yml完整保留；读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及本UI计划日志，CONTEXT不存在、gh未安装未编造Issue。独立worktree保护用户修改。上次bcc58e47精确run38814934654 build116697108846/deploy116699969989/live116700077492全部success，不借此冒充本次新head验收。

@@ -1,0 +1,1666 @@
+{
+  "other-status-book-hold-1024-dark-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 1009,
+    "panel": {
+      "left": 464.09375,
+      "right": 768.09375
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-book-hold-1024-light-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 1013,
+    "panel": {
+      "left": 469.171875,
+      "right": 773.171875
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-book-hold-1366-dark-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 1351,
+    "panel": {
+      "left": 449.59375,
+      "right": 753.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-book-hold-1366-light-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 1355,
+    "panel": {
+      "left": 454.59375,
+      "right": 758.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-book-hold-390-dark-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 390,
+    "panel": {
+      "left": 137.765625,
+      "right": 201.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-book-hold-390-light-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 390,
+    "panel": {
+      "left": 142.765625,
+      "right": 206.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-book-hold-768-dark-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 768,
+    "panel": {
+      "left": 177.59375,
+      "right": 481.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-book-hold-768-light-library.json": {
+    "cards": [],
+    "empty": "暂无记录",
+    "heading": "书籍 · 搁置",
+    "open": false,
+    "page": 768,
+    "panel": {
+      "left": 182.59375,
+      "right": 486.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-cleared-1024-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:5b280c00c2",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:e6d860f494",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:08687eaa1b",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "anime:5e2a37a2e0",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1009,
+    "panel": {
+      "left": 464.09375,
+      "right": 768.09375
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-cleared-1024-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:5b280c00c2",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:e6d860f494",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:08687eaa1b",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "anime:5e2a37a2e0",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1013,
+    "panel": {
+      "left": 469.171875,
+      "right": 773.171875
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-cleared-1366-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:5b280c00c2",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:e6d860f494",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:08687eaa1b",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "anime:5e2a37a2e0",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1351,
+    "panel": {
+      "left": 449.59375,
+      "right": 753.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-cleared-1366-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:5b280c00c2",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:e6d860f494",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:08687eaa1b",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "anime:5e2a37a2e0",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1355,
+    "panel": {
+      "left": 454.59375,
+      "right": 758.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-cleared-390-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:5b280c00c2",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:e6d860f494",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:08687eaa1b",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "anime:5e2a37a2e0",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 375,
+    "panel": {
+      "left": 137.765625,
+      "right": 201.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-cleared-390-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:5b280c00c2",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:e6d860f494",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:08687eaa1b",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "anime:5e2a37a2e0",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 379,
+    "panel": {
+      "left": 142.765625,
+      "right": 206.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-cleared-768-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:5b280c00c2",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:e6d860f494",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:08687eaa1b",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "anime:5e2a37a2e0",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 753,
+    "panel": {
+      "left": 177.59375,
+      "right": 481.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-cleared-768-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:5b280c00c2",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:e6d860f494",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:08687eaa1b",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "anime:5e2a37a2e0",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 757,
+    "panel": {
+      "left": 182.59375,
+      "right": 486.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-game-dropped-1024-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:5b280c00c2",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:e6d860f494",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:08687eaa1b",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "anime:5e2a37a2e0",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1009,
+    "panel": {
+      "left": 464.09375,
+      "right": 768.09375
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-game-dropped-1024-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:5b280c00c2",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:e6d860f494",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:08687eaa1b",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "anime:5e2a37a2e0",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1013,
+    "panel": {
+      "left": 469.171875,
+      "right": 773.171875
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-game-dropped-1366-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:5b280c00c2",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:e6d860f494",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:08687eaa1b",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "anime:5e2a37a2e0",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1351,
+    "panel": {
+      "left": 449.59375,
+      "right": 753.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-game-dropped-1366-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:5b280c00c2",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:e6d860f494",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:08687eaa1b",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "anime:5e2a37a2e0",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 1355,
+    "panel": {
+      "left": 454.59375,
+      "right": 758.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-game-dropped-390-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:5b280c00c2",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:e6d860f494",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:08687eaa1b",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "anime:5e2a37a2e0",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 375,
+    "panel": {
+      "left": 137.765625,
+      "right": 201.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-game-dropped-390-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:5b280c00c2",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:e6d860f494",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:08687eaa1b",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "anime:5e2a37a2e0",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 379,
+    "panel": {
+      "left": 142.765625,
+      "right": 206.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-game-dropped-768-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:5b280c00c2",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:e6d860f494",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:08687eaa1b",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "anime:5e2a37a2e0",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 753,
+    "panel": {
+      "left": 177.59375,
+      "right": 481.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-game-dropped-768-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:5b280c00c2",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:e6d860f494",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:08687eaa1b",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "status": "dropped"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "anime:5e2a37a2e0",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "status": "dropped"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 已放弃",
+    "open": false,
+    "page": 757,
+    "panel": {
+      "left": 182.59375,
+      "right": 486.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-game-hold-1024-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:6c15e2a87e",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:6ecced4e6d",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:b23d8e3a09",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:a3ad512852",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:60f1c4fa30",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:b62be81e73",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:9f33897261",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:12b9d84fac",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 149,
+        "id": "game:55d76c572a",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 1009,
+    "panel": {
+      "left": 464.09375,
+      "right": 768.09375
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-game-hold-1024-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:6c15e2a87e",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:6ecced4e6d",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:b23d8e3a09",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:a3ad512852",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:60f1c4fa30",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:b62be81e73",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:9f33897261",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:12b9d84fac",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 150,
+        "id": "game:55d76c572a",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 1013,
+    "panel": {
+      "left": 469.171875,
+      "right": 773.171875
+    },
+    "scrollX": 0,
+    "viewport": 1024
+  },
+  "other-status-game-hold-1366-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:6c15e2a87e",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:6ecced4e6d",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:b23d8e3a09",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:a3ad512852",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:60f1c4fa30",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:b62be81e73",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:9f33897261",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:12b9d84fac",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 175,
+        "id": "game:55d76c572a",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 1351,
+    "panel": {
+      "left": 449.59375,
+      "right": 753.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-game-hold-1366-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:6c15e2a87e",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:6ecced4e6d",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:b23d8e3a09",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:a3ad512852",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:60f1c4fa30",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:b62be81e73",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:9f33897261",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:12b9d84fac",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 176,
+        "id": "game:55d76c572a",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 1355,
+    "panel": {
+      "left": 454.59375,
+      "right": 758.59375
+    },
+    "scrollX": 0,
+    "viewport": 1366
+  },
+  "other-status-game-hold-390-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:6c15e2a87e",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:6ecced4e6d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:b23d8e3a09",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:a3ad512852",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:60f1c4fa30",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:b62be81e73",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:9f33897261",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:12b9d84fac",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:55d76c572a",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 375,
+    "panel": {
+      "left": 137.765625,
+      "right": 201.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-game-hold-390-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:6c15e2a87e",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:6ecced4e6d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:b23d8e3a09",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:a3ad512852",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:60f1c4fa30",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:b62be81e73",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:9f33897261",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:12b9d84fac",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 167,
+        "id": "game:55d76c572a",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 379,
+    "panel": {
+      "left": 142.765625,
+      "right": 206.828125
+    },
+    "scrollX": 0,
+    "viewport": 390
+  },
+  "other-status-game-hold-768-dark-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:6c15e2a87e",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:6ecced4e6d",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:b23d8e3a09",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:a3ad512852",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:60f1c4fa30",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:b62be81e73",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:9f33897261",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:12b9d84fac",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 164,
+        "id": "game:55d76c572a",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 753,
+    "panel": {
+      "left": 177.59375,
+      "right": 481.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  },
+  "other-status-game-hold-768-light-library.json": {
+    "cards": [
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:6c15e2a87e",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:6ecced4e6d",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:b23d8e3a09",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:a3ad512852",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:60f1c4fa30",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:b62be81e73",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:9f33897261",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:12b9d84fac",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "status": "on_hold"
+      },
+      {
+        "category": "game",
+        "client": 165,
+        "id": "game:55d76c572a",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "status": "on_hold"
+      }
+    ],
+    "empty": "",
+    "heading": "游戏 · 搁置",
+    "open": false,
+    "page": 757,
+    "panel": {
+      "left": 182.59375,
+      "right": 486.59375
+    },
+    "scrollX": 0,
+    "viewport": 768
+  }
+}

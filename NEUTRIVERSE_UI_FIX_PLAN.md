@@ -54,6 +54,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08f生产验收通过、待main/live（2026-10-16）：base main40824656997ec79b0bfe875b33705acef33e65f1、验收head63bb246c655ffba55df566daf6dcda7c4f0e11c0 / run38821881510 build116720567164 success，deploy116723405622/live116723406291 skipped（工作分支，不作部署）。226 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过，artifact12013457997摘要独立匹配。人工看32张四宽度双主题book-hold/game-hold/game-dropped/cleared两联系表，放大390 Light空提示、390 Night已放弃和1024 Light搁置原图，未新增确认产品缺陷。8状态刷新/隔离/清除/返回流程和32几何通过。本轮范围仅UI计划日志与docs/ui-evidence/uia08f*公开生产证据，不改产品/用户首页推荐/数据或旧COMPLETE；验收后非强推main仍validation-pending，须新main精确部署/live同32图。无新用户问题，其他全站矩阵仍pending。
+
 UI-A08f真实审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5已expected_sha非强推保存ui/audit-008f，6个远程blob与本地hash逐一相同；随后仅追加此SHA记录。最终检查点head需单独核对production192+14及新32图/8流程，main保持40824656，未部署新审计或标视觉通过。无新待答问题，继续validation-pending。
 
 UI-A08f validation-pending：已实现真实状态切换/三次刷新同URL与ID、标签/空提示/category隔离、清除保留状态并恢复状态内默认ID、返回根/书籍原ID审计，四宽度双主题32图/JSON待CI。本地226 tests、authoring44/5/7、T01保护44/5/5、diff通过；云1363 Light实际清除仍已放弃、返回根成功。未确认新产品缺陷，未改样式/数据；先ui/audit-008f，main仍40824656，production192+14/32图和main/live未验收。无新用户问题。
