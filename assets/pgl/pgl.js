@@ -583,7 +583,9 @@
       const show = () => {
         if (!chartTooltip) return;
         chartTooltip.hidden = false; chartTooltip.textContent = `${point.bin} · ${point.count} ${root.dataset.items || 'items'}`;
-        chartTooltip.style.left = `${point.x / W * 100}%`; chartTooltip.style.top = `${point.y / H * 100}%`;
+        const inset = chartTooltip.getBoundingClientRect().width / 2 + 8;
+        chartTooltip.style.left = `clamp(${inset}px, ${point.x / W * 100}%, calc(100% - ${inset}px))`;
+        chartTooltip.style.top = `${point.y / H * 100}%`;
       };
       const hide = () => { if (chartTooltip) chartTooltip.hidden = true; };
       hit.addEventListener('mouseenter', show); hit.addEventListener('focus', show); hit.addEventListener('mouseleave', hide); hit.addEventListener('blur', hide); chart.append(hit);

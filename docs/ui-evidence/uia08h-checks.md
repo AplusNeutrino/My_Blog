@@ -23,3 +23,9 @@ Production32图、8流程、main部署/live同场景尚未验收，先ui/audit-0
 审计改为一次execute_script返回同一帧分箱/坐标标签/area/active/摘要的纯值快照，再保留全部原有严格断言；真实分类点击、Shift+Tab/Tab、刷新、截图及几何检查不变，不忽略异常或放宽门禁。新head仍须production完整32图/8流程及main/live，validation-pending。
 
 本次审计修复本地229 tests、authoring44/5/7、T01保护44/5/5及diff通过；新增测试仅验证读取契约，不代替Chrome/视觉验收。本机未执行Ruby/Jekyll/Chrome。
+
+## 2026-10-16 完整生产截图发现UI-010
+
+head `9d8d3c0869853fd69e4623c50b68ebf1607c8b12` / [run38858665322](https://github.com/AplusNeutrino/My_Blog/actions/runs/38858665322) build116836040776 success，deploy116838599413/live116838599804 skipped；229 tests、4 Ruby、T01/authoring/Jekyll/旧门禁和完整192+14通过。artifact12029150207 /202758715 bytes / sha256 `83a90b333cd19a8782f7dd36bb0ba469c31860e1fa16410471d930423f1e94ca` 独立匹配。
+
+人工看32张四宽度双主题book/music/首末提示两联系表，放大390双主题末端后确认[UI-010](ui010-checks.md)：提示尾字被滚动条裁切。8组分类/摘要/键盘/刷新通过但不能替代视觉验收，UI-A08h不接受、不合main。最小修复夹紧两个renderer提示至shell，新增可用视口clientWidth及shell边界断言；修复后新head32图/8流程和main/live仍pending，不改数据/重新设计，无新用户决策。

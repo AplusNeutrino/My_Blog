@@ -781,7 +781,8 @@ def library_rating_controls(driver, wait, output, width, theme):
         geometry = driver.execute_script('''
           const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,client:e.clientWidth,scroll:e.scrollWidth};};
           const tip=document.querySelector('#pgl-rating-tooltip');
-          return {scrollX,viewport:innerWidth,page:document.documentElement.scrollWidth,
+          return {scrollX,viewport:innerWidth,clientViewport:document.documentElement.clientWidth,page:document.documentElement.scrollWidth,
+            shell:rect(document.querySelector('.pgl-rating-chart-shell')),
             chart:rect(document.querySelector('#pgl-rating-chart')),scopes:rect(document.querySelector('#pgl-rating-scopes')),
             summary:document.querySelector('#pgl-rating-summary').textContent,
             tooltip:{...rect(tip),visible:!tip.hidden,text:tip.textContent},
@@ -796,6 +797,10 @@ def library_rating_controls(driver, wait, output, width, theme):
         if geometry['tooltip']['visible']:
             r = geometry['tooltip']
             require(r['left'] >= -1 and r['right'] <= geometry['viewport']+1, 'Rating tooltip outside viewport')
+            require(r['left'] >= -1 and r['right'] <= geometry['clientViewport']+1,
+                    'Rating tooltip clipped by usable viewport/scrollbar')
+            require(r['left'] >= geometry['shell']['left']-1 and r['right'] <= geometry['shell']['right']+1,
+                    'Rating tooltip outside chart shell')
 
     results = {}
     for scope in ('all','book','comic','movie','drama','anime','game','music'):

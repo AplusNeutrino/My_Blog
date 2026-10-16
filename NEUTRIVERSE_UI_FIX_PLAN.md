@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | confirmed / validation-pending | 同32评分图首末提示全文可见，提示在图表shell与documentElement.clientWidth内；原8分类/键盘/刷新及192+14全部保留，精确head production/main/live复验 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
 | UI-008 | P2 | 390px高级筛选浮层溢出窄屏，聚焦/定位后页面横向偏移、标题左侧被裁 | done | 3a6258a2精确main部署/live通过；四宽度双主题32张四状态线上图人工复验，面板均在viewport内、scrollX=0，标题左缘完整 |
 | UI-007 | P2 | Library第2页刷新后URL仍page=2但显示第1页，加载前空列表错误收缩页码 | done | 3a6258a2精确main部署/live通过；8组下一页/刷新同URL与ID/上一页、来源年份组合刷新与清除通过，32图人工复验 |
@@ -55,6 +56,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-010 / UI-A08h修复in-progress（2026-10-16）：base main3d822d563af3b798a98887d3f35505496931d63c、工作分支base9d8d3c0869853fd69e4623c50b68ebf1607c8b12；run38858665322 build116836040776 success、deploy116838599413/live116838599804 skipped，229 tests/4 Ruby/T01/authoring/Jekyll/192+14通过但不作视觉通过。artifact12029150207摘要独立匹配，人工看32评分图并放大390 Light/Night末端提示，确认尾字被滚动条裁切；Light提示right390.39，实际可用页宽379，旧innerWidth390检查漏报。范围assets/pgl/pgl.js与pgl-rating-polish.js两renderer提示定位、现有审计/必要回归、UI计划日志与ui010/uia08h公开证据；只夹紧提示到shell且新增clientWidth/shell边界断言，不放宽门禁/重新设计。不合main，gh未安装不编造Issue，无新用户决策。
 
 UI-A08h审计竞争修复validation-pending：实现7577e4cff209073f438a2f41bd2e718292ecccc7已expected_sha非强推保存ui/audit-008h，5个上传blob与本地hash一致。本地229 tests/authoring/T01/diff通过，但新head production完整192+14/32图/8流程及main/live仍待验证；旧fb511faf因刷新异步SVG逐节点读取stale失败，不是已确认产品缺陷。不改产品/放宽门禁，main仍3d822d56；随后仅追加此SHA检查点，无新用户决策。
 

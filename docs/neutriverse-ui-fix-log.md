@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-010评分末端提示裁切复现与最小修复
+
+- Base main仍3d822d563af3b798a98887d3f35505496931d63c、工作分支base9d8d3c0869853fd69e4623c50b68ebf1607c8b12。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告与本UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护用户修改。
+- run38858665322 build116836040776 success，deploy116838599413/live116838599804 skipped（工作分支，不作部署）。229 tests、4 Ruby、T01/authoring/Jekyll/旧门禁与192+14通过；先前stale审计修复通过，但测试通过不代表视觉正常。
+- 下载artifact12029150207 /202758715 bytes，sha256:83a90b333cd19a8782f7dd36bb0ba469c31860e1fa16410471d930423f1e94ca独立匹配。人工看32张四宽度双主题book/music/首末提示两联系表，再放大390 Light/Night末端提示原图，确认末尾“条目”被右侧滚动条裁切；Light tip.right390.390625，document可用宽379，innerWidth390，旧断言用含滚动条宽度漏报。8组分类/摘要/真实键盘/退出隐藏/刷新默认流程通过但不据此接受UI-A08h。
+- UI-010 P2实际复现（不是偏好）：两个现有renderer均以评分点百分比作提示中心，无半宽避让。文件范围assets/pgl/pgl.js、assets/pgl/pgl-rating-polish.js、现有评分审计/必要回归、UI计划日志与ui010/uia08h公开证据；只将提示中心限制在shell内，新增可用视口clientWidth与shell边界检查，不放宽旧门禁、不重构renderer/数据。先ui/audit-008h，production/main/live仍pending，无新用户决策。
+- 已实现两个renderer的实际宽度clamp避让、clientWidth/shell边界断言与必要回归。本地230 tests、authoring44/5/7、T01保护44/5/5、diff通过；修复前390双主题原PNG公开保存，修复后32图/8流程及production/main/live仍pending，不以代码存在当视觉正常。本机未运行Ruby/Jekyll/Chrome，不合main。
+
 ## 2026-10-16 — UI-A08h异步重绘审计读取修复
 
 - Base main仍3d822d563af3b798a98887d3f35505496931d63c、工作分支base fb511faf9d364e9907f07ee71958d9547d996532。已读最新AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护用户修改。

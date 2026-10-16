@@ -58,3 +58,14 @@ class LibraryRatingAuditTests(unittest.TestCase):
         self.assertIn("snapshot['active'] == [scope]", contract)
         self.assertNotIn('find_elements', contract)
         self.assertNotIn('except', contract)
+
+    def test_tooltips_stay_inside_shell_and_usable_viewport(self):
+        source = Path('tools/check_think_build_visual.py').read_text()
+        self.assertIn('clientViewport:document.documentElement.clientWidth', source)
+        self.assertIn("r['right'] <= geometry['clientViewport']+1", source)
+        self.assertIn("r['right'] <= geometry['shell']['right']+1", source)
+        for filename in ('assets/pgl/pgl.js', 'assets/pgl/pgl-rating-polish.js'):
+            js = Path(filename).read_text()
+            self.assertIn('getBoundingClientRect().width', js)
+            self.assertIn('clamp(${inset}px,', js)
+            self.assertIn('calc(100% - ${inset}px)', js)

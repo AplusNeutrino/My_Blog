@@ -88,7 +88,13 @@
     for (const point of points) {
       if (point.count > 0) chart.append(svg('circle', { cx:point.x, cy:point.y, r:2.8, class:'pgl-chart-point' }));
       const hit=svg('circle',{cx:point.x,cy:point.y,r:11,class:'pgl-chart-hit',tabindex:0,role:'img','aria-label':`${root.dataset.ratingAxis || 'Rating'} ${point.bin}: ${point.count}`});
-      const show=()=>{ if(!tooltip)return; tooltip.hidden=false; tooltip.textContent=`${point.bin} · ${point.count} ${root.dataset.items || 'items'}`; tooltip.style.left=`${point.x/W*100}%`; tooltip.style.top=`${point.y/H*100}%`; };
+      const show=()=>{
+        if(!tooltip)return;
+        tooltip.hidden=false; tooltip.textContent=`${point.bin} · ${point.count} ${root.dataset.items || 'items'}`;
+        const inset=tooltip.getBoundingClientRect().width/2+8;
+        tooltip.style.left=`clamp(${inset}px, ${point.x/W*100}%, calc(100% - ${inset}px))`;
+        tooltip.style.top=`${point.y/H*100}%`;
+      };
       const hide=()=>{ if(tooltip)tooltip.hidden=true; };
       hit.addEventListener('mouseenter',show); hit.addEventListener('focus',show); hit.addEventListener('mouseleave',hide); hit.addEventListener('blur',hide); chart.append(hit);
     }
