@@ -1,6 +1,6 @@
 # UI-011：Library目录计数被返回顶部按钮遮挡
 
-当前状态：confirmed / validation-pending。P2。Base/复现main `41dca277eace9aa053bcb87e3cd21892b5ae6390`。下文“未修复/ready”为初次记录，最新实现与验证状态见末节。
+当前状态：done，精确main线上验收见末节。P2。Base/复现main `41dca277eace9aa053bcb87e3cd21892b5ae6390`。下文“未修复/ready/pending”为各阶段历史记录，不覆盖最新验收。
 
 证据分类：实际线上截图确认，不是用户偏好或源码推测。1024×900、Prospero Light、Library根页、书籍评分分类；将评分区滚动居中后，下方目录“漫画”右侧计数与固定返回顶部圆钮占据相同位置，被按钮表面和向上箭头遮住。截图来自精确head的[run38871666487](https://github.com/AplusNeutrino/My_Blog/actions/runs/38871666487)线上job116880240197，artifact12033767964内`rating-book-1024-light-library.png`，完整artifact摘要已独立验证。不是只凭DOM推断。
 
@@ -39,3 +39,19 @@ artifact12038779445 /211911942 bytes，sha256 `fc46827b17d6e616c63acbb5c05055a26
 - [48目录计数诊断](ui011-production-ledger.json)
 
 生产验收通过后交付main；UI-011仍validation-pending，必须新main自身Actions/build/deploy及线上同48图/8流程复验，不能以localhost代替线上。本轮仅证据文档、不追加产品改动；无新用户决策，其他全站矩阵仍pending。
+
+## 2026-10-16 精确main线上验收
+
+验收main `831f2898372f37bb9f226748073cdeca45962085`，实际修复 `86d8453820eec1eda59f604d4524381a121b25a5`。[run38891686220](https://github.com/AplusNeutrino/My_Blog/actions/runs/38891686220) build116942440784、deploy116945366767、verify-live-ui116945432409全部success。233 tests、4 Ruby、T01保护、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/移动无障碍及production/live各192+14通过。线上job明确`UI_LIVE_BASE=https://neutriverse.uk`。
+
+live artifact12042547968 /212054601 bytes，sha256 `0a63e4ca1dc876186e0aff74ff66e6be39e1731f59e57d940839d3b2251fb423` 独立匹配。人工看48张四宽度双主题同六状态三联系表，并放大1024 Light漫画、390 Night愿望单入口和390 Light愿望单末端原图。计数全文可见，不再被固定按钮遮挡；1366不额外压缩目录，无新增确认缺陷。
+
+8组根8/愿望单7计数逐行滚动、真实文字行与按钮无相交、根场景按钮可见且hit-test、确实进入按钮垂直带、目录往返计数不变及真实返回顶部点击通过；48诊断在可用clientWidth内无溢出、scrollX为0。8组流程与48诊断逐项和生产证据相同：1024 Light漫画计数right902.40625/按钮left918.359375，Night898.5/914.5625。人工看图与机械断言分开，不以CI通过代替视觉。
+
+- [线上390/768根目录四状态](ui011-live-contact-390.jpg)
+- [线上1024/1366根目录四状态](ui011-live-contact-1024.jpg)
+- [线上愿望单首末状态](ui011-live-contact-wishlist.jpg)
+- [线上完整192 audit及交互](ui011-live-audit.json)
+- [线上48目录计数诊断](ui011-live-ledger.json)
+
+UI-011 done。仅目录计数/固定按钮限定通过，不把完整库存/离屏加载、Steam及其他全站项写成完成。无新用户决策；本轮仅证据文档、不追加产品/数据改动，新文档head CI另核对。
