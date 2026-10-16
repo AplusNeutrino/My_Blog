@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08f精确main线上验收
+
+- Base/验收main7225dcca0015509cac855c7283a9d793257c8683，审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装不虚构Issue，独立worktree保护用户修改。本轮范围仅UI计划日志与docs/ui-evidence/uia08f*公开live证据，不追加产品改动。
+- run38827719864精确head匹配，build116738970873/deploy116741229180/verify-live-ui116741300079全部success。日志核对226 tests、4 Ruby、T01保护、authoring44/5/7、production Jekyll/旧门禁及production/live各192页面+14侧栏场景通过，live job明确UI_LIVE_BASE=https://neutriverse.uk，不以localhost替代。
+- 下载live artifact12015679614 /187484694 bytes，sha256:4dd9814cb4adbff941fe2d66c8e775b22e94aa3b7ba96f5c6d1519a46535bf2e独立匹配。人工看32张四宽度双主题book-hold/game-hold/game-dropped/cleared两联系表，放大390 Light空提示、390 Night搁置、1024 Light清除原图：空提示/状态标题/标签与卡片可见，和生产同状态一致，未确认新显示缺陷。
+- 8流程书籍搁置空提示/刷新、游戏搁置与已放弃刷新同URL/ID、category/status隔离、清除保留status并恢复其默认排序、返回根/书籍原ID通过；32几何均无页面/card溢出、scrollX=0。公开完整audit192、32诊断与两联系表保存，原PNG留artifact14天，不写死未来同步数量。
+- UI-A08f限定done；不据此推断完整库存/离屏加载、Steam排序、愿望单/评分控件或全站通过。无新待答问题，本轮不改原文/metadata/URL/hidden/noindex、产品样式/数据、用户首页推荐、关联仓库或旧COMPLETE历史；新文档head CI另核对。下一项Library愿望单/评分控件，全站仍IN PROGRESS。
+- 本次证据文档本地226 tests、authoring44/5/7、T01保护44/5/5、diff check通过；Ruby/Jekyll/Chrome来自上述精确CI，不谎称本机执行。仅7个计划日志/公开证据文件，新文档head CI另核对。
+
 ## 2026-10-16 — UI-A08f生产截图与交互验收
 
 - Base main40824656997ec79b0bfe875b33705acef33e65f1、验收head63bb246c655ffba55df566daf6dcda7c4f0e11c0，真实审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5。读取最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告与本UI计划日志；CONTEXT不存在、gh未安装未虚构Issue。独立worktree保护原目录修改；本轮范围仅UI计划日志及docs/ui-evidence/uia08f*公开生产证据，不追加产品改动，完整保留用户首页推荐。

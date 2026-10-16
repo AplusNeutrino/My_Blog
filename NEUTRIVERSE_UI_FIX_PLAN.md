@@ -39,6 +39,7 @@
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
 | Library、友链 | UI-A08a根页/弹层/目录/友链40图、UI-A08b可见封面8图、UI-A08c1搜索24图及UI-007/008筛选32图已看；UI-009/UI-A08d时间线24图、UI-A08e排序/列表32张四宽度双主题生产/live图已人工查看 | 弹层/目录返回/友链键盘、56次可见封面加载、8组搜索、分页/来源年份/清除8流程通过；时间线8流程与24文字按钮不相交通过；UI-A08e书籍评分/年份组内降序、标题排序刷新同URL/ID、列表偏好刷新、Enter网格及默认恢复8流程线上通过；完整库存/离屏加载、Steam排序/摘置等其他控件及外部站点仍pending |
+| Library搁置/已放弃（UI-A08f） | 32张四宽度双主题生产/live四状态截图已人工查看，空提示/状态标签/卡片可见，无新增确认缺陷 | 8组状态刷新URL/ID、category/status隔离、清除保留status并恢复状态内默认ID、返回根/书籍原ID线上通过；此限定项done，不代表其他Library控件通过 |
 | Ravenis、Occult Atlas | pending | 共享导航/核心控件/返回pending |
 | Gate/NAVI（仅既有隐蔽边界） | pending | 不将私有截图/入口加入公开台账 |
 
@@ -53,6 +54,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-A08f限定done（2026-10-16）：base/验收main7225dcca0015509cac855c7283a9d793257c8683，[run38827719864](https://github.com/AplusNeutrino/My_Blog/actions/runs/38827719864) build116738970873/deploy116741229180/live116741300079全部success；226 tests、4 Ruby、T01/authoring/Jekyll/旧门禁和production/live各192+14通过。live artifact12015679614摘要独立匹配，人工看32张四宽度双主题book-hold/game-hold/game-dropped/cleared两联系表并放大390 Light空提示、390 Night搁置、1024 Light清除原图，未新增确认缺陷；8流程刷新同URL/ID、状态隔离、清除保留status并恢复状态内默认ID、返回根/书籍原ID及32几何通过。范围仅UI计划日志、docs/ui-evidence/uia08f*公开live证据，不改产品/数据/用户首页推荐，新文档head CI另核对。无新用户问题，全站IN PROGRESS；下一项Library愿望单与评分控件，完整库存/离屏加载及其余全站仍pending。[证据](docs/ui-evidence/uia08f-checks.md#2026-10-16-精确main线上验收)。
 
 UI-A08f生产验收通过、待main/live（2026-10-16）：base main40824656997ec79b0bfe875b33705acef33e65f1、验收head63bb246c655ffba55df566daf6dcda7c4f0e11c0 / run38821881510 build116720567164 success，deploy116723405622/live116723406291 skipped（工作分支，不作部署）。226 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过，artifact12013457997摘要独立匹配。人工看32张四宽度双主题book-hold/game-hold/game-dropped/cleared两联系表，放大390 Light空提示、390 Night已放弃和1024 Light搁置原图，未新增确认产品缺陷。8状态刷新/隔离/清除/返回流程和32几何通过。本轮范围仅UI计划日志与docs/ui-evidence/uia08f*公开生产证据，不改产品/用户首页推荐/数据或旧COMPLETE；验收后非强推main仍validation-pending，须新main精确部署/live同32图。无新用户问题，其他全站矩阵仍pending。
 
