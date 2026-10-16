@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-A08g 愿望单最小检查范围
+
+- Base main23343d67baba17dbe787f5611eea39ed90ad0b79，精确run38833481298 build116757262447/deploy116759522336/verify-live-ui116759587790全部success。已读AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装，不编造Issue。独立worktree保护原目录修改。
+- 云Chrome1363×936 Light实际进入愿望单目录、漫画分类、刷新同URL及返回目录，截图查看标题/计数/卡片与加载完成的封面，未确认新显示缺陷；不把首次异步封面加载尚未完成当永久缺失，也不凭偏好改样式。
+- 文件范围tools/check_think_build_visual.py、必要接线回归、UI计划日志及docs/ui-evidence/uia08g*公开证据；验收补四宽度双主题目录/非空分类/刷新/空分类32图、真实目录计数、刷新同URL/ID、status/category隔离、两级返回并恢复书籍原ID，保留全部192+14与既有门禁。先ui/audit-008g，production/main/live未验收；不改产品/数据/原文/metadata/URL/hidden/noindex或旧COMPLETE。评分控件与其余全站矩阵仍pending，无新待答问题。
+- 已实现上述真实点击/刷新/返回审计及接线回归，本地227 tests、authoring44/5/7、T01保护44/5/5、diff通过；云实际书籍空分类刷新保持、Night切换完成后暂无记录可见、两级返回根URL成功，[限定证据](ui-evidence/uia08g-checks.md)已保存。当前预计新32图，若未来没有真实空分类则报告emptyCategory=null，不伪造数据。本机未运行Ruby/Jekyll/Chrome，production/main/live仍validation-pending。
+
 ## 2026-10-16 — UI-A08f精确main线上验收
 
 - Base/验收main7225dcca0015509cac855c7283a9d793257c8683，审计实现ea5fb0e15aca4e9a4ff51683072ada05cf7ac5a5。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告及UI计划日志；CONTEXT不存在、gh未安装不虚构Issue，独立worktree保护用户修改。本轮范围仅UI计划日志与docs/ui-evidence/uia08f*公开live证据，不追加产品改动。

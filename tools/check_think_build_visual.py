@@ -632,6 +632,105 @@ def library_other_status_controls(driver, wait, output, width, theme):
             'clearDefaultIds':True,'backRestoresBook':True}
 
 
+def library_wishlist_controls(driver, wait, output, width, theme):
+    """Navigate the real public ledger; counts/fixtures come from current data."""
+    def params():
+        return parse_qs(urlsplit(driver.current_url).query)
+    def ids():
+        return [e.get_attribute('data-pgl-id') for e in driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')]
+    def ready():
+        wait.until(lambda d: not d.find_element(By.ID, 'prospero-great-library').get_attribute('aria-busy'))
+    def position(element):
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", element)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+    def click(selector):
+        element = driver.find_element(By.CSS_SELECTOR, selector)
+        position(element)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', element))
+        element.click()
+    def index():
+        wait.until(lambda d: params().get('view') == ['wishlist'] and 'category' not in params())
+        ready()
+        require(driver.find_element(By.ID, 'pgl-wishlist-ledger').is_displayed(), 'Wishlist ledger missing')
+        require(not driver.find_element(By.ID, 'pgl-card-view').is_displayed(), 'Wishlist index leaked stale cards')
+        links = driver.find_elements(By.CSS_SELECTOR, '[data-pgl-wishlist-category]')
+        counts = {e.get_attribute('data-pgl-wishlist-category'): int(e.find_element(By.CSS_SELECTOR, '.pgl-ledger-count').text.split()[0]) for e in links}
+        require(set(counts) == {'book','comic','movie','drama','anime','game','music'}, 'Wishlist category ledger incomplete')
+        require(sum(counts.values()) == int(driver.find_element(By.ID, 'pgl-result-count').text.split()[0]), 'Wishlist ledger total differs from categories')
+        return counts
+    def category_view(category, count):
+        wait.until(lambda d: params().get('view') == ['wishlist'] and params().get('category') == [category])
+        ready()
+        require(driver.find_element(By.ID, 'pgl-card-view').is_displayed(), 'Wishlist cards hidden')
+        require(not driver.find_element(By.ID, 'pgl-wishlist-ledger').is_displayed(), 'Wishlist category leaked ledger')
+        cards = driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
+        page_size = int(driver.find_element(By.ID, 'prospero-great-library').get_attribute('data-page-size') or 24)
+        require(len(cards) == min(count, page_size), 'Wishlist category count/page differs from ledger')
+        require(int(driver.find_element(By.ID, 'pgl-result-count').text.split()[0]) == count, 'Wishlist result total differs from ledger')
+        require(all(c.get_attribute('data-category') == category and c.get_attribute('data-status') == 'wishlist' for c in cards), 'Wishlist status/category isolation failed')
+        if not cards:
+            empty = driver.find_element(By.CSS_SELECTOR, '#pgl-grid .pgl-empty')
+            require(empty.is_displayed() and empty.text.strip(), 'Wishlist empty category has no message')
+        return ids()
+    def capture(state):
+        position(driver.find_element(By.ID, 'pgl-browser-title'))
+        wait.until(lambda d: d.execute_script('''return [...document.querySelectorAll('#pgl-grid img')].every(e=>{
+          const r=e.getBoundingClientRect();return r.bottom<=0||r.top>=innerHeight||e.complete&&e.naturalWidth>0;});''') if d.find_element(By.ID, 'pgl-card-view').is_displayed() else True)
+        geometry = driver.execute_script('''
+          const selector=document.querySelector('#pgl-wishlist-ledger').hidden?'#pgl-grid .pgl-card':'[data-pgl-wishlist-category]';
+          return {scrollX,viewport:innerWidth,page:document.documentElement.scrollWidth,
+            heading:document.querySelector('#pgl-browser-title').textContent,
+            empty:document.querySelector('#pgl-grid .pgl-empty')?.textContent||'',
+            elements:[...document.querySelectorAll(selector)].map(e=>{const r=e.getBoundingClientRect();
+              return {id:e.dataset.pglId||e.dataset.pglWishlistCategory,category:e.dataset.category,status:e.dataset.status,
+                left:r.left,right:r.right,client:e.clientWidth,scroll:e.scrollWidth};})};
+        ''')
+        driver.save_screenshot(str(output / f'wishlist-{state}-{width}-{theme}-library.png'))
+        (output / f'wishlist-{state}-{width}-{theme}-library.json').write_text(json.dumps(geometry, indent=2))
+        require(abs(geometry['scrollX']) <= 1 and geometry['page'] <= geometry['viewport']+1, 'Wishlist page overflow')
+        require(all(e['left'] >= -1 and e['right'] <= geometry['viewport']+1 and e['scroll'] <= e['client']+1
+                    for e in geometry['elements']), 'Wishlist element overflow')
+
+    ready()
+    book_ids = ids()
+    require(book_ids, 'Wishlist audit starts without book records')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    click('[data-pgl-wishlist]')
+    counts = index()
+    capture('index')
+    nonempty = min((c for c in counts if counts[c] > 0), key=lambda c: counts[c])
+    click(f'[data-pgl-wishlist-category="{nonempty}"]')
+    expected = category_view(nonempty, counts[nonempty])
+    require(expected, 'Wishlist nonempty fixture missing')
+    capture('category')
+    url = driver.current_url
+    driver.refresh()
+    category_view(nonempty, counts[nonempty])
+    require(driver.current_url == url and ids() == expected, 'Wishlist reload lost URL/IDs')
+    capture('reloaded')
+    click('#pgl-back')
+    require(index() == counts, 'Wishlist back changed ledger counts')
+    empty_categories = [c for c in counts if counts[c] == 0]
+    empty_category = empty_categories[0] if empty_categories else None
+    if empty_category:
+        click(f'[data-pgl-wishlist-category="{empty_category}"]')
+        category_view(empty_category, 0)
+        capture('empty')
+        driver.refresh()
+        category_view(empty_category, 0)
+        click('#pgl-back')
+        require(index() == counts, 'Wishlist empty back lost ledger')
+    click('#pgl-back')
+    wait.until(lambda d: d.find_element(By.ID, 'pgl-root-view').is_displayed())
+    require(not params(), 'Wishlist two-level back retained URL state')
+    click('[data-pgl-category="book"]')
+    ready()
+    wait.until(lambda d: ids() == book_ids)
+    return {'ledgerCounts':counts,'nonemptyCategory':nonempty,'emptyCategory':empty_category,
+            'categoryStatusIsolation':True,'reloadIds':True,'twoLevelBack':True,'restoredBookIds':True}
+
+
 def library_timeline_controls(driver, wait, output, width, theme):
     """Load public history through real controls, including reload and keyboard."""
     def rows():
@@ -779,6 +878,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     filters_pagination = library_filter_pagination_controls(driver, wait, output, width, theme)
     sort_layout = library_sort_layout_controls(driver, wait, output, width, theme)
     other_status = library_other_status_controls(driver, wait, output, width, theme)
+    wishlist = library_wishlist_controls(driver, wait, output, width, theme)
     back = driver.find_element(By.ID, 'pgl-back')
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", back)
     driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
@@ -788,7 +888,7 @@ def relationship_controls(driver, wait, name, output, width, theme):
     search_result = library_search_controls(driver, wait, output, width, theme, query, expected_id)
     timeline_result = library_timeline_controls(driver, wait, output, width, theme)
     return {'drawerOpenClose': True, 'categoryOpenBack': True, 'covers':covers, 'search':search_result,
-            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'timeline':timeline_result}
+            'filtersPagination':filters_pagination,'sortLayout':sort_layout,'otherStatus':other_status,'wishlist':wishlist,'timeline':timeline_result}
 
 
 def clipboard_text(driver, value=None):
