@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-16 — UI-011生产截图与交互验收
+
+- Base main600f29073e94b2d8ad17e3365db4c262e9d398f6、验收head55c41c973f179e3c500bbe846eba76fd61bc6204，实际修复86d8453820eec1eda59f604d4524381a121b25a5。先读最新main/head、AGENTS/三domain docs/ADR0001、旧COMPLETE计划报告/UI计划日志；旧约束相对main无变更，CONTEXT不存在、gh未安装不编造Issue。独立worktree保护原目录字体/缓存/基线文件修改。本轮范围仅UI计划日志及docs/ui-evidence/ui011-checks.md、ui011-production-*公开证据，不追加产品/数据改动。
+- 精确run38885320771 build116921858701 success，deploy116924481966/verify-live-ui116924483260 skipped（工作分支，不是部署通过）。日志核对233 tests、4 render-only Ruby、T01保护、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/移动无障碍、192页面+14侧栏通过。
+- 下载artifact12038779445 /211911942 bytes，sha256:fc46827b17d6e616c63acbb5c05055a26b8b1684e56dafeb030f28d06f0cb489独立匹配。人工看48张四宽度双主题根book/comic/music/wishlist-entry、愿望单first/last三联系表，放大1024 Light漫画、390 Night愿望单入口及390 Light愿望单末端原图，并看修复前1024 Light原图对照：计数完整可读、与按钮分离，1366原有布局保持，未新增确认缺陷，不凭偏好改样式。
+- 8组流程根8计数/愿望单7计数逐行滚动、所有可见计数真实文字Range与可见按钮无交集、根场景按钮可见且hit-test、至少一计数进入按钮垂直带、目录进入/返回计数不变、真实top.click回到scrollY<=1通过。48 JSON无横向溢出/scrollX，所有计数在clientWidth内。1024 Light漫画计数right902.40625，按钮left918.359375（间隔15.953125px），Night计数right898.5/按钮left914.5625；都确实处同一垂直带，无相交。
+- 完整audit192、48诊断与三联系表公开保存，原PNG保留在artifact14天。生产localhost截图不能冒充线上；验收后expected_sha非强推main仍validation-pending，须新main自身build/deploy/live同48图与8流程，不以其他提交CI代替。
+- 本次证据回写本地233 tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机未执行Ruby/Jekyll/Chrome，以上来自精确CI。无新增用户决策，不改旧正文/metadata/URL/hidden/noindex、同步数据、关联仓库或旧COMPLETE历史。全站仍IN PROGRESS，完整库存/离屏加载、Steam及其余矩阵pending。
+
 ## 2026-10-16 — UI-011目录计数避让最小修复范围
 
 - Base main600f29073e94b2d8ad17e3365db4c262e9d398f6，run38878173427 build116898172377/deploy116901351049/live116901426946全部success。已读AGENTS/三domain docs/ADR、旧COMPLETE计划报告/UI计划日志；CONTEXT不存在、gh未安装不虚构Issue。独立worktree保护原目录修改，不重新执行T00–T39。

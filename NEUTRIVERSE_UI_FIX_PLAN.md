@@ -59,6 +59,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-011生产验收通过、待main/live（2026-10-16）：base main600f29073e94b2d8ad17e3365db4c262e9d398f6，验收head55c41c973f179e3c500bbe846eba76fd61bc6204（实际修复86d8453820eec1eda59f604d4524381a121b25a5）。run38885320771 build116921858701 success、deploy116924481966/live116924483260 skipped（分支，不作部署）；233 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及192+14通过。artifact12038779445摘要独立匹配；人工看48张四宽度双主题根目录四状态/愿望单首末三联系表，再放大1024 Light漫画、390 Night愿望单入口及390 Light愿望单末端原图，对照修复前1024截图，计数全文可见、不再被按钮遮挡。8组根8/愿望单7计数逐行滚动、不相交、目录往返计数不变及真实返回顶部点击通过，48诊断无横向溢出。仅UI计划日志与ui011公开生产证据，不追加产品改动；验收后非强推main仍validation-pending，须新main精确head build/deploy/live同48图复验。无新增确认缺陷/用户决策，其他全站项仍pending。[证据](docs/ui-evidence/ui011-checks.md#2026-10-16-生产截图与交互验收)。
+
 UI-011真实实现86d8453820eec1eda59f604d4524381a121b25a5已保存ui/fix-011，6个上传blob与本地hash逐项一致；随后仅追加此SHA检查点。main仍600f2907，未部署/未合main；最终分支head精确production192+14/48图/8流程及main/live必须分别验收，保持validation-pending，无新用户决定。
 
 UI-011 validation-pending：已实现<=1199px仅Library目录/愿望单入口padding-inline-end:3.5rem，保持按钮/字号/数据不变；新增真实逐行滚动、count文字与固定按钮不相交/可用视口、根目录场景必须显示按钮并hit-test、目录往返计数不变及真实按钮回顶部审计，目标48图/8流程。新增3项接线回归，本地233 tests、authoring44/5/7、T01保护44/5/5及diff通过；没有本机Ruby/Jekyll/Chrome，不把单测当视觉通过。先保存ui/fix-011，main保持600f2907；精确head生产192+14、新48图与main部署/live均待验证，无新用户决策。
