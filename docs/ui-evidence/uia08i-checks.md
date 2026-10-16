@@ -1,6 +1,16 @@
 # UI-A08i — Steam 空数据与游戏离屏封面
 
-状态：production通过，main部署/live validation-pending；base f2d463cfb75168b7ca0a883915ef56efa0b7b4e4。
+状态：限定done（当前无Steam遥测路径与游戏排序第一页）；验收main b4a502396bd02650738f4b69912ef2bdca437173。完整库存及其他页面仍pending。
+
+## 2026-10-17 — 精确main线上验收
+
+- [run38920457806 attempt 2](https://github.com/AplusNeutrino/My_Blog/actions/runs/38920457806/attempts/2)：精确head b4a502396bd02650738f4b69912ef2bdca437173，build117067139721、deploy117071593206、verify-live-ui117071699364全部success。237 tests、4 render-only Ruby、T01/authoring44/5/7、production Jekyll及旧门禁通过，production/live各192页面+14侧栏。live日志明确UI_LIVE_BASE=https://neutriverse.uk，不用localhost代替线上。首次失败和重试记录保留如下。
+- live artifact12058453192 /226390266 bytes /sha256:123c23ad8cc7b323fb7194f16c7782c83dd8dab66136435a71b7b55355c1c3ae，下载后独立匹配。四宽度双主题40图两联系表已人工查看，放大390 Light来源空提示、768 Night末端封面；空提示全文可见，首屏/末端封面与统计正常，无新增确认产品缺陷。
+- 8组实际排序/刷新URL与ID/Steam来源0条空提示刷新/清除恢复/返回通过；游戏120条、第一页24卡×8=192次原生封面complete/decode/自然尺寸及初始离屏覆盖通过。40诊断和8流程逐项与已验收生产证据相同，无横向溢出/scrollX。
+- 只验收当前privacy_boundary_unavailable及无遥测路径，不突破隐私边界、不注入数据，也不推断有数据时成就/时长或完整库存通过。完整库存/其余分页图片、其他页面矩阵继续pending，无新用户决策。此限定项done，非全站COMPLETE。
+- 本轮仅UI计划日志、uia08i live证据；合入0a12dac8的首次失败记录，旧历史不改写，不新增产品/数据修改。本机237 tests/authoring/T01/diff复核，未在本机运行Jekyll/Chrome；新证据提交CI另行核对。
+
+线上联系表：[390/768](uia08i-live-contact-narrow.jpg)、[1024/1366](uia08i-live-contact-wide.jpg)；[192审计](uia08i-live-audit.json)、[40诊断](uia08i-live-diagnostics.json)。原PNG留上述artifact14天。
 
 ## 2026-10-17 — 精确main首次超时，原head重试
 

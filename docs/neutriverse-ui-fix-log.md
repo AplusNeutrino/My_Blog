@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08i精确main线上验收
+
+- 验收main b4a502396bd02650738f4b69912ef2bdca437173；先读最新main/head、AGENTS/三docs/ADR/旧COMPLETE边界、UI计划日志与补充，旧约束相对已读head无差异，CONTEXT不存在、gh未安装不编造Issue。独立worktree保护用户字体/缓存/基线修改；本轮范围仅UI计划日志及uia08i公开live证据，保留0a12dac8首次超时记录，不改产品/数据/旧历史。
+- run38920457806 attempt2 build117067139721、deploy117071593206、verify-live-ui117071699364全部success，仍同一b4a50239。237 tests/4 Ruby/T01保护/authoring44/5/7/production Jekyll及旧门禁通过，production/live各192页面+14侧栏；live日志明确UI_LIVE_BASE=https://neutriverse.uk。首次失败不掩盖，也不以分支成功代替main。
+- 下载live artifact12058453192 /226390266 bytes，sha256:123c23ad8cc7b323fb7194f16c7782c83dd8dab66136435a71b7b55355c1c3ae独立匹配。人工看40张四宽度双主题统计/排序首屏/离屏末端/刷新/来源两联系表，放大390 Light来源空提示、768 Night末端封面原图，空提示清晰可读，统计/封面正常，未确认新产品缺陷。
+- 8组真实排序、刷新URL/ID、Steam空来源刷新、清除恢复与返回；游戏120条/第一页24卡×8=192次原生封面complete/decode/自然尺寸和初始离屏覆盖通过，40诊断无横向溢出/scrollX。8流程/40诊断与已验收生产证据逐项相同。
+- UI-A08i限定done，仅当前privacy_boundary_unavailable/无遥测路径和游戏排序第一页；不突破隐私或补造数据，不推断完整库存/其余分页/有时长成就数据场景通过。全站IN PROGRESS，下一项完整库存/其余分页图片及其他矩阵，无新用户决策。
+- 公开live192审计、40诊断和两联系表永久保存，原PNG在artifact保留14天。本机237 tests、authoring44/5/7、T01保护44/5/5及diff通过；未在本机运行Ruby/Jekyll/Chrome，构建和浏览器证据来自精确head Actions。新证据head CI另行核对。
+
 ## 2026-10-17 — UI-A08i精确main浏览器超时重试
 
 - Base/精确main b4a502396bd02650738f4b69912ef2bdca437173，尚未移动。已读最新AGENTS/三docs/本轮计划日志/证据与相关ADR及旧COMPLETE边界，旧计划报告相对已读707b6d49无差异，CONTEXT不存在；gh未安装，不编造Issue。独立worktree保护用户字体/缓存/基线修改。

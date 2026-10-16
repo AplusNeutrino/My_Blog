@@ -1,0 +1,6010 @@
+{
+  "steam-covers-last-1366-light-library": {
+    "cards": [
+      {
+        "bottom": -1556.734375,
+        "client": 176,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -1892.921875
+      },
+      {
+        "bottom": -1556.734375,
+        "client": 176,
+        "id": "game:1afeffe82d",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -1892.921875
+      },
+      {
+        "bottom": -1556.734375,
+        "client": 176,
+        "id": "game:c2836463dd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": -1892.921875
+      },
+      {
+        "bottom": -1556.703125,
+        "client": 176,
+        "id": "game:2945907362",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": -1892.921875
+      },
+      {
+        "bottom": -1209,
+        "client": 176,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -1545.1875
+      },
+      {
+        "bottom": -1209,
+        "client": 176,
+        "id": "game:00b3a1b0c3",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -1545.1875
+      },
+      {
+        "bottom": -835.484375,
+        "client": 176,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -1153.96875
+      },
+      {
+        "bottom": -817.765625,
+        "client": 176,
+        "id": "game:017069d4ee",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -1153.96875
+      },
+      {
+        "bottom": -835.484375,
+        "client": 176,
+        "id": "game:0df2a8d9dc",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": -1153.96875
+      },
+      {
+        "bottom": -835.453125,
+        "client": 176,
+        "id": "game:49fc0ab748",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": -1153.96875
+      },
+      {
+        "bottom": -470.046875,
+        "client": 176,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -806.25
+      },
+      {
+        "bottom": -470.046875,
+        "client": 176,
+        "id": "game:a5a849065e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -806.25
+      },
+      {
+        "bottom": -470.046875,
+        "client": 176,
+        "id": "game:779efc4ffd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": -806.25
+      },
+      {
+        "bottom": -470.015625,
+        "client": 176,
+        "id": "game:8f584b0c4d",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": -806.25
+      },
+      {
+        "bottom": -122.296875,
+        "client": 176,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -458.5
+      },
+      {
+        "bottom": -140.015625,
+        "client": 176,
+        "id": "game:a1579e9e50",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -458.5
+      },
+      {
+        "bottom": -122.296875,
+        "client": 176,
+        "id": "game:9fec7936a9",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": -458.5
+      },
+      {
+        "bottom": -139.984375,
+        "client": 176,
+        "id": "game:54c1e7f192",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": -458.5
+      },
+      {
+        "bottom": 225.421875,
+        "client": 176,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": -110.78125
+      },
+      {
+        "bottom": 207.703125,
+        "client": 176,
+        "id": "game:d6357bae0e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": -110.78125
+      },
+      {
+        "bottom": 225.421875,
+        "client": 176,
+        "id": "game:c52e62b7c7",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": -110.78125
+      },
+      {
+        "bottom": 225.453125,
+        "client": 176,
+        "id": "game:1123153704",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": -110.78125
+      },
+      {
+        "bottom": 573.171875,
+        "client": 176,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 236.96875
+      },
+      {
+        "bottom": 573.171875,
+        "client": 176,
+        "id": "game:2ccf00e4f1",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 236.96875
+      }
+    ],
+    "clientViewport": 1355,
+    "page": 1355,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 2260,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-1024-light-library": {
+    "cards": [
+      {
+        "bottom": 660.0625,
+        "client": 150,
+        "id": "game:758dd2831b",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.078125,
+        "client": 150,
+        "id": "game:1afeffe82d",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.0625,
+        "client": 150,
+        "id": "game:c2836463dd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.078125,
+        "client": 150,
+        "id": "game:2945907362",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 969,
+        "client": 150,
+        "id": "game:e4efa3b28e",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 671.59375
+      },
+      {
+        "bottom": 969.015625,
+        "client": 150,
+        "id": "game:00b3a1b0c3",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 671.59375
+      },
+      {
+        "bottom": 1303.75,
+        "client": 150,
+        "id": "game:60c15eac40",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1321.484375,
+        "client": 150,
+        "id": "game:017069d4ee",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1303.75,
+        "client": 150,
+        "id": "game:0df2a8d9dc",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1303.765625,
+        "client": 150,
+        "id": "game:49fc0ab748",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1630.421875,
+        "client": 150,
+        "id": "game:0d0e6f48b3",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.4375,
+        "client": 150,
+        "id": "game:a5a849065e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.421875,
+        "client": 150,
+        "id": "game:779efc4ffd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.4375,
+        "client": 150,
+        "id": "game:8f584b0c4d",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1939.375,
+        "client": 150,
+        "id": "game:0a2ae47ef1",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1921.671875,
+        "client": 150,
+        "id": "game:a1579e9e50",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1939.375,
+        "client": 150,
+        "id": "game:9fec7936a9",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1939.390625,
+        "client": 150,
+        "id": "game:54c1e7f192",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 2248.328125,
+        "client": 150,
+        "id": "game:0039123544",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2230.625,
+        "client": 150,
+        "id": "game:d6357bae0e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2248.328125,
+        "client": 150,
+        "id": "game:c52e62b7c7",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2248.34375,
+        "client": 150,
+        "id": "game:1123153704",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2557.28125,
+        "client": 150,
+        "id": "game:95aaa2946f",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 2259.859375
+      },
+      {
+        "bottom": 2557.296875,
+        "client": 150,
+        "id": "game:2ccf00e4f1",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 2259.859375
+      }
+    ],
+    "clientViewport": 1013,
+    "page": 1013,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-390-light-library": {
+    "cards": [
+      {
+        "bottom": -3135,
+        "client": 167,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -3455.5
+      },
+      {
+        "bottom": -3134.984375,
+        "client": 167,
+        "id": "game:1afeffe82d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -3455.5
+      },
+      {
+        "bottom": -2805.6875,
+        "client": 167,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -3126.1875
+      },
+      {
+        "bottom": -2805.671875,
+        "client": 167,
+        "id": "game:2945907362",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -3126.1875
+      },
+      {
+        "bottom": -2476.375,
+        "client": 167,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -2796.875
+      },
+      {
+        "bottom": -2476.359375,
+        "client": 167,
+        "id": "game:00b3a1b0c3",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -2796.875
+      },
+      {
+        "bottom": -2123.96875,
+        "client": 167,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -2426.765625
+      },
+      {
+        "bottom": -2106.234375,
+        "client": 167,
+        "id": "game:017069d4ee",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -2426.765625
+      },
+      {
+        "bottom": -1794.640625,
+        "client": 167,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -2097.4375
+      },
+      {
+        "bottom": -1794.625,
+        "client": 167,
+        "id": "game:49fc0ab748",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -2097.4375
+      },
+      {
+        "bottom": -1465.3125,
+        "client": 167,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -1785.828125
+      },
+      {
+        "bottom": -1465.296875,
+        "client": 167,
+        "id": "game:a5a849065e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -1785.828125
+      },
+      {
+        "bottom": -1135.984375,
+        "client": 167,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -1456.5
+      },
+      {
+        "bottom": -1135.96875,
+        "client": 167,
+        "id": "game:8f584b0c4d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -1456.5
+      },
+      {
+        "bottom": -806.65625,
+        "client": 167,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -1127.171875
+      },
+      {
+        "bottom": -824.359375,
+        "client": 167,
+        "id": "game:a1579e9e50",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -1127.171875
+      },
+      {
+        "bottom": -477.34375,
+        "client": 167,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -797.859375
+      },
+      {
+        "bottom": -495.046875,
+        "client": 167,
+        "id": "game:54c1e7f192",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -797.859375
+      },
+      {
+        "bottom": -148.03125,
+        "client": 167,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -468.546875
+      },
+      {
+        "bottom": -165.734375,
+        "client": 167,
+        "id": "game:d6357bae0e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -468.546875
+      },
+      {
+        "bottom": 181.28125,
+        "client": 167,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": -139.234375
+      },
+      {
+        "bottom": 181.296875,
+        "client": 167,
+        "id": "game:1123153704",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": -139.234375
+      },
+      {
+        "bottom": 510.609375,
+        "client": 167,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 190.09375
+      },
+      {
+        "bottom": 510.625,
+        "client": 167,
+        "id": "game:2ccf00e4f1",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 190.09375
+      }
+    ],
+    "clientViewport": 379,
+    "page": 379,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 3808,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-768-dark-library": {
+    "cards": [
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:1afeffe82d",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:c2836463dd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.703125,
+        "client": 164,
+        "id": "game:2945907362",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 1003.5625,
+        "client": 164,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 686.21875
+      },
+      {
+        "bottom": 1003.5625,
+        "client": 164,
+        "id": "game:00b3a1b0c3",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 686.21875
+      },
+      {
+        "bottom": 1358.234375,
+        "client": 164,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1375.953125,
+        "client": 164,
+        "id": "game:017069d4ee",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1358.234375,
+        "client": 164,
+        "id": "game:0df2a8d9dc",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1358.265625,
+        "client": 164,
+        "id": "game:49fc0ab748",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:a5a849065e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:779efc4ffd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.859375,
+        "client": 164,
+        "id": "game:8f584b0c4d",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 2033.734375,
+        "client": 164,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2016.015625,
+        "client": 164,
+        "id": "game:a1579e9e50",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2033.734375,
+        "client": 164,
+        "id": "game:9fec7936a9",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2016.046875,
+        "client": 164,
+        "id": "game:54c1e7f192",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2362.609375,
+        "client": 164,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2344.890625,
+        "client": 164,
+        "id": "game:d6357bae0e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2362.609375,
+        "client": 164,
+        "id": "game:c52e62b7c7",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2362.640625,
+        "client": 164,
+        "id": "game:1123153704",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2691.515625,
+        "client": 164,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 2374.15625
+      },
+      {
+        "bottom": 2691.515625,
+        "client": 164,
+        "id": "game:2ccf00e4f1",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 2374.15625
+      }
+    ],
+    "clientViewport": 753,
+    "page": 753,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-1366-dark-library": {
+    "cards": [],
+    "clientViewport": 1351,
+    "page": 1351,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-768-light-library": {
+    "cards": [],
+    "clientViewport": 768,
+    "page": 768,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-1024-dark-library": {
+    "cards": [
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:758dd2831b",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:1afeffe82d",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:c2836463dd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.953125,
+        "client": 149,
+        "id": "game:2945907362",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 957.4375,
+        "client": 149,
+        "id": "game:e4efa3b28e",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 661.46875
+      },
+      {
+        "bottom": 957.4375,
+        "client": 149,
+        "id": "game:00b3a1b0c3",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 661.46875
+      },
+      {
+        "bottom": 1290.734375,
+        "client": 149,
+        "id": "game:60c15eac40",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1308.453125,
+        "client": 149,
+        "id": "game:017069d4ee",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1290.734375,
+        "client": 149,
+        "id": "game:0df2a8d9dc",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1290.765625,
+        "client": 149,
+        "id": "game:49fc0ab748",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:0d0e6f48b3",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:a5a849065e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:779efc4ffd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.984375,
+        "client": 149,
+        "id": "game:8f584b0c4d",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1923.484375,
+        "client": 149,
+        "id": "game:0a2ae47ef1",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1905.765625,
+        "client": 149,
+        "id": "game:a1579e9e50",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1923.484375,
+        "client": 149,
+        "id": "game:9fec7936a9",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1923.515625,
+        "client": 149,
+        "id": "game:54c1e7f192",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 2231.015625,
+        "client": 149,
+        "id": "game:0039123544",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2213.296875,
+        "client": 149,
+        "id": "game:d6357bae0e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2231.015625,
+        "client": 149,
+        "id": "game:c52e62b7c7",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2231.046875,
+        "client": 149,
+        "id": "game:1123153704",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2538.546875,
+        "client": 149,
+        "id": "game:95aaa2946f",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 2242.5625
+      },
+      {
+        "bottom": 2538.546875,
+        "client": 149,
+        "id": "game:2ccf00e4f1",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 2242.5625
+      }
+    ],
+    "clientViewport": 1009,
+    "page": 1009,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-768-dark-library": {
+    "cards": [
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:1afeffe82d",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.671875,
+        "client": 164,
+        "id": "game:c2836463dd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 674.703125,
+        "client": 164,
+        "id": "game:2945907362",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 357.328125
+      },
+      {
+        "bottom": 1003.5625,
+        "client": 164,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 686.21875
+      },
+      {
+        "bottom": 1003.5625,
+        "client": 164,
+        "id": "game:00b3a1b0c3",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 686.21875
+      },
+      {
+        "bottom": 1358.234375,
+        "client": 164,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1375.953125,
+        "client": 164,
+        "id": "game:017069d4ee",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1358.234375,
+        "client": 164,
+        "id": "game:0df2a8d9dc",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1358.265625,
+        "client": 164,
+        "id": "game:49fc0ab748",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1058.59375
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:a5a849065e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.828125,
+        "client": 164,
+        "id": "game:779efc4ffd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 1704.859375,
+        "client": 164,
+        "id": "game:8f584b0c4d",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1387.46875
+      },
+      {
+        "bottom": 2033.734375,
+        "client": 164,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2016.015625,
+        "client": 164,
+        "id": "game:a1579e9e50",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2033.734375,
+        "client": 164,
+        "id": "game:9fec7936a9",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2016.046875,
+        "client": 164,
+        "id": "game:54c1e7f192",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 1716.375
+      },
+      {
+        "bottom": 2362.609375,
+        "client": 164,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2344.890625,
+        "client": 164,
+        "id": "game:d6357bae0e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2362.609375,
+        "client": 164,
+        "id": "game:c52e62b7c7",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2362.640625,
+        "client": 164,
+        "id": "game:1123153704",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": 2045.25
+      },
+      {
+        "bottom": 2691.515625,
+        "client": 164,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 2374.15625
+      },
+      {
+        "bottom": 2691.515625,
+        "client": 164,
+        "id": "game:2ccf00e4f1",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 2374.15625
+      }
+    ],
+    "clientViewport": 753,
+    "page": 753,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-390-light-library": {
+    "cards": [
+      {
+        "bottom": 673,
+        "client": 167,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 352.5
+      },
+      {
+        "bottom": 673.015625,
+        "client": 167,
+        "id": "game:1afeffe82d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 352.5
+      },
+      {
+        "bottom": 1002.3125,
+        "client": 167,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 681.8125
+      },
+      {
+        "bottom": 1002.328125,
+        "client": 167,
+        "id": "game:2945907362",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 681.8125
+      },
+      {
+        "bottom": 1331.625,
+        "client": 167,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1011.125
+      },
+      {
+        "bottom": 1331.640625,
+        "client": 167,
+        "id": "game:00b3a1b0c3",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1011.125
+      },
+      {
+        "bottom": 1684.03125,
+        "client": 167,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1381.234375
+      },
+      {
+        "bottom": 1701.765625,
+        "client": 167,
+        "id": "game:017069d4ee",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1381.234375
+      },
+      {
+        "bottom": 2013.359375,
+        "client": 167,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1710.5625
+      },
+      {
+        "bottom": 2013.375,
+        "client": 167,
+        "id": "game:49fc0ab748",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1710.5625
+      },
+      {
+        "bottom": 2342.6875,
+        "client": 167,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2022.171875
+      },
+      {
+        "bottom": 2342.703125,
+        "client": 167,
+        "id": "game:a5a849065e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2022.171875
+      },
+      {
+        "bottom": 2672.015625,
+        "client": 167,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2351.5
+      },
+      {
+        "bottom": 2672.03125,
+        "client": 167,
+        "id": "game:8f584b0c4d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2351.5
+      },
+      {
+        "bottom": 3001.34375,
+        "client": 167,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2680.828125
+      },
+      {
+        "bottom": 2983.640625,
+        "client": 167,
+        "id": "game:a1579e9e50",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2680.828125
+      },
+      {
+        "bottom": 3330.65625,
+        "client": 167,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3010.140625
+      },
+      {
+        "bottom": 3312.953125,
+        "client": 167,
+        "id": "game:54c1e7f192",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3010.140625
+      },
+      {
+        "bottom": 3659.96875,
+        "client": 167,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3339.453125
+      },
+      {
+        "bottom": 3642.265625,
+        "client": 167,
+        "id": "game:d6357bae0e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3339.453125
+      },
+      {
+        "bottom": 3989.28125,
+        "client": 167,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3668.765625
+      },
+      {
+        "bottom": 3989.296875,
+        "client": 167,
+        "id": "game:1123153704",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3668.765625
+      },
+      {
+        "bottom": 4318.609375,
+        "client": 167,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3998.09375
+      },
+      {
+        "bottom": 4318.625,
+        "client": 167,
+        "id": "game:2ccf00e4f1",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3998.09375
+      }
+    ],
+    "clientViewport": 379,
+    "page": 379,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-1366-dark-library": {
+    "cards": [],
+    "clientViewport": 1351,
+    "page": 1351,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-1366-dark-library": {
+    "cards": [
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:1afeffe82d",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:c2836463dd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.625,
+        "client": 175,
+        "id": "game:2945907362",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 1039.203125,
+        "client": 175,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 704.140625
+      },
+      {
+        "bottom": 1039.203125,
+        "client": 175,
+        "id": "game:00b3a1b0c3",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 704.140625
+      },
+      {
+        "bottom": 1411.59375,
+        "client": 175,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1429.3125,
+        "client": 175,
+        "id": "game:017069d4ee",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1411.59375,
+        "client": 175,
+        "id": "game:0df2a8d9dc",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1411.625,
+        "client": 175,
+        "id": "game:49fc0ab748",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:a5a849065e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:779efc4ffd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.9375,
+        "client": 175,
+        "id": "game:8f584b0c4d",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 2122.53125,
+        "client": 175,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2104.8125,
+        "client": 175,
+        "id": "game:a1579e9e50",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2122.53125,
+        "client": 175,
+        "id": "game:9fec7936a9",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2104.84375,
+        "client": 175,
+        "id": "game:54c1e7f192",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2469.125,
+        "client": 175,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2451.40625,
+        "client": 175,
+        "id": "game:d6357bae0e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2469.125,
+        "client": 175,
+        "id": "game:c52e62b7c7",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2451.4375,
+        "client": 175,
+        "id": "game:1123153704",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2815.71875,
+        "client": 175,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 2480.640625
+      },
+      {
+        "bottom": 2815.71875,
+        "client": 175,
+        "id": "game:2ccf00e4f1",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 2480.640625
+      }
+    ],
+    "clientViewport": 1351,
+    "page": 1351,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-390-dark-library": {
+    "cards": [],
+    "clientViewport": 375,
+    "page": 375,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-1024-light-library": {
+    "cards": [
+      {
+        "bottom": 660.0625,
+        "client": 150,
+        "id": "game:758dd2831b",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.078125,
+        "client": 150,
+        "id": "game:1afeffe82d",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.0625,
+        "client": 150,
+        "id": "game:c2836463dd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 660.078125,
+        "client": 150,
+        "id": "game:2945907362",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 362.65625
+      },
+      {
+        "bottom": 969,
+        "client": 150,
+        "id": "game:e4efa3b28e",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 671.59375
+      },
+      {
+        "bottom": 969.015625,
+        "client": 150,
+        "id": "game:00b3a1b0c3",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 671.59375
+      },
+      {
+        "bottom": 1303.75,
+        "client": 150,
+        "id": "game:60c15eac40",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1321.484375,
+        "client": 150,
+        "id": "game:017069d4ee",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1303.75,
+        "client": 150,
+        "id": "game:0df2a8d9dc",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1303.765625,
+        "client": 150,
+        "id": "game:49fc0ab748",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1024.046875
+      },
+      {
+        "bottom": 1630.421875,
+        "client": 150,
+        "id": "game:0d0e6f48b3",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.4375,
+        "client": 150,
+        "id": "game:a5a849065e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.421875,
+        "client": 150,
+        "id": "game:779efc4ffd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1630.4375,
+        "client": 150,
+        "id": "game:8f584b0c4d",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1333
+      },
+      {
+        "bottom": 1939.375,
+        "client": 150,
+        "id": "game:0a2ae47ef1",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1921.671875,
+        "client": 150,
+        "id": "game:a1579e9e50",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1939.375,
+        "client": 150,
+        "id": "game:9fec7936a9",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 1939.390625,
+        "client": 150,
+        "id": "game:54c1e7f192",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1641.953125
+      },
+      {
+        "bottom": 2248.328125,
+        "client": 150,
+        "id": "game:0039123544",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2230.625,
+        "client": 150,
+        "id": "game:d6357bae0e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2248.328125,
+        "client": 150,
+        "id": "game:c52e62b7c7",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2248.34375,
+        "client": 150,
+        "id": "game:1123153704",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": 1950.90625
+      },
+      {
+        "bottom": 2557.28125,
+        "client": 150,
+        "id": "game:95aaa2946f",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 2259.859375
+      },
+      {
+        "bottom": 2557.296875,
+        "client": 150,
+        "id": "game:2ccf00e4f1",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 2259.859375
+      }
+    ],
+    "clientViewport": 1013,
+    "page": 1013,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-768-dark-library": {
+    "cards": [],
+    "clientViewport": 753,
+    "page": 753,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-768-dark-library": {
+    "cards": [],
+    "clientViewport": 768,
+    "page": 768,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-1024-light-library": {
+    "cards": [],
+    "clientViewport": 1013,
+    "page": 1013,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-1024-dark-library": {
+    "cards": [
+      {
+        "bottom": -1316.078125,
+        "client": 149,
+        "id": "game:758dd2831b",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -1612.046875
+      },
+      {
+        "bottom": -1316.078125,
+        "client": 149,
+        "id": "game:1afeffe82d",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -1612.046875
+      },
+      {
+        "bottom": -1316.078125,
+        "client": 149,
+        "id": "game:c2836463dd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": -1612.046875
+      },
+      {
+        "bottom": -1316.046875,
+        "client": 149,
+        "id": "game:2945907362",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": -1612.046875
+      },
+      {
+        "bottom": -1008.5625,
+        "client": 149,
+        "id": "game:e4efa3b28e",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -1304.53125
+      },
+      {
+        "bottom": -1008.5625,
+        "client": 149,
+        "id": "game:00b3a1b0c3",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -1304.53125
+      },
+      {
+        "bottom": -675.265625,
+        "client": 149,
+        "id": "game:60c15eac40",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -953.53125
+      },
+      {
+        "bottom": -657.546875,
+        "client": 149,
+        "id": "game:017069d4ee",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -953.53125
+      },
+      {
+        "bottom": -675.265625,
+        "client": 149,
+        "id": "game:0df2a8d9dc",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": -953.53125
+      },
+      {
+        "bottom": -675.234375,
+        "client": 149,
+        "id": "game:49fc0ab748",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": -953.53125
+      },
+      {
+        "bottom": -350.046875,
+        "client": 149,
+        "id": "game:0d0e6f48b3",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -646.03125
+      },
+      {
+        "bottom": -350.046875,
+        "client": 149,
+        "id": "game:a5a849065e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -646.03125
+      },
+      {
+        "bottom": -350.046875,
+        "client": 149,
+        "id": "game:779efc4ffd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": -646.03125
+      },
+      {
+        "bottom": -350.015625,
+        "client": 149,
+        "id": "game:8f584b0c4d",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": -646.03125
+      },
+      {
+        "bottom": -42.515625,
+        "client": 149,
+        "id": "game:0a2ae47ef1",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -338.5
+      },
+      {
+        "bottom": -60.234375,
+        "client": 149,
+        "id": "game:a1579e9e50",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -338.5
+      },
+      {
+        "bottom": -42.515625,
+        "client": 149,
+        "id": "game:9fec7936a9",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": -338.5
+      },
+      {
+        "bottom": -42.484375,
+        "client": 149,
+        "id": "game:54c1e7f192",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": -338.5
+      },
+      {
+        "bottom": 265.015625,
+        "client": 149,
+        "id": "game:0039123544",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": -30.96875
+      },
+      {
+        "bottom": 247.296875,
+        "client": 149,
+        "id": "game:d6357bae0e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": -30.96875
+      },
+      {
+        "bottom": 265.015625,
+        "client": 149,
+        "id": "game:c52e62b7c7",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": -30.96875
+      },
+      {
+        "bottom": 265.046875,
+        "client": 149,
+        "id": "game:1123153704",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": -30.96875
+      },
+      {
+        "bottom": 572.546875,
+        "client": 149,
+        "id": "game:95aaa2946f",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 276.5625
+      },
+      {
+        "bottom": 572.546875,
+        "client": 149,
+        "id": "game:2ccf00e4f1",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 276.5625
+      }
+    ],
+    "clientViewport": 1009,
+    "page": 1009,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 1966,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-1366-light-library": {
+    "cards": [],
+    "clientViewport": 1355,
+    "page": 1355,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-1366-light-library": {
+    "cards": [],
+    "clientViewport": 1355,
+    "page": 1355,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-390-dark-library": {
+    "cards": [
+      {
+        "bottom": 666.40625,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 348.90625
+      },
+      {
+        "bottom": 666.421875,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 348.90625
+      },
+      {
+        "bottom": 992.71875,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 675.21875
+      },
+      {
+        "bottom": 992.734375,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 675.21875
+      },
+      {
+        "bottom": 1319.03125,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1001.53125
+      },
+      {
+        "bottom": 1319.046875,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1001.53125
+      },
+      {
+        "bottom": 1668.4375,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1368.640625
+      },
+      {
+        "bottom": 1686.171875,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1368.640625
+      },
+      {
+        "bottom": 1994.765625,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1694.96875
+      },
+      {
+        "bottom": 1994.78125,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1694.96875
+      },
+      {
+        "bottom": 2321.09375,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2003.578125
+      },
+      {
+        "bottom": 2321.109375,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2003.578125
+      },
+      {
+        "bottom": 2647.421875,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2329.90625
+      },
+      {
+        "bottom": 2647.4375,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2329.90625
+      },
+      {
+        "bottom": 2973.75,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2656.234375
+      },
+      {
+        "bottom": 2956.046875,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2656.234375
+      },
+      {
+        "bottom": 3300.0625,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2982.546875
+      },
+      {
+        "bottom": 3282.359375,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2982.546875
+      },
+      {
+        "bottom": 3626.375,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3308.859375
+      },
+      {
+        "bottom": 3608.671875,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3308.859375
+      },
+      {
+        "bottom": 3952.6875,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3635.171875
+      },
+      {
+        "bottom": 3952.703125,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3635.171875
+      },
+      {
+        "bottom": 4279.015625,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3961.5
+      },
+      {
+        "bottom": 4279.03125,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3961.5
+      }
+    ],
+    "clientViewport": 375,
+    "page": 375,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-768-light-library": {
+    "cards": [
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.359375,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 1014.71875,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 695.875
+      },
+      {
+        "bottom": 1014.71875,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 695.875
+      },
+      {
+        "bottom": 1370.890625,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1388.609375,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1370.890625,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1370.921875,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1719.015625,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 2049.390625,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2031.671875,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2049.390625,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2031.703125,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2379.765625,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2362.046875,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2379.765625,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2379.796875,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2710.171875,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 2391.3125
+      },
+      {
+        "bottom": 2710.171875,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 2391.3125
+      }
+    ],
+    "clientViewport": 757,
+    "page": 757,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-1024-dark-library": {
+    "cards": [
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:758dd2831b",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:1afeffe82d",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.921875,
+        "client": 149,
+        "id": "game:c2836463dd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 649.953125,
+        "client": 149,
+        "id": "game:2945907362",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 353.953125
+      },
+      {
+        "bottom": 957.4375,
+        "client": 149,
+        "id": "game:e4efa3b28e",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 661.46875
+      },
+      {
+        "bottom": 957.4375,
+        "client": 149,
+        "id": "game:00b3a1b0c3",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 661.46875
+      },
+      {
+        "bottom": 1290.734375,
+        "client": 149,
+        "id": "game:60c15eac40",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1308.453125,
+        "client": 149,
+        "id": "game:017069d4ee",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1290.734375,
+        "client": 149,
+        "id": "game:0df2a8d9dc",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1290.765625,
+        "client": 149,
+        "id": "game:49fc0ab748",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1012.46875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:0d0e6f48b3",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:a5a849065e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.953125,
+        "client": 149,
+        "id": "game:779efc4ffd",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1615.984375,
+        "client": 149,
+        "id": "game:8f584b0c4d",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1319.96875
+      },
+      {
+        "bottom": 1923.484375,
+        "client": 149,
+        "id": "game:0a2ae47ef1",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1905.765625,
+        "client": 149,
+        "id": "game:a1579e9e50",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1923.484375,
+        "client": 149,
+        "id": "game:9fec7936a9",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 1923.515625,
+        "client": 149,
+        "id": "game:54c1e7f192",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1627.5
+      },
+      {
+        "bottom": 2231.015625,
+        "client": 149,
+        "id": "game:0039123544",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2213.296875,
+        "client": 149,
+        "id": "game:d6357bae0e",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2231.015625,
+        "client": 149,
+        "id": "game:c52e62b7c7",
+        "left": 640.25,
+        "right": 791.609375,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2231.046875,
+        "client": 149,
+        "id": "game:1123153704",
+        "left": 803.125,
+        "right": 954.5,
+        "scroll": 149,
+        "top": 1935.03125
+      },
+      {
+        "bottom": 2538.546875,
+        "client": 149,
+        "id": "game:95aaa2946f",
+        "left": 314.5,
+        "right": 465.859375,
+        "scroll": 149,
+        "top": 2242.5625
+      },
+      {
+        "bottom": 2538.546875,
+        "client": 149,
+        "id": "game:2ccf00e4f1",
+        "left": 477.375,
+        "right": 628.734375,
+        "scroll": 149,
+        "top": 2242.5625
+      }
+    ],
+    "clientViewport": 1009,
+    "page": 1009,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-390-light-library": {
+    "cards": [],
+    "clientViewport": 379,
+    "page": 379,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-390-dark-library": {
+    "cards": [
+      {
+        "bottom": -3103.59375,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -3421.09375
+      },
+      {
+        "bottom": -3103.578125,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -3421.09375
+      },
+      {
+        "bottom": -2777.28125,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -3094.78125
+      },
+      {
+        "bottom": -2777.265625,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -3094.78125
+      },
+      {
+        "bottom": -2450.96875,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -2768.46875
+      },
+      {
+        "bottom": -2450.953125,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -2768.46875
+      },
+      {
+        "bottom": -2101.5625,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -2401.359375
+      },
+      {
+        "bottom": -2083.828125,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -2401.359375
+      },
+      {
+        "bottom": -1775.234375,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -2075.03125
+      },
+      {
+        "bottom": -1775.21875,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -2075.03125
+      },
+      {
+        "bottom": -1448.90625,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -1766.421875
+      },
+      {
+        "bottom": -1448.890625,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -1766.421875
+      },
+      {
+        "bottom": -1122.578125,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -1440.09375
+      },
+      {
+        "bottom": -1122.5625,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -1440.09375
+      },
+      {
+        "bottom": -796.25,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -1113.765625
+      },
+      {
+        "bottom": -813.953125,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -1113.765625
+      },
+      {
+        "bottom": -469.9375,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -787.453125
+      },
+      {
+        "bottom": -487.640625,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -787.453125
+      },
+      {
+        "bottom": -143.625,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -461.140625
+      },
+      {
+        "bottom": -161.328125,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -461.140625
+      },
+      {
+        "bottom": 182.6875,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": -134.828125
+      },
+      {
+        "bottom": 182.703125,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": -134.828125
+      },
+      {
+        "bottom": 509.015625,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 191.5
+      },
+      {
+        "bottom": 509.03125,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 191.5
+      }
+    ],
+    "clientViewport": 375,
+    "page": 375,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 3770,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-1366-dark-library": {
+    "cards": [
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:1afeffe82d",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.59375,
+        "client": 175,
+        "id": "game:c2836463dd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 692.625,
+        "client": 175,
+        "id": "game:2945907362",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 357.53125
+      },
+      {
+        "bottom": 1039.203125,
+        "client": 175,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 704.140625
+      },
+      {
+        "bottom": 1039.203125,
+        "client": 175,
+        "id": "game:00b3a1b0c3",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 704.140625
+      },
+      {
+        "bottom": 1411.59375,
+        "client": 175,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1429.3125,
+        "client": 175,
+        "id": "game:017069d4ee",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1411.59375,
+        "client": 175,
+        "id": "game:0df2a8d9dc",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1411.625,
+        "client": 175,
+        "id": "game:49fc0ab748",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1094.234375
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:a5a849065e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.90625,
+        "client": 175,
+        "id": "game:779efc4ffd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 1775.9375,
+        "client": 175,
+        "id": "game:8f584b0c4d",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1440.828125
+      },
+      {
+        "bottom": 2122.53125,
+        "client": 175,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2104.8125,
+        "client": 175,
+        "id": "game:a1579e9e50",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2122.53125,
+        "client": 175,
+        "id": "game:9fec7936a9",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2104.84375,
+        "client": 175,
+        "id": "game:54c1e7f192",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 1787.453125
+      },
+      {
+        "bottom": 2469.125,
+        "client": 175,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2451.40625,
+        "client": 175,
+        "id": "game:d6357bae0e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2469.125,
+        "client": 175,
+        "id": "game:c52e62b7c7",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2451.4375,
+        "client": 175,
+        "id": "game:1123153704",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": 2134.046875
+      },
+      {
+        "bottom": 2815.71875,
+        "client": 175,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 2480.640625
+      },
+      {
+        "bottom": 2815.71875,
+        "client": 175,
+        "id": "game:2ccf00e4f1",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 2480.640625
+      }
+    ],
+    "clientViewport": 1351,
+    "page": 1351,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-1024-dark-library": {
+    "cards": [],
+    "clientViewport": 1009,
+    "page": 1009,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-390-light-library": {
+    "cards": [],
+    "clientViewport": 390,
+    "page": 390,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-390-dark-library": {
+    "cards": [
+      {
+        "bottom": 666.40625,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 348.90625
+      },
+      {
+        "bottom": 666.421875,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 348.90625
+      },
+      {
+        "bottom": 992.71875,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 675.21875
+      },
+      {
+        "bottom": 992.734375,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 675.21875
+      },
+      {
+        "bottom": 1319.03125,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1001.53125
+      },
+      {
+        "bottom": 1319.046875,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1001.53125
+      },
+      {
+        "bottom": 1668.4375,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1368.640625
+      },
+      {
+        "bottom": 1686.171875,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1368.640625
+      },
+      {
+        "bottom": 1994.765625,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 1694.96875
+      },
+      {
+        "bottom": 1994.78125,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 1694.96875
+      },
+      {
+        "bottom": 2321.09375,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2003.578125
+      },
+      {
+        "bottom": 2321.109375,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2003.578125
+      },
+      {
+        "bottom": 2647.421875,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2329.90625
+      },
+      {
+        "bottom": 2647.4375,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2329.90625
+      },
+      {
+        "bottom": 2973.75,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2656.234375
+      },
+      {
+        "bottom": 2956.046875,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2656.234375
+      },
+      {
+        "bottom": 3300.0625,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 2982.546875
+      },
+      {
+        "bottom": 3282.359375,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 2982.546875
+      },
+      {
+        "bottom": 3626.375,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3308.859375
+      },
+      {
+        "bottom": 3608.671875,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3308.859375
+      },
+      {
+        "bottom": 3952.6875,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3635.171875
+      },
+      {
+        "bottom": 3952.703125,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3635.171875
+      },
+      {
+        "bottom": 4279.015625,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 183.09375,
+        "scroll": 165,
+        "top": 3961.5
+      },
+      {
+        "bottom": 4279.03125,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 191.890625,
+        "right": 359,
+        "scroll": 165,
+        "top": 3961.5
+      }
+    ],
+    "clientViewport": 375,
+    "page": 375,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-768-light-library": {
+    "cards": [
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.328125,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 684.359375,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 365.484375
+      },
+      {
+        "bottom": 1014.71875,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 695.875
+      },
+      {
+        "bottom": 1014.71875,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 695.875
+      },
+      {
+        "bottom": 1370.890625,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1388.609375,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1370.890625,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1370.921875,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1069.75
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1718.984375,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 1719.015625,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1400.125
+      },
+      {
+        "bottom": 2049.390625,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2031.671875,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2049.390625,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2031.703125,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 1730.53125
+      },
+      {
+        "bottom": 2379.765625,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2362.046875,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2379.765625,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2379.796875,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": 2060.90625
+      },
+      {
+        "bottom": 2710.171875,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 2391.3125
+      },
+      {
+        "bottom": 2710.171875,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 2391.3125
+      }
+    ],
+    "clientViewport": 757,
+    "page": 757,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-1024-light-library": {
+    "cards": [
+      {
+        "bottom": -1323.9375,
+        "client": 150,
+        "id": "game:758dd2831b",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -1621.34375
+      },
+      {
+        "bottom": -1323.921875,
+        "client": 150,
+        "id": "game:1afeffe82d",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -1621.34375
+      },
+      {
+        "bottom": -1323.9375,
+        "client": 150,
+        "id": "game:c2836463dd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": -1621.34375
+      },
+      {
+        "bottom": -1323.921875,
+        "client": 150,
+        "id": "game:2945907362",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": -1621.34375
+      },
+      {
+        "bottom": -1015,
+        "client": 150,
+        "id": "game:e4efa3b28e",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -1312.40625
+      },
+      {
+        "bottom": -1014.984375,
+        "client": 150,
+        "id": "game:00b3a1b0c3",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -1312.40625
+      },
+      {
+        "bottom": -680.25,
+        "client": 150,
+        "id": "game:60c15eac40",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -959.953125
+      },
+      {
+        "bottom": -662.515625,
+        "client": 150,
+        "id": "game:017069d4ee",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -959.953125
+      },
+      {
+        "bottom": -680.25,
+        "client": 150,
+        "id": "game:0df2a8d9dc",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": -959.953125
+      },
+      {
+        "bottom": -680.234375,
+        "client": 150,
+        "id": "game:49fc0ab748",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": -959.953125
+      },
+      {
+        "bottom": -353.578125,
+        "client": 150,
+        "id": "game:0d0e6f48b3",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -651
+      },
+      {
+        "bottom": -353.5625,
+        "client": 150,
+        "id": "game:a5a849065e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -651
+      },
+      {
+        "bottom": -353.578125,
+        "client": 150,
+        "id": "game:779efc4ffd",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": -651
+      },
+      {
+        "bottom": -353.5625,
+        "client": 150,
+        "id": "game:8f584b0c4d",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": -651
+      },
+      {
+        "bottom": -44.625,
+        "client": 150,
+        "id": "game:0a2ae47ef1",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -342.046875
+      },
+      {
+        "bottom": -62.328125,
+        "client": 150,
+        "id": "game:a1579e9e50",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -342.046875
+      },
+      {
+        "bottom": -44.625,
+        "client": 150,
+        "id": "game:9fec7936a9",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": -342.046875
+      },
+      {
+        "bottom": -44.609375,
+        "client": 150,
+        "id": "game:54c1e7f192",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": -342.046875
+      },
+      {
+        "bottom": 264.328125,
+        "client": 150,
+        "id": "game:0039123544",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": -33.09375
+      },
+      {
+        "bottom": 246.625,
+        "client": 150,
+        "id": "game:d6357bae0e",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": -33.09375
+      },
+      {
+        "bottom": 264.328125,
+        "client": 150,
+        "id": "game:c52e62b7c7",
+        "left": 642.25,
+        "right": 794.5625,
+        "scroll": 150,
+        "top": -33.09375
+      },
+      {
+        "bottom": 264.34375,
+        "client": 150,
+        "id": "game:1123153704",
+        "left": 806.078125,
+        "right": 958.40625,
+        "scroll": 150,
+        "top": -33.09375
+      },
+      {
+        "bottom": 573.28125,
+        "client": 150,
+        "id": "game:95aaa2946f",
+        "left": 314.578125,
+        "right": 466.890625,
+        "scroll": 150,
+        "top": 275.859375
+      },
+      {
+        "bottom": 573.296875,
+        "client": 150,
+        "id": "game:2ccf00e4f1",
+        "left": 478.40625,
+        "right": 630.734375,
+        "scroll": 150,
+        "top": 275.859375
+      }
+    ],
+    "clientViewport": 1013,
+    "page": 1013,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 1984,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-1366-dark-library": {
+    "cards": [
+      {
+        "bottom": -1550.40625,
+        "client": 175,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -1885.46875
+      },
+      {
+        "bottom": -1550.40625,
+        "client": 175,
+        "id": "game:1afeffe82d",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -1885.46875
+      },
+      {
+        "bottom": -1550.40625,
+        "client": 175,
+        "id": "game:c2836463dd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": -1885.46875
+      },
+      {
+        "bottom": -1550.375,
+        "client": 175,
+        "id": "game:2945907362",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": -1885.46875
+      },
+      {
+        "bottom": -1203.796875,
+        "client": 175,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -1538.859375
+      },
+      {
+        "bottom": -1203.796875,
+        "client": 175,
+        "id": "game:00b3a1b0c3",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -1538.859375
+      },
+      {
+        "bottom": -831.40625,
+        "client": 175,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -1148.765625
+      },
+      {
+        "bottom": -813.6875,
+        "client": 175,
+        "id": "game:017069d4ee",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -1148.765625
+      },
+      {
+        "bottom": -831.40625,
+        "client": 175,
+        "id": "game:0df2a8d9dc",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": -1148.765625
+      },
+      {
+        "bottom": -831.375,
+        "client": 175,
+        "id": "game:49fc0ab748",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": -1148.765625
+      },
+      {
+        "bottom": -467.09375,
+        "client": 175,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -802.171875
+      },
+      {
+        "bottom": -467.09375,
+        "client": 175,
+        "id": "game:a5a849065e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -802.171875
+      },
+      {
+        "bottom": -467.09375,
+        "client": 175,
+        "id": "game:779efc4ffd",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": -802.171875
+      },
+      {
+        "bottom": -467.0625,
+        "client": 175,
+        "id": "game:8f584b0c4d",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": -802.171875
+      },
+      {
+        "bottom": -120.46875,
+        "client": 175,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -455.546875
+      },
+      {
+        "bottom": -138.1875,
+        "client": 175,
+        "id": "game:a1579e9e50",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -455.546875
+      },
+      {
+        "bottom": -120.46875,
+        "client": 175,
+        "id": "game:9fec7936a9",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": -455.546875
+      },
+      {
+        "bottom": -138.15625,
+        "client": 175,
+        "id": "game:54c1e7f192",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": -455.546875
+      },
+      {
+        "bottom": 226.125,
+        "client": 175,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": -108.953125
+      },
+      {
+        "bottom": 208.40625,
+        "client": 175,
+        "id": "game:d6357bae0e",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": -108.953125
+      },
+      {
+        "bottom": 226.125,
+        "client": 175,
+        "id": "game:c52e62b7c7",
+        "left": 677.875,
+        "right": 855.296875,
+        "scroll": 175,
+        "top": -108.953125
+      },
+      {
+        "bottom": 208.4375,
+        "client": 175,
+        "id": "game:1123153704",
+        "left": 866.8125,
+        "right": 1044.25,
+        "scroll": 175,
+        "top": -108.953125
+      },
+      {
+        "bottom": 572.71875,
+        "client": 175,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 477.421875,
+        "scroll": 175,
+        "top": 237.640625
+      },
+      {
+        "bottom": 572.71875,
+        "client": 175,
+        "id": "game:2ccf00e4f1",
+        "left": 488.9375,
+        "right": 666.359375,
+        "scroll": 175,
+        "top": 237.640625
+      }
+    ],
+    "clientViewport": 1351,
+    "page": 1351,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 2243,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-768-dark-library": {
+    "cards": [
+      {
+        "bottom": -1460.328125,
+        "client": 164,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -1777.671875
+      },
+      {
+        "bottom": -1460.328125,
+        "client": 164,
+        "id": "game:1afeffe82d",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -1777.671875
+      },
+      {
+        "bottom": -1460.328125,
+        "client": 164,
+        "id": "game:c2836463dd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": -1777.671875
+      },
+      {
+        "bottom": -1460.296875,
+        "client": 164,
+        "id": "game:2945907362",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": -1777.671875
+      },
+      {
+        "bottom": -1131.4375,
+        "client": 164,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -1448.78125
+      },
+      {
+        "bottom": -1131.4375,
+        "client": 164,
+        "id": "game:00b3a1b0c3",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -1448.78125
+      },
+      {
+        "bottom": -776.765625,
+        "client": 164,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -1076.40625
+      },
+      {
+        "bottom": -759.046875,
+        "client": 164,
+        "id": "game:017069d4ee",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -1076.40625
+      },
+      {
+        "bottom": -776.765625,
+        "client": 164,
+        "id": "game:0df2a8d9dc",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": -1076.40625
+      },
+      {
+        "bottom": -776.734375,
+        "client": 164,
+        "id": "game:49fc0ab748",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": -1076.40625
+      },
+      {
+        "bottom": -430.171875,
+        "client": 164,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -747.53125
+      },
+      {
+        "bottom": -430.171875,
+        "client": 164,
+        "id": "game:a5a849065e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -747.53125
+      },
+      {
+        "bottom": -430.171875,
+        "client": 164,
+        "id": "game:779efc4ffd",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": -747.53125
+      },
+      {
+        "bottom": -430.140625,
+        "client": 164,
+        "id": "game:8f584b0c4d",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": -747.53125
+      },
+      {
+        "bottom": -101.265625,
+        "client": 164,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -418.625
+      },
+      {
+        "bottom": -118.984375,
+        "client": 164,
+        "id": "game:a1579e9e50",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -418.625
+      },
+      {
+        "bottom": -101.265625,
+        "client": 164,
+        "id": "game:9fec7936a9",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": -418.625
+      },
+      {
+        "bottom": -118.953125,
+        "client": 164,
+        "id": "game:54c1e7f192",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": -418.625
+      },
+      {
+        "bottom": 227.609375,
+        "client": 164,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": -89.75
+      },
+      {
+        "bottom": 209.890625,
+        "client": 164,
+        "id": "game:d6357bae0e",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": -89.75
+      },
+      {
+        "bottom": 227.609375,
+        "client": 164,
+        "id": "game:c52e62b7c7",
+        "left": 382.25,
+        "right": 547.859375,
+        "scroll": 164,
+        "top": -89.75
+      },
+      {
+        "bottom": 227.640625,
+        "client": 164,
+        "id": "game:1123153704",
+        "left": 559.375,
+        "right": 725,
+        "scroll": 164,
+        "top": -89.75
+      },
+      {
+        "bottom": 556.515625,
+        "client": 164,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 193.609375,
+        "scroll": 164,
+        "top": 239.15625
+      },
+      {
+        "bottom": 556.515625,
+        "client": 164,
+        "id": "game:2ccf00e4f1",
+        "left": 205.125,
+        "right": 370.734375,
+        "scroll": 164,
+        "top": 239.15625
+      }
+    ],
+    "clientViewport": 753,
+    "page": 753,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 2135,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-768-light-library": {
+    "cards": [],
+    "clientViewport": 757,
+    "page": 757,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-1024-light-library": {
+    "cards": [],
+    "clientViewport": 1013,
+    "page": 1013,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-390-light-library": {
+    "cards": [
+      {
+        "bottom": 673,
+        "client": 167,
+        "id": "game:758dd2831b",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 352.5
+      },
+      {
+        "bottom": 673.015625,
+        "client": 167,
+        "id": "game:1afeffe82d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 352.5
+      },
+      {
+        "bottom": 1002.3125,
+        "client": 167,
+        "id": "game:c2836463dd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 681.8125
+      },
+      {
+        "bottom": 1002.328125,
+        "client": 167,
+        "id": "game:2945907362",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 681.8125
+      },
+      {
+        "bottom": 1331.625,
+        "client": 167,
+        "id": "game:e4efa3b28e",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1011.125
+      },
+      {
+        "bottom": 1331.640625,
+        "client": 167,
+        "id": "game:00b3a1b0c3",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1011.125
+      },
+      {
+        "bottom": 1684.03125,
+        "client": 167,
+        "id": "game:60c15eac40",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1381.234375
+      },
+      {
+        "bottom": 1701.765625,
+        "client": 167,
+        "id": "game:017069d4ee",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1381.234375
+      },
+      {
+        "bottom": 2013.359375,
+        "client": 167,
+        "id": "game:0df2a8d9dc",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 1710.5625
+      },
+      {
+        "bottom": 2013.375,
+        "client": 167,
+        "id": "game:49fc0ab748",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 1710.5625
+      },
+      {
+        "bottom": 2342.6875,
+        "client": 167,
+        "id": "game:0d0e6f48b3",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2022.171875
+      },
+      {
+        "bottom": 2342.703125,
+        "client": 167,
+        "id": "game:a5a849065e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2022.171875
+      },
+      {
+        "bottom": 2672.015625,
+        "client": 167,
+        "id": "game:779efc4ffd",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2351.5
+      },
+      {
+        "bottom": 2672.03125,
+        "client": 167,
+        "id": "game:8f584b0c4d",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2351.5
+      },
+      {
+        "bottom": 3001.34375,
+        "client": 167,
+        "id": "game:0a2ae47ef1",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 2680.828125
+      },
+      {
+        "bottom": 2983.640625,
+        "client": 167,
+        "id": "game:a1579e9e50",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 2680.828125
+      },
+      {
+        "bottom": 3330.65625,
+        "client": 167,
+        "id": "game:9fec7936a9",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3010.140625
+      },
+      {
+        "bottom": 3312.953125,
+        "client": 167,
+        "id": "game:54c1e7f192",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3010.140625
+      },
+      {
+        "bottom": 3659.96875,
+        "client": 167,
+        "id": "game:0039123544",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3339.453125
+      },
+      {
+        "bottom": 3642.265625,
+        "client": 167,
+        "id": "game:d6357bae0e",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3339.453125
+      },
+      {
+        "bottom": 3989.28125,
+        "client": 167,
+        "id": "game:c52e62b7c7",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3668.765625
+      },
+      {
+        "bottom": 3989.296875,
+        "client": 167,
+        "id": "game:1123153704",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3668.765625
+      },
+      {
+        "bottom": 4318.609375,
+        "client": 167,
+        "id": "game:95aaa2946f",
+        "left": 16,
+        "right": 185.09375,
+        "scroll": 167,
+        "top": 3998.09375
+      },
+      {
+        "bottom": 4318.625,
+        "client": 167,
+        "id": "game:2ccf00e4f1",
+        "left": 193.890625,
+        "right": 363,
+        "scroll": 167,
+        "top": 3998.09375
+      }
+    ],
+    "clientViewport": 379,
+    "page": 379,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-playtime-1366-light-library": {
+    "cards": [
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:1afeffe82d",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:c2836463dd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.296875,
+        "client": 176,
+        "id": "game:2945907362",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 1051,
+        "client": 176,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 714.8125
+      },
+      {
+        "bottom": 1051,
+        "client": 176,
+        "id": "game:00b3a1b0c3",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 714.8125
+      },
+      {
+        "bottom": 1424.515625,
+        "client": 176,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1442.234375,
+        "client": 176,
+        "id": "game:017069d4ee",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1424.515625,
+        "client": 176,
+        "id": "game:0df2a8d9dc",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1424.546875,
+        "client": 176,
+        "id": "game:49fc0ab748",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:a5a849065e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:779efc4ffd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.984375,
+        "client": 176,
+        "id": "game:8f584b0c4d",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 2137.703125,
+        "client": 176,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2119.984375,
+        "client": 176,
+        "id": "game:a1579e9e50",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2137.703125,
+        "client": 176,
+        "id": "game:9fec7936a9",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2120.015625,
+        "client": 176,
+        "id": "game:54c1e7f192",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2485.421875,
+        "client": 176,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2467.703125,
+        "client": 176,
+        "id": "game:d6357bae0e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2485.421875,
+        "client": 176,
+        "id": "game:c52e62b7c7",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2485.453125,
+        "client": 176,
+        "id": "game:1123153704",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2833.171875,
+        "client": 176,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 2496.96875
+      },
+      {
+        "bottom": 2833.171875,
+        "client": 176,
+        "id": "game:2ccf00e4f1",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 2496.96875
+      }
+    ],
+    "clientViewport": 1355,
+    "page": 1355,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-stats-1024-dark-library": {
+    "cards": [],
+    "clientViewport": 1009,
+    "page": 1009,
+    "result": "123 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "updated",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-source-390-dark-library": {
+    "cards": [],
+    "clientViewport": 390,
+    "page": 390,
+    "result": "0 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "steam",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-reloaded-1366-light-library": {
+    "cards": [
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:758dd2831b",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:1afeffe82d",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.265625,
+        "client": 176,
+        "id": "game:c2836463dd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 703.296875,
+        "client": 176,
+        "id": "game:2945907362",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 367.078125
+      },
+      {
+        "bottom": 1051,
+        "client": 176,
+        "id": "game:e4efa3b28e",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 714.8125
+      },
+      {
+        "bottom": 1051,
+        "client": 176,
+        "id": "game:00b3a1b0c3",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 714.8125
+      },
+      {
+        "bottom": 1424.515625,
+        "client": 176,
+        "id": "game:60c15eac40",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1442.234375,
+        "client": 176,
+        "id": "game:017069d4ee",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1424.515625,
+        "client": 176,
+        "id": "game:0df2a8d9dc",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1424.546875,
+        "client": 176,
+        "id": "game:49fc0ab748",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1106.03125
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:0d0e6f48b3",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:a5a849065e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.953125,
+        "client": 176,
+        "id": "game:779efc4ffd",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 1789.984375,
+        "client": 176,
+        "id": "game:8f584b0c4d",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1453.75
+      },
+      {
+        "bottom": 2137.703125,
+        "client": 176,
+        "id": "game:0a2ae47ef1",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2119.984375,
+        "client": 176,
+        "id": "game:a1579e9e50",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2137.703125,
+        "client": 176,
+        "id": "game:9fec7936a9",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2120.015625,
+        "client": 176,
+        "id": "game:54c1e7f192",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 1801.5
+      },
+      {
+        "bottom": 2485.421875,
+        "client": 176,
+        "id": "game:0039123544",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2467.703125,
+        "client": 176,
+        "id": "game:d6357bae0e",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2485.421875,
+        "client": 176,
+        "id": "game:c52e62b7c7",
+        "left": 679.375,
+        "right": 857.546875,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2485.453125,
+        "client": 176,
+        "id": "game:1123153704",
+        "left": 869.0625,
+        "right": 1047.25,
+        "scroll": 176,
+        "top": 2149.21875
+      },
+      {
+        "bottom": 2833.171875,
+        "client": 176,
+        "id": "game:95aaa2946f",
+        "left": 300,
+        "right": 478.171875,
+        "scroll": 176,
+        "top": 2496.96875
+      },
+      {
+        "bottom": 2833.171875,
+        "client": 176,
+        "id": "game:2ccf00e4f1",
+        "left": 489.6875,
+        "right": 667.859375,
+        "scroll": 176,
+        "top": 2496.96875
+      }
+    ],
+    "clientViewport": 1355,
+    "page": 1355,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 0,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  },
+  "steam-covers-last-768-light-library": {
+    "cards": [
+      {
+        "bottom": -1468.671875,
+        "client": 165,
+        "id": "game:758dd2831b",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -1787.515625
+      },
+      {
+        "bottom": -1468.671875,
+        "client": 165,
+        "id": "game:1afeffe82d",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -1787.515625
+      },
+      {
+        "bottom": -1468.671875,
+        "client": 165,
+        "id": "game:c2836463dd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": -1787.515625
+      },
+      {
+        "bottom": -1468.640625,
+        "client": 165,
+        "id": "game:2945907362",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": -1787.515625
+      },
+      {
+        "bottom": -1138.28125,
+        "client": 165,
+        "id": "game:e4efa3b28e",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -1457.125
+      },
+      {
+        "bottom": -1138.28125,
+        "client": 165,
+        "id": "game:00b3a1b0c3",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -1457.125
+      },
+      {
+        "bottom": -782.109375,
+        "client": 165,
+        "id": "game:60c15eac40",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -1083.25
+      },
+      {
+        "bottom": -764.390625,
+        "client": 165,
+        "id": "game:017069d4ee",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -1083.25
+      },
+      {
+        "bottom": -782.109375,
+        "client": 165,
+        "id": "game:0df2a8d9dc",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": -1083.25
+      },
+      {
+        "bottom": -782.078125,
+        "client": 165,
+        "id": "game:49fc0ab748",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": -1083.25
+      },
+      {
+        "bottom": -434.015625,
+        "client": 165,
+        "id": "game:0d0e6f48b3",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -752.875
+      },
+      {
+        "bottom": -434.015625,
+        "client": 165,
+        "id": "game:a5a849065e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -752.875
+      },
+      {
+        "bottom": -434.015625,
+        "client": 165,
+        "id": "game:779efc4ffd",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": -752.875
+      },
+      {
+        "bottom": -433.984375,
+        "client": 165,
+        "id": "game:8f584b0c4d",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": -752.875
+      },
+      {
+        "bottom": -103.609375,
+        "client": 165,
+        "id": "game:0a2ae47ef1",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -422.46875
+      },
+      {
+        "bottom": -121.328125,
+        "client": 165,
+        "id": "game:a1579e9e50",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -422.46875
+      },
+      {
+        "bottom": -103.609375,
+        "client": 165,
+        "id": "game:9fec7936a9",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": -422.46875
+      },
+      {
+        "bottom": -121.296875,
+        "client": 165,
+        "id": "game:54c1e7f192",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": -422.46875
+      },
+      {
+        "bottom": 226.765625,
+        "client": 165,
+        "id": "game:0039123544",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": -92.09375
+      },
+      {
+        "bottom": 209.046875,
+        "client": 165,
+        "id": "game:d6357bae0e",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": -92.09375
+      },
+      {
+        "bottom": 226.765625,
+        "client": 165,
+        "id": "game:c52e62b7c7",
+        "left": 384.25,
+        "right": 550.859375,
+        "scroll": 165,
+        "top": -92.09375
+      },
+      {
+        "bottom": 226.796875,
+        "client": 165,
+        "id": "game:1123153704",
+        "left": 562.375,
+        "right": 729,
+        "scroll": 165,
+        "top": -92.09375
+      },
+      {
+        "bottom": 557.171875,
+        "client": 165,
+        "id": "game:95aaa2946f",
+        "left": 28,
+        "right": 194.609375,
+        "scroll": 165,
+        "top": 238.3125
+      },
+      {
+        "bottom": 557.171875,
+        "client": 165,
+        "id": "game:2ccf00e4f1",
+        "left": 206.125,
+        "right": 372.734375,
+        "scroll": 165,
+        "top": 238.3125
+      }
+    ],
+    "clientViewport": 757,
+    "page": 757,
+    "result": "120 条目",
+    "scrollX": 0,
+    "scrollY": 2153,
+    "sort": "playtime",
+    "source": "",
+    "steamStats": [
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      },
+      {
+        "text": "— Steam 数据暂不可用",
+        "unavailable": true
+      }
+    ]
+  }
+}
