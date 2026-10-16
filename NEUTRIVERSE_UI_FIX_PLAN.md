@@ -56,6 +56,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08h validation-pending：真实评分审计实现585126e1533ea5aeb2b9b2c822499955b4702da8已expected_sha非强推保存ui/audit-008h，6个上传blob与本地hash逐项相同。本地228 tests、authoring44/5/7、T01保护44/5/5和diff通过；云1363 Light分类切换与真实键盘提示/退出隐藏正常，未确认新产品缺陷。main仍3d822d56；随后仅追加实现SHA记录，最终检查点head production192+14、新32图/8流程与main部署/live需分别验收，不以单测或其他提交CI替代。无新用户决策，完整库存/离屏加载、Steam与其他全站项pending。
+
 UI-A08h in-progress（2026-10-16）：base main3d822d563af3b798a98887d3f35505496931d63c，精确run38849000797 build116805821290/deploy116808150183/live116808204281全部success。已读仓库约束/ADR及旧COMPLETE计划报告，CONTEXT不存在、gh未安装。范围仅tools/check_think_build_visual.py、必要审计回归、UI计划日志及docs/ui-evidence/uia08h*公开证据；云1363×936 Light书籍/音乐评分切换及Shift+Tab末端点提示已实际操作并看图，未确认新产品缺陷。拟补四宽度双主题八分类评分/摘要、真实键盘端点提示及退出隐藏、刷新默认恢复，32状态图与几何；未验证留ui/audit-008h，不改产品/数据/旧内容，不合main。完整库存/离屏加载、Steam及全站余项仍pending，无新用户决策。
 
 UI-A08g限定done（2026-10-16）：base/验收main b95bba7ccf511b0797c004621764c79112acf792，[run38843916122](https://github.com/AplusNeutrino/My_Blog/actions/runs/38843916122) build116789975836/deploy116792410025/live116792468638全部success；227 tests、4 Ruby、T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12022769374摘要独立匹配，人工看32张四宽度双主题目录/分类/刷新/空状态两联系表，放大390 Light分类长标题、390 Night空提示与1024 Light刷新原图，未新增确认缺陷。8愿望单流程与32元素诊断和生产一致，计数/分类隔离/刷新URL与ID/空提示/两级返回及书籍原ID恢复通过，无横向溢出/scrollX。本轮仅UI计划日志及docs/ui-evidence/uia08g*公开live证据，不改产品/数据/旧COMPLETE；新文档head CI另核对。无新用户决策，全站IN PROGRESS，下一项Library评分控件，完整库存/离屏加载、Steam及其他全站项pending。[证据](docs/ui-evidence/uia08g-checks.md#2026-10-16-精确main线上验收)。
