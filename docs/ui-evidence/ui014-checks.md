@@ -1,5 +1,25 @@
 # UI-014 — OBSERVE / ABOUT 说明段避让固定按钮
 
+状态：production限定验收通过；main部署/线上同场景复验validation-pending，不标done。
+
+## 2026-10-17 精确production验收
+
+- 实现 `ad1540d04b1acb161fe6820cf099c1471f249b0f` / [run39031283966](https://github.com/AplusNeutrino/My_Blog/actions/runs/39031283966)：build117392071294 success；deploy117395105647/live117395105624 skipped（分支，不是已部署）。254 tests/Ruby/T01/authoring/production Jekyll与产物/所有旧门禁、192+14及24public通过。
+- artifact12100198625，494296408 bytes，独立sha256 `249226eb5ece06604da78ba0fb83b53635f4d4c056b29b5e5565e41cefb75d98` 与Actions匹配。
+- 人工查看OBSERVE/ABOUT四宽度双主题16流程121原生滚动帧的[全部34联系表](ui014-production-contacts/)，放大[OBSERVE390 Light](ui014-production-observe-390-light.png)与[ABOUT390 Night](ui014-production-about-390-dark.png)，与本文原图对照：文字已在按钮左侧换行，全文可读，主题/外框/字号保留。其余首页56帧未在此轮重新人工验收，不声称本次177图全人工通过。
+- [24流程摘要](ui014-production-summary.json)保存16流程逐帧文字行/按钮矩形与空overlaps；目标恰好一个且含正文，所有帧严格交集通过。16流程连续覆盖/无横向溢出/真实返回顶部与公开目标往返通过。
+- 生产通过仅针对UI014两个说明容器，不等于OBSERVE/ABOUT整页正常。新UI015见下；本次只加证据后可交付已验收修复main，新main自身build/deploy/live及相同场景人工复验仍须核对。无新用户决策，gh不可用不编造Issue。
+
+## 新独立队列 UI-015（尚未修复）
+
+实际390 Night原图放大确认，均来自同一artifact：
+
+- [ABOUT理念段第6帧](ui015-before-about-principle-390-dark.png)：固定按钮覆盖“新的结构”尾端。
+- [ABOUT待阅读日期第11帧](ui015-before-about-date-390-dark.png)：2026/02/06尾端被按钮盖住。
+- [OBSERVE卡片状态第3帧](ui015-before-observe-meta-390-dark.png)：Occult Atlas的“应用保持 NOINDEX”末端被按钮盖住。
+
+这些不是本文已修两个说明容器，列P2下一独立最小范围，不改全站按钮或作者内容；A09整体不标done。
+
 ## 实现前范围（2026-10-17）
 
 - Task ID：UI-014，P2；base main `fa23a32cf5f41b8fd6e47a3aebda7197213fb84e`。

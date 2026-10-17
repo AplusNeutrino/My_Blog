@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI014生产视觉限定通过；UI015新确认
+
+- fresh main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e，工作实现ad1540d04b1acb161fe6820cf099c1471f249b0f；独立worktree保留原目录用户修改。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮计划日志及用户补充已核对，CONTEXT无，gh不在PATH，不编造Issue，无新用户决策。
+- [run39031283966](https://github.com/AplusNeutrino/My_Blog/actions/runs/39031283966) build117392071294 success；deploy117395105647/live117395105624 skipped符合工作分支条件。254 tests、Ruby渲染回归、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/所有旧门禁、主192/侧栏14、新公开24流程通过。本机254 tests/authoring/T01/diff再次通过，本机未运行Jekyll/Chrome。
+- artifact12100198625 /494296408 bytes /sha256:249226eb5ece06604da78ba0fb83b53635f4d4c056b29b5e5565e41cefb75d98下载独立匹配。全部生成177帧，本轮只人工验收OBSERVE/ABOUT16流程121帧的34联系表，放大390 Light OBSERVE第2与390 Night ABOUT第3修复后原图，以及ABOUT第6/11和OBSERVE第3确认新问题。首页56帧未重复人工验收；原PNG包保留14天，34联系表/24流程摘要/两修复后原图/三新问题原图永久入库。
+- UI014两个说明容器真实文字行在四宽度双主题所有帧无按钮交集、目标存在且含正文，原390两场景中文字完整；不改变主题/外框/字号。16流程真实滚轮覆盖、返回顶部和公开详情/Library/友链往返通过，生产限定验收可独立交付main。新main自身build/deploy/live及同场景人工截图仍validation-pending；不把工作分支成功冒充线上修好。
+- 新实际确认UI015/P2：390 Night ABOUT第6帧理念“连续性比重写更重要”段“新的结构”尾字被圆钮盖住；第11帧待阅读栈日期2026/02/06尾端被盖；OBSERVE第3帧Occult Atlas卡片“应用保持 NOINDEX”状态尾端被盖。原生PNG均已放大查看保存，不是仅DOM推测；与UI014两个说明容器不同作用域，排下一独立最小修复，未动产品。ABOUT其他靠近处不扩大已确认范围，旧br/倒计时保留，不凭审美删改。
+- 本轮仅追加计划/日志/公开证据，无新增产品修改，原文/metadata/文件名/date/slug/permalink/旧URL/hidden/noindex与外部仓库不动，旧COMPLETE不改。A09整页及全站仍IN PROGRESS，不暂停任务。下一项先核对新main精确head部署/live，再处理UI015。
+
 ## 2026-10-17 — UI014最小实现，等待精确生产验收
 
 - fresh main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e；[run39027206328](https://github.com/AplusNeutrino/My_Blog/actions/runs/39027206328) build117380439666、deploy117383385470、verify-live-ui117383421916全部completed/success。关闭该证据提交CI pending，不冒称UI014通过。独立worktree保留原目录用户字体/pyc/未跟踪基线修改；已核对AGENTS/docs/agents/ADR/旧COMPLETE计划报告和本轮计划日志，CONTEXT无。gh CLI不在PATH，按规范不使用API创建替代Issue，没有虚构编号。

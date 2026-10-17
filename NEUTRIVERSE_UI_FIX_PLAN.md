@@ -17,7 +17,8 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | validation-pending | 窄屏两个说明容器最小右侧文字通道已实现，新增逐行Range/缺失作用域拒绝；本机254 tests/T01/authoring通过，ui/fix-014新head production/人工图/main/live尚未验收 |
+| UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期及OBSERVE卡片noindex状态被固定按钮覆盖 | confirmed / queued | ad1540d0生产原图已放大确认并保存；与UI014两个说明容器不同作用域，下一独立最小修复，不凭现有CI成功标正常 |
+| UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | validation-pending | ad1540d0精确production build成功；16流程121原生帧34联系表全部已看、原390两场景放大通过，文字行无按钮交集；待新main自身build/deploy/live同场景复验 |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
 | UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图已看，原390 Night Z.A.T.O.原图放大对照无文字遮挡，逐行Range与返回顶部/四入口往返通过 |
 | UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | done | 831f2898精确main build/deploy/live通过；四宽度双主题48线上图已人工看并放大原遮挡场景，计数完整且按钮可操作；8组逐行滚动/往返/真实返回顶部、48诊断及192+14通过 |
@@ -65,6 +66,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-17 UI014生产限定通过：ad1540d04b1acb161fe6820cf099c1471f249b0f /run39031283966 build117392071294 success、deploy117395105647/live117395105624 skipped（工作分支）。254 tests/Ruby/T01/authoring/Jekyll/全部旧门禁、192+14及24public通过；artifact12100198625独立摘要匹配。人工看OBSERVE/ABOUT四宽度双主题121帧34联系表，放大原390两场景，UI014说明段遮挡已消除，16流程真实返回顶部/公开往返通过。本次只追加证据，可交付已验收最小产品修复至main；新main自身CI/部署/live仍pending，不标done。另放大确认UI015理念段/书目日期/卡片状态仍遮挡，排下一项，A09与全站不标正常；无新用户决策，gh不可用不编造Issue。[UI014](docs/ui-evidence/ui014-checks.md)。
 
 2026-10-17 UI014实现待验：base main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e /run39027206328 build117380439666、deploy117383385470、live117383421916全部success，关闭上一证据head的CI pending。本轮重新查看390 Light OBSERVE/390 Night ABOUT原图，先记录范围后仅<=767.98px给两明确说明容器增加2.75rem右padding；不改共享按钮、原文或数据。原首页Range保留，新增两页目标必须存在且有文字/逐行严格无按钮交集，失败保存PNG/JSON。本机254 tests、authoring44/5/7、T01保护44/5/5、diff通过；没有本机Jekyll/Chrome，精确新head production/人工截图/main/live均pending，留ui/fix-014，不合main。gh不在PATH，不编造Issue；无新用户决策，不将静态测试当视觉验收。下一轮先核对同一分支head。[UI014范围与验收](docs/ui-evidence/ui014-checks.md)。
 
