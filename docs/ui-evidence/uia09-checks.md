@@ -2,6 +2,15 @@
 
 状态：validation-pending。base main53787e0bbe111da193918ee959e82780b58d87c3；精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。旧UI-A08k限定done不重启。
 
+## d91精确生产首次失败与同head重试（2026-10-17）
+
+永久代表原图：[UI-013实际遮挡](ui013-before-home-768-dark.png)、[UI-012原场景局部生产复查](ui012-production-partial-home-390-dark.png)。后者仅partial，不代表完整验收或已部署。
+
+- head d91bd7217515eb3edfad65951b7e958af2182218 / [run39008835671](https://github.com/AplusNeutrino/My_Blog/actions/runs/39008835671)，首次build117326775861 failure，deploy117329051203/live117329051171 skipped。248 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源通过，主144/192、新public18/24、139原生滚动图，sidebar0。
+- [artifact12092431014](https://github.com/AplusNeutrino/My_Blog/actions/runs/39008835671/artifacts/12092431014)，331640994 bytes，独立sha256:e0412461f80d5330b9003358ee9e35b76aa1d1676dfc0a2a841adb3f39e5fb8f。scene-failure.png/json对应1366 Night THINK；字体就绪document.fonts.ready脚本超时约30秒，没有字体诊断不能断言根因。截图已看，内容可见不等于门禁通过。
+- 已看六组首页联系表及390 Night3/4、390 Light4、768/1024 Night5原图。近期表达六组Range无交集，390 Z.A.T.O.旧场景无遮挡；没有验收全部139图、1366或线上。768 Night第5帧确认UI-013精选内容正文被按钮遮挡，列独立最小队列；其余主题/尺寸待检，不凭推测改CSS。
+- 已触发同head失败job重试，attempt2 build117337553687运行中，所有等待/时限/门禁原样。不移动ui/audit-009/main以免取消重试；本记录另存verification/ui-a09-d91-retry。下一轮先核对同head结果；完整production/main/live仍pending，无新用户决策。
+
 ## 范围先记录（2026-10-17）
 
 ## 2026-10-17 — 定位返回悬停过渡阻塞；UI-012最小修复待验

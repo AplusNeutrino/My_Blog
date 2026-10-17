@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — d91同head重试与UI-013实际复现
+
+- base/main53787e0bbe111da193918ee959e82780b58d87c3、工作head d91bd7217515eb3edfad65951b7e958af2182218已fresh fetch核对，原目录用户字体/pyc/未跟踪基线未动。AGENTS及docs/agents、ADR和本轮计划日志重读；旧COMPLETE计划/报告与main无差异，不重跑T00–T39。gh仍未安装，不编造Issue。
+- [run39008835671](https://github.com/AplusNeutrino/My_Blog/actions/runs/39008835671)首次build117326775861 failure，deploy117329051203/live117329051171 skipped。248 tests、4 Ruby、T01、authoring44/5/7、production Jekyll、SEO/资源通过；主144/192、新public18/24、139原生滚动图，侧栏0，不宣称整矩阵通过。
+- 失败在1366 Night首个THINK场景settle的document.fonts.ready async script timeout约30秒，不是之前background-color有限动画等待；scene-failure.png画面可见、JSON模式dark/菜单关闭，但没有字体加载诊断，不能确认字体根因或据此改产品。仅重试同head失败jobs，attempt2 build117337553687运行中；原等待/时限/门禁不变，不移动ui/audit-009或main，避免取消重试。
+- artifact12092431014 /331640994 bytes /sha256:e0412461f80d5330b9003358ee9e35b76aa1d1676dfc0a2a841adb3f39e5fb8f独立匹配。已看390/768/1024双主题六组首页联系表、390 Night第3/4帧、390 Light第4帧及768/1024 Night第5帧原图；不是139图全部验收。UI-012原Z.A.T.O.正文无遮挡，六组近期表达逐行交集门禁通过，1366和完整production/main/live仍pending。
+- 新确认UI-013/P2：768 Night原生public-sweep-home-768-dark-5.png中，精选内容右下Progressive Disclosure卡片正文“强烈的参…”右端被固定按钮覆盖。截图来自上述精确artifact，与近期表达CSS作用域不同，列最小独立队列；1024 Night按钮也靠近正文，但未据此扩大已确认尺寸。下一项先核对同head重试，再定位精选卡片避让与必要文字行回归，不改全站按钮或重新设计。无新用户决策。
+- 本次仅四份计划/日志/证据文档及两张代表原图，记录分支verification/ui-a09-d91-retry；UI-012/UI-A09保持validation-pending，全站IN PROGRESS。未部署新产品修改，不暂停尚未完成的任务。
+
 ## 2026-10-17 — UI-012最小修复与返回悬停阻塞定位
 
 - 修复实现be98b7b00369e789f3c65cf38916bc5c2e0ba37f，9个远程blob与本地hash一致；随后仅追加SHA检查点保存ui/audit-009，最终head生产及截图仍validation-pending。main未改，不以代码存在或248测试通过冒充UI-012验收完成。
