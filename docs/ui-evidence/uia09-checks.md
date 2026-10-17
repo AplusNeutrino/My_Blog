@@ -2,6 +2,10 @@
 
 状态：validation-pending。base main53787e0bbe111da193918ee959e82780b58d87c3；精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。旧UI-A08k限定done不重启。
 
+## 563d字体状态定位（2026-10-17）
+
+精确563d054f5c975eca6aaaa583edee18910bdc09de / [run39015972699](https://github.com/AplusNeutrino/My_Blog/actions/runs/39015972699)：build117348035702 failure，deploy117349896137/live117349895961 skipped。250 tests/4 Ruby/T01/authoring/Jekyll/前置门禁通过，主144/192、新public18/24、139滚动帧、侧栏0。artifact12095147120 /331569201 bytes /sha256:31a16316b1663752bcac01ad731beec225b490129d3c6d66dfb94538357473dc独立匹配。失败原图及768 Night精选/390 Night近期原场景实际看，遮挡已避让但139图未全验收。失败FontFaceSet loading，Noto Sans SC400/500/600三个面loading，其余128 loaded/435 unloaded；不能将未使用unloaded当失败。仅补Unicode/Font网络请求事件诊断，原字体ready/30s/动画门禁不变，详见[uia09-font-wait-checks.md](uia09-font-wait-checks.md)。无产品追加改动，main仍53787e0b，完整production/main/live pending。
+
 ## d91精确生产首次失败与同head重试（2026-10-17）
 
 接续：attempt2 build117337553687 failure，deploy117339610923/live117339611045 skipped，同一1366 Night THINK document.fonts.ready约30s脚本超时。artifact12093428361 /331496554 bytes /sha256:022d4f9e84169d80fe447afac180acb12dc7e9b64f4c05404b63780e20f46aab独立匹配；主144、新public18、139帧、侧栏0。本次失败原图已看，未看完139图，不称验收。现增加字体状态/FontFace/字体资源失败诊断，原等待/时限/失败重抛不变；UI-013另按先记录的最小范围修复并扩展文字交集门禁，见ui013-checks.md。新head production/完整视觉/main/live保持pending，不用旧main成功替代。

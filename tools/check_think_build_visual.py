@@ -51,6 +51,32 @@ def visible_count(driver, kind):
     )
 
 
+def font_network_events(entries):
+    """Keep only font request metadata, never headers or unrelated requests."""
+    fonts = {}
+    for entry in entries:
+        event = json.loads(entry['message'])['message']
+        method, params = event['method'], event.get('params', {})
+        request_id = params.get('requestId')
+        if method == 'Network.requestWillBeSent' and params.get('type') == 'Font':
+            fonts[request_id] = {'requestId': request_id, 'url': params['request']['url'],
+                                 'requestedAt': params.get('timestamp'), 'state': 'pending'}
+        elif method == 'Network.responseReceived' and params.get('type') == 'Font':
+            response = params['response']
+            row = fonts.setdefault(request_id, {'requestId': request_id, 'url': response['url'], 'state': 'pending'})
+            row.update({'status': response['status'], 'protocol': response.get('protocol'),
+                        'fromDiskCache': response.get('fromDiskCache'),
+                        'respondedAt': params.get('timestamp')})
+        elif request_id in fonts and method == 'Network.loadingFinished':
+            fonts[request_id].update({'state': 'finished', 'finishedAt': params.get('timestamp'),
+                                      'encodedDataLength': params.get('encodedDataLength')})
+        elif request_id in fonts and method == 'Network.loadingFailed':
+            fonts[request_id].update({'state': 'failed', 'failedAt': params.get('timestamp'),
+                                      'errorText': params.get('errorText'),
+                                      'canceled': params.get('canceled'), 'blockedReason': params.get('blockedReason')})
+    return list(fonts.values())
+
+
 def settle(driver, wait, theme):
     wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
     # Visiting an article through Archive deliberately stores a collapsed
@@ -1579,6 +1605,8 @@ def main():
     require(chrome, 'Chrome executable missing')
     options = webdriver.ChromeOptions()
     options.binary_location = chrome
+    options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
+    options.add_experimental_option('perfLoggingPrefs', {'enableNetwork': True, 'enablePage': False})
     for arg in ('--headless=new', '--no-sandbox', '--disable-dev-shm-usage'):
         options.add_argument(arg)
     results = []
@@ -1603,6 +1631,8 @@ def main():
                 })
                 for theme in ('dark', 'light'):
                     for name, path, count in SCENARIOS:
+                        # Bound diagnostic memory and tie network metadata to this navigation.
+                        driver.get_log('performance')
                         driver.get(base + path)
                         print(json.dumps({'scene':name,'window':[width,height],'theme':theme}), flush=True)
                         try:
@@ -1615,13 +1645,17 @@ def main():
                                 open:document.body.hasAttribute('sidebar-display'),focus:document.activeElement.id,
                                 readyState:document.readyState,fontSetStatus:document.fonts.status,
                                 fonts:[...document.fonts].map(f=>({family:f.family,status:f.status,
-                                  style:f.style,weight:f.weight,display:f.display})),
+                                  style:f.style,weight:f.weight,display:f.display,unicodeRange:f.unicodeRange})),
                                 fontResources:performance.getEntriesByType('resource')
                                   .filter(r=>/\.(woff2?|ttf|otf)(\?|$)/i.test(r.name))
                                   .map(r=>({name:r.name,duration:r.duration,responseEnd:r.responseEnd,
                                     transferSize:r.transferSize,decodedBodySize:r.decodedBodySize})),
                                 toggle:r?{x:r.x,y:r.y,w:r.width,h:r.height,display:getComputedStyle(e).display}:null};
                             """)
+                            try:
+                                failure['fontNetwork'] = font_network_events(driver.get_log('performance'))
+                            except Exception as diagnostic_error:
+                                failure['fontNetworkDiagnosticError'] = str(diagnostic_error)
                             (output / 'scene-failure.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2),encoding='utf-8')
                             raise
                         kind = 'think' if name.startswith('think') else 'build'

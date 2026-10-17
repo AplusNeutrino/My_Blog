@@ -65,6 +65,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+2026-10-17 UI-A09-F字体阻塞定位：563d054f/run39015972699 build117348035702 failure，deploy117349896137/live117349895961 skipped；250 tests/Ruby/T01/authoring/Jekyll/前置门禁通过，主144/192、新public18/24、139帧/侧栏0。artifact12095147120摘要匹配，失败图及UI-013 768 Night/ UI-012 390 Night原图实际看，遮挡已避让但完整视觉未验收。字体集合loading，具体为Noto Sans SC400/500/600三个面；不猜CDN根因。仅补Unicode/Font网络事件诊断，不改产品/缓存/字体/等待门槛，252 tests/authoring/T01/diff通过。保存ui/audit-009，main53787e0b不动，原图/诊断及旧失败保留；无新用户决策，gh不可用不编造Issue。下一轮核对精确新head生产及网络诊断，UI012/013/A09仍pending。[证据](docs/ui-evidence/uia09-font-wait-checks.md)。
+
 2026-10-17 UI-013实现待验：base工作78d01a32、main53787e0b不动；d91/run39008835671 attempt2 build117337553687仍失败于1366 Night THINK document.fonts.ready约30s，deploy117339610923/live117339611045 skipped。artifact12093428361独立摘要匹配，144主/18新流程/139帧/侧栏0，失败原图实际看，不称全验收。本轮先记录ui013范围后仅精选网格外列/单列避让，扩展逐行Range门禁；字体失败补状态诊断并原样抛错，不延长/跳过等待。250 tests/authoring/T01/diff通过，新精确production/完整视觉/main/live pending，留ui/audit-009；合入78d01a32真实失败记录与原图，不覆盖用户修改或旧COMPLETE。无新用户决策，gh未安装不编造Issue。[证据](docs/ui-evidence/ui013-checks.md)。
 
 2026-10-17接续：d91bd721 / run39008835671首次build117326775861失败于1366 Night THINK document.fonts.ready脚本30s超时（非此前有限动画等待）；248 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源通过，主144/192、新public18/24、139滚动帧，侧栏0。artifact12092431014摘要独立匹配。实际查看六组首页联系表及390双主题Z.A.T.O.原图，近期表达已避让；768 Night精选卡片第5帧确认UI-013，未将全首页标通过。139图未全验收。已重试同head，attempt2 build117337553687运行中，不延长等待或改门禁，不移动main53787e0b或ui/audit-009以免取消重试；记录另存verification/ui-a09-d91-retry。无新用户决策；下一项同head完整验收后处理UI-013。[记录](docs/ui-evidence/uia09-checks.md)。

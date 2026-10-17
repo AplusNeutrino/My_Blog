@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A09-F三字体面loading定位；保留部分修复图
+
+- fresh main53787e0bbe111da193918ee959e82780b58d87c3、ui/audit-009563d054f5c975eca6aaaa583edee18910bdc09de，独立worktree不动用户修改。AGENTS/docs/agents/ADR与本轮计划日志、旧COMPLETE计划报告已核对，CONTEXT无；gh不可用不编造Issue，无新用户决策。旧COMPLETE与main无差异，不重跑T00–T39。
+- [run39015972699](https://github.com/AplusNeutrino/My_Blog/actions/runs/39015972699) build117348035702 failure，deploy117349896137/live117349895961 skipped；250 tests/4 Ruby/T01/authoring/Jekyll/Search/feed/SEO/资源/前置门禁通过，主144/192、新public18/24、139帧、侧栏0。artifact12095147120 /331569201 bytes /sha256:31a16316b1663752bcac01ad731beec225b490129d3c6d66dfb94538357473dc独立匹配。
+- 实际看本次失败1366 Night THINK原图、768 Night精选第5帧、390 Night近期第4帧。UI-013/012原遮挡位置文字已避让；未看完139图、不标全验收。失败document.readyState complete，FontFaceSet loading；566面中128 loaded、435 unloaded、3 loading（Noto Sans SC normal400/500/600 swap）。未使用unloaded不是错误；已完成51字体资源时序无法说明未完成分片，不能断言CDN故障/产品字体损坏。原JSON与UI013修复后部分原图入库。
+- 先记UI-A09-F范围后只增FontFace unicodeRange和Font网络请求/响应/完成/失败诊断；不改产品/缓存/字体、30s ready等待、20s有限动画等待、192+14/24流程或其余门禁。每主场景导航前排空旧性能日志，失败保存Font白名单字段，不输出headers/其他请求；诊断异常另记，原始失败仍raise。
+- 新增2项实际事件解析/接线回归，本机252 tests、authoring44/5/7、T01保护44/5/5、diff通过；本机无Ruby/Jekyll/Chrome。精确新head production/字体根因/完整视觉/main/live仍pending，留ui/audit-009，main不动，未部署。没有新增产品缺陷、用户问题或额外任务；下一轮先核对同head网络诊断，不盲目重试或猜测改样式。
+
 ## 2026-10-17 — UI-013最小实现；字体等待重复失败诊断
 
 - 真实实现eba88e0fcb3b3c2fbd5d0e2a55529fe21b1cd379，7个blob与本地hash逐项相同；随后只追加SHA检查点。最终分支head CI/生产截图尚待核对，不以代码存在代替UI-013视觉验收。

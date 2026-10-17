@@ -13,6 +13,8 @@
 
 ## 实现与真实验证边界
 
+- 2026-10-17接续：精确563d054f/run39015972699 build117348035702 failure、deploy117349896137/live117349895961 skipped；250 tests/4 Ruby/T01/authoring/Jekyll等通过，主144、新public18、139帧、侧栏0。实际看[768 Night原第5帧修复后](ui013-production-partial-home-768-dark.png)，正文已避开按钮，390 Night近期第4帧旧场景也正常；只属部分生产验证，未验收全部139图或1366/main/live。字体诊断3个Noto Sans SC400/500/600仍loading，另补请求诊断详见uia09-font-wait-checks.md，原门禁不变。
+
 - 真实实现提交eba88e0fcb3b3c2fbd5d0e2a55529fe21b1cd379，7个上传blob均与本地git hash-object一致；随后只追加SHA检查点。最终分支head精确CI须独立核对，当前未交付main。
 
 - 根因：精选卡片padding1rem，两列网格的最右列文字进入固定44px按钮区域；与UI-012近期表达不同选择器。768–1199.98px仅:nth-child(2n)卡片增加2.75rem右内边距；<=767.98px单列全部卡片同样避让；>=1200px保持原辅助栏布局。边框/列数/字号/DOM/数据/按钮未改。
