@@ -4,6 +4,13 @@
 
 ## 范围先记录（2026-10-17）
 
+## 2026-10-17 — 定位返回悬停过渡阻塞；UI-012最小修复待验
+
+- 精确37fa1d786d415388edd7d0559a08cdfda5112ea5 / [run39004907637](https://github.com/AplusNeutrino/My_Blog/actions/runs/39004907637)：build117315276681 failure，deploy117317704915/live117317705669 skipped。246 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源与既有主192场景通过；新public完成21/24，生成162滚动帧，侧栏0完成。没有人工验收全部162图，不当成完整通过。
+- artifact12090578680 /485643590 bytes /sha256:7148d9cb1248a08ed9287fb84e3d514564c4df664a9a2fca75ea6938f29de708独立匹配。[失败诊断](uia09-return-stalled-1366-light.json)/[原生PNG](uia09-return-stalled-1366-light.png)入库；原图已人工看，1366 Light返回OBSERVE入口处没有内容消失，但有限动画等待未完成，不能因画面正常放行。
+- 阻塞对象为返回入口background-color过渡，duration180/iterations1/state running/currentTime0/startTime null。永久装饰旋转为Infinity，不是原等待的阻塞项。浏览器内部停滞机制仍不作未证实推断；本次真实指针移出悬停后再走同一settle，保留失败重抛与快照，不取消动画或删等待。
+- 同时按先记录的[UI-012最小范围](ui012-checks.md)为首页近期表达预留按钮避让内边距，新增逐行Range/按钮不相交严格门禁。248 tests/authoring/T01/diff本机通过；新精确head production/全部24流程截图/人工视觉及main/live仍pending，main保持53787e0b，不冒称已修复部署。无新用户决策，gh不可用不编造Issue。
+
 ## 2026-10-17 — 首次失败与UI-012新复现
 
 - 精确head8831153b2e190a312628e8e3c9ca808d0403bea4 / [run39001620617](https://github.com/AplusNeutrino/My_Blog/actions/runs/39001620617)：build117305564644 failure，deploy117306200350/live117306198823 skipped。245 tests、4 Ruby渲染回归、T01/authoring/Jekyll/SEO/资源及前置门禁通过；主审计仅完成390 Night的24场景，新public流程0完成、侧栏0完成，不能写成完整192+14或三页24流程通过。

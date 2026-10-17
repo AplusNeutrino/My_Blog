@@ -1,0 +1,85 @@
+{
+  "animations": [
+    {
+      "computedTiming": {
+        "activeDuration": 180,
+        "currentIteration": 0,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 180,
+        "easing": "ease",
+        "endDelay": 0,
+        "endTime": 180,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1,
+        "localTime": 0,
+        "progress": 0
+      },
+      "currentTime": 0,
+      "name": "background-color",
+      "startTime": null,
+      "state": "running",
+      "target": "<a class=\"nv-primary-nav-link\" href=\"/observe/\"> <span class=\"nv-primary-nav-name\">OBSERVE</span> <span class=\"nv-primary-nav-label\">我持续观察什么</span> <span class=\"nv-primary-nav-summary\">进入持续整理外部信号与时间结构的公开观察界面。</span> </a>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 180,
+        "easing": "ease",
+        "endDelay": 0,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 0,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 32000,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 27098.935999999958,
+        "progress": 0.8468417499999987
+      },
+      "currentTime": 27098.935999999958,
+      "name": "prospero-astrolabe-turn",
+      "startTime": 94.36400000004141,
+      "state": "running",
+      "target": "<a href=\"/\" id=\"avatar\" class=\"rounded-circle\" aria-label=\"收起左侧栏\" role=\"button\" aria-controls=\"sidebar\" aria-expanded=\"true\"><img src=\"/assets/img/logo.png?v=20261017130522\" width=\"112\" height=\"112\" alt=\"Neutriverse 标志\" onerror=\"this.style.display='none'\"></a>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 32000,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    }
+  ],
+  "focus": "<a class=\"nv-primary-nav-link\" href=\"/observe/\"> <span class=\"nv-primary-nav-name\">OBSERVE</span> <span class=\"nv-primary-nav-label\">我持续观察什么</span> <span class=\"nv-primary-nav-summary\">进入持续整理外部信号与时间结构的公开观察界面。</span> </a>",
+  "readyState": "complete",
+  "scrollX": 0,
+  "scrollY": 1721,
+  "theme": "light",
+  "url": "http://127.0.0.1:34947/",
+  "viewport": [
+    1366,
+    757
+  ],
+  "page": "home",
+  "destination": "/observe/",
+  "visitedBeforeFailure": [
+    "/think/",
+    "/build/"
+  ],
+  "phase": "settle-after-browser-back"
+}

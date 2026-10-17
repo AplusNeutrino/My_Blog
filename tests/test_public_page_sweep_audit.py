@@ -40,3 +40,19 @@ class PublicPageSweepAuditTests(unittest.TestCase):
             self.assertIn(token,helper)
         self.assertIn('settle(driver, wait, theme)',helper)
         self.assertNotIn('setTimeout',helper)
+
+    def test_real_pointer_leaves_hover_before_unchanged_settle(self):
+        _,helper=self.helper()
+        self.assertIn('pointer.pointer_action.move_to_location(width//2, 8)',helper)
+        self.assertLess(helper.index('pointer.perform()'),helper.index('settle(driver, wait, theme)'))
+        self.assertNotIn('.cancel()',helper)
+
+    def test_home_recent_text_range_rejects_button_intersections(self):
+        _,helper=self.helper()
+        for token in ("if name == 'home':",'document.createTreeWalker','document.createRange()',
+                      'range.getClientRects()',"'.nv-home-transmission'",'s.opacity',
+                      "observed['recentTextButton']['overlaps']",'Homepage recent text covered by back-to-top'):
+            self.assertIn(token,helper)
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        self.assertIn('padding-right: calc(1rem + 2.75rem);',css)
+        self.assertIn('@media (max-width: 1199.98px)',css)

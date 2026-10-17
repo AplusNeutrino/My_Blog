@@ -1470,6 +1470,28 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         start = max(observed['mainStart'], observed['scrollY']+observed['topbarBottom'])
         end = min(observed['mainEnd'], observed['scrollY']+observed['viewport']['height'])
         require(end > start, 'Public page sweep missed main content')
+        if name == 'home':
+            observed['recentTextButton'] = driver.execute_script('''
+              const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
+              const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
+              const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+              const lines=[];
+              for(const card of document.querySelectorAll('.nv-home-transmission')){
+                const walker=document.createTreeWalker(card,NodeFilter.SHOW_TEXT);
+                while(walker.nextNode()){
+                  const n=walker.currentNode;if(!n.textContent.trim())continue;
+                  const range=document.createRange();range.selectNodeContents(n);
+                  for(const r of range.getClientRects())if(r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight)
+                    lines.push({...rect(r),text:n.textContent.trim()});
+                }
+              }
+              return {button:rect(br),shown,lines,overlaps:shown?lines.filter(r=>r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top):[]};
+            ''')
+            # Write exact failure geometry before rejecting it, not a blank audit.
+            if observed['recentTextButton']['overlaps']:
+                driver.save_screenshot(str(output / f'home-text-overlap-{width}-{theme}.png'))
+                (output / f'home-text-overlap-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+            require(not observed['recentTextButton']['overlaps'], 'Homepage recent text covered by back-to-top')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)
@@ -1519,6 +1541,12 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
         driver.back()
         wait.until(lambda d: d.current_url == original)
+        # A history-restored hovered link can retain a pending background-color
+        # transition (running/currentTime=0/startTime=null). Leave hover through
+        # real pointer input, then keep the same finite-animation completion gate.
+        pointer = ActionBuilder(driver)
+        pointer.pointer_action.move_to_location(width//2, 8)
+        pointer.perform()
         try:
             settle(driver, wait, theme)
         except Exception:

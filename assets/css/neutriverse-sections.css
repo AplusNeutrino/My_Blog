@@ -1310,6 +1310,14 @@ article.nv-post .content video {
   }
 }
 
+/* UI-012: keep recent-writing text out of the fixed scroll-to-top lane.
+   At >=1200px the auxiliary column already separates this reading area. */
+@media (max-width: 1199.98px) {
+  .nv-home-transmission {
+    padding-right: calc(1rem + 2.75rem);
+  }
+}
+
 
 /* T20 homepage: approved current signal, public featured records, and source-derived status. */
 .nv-home-current-signal,

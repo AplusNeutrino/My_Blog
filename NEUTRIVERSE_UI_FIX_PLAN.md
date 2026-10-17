@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | confirmed / fix-pending | 保存ui012-before-home-390-dark.png；需首页最小范围避让、真实文字行不与按钮相交、四宽度双主题生产/main/live截图；UI-A09返回动画等待另待诊断，不冒称同根因 |
+| UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | validation-pending | 已实现首页近期表达<=1199.98px右内边距避让及Range文字行/按钮不相交门禁；新head四宽度双主题生产/main/live未验收，原图保留。UI-A09返回悬停过渡另以真实移出hover后相同等待重验，不冒称同根因 |
 | UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | done | 831f2898精确main build/deploy/live通过；四宽度双主题48线上图已人工看并放大原遮挡场景，计数完整且按钮可操作；8组逐行滚动/往返/真实返回顶部、48诊断及192+14通过 |
 | UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | done | 41dca277精确main build/deploy/live通过；四宽度双主题32线上评分图已人工看，首末提示全文可见且在clientWidth/shell内；8分类/摘要/真实键盘/退出隐藏/刷新和192+14通过 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
@@ -63,6 +63,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-012最小实现/UI-A09返回阻塞定位（2026-10-17）：base工作head37fa1d78，main53787e0b不动。run39004907637 build117315276681 failure，deploy/live skipped；246 tests/Ruby/T01/authoring/Jekyll/主192通过，新public21/24、162滚动帧未全人工验收，侧栏0。artifact12090578680摘要匹配，1366 Light失败PNG/动画JSON已看，入口background-color有限过渡running/time0/startTime null。仅真实指针移出hover再执行原等待，门禁不减；UI-012首页卡片在无辅助栏宽度预留右空间并严格Range交集回归。本机248 tests/authoring/T01/diff通过；新head production/截图/main/live pending，留ui/audit-009，无新用户决策。[证据](docs/ui-evidence/ui012-checks.md)。
 
 UI-A09首次失败/UI-012新复现（2026-10-17）：8831153b/run39001620617 build117305564644 failure，deploy/live skipped。245 tests/Ruby/T01/authoring/Jekyll及前置门禁通过，主审计仅24场景、新public0/侧栏0完成，不能标完整通过。artifact12089466875独立摘要匹配，实际看首页390 Night九帧并放大第3帧，确认UI-012返回顶部遮正文；优先队列转其首页最小修复。另在真实点击返回后的settle有限动画条件超时，当前无足够动画根因证据；仅补失败PNG/动画快照并原样抛错，不放宽旧门禁。main仍53787e0b，新诊断留ui/audit-009，生产及main/live继续pending，无新用户决策。[证据](docs/ui-evidence/uia09-checks.md)。
 
