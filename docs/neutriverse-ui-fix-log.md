@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI016精确生产及限定视觉验收通过，交付待main/live
+
+- fresh main仍8bff45a9e83f1598dd7d248e5aaeb8350d7a2889，工作实现a17ee7ec0db3e4fe9f534fa76bf7f663d5b5d0f9；[run39060823145](https://github.com/AplusNeutrino/My_Blog/actions/runs/39060823145) build117478235105 success，deploy117481148392/live117481148909 skipped符合工作分支规则。258 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/路由/资源/全部原门禁，主192/侧栏14/公开24流程177原生帧完整通过。
+- artifact12111467085 /492254922 bytes /独立SHA256 9c9b2dd0acf172a5e38164493c5eb37ba26907de50cb7493cf269aa32397dfea匹配。首次下载引用MCP超时，同id重取成功，未重跑CI、换head或门禁。实际逐张看关系说明可见的12帧/8联系表，覆盖390/768/1024/1366双主题；放大390 Night ABOUT第9原生图对照before，说明全文完整且与圆钮分离。卡片外框/列数/标题/链接/字号/双主题保留，窄列自然换行，未确认新增缺陷。
+- ABOUT8流程每帧关系目标rootCount3、emptyRoots0、严格逐行交集0；连续原生滚轮覆盖、返回顶部pointer click及Library/友链点击返回通过，原UI012–015等文字断言及30s字体/20s动画等待不减。只人工看12关系帧，不把177自动帧诊断写成全部人工视觉，也不把A09整页或其他矩阵标done。8联系表、24流程摘要和原场景修复后PNG永久入库，原包仍在精确artifact保留14天。
+- 本机258 tests、authoring44/5/7、T01保护44/5/5、diff再次通过，本机无Jekyll/Chrome。AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志、用户补充核对，CONTEXT无；gh仍不在PATH不编造Issue。独立worktree保护原目录用户字体/缓存/未跟踪文件；本轮只公开证据/计划日志，不追加产品/数据/正文/metadata/URL/hidden/noindex、外部仓库或旧COMPLETE修改。
+- UI016生产限定验收可交付，fresh main未变才expected-head非强推；新main自身build/deploy/live及同场景人工截图仍validation-pending，未标done，无新增用户待决问题。下一项核对同一新main，不用分支成功冒充部署后通过，全站IN PROGRESS不暂停。
+
 ## 2026-10-18 — UI-A09剩余整页复查确认UI016，最小修复待验
 
 - fresh base/main8bff45a9e83f1598dd7d248e5aaeb8350d7a2889；[run39056732011](https://github.com/AplusNeutrino/My_Blog/actions/runs/39056732011) build117466109670/deploy117469225064/live117469268662全部success。256 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/所有旧门禁、production/live各192+14及24公开流程通过；关闭上一证据提交pending，不视为全站视觉正常。AGENTS/docs/agents/ADR/旧COMPLETE计划报告与本轮台账/用户补充核对，CONTEXT无；独立worktree不覆盖原目录用户字体/缓存/未跟踪文件。

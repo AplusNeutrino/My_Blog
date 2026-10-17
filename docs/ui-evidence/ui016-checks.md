@@ -1,6 +1,16 @@
 # UI-016 — ABOUT关系卡片说明被固定按钮覆盖
 
-状态：validation-pending；最小实现保存工作分支ui/fix-016，未部署，尚未视觉验收。
+状态：validation-pending；a17ee7ec精确production及UI016限定人工视觉验收通过，可交付main；main自身CI/部署/同场景live仍待验，不标done。
+
+## 2026-10-18 精确production与限定视觉验收
+
+- 验收实现 `a17ee7ec0db3e4fe9f534fa76bf7f663d5b5d0f9` / [run39060823145](https://github.com/AplusNeutrino/My_Blog/actions/runs/39060823145)，build117478235105 completed/success；工作分支deploy117481148392/live117481148909按规则skipped，不冒称已部署。
+- 258 Python tests、Ruby渲染、T01正文/metadata/URL/hidden保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/资源/路由/全部旧门禁通过；主192、侧栏14、公开24流程177原生帧完整通过。原字体30s/有限动画20s及所有旧逐行文字门禁保持。
+- artifact12111467085，492254922 bytes，独立SHA256 `9c9b2dd0acf172a5e38164493c5eb37ba26907de50cb7493cf269aa32397dfea`匹配GitHub digest。首次取得artifact遇MCP请求超时，随后同artifact重取成功；未重跑CI/换head，没有把下载故障当产品失败。
+- 实际逐张查看关系说明可见的12帧/[8联系表](ui016-production-contacts/)，覆盖390/768/1024/1366×Night/Prospero Light。放大[390 Night修复后原生图](ui016-production-about-relations-390-dark.png)并对照before：“站点邻居与互联网往来继续保存在现有友链页面。”全文完整，按钮与正文分离。原卡片外框/列数/标题/链接/主题保持，较窄列说明自然增加换行，无裁切或横向溢出；1366布局不变。
+- [24流程与选取帧摘要](ui016-production-summary.json)：ABOUT8流程每帧关系目标rootCount=3、emptyRoots=0、严格真实文字行overlaps=[]；原intro/UI015等门禁保留。8流程连续原生滚轮覆盖main，末端真实返回顶部与Library/友链点击、浏览器返回通过。只人工验收12关系目标帧，不声称全部177帧或A09整页通过。
+- 本机258 tests、authoring44/5/7、T01保护44/5/5及diff再次通过，本机无Jekyll/Chrome。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮计划日志及用户补充已核对，CONTEXT无，gh不在PATH不编造Issue；独立worktree不覆盖原目录用户字体/缓存/未跟踪文件。
+- fresh main仍 `8bff45a9e83f1598dd7d248e5aaeb8350d7a2889`，本次只增加公开验收证据及计划/日志，不追加产品修改。非强推交付后必须核对新main自身Actions/build/deploy/live并人工看同场景，之前validation-pending；全站仍IN PROGRESS，无新确认缺陷或用户待决问题，UI-A09剩余整页与其他矩阵不标done。
 
 ## 2026-10-18 实现前范围与复现
 
