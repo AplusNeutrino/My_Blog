@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08k原生行截图生产验收
+
+- 精确head723c651515b372756e12879f9c757a2cc8dc1b6b /run38989785855 build117269649689 success，deploy117272512100/live117272512541 skipped，243 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及192+14通过。本机243 tests、authoring44/5/7、T01保护44/5/5、diff再次通过，不冒称本机Jekyll/Chrome。
+- artifact12085016466 /462140557 bytes /sha256:48ee7afff3dc1fbb7e43a037bc22bc26cd42f7552a6a41311f71be3ce2e267c2独立匹配。实际看全部32联系表（992卡片/310原生行图），放大390 Light第3页第4行/1024 Night第4页第3行原始viewport；封面/标题与原生坐标对齐，无首次CDP整页裁图失配，未确认新产品缺陷。完整审计/行诊断/裁图来源/32联系表永久入库，原PNG留artifact14天，旧失败证据不覆盖。
+- 八流程每组完整124书籍6页、原生全行覆盖及顺序ID无遗漏/重复、clientWidth无溢出、scrollX=0、全部图片加载通过；原96页首尾、992加载和末页刷新/上一页/返回根重入仍保留，不放宽门禁。范围仅默认书籍网格，不推断其他分类/全站通过。
+- fresh main仍dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3；仅交付已验收审计/必要回归/公开证据及计划日志，不改产品/9个同步数据/原文/metadata/旧URL/hidden/noindex、关联仓库或旧COMPLETE。新main精确head的build/deploy/live与同310线上行图仍validation-pending，下一轮先核对；gh未安装，不编造Issue，无新用户决策，全站IN PROGRESS。
+
 ## 2026-10-17 — UI-A08k首次生产与原生行截图修正
 
 - 真实修正337f2d1cc97b62e5cccf3f7367cf3a0009481c1b已expected_sha非强推保存ui/audit-008k，11个远程blob与本地hash一致；随后只追加SHA检查点。main未改，下一轮必须核对最终分支head完整CI及原生行图，不借旧整页通过替代。

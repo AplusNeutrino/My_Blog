@@ -1,6 +1,26 @@
 # UI-A08k — 默认书籍分页中间区域视觉
 
-状态：validation-pending；首次生产整页截图存在取景坐标不一致，改为逐行原生viewport后须新head重验，未交付main。
+状态：validation-pending；修正后精确723c6515生产原生行截图已人工验收，待交付后新main自身build/deploy/live与相同场景线上复验。首次失败证据保留。
+
+## 2026-10-17 — 原生行截图生产验收
+
+- head723c651515b372756e12879f9c757a2cc8dc1b6b / [run38989785855](https://github.com/AplusNeutrino/My_Blog/actions/runs/38989785855)：build117269649689 success，deploy117272512100/live117272512541 skipped（工作分支，不能作为部署证明）。243 Python tests、4 Ruby渲染回归、T01/authoring/production Jekyll/SEO/资源/旧门禁、192页面+14侧栏通过。
+- artifact12085016466，462140557 bytes，sha256:48ee7afff3dc1fbb7e43a037bc22bc26cd42f7552a6a41311f71be3ce2e267c2，下载后独立匹配。新[完整审计](uia08k-native-production-audit.json)、[310行诊断](uia08k-native-production-diagnostics.json)、[992卡片裁图来源清单](uia08k-native-production-crop-manifest.json)永久入库；原PNG在该artifact保留14天。
+- 390/768/1024/1366 × Night/Light八流程，每组124书籍/6页（24/24/24/24/24/4），ID顺序完整且无重复；390两列共124行，其余六流程四列共186行，合计310原生viewport。每行PNG实际尺寸与原生viewport相同、全行卡片在topbar下和clientWidth/viewport内、scrollX=0、全部封面complete且自然尺寸为正，行coveredIds顺序严格覆盖每页。保留96页首尾、992加载、末页刷新同URL/ID、上一页/返回根/重入等门禁。
+- 人工逐张看下表全部32张联系表，覆盖992张实际卡片截图（124×8），无首次整页裁图混入上一行或丢失本卡标题的问题。再放大原始390 Light第3页第4行、1024 Night第4页第3行viewport：所审行封面/标题可见、边界对齐、无横向溢出；其他行上下局部进入视口属于正常滚动取景，不误报为内容裁切。未确认新产品缺陷，未凭卡片高度/封面审美差异改样式。
+- 本机再次243 tests、authoring44/5/7、T01保护44/5/5、diff通过；本机无Jekyll/Chrome，真实构建和浏览器来自上述精确CI。范围仍仅默认书籍网格；其他分类、全站余项不据此通过。gh未安装，不编造Issue；无新用户决策。
+- base main仍dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3。本次仅交付已验证审计/回归与公开证据/计划日志，不改产品、9个同步数据文件、原文/metadata/URL/hidden/noindex或旧COMPLETE。新main自身CI/Pages与310线上行图仍validation-pending，不用723c6515分支成功代替。
+
+| 条件 | 全部卡片原生截图联系表（按ID顺序分四批） |
+|---|---|
+| 390 Night | [1](uia08k-native-production-cards-390-dark-1.jpg) / [2](uia08k-native-production-cards-390-dark-2.jpg) / [3](uia08k-native-production-cards-390-dark-3.jpg) / [4](uia08k-native-production-cards-390-dark-4.jpg) |
+| 390 Light | [1](uia08k-native-production-cards-390-light-1.jpg) / [2](uia08k-native-production-cards-390-light-2.jpg) / [3](uia08k-native-production-cards-390-light-3.jpg) / [4](uia08k-native-production-cards-390-light-4.jpg) |
+| 768 Night | [1](uia08k-native-production-cards-768-dark-1.jpg) / [2](uia08k-native-production-cards-768-dark-2.jpg) / [3](uia08k-native-production-cards-768-dark-3.jpg) / [4](uia08k-native-production-cards-768-dark-4.jpg) |
+| 768 Light | [1](uia08k-native-production-cards-768-light-1.jpg) / [2](uia08k-native-production-cards-768-light-2.jpg) / [3](uia08k-native-production-cards-768-light-3.jpg) / [4](uia08k-native-production-cards-768-light-4.jpg) |
+| 1024 Night | [1](uia08k-native-production-cards-1024-dark-1.jpg) / [2](uia08k-native-production-cards-1024-dark-2.jpg) / [3](uia08k-native-production-cards-1024-dark-3.jpg) / [4](uia08k-native-production-cards-1024-dark-4.jpg) |
+| 1024 Light | [1](uia08k-native-production-cards-1024-light-1.jpg) / [2](uia08k-native-production-cards-1024-light-2.jpg) / [3](uia08k-native-production-cards-1024-light-3.jpg) / [4](uia08k-native-production-cards-1024-light-4.jpg) |
+| 1366 Night | [1](uia08k-native-production-cards-1366-dark-1.jpg) / [2](uia08k-native-production-cards-1366-dark-2.jpg) / [3](uia08k-native-production-cards-1366-dark-3.jpg) / [4](uia08k-native-production-cards-1366-dark-4.jpg) |
+| 1366 Light | [1](uia08k-native-production-cards-1366-light-1.jpg) / [2](uia08k-native-production-cards-1366-light-2.jpg) / [3](uia08k-native-production-cards-1366-light-3.jpg) / [4](uia08k-native-production-cards-1366-light-4.jpg) |
 
 ## 2026-10-17 — 首次生产检查与取景方式修正
 
