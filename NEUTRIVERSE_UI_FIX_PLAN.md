@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | validation-pending | 四类作用域最小避让已实现；日期单独调整absolute right；新增每类目标非空与真实逐行Range/按钮无交集，本机256 tests/T01/authoring通过；ui/fix-015精确production/人工截图/main/live尚待验收 |
+| UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | validation-pending | 7f61a5f1同head重试完整production192+14/24公开流程通过；四宽度双主题四类目标45帧/18联系表实际查看、390四原图对比无遮挡；256 tests/T01/authoring/Jekyll通过。允许交付main，main自身CI/部署/同场景live仍pending，未标done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
 | UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图已看，原390 Night Z.A.T.O.原图放大对照无文字遮挡，逐行Range与返回顶部/四入口往返通过 |

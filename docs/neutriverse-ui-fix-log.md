@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI015同head完整生产及限定视觉验收通过，交付main待线上
+
+- fresh main仍097129418f5a014d3d1d85b2441f934854dcda3a；验收实现7f61a5f154f9736816e8a379b74ecacc6f3f8b43的[run39043515933 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39043515933/attempts/2)，build117439836139 success，工作分支deploy117443253294/live117443253210 skipped。保留attempt1失败及56d3bef证据，不改任何等待时限/门禁；这次无字体超时不代表根因修复。
+- 256 tests、Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/路由/资源/全部原门禁、主192/侧栏14/公开24流程177原生滚动帧完整通过。artifact12106114081，492265573 bytes，独立SHA256 cc093dac6e3a061ab546c7c7222e156840cfcc7ef8d4ff9d5016fbd7f0ba5727匹配。
+- 实际人工逐张查看UI015四类目标可见的45帧/18联系表，覆盖390/768/1024/1366双主题；放大390 Night维护/理念/日期/OBSERVE状态四张原生PNG，对照此前复现图，原尾字、日期和NOINDEX完整、按钮不遮字。ABOUT/OBSERVE16流程每类目标非空、严格Range交集0，真实滚轮全main覆盖/返回顶部pointer click/公开链接往返通过。没有把自动177帧诊断或静态回归当全部人工视觉；UI-A09全页尚未done。
+- 本机再次256 tests/authoring/T01/diff通过；gh仍不在PATH不虚构Issue，CONTEXT无。本次只更新计划/日志与公开production证据；产品不再改，正文/metadata/旧URL/hidden/noindex/外部仓库/旧COMPLETE不动。交付以56d3bef为父保留失败历史；fresh main未变才expected-head非强推，随后核对该新main Actions/build/deploy/live，不借旧head成功代验。
+- UI015保持validation-pending；无新确认缺陷或用户待决问题。下一项同一新main的部署及同场景线上截图/交互复验；其余矩阵仍IN PROGRESS，不写final报告或暂停。
+
 ## 2026-10-18 — UI015部分生产验证与字体等待失败，同head受控重试
 
 - fresh main097129418f5a014d3d1d85b2441f934854dcda3a、工作7f61a5f154f9736816e8a379b74ecacc6f3f8b43，独立worktree不动原目录用户字体/缓存/未跟踪基线。AGENTS/docs/agents/ADR/旧COMPLETE与本轮台账/用户补充已核对，CONTEXT无，gh不在PATH不编造Issue，无新用户待决问题。

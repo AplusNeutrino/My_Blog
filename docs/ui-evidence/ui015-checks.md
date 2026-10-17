@@ -1,6 +1,15 @@
 # UI-015 — 公开说明/状态/日期的固定按钮避让
 
-状态：validation-pending；未部署。以下部分原图不代表完整production/main/live验收。
+状态：validation-pending；同实现head完整production与UI015限定人工视觉验收通过，等待main自身build/deploy/live。历史失败和部分验收记录保留，不代表当时已完成。
+
+## 2026-10-18 同head重试通过，限定生产视觉验收
+
+- 验收实现 `7f61a5f154f9736816e8a379b74ecacc6f3f8b43`；[run39043515933 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39043515933/attempts/2) build117439836139 completed/success；工作分支deploy117443253294、live117443253210按条件skipped，不冒称部署。原30s字体/20s动画等待与全部门禁未修改；本次未复现字体等待失败，但不能据此宣称字体根因已修复。
+- 256 Python tests、Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/路由/资源与全部原门禁通过；主192、侧栏14、公开24流程/177原生滚动帧完整。artifact12106114081，492265573 bytes，独立SHA256 `cc093dac6e3a061ab546c7c7222e156840cfcc7ef8d4ff9d5016fbd7f0ba5727` 匹配。
+- 人工逐张查看四宽度390/768/1024/1366 × Night/Prospero Light中四类目标可见的45帧，汇成[18张联系表](ui015-production-contacts/)；放大[维护](ui015-production-about-maintenance-390-dark.png)、[理念](ui015-production-about-principle-390-dark.png)、[日期](ui015-production-about-date-390-dark.png)、[状态](ui015-production-observe-meta-390-dark.png)四张390 Night原图，对应before中尾字、2026/02/06日期及NOINDEX状态现在完整可见，固定按钮不再遮字。卡片外框/列数/主题保持；768/1024状态正常换行，1366原布局未改。只验收UI015作用域，不声称全部177帧或全页矩阵人工通过。
+- [完整24流程与45帧选取摘要](ui015-production-summary.json)：ABOUT/OBSERVE共16流程的每类目标存在且非空，逐行严格按钮交集均0，intro旧门禁仍通过；连续真实滚轮覆盖main，返回顶部pointer click与公开链接往返通过，无横向溢出。自动诊断与人工看图分列，静态回归不替代视觉。
+- 本机再次256 tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机无Jekyll/Chrome，以上生产浏览器证据来源精确head CI。gh仍不在PATH，未编造Issue。
+- fresh main仍 `097129418f5a014d3d1d85b2441f934854dcda3a`。交付包含实现7f61与失败证据56d3bef的后续提交，仅新增上述证据及计划/日志，本轮不再改产品。合main后必须核对新main自身Actions/build/deploy，再取同场景线上原生图对照，之前保持validation-pending。无新缺陷/待决问题，全站IN PROGRESS；UI-A09及其余未覆盖矩阵不标done。
 
 ## 2026-10-18 同head生产失败与受控重试
 
