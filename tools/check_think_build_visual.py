@@ -1554,7 +1554,9 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                 'observe': ['[data-observe-catalog] .nv-observe-card-meta'],
                 'about': ['[data-about-profile] .about-principle-list',
                           '[data-about-profile] .about-current-meta > div:last-child dd',
-                          '[data-about-profile] .about-stack-item time'],
+                          '[data-about-profile] .about-stack-item time',
+                          # UI-016: relationship descriptions share the fixed button lane.
+                          '[data-about-profile] .about-relation-card > p'],
             }[name]
             observed['detailTextButton'] = driver.execute_script('''
               const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);

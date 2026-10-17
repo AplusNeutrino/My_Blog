@@ -1,0 +1,65 @@
+{
+  "mainEnd": 8962.3125,
+  "mainStart": 48,
+  "pageHeight": 9106,
+  "pageWidth": 375,
+  "scrollX": 0,
+  "scrollY": 4280,
+  "topbarBottom": 0,
+  "viewport": {
+    "clientWidth": 375,
+    "height": 701,
+    "width": 390
+  },
+  "introTextButton": {
+    "button": {
+      "bottom": 627,
+      "left": 315,
+      "right": 359,
+      "top": 583
+    },
+    "lines": [],
+    "overlaps": [],
+    "rootCount": 1,
+    "selector": "[data-about-profile] .about-info-text",
+    "shown": true,
+    "textNodes": 4
+  },
+  "detailTextButton": {
+    "button": {
+      "bottom": 627,
+      "left": 315,
+      "right": 359,
+      "top": 583
+    },
+    "groups": [
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-about-profile] .about-principle-list"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-about-profile] .about-current-meta > div:last-child dd"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 10,
+        "selector": "[data-about-profile] .about-stack-item time"
+      }
+    ],
+    "shown": true
+  },
+  "file": "public-sweep-about-390-dark-9.png",
+  "visibleMain": [
+    4280,
+    4981
+  ]
+}

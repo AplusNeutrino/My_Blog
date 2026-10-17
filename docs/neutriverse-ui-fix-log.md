@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A09剩余整页复查确认UI016，最小修复待验
+
+- fresh base/main8bff45a9e83f1598dd7d248e5aaeb8350d7a2889；[run39056732011](https://github.com/AplusNeutrino/My_Blog/actions/runs/39056732011) build117466109670/deploy117469225064/live117469268662全部success。256 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/所有旧门禁、production/live各192+14及24公开流程通过；关闭上一证据提交pending，不视为全站视觉正常。AGENTS/docs/agents/ADR/旧COMPLETE计划报告与本轮台账/用户补充核对，CONTEXT无；独立worktree不覆盖原目录用户字体/缓存/未跟踪文件。
+- 先记录UI-A09本轮base/范围后，取live artifact12110591949（491777943 bytes），独立SHA256 28855b85123470e7e0bf045a715dee673ec45ac59ebfffc2760e61cc6dd465be匹配。生成三页177原生帧36联系表，实际查看前12张共68帧；其余24张109帧未人工看，明确pending。放大390 Night ABOUT第8/9原图，第9帧“友情链接”说明末端被固定按钮覆盖，确认为UI016/P2；第8帧时间线所查位置没有确认遮挡，不扩张范围。ABOUT旧br/倒计时空白保留；1366 Light碎片引文滚动裁切疑点尚未原图核实，不算确认缺陷。
+- 原第9帧PNG/JSON永久保存，UI016先写范围/复现/验收再实现。根因关系组件p没有UI012–015文字通道；最小CSS仅<=1199.98px给.about-relation-card > p右padding2.75rem，不改外框/网格/字号/主题/按钮/模板/数据。现有detailTextButton增加关系说明目标，逐个非空与真实行/可见按钮交集严格拒绝，失败保留PNG/JSON，首页/intro/日期等旧门禁和30s字体/20s动画等待全部保持。新增2接线/CSS回归，不能替代真实Chrome视觉。
+- gh仍不在PATH，按仓库规范不使用API冒充Issue操作，不编造编号；没有新增用户待决问题。UI016优先于继续未完成整页复查；新head production/人工截图/main/live均validation-pending，保存ui/fix-016，main不改。旧文章/学习笔记/Thought/Project Log正文、metadata/文件名/date/slug/permalink/URL/hidden/noindex、外部仓库及旧COMPLETE不变，全站IN PROGRESS，不暂停。
+- 本机258 tests、authoring44/5/7、T01保护44/5/5及diff通过；本机无Jekyll/Chrome，未声称修复后视觉通过。只将上述最小产品/审计/2回归/计划日志及原生before PNG/JSON提交工作分支；未看完的36联系表/全帧派生摘要留scratch，不作为已验收证据提交。下一项先核对新head production与真实截图，再完成main/live；旧1366引文疑点待原图定位。
+- 随后实际放大1366 Light ABOUT第8原生PNG，引文全文与边界正常，缩小联系表产生的裁切疑点解除，不列缺陷、不改样式；未完成整页矩阵仍pending。
+
 ## 2026-10-18 — UI015精确main部署与线上限定验收done
 
 - fresh base/验收main c001784bd31e67ce6da8512ceedcf058922c9261；[run39052090726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39052090726) build117452566638/deploy117456022205/verify-live-ui117456065349全部completed/success。256 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁及production/live各192+14、24公开流程177原生帧通过；线上日志明确https://neutriverse.uk，不使用其他head成功代验。

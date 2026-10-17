@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | validation-pending | 先记录base8bff45a9/原生before/最小范围；关系说明留文字通道，扩展严格逐行Range及非空门禁；精确工作head production/人工截图/main/live待验，不把此前CI成功当此作用域通过 |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
@@ -66,6 +67,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI-A09接续发现UI016：base main8bff45a9e83f1598dd7d248e5aaeb8350d7a2889 /run39056732011 build117466109670/deploy117469225064/live117469268662全部success，关闭UI015证据head pending。live artifact12110591949独立摘要匹配；原三页177帧中已实际查看12联系表68帧，390 Night ABOUT第9原图放大确认关系卡说明被按钮覆盖，优先转UI016，不将未看完矩阵标done。先记录[范围与原图](docs/ui-evidence/ui016-checks.md)，仅<=1199.98px给关系p加右2.75rem，新增该作用域严格文字门禁且全部旧断言/时限不动。未验收前留ui/fix-016，main不改；gh不可用不编造Issue，无新用户决策。其余24联系表109帧尚未人工验收，UI-A09整体pending，旧br/倒计时保留。
 
 2026-10-18 UI015精确main线上限定done：base/验收main c001784bd31e67ce6da8512ceedcf058922c9261，[run39052090726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39052090726) build117452566638/deploy117456022205/live117456065349全部success。256 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/全部原门禁，production/live各192+14及24公开流程177原生帧通过。live artifact12109095954独立SHA256匹配；人工看四宽度双主题四类目标45帧/18联系表，放大390 Night维护/理念/日期/状态与before对比，尾字与日期完整、固定按钮不遮字。两页16流程121帧detail诊断与生产完全相同、交集0，真实滚轮/返回顶部/公开往返通过；不冒称177帧/全页均人工验收。仅本UI证据/计划日志回写，新文档head CI另核对；无新缺陷或用户决策，字体旧根因未证实。全站IN PROGRESS，下一项UI-A09剩余整页及其余未覆盖矩阵。[线上证据与局限](docs/ui-evidence/ui015-checks.md#2026-10-18-精确main部署与线上限定验收)。
 

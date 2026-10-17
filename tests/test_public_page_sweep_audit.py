@@ -133,3 +133,24 @@ class PublicPageSweepAuditTests(unittest.TestCase):
             self.assertIn(token,block)
         for token in ('#back-to-top', 'font-size:', 'grid-template-columns:', 'display: none'):
             self.assertNotIn(token,block)
+
+    def test_relation_description_ranges_use_the_strict_existing_detail_gate(self):
+        _,helper=self.helper()
+        self.assertIn('[data-about-profile] .about-relation-card > p',helper)
+        for token in ("g['rootCount'] > 0 and not g['emptyRoots']",
+                      "all(not g['overlaps'] for g in groups)",
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top',
+                      'detail-text-overlap-'):
+            self.assertIn(token,helper)
+        self.assertIn("require(not intro['overlaps']",helper)
+        self.assertIn("observed['recentTextButton']['overlaps']",helper)
+
+    def test_relation_lane_changes_only_paragraph_space_without_redesign(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-016:')
+        block=css[start:css.index('/* OBSERVE directory */',start)]
+        for token in ('@media (max-width: 1199.98px)',
+                      '[data-about-profile] .about-relation-card > p', 'padding-right: 2.75rem;'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top', 'font-size:', 'grid-template', 'display:', 'position:'):
+            self.assertNotIn(token,block)

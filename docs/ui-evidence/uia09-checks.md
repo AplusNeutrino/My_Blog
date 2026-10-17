@@ -1,5 +1,18 @@
 # UI-A09 — 首页、OBSERVE、ABOUT 原生纵向视口与往返
 
+## 2026-10-18 剩余整页验收范围（先记录）
+
+- Task UI-A09；base/验收main `8bff45a9e83f1598dd7d248e5aaeb8350d7a2889`，run39056732011 build117466109670/deploy117469225064/live117469268662全部success，关闭UI015证据head CI pending。UI012–015已分别限定done，不重复修改产品。
+- 本轮最小范围：取此head首页/OBSERVE/ABOUT四宽度双主题24流程177原生线上滚动图，人工查看完整main（含此前四类遮挡作用域之外的区域）；对照既定真实滚轮、返回顶部、四入口/公开详情/Library/友链往返记录。先检查不预设新缺陷；若没有确认缺陷只记录，不凭偏好改样式。作者旧br空白/倒计时保留。
+- 文件范围仅本UI计划/日志、本文件及uia09-final-live公开证据；现有审计/全部门禁不减，不改产品/正文/metadata/旧URL/hidden/noindex/数据/外部仓库/旧COMPLETE。gh不在PATH，准确记录而不编造Issue。其余THINK、阅读控件、应用、Library其他分类和Gate/NAVI矩阵不由此推断完成。
+- 验收暂pending：独立artifact摘要核验、24流程177帧完整覆盖、逐张看联系表并放大必要原图、相关回归/T01/authoring及本次精确head Jekyll/产物；完成证据提交后核对该新head自己的CI。无新用户待决问题。
+
+### 本次实际检查结果与优先队列变化
+
+已下载live artifact12110591949并独立核验SHA256 `28855b85123470e7e0bf045a715dee673ec45ac59ebfffc2760e61cc6dd465be`；177原生帧/24流程完整，main覆盖、原生尺寸、无横向溢出/滚动偏移、真实返回顶部及公开往返原断言通过。人工只实际看前12联系表68帧（ABOUT1024/1366双主题、390 Night全17帧与390 Light前6帧）；其余109帧未验收。放大390 Night ABOUT第9原图确认UI016关系卡说明被按钮覆盖，转[UI016最小修复](ui016-checks.md)，A09整体不标done。第8时间线原图已看，所查位置没有确认遮挡；1366 Light引文滚动裁切仅疑点待原图核实，不算已确认缺陷。未看完的整页联系表留scratch，不提交冒充验收；永久保存UI016实际before PNG/JSON，完整原包在该head artifact保留14天。无新用户决策，不改旧br空白或倒计时。
+
+随后已放大查看1366 Light ABOUT第8原生PNG：右侧引文完整、左边界与文字正常，联系表缩小引起的裁切疑点解除；未确认产品缺陷，不改样式。该额外原图不改变前述68帧覆盖计数（属已看联系表内帧）。
+
 状态：validation-pending。base main53787e0bbe111da193918ee959e82780b58d87c3；精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。旧UI-A08k限定done不重启。
 
 ## e437精确main线上限定验收（2026-10-17）
