@@ -1,6 +1,15 @@
 # UI-015 — 公开说明/状态/日期的固定按钮避让
 
-状态：validation-pending；同实现head完整production与UI015限定人工视觉验收通过，等待main自身build/deploy/live。历史失败和部分验收记录保留，不代表当时已完成。
+状态：done（仅UI015四类已确认遮挡）；精确main构建/部署/线上同场景人工复验通过。历史失败和部分验收记录保留，不代表当时已完成；全站矩阵仍IN PROGRESS。
+
+## 2026-10-18 精确main部署与线上限定验收
+
+- Base/验收main `c001784bd31e67ce6da8512ceedcf058922c9261`，实现为7f61a5f1；[run39052090726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39052090726) build117452566638、deploy117456022205、verify-live-ui117456065349全部completed/success。线上job明确 `UI_LIVE_BASE=https://neutriverse.uk`；不以旧head成功代验。
+- 256 tests、Ruby渲染、T01正文/metadata/URL/hidden保护44/5/5、authoring44/5/7、production Jekyll、Search/feed/SEO/路由/资源和全部既有门禁通过；production/live各192主场景、14侧栏、24公开流程/177原生滚动帧完整通过。字体等待未再失败，但旧5面loading原因仍未证实，保留诊断与30s/20s时限，未宣称修复字体根因。
+- live artifact12109095954，492573504 bytes，独立SHA256 `55aea233c4877d45ee0007e7d89f1d725a7bcbda7ebb7591d59477a7a95209de` 与GitHub digest匹配。实际逐张查看UI015目标可见的45线上帧/[18联系表](ui015-live-contacts/)，覆盖390/768/1024/1366×Night/Prospero Light；原四个390 Night场景放大重新对照before：[维护](ui015-live-about-maintenance-390-dark.png)、[理念](ui015-live-about-principle-390-dark.png)、[日期](ui015-live-about-date-390-dark.png)、[状态](ui015-live-observe-meta-390-dark.png)。来源说明与“新的结构”尾字、2026/02/06日期、NOINDEX状态均完整，按钮不再遮挡，主题/卡片外框/列数保留。
+- [线上24流程/45帧及生产对照摘要](ui015-live-summary.json)：ABOUT/OBSERVE16流程共121帧detailTextButton分组诊断与已验收7f61生产逐项完全相同，目标存在且逐个非空、严格真实文字行交集均0；24流程frame数量、公开往返目标一致，scrollY最大差0。每流程无横向溢出，16流程真实滚轮覆盖main、返回顶部pointer click、项目事实页/Library/友链往返通过。这里区分自动121帧诊断与45帧人工视觉，不冒称全部177帧或整页矩阵人工完成。
+- 本机256 tests、authoring44/5/7、T01保护44/5/5、diff再次通过，本机无Jekyll/Chrome；独立worktree不触碰原目录用户字体/缓存/未跟踪文件，gh仍不在PATH不编造Issue。AGENTS/docs/agents/ADR、旧COMPLETE与当前计划/日志、用户补充已核对，CONTEXT无。
+- 本轮只更新本UI计划/日志与公开live证据，不追加产品/数据/旧正文/metadata/filename/date/slug/permalink/URL/hidden/noindex或关联仓库修改。UI015限定done；新证据文档head的CI单独核对，全站仍IN PROGRESS，无新确认缺陷/用户待决问题。下一项先核对证据head，再补UI-A09剩余整页截图与交互或其他尚未覆盖矩阵，不重复审美修改。
 
 ## 2026-10-18 同head重试通过，限定生产视觉验收
 

@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | validation-pending | 7f61a5f1同head重试完整production192+14/24公开流程通过；四宽度双主题四类目标45帧/18联系表实际查看、390四原图对比无遮挡；256 tests/T01/authoring/Jekyll通过。允许交付main，main自身CI/部署/同场景live仍pending，未标done |
+| UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
 | UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图已看，原390 Night Z.A.T.O.原图放大对照无文字遮挡，逐行Range与返回顶部/四入口往返通过 |
@@ -66,6 +66,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI015精确main线上限定done：base/验收main c001784bd31e67ce6da8512ceedcf058922c9261，[run39052090726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39052090726) build117452566638/deploy117456022205/live117456065349全部success。256 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/全部原门禁，production/live各192+14及24公开流程177原生帧通过。live artifact12109095954独立SHA256匹配；人工看四宽度双主题四类目标45帧/18联系表，放大390 Night维护/理念/日期/状态与before对比，尾字与日期完整、固定按钮不遮字。两页16流程121帧detail诊断与生产完全相同、交集0，真实滚轮/返回顶部/公开往返通过；不冒称177帧/全页均人工验收。仅本UI证据/计划日志回写，新文档head CI另核对；无新缺陷或用户决策，字体旧根因未证实。全站IN PROGRESS，下一项UI-A09剩余整页及其余未覆盖矩阵。[线上证据与局限](docs/ui-evidence/ui015-checks.md#2026-10-18-精确main部署与线上限定验收)。
 
 2026-10-18 UI015部分生产/字体阻塞：7f61a5f154f9736816e8a379b74ecacc6f3f8b43 /run39043515933 attempt1 build117427571131 failure，deploy117430042339/live117430042559 skipped；256 tests/Ruby/T01/authoring/Jekyll与前置门禁通过，主144/192、公开18/24/139帧、侧栏0。artifact12104867929独立摘要匹配。已放大看390 Night四原遮挡修复后原图，部分避让通过；三宽双主题四类逐行交集均0，但139图未全人工验收、1366及完整/main/live仍pending。字体1366 Night首THINK ready30s超时，5面loading（Sans400/500/600、Serif400/600）；捕获51 Font请求均finished/200缓存，无未完成事件，根因仍不确定，不据此改产品字体或放宽门禁。已做同head一次失败job重试attempt2 build117439836139运行中，不移动ui/fix-015或main；证据另存verification/ui015-7f61-retry，避免取消重试。无新用户决策，下一项核对同head重试。[诊断与边界](docs/ui-evidence/ui015-checks.md)。
 
