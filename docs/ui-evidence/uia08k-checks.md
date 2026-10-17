@@ -1,6 +1,26 @@
 # UI-A08k — 默认书籍分页中间区域视觉
 
-状态：validation-pending；修正后精确723c6515生产原生行截图已人工验收，待交付后新main自身build/deploy/live与相同场景线上复验。首次失败证据保留。
+状态：done（限定默认书籍全网格）；71ceb601精确main部署/live和全部原生行图已验收。首次失败证据保留，全站仍IN PROGRESS。
+
+## 2026-10-17 — 精确main部署及线上验收
+
+- 验收main71ceb60146048d463772c8c35a12ae39a5cc8c79 / [run38993751090](https://github.com/AplusNeutrino/My_Blog/actions/runs/38993751090)：build117281561210、deploy117283869973、verify-live-ui117283912634均completed/success。243 Python tests、4 Ruby渲染回归、T01/authoring44/5/7、production Jekyll、SEO/资源/旧门禁通过；production/live各192页面与14侧栏。live日志明确UI_LIVE_BASE=https://neutriverse.uk，不用localhost替代。
+- live artifact12086956833 /460639421 bytes /sha256:842c79e9a47f1d05c7111ae33ca203ec42fbf7f5447b84edbcfc9f50f29aaf27独立下载摘要匹配。[完整线上审计](uia08k-native-live-audit.json)、[310行诊断](uia08k-native-live-diagnostics.json)、[992裁图来源清单](uia08k-native-live-crop-manifest.json)与32联系表永久入库；原PNG在artifact保留14天。联系表只是原生卡片像素裁剪/等比缩放，页码与来源以manifest为准，不是整页布局图。
+- 人工查看下表全部32张线上联系表，覆盖四宽度双主题310行的992卡片；再放大390 Light第3页第4行、1024 Night第4页第3行原生viewport。封面/中英文标题/现有两行换行及卡片边界正常，无新增确认产品缺陷；部分元数据缺省造成高度差是现有数据状态，不当作审美缺陷。视口上下其他行自然局部可见不误报为卡片裁切。与生产相比取景/可读性无实质差异，未修改产品样式。
+- 独立核对八流程完整124书籍/6页、页内顺序/全集合无遗漏无重复、行coveredIds完整、原生PNG尺寸/全行视口边界/scrollX=0/图片加载；992加载及末页刷新URL/ID、上一页、返回根和重入通过。逐页ID、图片记录、末页刷新/上一页ID与723c6515生产完全一致；310行诊断中61项完全相同，其余卡片坐标最大差0.542724609375px，不虚称全部字节一致或推断产品故障。
+- UI-A08k限定done：默认书籍全网格中间区域视觉已生产/部署/live复验；其他Library分类全库存、首页/OBSERVE/ABOUT全页、应用共享导航与其余矩阵仍pending。无新用户决策，gh未安装不编造Issue。本机243 tests/authoring/T01/diff再次通过；本机无Jekyll/Chrome，真实浏览器来自精确Actions。
+- 本轮只回写计划、日志与上述公开live证据。保护9个同步数据文件、正文/filename/date/slug/permalink/metadata/旧URL/hidden/noindex、关联仓库及旧COMPLETE不变；本次证据新head CI另行核对，不重启本项视觉验收。下一项优先首页/OBSERVE/ABOUT全页与滚动交互，避免继续重复书籍审美检查。
+
+| 条件 | 全部线上卡片联系表（四批，原图/ID见来源清单） |
+|---|---|
+| 390 Night | [1](uia08k-native-live-cards-390-dark-1.jpg) / [2](uia08k-native-live-cards-390-dark-2.jpg) / [3](uia08k-native-live-cards-390-dark-3.jpg) / [4](uia08k-native-live-cards-390-dark-4.jpg) |
+| 390 Light | [1](uia08k-native-live-cards-390-light-1.jpg) / [2](uia08k-native-live-cards-390-light-2.jpg) / [3](uia08k-native-live-cards-390-light-3.jpg) / [4](uia08k-native-live-cards-390-light-4.jpg) |
+| 768 Night | [1](uia08k-native-live-cards-768-dark-1.jpg) / [2](uia08k-native-live-cards-768-dark-2.jpg) / [3](uia08k-native-live-cards-768-dark-3.jpg) / [4](uia08k-native-live-cards-768-dark-4.jpg) |
+| 768 Light | [1](uia08k-native-live-cards-768-light-1.jpg) / [2](uia08k-native-live-cards-768-light-2.jpg) / [3](uia08k-native-live-cards-768-light-3.jpg) / [4](uia08k-native-live-cards-768-light-4.jpg) |
+| 1024 Night | [1](uia08k-native-live-cards-1024-dark-1.jpg) / [2](uia08k-native-live-cards-1024-dark-2.jpg) / [3](uia08k-native-live-cards-1024-dark-3.jpg) / [4](uia08k-native-live-cards-1024-dark-4.jpg) |
+| 1024 Light | [1](uia08k-native-live-cards-1024-light-1.jpg) / [2](uia08k-native-live-cards-1024-light-2.jpg) / [3](uia08k-native-live-cards-1024-light-3.jpg) / [4](uia08k-native-live-cards-1024-light-4.jpg) |
+| 1366 Night | [1](uia08k-native-live-cards-1366-dark-1.jpg) / [2](uia08k-native-live-cards-1366-dark-2.jpg) / [3](uia08k-native-live-cards-1366-dark-3.jpg) / [4](uia08k-native-live-cards-1366-dark-4.jpg) |
+| 1366 Light | [1](uia08k-native-live-cards-1366-light-1.jpg) / [2](uia08k-native-live-cards-1366-light-2.jpg) / [3](uia08k-native-live-cards-1366-light-3.jpg) / [4](uia08k-native-live-cards-1366-light-4.jpg) |
 
 ## 2026-10-17 — 原生行截图生产验收
 
