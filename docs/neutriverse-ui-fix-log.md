@@ -2,6 +2,8 @@
 
 ## 2026-10-17 — UI-A09范围先记录
 
+- 真实实现e571673dfe0b1abe46a22bc81019c13d96c7fda0，5个上传blob与本地hash一致；随后只追加SHA检查点保存ui/audit-009。main仍53787e0b，最终分支head production/24新流程截图、人工看图和main/live保持validation-pending，下一轮先核对同一head。
+
 - 已实现三页24个附加流程与public-page-audit.json，原192+14/所有专项保留；重叠原生PNG尺寸/连续main覆盖/clientWidth无溢出、真实滚轮/公开链接往返与可用时真实返回顶部，不使用超视口整页取景替代。新增2项接线回归，本机245 tests、authoring44/5/7、T01保护44/5/5与diff通过；本机未运行Chrome/Jekyll，production及全部截图验收仍pending，不合main。云首页Light首屏/中部已看并滚动，未确认新产品缺陷。
 
 - 最新main53787e0bbe111da193918ee959e82780b58d87c3，run38997545484 build117293294892/deploy117295587015/live117295621809全部success，关闭上一证据提交CI pending；原工作区用户字体/缓存/基线修改不动，独立worktree。

@@ -12,6 +12,8 @@
 
 ## 实现与待验收
 
+- 真实审计实现e571673dfe0b1abe46a22bc81019c13d96c7fda0，5个上传blob与本地git hash-object逐项相同；随后仅追加此SHA检查点，最终分支head须单独核对Actions。main保持53787e0b，未部署本项，不以本机测试或旧main成功替代新24流程真实截图。
+
 - 在既有192场景后、每个主题/宽度内另加三页共24流程，写public-page-audit.json；既有SCENARIOS/192主审计/14侧栏及专项不减。每页真实滚轮分段，以160px余量重叠；逐帧校验原生PNG实际尺寸、clientWidth无溢出、main覆盖无断档，最多80帧未完成会失败，不接受部分覆盖。
 - 末端scrollY>50时真实点击返回顶部；内容已完整处于短视口、没有有效返回顶部状态时明确backToTopNotRequired，不伪造点击。首页四入口、OBSERVE两公开项目详情、ABOUT Library/友链真实点击并浏览器返回核对原URL，不进入隐藏边界或应用业务。
 - 新增2项接线回归（不是视觉验收）；本机245 tests、authoring44/5/7、T01保护44/5/5、diff通过。云1363×936 Light首页首屏与中部实际看并滚动，尚无确认缺陷；其他尺寸、三页连续截图与新head production Jekyll/Chrome/main/live仍validation-pending。main不动，先工作分支ui/audit-009，不用旧head CI代替本次结果。
