@@ -10,6 +10,8 @@
 
 ## 本轮实现（待精确新head验证）
 
+- 真实诊断实现df8e2bb5c68719d006dd0ed21e016ba36718080c，9个上传blob与本地git hash-object逐项一致；随后仅追加SHA检查点，最终head精确CI仍需核对。main未改。
+
 - 保存[原失败字体状态](uia09-font-stalled-1366-dark.json)和[UI-013部分生产原图](ui013-production-partial-home-768-dark.png)，后者原遮挡位置文字已避让；并非四宽度双主题完整验收或线上证据。
 - Chrome性能日志只用于诊断，启用Network事件、不启用Page事件，不改变网络缓存/浏览器版本或字体。每个主场景导航前清空旧日志以限定当前导航且控制内存；失败时只保存Font请求URL/ID/时间/状态/协议/缓存标记及完成/失败原因，不输出headers和其他请求。诊断失败另记错误，原始settle异常仍raise。
 - FontFace快照新增unicodeRange，原fontSetStatus/资源时序保留。没有产品改动、延时重试或跳过ready；尚未证明具体CDN/分片根因。两项新增回归实际执行纯事件解析，验证finished/failed/pending及非Font/headers排除，并约束原30s/ready/raise接线；不是浏览器视觉验收。
