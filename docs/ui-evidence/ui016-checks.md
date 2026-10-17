@@ -1,6 +1,14 @@
 # UI-016 — ABOUT关系卡片说明被固定按钮覆盖
 
-状态：validation-pending；8095f4a5已构建/部署，但live取消；随后最新main5862ab0e的完整生产/部署/线上仍待同head重试，未标done。a17ee7ec限定生产视觉验收保留，不代替最新head。
+状态：done（仅UI-016关系说明作用域）。5862ab0e同head attempt2完整build/deploy/live及部署后人工复验通过；全站矩阵仍IN PROGRESS，新证据提交自身CI另核对。
+
+## 2026-10-18 同head部署与线上限定验收通过
+
+- 精确main `5862ab0e14211edf63f264593638a5131c003616` / [run39067300977 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39067300977/attempts/2)：build117502673032、deploy117505713846、verify-live-ui117505765011全部success。258 tests、Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/旧门禁及production/live各192主场景、14侧栏、24公开流程177原生帧通过；live日志明确https://neutriverse.uk。
+- live artifact12114393947，490933485 bytes；独立SHA256 `c96fee2114716eb82ccbcd12aa8f08242c9c95e69d706f1898da455668a31011`匹配。实际查看四宽度双主题关系说明可见的12帧/[8联系表](ui016-live-contacts/)，放大[390 Night线上原图](ui016-live-about-relations-390-dark.png)对照before，原说明全文避开圆钮，卡片边框/标题/链接/双主题保留，未确认新增显示缺陷。未把全部177帧自动诊断当人工全页验收。
+- [线上摘要与production对照](ui016-live-summary.json)：24流程帧数/往返目标一致、scrollY最大差0；ABOUT8流程关系组诊断与已验production完全相同，每帧rootCount3、emptyRoots0、严格文字行overlaps=[]。真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击及浏览器返回通过；scrollX0且无横向溢出。
+- 保留以下attempt1失败、旧live取消及完整原始诊断；此次成功不证明有限动画等待的内部根因已解决。没有修改产品/审计/等待时限或门禁、Library同步/原文/metadata/URL/hidden/noindex。gh不在PATH，不编造Issue；本机258 tests/authoring/T01/diff再通过，本机无Jekyll/Chrome。
+- UI016限定done；A09剩余整页与其他矩阵pending，无新用户决策。只提交计划/日志/公开证据，父1776aa4保留失败历史，非强推且fresh main必须仍5862；新文档head自身CI/deploy/live另核对，不用本成功代验，不将全站标COMPLETE。
 
 ## 2026-10-18 已部署head的live取消；最新main返回等待失败
 

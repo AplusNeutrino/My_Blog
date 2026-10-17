@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | validation-pending | a17ee7ec精确production192+14/24公开流程及258 tests/T01/authoring/Jekyll通过；四宽度双主题12关系说明帧/8联系表实际查看、原390 Night放大对比无覆盖；允许交付main，main自身CI/部署/live同场景待验，未标done |
+| UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
@@ -67,6 +67,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI016限定done：精确main5862ab0e/run39067300977 attempt2 build117502673032/deploy117505713846/live117505765011全部success；258 tests/T01/authoring/Jekyll/原门禁、production/live各192+14及24公开流程177帧通过。live artifact12114393947独立SHA256匹配；12关系目标帧/8联系表实际查看、390 Night原图before/after全文无覆盖。ABOUT8流程诊断与production相同、真实滚轮/顶部按钮/公开往返通过，24流程scrollY差0。旧失败/取消及未知动画根因保留，不改时限/门禁。新证据提交自身CI另核对；全站IN PROGRESS，A09剩余整页与其他矩阵pending，无新用户问题。[限定线上证据](docs/ui-evidence/ui016-checks.md#2026-10-18-同head部署与线上限定验收通过)。
 
 2026-10-18 UI016接续pending：8095f4a5/run39065426364 build117491963533/deploy117495092346 success，live117495142367 cancelled，未完整线上验收。main现5862ab0e14211edf63f264593638a5131c003616，仅保留新增Library六文件同步，UI/审计未变；其run39067300977 attempt1 build117497614664失败于1024 Light ABOUT从Library返回后有限动画等待，deploy117499783132/live117499784181 skipped。258 tests/Ruby/T01/authoring/Jekyll/前置门禁通过，主144/公开17流程139帧/侧栏0；artifact12114355647独立摘要匹配，失败原图实际看、无新显示缺陷确认。180ms背景色及500ms按钮透明度过渡running/time0/startTime null，根因未知，不改时限/动画/门禁。一次同head失败job重试attempt2 build117502673032运行中；不移动main/ui分支，证据留verification/ui016-5862-return-retry。无新用户问题，UI016/完整matrix仍pending，下一项同head重试及部署/live。[诊断与局限](docs/ui-evidence/ui016-checks.md#2026-10-18-已部署head的live取消最新main返回等待失败)。
 

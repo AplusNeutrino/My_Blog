@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI016精确main部署与线上限定验收done
+
+- fresh main/base `5862ab0e14211edf63f264593638a5131c003616`，[run39067300977 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39067300977/attempts/2) build117502673032/deploy117505713846/verify-live-ui117505765011全部success。258 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部原门禁、production/live各192+14及24公开流程177原生帧通过；live日志明确https://neutriverse.uk。
+- live artifact12114393947 /490933485 bytes /独立SHA256 c96fee2114716eb82ccbcd12aa8f08242c9c95e69d706f1898da455668a31011匹配。人工查看四宽度双主题12个关系说明可见帧/8联系表，放大390 Night线上原图对照before，原右端全文避开圆钮，框架/标题/链接/双主题保留，无新增确认缺陷。只限定UI016，不称全部177帧或A09整页人工完成；8联系表、原场景PNG和24流程摘要/生产对照永久入库。
+- ABOUT8流程每帧关系目标3/emptyRoots0/严格逐行交集0，与a17 production诊断完全相同；24流程帧数/往返目标一致、scrollY最大差0、scrollX0、无横向溢出。真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击和浏览器返回通过。
+- 以下attempt1返回等待失败及旧live取消/完整诊断保留，此次成功不证明有限动画内部根因已修复；不改产品/审计/时限/门禁。258 tests/authoring44/5/7/T01保护44/5/5/diff本机再通过，本机无Jekyll/Chrome；AGENTS/docs/agents/ADR/旧COMPLETE与本轮台账/用户补充核对，CONTEXT无、gh不在PATH不编造Issue，独立worktree保护原目录用户修改。
+- 本次仅3文档及公开live证据，保留Library六文件同步、原文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE。以1776aa4为父保留上轮失败证据，fresh main不变才expected-head非强推。UI016限定done，新证据head自身Actions/build/deploy/live单独pending；全站IN PROGRESS，不写final报告/COMPLETE或暂停，无新用户决策。下一项先核对新head，再补UI-A09剩余整页及其他矩阵。
+
 ## 2026-10-18 — UI016已部署但live取消，最新main返回等待失败及同head受控重试
 
 - `8095f4a579926e9f35bf859e52f731c39c2dde9a` /[run39065426364](https://github.com/AplusNeutrino/My_Blog/actions/runs/39065426364) build117491963533/deploy117495092346 success、live117495142367 cancelled；不将部分线上artifact当完整验收。fresh main已新增Library自动同步5862ab0e14211edf63f264593638a5131c003616，仅6个Library/source/sync_status数据文件，UI/审计/指令/ADR/旧COMPLETE均无差异。保留最新同步；pages共用cancel-in-progress:true，与中断时序一致，不为验收回退或覆盖用户数据。
