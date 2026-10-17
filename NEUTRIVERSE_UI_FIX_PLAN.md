@@ -62,6 +62,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08k范围先记录（2026-10-17）：base dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3，run38979246164 build117235958658/deploy117238946046/live117239020388全部success。选择默认书籍6页中间区域视觉证据：沿用真实逐卡加载/分页后，每页补原生CDP整页截图，当前4宽度×2主题×6页=48图；不改窗口或产品DOM/样式、不用DOM代替看图。文件限现有审计、必要回归、UI计划日志及uia08k证据，产品/数据不改，无新确认缺陷/用户决策；gh不可用不编造Issue。先ui/audit-008k，真实production截图、人工检查与main/live仍validation-pending，其他分类/全站继续pending。
+
 UI-A08j限定done（2026-10-17）：验收main4140b667ef00b8b4723d29687306e2fdc5d1ef01 /run38973034490 build117215745464/deploy117219743993/live117219913508均success；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/production与live各192+14通过。live artifact12079130735独立摘要匹配，人工看96双主题四宽度页首尾图8联系表，放大390 Light首/768 Night末页首，未确认新缺陷。8流程完整124书籍6页/992原生加载/末页刷新与返回通过，ID/图片与生产相同，96几何仅纵坐标最大0.307px差异，原始证据保留。不据此推断中间区域完整视觉/其他分类通过，全站IN PROGRESS，无新用户决策。本轮只回写计划日志与live证据，新证据head CI另核对；下一项其余默认分类/中间区域及全站余项。[证据](docs/ui-evidence/uia08j-checks.md)。
 
 UI-A08j最新数据生产验收（2026-10-17）：8eef170b98feea451bd210fe6190b8488fa36451 /run38967018561 build117196107879 success，deploy117200632292/live117200633470 skipped；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/192+14通过。artifact12075822645独立摘要匹配，人工看新数据四宽度双主题96页首尾图8联系表并放大390 Light首/768 Night末页首，未新增确认缺陷。8流程/完整124书籍6页/992原生加载/末页刷新返回与96几何通过；9个同步数据blob保持dda8dc31原值。只交付已验证审计/证据，不改样式；精确新main head build/deploy/live及96线上图仍validation-pending。中间卡片完整视觉、其他分类与全站余项仍pending，无新用户决策。

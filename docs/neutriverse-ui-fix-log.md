@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08k范围先记录
+
+- 实现每页加载后原生CDP整页取景，断言真实PNG签名/宽高与clip、全卡片在截图范围内、ID与当前页相同；保留原96页首尾图/加载交互和全部旧门禁。新增2接线回归，本机243 tests、authoring44/5/7、T01保护44/5/5及diff通过；本机无Jekyll/Chrome，48图与production/main/live仍pending，不冒称视觉通过。
+- base dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3 /run38979246164 build117235958658/deploy117238946046/live117239020388均success。独立worktree保护原目录用户修改，不重跑T00–T39历史、不改旧COMPLETE。
+- task UI-A08k：默认书籍中间区域视觉，逐卡原生加载后每页补整页CDP截图，当前48图；保留页首尾96图及全部既有门禁。不改变viewport、产品DOM/样式、内容或同步数据，不以加载/几何通过冒充视觉正常。
+- 范围仅审计/必要回归/本轮计划日志/公开证据；完整条件见uia08k-checks.md。无新确认产品缺陷或用户决策，gh不可用不虚构Issue。工作分支ui/audit-008k，production/main/live继续validation-pending，全站IN PROGRESS。
+
 ## 2026-10-17 — UI-A08j精确main线上验收
 
 - main4140b667ef00b8b4723d29687306e2fdc5d1ef01 /run38973034490 build117215745464/deploy117219743993/live117219913508全部success；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁及production/live各192+14通过。live日志UI_LIVE_BASE=https://neutriverse.uk，未用localhost代替线上。
