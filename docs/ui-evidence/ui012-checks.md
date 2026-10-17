@@ -1,6 +1,10 @@
 # UI-012 — 首页近期表达正文避让固定返回顶部按钮
 
-状态：validation-pending。范围先记录2026-10-17，base分支37fa1d786d415388edd7d0559a08cdfda5112ea5；main53787e0bbe111da193918ee959e82780b58d87c3不动。
+状态：done（e437b97d精确main部署/线上验收）。原范围记录2026-10-17，历史base分支37fa1d786d415388edd7d0559a08cdfda5112ea5、main53787e0bbe111da193918ee959e82780b58d87c3；此前pending按时间保留。
+
+## 2026-10-17 精确main线上验收：done
+
+验收e437b97d089359c47f8e83a691a3e9e43dbd2989 / [run39023453629](https://github.com/AplusNeutrino/My_Blog/actions/runs/39023453629)，build117369686142/deploy117372301121/live117372348023全部success。252 tests/4 Ruby/T01/authoring/Jekyll/原门禁与production/live各192+14、24public通过。live artifact12098546289独立摘要匹配；四宽度双主题首页56原生滚动图10联系表已实际看，[390 Night原位置线上图](ui012-live-home-390-dark.png)放大对照，Z.A.T.O.正文完整、不再覆盖。所有首页近期/精选逐行Range无交集，八流程真实返回顶部和四入口往返通过。本项done；UI014/其他页面不由此标正常。之前pending/失败记录按时间保留，详细证据见uia09-checks.md。
 
 - 已复现：390 Night原生首页第3帧中，返回顶部按钮覆盖Z.A.T.O.正文首行右端，原图ui012-before-home-390-dark.png。不是单纯审美偏好；Light/其余尺寸尚待本次矩阵验证。
 - 根因范围：首页近期表达卡片沿用普通内边距，文字可延伸至固定按钮所在右侧区域。拟仅在无右侧辅助栏布局（<=1199.98px）给.nv-home-transmission预留额外右内边距，不移动共享按钮、不改全站容器/DOM/内容/metadata；宽屏辅助栏把正文与按钮分隔，保持原样。

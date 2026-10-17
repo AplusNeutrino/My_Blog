@@ -1,6 +1,10 @@
 # UI-013 — 首页精选卡片正文避让固定按钮
 
-状态：in-progress，生产截图/main/live尚未验收。
+状态：done（e437b97d精确main部署/线上验收）；此前in-progress/pending按时间保留。
+
+## 2026-10-17 精确main线上验收：done
+
+验收e437b97d089359c47f8e83a691a3e9e43dbd2989 / [run39023453629](https://github.com/AplusNeutrino/My_Blog/actions/runs/39023453629)，build117369686142/deploy117372301121/live117372348023全部success。252 tests/4 Ruby/T01/authoring/Jekyll/原门禁与production/live各192+14、24public通过。live artifact12098546289独立摘要匹配；四宽度双主题首页56原生滚动图10联系表已实际看，[768 Night原精选位置线上图](ui013-live-home-768-dark.png)放大对照，摘要末端完整、没有覆盖，列数/外框/主题保留。八流程真实返回顶部和四入口往返、所有近期/精选文字行无按钮交集通过。本项done；UI014与全站余项仍pending，之前失败/局限按时间保留，详细证据见uia09-checks.md。
 
 ## 先记录范围（2026-10-17）
 

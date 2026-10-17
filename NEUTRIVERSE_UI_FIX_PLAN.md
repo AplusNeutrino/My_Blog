@@ -18,8 +18,8 @@
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | confirmed / queued | 原生PNG已保存；与首页UI012/013不同文字作用域，下一项最小定位与逐行交集回归，未修改，不因CI成功标视觉正常 |
-| UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | validation-pending | 已最小实现无辅助栏两列外列/单列卡片右内边距避让，Range扩展精选真实文字；250测试/T01/authoring通过，新head生产截图/main/live未验收，不能标done |
-| UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | validation-pending | 已实现首页近期表达<=1199.98px右内边距避让及Range文字行/按钮不相交门禁；新head四宽度双主题生产/main/live未验收，原图保留。UI-A09返回悬停过渡另以真实移出hover后相同等待重验，不冒称同根因 |
+| UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
+| UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图已看，原390 Night Z.A.T.O.原图放大对照无文字遮挡，逐行Range与返回顶部/四入口往返通过 |
 | UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | done | 831f2898精确main build/deploy/live通过；四宽度双主题48线上图已人工看并放大原遮挡场景，计数完整且按钮可操作；8组逐行滚动/往返/真实返回顶部、48诊断及192+14通过 |
 | UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | done | 41dca277精确main build/deploy/live通过；四宽度双主题32线上评分图已人工看，首末提示全文可见且在clientWidth/shell内；8分类/摘要/真实键盘/退出隐藏/刷新和192+14通过 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
@@ -65,6 +65,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-17 UI012/013线上限定done：验收main e437b97d089359c47f8e83a691a3e9e43dbd2989 /run39023453629 build117369686142/deploy117372301121/live117372348023全部success，252 tests/Ruby/T01/authoring/Jekyll/全部门禁、production与live各192+14及24public通过。live artifact12098546289摘要独立匹配，四宽度双主题首页56滚动帧10联系表全部实际看并放大390 Night近期/768 Night精选原图，文字无遮挡、八流程返回顶部与四入口往返通过，关本两项pending。OBSERVE/ABOUT其余线上图未全人工验收、UI014待修，全站IN PROGRESS，无新缺陷或用户决策。本次只回写证据/计划日志，不追加产品改动；新证据head CI另核对，下一项优先UI014最小修复。[线上证据](docs/ui-evidence/uia09-checks.md)。
 
 2026-10-17生产验收：d50f1bc9/run39019844860 build117359307157 success，deploy117362280180/live117362280399 skipped。252 tests/4 Ruby/T01/authoring/Jekyll/全部门禁、192+14及24public/177滚动帧通过；artifact12096771963独立摘要匹配。36联系表全部实际看并放大首页两旧遮挡、OBSERVE/ABOUT代表原图，UI012/013生产限定验收通过，可独立交付main，新main自身部署/live仍pending。新确认UI014说明段遮挡列队列；A09不标三页整体done。ABOUT显式br空白保留，不凭偏好删旧内容。字体本次未复现不宣称根因修好，无新用户决策，gh不可用不编造Issue。[证据](docs/ui-evidence/uia09-checks.md)。
 

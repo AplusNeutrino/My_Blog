@@ -2,6 +2,13 @@
 
 状态：validation-pending。base main53787e0bbe111da193918ee959e82780b58d87c3；精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。旧UI-A08k限定done不重启。
 
+## e437精确main线上限定验收（2026-10-17）
+
+- 验收head e437b97d089359c47f8e83a691a3e9e43dbd2989 / [run39023453629](https://github.com/AplusNeutrino/My_Blog/actions/runs/39023453629)：build117369686142、deploy117372301121、verify-live-ui117372348023全部success；线上日志目标https://neutriverse.uk。252 tests/4 Ruby/T01/authoring/Jekyll/Search/feed/SEO/资源/旧门禁以及production/live各192+14和24public通过。
+- live artifact12098546289 /492553783 bytes /sha256:692e9aef49140ca36f32e04be63c6309fe3553f46665712872186d889cdacb2d下载后独立匹配。全三页177帧已生成、24流程完成；本轮人工只验收首页八流程56帧的10联系表（uia09-live-home-contacts/）及放大390 Night近期第4帧、768 Night精选第5帧原图，不冒称全部177线上图已人工验收。24流程/177帧摘要永久存uia09-live-summary.json；完整原图/JSON留精确artifact14天。
+- UI012/013线上旧位置不再被按钮盖住，中文/长标题/摘要换行可读，卡片外框/列数/双主题气质保持；八流程main完整覆盖、无横向溢出、所有近期/精选真实文本行与可见按钮无交集、真实返回顶部及四入口点击返回通过。本两项done，原问题图与线上修复图均保留。
+- 字体阻塞在此main production/live均未复现，原等待/时限未放宽；仍不声明旧网络/浏览器内部根因已被产品修改修好。A09整体仍validation-pending：OBSERVE/ABOUT UI014待修且本轮其余线上图未全部人工看，全站余项不扩写done。无新确认缺陷/用户决策，gh未安装不编造Issue。
+
 ## d50精确生产验收与新问题（2026-10-17）
 
 - head d50f1bc9dcf67606d8029468c5f9248fcc1d0234 / [run39019844860](https://github.com/AplusNeutrino/My_Blog/actions/runs/39019844860)，build117359307157 success，deploy117362280180/live117362280399 skipped（工作分支）。252 tests/4 Ruby/T01/authoring/production Jekyll/Search/feed/SEO/资源及所有既有门禁通过；主192/侧栏14、新public24/24完整通过，177张原生滚动PNG。不是部署后验收。

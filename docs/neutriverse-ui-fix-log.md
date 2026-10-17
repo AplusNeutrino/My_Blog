@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI012/013精确main部署与线上限定done
+
+- fresh验收main e437b97d089359c47f8e83a691a3e9e43dbd2989 / [run39023453629](https://github.com/AplusNeutrino/My_Blog/actions/runs/39023453629)，build117369686142/deploy117372301121/live117372348023全部success。252 tests/4 Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/旧门禁通过，production/live各192+14、新public24/24。线上日志明确https://neutriverse.uk，不拿其他head成功替代。独立worktree不动用户修改，AGENTS/docs/agents/ADR/旧COMPLETE与计划日志已核对，CONTEXT无，gh未安装不编造Issue，无新用户决策。
+- live artifact12098546289 /492553783 bytes /sha256:692e9aef49140ca36f32e04be63c6309fe3553f46665712872186d889cdacb2d独立匹配。生成三页177线上帧；本轮只人工验收首页四宽度双主题56帧的10联系表，放大390 Night近期第4帧与768 Night精选第5帧原图；其余OBSERVE/ABOUT线上图未全人工看，不声称177图线上视觉全通过。联系表、24流程177帧摘要及两张线上原图永久入库，完整原包留artifact14天。
+- UI012/013旧位置正文完整，返回顶部不再遮挡，中文换行/卡片外框/列数/主题保留；首页八流程完整覆盖/无横向溢出、近期及精选逐行Range无按钮交集、真实返回顶部和四入口往返通过。两项限定done；UI014尚待最小修复，A09整体和全站不标done。字体阻塞此main生产/live均未复现，但旧根因未证实，不宣称改好了网络或产品字体。
+- 本机252 tests、authoring44/5/7、T01保护44/5/5、diff check通过，没有本机Ruby/Jekyll/Chrome。本次只回写计划日志与公开线上证据，不追加产品/数据/旧正文/metadata/URL/hidden/noindex或外部仓库修改；新证据head CI另核对。下一项优先UI014，既有原文br/倒计时空白不凭偏好删除，无新产品缺陷/用户待决问题。
+
 ## 2026-10-17 — UI012/013生产限定验收；UI014新确认
 
 - fresh main53787e0bbe111da193918ee959e82780b58d87c3、工作d50f1bc9dcf67606d8029468c5f9248fcc1d0234，独立worktree保留用户修改；AGENTS/docs/agents/ADR/计划日志及旧COMPLETE核对，CONTEXT无，gh未安装不编造Issue，无新用户决策。旧COMPLETE计划报告与main无差异，不重跑T00–T39。

@@ -2,6 +2,8 @@
 
 状态：validation-pending。2026-10-17先记录范围。
 
+2026-10-17接续：main e437b97d/run39023453629 build117369686142/deploy117372301121/live117372348023全部success；production/live各192+14及24public完整通过，字体阻塞均未复现。UI012/013已完成线上限定验收。旧字体阻塞根因仍未证实，不将一次或几次通过写成产品字体修复；诊断及原ready/30s保留，A09整体因UI014继续pending。
+
 接续2026-10-17：d50f1bc9/run39019844860 build117359307157 success，完整192+14和24public流程通过，没有失败快照，字体等待本次未复现。原ready/30s不变；性能日志开启与一次成功不能证明旧网络/浏览器内部根因已修复，不作产品字体改动。此前失败及Unicode/网络诊断保留；新main/live仍待核对。
 
 - base main53787e0bbe111da193918ee959e82780b58d87c3不动，工作head563d054f5c975eca6aaaa583edee18910bdc09de；run39015972699 build117348035702 failure，deploy117349896137/live117349895961 skipped。250 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源及前置门禁通过；主144/192、新public18/24、139原生滚动帧、侧栏0。不能当完整通过。
