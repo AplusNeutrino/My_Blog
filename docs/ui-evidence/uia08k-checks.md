@@ -11,6 +11,7 @@
 - 修正仅审计：取消本项超视口CDP取景，按实际CSS grid列数逐行真实滚动，用原生viewport PNG；每行全部卡片完整位于topbar下/视口内、图片加载、PNG实际尺寸与原生viewport一致，coveredIds按序等于本页所有ID。原96页首尾/全量加载/刷新返回门禁保留；原全页PNG尺寸/范围断言替换为更直接的原生viewport完整行覆盖检查，不放宽验收。
 - 当前390为2列，其余3宽度当前4列，预计新增310行截图（124书籍×2/2 +124×6/4），以实际列数动态计算，不固定未来数据。48整页图不再是修正后目标。每一行都需人工看图；其他分类仍pending。本机243 tests/authoring44/5/7/T01保护44/5/5/diff通过，不代替真实Jekyll/Chrome。
 - main仍dcb9e136，修正留ui/audit-008k，新head production/行截图与main/live全部validation-pending，无新用户决策。不改产品/数据/原文/metadata/URL/hidden/noindex、关联仓库或旧COMPLETE。
+- 真实修正实现337f2d1cc97b62e5cccf3f7367cf3a0009481c1b已expected_sha非强推保存ui/audit-008k，11个远程blob与本地git hash-object逐项相同；随后只追加此SHA检查点。下一轮核对最终分支head CI/原生行截图，不复用eccb2551整页结果作为验收。
 
 实现仅扩展既有bookInventory流程：每页首尾截图后真实回到顶部，原生CDP整页截图；校验PNG签名/IHDR宽高等于clip、全部当前卡片文档矩形在clip内、ID等于本页遍历集合、图片已加载，记录fullPage元数据。保留原96图/992加载等门禁。新增2项接线回归，原视觉范围文案随新增整页证据更新，未删除原断言。
 

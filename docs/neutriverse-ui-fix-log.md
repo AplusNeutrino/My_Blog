@@ -2,6 +2,7 @@
 
 ## 2026-10-17 — UI-A08k首次生产与原生行截图修正
 
+- 真实修正337f2d1cc97b62e5cccf3f7367cf3a0009481c1b已expected_sha非强推保存ui/audit-008k，11个远程blob与本地hash一致；随后只追加SHA检查点。main未改，下一轮必须核对最终分支head完整CI及原生行图，不借旧整页通过替代。
 - eccb2551644d0a94b65830a6a5927ac057e73896/run38984590940 build117253009701 success，deploy117255688589/live117255689373 skipped。243 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过；artifact12082608255 /354689315 bytes /sha256:5237417b3bd66185e103f9cf56212e3e816be11209d844682237c2eb5e4ef2c6独立匹配。
 - 人工看390双主题8逐卡联系表及390 Light第3页整图/顶部原始像素，发现超视口CDP PNG卡片右缘约190/374与拍摄前rect185.09375/363不匹配，按rect裁图混入上一行并截去本行标题。48 PNG尺寸/DOM范围通过不能证明原生viewport视觉；未判产品缺陷，其他宽度未看不冒称完整验收。保留首次审计/48诊断/2联系表和390 Light第3页PNG作失败历史。
 - 仅修审计为按CSS grid实际列数逐行滚动、原生viewport PNG，全行卡片在topbar下及视口内/图片加载/PNG尺寸/全ID顺序覆盖断言；原96页首尾、992加载和交互不减。本机243 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机无Jekyll/Chrome，当前预计310新行图仍pending。
