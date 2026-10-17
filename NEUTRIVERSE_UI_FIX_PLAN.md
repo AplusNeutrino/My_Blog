@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | confirmed / queued | 原生PNG已保存；与首页UI012/013不同文字作用域，下一项最小定位与逐行交集回归，未修改，不因CI成功标视觉正常 |
+| UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | validation-pending | 窄屏两个说明容器最小右侧文字通道已实现，新增逐行Range/缺失作用域拒绝；本机254 tests/T01/authoring通过，ui/fix-014新head production/人工图/main/live尚未验收 |
 | UI-013 | P2 | 768 Night首页精选内容右下Progressive Disclosure卡片的正文被固定返回顶部按钮覆盖，原生第5帧实际复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图/10联系表已看，原768 Night精选原图放大对照无文字遮挡，真实返回顶部与入口往返通过 |
 | UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | done | e437b97d精确main build/deploy/live均成功；四宽度双主题56首页线上滚动图已看，原390 Night Z.A.T.O.原图放大对照无文字遮挡，逐行Range与返回顶部/四入口往返通过 |
 | UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | done | 831f2898精确main build/deploy/live通过；四宽度双主题48线上图已人工看并放大原遮挡场景，计数完整且按钮可操作；8组逐行滚动/往返/真实返回顶部、48诊断及192+14通过 |
@@ -65,6 +65,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-17 UI014实现待验：base main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e /run39027206328 build117380439666、deploy117383385470、live117383421916全部success，关闭上一证据head的CI pending。本轮重新查看390 Light OBSERVE/390 Night ABOUT原图，先记录范围后仅<=767.98px给两明确说明容器增加2.75rem右padding；不改共享按钮、原文或数据。原首页Range保留，新增两页目标必须存在且有文字/逐行严格无按钮交集，失败保存PNG/JSON。本机254 tests、authoring44/5/7、T01保护44/5/5、diff通过；没有本机Jekyll/Chrome，精确新head production/人工截图/main/live均pending，留ui/fix-014，不合main。gh不在PATH，不编造Issue；无新用户决策，不将静态测试当视觉验收。下一轮先核对同一分支head。[UI014范围与验收](docs/ui-evidence/ui014-checks.md)。
 
 2026-10-17 UI012/013线上限定done：验收main e437b97d089359c47f8e83a691a3e9e43dbd2989 /run39023453629 build117369686142/deploy117372301121/live117372348023全部success，252 tests/Ruby/T01/authoring/Jekyll/全部门禁、production与live各192+14及24public通过。live artifact12098546289摘要独立匹配，四宽度双主题首页56滚动帧10联系表全部实际看并放大390 Night近期/768 Night精选原图，文字无遮挡、八流程返回顶部与四入口往返通过，关本两项pending。OBSERVE/ABOUT其余线上图未全人工验收、UI014待修，全站IN PROGRESS，无新缺陷或用户决策。本次只回写证据/计划日志，不追加产品改动；新证据head CI另核对，下一项优先UI014最小修复。[线上证据](docs/ui-evidence/uia09-checks.md)。
 

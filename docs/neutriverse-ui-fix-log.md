@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI014最小实现，等待精确生产验收
+
+- fresh main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e；[run39027206328](https://github.com/AplusNeutrino/My_Blog/actions/runs/39027206328) build117380439666、deploy117383385470、verify-live-ui117383421916全部completed/success。关闭该证据提交CI pending，不冒称UI014通过。独立worktree保留原目录用户字体/pyc/未跟踪基线修改；已核对AGENTS/docs/agents/ADR/旧COMPLETE计划报告和本轮计划日志，CONTEXT无。gh CLI不在PATH，按规范不使用API创建替代Issue，没有虚构编号。
+- 实际重新查看ui014-before-observe-390-light.png、ui014-before-about-390-dark.png：说明段“数据流程”及介绍段“并…”尾端确被固定按钮覆盖。先写ui014-checks.md的base、文件范围、复现与验收，再改产品。不把ABOUT其余靠近按钮的日期/项目或作者显式br空白当已确认缺陷，不扩张为重设计。
+- 根因是两个普通说明容器没有文字避让，首页卡片规则不涵盖。仅共享CSS<=767.98px作用于OBSERVE .nv-section-intro及ABOUT .about-info-text，右padding2.75rem；不改共享按钮/模板/主题/字号/内容/数据。新增两页真实TreeWalker/Range逐行矩形与可见按钮严格无交集，目标缺失或无文字也拒绝，失败PNG/JSON先保存再抛错；原首页文字门禁、24public、192+14与所有其他专项/等待时限保留。
+- 本机254 tests、authoring44/5/7、T01正文/metadata/URL/hidden保护44/5/5与diff check通过；这只证明本地回归，不是修复后视觉验收。本机没有Ruby/Jekyll/Chrome，新精确head production Jekyll/全部产物门禁、四宽度双主题截图和人工前后复验仍pending。实现留ui/fix-014，main未改；生产通过后才考虑main，随后该main自身build/deploy/live仍须验收。
+- 不改旧文章/学习笔记/Thought/Project Log正文、filename/date/slug/permalink/metadata、旧URL/hidden/noindex或外部仓库，不重跑T00–T39。没有新增用户待决问题，全站IN PROGRESS，下一项先核对本次分支head的CI及原390两场景。
+
 ## 2026-10-17 — UI012/013精确main部署与线上限定done
 
 - fresh验收main e437b97d089359c47f8e83a691a3e9e43dbd2989 / [run39023453629](https://github.com/AplusNeutrino/My_Blog/actions/runs/39023453629)，build117369686142/deploy117372301121/live117372348023全部success。252 tests/4 Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/旧门禁通过，production/live各192+14、新public24/24。线上日志明确https://neutriverse.uk，不拿其他head成功替代。独立worktree不动用户修改，AGENTS/docs/agents/ADR/旧COMPLETE与计划日志已核对，CONTEXT无，gh未安装不编造Issue，无新用户决策。

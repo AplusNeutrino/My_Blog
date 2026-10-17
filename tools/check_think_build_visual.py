@@ -1518,6 +1518,37 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                 driver.save_screenshot(str(output / f'home-text-overlap-{width}-{theme}.png'))
                 (output / f'home-text-overlap-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
             require(not observed['recentTextButton']['overlaps'], 'Homepage recent/featured text covered by back-to-top')
+        elif name in ('observe', 'about'):
+            # UI-014: separate ordinary paragraph scopes, not the homepage cards.
+            selector = {
+                'observe': '[data-neutriverse-section="observe"] .nv-section-intro',
+                'about': '[data-about-profile] .about-info-text',
+            }[name]
+            observed['introTextButton'] = driver.execute_script('''
+              const roots=[...document.querySelectorAll(arguments[0])];
+              const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
+              const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
+              const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+              const lines=[];let textNodes=0;
+              for(const root of roots){
+                const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+                while(walker.nextNode()){
+                  const n=walker.currentNode;if(!n.textContent.trim())continue;
+                  textNodes++;
+                  const range=document.createRange();range.selectNodeContents(n);
+                  for(const r of range.getClientRects())if(r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight)
+                    lines.push({...rect(r),text:n.textContent.trim(),surface:root.className});
+                }
+              }
+              return {selector:arguments[0],rootCount:roots.length,textNodes,button:rect(br),shown,lines,
+                overlaps:shown?lines.filter(r=>r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top):[]};
+            ''', selector)
+            intro = observed['introTextButton']
+            if intro['rootCount'] != 1 or not intro['textNodes'] or intro['overlaps']:
+                driver.save_screenshot(str(output / f'intro-text-overlap-{name}-{width}-{theme}.png'))
+                (output / f'intro-text-overlap-{name}-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+            require(intro['rootCount'] == 1 and intro['textNodes'] > 0, 'Public intro text scope missing')
+            require(not intro['overlaps'], 'Public intro text covered by back-to-top')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)

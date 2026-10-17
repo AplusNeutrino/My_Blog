@@ -465,6 +465,15 @@
   line-height: 1.8;
 }
 
+/* UI-014: these unboxed mobile paragraphs share the fixed button's lane.
+   Keep the shared button and all other sections' reading widths unchanged. */
+@media (max-width: 767.98px) {
+  [data-neutriverse-section='observe'] .nv-section-intro,
+  [data-about-profile] .about-info-text {
+    padding-right: 2.75rem;
+  }
+}
+
 .nv-section-links {
   margin: 2rem 0;
 }

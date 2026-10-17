@@ -71,6 +71,28 @@ class PublicPageSweepAuditTests(unittest.TestCase):
         self.assertEqual(block.count('padding-right: calc(1rem + 2.75rem);'),2)
         self.assertNotIn('grid-template-columns',block)
 
+    def test_observe_about_intro_range_rejects_missing_scope_and_intersections(self):
+        _,helper=self.helper()
+        block=helper[helper.index("elif name in ('observe', 'about'):"):helper.index('Public page native viewports have a coverage gap')]
+        for token in ('[data-neutriverse-section="observe"] .nv-section-intro',
+                      '[data-about-profile] .about-info-text', 'document.createTreeWalker',
+                      'range.getClientRects()', "intro['rootCount'] == 1 and intro['textNodes'] > 0",
+                      "require(not intro['overlaps']", 'intro-text-overlap-',
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top'):
+            self.assertIn(token,block)
+        self.assertLess(block.index('driver.save_screenshot'),block.index('require('))
+
+    def test_intro_lane_is_mobile_only_and_does_not_change_content_or_button(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-014:')
+        block=css[start:css.index('.nv-section-links {',start)]
+        for token in ('@media (max-width: 767.98px)',
+                      "[data-neutriverse-section='observe'] .nv-section-intro",
+                      '[data-about-profile] .about-info-text', 'padding-right: 2.75rem;'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top', 'display:', 'font-size:', 'position:', 'grid-template'):
+            self.assertNotIn(token,block)
+
     def test_font_failure_diagnostics_preserve_original_ready_wait_and_raise(self):
         source,_=self.helper()
         settle=next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef) and n.name=='settle')
