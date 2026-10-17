@@ -1,5 +1,14 @@
 # UI-015 — 公开说明/状态/日期的固定按钮避让
 
+状态：validation-pending；未部署。以下部分原图不代表完整production/main/live验收。
+
+## 2026-10-18 同head生产失败与受控重试
+
+- 真实实现 `7f61a5f154f9736816e8a379b74ecacc6f3f8b43` / [run39043515933](https://github.com/AplusNeutrino/My_Blog/actions/runs/39043515933) attempt1 build117427571131 failure、deploy117430042339/live117430042559 skipped。256 tests/Ruby/T01/authoring/Jekyll/产物及前置门禁通过；仅主144/192、公开18/24共139帧，侧栏0。
+- artifact12104867929，331800012 bytes，独立sha256 `c46f5b02fdd9f9fd168d8b426eae27ab01954d2be1c5016d68d7bda35317fd4f` 匹配。已实际放大[维护](ui015-partial-about-maintenance-390-dark.png)、[理念](ui015-partial-about-principle-390-dark.png)、[日期](ui015-partial-about-date-390-dark.png)、[状态](ui015-partial-observe-meta-390-dark.png)四张390 Night修复后原图，原尾字/日期完整且按钮不重叠。[部分18流程摘要](ui015-partial-production-summary.json)显示三宽双主题严格文字交集均0；139帧未全人工验收，1366与完整/main/live仍pending。
+- [失败1366 Night原图](ui015-font-failure-1366-dark.png)及[字体诊断摘要](ui015-font-failure-summary.json)已保存，摘要保留原JSON SHA256/5个loading面/51条Font网络元数据，完整JSON仍在原artifact。5面loading：Noto Sans SC400/500/600、Noto Serif SC400/600；51条捕获请求均HTTP200/fromDiskCache/finished，无捕获未完成或失败请求。只说明本次捕获范围，不足证明CDN/浏览器根因，未推测修改产品字体。
+- 原30s fonts.ready与20s有限动画等待、全部门禁不变；本轮仅一次同head受控重试attempt2 build117439836139运行中。不移动ui/fix-015/main，证据存verification/ui015-7f61-retry避免取消重试；下一轮先核对同head，若再次失败先比较诊断，不以重试代替根因分析。没有新产品缺陷或用户待决问题。
+
 ## 实现前范围（2026-10-17）
 
 - Task UI-015 / P2；base main `097129418f5a014d3d1d85b2441f934854dcda3a`，工作分支拟 `ui/fix-015`。main原用户修改不动。

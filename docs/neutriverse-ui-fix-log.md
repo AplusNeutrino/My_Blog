@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI015部分生产验证与字体等待失败，同head受控重试
+
+- fresh main097129418f5a014d3d1d85b2441f934854dcda3a、工作7f61a5f154f9736816e8a379b74ecacc6f3f8b43，独立worktree不动原目录用户字体/缓存/未跟踪基线。AGENTS/docs/agents/ADR/旧COMPLETE与本轮台账/用户补充已核对，CONTEXT无，gh不在PATH不编造Issue，无新用户待决问题。
+- [run39043515933](https://github.com/AplusNeutrino/My_Blog/actions/runs/39043515933) attempt1 build117427571131 failure，deploy117430042339/live117430042559 skipped。256 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/前置移动与响应式门禁通过；主144/192、公开18/24共139帧、侧栏0。不将部分通过或代码存在当UI015视觉/部署验收完成。
+- artifact12104867929 /331800012 bytes /sha256:c46f5b02fdd9f9fd168d8b426eae27ab01954d2be1c5016d68d7bda35317fd4f独立匹配。已实际看本次1366 Night失败原图及390 Night ABOUT维护第4、理念第6、日期第11、OBSERVE状态第3原图，四个旧遮挡位置已避让；三宽双主题四类严格逐行交集均0，目标非空、原UI014/首页门禁保持。没有人工查看全部139图，1366与完整production/main/live仍validation-pending。四原图、失败PNG、精简字体诊断和18流程部分摘要永久保存；完整原包留artifact14天。
+- 失败位置1366 Night首THINK settle(document.fonts.ready)脚本约30s超时；readyState complete、FontFaceSet loading。566面为loaded112/unloaded449/loading5；loading为Noto Sans SC400/500/600同一unicodeRange及Noto Serif SC400/600另一unicodeRange。51条本导航捕获Font事件全部finished、HTTP200/fromDiskCache true，没有捕获未完成/失败请求。此观察不证明其他导航/缓存/字体内部状态无问题，不能断言CDN故障或浏览器根因；保留原诊断与失败，不关闭字体等待或延长时限。
+- 鉴于同一未改字体门禁在此前数次精确main完整通过，本轮只进行一次同head失败job受控重试，以确认是否瞬态；attempt2 build117439836139 in_progress。原产品实现/审计/所有时限和断言原样保留，不移动ui/fix-015或main以免取消该重试；记录另存verification/ui015-7f61-retry。若再次失败，先比较这两次同head原始诊断，不靠不断重试宣布通过。
+- 本机256 tests/authoring44/5/7/T01保护44/5/5/diff再次通过，本机无Jekyll/Chrome。本轮没有新产品或审计代码修改，只保存真实失败/部分验收证据；源正文/metadata/旧URL/hidden/noindex、关联仓库及旧COMPLETE不变，全站IN PROGRESS。UI015不合main、不标done；下一项优先同head重试结果及剩余1366/完整截图/部署复验。
+
 ## 2026-10-17 — UI015四类文字避让实现，等待生产视觉验证
 
 - fresh main/base097129418f5a014d3d1d85b2441f934854dcda3a；[run39038972286](https://github.com/AplusNeutrino/My_Blog/actions/runs/39038972286) build117414389679/deploy117417289853/live117417342881全部success，关闭上一证据head CI pending，不用它替代本次实现验证。独立worktree保留原目录字体/缓存/未跟踪基线及临时字体文件等用户修改；AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志和补充已核对，CONTEXT无，gh不在PATH不编造Issue，无新增用户决策。

@@ -67,6 +67,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+2026-10-18 UI015部分生产/字体阻塞：7f61a5f154f9736816e8a379b74ecacc6f3f8b43 /run39043515933 attempt1 build117427571131 failure，deploy117430042339/live117430042559 skipped；256 tests/Ruby/T01/authoring/Jekyll与前置门禁通过，主144/192、公开18/24/139帧、侧栏0。artifact12104867929独立摘要匹配。已放大看390 Night四原遮挡修复后原图，部分避让通过；三宽双主题四类逐行交集均0，但139图未全人工验收、1366及完整/main/live仍pending。字体1366 Night首THINK ready30s超时，5面loading（Sans400/500/600、Serif400/600）；捕获51 Font请求均finished/200缓存，无未完成事件，根因仍不确定，不据此改产品字体或放宽门禁。已做同head一次失败job重试attempt2 build117439836139运行中，不移动ui/fix-015或main；证据另存verification/ui015-7f61-retry，避免取消重试。无新用户决策，下一项核对同head重试。[诊断与边界](docs/ui-evidence/ui015-checks.md)。
+
 2026-10-17 UI015实现待验：base097129418f5a014d3d1d85b2441f934854dcda3a /run39038972286 build117414389679/deploy117417289853/live117417342881全部success，关闭上一证据head CI pending。重新查看四张原图、先写ui015范围后，仅<=1199.98px的理念/维护说明/观察卡状态留右2.75rem文字通道，绝对定位日期right另加2.75rem；外框/列数/字号/主题/正文/按钮不动。新增四类作用域非空与严格真实行/按钮交集门禁，原首页/UI014/192+14/24public及全部等待不减。本机256 tests、authoring44/5/7、T01保护44/5/5、diff通过；本机无Jekyll/Chrome，生产/人工截图/main/live validation-pending，留ui/fix-015，main未改。gh不可用不编造Issue，无新用户决策；下一项核对同head。[UI015](docs/ui-evidence/ui015-checks.md)。
 
 2026-10-17 UI014线上限定done：d1bdcbf2e00d7fc2abd30917af8573856af8719a /run39035135431 build117403304548/deploy117406508063/live117406677161全部success，254 tests/Ruby/T01/authoring/Jekyll/旧门禁、production/live各192+14及24public通过。live artifact12102362109独立摘要匹配；只人工查看两个说明容器实际可见的32线上帧16联系表，并放大原390两场景与旧图对比，遮挡已消除。两页121帧intro诊断与生产完全相同，16真实滚轮/返回顶部/公开往返通过。UI014 done，不将177全部帧或A09整页称视觉通过；UI015补维护说明同类原图仍待修，无新用户决策，gh不可用。本次只回写证据，证据新head CI另核对；全站IN PROGRESS，下一项UI015。[线上证据](docs/ui-evidence/ui014-checks.md)。
