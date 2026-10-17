@@ -2,6 +2,8 @@
 
 ## 2026-10-17 — UI-012最小修复与返回悬停阻塞定位
 
+- 修复实现be98b7b00369e789f3c65cf38916bc5c2e0ba37f，9个远程blob与本地hash一致；随后仅追加SHA检查点保存ui/audit-009，最终head生产及截图仍validation-pending。main未改，不以代码存在或248测试通过冒充UI-012验收完成。
+
 - 精确工作head37fa1d786d415388edd7d0559a08cdfda5112ea5/run39004907637 build117315276681 failure，deploy117317704915/live117317705669 skipped；246 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源/旧主192通过，新public仅21/24、162滚动帧未全人工验收，侧栏0。artifact12090578680 /485643590 bytes /sha256:7148d9cb1248a08ed9287fb84e3d514564c4df664a9a2fca75ea6938f29de708独立匹配，失败JSON/PNG入库并实际看1366 Light入口原图。
 - 返回OBSERVE入口后阻塞动画为background-color(duration180/iterations1/state running/currentTime0/startTime null)，无限旋转不阻塞原等待。不臆测浏览器内部BFCache根因，改为真实指针移至顶部中间退出hover，再执行完全相同settle；不取消动画、不延长时限、不删门禁。
 - UI-012先记录范围ui012-checks.md再实现：首页近期表达普通padding未避让固定按钮，<=1199.98px额外右内边距2.75rem，宽屏辅助栏布局保持原样；不改共享按钮、DOM、数据或正文。每帧TreeWalker/Range真实文本行与可见按钮矩形严格无交集，失败先保存PNG/JSON并抛错。新增2接线回归，本机248 tests/authoring44/5/7/T01保护44/5/5/diff通过，不冒称真实浏览器验收。

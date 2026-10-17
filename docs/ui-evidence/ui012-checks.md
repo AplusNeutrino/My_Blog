@@ -10,6 +10,8 @@
 
 ## 本轮实现（待真实生产验收）
 
+- 真实修复提交be98b7b00369e789f3c65cf38916bc5c2e0ba37f，9个远程blob与本地git hash-object逐项一致；随后只追加SHA检查点。最终分支head生产截图/门禁必须单独核对，未交付main。
+
 - 卡片仅在<=1199.98px增加2.75rem右内边距，保留卡片外框/双主题/DOM与桌面宽屏布局；不宣称所有页面固定栏问题已处理。
 - 每张首页原生滚动截图前，TreeWalker/Range提取近期表达所有可见文本行，用实际按钮矩形与显示/透明状态严格检查交集；失败先保存PNG/JSON再抛错。返回流程通过ActionBuilder真实指针移至顶部中间，解除入口hover，再执行原settle；不取消动画、不增加时限、不放宽通过条件，失败动画诊断保留。
 - 本机248 tests、authoring44/5/7、T01保护44/5/5、diff check通过；本机没有Ruby/Jekyll/Chrome，修复后四宽度双主题截图/24流程和main/live仍validation-pending，先ui/audit-009。不用静态回归当UI-012已修复并验收。
