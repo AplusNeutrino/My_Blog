@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A08k首次生产与原生行截图修正
+
+- eccb2551644d0a94b65830a6a5927ac057e73896/run38984590940 build117253009701 success，deploy117255688589/live117255689373 skipped。243 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过；artifact12082608255 /354689315 bytes /sha256:5237417b3bd66185e103f9cf56212e3e816be11209d844682237c2eb5e4ef2c6独立匹配。
+- 人工看390双主题8逐卡联系表及390 Light第3页整图/顶部原始像素，发现超视口CDP PNG卡片右缘约190/374与拍摄前rect185.09375/363不匹配，按rect裁图混入上一行并截去本行标题。48 PNG尺寸/DOM范围通过不能证明原生viewport视觉；未判产品缺陷，其他宽度未看不冒称完整验收。保留首次审计/48诊断/2联系表和390 Light第3页PNG作失败历史。
+- 仅修审计为按CSS grid实际列数逐行滚动、原生viewport PNG，全行卡片在topbar下及视口内/图片加载/PNG尺寸/全ID顺序覆盖断言；原96页首尾、992加载和交互不减。本机243 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机无Jekyll/Chrome，当前预计310新行图仍pending。
+- 修正留ui/audit-008k，main仍dcb9e136，新head production/main/live均validation-pending。无新确认产品缺陷/用户决策，不改产品/数据/原文/metadata/URL/hidden/noindex、外部仓库或旧COMPLETE，全站IN PROGRESS。
+
 ## 2026-10-17 — UI-A08k范围先记录
 
 - 真实实现a059a6a4a111f588c2cb2fc5e40cf37d98a28063已保存ui/audit-008k，6个远程blob与本地hash逐项一致；随后只追加SHA检查点。main保持dcb9e136未改，本次production/48图/main/live待验收；下一轮核对最终分支精确head，不用base成功或PNG路径存在替代真实视觉通过。

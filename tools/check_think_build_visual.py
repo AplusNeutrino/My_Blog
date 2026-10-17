@@ -1043,47 +1043,52 @@ def library_steam_cover_controls(driver, wait, output, width, theme):
             'telemetryVisual':'pending-no-data' if not expected_steam else 'not-covered'}
 
 
-def library_book_full_page(driver, wait, output, width, theme, page_number):
-    """Capture the real loaded book grid without resizing or changing its DOM."""
+def library_book_row_viewports(driver, wait, output, width, theme, page_number):
+    """Scroll every real grid row into native viewport screenshots, no CDP clip."""
     require(not driver.find_element(By.CSS_SELECTOR, '.pgl-advanced').get_attribute('open'),
-            'Book full-page screenshot obscured by advanced panel')
-    driver.execute_script("scrollTo({top:0,left:0,behavior:'instant'});")
-    driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
-    wait.until(lambda d: d.execute_script('return Math.abs(scrollY)<=1 && Math.abs(scrollX)<=1'))
-    observed = driver.execute_script('''
-      const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left+scrollX,right:r.right+scrollX,
-        top:r.top+scrollY,bottom:r.bottom+scrollY};};
-      return {viewport:{width:innerWidth,height:innerHeight,clientWidth:document.documentElement.clientWidth},
-        page:{width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight},
-        grid:rect(document.querySelector('#pgl-grid')),
-        cards:[...document.querySelectorAll('#pgl-grid .pgl-card')].map(e=>({id:e.dataset.pglId,...rect(e),
-          images:[...e.querySelectorAll('img.pgl-cover')].map(i=>({src:i.currentSrc,complete:i.complete,
-            width:i.naturalWidth,height:i.naturalHeight}))}))};
-    ''')
-    clip = {'x':0, 'y':0, 'width':observed['viewport']['width'],
-            'height':observed['page']['height'], 'scale':1}
-    require(observed['page']['width'] <= observed['viewport']['clientWidth']+1, 'Book full-page horizontal overflow')
-    require(observed['cards'] and all(c['left'] >= -1 and c['right'] <= observed['viewport']['clientWidth']+1
-            and c['top'] >= 0 and c['bottom'] <= clip['height'] for c in observed['cards']),
-            'Book full-page clip omitted cards')
-    require(all(i['complete'] and i['width'] > 0 and i['height'] > 0
-            for c in observed['cards'] for i in c['images']), 'Book full-page image not loaded')
-    png = driver.execute_cdp_cmd('Page.captureScreenshot', {
-        'format':'png', 'captureBeyondViewport':True, 'clip':clip,
-    })['data']
-    raw = base64.b64decode(png)
-    require(raw[:8] == b'\x89PNG\r\n\x1a\n' and raw[12:16] == b'IHDR', 'Book full-page is not PNG')
-    image_width, image_height = int.from_bytes(raw[16:20], 'big'), int.from_bytes(raw[20:24], 'big')
-    require(image_width == clip['width'] and image_height == clip['height'], 'Book full-page PNG dimensions differ from clip')
-    stem = f'book-full-page-{page_number}-{width}-{theme}-library'
-    (output / f'{stem}.png').write_bytes(raw)
-    observed.update({'clip':clip, 'png':{'width':image_width, 'height':image_height}, 'file':f'{stem}.png'})
-    (output / f'{stem}.json').write_text(json.dumps(observed, ensure_ascii=False, indent=2))
-    return observed
+            'Book row screenshot obscured by advanced panel')
+    columns = driver.execute_script("return getComputedStyle(document.querySelector('#pgl-grid')).gridTemplateColumns.split(' ').filter(Boolean).length")
+    require(columns > 0, 'Book grid has no columns')
+    cards = driver.find_elements(By.CSS_SELECTOR, '#pgl-grid .pgl-card')
+    expected = [c.get_attribute('data-pgl-id') for c in cards]
+    rows, covered = [], []
+    for start in range(0, len(cards), columns):
+        row = cards[start:start+columns]
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", row[0])
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        observed = driver.execute_script('''
+          const rect=e=>{const r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom};};
+          const bar=document.querySelector('#topbar-wrapper');
+          return {viewport:{width:innerWidth,height:innerHeight,clientWidth:document.documentElement.clientWidth},
+            scrollX,scrollY,pageWidth:document.documentElement.scrollWidth,topbarBottom:bar?Math.max(0,bar.getBoundingClientRect().bottom):0,
+            cards:arguments[0].map(e=>({id:e.dataset.pglId,...rect(e),
+              images:[...e.querySelectorAll('img.pgl-cover')].map(i=>({src:i.currentSrc,complete:i.complete,
+                width:i.naturalWidth,height:i.naturalHeight}))}))};
+        ''', row)
+        require(abs(observed['scrollX']) <= 1 and observed['pageWidth'] <= observed['viewport']['clientWidth']+1,
+                'Book row page overflow')
+        require(all(c['left'] >= -1 and c['right'] <= observed['viewport']['clientWidth']+1
+                and c['top'] >= observed['topbarBottom'] and c['bottom'] <= observed['viewport']['height']
+                for c in observed['cards']), 'Book row not fully visible in native viewport')
+        require(all(i['complete'] and i['width'] > 0 and i['height'] > 0
+                for c in observed['cards'] for i in c['images']), 'Book row image not loaded')
+        stem = f'book-row-page-{page_number}-row-{len(rows)+1}-{width}-{theme}-library'
+        raw = driver.get_screenshot_as_png()
+        require(raw[:8] == b'\x89PNG\r\n\x1a\n' and raw[12:16] == b'IHDR', 'Book row is not PNG')
+        image_width, image_height = int.from_bytes(raw[16:20], 'big'), int.from_bytes(raw[20:24], 'big')
+        require(image_width == observed['viewport']['width'] and image_height == observed['viewport']['height'],
+                'Book row PNG dimensions differ from native viewport')
+        (output / f'{stem}.png').write_bytes(raw)
+        observed.update({'png':{'width':image_width,'height':image_height},'file':f'{stem}.png'})
+        (output / f'{stem}.json').write_text(json.dumps(observed, ensure_ascii=False, indent=2))
+        covered.extend(c['id'] for c in observed['cards'])
+        rows.append(observed)
+    require(covered == expected, 'Book row screenshots omitted or duplicated cards')
+    return {'columns':columns,'rows':rows,'coveredIds':covered}
 
 
 def library_book_inventory_controls(driver, wait, output, width, theme):
-    """Traverse every default book page; capture full pages and page-end views."""
+    """Traverse every default book page; capture all row viewports and page ends."""
     data = json.loads(Path('assets/data/prospero_great_library/library.json').read_text())
     inventory = data['items'] if isinstance(data, dict) else data
     books = {i['id']: i for i in inventory if i['category'] == 'book'
@@ -1166,9 +1171,9 @@ def library_book_inventory_controls(driver, wait, output, width, theme):
             covers.append(record)
         capture(number, 'first', '#pgl-grid .pgl-card:first-child')
         capture(number, 'last', '#pgl-grid .pgl-card:last-child')
-        full_page = library_book_full_page(driver, wait, output, width, theme, number)
-        require([c['id'] for c in full_page['cards']] == ordered, 'Book full-page IDs differ from traversed page')
-        pages.append({'page':number, 'ids':ordered, 'covers':covers, 'fullPage':full_page})
+        row_views = library_book_row_viewports(driver, wait, output, width, theme, number)
+        require(row_views['coveredIds'] == ordered, 'Book row viewport IDs differ from traversed page')
+        pages.append({'page':number, 'ids':ordered, 'covers':covers, 'rowViewports':row_views})
         seen.extend(ordered)
         if number < page_count:
             click('#pgl-pagination .pgl-page-nav:last-child')
@@ -1197,7 +1202,7 @@ def library_book_inventory_controls(driver, wait, output, width, theme):
     require(not urlsplit(driver.current_url).query, 'Book final return retained query')
     return {'bookTotal':len(books), 'pageSize':page_size, 'pages':pages, 'completeIdSet':True,
             'lastPageReloadIds':True, 'previousPageIds':page_count > 1, 'firstPageRestored':True,
-            'returnedRoot':True, 'visualScope':'full-page-and-first-last-card-viewports-per-book-page'}
+            'returnedRoot':True, 'visualScope':'all-grid-row-and-first-last-card-native-viewports-per-book-page'}
 
 
 def library_timeline_controls(driver, wait, output, width, theme):

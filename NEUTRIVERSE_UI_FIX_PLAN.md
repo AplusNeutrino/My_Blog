@@ -62,6 +62,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A08k取景修正（2026-10-17）：eccb2551/run38984590940 build通过，但实际看390双主题8联系表与390 Light第3页原图，CDP整页像素布局不匹配拍摄前rect，裁图混入上一行/裁去本行标题；非新确认产品缺陷，不将243 tests/48 PNG尺寸通过冒充视觉验收。仅改为真实逐行滚动原生viewport截图、全行卡片在topbar下及视口内、PNG尺寸/全ID覆盖断言；保留原96页首尾和所有加载交互。当前预计310行图，动态随列数/库存计算；其他宽度原整页未人工验收。本次修正工作分支ui/audit-008k，新head production/main/live仍validation-pending；main保持dcb9e136，无新用户决策。[证据](docs/ui-evidence/uia08k-checks.md)。
+
 UI-A08k范围先记录（2026-10-17）：base dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3，run38979246164 build117235958658/deploy117238946046/live117239020388全部success。选择默认书籍6页中间区域视觉证据：沿用真实逐卡加载/分页后，每页补原生CDP整页截图，当前4宽度×2主题×6页=48图；不改窗口或产品DOM/样式、不用DOM代替看图。文件限现有审计、必要回归、UI计划日志及uia08k证据，产品/数据不改，无新确认缺陷/用户决策；gh不可用不编造Issue。先ui/audit-008k，真实production截图、人工检查与main/live仍validation-pending，其他分类/全站继续pending。
 
 UI-A08j限定done（2026-10-17）：验收main4140b667ef00b8b4723d29687306e2fdc5d1ef01 /run38973034490 build117215745464/deploy117219743993/live117219913508均success；241 tests/4 Ruby/T01/authoring/Jekyll/原门禁/production与live各192+14通过。live artifact12079130735独立摘要匹配，人工看96双主题四宽度页首尾图8联系表，放大390 Light首/768 Night末页首，未确认新缺陷。8流程完整124书籍6页/992原生加载/末页刷新与返回通过，ID/图片与生产相同，96几何仅纵坐标最大0.307px差异，原始证据保留。不据此推断中间区域完整视觉/其他分类通过，全站IN PROGRESS，无新用户决策。本轮只回写计划日志与live证据，新证据head CI另核对；下一项其余默认分类/中间区域及全站余项。[证据](docs/ui-evidence/uia08j-checks.md)。

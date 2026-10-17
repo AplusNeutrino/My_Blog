@@ -28,7 +28,7 @@ class LibraryBookInventoryAuditTests(unittest.TestCase):
                      "initial['cards'][index]", "c['before']['top'] >= c['viewportHeight']",
                      "observed['clientViewport']+1", 'check_bounds(geometry())',
                      "capture(number, 'first'", "capture(number, 'last'", 'save_screenshot',
-                     'full-page-and-first-last-card-viewports-per-book-page'):
+                     'all-grid-row-and-first-last-card-native-viewports-per-book-page'):
             self.assertIn(text, helper)
         for forbidden in ('.src =', '.loading =', 'dispatchEvent', '.focus()', 'except'):
             self.assertNotIn(forbidden, helper)

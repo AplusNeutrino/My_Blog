@@ -1,6 +1,16 @@
 # UI-A08k — 默认书籍分页中间区域视觉
 
-状态：validation-pending；尚无本次精确实现head截图或视觉验收。
+状态：validation-pending；首次生产整页截图存在取景坐标不一致，改为逐行原生viewport后须新head重验，未交付main。
+
+## 2026-10-17 — 首次生产检查与取景方式修正
+
+- 精确eccb2551644d0a94b65830a6a5927ac057e73896 / [run38984590940](https://github.com/AplusNeutrino/My_Blog/actions/runs/38984590940)：build117253009701 success，deploy117255688589/live117255689373 skipped（分支，不作部署）。243 tests、4 Ruby渲染回归、T01/authoring/Jekyll/SEO/资源/既有门禁和192页面+14侧栏通过。
+- artifact12082608255 /354689315 bytes /sha256:5237417b3bd66185e103f9cf56212e3e816be11209d844682237c2eb5e4ef2c6独立下载匹配。48个PNG签名/宽高、卡片集合与拍摄前几何门禁通过，但不代表视觉取景可靠。
+- 实际看390双主题8张逐卡联系表、390 Light第3页整图及其顶部原始像素：截取卡片时混入上一行标题、裁去本卡标题。第3页拍摄前viewport width390/clientWidth379；首卡rect.right185.09375，次卡right363，而整页PNG中可见右缘约190/374。PNG像素布局与拍摄前几何不一致，不能据此证明原生viewport中间区域通过。CDP整页取景时滚动条占位变化可能相关，但此处不宣称已证实浏览器内部根因，也不判为产品缺陷；768/1024/1366未人工验收，不冒称48图全通过。
+- 保留首次[完整审计](uia08k-production-audit.json)、[48诊断](uia08k-production-diagnostics.json)、390 Light[第1联系表](uia08k-production-cards-390-light-1.jpg)/[第2联系表](uia08k-production-cards-390-light-2.jpg)及[第3页原始PNG](uia08k-production-mismatch-390-light.png)。联系表为按拍摄前rect裁图，正是坐标不一致的失败证据，不能冒充卡片实际被裁切；原包保留14天。
+- 修正仅审计：取消本项超视口CDP取景，按实际CSS grid列数逐行真实滚动，用原生viewport PNG；每行全部卡片完整位于topbar下/视口内、图片加载、PNG实际尺寸与原生viewport一致，coveredIds按序等于本页所有ID。原96页首尾/全量加载/刷新返回门禁保留；原全页PNG尺寸/范围断言替换为更直接的原生viewport完整行覆盖检查，不放宽验收。
+- 当前390为2列，其余3宽度当前4列，预计新增310行截图（124书籍×2/2 +124×6/4），以实际列数动态计算，不固定未来数据。48整页图不再是修正后目标。每一行都需人工看图；其他分类仍pending。本机243 tests/authoring44/5/7/T01保护44/5/5/diff通过，不代替真实Jekyll/Chrome。
+- main仍dcb9e136，修正留ui/audit-008k，新head production/行截图与main/live全部validation-pending，无新用户决策。不改产品/数据/原文/metadata/URL/hidden/noindex、关联仓库或旧COMPLETE。
 
 实现仅扩展既有bookInventory流程：每页首尾截图后真实回到顶部，原生CDP整页截图；校验PNG签名/IHDR宽高等于clip、全部当前卡片文档矩形在clip内、ID等于本页遍历集合、图片已加载，记录fullPage元数据。保留原96图/992加载等门禁。新增2项接线回归，原视觉范围文案随新增整页证据更新，未删除原断言。
 
