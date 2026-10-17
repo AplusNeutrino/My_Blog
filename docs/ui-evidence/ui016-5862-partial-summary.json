@@ -1,0 +1,1193 @@
+{
+  "sourceHead": "5862ab0e14211edf63f264593638a5131c003616",
+  "runId": 39067300977,
+  "attempt": 1,
+  "artifactId": 12114355647,
+  "artifactSHA256": "3d5b34e9703fc516267bff95cdffaca610c6da5d0da0a123358c224f61f271cc",
+  "rawFailureSHA256": "262f130f7ea8255595bc9dbe9069bb8ce7322360c7594fe6fc29abf996b9cf9d",
+  "mainScenarios": 144,
+  "sidebarScenarios": 0,
+  "completedPublicFlows": 17,
+  "nativePublicPNGs": 139,
+  "publicFlows": [
+    {
+      "name": "home",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 10
+    },
+    {
+      "name": "observe",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 4
+    },
+    {
+      "name": "about",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/about/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/library/",
+          "/links/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 17
+    },
+    {
+      "name": "home",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 10
+    },
+    {
+      "name": "observe",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 4
+    },
+    {
+      "name": "about",
+      "window": [
+        390,
+        844
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/about/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/library/",
+          "/links/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 17
+    },
+    {
+      "name": "home",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 6
+    },
+    {
+      "name": "observe",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 2
+    },
+    {
+      "name": "about",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/about/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/library/",
+          "/links/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 11
+    },
+    {
+      "name": "home",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 6
+    },
+    {
+      "name": "observe",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 2
+    },
+    {
+      "name": "about",
+      "window": [
+        768,
+        900
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/about/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/library/",
+          "/links/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 11
+    },
+    {
+      "name": "home",
+      "window": [
+        1024,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 6
+    },
+    {
+      "name": "observe",
+      "window": [
+        1024,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 2
+    },
+    {
+      "name": "about",
+      "window": [
+        1024,
+        900
+      ],
+      "theme": "dark",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/about/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/library/",
+          "/links/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 11
+    },
+    {
+      "name": "home",
+      "window": [
+        1024,
+        900
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/think/",
+          "/build/",
+          "/observe/",
+          "/about/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 6
+    },
+    {
+      "name": "observe",
+      "window": [
+        1024,
+        900
+      ],
+      "theme": "light",
+      "interactions": {
+        "url": "http://127.0.0.1:33669/observe/",
+        "mainFullyCovered": true,
+        "backToTopClick": true,
+        "backToTopNotRequired": false,
+        "visitedAndReturned": [
+          "/build/ravenis/",
+          "/build/occult-atlas/"
+        ],
+        "nativeViewportOnly": true
+      },
+      "frameCount": 2
+    }
+  ],
+  "relationVisibleFrames": [
+    {
+      "file": "public-sweep-about-1024-dark-6.png",
+      "scrollY": 2937,
+      "viewport": {
+        "clientWidth": 1009,
+        "height": 757,
+        "width": 1024
+      },
+      "button": {
+        "bottom": 699,
+        "left": 914.5625,
+        "right": 958.5625,
+        "top": 655
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 265.578125,
+            "left": 346.09375,
+            "right": 467.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 248.578125
+          },
+          {
+            "bottom": 286,
+            "left": 346.09375,
+            "right": 426.734375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 269
+          },
+          {
+            "bottom": 306.421875,
+            "left": 346.09375,
+            "right": 455.625,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 289.421875
+          },
+          {
+            "bottom": 326.84375,
+            "left": 346.09375,
+            "right": 413.296875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 309.84375
+          },
+          {
+            "bottom": 265.578125,
+            "left": 551.8125,
+            "right": 672.765625,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 248.578125
+          },
+          {
+            "bottom": 286,
+            "left": 551.8125,
+            "right": 672.765625,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 269
+          },
+          {
+            "bottom": 306.421875,
+            "left": 551.8125,
+            "right": 605.578125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 289.421875
+          },
+          {
+            "bottom": 265.578125,
+            "left": 757.546875,
+            "right": 878.5,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 248.578125
+          },
+          {
+            "bottom": 286,
+            "left": 757.546875,
+            "right": 878.5,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 269
+          },
+          {
+            "bottom": 306.421875,
+            "left": 757.546875,
+            "right": 867.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 289.421875
+          },
+          {
+            "bottom": 326.84375,
+            "left": 757.546875,
+            "right": 878.5,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 309.84375
+          },
+          {
+            "bottom": 347.265625,
+            "left": 757.546875,
+            "right": 878.5,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 330.265625
+          },
+          {
+            "bottom": 367.6875,
+            "left": 757.546875,
+            "right": 797.875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 350.6875
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-1024-light-6.png",
+      "scrollY": 2937,
+      "viewport": {
+        "clientWidth": 1013,
+        "height": 757,
+        "width": 1024
+      },
+      "button": {
+        "bottom": 699,
+        "left": 918.359375,
+        "right": 962.359375,
+        "top": 655
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 316.75,
+            "left": 346.171875,
+            "right": 467.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 297.75
+          },
+          {
+            "bottom": 337.171875,
+            "left": 346.171875,
+            "right": 426.8125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 318.171875
+          },
+          {
+            "bottom": 357.59375,
+            "left": 346.171875,
+            "right": 465.53125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 338.59375
+          },
+          {
+            "bottom": 378.015625,
+            "left": 346.171875,
+            "right": 413.375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 359.015625
+          },
+          {
+            "bottom": 316.75,
+            "left": 553.171875,
+            "right": 674.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 297.75
+          },
+          {
+            "bottom": 337.171875,
+            "left": 553.171875,
+            "right": 674.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 318.171875
+          },
+          {
+            "bottom": 357.59375,
+            "left": 553.171875,
+            "right": 606.9375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 338.59375
+          },
+          {
+            "bottom": 316.75,
+            "left": 760.171875,
+            "right": 881.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 297.75
+          },
+          {
+            "bottom": 337.171875,
+            "left": 760.171875,
+            "right": 881.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 318.171875
+          },
+          {
+            "bottom": 357.59375,
+            "left": 760.171875,
+            "right": 878.84375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 338.59375
+          },
+          {
+            "bottom": 378.015625,
+            "left": 760.171875,
+            "right": 881.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 359.015625
+          },
+          {
+            "bottom": 398.4375,
+            "left": 760.171875,
+            "right": 881.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 379.4375
+          },
+          {
+            "bottom": 418.859375,
+            "left": 760.171875,
+            "right": 800.5,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 399.859375
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-390-dark-10.png",
+      "scrollY": 4821,
+      "viewport": {
+        "clientWidth": 375,
+        "height": 701,
+        "width": 390
+      },
+      "button": {
+        "bottom": 627,
+        "left": 315,
+        "right": 359,
+        "top": 583
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 71.015625,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 54.015625
+          },
+          {
+            "bottom": 91.4375,
+            "left": 47.59375,
+            "right": 114.796875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 74.4375
+          },
+          {
+            "bottom": 253.59375,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 236.59375
+          },
+          {
+            "bottom": 274.015625,
+            "left": 47.59375,
+            "right": 278.421875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 257.015625
+          },
+          {
+            "bottom": 294.4375,
+            "left": 47.59375,
+            "right": 222.296875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 277.4375
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-390-dark-9.png",
+      "scrollY": 4280,
+      "viewport": {
+        "clientWidth": 375,
+        "height": 701,
+        "width": 390
+      },
+      "button": {
+        "bottom": 627,
+        "left": 315,
+        "right": 359,
+        "top": 583
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 429.4375,
+            "left": 47.59375,
+            "right": 249.171875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 412.4375
+          },
+          {
+            "bottom": 449.859375,
+            "left": 47.59375,
+            "right": 224.3125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 432.859375
+          },
+          {
+            "bottom": 612.015625,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 595.015625
+          },
+          {
+            "bottom": 632.4375,
+            "left": 47.59375,
+            "right": 114.796875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 615.4375
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-390-light-10.png",
+      "scrollY": 4821,
+      "viewport": {
+        "clientWidth": 379,
+        "height": 701,
+        "width": 390
+      },
+      "button": {
+        "bottom": 627,
+        "left": 319,
+        "right": 363,
+        "top": 583
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 89.203125,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 70.203125
+          },
+          {
+            "bottom": 109.625,
+            "left": 47.59375,
+            "right": 114.796875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 90.625
+          },
+          {
+            "bottom": 275.375,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 256.375
+          },
+          {
+            "bottom": 295.796875,
+            "left": 47.59375,
+            "right": 287.203125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 276.796875
+          },
+          {
+            "bottom": 316.21875,
+            "left": 47.59375,
+            "right": 222.296875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 297.21875
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-390-light-9.png",
+      "scrollY": 4280,
+      "viewport": {
+        "clientWidth": 379,
+        "height": 701,
+        "width": 390
+      },
+      "button": {
+        "bottom": 627,
+        "left": 319,
+        "right": 363,
+        "top": 583
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 444.03125,
+            "left": 47.59375,
+            "right": 249.171875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 425.03125
+          },
+          {
+            "bottom": 464.453125,
+            "left": 47.59375,
+            "right": 234.140625,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 445.453125
+          },
+          {
+            "bottom": 630.203125,
+            "left": 47.59375,
+            "right": 276.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 611.203125
+          },
+          {
+            "bottom": 650.625,
+            "left": 47.59375,
+            "right": 114.796875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 631.625
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-768-dark-5.png",
+      "scrollY": 2340,
+      "viewport": {
+        "clientWidth": 753,
+        "height": 757,
+        "width": 768
+      },
+      "button": {
+        "bottom": 683,
+        "left": 693,
+        "right": 737,
+        "top": 639
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 704.15625,
+            "left": 59.59375,
+            "right": 193.984375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 687.15625
+          },
+          {
+            "bottom": 724.578125,
+            "left": 59.59375,
+            "right": 198.6875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 707.578125
+          },
+          {
+            "bottom": 745,
+            "left": 59.59375,
+            "right": 167.109375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 728
+          },
+          {
+            "bottom": 704.15625,
+            "left": 284.3125,
+            "right": 418.703125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 687.15625
+          },
+          {
+            "bottom": 724.578125,
+            "left": 284.3125,
+            "right": 418.703125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 707.578125
+          },
+          {
+            "bottom": 745,
+            "left": 284.3125,
+            "right": 311.203125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 728
+          },
+          {
+            "bottom": 704.15625,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 687.15625
+          },
+          {
+            "bottom": 724.578125,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 707.578125
+          },
+          {
+            "bottom": 745,
+            "left": 509.046875,
+            "right": 645.8125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 728
+          },
+          {
+            "bottom": 765.421875,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 748.421875
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-768-dark-6.png",
+      "scrollY": 2937,
+      "viewport": {
+        "clientWidth": 753,
+        "height": 757,
+        "width": 768
+      },
+      "button": {
+        "bottom": 683,
+        "left": 693,
+        "right": 737,
+        "top": 639
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 107.15625,
+            "left": 59.59375,
+            "right": 193.984375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 90.15625
+          },
+          {
+            "bottom": 127.578125,
+            "left": 59.59375,
+            "right": 198.6875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 110.578125
+          },
+          {
+            "bottom": 148,
+            "left": 59.59375,
+            "right": 167.109375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 131
+          },
+          {
+            "bottom": 107.15625,
+            "left": 284.3125,
+            "right": 418.703125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 90.15625
+          },
+          {
+            "bottom": 127.578125,
+            "left": 284.3125,
+            "right": 418.703125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 110.578125
+          },
+          {
+            "bottom": 148,
+            "left": 284.3125,
+            "right": 311.203125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 131
+          },
+          {
+            "bottom": 107.15625,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 90.15625
+          },
+          {
+            "bottom": 127.578125,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 110.578125
+          },
+          {
+            "bottom": 148,
+            "left": 509.046875,
+            "right": 645.8125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 131
+          },
+          {
+            "bottom": 168.421875,
+            "left": 509.046875,
+            "right": 643.4375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 151.421875
+          },
+          {
+            "bottom": 188.84375,
+            "left": 509.046875,
+            "right": 603.125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 171.84375
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    },
+    {
+      "file": "public-sweep-about-768-light-6.png",
+      "scrollY": 2937,
+      "viewport": {
+        "clientWidth": 757,
+        "height": 757,
+        "width": 768
+      },
+      "button": {
+        "bottom": 683,
+        "left": 697,
+        "right": 741,
+        "top": 639
+      },
+      "shown": true,
+      "relationGroup": {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 195.71875,
+            "left": 59.59375,
+            "right": 193.984375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 176.71875
+          },
+          {
+            "bottom": 216.140625,
+            "left": 59.59375,
+            "right": 195.84375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 197.140625
+          },
+          {
+            "bottom": 236.5625,
+            "left": 59.59375,
+            "right": 180.546875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+            "top": 217.5625
+          },
+          {
+            "bottom": 195.71875,
+            "left": 285.65625,
+            "right": 406.609375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 176.71875
+          },
+          {
+            "bottom": 216.140625,
+            "left": 285.65625,
+            "right": 420.046875,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 197.140625
+          },
+          {
+            "bottom": 236.5625,
+            "left": 285.65625,
+            "right": 325.984375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+            "top": 217.5625
+          },
+          {
+            "bottom": 195.71875,
+            "left": 511.71875,
+            "right": 646.109375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 176.71875
+          },
+          {
+            "bottom": 216.140625,
+            "left": 511.71875,
+            "right": 646.109375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 197.140625
+          },
+          {
+            "bottom": 236.5625,
+            "left": 511.71875,
+            "right": 643.828125,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 217.5625
+          },
+          {
+            "bottom": 256.984375,
+            "left": 511.71875,
+            "right": 646.109375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 237.984375
+          },
+          {
+            "bottom": 277.40625,
+            "left": 511.71875,
+            "right": 619.234375,
+            "surface": "[data-about-profile] .about-relation-card > p",
+            "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+            "top": 258.40625
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 3,
+        "selector": "[data-about-profile] .about-relation-card > p"
+      }
+    }
+  ],
+  "limitation": "Partial production only; relation diagnostics are not manual visual acceptance; failed return flow and complete production/main live validation remain pending."
+}

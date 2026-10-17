@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI016已部署但live取消，最新main返回等待失败及同head受控重试
+
+- `8095f4a579926e9f35bf859e52f731c39c2dde9a` /[run39065426364](https://github.com/AplusNeutrino/My_Blog/actions/runs/39065426364) build117491963533/deploy117495092346 success、live117495142367 cancelled；不将部分线上artifact当完整验收。fresh main已新增Library自动同步5862ab0e14211edf63f264593638a5131c003616，仅6个Library/source/sync_status数据文件，UI/审计/指令/ADR/旧COMPLETE均无差异。保留最新同步；pages共用cancel-in-progress:true，与中断时序一致，不为验收回退或覆盖用户数据。
+- 最新[run39067300977](https://github.com/AplusNeutrino/My_Blog/actions/runs/39067300977) attempt1 build117497614664 failure，deploy117499783132/live117499784181 skipped；258 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/前置门禁通过，主144/192、公开17/24完整流程、139原生帧、侧栏0。第18个ABOUT1024 Light采图后从Library返回有限动画等待20s超时，不将17写成18或完整192+14。
+- 下载artifact12114355647 /331667680 bytes，独立SHA256 3d5b34e9703fc516267bff95cdffaca610c6da5d0da0a123358c224f61f271cc匹配。失败1024 Light原生PNG已实际看，未确认新显示缺陷；完整JSON显示ABOUT入口background-color180ms与back-to-top opacity500ms均running/currentTime0/startTime null/iterations1，其他永久装饰非阻塞，readyState complete、URL/about/、scrollX0、scrollY2997、phase=settle-after-browser-back。不能断言浏览器/BFCache根因或将Library同步当原因，不移除/延长原等待；保存PNG/JSON及原JSON SHA256/部分流程和9关系可见帧摘要，后者只自动诊断，不称人工全验收。
+- fresh main仍5862后，仅对其失败jobs做一次同head受控重试，attempt2 build117502673032 in_progress；不重跑旧8095，不改产品/审计/时限/门禁，不移动main或ui/fix-016以免取消该重试。若再次失败先比较原始诊断，不反复重试宣布通过；记录存verification/ui016-5862-return-retry，UI016/main完整production/部署/live仍validation-pending，全站IN PROGRESS。
+- 本机258 tests/authoring44/5/7/T01保护44/5/5/diff再次通过，本机无Jekyll/Chrome。AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志/用户补充已核对，CONTEXT无，gh不在PATH不编造Issue；独立worktree保留原目录用户字体/缓存/未跟踪文件。只写本UI证据/计划日志，不修改Library数据、产品、正文/metadata/旧URL/hidden/noindex、关联仓库或旧COMPLETE；没有新用户待决问题。下一项先核对同一5862重试及随后部署/live，不将a17已通过或代码存在代替最新head。
+
 ## 2026-10-18 — UI016精确生产及限定视觉验收通过，交付待main/live
 
 - fresh main仍8bff45a9e83f1598dd7d248e5aaeb8350d7a2889，工作实现a17ee7ec0db3e4fe9f534fa76bf7f663d5b5d0f9；[run39060823145](https://github.com/AplusNeutrino/My_Blog/actions/runs/39060823145) build117478235105 success，deploy117481148392/live117481148909 skipped符合工作分支规则。258 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/路由/资源/全部原门禁，主192/侧栏14/公开24流程177原生帧完整通过。

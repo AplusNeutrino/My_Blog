@@ -1,0 +1,306 @@
+{
+  "animations": [
+    {
+      "computedTiming": {
+        "activeDuration": 180,
+        "currentIteration": 0,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 180,
+        "easing": "ease",
+        "endDelay": 0,
+        "endTime": 180,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1,
+        "localTime": 0,
+        "progress": 0
+      },
+      "currentTime": 0,
+      "name": "background-color",
+      "startTime": null,
+      "state": "running",
+      "target": "<a class=\"nv-primary-nav-link is-current\" href=\"/about/\" aria-current=\"page\"> <span class=\"nv-primary-nav-name\">ABOUT</span> <span class=\"nv-primary-nav-label\">我是谁以及这个站如何生长</span> <span class=\"nv-primary-nav-summary\">了解作者节点、网站状态，以及阅读、友链和旅行记录之间的关系。</span> </a>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 180,
+        "easing": "ease",
+        "endDelay": 0,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": 500,
+        "currentIteration": 0,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 500,
+        "easing": "ease-in-out",
+        "endDelay": 0,
+        "endTime": 500,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1,
+        "localTime": 0,
+        "progress": 0
+      },
+      "currentTime": 0,
+      "name": "opacity",
+      "startTime": null,
+      "state": "running",
+      "target": "<button id=\"back-to-top\" type=\"button\" class=\"btn btn-lg btn-box-shadow show\"> <i class=\"fas fa-angle-up\"></i> </button>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 500,
+        "easing": "ease-in-out",
+        "endDelay": 0,
+        "fill": "backwards",
+        "iterationStart": 0,
+        "iterations": 1
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 0,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 32000,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.9489186874999996
+      },
+      "currentTime": 30365.39799999999,
+      "name": "prospero-astrolabe-turn",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<a href=\"/\" id=\"avatar\" class=\"rounded-circle\" aria-label=\"收起左侧栏\" role=\"button\" aria-controls=\"sidebar\" aria-expanded=\"true\"><img src=\"/assets/img/logo.png?v=20261018043601\" width=\"112\" height=\"112\" alt=\"Neutriverse 标志\" onerror=\"this.style.display='none'\"></a>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 32000,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 10,
+        "delay": 0,
+        "direction": "alternate",
+        "duration": 2800,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.8447849999999963
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-scan-line",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<span></span>",
+      "timing": {
+        "delay": 0,
+        "direction": "alternate",
+        "duration": 2800,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 12,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.6522491666666621
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-bars-level",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<span></span>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 12,
+        "delay": 220,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.5605824999999953
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-bars-level",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<span></span>",
+      "timing": {
+        "delay": 220,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 12,
+        "delay": 440,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.46891583333332854
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-bars-level",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<span></span>",
+      "timing": {
+        "delay": 440,
+        "direction": "normal",
+        "duration": 2400,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 7,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 3800,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.9908942105263128
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-monitor-sweep",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<span></span>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 3800,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    },
+    {
+      "computedTiming": {
+        "activeDuration": null,
+        "currentIteration": 16,
+        "delay": 0,
+        "direction": "normal",
+        "duration": 1800,
+        "easing": "linear",
+        "endDelay": 0,
+        "endTime": null,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null,
+        "localTime": 30365.39799999999,
+        "progress": 0.8696655555555495
+      },
+      "currentTime": 30365.39799999999,
+      "name": "about-monitor-pulse",
+      "startTime": 105.76800000001185,
+      "state": "running",
+      "target": "<b></b>",
+      "timing": {
+        "delay": 0,
+        "direction": "normal",
+        "duration": 1800,
+        "easing": "linear",
+        "endDelay": 0,
+        "fill": "none",
+        "iterationStart": 0,
+        "iterations": null
+      }
+    }
+  ],
+  "focus": "<a class=\"about-relation-action\" href=\"/library/\">浏览 Library</a>",
+  "readyState": "complete",
+  "scrollX": 0,
+  "scrollY": 2997,
+  "theme": "light",
+  "url": "http://127.0.0.1:33669/about/",
+  "viewport": [
+    1024,
+    757
+  ],
+  "page": "about",
+  "destination": "/library/",
+  "visitedBeforeFailure": [],
+  "phase": "settle-after-browser-back"
+}

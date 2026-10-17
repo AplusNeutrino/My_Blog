@@ -1,6 +1,16 @@
 # UI-016 — ABOUT关系卡片说明被固定按钮覆盖
 
-状态：validation-pending；a17ee7ec精确production及UI016限定人工视觉验收通过，可交付main；main自身CI/部署/同场景live仍待验，不标done。
+状态：validation-pending；8095f4a5已构建/部署，但live取消；随后最新main5862ab0e的完整生产/部署/线上仍待同head重试，未标done。a17ee7ec限定生产视觉验收保留，不代替最新head。
+
+## 2026-10-18 已部署head的live取消；最新main返回等待失败
+
+- 实现交付main `8095f4a579926e9f35bf859e52f731c39c2dde9a` / [run39065426364](https://github.com/AplusNeutrino/My_Blog/actions/runs/39065426364)：build117491963533、deploy117495092346 success；verify-live-ui117495142367 cancelled，不将部分线上artifact当完整通过。
+- fresh main变为 `5862ab0e14211edf63f264593638a5131c003616`，唯一新增提交为既有Library同步，修改6个library/source/sync_status数据文件；UI产品/审计/指令/ADR/旧COMPLETE计划报告均未变。保留该同步，不回退main；workflow共用pages并设置cancel-in-progress:true，与旧live被新运行中断的时序一致。
+- 最新[run39067300977](https://github.com/AplusNeutrino/My_Blog/actions/runs/39067300977) attempt1 build117497614664 failure，deploy117499783132/live117499784181 skipped。258 tests、Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/前置门禁通过；主144/192、公开17/24完成、139原生公开PNG、侧栏0。第18个ABOUT流程已采图但Library返回后未完成，因此17不是18。
+- failure artifact12114355647，331667680 bytes，独立SHA256 `3d5b34e9703fc516267bff95cdffaca610c6da5d0da0a123358c224f61f271cc`匹配。已人工查看[1024 Light返回失败原图](ui016-return-stalled-1024-light.png)，未在该图确认新显示缺陷；[完整动画诊断](ui016-return-stalled-1024-light.json)明确phase=settle-after-browser-back、destination=/library/、readyState complete、scrollX0/scrollY2997。两条有限过渡background-color180ms（ABOUT入口）及opacity500ms（返回顶部），iterations1/state running/currentTime0/startTime null；其余永久装饰不是原门禁阻塞项。不能据此断言BFCache/浏览器根因或删除动画/延长等待，亦不能归咎Library数据。
+- [部分17流程/9个关系说明可见帧诊断摘要](ui016-5862-partial-summary.json)保留原失败JSON SHA256、流程/原生帧计数与关系Range；三宽双主题目标3/非空/交集0，只是部分自动证据，9帧未全人工查看，1366/完整production/部署/live仍pending。原完整包留精确artifact14天，不冒称整页视觉通过。
+- fresh main未再移动后，对最新5862的失败jobs仅做一次受控同head重试：attempt2 build117502673032 in_progress。未重新运行旧8095、未改任何产品/审计/时限/门禁，也未用旧成功代验。若再失败，先比较两次诊断，不连续重试宣布通过。
+- 本机258 tests、authoring44/5/7、T01保护44/5/5、diff再次通过，本机无Jekyll/Chrome。AGENTS/docs/agents/ADR/旧COMPLETE及本轮台账、用户补充核对，CONTEXT无，gh不在PATH不编造Issue。证据存verification/ui016-5862-return-retry，main和ui/fix-016不移动以免取消重试；不覆盖原目录用户修改/Library同步，其他内容/URL/hidden/noindex/外部仓库不动。全站IN PROGRESS，无新确认缺陷或用户待决问题；下一项核对同一5862重试及部署/live截图。
 
 ## 2026-10-18 精确production与限定视觉验收
 
