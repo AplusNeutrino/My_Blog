@@ -1400,6 +1400,20 @@ article.nv-post .content video {
   background: var(--nv-surface-1);
 }
 
+/* UI-013: only the outer reading column shares the fixed button lane.
+   Single-column cards all occupy that lane; >=1200px has an auxiliary column. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .nv-home-featured-list > li:nth-child(2n) .nv-home-featured-card {
+    padding-right: calc(1rem + 2.75rem);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nv-home-featured-card {
+    padding-right: calc(1rem + 2.75rem);
+  }
+}
+
 .nv-home-featured-card > p:first-child {
   display: flex;
   flex-wrap: wrap;

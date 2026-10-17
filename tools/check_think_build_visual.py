@@ -1476,13 +1476,13 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
               const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
               const lines=[];
-              for(const card of document.querySelectorAll('.nv-home-transmission')){
+              for(const card of document.querySelectorAll('.nv-home-transmission, .nv-home-featured-card')){
                 const walker=document.createTreeWalker(card,NodeFilter.SHOW_TEXT);
                 while(walker.nextNode()){
                   const n=walker.currentNode;if(!n.textContent.trim())continue;
                   const range=document.createRange();range.selectNodeContents(n);
                   for(const r of range.getClientRects())if(r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight)
-                    lines.push({...rect(r),text:n.textContent.trim()});
+                    lines.push({...rect(r),text:n.textContent.trim(),surface:card.className});
                 }
               }
               return {button:rect(br),shown,lines,overlaps:shown?lines.filter(r=>r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top):[]};
@@ -1491,7 +1491,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
             if observed['recentTextButton']['overlaps']:
                 driver.save_screenshot(str(output / f'home-text-overlap-{width}-{theme}.png'))
                 (output / f'home-text-overlap-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
-            require(not observed['recentTextButton']['overlaps'], 'Homepage recent text covered by back-to-top')
+            require(not observed['recentTextButton']['overlaps'], 'Homepage recent/featured text covered by back-to-top')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)
@@ -1609,10 +1609,17 @@ def main():
                             settle(driver, wait, theme)
                         except Exception:
                             driver.save_screenshot(str(output / 'scene-failure.png'))
-                            failure = driver.execute_script("""
+                            failure = driver.execute_script(r"""
                               const e=document.querySelector('#mode-toggle'),r=e?.getBoundingClientRect();
                               return {url:location.href,mode:document.documentElement.dataset.mode,
                                 open:document.body.hasAttribute('sidebar-display'),focus:document.activeElement.id,
+                                readyState:document.readyState,fontSetStatus:document.fonts.status,
+                                fonts:[...document.fonts].map(f=>({family:f.family,status:f.status,
+                                  style:f.style,weight:f.weight,display:f.display})),
+                                fontResources:performance.getEntriesByType('resource')
+                                  .filter(r=>/\.(woff2?|ttf|otf)(\?|$)/i.test(r.name))
+                                  .map(r=>({name:r.name,duration:r.duration,responseEnd:r.responseEnd,
+                                    transferSize:r.transferSize,decodedBodySize:r.decodedBodySize})),
                                 toggle:r?{x:r.x,y:r.y,w:r.width,h:r.height,display:getComputedStyle(e).display}:null};
                             """)
                             (output / 'scene-failure.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2),encoding='utf-8')

@@ -4,6 +4,8 @@
 
 ## d91精确生产首次失败与同head重试（2026-10-17）
 
+接续：attempt2 build117337553687 failure，deploy117339610923/live117339611045 skipped，同一1366 Night THINK document.fonts.ready约30s脚本超时。artifact12093428361 /331496554 bytes /sha256:022d4f9e84169d80fe447afac180acb12dc7e9b64f4c05404b63780e20f46aab独立匹配；主144、新public18、139帧、侧栏0。本次失败原图已看，未看完139图，不称验收。现增加字体状态/FontFace/字体资源失败诊断，原等待/时限/失败重抛不变；UI-013另按先记录的最小范围修复并扩展文字交集门禁，见ui013-checks.md。新head production/完整视觉/main/live保持pending，不用旧main成功替代。
+
 永久代表原图：[UI-013实际遮挡](ui013-before-home-768-dark.png)、[UI-012原场景局部生产复查](ui012-production-partial-home-390-dark.png)。后者仅partial，不代表完整验收或已部署。
 
 - head d91bd7217515eb3edfad65951b7e958af2182218 / [run39008835671](https://github.com/AplusNeutrino/My_Blog/actions/runs/39008835671)，首次build117326775861 failure，deploy117329051203/live117329051171 skipped。248 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源通过，主144/192、新public18/24、139原生滚动图，sidebar0。

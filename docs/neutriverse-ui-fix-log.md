@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-013最小实现；字体等待重复失败诊断
+
+- fresh main53787e0bbe111da193918ee959e82780b58d87c3、ui/audit-009 d91bd7217515eb3edfad65951b7e958af2182218；基于78d01a325da82cd12e5005667cb51641d76f913b接续以保留上一轮记录及两张真实原图。独立worktree；AGENTS/docs/agents/ADR/本轮计划日志已读，CONTEXT不存在，旧COMPLETE计划报告与main无差异，不重跑T00–T39。gh仍不可用不编造Issue，无新用户决策。
+- [run39008835671](https://github.com/AplusNeutrino/My_Blog/actions/runs/39008835671) attempt2 build117337553687 failure，deploy117339610923/live117339611045 skipped；248 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源及前置门禁通过，主144/192、新public18/24、139帧、侧栏0。再次1366 Night THINK document.fonts.ready脚本约30s超时，不是有限动画等待，未证实字体根因，不直接改网站字体或重复盲目重试。
+- artifact12093428361 /331496554 bytes /sha256:022d4f9e84169d80fe447afac180acb12dc7e9b64f4c05404b63780e20f46aab下载独立匹配；本次scene-failure.png已实际看，内容可见但不代替门禁；139图未全人工验收。本轮只在现有失败catch补字体集合状态、逐FontFace状态/样式和字体资源时序诊断，再原样raise，原ready等待/时限/所有门禁不变。
+- 实际重看ui013-before-home-768-dark.png，确认精选右下卡片摘要尾端被按钮覆盖，先写ui013-checks.md范围再实现。根因卡片普通padding没有固定按钮文字避让。仅768–1199.98px两列外列、<=767.98px单列全部卡片右padding增加2.75rem，>=1200px不改；列数/外框/主题/字号/DOM/共享按钮不动。近期表达门禁保留并扩展精选所有文本行Range交集，附surface标记，失败继续保存PNG/JSON并拒绝。
+- 新增2项接线回归，250 tests/authoring44/5/7/T01保护44/5/5/diff本机通过；本机无Ruby/Jekyll/Chrome，不冒称修复后视觉验收。只改CSS/审计/必要测试及本轮计划证据；不改数据/原文/metadata/URL/hidden/noindex、外部仓库。留ui/audit-009，UI-012/013/A09精确新head production截图/完整矩阵/main/live仍pending，main不动，未部署。
+
 ## 2026-10-17 — d91同head重试与UI-013实际复现
 
 - base/main53787e0bbe111da193918ee959e82780b58d87c3、工作head d91bd7217515eb3edfad65951b7e958af2182218已fresh fetch核对，原目录用户字体/pyc/未跟踪基线未动。AGENTS及docs/agents、ADR和本轮计划日志重读；旧COMPLETE计划/报告与main无差异，不重跑T00–T39。gh仍未安装，不编造Issue。
