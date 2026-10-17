@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI014精确main线上限定验收done
+
+- fresh main d1bdcbf2e00d7fc2abd30917af8573856af8719a / [run39035135431](https://github.com/AplusNeutrino/My_Blog/actions/runs/39035135431)，build117403304548/deploy117406508063/verify-live-ui117406677161全部success。254 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部既有门禁、production/live各192+14及24公开流程通过；线上日志明确UI_LIVE_BASE=https://neutriverse.uk。独立worktree保留原目录用户修改，AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志及用户补充已核对，CONTEXT无，gh不在PATH，不编造Issue。
+- live artifact12102362109 /491375605 bytes /sha256:076eedee986dcad849ddfd97293c0e3be3e179fdf7ceedd71e884929226be46d下载后独立匹配。全部177帧生成，但此轮只人工验收UI014两个说明容器实际可见的32原生线上帧/16联系表，放大390 Light OBSERVE第2、390 Night ABOUT第3，与旧遮挡原图对照文字完整；不声称全部177帧或整页视觉已验收。16联系表、24流程摘要与两张线上原图永久保存。
+- 两页16流程121帧introTextButton诊断（含真实文字行/按钮矩形、目标存在/含正文、空overlaps）与ad1540d0生产逐项完全相同；24流程frame数量、viewport、scrollY/visibleMain、公开目标往返与生产相同，覆盖滚动坐标最大差0。16流程真实滚轮全覆盖、真实返回顶部和公开详情/Library/友链往返通过。UI014限定done；已存在UI015及其他全站矩阵仍pending，不把局部通过当全站正常。
+- 本次查看ABOUT390 Night第4原图另明确同类维护说明尾字被按钮盖住，保存ui015-before-about-maintenance-390-dark.png作为UI015追加已复现作用域；不另造用户问题、不改产品。原先三处UI015截图保留，下一独立最小修复统一定位这些剩余文字容器，避免把猜测/偏好当缺陷。
+- 本机254 tests/authoring44/5/7/T01保护44/5/5/diff通过，本机未运行Jekyll/Chrome。本次只回写计划/日志与公开线上证据，无产品/数据/旧原文/metadata/文件名/date/slug/permalink/URL/hidden/noindex或外部仓库修改，旧COMPLETE不动。新证据head的CI另核对；无新增用户决策，全站IN PROGRESS，下一项UI015，不暂停任务。
+
 ## 2026-10-17 — UI014生产视觉限定通过；UI015新确认
 
 - fresh main fa23a32cf5f41b8fd6e47a3aebda7197213fb84e，工作实现ad1540d04b1acb161fe6820cf099c1471f249b0f；独立worktree保留原目录用户修改。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮计划日志及用户补充已核对，CONTEXT无，gh不在PATH，不编造Issue，无新用户决策。

@@ -1,6 +1,13 @@
 # UI-014 — OBSERVE / ABOUT 说明段避让固定按钮
 
-状态：production限定验收通过；main部署/线上同场景复验validation-pending，不标done。
+状态：done（d1bdcbf2精确main部署/线上限定验收）；此前pending按时间保留。
+
+## 2026-10-17 精确main线上验收：done
+
+- main `d1bdcbf2e00d7fc2abd30917af8573856af8719a` / [run39035135431](https://github.com/AplusNeutrino/My_Blog/actions/runs/39035135431)：build117403304548/deploy117406508063/live117406677161全部success。254 tests/Ruby/T01/authoring/Jekyll/全部旧门禁、production/live各192+14及24public通过；线上日志确认https://neutriverse.uk。
+- live artifact12102362109，491375605 bytes，独立sha256 `076eedee986dcad849ddfd97293c0e3be3e179fdf7ceedd71e884929226be46d` 匹配Actions。此次只人工查看两个说明容器实际可见的32线上原生帧的[16联系表](ui014-live-intro-contacts/)，不是全部177帧；已放大[390 Light OBSERVE](ui014-live-observe-390-light.png)、[390 Night ABOUT](ui014-live-about-390-dark.png)，与旧图对比文字完整且不与按钮重叠。
+- [线上摘要](ui014-live-summary.json)保留实际审阅文件名/24流程/两页121帧intro诊断。121诊断与生产完全相同，24流程帧数量/viewport/scrollY/visibleMain及公开往返相同，覆盖滚动坐标最大差0。16两页流程真实滚轮全覆盖/返回顶部/公开详情与Library友链往返均通过。
+- 关闭UI014部署与线上pending，仅两个说明容器done；UI015/A09整页/全站其他矩阵不因此通过。此轮没有产品变化，新证据head CI另核对，无新用户待决问题。
 
 ## 2026-10-17 精确production验收
 
@@ -19,6 +26,8 @@
 - [OBSERVE卡片状态第3帧](ui015-before-observe-meta-390-dark.png)：Occult Atlas的“应用保持 NOINDEX”末端被按钮盖住。
 
 这些不是本文已修两个说明容器，列P2下一独立最小范围，不改全站按钮或作者内容；A09整体不标done。
+
+2026-10-17线上补充同类实际复现：[ABOUT维护说明390 Night第4帧](ui015-before-about-maintenance-390-dark.png)，尾端“来源说明”部分被按钮遮住，已放大原图确认。纳入UI015剩余文字容器范围，不冒称UI014修复覆盖了它。
 
 ## 实现前范围（2026-10-17）
 
