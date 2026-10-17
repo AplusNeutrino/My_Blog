@@ -107,3 +107,29 @@ class PublicPageSweepAuditTests(unittest.TestCase):
                       'f.status',"performance.getEntriesByType('resource')",'responseEnd',
                       "output / 'scene-failure.json'",'raise'):
             self.assertIn(token,failure)
+
+    def test_remaining_detail_scopes_are_nonempty_and_reject_real_line_overlaps(self):
+        _,helper=self.helper()
+        block=helper[helper.index('# UI-015:'):helper.index('Public page native viewports have a coverage gap')]
+        for token in ('[data-observe-catalog] .nv-observe-card-meta',
+                      '[data-about-profile] .about-principle-list',
+                      '[data-about-profile] .about-current-meta > div:last-child dd',
+                      '[data-about-profile] .about-stack-item time', 'document.createRange()',
+                      'range.getClientRects()', "g['rootCount'] > 0 and not g['emptyRoots']",
+                      "all(not g['overlaps'] for g in groups)", 'detail-text-overlap-'):
+            self.assertIn(token,block)
+        self.assertLess(block.index('driver.save_screenshot'),block.index('require('))
+        self.assertIn("require(not intro['overlaps']",helper)
+        self.assertIn("observed['recentTextButton']['overlaps']",helper)
+
+    def test_detail_css_keeps_fixed_button_and_handles_absolute_dates(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-015:')
+        block=css[start:css.index('.nv-observe-catalog {',start)]
+        for token in ('@media (max-width: 1199.98px)', '.about-principle-list > li',
+                      '.about-current-meta > div:last-child dd', '.nv-observe-card-meta',
+                      'padding-right: 2.75rem;', '.about-stack-item time',
+                      'right: calc(0.62rem + 2.75rem);'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top', 'font-size:', 'grid-template-columns:', 'display: none'):
+            self.assertNotIn(token,block)

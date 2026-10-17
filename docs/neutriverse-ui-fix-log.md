@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI015四类文字避让实现，等待生产视觉验证
+
+- fresh main/base097129418f5a014d3d1d85b2441f934854dcda3a；[run39038972286](https://github.com/AplusNeutrino/My_Blog/actions/runs/39038972286) build117414389679/deploy117417289853/live117417342881全部success，关闭上一证据head CI pending，不用它替代本次实现验证。独立worktree保留原目录字体/缓存/未跟踪基线及临时字体文件等用户修改；AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志和补充已核对，CONTEXT无，gh不在PATH不编造Issue，无新增用户决策。
+- 已实际重新查看四张原生before图：理念“新的结构”尾字、阅读日期、NOINDEX状态及维护说明被按钮盖住，非审美偏好。先记录ui015-checks.md的任务/base/范围/验收再实现；没有新产品缺陷或扩大为重设计。
+- 根因：四类普通文字未预留固定44px按钮区域，其中书目time为absolute，单加父padding无法移动。仅assets/css/neutriverse-sections.css在<=1199.98px为ABOUT理念li/维护dd与OBSERVE卡片meta加右padding2.75rem，书目time的right从0.62rem加2.75rem。保留容器外框/列数/字体/主题、全站按钮、HTML模板和数据/原文；>=1200px不变。
+- 新增detailTextButton逐帧四类作用域/真实TreeWalker/Range文字行诊断；每类至少一个目标且每目标含文字，严格拒绝与可见按钮相交，失败先存PNG/JSON再抛错。原首页/UI014文字门禁、原192+14/24public、字体30s/有限动画20s以及其他专项不删不放宽。两项接线回归本机通过，不能替代真实浏览器视觉。
+- 本机256 tests、authoring44/5/7、T01正文/metadata/URL/hidden保护44/5/5及diff通过。本机无Ruby/Jekyll/Chrome，新精确head production构建/产物/四宽度双主题原生截图与人工前后复核、main部署/live均validation-pending，保存ui/fix-015，main不改。下一项先核对同head，验收前不标done。
+- 旧文章/学习笔记/Thought/Project Log源正文、文件名/date/slug/permalink/metadata与旧URL/hidden/noindex、外部仓库、旧COMPLETE不动；不重跑T00–T39，不公开私有/旅行/Gate/NAVI边界。全站IN PROGRESS，不暂停任务。
+
 ## 2026-10-17 — UI014精确main线上限定验收done
 
 - fresh main d1bdcbf2e00d7fc2abd30917af8573856af8719a / [run39035135431](https://github.com/AplusNeutrino/My_Blog/actions/runs/39035135431)，build117403304548/deploy117406508063/verify-live-ui117406677161全部success。254 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部既有门禁、production/live各192+14及24公开流程通过；线上日志明确UI_LIVE_BASE=https://neutriverse.uk。独立worktree保留原目录用户修改，AGENTS/docs/agents/ADR/旧COMPLETE与本轮计划日志及用户补充已核对，CONTEXT无，gh不在PATH，不编造Issue。

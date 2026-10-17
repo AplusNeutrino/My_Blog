@@ -1549,6 +1549,41 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                 (output / f'intro-text-overlap-{name}-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
             require(intro['rootCount'] == 1 and intro['textNodes'] > 0, 'Public intro text scope missing')
             require(not intro['overlaps'], 'Public intro text covered by back-to-top')
+            # UI-015: distinct remaining text surfaces; preserve the intro gate.
+            selectors = {
+                'observe': ['[data-observe-catalog] .nv-observe-card-meta'],
+                'about': ['[data-about-profile] .about-principle-list',
+                          '[data-about-profile] .about-current-meta > div:last-child dd',
+                          '[data-about-profile] .about-stack-item time'],
+            }[name]
+            observed['detailTextButton'] = driver.execute_script('''
+              const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
+              const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
+              const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+              const groups=arguments[0].map(selector=>{
+                const roots=[...document.querySelectorAll(selector)],lines=[];let emptyRoots=0;
+                for(const root of roots){
+                  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let textNodes=0;
+                  while(walker.nextNode()){
+                    const n=walker.currentNode;if(!n.textContent.trim())continue;textNodes++;
+                    const range=document.createRange();range.selectNodeContents(n);
+                    for(const r of range.getClientRects())if(r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight)
+                      lines.push({...rect(r),text:n.textContent.trim(),surface:selector});
+                  }
+                  if(!textNodes)emptyRoots++;
+                }
+                return {selector,rootCount:roots.length,emptyRoots,lines,
+                  overlaps:shown?lines.filter(r=>r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top):[]};
+              });
+              return {button:rect(br),shown,groups};
+            ''', selectors)
+            groups = observed['detailTextButton']['groups']
+            invalid = any(g['rootCount'] == 0 or g['emptyRoots'] or g['overlaps'] for g in groups)
+            if invalid:
+                driver.save_screenshot(str(output / f'detail-text-overlap-{name}-{width}-{theme}.png'))
+                (output / f'detail-text-overlap-{name}-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+            require(all(g['rootCount'] > 0 and not g['emptyRoots'] for g in groups), 'Public detail text scope missing')
+            require(all(not g['overlaps'] for g in groups), 'Public detail text covered by back-to-top')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)
