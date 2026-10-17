@@ -2,6 +2,8 @@
 
 ## 2026-10-17 — UI-A09首次失败；确认UI-012遮挡
 
+- 诊断实现c56bdf21a0c56be95e229e261b8fa344d87b0605，9个远程blob与本地hash一致；本机246 tests/authoring/T01/diff通过，随后仅追加SHA检查点。最终分支head production诊断/视觉验收仍pending，main不动；UI-012仅confirmed未修复，不用测试通过替代。
+
 - 8831153b2e190a312628e8e3c9ca808d0403bea4 /run39001620617 build117305564644 failure，deploy117306200350/live117306198823 skipped。245 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源/前置门禁通过；主审计仅390 Night24场景，新public0完成、侧栏0完成，不冒称192+14通过。main仍53787e0b，独立worktree不覆盖用户修改。
 - artifact12089466875 /43173706 bytes /sha256:030926de45ef3cb4061b051e41a5111ef6f8c5004083514f9ba5dd55fd4fd9d0独立匹配。人工看首页390 Night九帧联系表并放大第3原图，确认UI-012：返回顶部圆钮遮住Z.A.T.O.卡片正文右端。原图/9诊断/联系表/部分主审计入库，不将部分画面验收。优先下一项UI-012首页最小避让与文字行交集门禁；尚未改样式或确认其他尺寸同问题。
 - 同run另在首页公开入口点击/浏览器返回后的settle line80有限动画等待超时，缺动画快照不能确定内部根因，不猜测认定BFCache，也不和UI-012混同。云1363×936 Light首页→THINK→返回成功，但getAnimations不在云只读接口，不代替CI。仅补新流程失败原生PNG/URL/主题/scroll/焦点/完整动画时序和目标诊断，继续抛错，原等待/时限/覆盖/导航门禁不减。
