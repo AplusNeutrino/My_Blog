@@ -2,6 +2,7 @@
 
 ## 2026-10-17 — UI-A08k范围先记录
 
+- 真实实现a059a6a4a111f588c2cb2fc5e40cf37d98a28063已保存ui/audit-008k，6个远程blob与本地hash逐项一致；随后只追加SHA检查点。main保持dcb9e136未改，本次production/48图/main/live待验收；下一轮核对最终分支精确head，不用base成功或PNG路径存在替代真实视觉通过。
 - 实现每页加载后原生CDP整页取景，断言真实PNG签名/宽高与clip、全卡片在截图范围内、ID与当前页相同；保留原96页首尾图/加载交互和全部旧门禁。新增2接线回归，本机243 tests、authoring44/5/7、T01保护44/5/5及diff通过；本机无Jekyll/Chrome，48图与production/main/live仍pending，不冒称视觉通过。
 - base dcb9e1362124d27bcf78aa0fe3d3aeb2cd3cd4b3 /run38979246164 build117235958658/deploy117238946046/live117239020388均success。独立worktree保护原目录用户修改，不重跑T00–T39历史、不改旧COMPLETE。
 - task UI-A08k：默认书籍中间区域视觉，逐卡原生加载后每页补整页CDP截图，当前48图；保留页首尾96图及全部既有门禁。不改变viewport、产品DOM/样式、内容或同步数据，不以加载/几何通过冒充视觉正常。
