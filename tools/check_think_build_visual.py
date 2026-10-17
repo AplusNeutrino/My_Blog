@@ -1451,6 +1451,81 @@ def reading_controls(driver, wait, name, output, width, theme):
     return result
 
 
+def public_page_sweep(driver, wait, output, width, theme, name):
+    """Overlapping native viewports and bounded public-link round trips."""
+    original = driver.current_url
+    driver.execute_script("scrollTo({top:0,behavior:'instant'});")
+    frames, covered = [], None
+    for number in range(80):
+        wait.until(lambda d: d.execute_script("return document.getAnimations().every(a=>a.playState!=='running'||a.effect.getTiming().iterations===Infinity)"))
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        observed = driver.execute_script('''
+          const m=document.querySelector('main').getBoundingClientRect(),b=document.querySelector('#topbar-wrapper').getBoundingClientRect();
+          return {scrollX,scrollY,viewport:{width:innerWidth,height:innerHeight,clientWidth:document.documentElement.clientWidth},
+            pageWidth:document.documentElement.scrollWidth,pageHeight:document.documentElement.scrollHeight,
+            topbarBottom:Math.max(0,b.bottom),mainStart:scrollY+m.top,mainEnd:scrollY+m.bottom};
+        ''')
+        require(abs(observed['scrollX']) <= 1 and observed['pageWidth'] <= observed['viewport']['clientWidth']+1,
+                'Public page native viewport overflow')
+        start = max(observed['mainStart'], observed['scrollY']+observed['topbarBottom'])
+        end = min(observed['mainEnd'], observed['scrollY']+observed['viewport']['height'])
+        require(end > start, 'Public page sweep missed main content')
+        require(start <= (covered if covered is not None else observed['mainStart'])+1,
+                'Public page native viewports have a coverage gap')
+        covered = max(covered or end, end)
+        stem = f'public-sweep-{name}-{width}-{theme}-{number+1}'
+        raw = driver.get_screenshot_as_png()
+        require(raw[:8] == b'\x89PNG\r\n\x1a\n' and raw[12:16] == b'IHDR', 'Public sweep PNG missing')
+        require(int.from_bytes(raw[16:20], 'big') == observed['viewport']['width']
+                and int.from_bytes(raw[20:24], 'big') == observed['viewport']['height'], 'Public sweep PNG viewport mismatch')
+        observed.update({'file':f'{stem}.png','visibleMain':[start,end]})
+        (output / f'{stem}.png').write_bytes(raw)
+        (output / f'{stem}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+        frames.append(observed)
+        if covered >= observed['mainEnd']-1:
+            break
+        previous_y = observed['scrollY']
+        amount = max(100, int(observed['viewport']['height']-observed['topbarBottom']-160))
+        # Real wheel input over main; never over the independently scrolling sidebar.
+        from selenium.webdriver.common.actions.wheel_input import ScrollOrigin
+        x = int(driver.find_element(By.TAG_NAME, 'main').rect['x']+30)
+        ActionChains(driver).scroll_from_origin(ScrollOrigin.from_viewport(x, 200), 0, amount).perform()
+        wait.until(lambda d: d.execute_script('return scrollY') > previous_y)
+    else:
+        raise AssertionError('Public page sweep exceeded safety limit before complete coverage')
+    require(covered >= frames[-1]['mainEnd']-1, 'Public sweep incomplete')
+    top_clicked = False
+    if frames[-1]['scrollY'] > 50:
+        top = driver.find_element(By.ID, 'back-to-top')
+        wait.until(lambda d: top.is_displayed())
+        top.click()
+        wait.until(lambda d: d.execute_script('return scrollY <= 1'))
+        top_clicked = True
+    driver.save_screenshot(str(output / f'public-top-{name}-{width}-{theme}.png'))
+    targets = {
+        'home': [('.nv-home-explore .nv-primary-nav-link', p) for p in ('/think/','/build/','/observe/','/about/')],
+        'observe': [('[data-observe-action="project"]', p) for p in ('/build/ravenis/','/build/occult-atlas/')],
+        'about': [('.about-relation-action[href]', p) for p in ('/library/','/links/')],
+    }[name]
+    visited = []
+    for selector, path in targets:
+        links = driver.find_elements(By.CSS_SELECTOR, selector)
+        link = next(e for e in links if urlsplit(e.get_attribute('href')).path == path)
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", link)
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', link))
+        link.click()
+        wait.until(lambda d: urlsplit(d.current_url).path == path)
+        wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
+        driver.back()
+        wait.until(lambda d: d.current_url == original)
+        settle(driver, wait, theme)
+        visited.append(path)
+    require(driver.current_url == original, 'Public page return URL mismatch')
+    return {'url':original,'frames':frames,'mainFullyCovered':True,'backToTopClick':top_clicked,
+            'backToTopNotRequired':not top_clicked,
+            'visitedAndReturned':visited,'nativeViewportOnly':True}
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else '_site').resolve()
     output = Path(os.environ.get('UI_AUDIT_DIR', '/tmp/neutriverse-think-build-audit'))
@@ -1464,6 +1539,7 @@ def main():
         options.add_argument(arg)
     results = []
     sidebar_results = []
+    public_results = []
     try:
         with serve(site) as port, webdriver.Chrome(options=options) as driver:
             driver.set_script_timeout(30)
@@ -1584,10 +1660,16 @@ def main():
                                     'touch': driver.execute_script('return {points:navigator.maxTouchPoints,events:"ontouchstart" in window}'),
                                 }, ensure_ascii=False, indent=2), encoding='utf-8')
                                 raise
+                    for public_name, public_path in (('home','/'),('observe','/observe/'),('about','/about/')):
+                        driver.get(base + public_path)
+                        settle(driver, wait, theme)
+                        public_results.append({'name':public_name,'window':[width,height],'theme':theme,
+                            'interactions':public_page_sweep(driver, wait, output, width, theme, public_name)})
             sidebar_results = sidebar_checks(driver, wait, base, output)
     finally:
         (output / 'audit.json').write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
         (output / 'sidebar-audit.json').write_text(json.dumps(sidebar_results, ensure_ascii=False, indent=2), encoding='utf-8')
+        (output / 'public-page-audit.json').write_text(json.dumps(public_results, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'screenshots': len(results), 'viewports': VIEWPORTS, 'themes': 2}))
 
 

@@ -1,0 +1,33 @@
+"""Audit wiring, not a substitute for real Chrome or human screenshot review."""
+import ast
+from pathlib import Path
+import unittest
+
+
+class PublicPageSweepAuditTests(unittest.TestCase):
+    def helper(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        node=next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef)
+                  and n.name=='public_page_sweep')
+        return source,ast.get_source_segment(source,node)
+
+    def test_native_png_and_contiguous_main_coverage(self):
+        _,helper=self.helper()
+        for token in ('get_screenshot_as_png', "raw[12:16] == b'IHDR'", 'raw[16:20]', 'raw[20:24]',
+                      'scroll_from_origin', 'ScrollOrigin.from_viewport', 'coverage gap',
+                      "covered >= frames[-1]['mainEnd']-1", "observed['viewport']['clientWidth']+1"):
+            self.assertIn(token,helper)
+        for token in ('captureBeyondViewport', 'execute_cdp_cmd', 'set_window_size', '.style', 'dispatchEvent'):
+            self.assertNotIn(token,helper)
+
+    def test_real_public_navigation_return_and_top(self):
+        source,helper=self.helper()
+        for token in ('link.click()', 'driver.back()', 'd.current_url == original',
+                      "By.ID, 'back-to-top'", 'top.click()', 'return scrollY <= 1',
+                      "'/think/'", "'/build/'", "'/observe/'", "'/about/'",
+                      "'/build/ravenis/'", "'/build/occult-atlas/'", "'/library/'", "'/links/'"):
+            self.assertIn(token,helper)
+        self.assertIn('public_page_sweep(driver, wait, output, width, theme, public_name)',source)
+        self.assertIn("output / 'public-page-audit.json'",source)
+        self.assertNotIn("'/navi/",helper)
+        self.assertNotIn("'/gate/",helper)

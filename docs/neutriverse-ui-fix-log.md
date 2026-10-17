@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A09范围先记录
+
+- 已实现三页24个附加流程与public-page-audit.json，原192+14/所有专项保留；重叠原生PNG尺寸/连续main覆盖/clientWidth无溢出、真实滚轮/公开链接往返与可用时真实返回顶部，不使用超视口整页取景替代。新增2项接线回归，本机245 tests、authoring44/5/7、T01保护44/5/5与diff通过；本机未运行Chrome/Jekyll，production及全部截图验收仍pending，不合main。云首页Light首屏/中部已看并滚动，未确认新产品缺陷。
+
+- 最新main53787e0bbe111da193918ee959e82780b58d87c3，run38997545484 build117293294892/deploy117295587015/live117295621809全部success，关闭上一证据提交CI pending；原工作区用户字体/缓存/基线修改不动，独立worktree。
+- 新task UI-A09：首页/OBSERVE/ABOUT原生纵向视口覆盖与真实滚轮，首页四入口/OBSERVE两公开详情/ABOUT Library友链点击返回及返回顶部，四宽度双主题24流程。旧192+14保留，新增首页/ABOUT场景。先记录uia09-checks.md再实现，仅审计/必要回归/计划日志/公开证据，不改产品或数据。
+- 云1363×936首页Light首屏已看，中文/长标题正常，并实际向下滚动，尚非完整视觉验收，无新确认缺陷/用户决策。四宽度production新head截图与main/live均validation-pending，先工作分支ui/audit-009；gh未安装不编造Issue，旧正文/metadata/URL/hidden/noindex、私有边界与旧COMPLETE不改。
+
 ## 2026-10-17 — UI-A08k精确main线上验收
 
 - main71ceb60146048d463772c8c35a12ae39a5cc8c79 /run38993751090 build117281561210、deploy117283869973、verify-live-ui117283912634全部success；243 tests/4 Ruby/T01/authoring/production Jekyll/旧门禁及production/live各192+14通过，live日志明确https://neutriverse.uk。本机243 tests、authoring44/5/7、T01保护44/5/5与diff再次通过，本机未运行Jekyll/Chrome。

@@ -63,6 +63,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+UI-A09范围先记录（2026-10-17）：base53787e0bbe111da193918ee959e82780b58d87c3精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。选择首页/OBSERVE/ABOUT四宽度双主题24流程的重叠原生纵向截图、真实滚轮和公开有界往返；只增审计/必要回归及计划日志证据，不猜测改产品。云1363×936首页Light首屏实际看并滚动，无新确认缺陷；完整production/main/live仍validation-pending，先ui/audit-009。gh不可用不编造Issue，无新用户决策；范围与保护见[UI-A09](docs/ui-evidence/uia09-checks.md)，不重复书籍视觉或旧COMPLETE。
+
 UI-A08k限定done（2026-10-17）：验收main71ceb60146048d463772c8c35a12ae39a5cc8c79 /run38993751090 build117281561210、deploy117283869973、live117283912634均success；243 tests/4 Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14通过。live artifact12086956833独立摘要匹配，人工看310线上原生行图的992卡片32联系表并放大390 Light/1024 Night原图，无新增确认缺陷。八流程124书籍6页/全行覆盖/992加载/刷新返回通过，ID/图片与生产相同，卡片坐标差最大0.543px。默认书籍中间区域视觉pending关闭；其他分类及全站余项继续pending，无新用户决策。本轮只回写计划日志/live证据，新证据head CI另核对，下一项优先首页/OBSERVE/ABOUT全页滚动交互。[证据](docs/ui-evidence/uia08k-checks.md)。
 
 UI-A08k生产验收（2026-10-17）：723c651515b372756e12879f9c757a2cc8dc1b6b /run38989785855 build117269649689 success，deploy117272512100/live117272512541 skipped。243 tests/4 Ruby/T01/authoring/Jekyll/旧门禁/192+14通过。artifact12085016466独立摘要匹配；四宽度双主题全部310原生行图/992卡片的32联系表已人工看，放大390 Light第3页第4行/1024 Night第4页第3行原图，取景与坐标一致，未确认新产品缺陷。仅已验收审计/必要回归/证据，不改产品/数据；fresh main仍dcb9e136，非强推交付后须新main自身build/deploy/live及310线上行图，继续validation-pending。其他分类/全站余项pending，无新用户决策。[证据](docs/ui-evidence/uia08k-checks.md)。
