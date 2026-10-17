@@ -1818,6 +1818,14 @@ article.nv-post .content video {
   }
 }
 
+/* UI-017: timeline event descriptions need the same fixed-button text lane.
+   Keep the event grid, dates, headings, links, and desktop layout unchanged. */
+@media (max-width: 1199.98px) {
+  [data-about-profile] .about-timeline-event > div > p {
+    padding-right: 2.75rem;
+  }
+}
+
 /* OBSERVE directory */
 /* UI-015: reserve the fixed button lane in the remaining confirmed text scopes.
    Date labels are absolutely positioned, so padding cannot move them. */

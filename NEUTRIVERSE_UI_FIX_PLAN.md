@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | validation-pending | base d5ac222保留推荐同步；只同组件说明p避让并追加严格逐行门禁，260 tests/T01/authoring通过；新head生产/修复后人工图/main/live待验，留ui/fix-017 |
 | UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
@@ -67,6 +68,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI-A09b部分检查新确认UI017：880bddf8/run39073683931 build117516332761/deploy117519061350/live117519102104全部success，关闭上一证据CI pending；最新main d5ac222只新增一条首页推荐URL、没有独立Actions，不借父成功代验。取880 live artifact12116846894独立SHA256匹配；OBSERVE/ABOUT16流程121帧中实际看12联系表57帧、另64未看，390 Light ABOUT第8原图确认时间线说明遮挡，转UI017最小修复。只<=1199.98px时间线说明p加2.75rem，追加原严格Range作用域与2回归；260 tests/authoring44/5/7/T01保护44/5/5/diff通过，新head production/修复后截图/main/live pending，留ui/fix-017，main保留d5ac。无新用户问题、不改原文/同步/门禁/旧COMPLETE，A09仍pending。[范围与证据](docs/ui-evidence/ui017-checks.md)。
 
 2026-10-18 UI016限定done：精确main5862ab0e/run39067300977 attempt2 build117502673032/deploy117505713846/live117505765011全部success；258 tests/T01/authoring/Jekyll/原门禁、production/live各192+14及24公开流程177帧通过。live artifact12114393947独立SHA256匹配；12关系目标帧/8联系表实际查看、390 Night原图before/after全文无覆盖。ABOUT8流程诊断与production相同、真实滚轮/顶部按钮/公开往返通过，24流程scrollY差0。旧失败/取消及未知动画根因保留，不改时限/门禁。新证据提交自身CI另核对；全站IN PROGRESS，A09剩余整页与其他矩阵pending，无新用户问题。[限定线上证据](docs/ui-evidence/ui016-checks.md#2026-10-18-同head部署与线上限定验收通过)。
 

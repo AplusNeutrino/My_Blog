@@ -1556,7 +1556,9 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                           '[data-about-profile] .about-current-meta > div:last-child dd',
                           '[data-about-profile] .about-stack-item time',
                           # UI-016: relationship descriptions share the fixed button lane.
-                          '[data-about-profile] .about-relation-card > p'],
+                          '[data-about-profile] .about-relation-card > p',
+                          # UI-017: timeline event descriptions are distinct from relations.
+                          '[data-about-profile] .about-timeline-event > div > p'],
             }[name]
             observed['detailTextButton'] = driver.execute_script('''
               const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);

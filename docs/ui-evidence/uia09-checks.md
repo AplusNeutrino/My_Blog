@@ -1,5 +1,16 @@
 # UI-A09 — 首页、OBSERVE、ABOUT 原生纵向视口与往返
 
+## 2026-10-18 OBSERVE/ABOUT整页复查范围（先记录）
+
+- Task UI-A09b；编辑base最新main `d5ac222e86f348c1097c0b599395eb06f9218aba`，父880bddf8仅新增一条home_popular推荐URL，保留同步，不覆盖。880bddf8 /run39073683931 build117516332761、deploy117519061350、live117519102104全部success，关闭上一证据head的CI pending；最新d5ac没有独立Actions，不能冒称其构建/部署通过。
+- 只人工检查未受该数据变化影响的OBSERVE/ABOUT，390/768/1024/1366×Night/Prospero Light原生完整滚动图及既定往返；取精确880 live artifact12116846894核验摘要，逐张看联系表并放大疑点。首页最新数据另待新headCI/截图，不沿用旧图标最新done。
+- 范围仅本文件、本轮计划/日志及公开截图证据；无确认缺陷不改样式/产品/门禁，不删作者旧br/倒计时。不公开隐藏旅行/Gate/NAVI，不推断应用核心/共享导航、THINK/Library余项完成。gh不在PATH，不编造Issue；暂无新用户决策，验证结果待记录。
+
+### 本轮部分结果与转入UI017
+
+- artifact独立SHA256核验匹配；16流程121原生帧完整生成，192主/14侧栏/24公开流程通过。实际人工只看[12联系表](uia09b-live-880-contacts/)的57帧：OBSERVE390双主题/768双主题，ABOUT390双主题全17帧及768 Night全11帧。剩余64帧未看，不将16流程自动诊断当整页人工完成。[摘要](uia09b-live-880-summary.json)逐项区分已看文件与未看计数，原包在精确artifact保留14天；未看14联系表留scratch不提交冒充验收。
+- 放大390 Light ABOUT第8原生PNG确认时间线Ravenis说明行尾被返回顶部按钮覆盖，编号[UI017](ui017-checks.md)，优先最小修复；同Night第8原图未确认遮挡。原UI016关系说明在所看390图已避让；作者旧br空白/倒计时保留，不以偏好删改。A09b/全A09继续pending，没有新增用户决策。
+
 ## 2026-10-18 剩余整页验收范围（先记录）
 
 - Task UI-A09；base/验收main `8bff45a9e83f1598dd7d248e5aaeb8350d7a2889`，run39056732011 build117466109670/deploy117469225064/live117469268662全部success，关闭UI015证据head CI pending。UI012–015已分别限定done，不重复修改产品。

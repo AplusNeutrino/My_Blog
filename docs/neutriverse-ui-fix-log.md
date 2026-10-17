@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A09b部分整页检查确认UI017，最小修复待验
+
+- 880bddf81671832d5d3c64ed69f16bb8ba0544cb /[run39073683931](https://github.com/AplusNeutrino/My_Blog/actions/runs/39073683931) build117516332761/deploy117519061350/live117519102104全部success；258 tests/Ruby/T01/authoring/production Jekyll/产物/全部旧门禁及production/live各192+14/24公开流程通过，live日志明确https://neutriverse.uk，关闭上一证据headCI pending。fresh main d5ac222e86f348c1097c0b599395eb06f9218aba仅新增home_popular推荐URL，尚无自身Actions，不借父提交成功代验/不回退同步；编辑基于最新main，原目录用户修改不动。
+- 先记录Task UI-A09b/base/范围，取880 live artifact12116846894 /491849339 bytes，独立SHA256 8d054c2c7ceb573ca47f26356837a039c937b22d58ab5adbe75690a5ad5e727b匹配。OBSERVE/ABOUT16流程121帧完整生成，本轮人工只看12联系表57帧：OBSERVE390/768双主题、ABOUT390双主题与768 Night；其余64帧未看。保留12已看联系表与摘要/原始JSON哈希，未看联系表不上传当验收；首页最新推荐数据不沿用旧图标done。
+- 放大ABOUT390 Light第8原图确认Ravenis时间线节点说明行尾进入44px返回顶部圆钮并被遮挡，编号UI017/P2；同Night第8原图已看，未确认遮挡。原PNG/诊断永久保存；原文字断言未覆盖event说明，不将测试成功当视觉正常。先记录ui017-checks.md后源码定位：event p无按钮通道，Light字形/换行使原帧进入圆钮。
+- 最小实现仅共享CSS <=1199.98px为.about-timeline-event > div > p右padding2.75rem，保留网格/日期/标题/链接/字号/主题/按钮/数据，>=1200不变；现有detailTextButton追加该说明目标，原root非空/严格Range交集/失败采证与所有旧门禁、30s字体/20s动画等待保持。新增2接线/CSS回归，不冒充浏览器证据。
+- 本机260 tests/authoring44/5/7/T01保护44/5/5/diff通过；无Chrome/Jekyll，新精确head production/修复后截图/main/live均validation-pending，保存ui/fix-017、main不改。AGENTS/docs/agents/ADR/旧COMPLETE报告/本轮计划日志及补充已核对，CONTEXT无、gh不在PATH不编造Issue；无新增用户决策。旧原文/metadata/URL/hidden/noindex、home_popular/Library同步、外部仓库/旧COMPLETE不动，作者br/倒计时不删，A09及全站IN PROGRESS。下一项同一UI017工作head生产结果与真实截图。
+
 ## 2026-10-18 — UI016精确main部署与线上限定验收done
 
 - fresh main/base `5862ab0e14211edf63f264593638a5131c003616`，[run39067300977 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39067300977/attempts/2) build117502673032/deploy117505713846/verify-live-ui117505765011全部success。258 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部原门禁、production/live各192+14及24公开流程177原生帧通过；live日志明确https://neutriverse.uk。

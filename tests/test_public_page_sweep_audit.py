@@ -154,3 +154,25 @@ class PublicPageSweepAuditTests(unittest.TestCase):
             self.assertIn(token,block)
         for token in ('#back-to-top', 'font-size:', 'grid-template', 'display:', 'position:'):
             self.assertNotIn(token,block)
+
+    def test_timeline_event_description_uses_existing_strict_text_range_gate(self):
+        _,helper=self.helper()
+        self.assertIn('[data-about-profile] .about-timeline-event > div > p',helper)
+        for token in ("g['rootCount'] > 0 and not g['emptyRoots']",
+                      "all(not g['overlaps'] for g in groups)",
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top',
+                      'detail-text-overlap-', '[data-about-profile] .about-relation-card > p'):
+            self.assertIn(token,helper)
+        template=Path('_includes/neutriverse-about-profile.html').read_text()
+        self.assertIn('<p>{{ event.text }}</p>',template)
+
+    def test_timeline_description_lane_does_not_change_event_structure_or_typography(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-017:')
+        block=css[start:css.index('/* OBSERVE directory */',start)]
+        for token in ('@media (max-width: 1199.98px)',
+                      '[data-about-profile] .about-timeline-event > div > p',
+                      'padding-right: 2.75rem;'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top', 'font-size:', 'grid-template', 'display:', 'position:'):
+            self.assertNotIn(token,block)

@@ -1,0 +1,80 @@
+{
+  "sourceHead": "880bddf81671832d5d3c64ed69f16bb8ba0544cb",
+  "runId": 39073683931,
+  "artifactId": 12116846894,
+  "artifactSHA256": "8d054c2c7ceb573ca47f26356837a039c937b22d58ab5adbe75690a5ad5e727b",
+  "rawPublicAuditSHA256": "d9f94045aaffc7180f51ec04eacdf2888d4bb0fed57d48ed001e0d051c5c7226",
+  "frame": {
+    "mainEnd": 8994.734375,
+    "mainStart": 48,
+    "pageHeight": 9139,
+    "pageWidth": 379,
+    "scrollX": 0,
+    "scrollY": 3739,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 379,
+      "height": 701,
+      "width": 390
+    },
+    "introTextButton": {
+      "button": {
+        "bottom": 627,
+        "left": 319,
+        "right": 363,
+        "top": 583
+      },
+      "lines": [],
+      "overlaps": [],
+      "rootCount": 1,
+      "selector": "[data-about-profile] .about-info-text",
+      "shown": true,
+      "textNodes": 4
+    },
+    "detailTextButton": {
+      "button": {
+        "bottom": 627,
+        "left": 319,
+        "right": 363,
+        "top": 583
+      },
+      "groups": [
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 1,
+          "selector": "[data-about-profile] .about-principle-list"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 1,
+          "selector": "[data-about-profile] .about-current-meta > div:last-child dd"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 10,
+          "selector": "[data-about-profile] .about-stack-item time"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 3,
+          "selector": "[data-about-profile] .about-relation-card > p"
+        }
+      ],
+      "shown": true
+    },
+    "file": "public-sweep-about-390-light-8.png",
+    "visibleMain": [
+      3739,
+      4440
+    ]
+  },
+  "evidenceClass": "actual native screenshot manually enlarged; old diagnostics do not include timeline paragraph ranges"
+}
