@@ -2,6 +2,15 @@
 
 状态：validation-pending。base main53787e0bbe111da193918ee959e82780b58d87c3；精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。旧UI-A08k限定done不重启。
 
+## d50精确生产验收与新问题（2026-10-17）
+
+- head d50f1bc9dcf67606d8029468c5f9248fcc1d0234 / [run39019844860](https://github.com/AplusNeutrino/My_Blog/actions/runs/39019844860)，build117359307157 success，deploy117362280180/live117362280399 skipped（工作分支）。252 tests/4 Ruby/T01/authoring/production Jekyll/Search/feed/SEO/资源及所有既有门禁通过；主192/侧栏14、新public24/24完整通过，177张原生滚动PNG。不是部署后验收。
+- artifact12096771963 /490940794 bytes /sha256:21850691c43288e3347f35ce8a83342e45c88eb6a92f9e13fb6debd1390317a7下载独立匹配。四宽度双主题三页177帧的36联系表全部实际看，另放大390 Night首页第4帧、768 Night首页第5帧、390 Light OBSERVE第2帧、390 Night ABOUT第3/11帧原图。联系表永久存uia09-production-contacts/，24流程/177帧几何与交互摘要存uia09-production-summary.json；原完整JSON/PNG在精确artifact保留14天。
+- UI-012/013：首页近期表达/精选卡片全文与固定按钮无交集，原场景确已避让；中文换行、外框/两列布局和真实返回顶部/首页四入口往返通过。此两项生产限定验收可独立交付；新main自身build/deploy/live仍pending，不标done。
+- 新确认UI-014/P2：[OBSERVE390 Light原图](ui014-before-observe-390-light.png)说明段“数据流…”右端、[ABOUT390 Night原图](ui014-before-about-390-dark.png)介绍段“并…”右端被固定按钮遮挡。普通说明文字与近期表达/精选不同作用域，原home Range门禁不覆盖，不将CI成功当视觉正常。列下一最小独立组，待定位/逐行交集回归，不扩大为全站重设计；其他宽度/主题不提前宣称确认。
+- ABOUT末端多屏空白实际看见；源码_tabs/about.md显式保留大量br及倒计时，当前无意外缺陷证据，按旧作者内容保留而非偏好删除，不新增用户问题或公开隐藏入口。ABOUT部分其他文字/日期靠近按钮，未逐项确认的不计缺陷。
+- 字体阻塞本次未复现，原ready/30s及动画门禁不变；启用性能日志后一次成功不能证明网络/浏览器内部根因已修好，不改产品字体，失败历史和诊断保留，main/live若再现继续pending。gh未安装不编造Issue，无新用户决策。A09采证已完成，但OBSERVE/ABOUT视觉仍受UI-014影响，不标三页整体done。
+
 ## 563d字体状态定位（2026-10-17）
 
 精确563d054f5c975eca6aaaa583edee18910bdc09de / [run39015972699](https://github.com/AplusNeutrino/My_Blog/actions/runs/39015972699)：build117348035702 failure，deploy117349896137/live117349895961 skipped。250 tests/4 Ruby/T01/authoring/Jekyll/前置门禁通过，主144/192、新public18/24、139滚动帧、侧栏0。artifact12095147120 /331569201 bytes /sha256:31a16316b1663752bcac01ad731beec225b490129d3c6d66dfb94538357473dc独立匹配。失败原图及768 Night精选/390 Night近期原场景实际看，遮挡已避让但139图未全验收。失败FontFaceSet loading，Noto Sans SC400/500/600三个面loading，其余128 loaded/435 unloaded；不能将未使用unloaded当失败。仅补Unicode/Font网络请求事件诊断，原字体ready/30s/动画门禁不变，详见[uia09-font-wait-checks.md](uia09-font-wait-checks.md)。无产品追加改动，main仍53787e0b，完整production/main/live pending。

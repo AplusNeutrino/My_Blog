@@ -10,6 +10,8 @@
 
 ## 本轮实现（待真实生产验收）
 
+- 2026-10-17生产限定验收：d50f1bc9/run39019844860 build117359307157 success；四宽度双主题首页连续图已看，全部近期表达真实文字行与按钮无交集，390 Night旧Z.A.T.O.原图已放大对照，[修复后原图](ui012-production-accepted-home-390-dark.png)。真实返回顶部/四入口往返、252 tests/4 Ruby/T01/authoring/Jekyll/所有门禁/192+14/24流程通过。可独立交付main，但精确新main部署/live仍pending，不标done；OBSERVE/ABOUT新UI014不与本项混同。
+
 - 2026-10-17接续：d91bd721/run39008835671首次build失败于1366 Night THINK字体就绪脚本，并非UI-012交集断言。390/768/1024双主题首页近期表达Range均无按钮交集；已看六组首页联系表与390 Night第3/4、390 Light第4帧原图，原Z.A.T.O.正文无遮挡。1366、全24流程、main部署/live仍pending，不标done。新UI-013位于精选卡片，不在近期表达选择器范围，已独立排队。同head attempt2 build117337553687运行中，未改变门禁/产品/超时；artifact及局限见uia09-checks.md。
 
 - 真实修复提交be98b7b00369e789f3c65cf38916bc5c2e0ba37f，9个远程blob与本地git hash-object逐项一致；随后只追加SHA检查点。最终分支head生产截图/门禁必须单独核对，未交付main。

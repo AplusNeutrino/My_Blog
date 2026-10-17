@@ -2,6 +2,8 @@
 
 状态：validation-pending。2026-10-17先记录范围。
 
+接续2026-10-17：d50f1bc9/run39019844860 build117359307157 success，完整192+14和24public流程通过，没有失败快照，字体等待本次未复现。原ready/30s不变；性能日志开启与一次成功不能证明旧网络/浏览器内部根因已修复，不作产品字体改动。此前失败及Unicode/网络诊断保留；新main/live仍待核对。
+
 - base main53787e0bbe111da193918ee959e82780b58d87c3不动，工作head563d054f5c975eca6aaaa583edee18910bdc09de；run39015972699 build117348035702 failure，deploy117349896137/live117349895961 skipped。250 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源及前置门禁通过；主144/192、新public18/24、139原生滚动帧、侧栏0。不能当完整通过。
 - artifact12095147120 /331569201 bytes /sha256:31a16316b1663752bcac01ad731beec225b490129d3c6d66dfb94538357473dc独立匹配。失败原生PNG已实际看，1366 Night THINK内容可见；实际看768 Night精选第5帧与390 Night近期第4帧，UI-013/012原位置已避让，但其余139图未全部人工验收，main/live仍pending。
 - 事实：document.readyState complete、mode dark、FontFaceSet loading，566个字体面中128 loaded、435 unloaded（未使用不等于失败）、3 loading；后者均Noto Sans SC，normal，weight400/500/600，display swap。51个已完成字体资源时序没有指出未完成请求。不能据此断言整个字体损坏、CDN故障或浏览器内部机制。

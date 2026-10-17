@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI012/013生产限定验收；UI014新确认
+
+- fresh main53787e0bbe111da193918ee959e82780b58d87c3、工作d50f1bc9dcf67606d8029468c5f9248fcc1d0234，独立worktree保留用户修改；AGENTS/docs/agents/ADR/计划日志及旧COMPLETE核对，CONTEXT无，gh未安装不编造Issue，无新用户决策。旧COMPLETE计划报告与main无差异，不重跑T00–T39。
+- [run39019844860](https://github.com/AplusNeutrino/My_Blog/actions/runs/39019844860) build117359307157 success，deploy117362280180/live117362280399 skipped（分支）。252 tests/4 Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及旧专项门禁通过，主192/侧栏14、新public24完整通过，177原生滚动帧。本机252 tests/authoring/T01/diff再次通过；本机未运行Jekyll/Chrome。
+- artifact12096771963 /490940794 bytes /sha256:21850691c43288e3347f35ce8a83342e45c88eb6a92f9e13fb6debd1390317a7独立匹配。全部36联系表（177帧，三页四宽度双主题）实际看，放大390 Night首页4/768 Night首页5/390 Light OBSERVE2/390 Night ABOUT3及11原图。永久保存联系表、24流程177帧摘要和首页修复后/新缺陷原图；完整原包留artifact14天。
+- UI012/013：首页近期/精选真实文本行与按钮全部不相交，旧场景放大对照文字完整，外框/列数/换行/主题保留，真实返回顶部和四入口往返通过。此两项生产限定通过可独立main交付，新main自身build/deploy/live同177帧仍pending，暂不done。没有追加产品改动或改正文/metadata/旧URL/hidden/noindex/数据/外部仓库。
+- 新实际确认UI014/P2：OBSERVE390 Light说明段“数据流…”和ABOUT390 Night介绍段“并…”尾字被按钮遮住，原生图入库；home Range只管近期/精选不覆盖它们，不能将CI成功当三页视觉正常。列下一独立最小修复范围与文字行回归，尚未实现；其他疑似靠近未逐项确认，不扩张重设计。A09采证完整但全三页视觉不done。
+- ABOUT多屏空白在旧_tabs/about.md显式br/倒计时中有来源，保留作者原内容，不凭偏好删改、不公开隐蔽边界。字体等待本次未复现，但没有失败网络快照，不能证明此前CDN/浏览器根因已修好；保留原ready/30s/失败历史，main/live若再现按真实结果pending。
+
 ## 2026-10-17 — UI-A09-F三字体面loading定位；保留部分修复图
 
 - 真实诊断实现df8e2bb5c68719d006dd0ed21e016ba36718080c，9个远程blob与本地hash逐项一致；随后只追加SHA检查点。新最终head生产/完整视觉/main/live仍pending，不以测试或代码存在代替验收。

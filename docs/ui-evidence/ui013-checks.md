@@ -13,6 +13,8 @@
 
 ## 实现与真实验证边界
 
+- 2026-10-17生产限定验收：d50f1bc9/run39019844860 build117359307157 success；四宽度双主题首页连续图已看，精选文字行/按钮全部无交集，768 Night旧场景放大对照[修复后原图](ui013-production-accepted-home-768-dark.png)，摘要尾部完整，列数/外框/主题保持。252 tests/4 Ruby/T01/authoring/Jekyll/原门禁/192+14/新增24流程通过，真实返回顶部及入口往返通过。可独立交付main；精确新main build/deploy/live同场景复查仍pending，不标done。无新用户决策。
+
 - 2026-10-17接续：精确563d054f/run39015972699 build117348035702 failure、deploy117349896137/live117349895961 skipped；250 tests/4 Ruby/T01/authoring/Jekyll等通过，主144、新public18、139帧、侧栏0。实际看[768 Night原第5帧修复后](ui013-production-partial-home-768-dark.png)，正文已避开按钮，390 Night近期第4帧旧场景也正常；只属部分生产验证，未验收全部139图或1366/main/live。字体诊断3个Noto Sans SC400/500/600仍loading，另补请求诊断详见uia09-font-wait-checks.md，原门禁不变。
 
 - 真实实现提交eba88e0fcb3b3c2fbd5d0e2a55529fe21b1cd379，7个上传blob均与本地git hash-object一致；随后只追加SHA检查点。最终分支head精确CI须独立核对，当前未交付main。
