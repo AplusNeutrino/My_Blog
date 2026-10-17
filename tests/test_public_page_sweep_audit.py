@@ -31,3 +31,12 @@ class PublicPageSweepAuditTests(unittest.TestCase):
         self.assertIn("output / 'public-page-audit.json'",source)
         self.assertNotIn("'/navi/",helper)
         self.assertNotIn("'/gate/",helper)
+
+    def test_return_settle_failure_retains_animation_evidence_and_reraises(self):
+        _,helper=self.helper()
+        for token in ('public-return-failure-', 'document.getAnimations()', 'a.playState',
+                      'a.currentTime', 'getComputedTiming()', 'visitedBeforeFailure',
+                      'settle-after-browser-back', 'except Exception:', 'raise'):
+            self.assertIn(token,helper)
+        self.assertIn('settle(driver, wait, theme)',helper)
+        self.assertNotIn('setTimeout',helper)

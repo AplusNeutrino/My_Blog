@@ -1509,6 +1509,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
     }[name]
     visited = []
     for selector, path in targets:
+        print(json.dumps({'publicPage':name,'windowWidth':width,'theme':theme,'destination':path,'phase':'click-return'}),flush=True)
         links = driver.find_elements(By.CSS_SELECTOR, selector)
         link = next(e for e in links if urlsplit(e.get_attribute('href')).path == path)
         driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", link)
@@ -1518,7 +1519,22 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         wait.until(lambda d: d.execute_script('return document.readyState') == 'complete')
         driver.back()
         wait.until(lambda d: d.current_url == original)
-        settle(driver, wait, theme)
+        try:
+            settle(driver, wait, theme)
+        except Exception:
+            # Preserve the actual blocker; do not waive the finite-animation gate.
+            driver.save_screenshot(str(output / f'public-return-failure-{name}-{width}-{theme}.png'))
+            failure = driver.execute_script('''
+              return {url:location.href,readyState:document.readyState,theme:document.documentElement.dataset.mode,
+                viewport:[innerWidth,innerHeight],scrollX,scrollY,focus:document.activeElement?.outerHTML,
+                animations:document.getAnimations().map(a=>({name:a.animationName||a.transitionProperty||'',
+                  state:a.playState,currentTime:a.currentTime,startTime:a.startTime,
+                  timing:a.effect?.getTiming(),computedTiming:a.effect?.getComputedTiming(),
+                  target:a.effect?.target?.outerHTML?.slice(0,500)}))};
+            ''')
+            failure.update({'page':name,'destination':path,'visitedBeforeFailure':visited,'phase':'settle-after-browser-back'})
+            (output / f'public-return-failure-{name}-{width}-{theme}.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2))
+            raise
         visited.append(path)
     require(driver.current_url == original, 'Public page return URL mismatch')
     return {'url':original,'frames':frames,'mainFullyCovered':True,'backToTopClick':top_clicked,
@@ -1661,6 +1677,7 @@ def main():
                                 }, ensure_ascii=False, indent=2), encoding='utf-8')
                                 raise
                     for public_name, public_path in (('home','/'),('observe','/observe/'),('about','/about/')):
+                        print(json.dumps({'publicPage':public_name,'window':[width,height],'theme':theme,'phase':'start'}),flush=True)
                         driver.get(base + public_path)
                         settle(driver, wait, theme)
                         public_results.append({'name':public_name,'window':[width,height],'theme':theme,

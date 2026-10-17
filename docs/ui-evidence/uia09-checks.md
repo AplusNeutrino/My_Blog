@@ -4,6 +4,18 @@
 
 ## 范围先记录（2026-10-17）
 
+## 2026-10-17 — 首次失败与UI-012新复现
+
+- 精确head8831153b2e190a312628e8e3c9ca808d0403bea4 / [run39001620617](https://github.com/AplusNeutrino/My_Blog/actions/runs/39001620617)：build117305564644 failure，deploy117306200350/live117306198823 skipped。245 tests、4 Ruby渲染回归、T01/authoring/Jekyll/SEO/资源及前置门禁通过；主审计仅完成390 Night的24场景，新public流程0完成、侧栏0完成，不能写成完整192+14或三页24流程通过。
+- artifact12089466875 /43173706 bytes /sha256:030926de45ef3cb4061b051e41a5111ef6f8c5004083514f9ba5dd55fd4fd9d0下载后独立匹配。保留[部分主审计](uia09-first-production-audit.json)、[9帧诊断](uia09-first-production-partial-diagnostics.json)、[9帧联系表](uia09-first-production-partial-home-390-dark.jpg)，原包保留14天。已人工看9帧联系表并放大第3帧原始PNG，不将部分截图当验收。
+- 已确认产品缺陷UI-012/P2：[390 Night首页第3帧原图](ui012-before-home-390-dark.png)，返回顶部按钮覆盖近期表达中Z.A.T.O.卡片正文首行右端。证据是实际生产原生viewport，不是单凭DOM推测；类似其他页面已有避让修复，但本轮尚未定位/修改首页CSS根因。优先队列转UI-012，需保留双主题气质，以最小范围避让并补真实文字行与按钮交集回归；Light/其余尺寸尚未确认，不扩张为全站 redesign。
+- 同一run另在public_page_sweep点击入口→浏览器返回→settle的有限动画等待（line80）超时。该位置确定，但没有失败时动画列表/截图，不能断言BFCache或某个动画为根因，更不能把它等同UI-012。云1363×936 Light真实首页→THINK→返回成功；云read-only页面接口不提供getAnimations，因此不能替代CI诊断。
+- 本次仅补新public返回流程失败时的原生PNG、URL/主题/scroll/焦点、动画name/state/currentTime/startTime/timing/computedTiming与目标诊断，并重新抛出原失败；原settle等待/时限/几何/覆盖/导航门禁不放宽。新增1接线回归；修正留工作分支，main仍53787e0b，未部署本项。先精确新head诊断及UI-012最小修复/生产截图，main/live仍validation-pending，无新用户决策，gh未安装不编造Issue。
+
+### 原范围记录（保留）
+
+本次本机246 tests、authoring44/5/7、T01保护44/5/5及diff check通过；只证明回归/保护与诊断接线，不证明动画根因、UI-012修复或新浏览器视觉通过。
+
 - 当前矩阵这三页缺全页原生滚动视觉与对应往返；不是用户报告的新缺陷。本轮新增审计，不凭推测改产品或把偏好当缺陷。
 - 条件：390/768/1024/1366×Night/Prospero Light，三页24流程。沿页面真实滚轮滚动，以重叠的原生viewport PNG覆盖main从顶部到底部，记录scrollY/clientWidth/viewport/topbar与覆盖区间；动态截图数量，不用超视口CDP裁图冒充原生画面。既有192+14及所有专项门禁保留，新增首页/ABOUT场景，不删除既有OBSERVE。
 - 有界往返：首页四入口；OBSERVE两公开项目详情（不提前宣称应用共享导航通过）；ABOUT的Library和友链。均真实点击/浏览器返回核对原URL，末端真实返回顶部检查。私有旅行/Gate/NAVI入口、应用业务与外部站点不进入新增公开采证。

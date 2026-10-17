@@ -1,0 +1,173 @@
+{
+  "public-sweep-home-390-dark-2.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 493,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-2.png",
+    "visibleMain": [
+      493,
+      1194
+    ]
+  },
+  "public-sweep-home-390-dark-1.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 0,
+    "topbarBottom": 48,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-1.png",
+    "visibleMain": [
+      48,
+      701
+    ]
+  },
+  "public-sweep-home-390-dark-3.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 1034,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-3.png",
+    "visibleMain": [
+      1034,
+      1735
+    ]
+  },
+  "public-sweep-home-390-dark-4.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 1575,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-4.png",
+    "visibleMain": [
+      1575,
+      2276
+    ]
+  },
+  "public-sweep-home-390-dark-5.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 2116,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-5.png",
+    "visibleMain": [
+      2116,
+      2817
+    ]
+  },
+  "public-sweep-home-390-dark-6.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 2657,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-6.png",
+    "visibleMain": [
+      2657,
+      3358
+    ]
+  },
+  "public-sweep-home-390-dark-7.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 3198,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-7.png",
+    "visibleMain": [
+      3198,
+      3899
+    ]
+  },
+  "public-sweep-home-390-dark-8.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 3739,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-8.png",
+    "visibleMain": [
+      3739,
+      4440
+    ]
+  },
+  "public-sweep-home-390-dark-9.json": {
+    "mainEnd": 4857.6875,
+    "mainStart": 48,
+    "pageHeight": 5002,
+    "pageWidth": 375,
+    "scrollX": 0,
+    "scrollY": 4280,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 375,
+      "height": 701,
+      "width": 390
+    },
+    "file": "public-sweep-home-390-dark-9.png",
+    "visibleMain": [
+      4280,
+      4857.6875
+    ]
+  }
+}

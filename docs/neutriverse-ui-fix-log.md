@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-17 — UI-A09首次失败；确认UI-012遮挡
+
+- 8831153b2e190a312628e8e3c9ca808d0403bea4 /run39001620617 build117305564644 failure，deploy117306200350/live117306198823 skipped。245 tests/4 Ruby/T01/authoring/Jekyll/SEO/资源/前置门禁通过；主审计仅390 Night24场景，新public0完成、侧栏0完成，不冒称192+14通过。main仍53787e0b，独立worktree不覆盖用户修改。
+- artifact12089466875 /43173706 bytes /sha256:030926de45ef3cb4061b051e41a5111ef6f8c5004083514f9ba5dd55fd4fd9d0独立匹配。人工看首页390 Night九帧联系表并放大第3原图，确认UI-012：返回顶部圆钮遮住Z.A.T.O.卡片正文右端。原图/9诊断/联系表/部分主审计入库，不将部分画面验收。优先下一项UI-012首页最小避让与文字行交集门禁；尚未改样式或确认其他尺寸同问题。
+- 同run另在首页公开入口点击/浏览器返回后的settle line80有限动画等待超时，缺动画快照不能确定内部根因，不猜测认定BFCache，也不和UI-012混同。云1363×936 Light首页→THINK→返回成功，但getAnimations不在云只读接口，不代替CI。仅补新流程失败原生PNG/URL/主题/scroll/焦点/完整动画时序和目标诊断，继续抛错，原等待/时限/覆盖/导航门禁不减。
+- 新诊断留ui/audit-009，production/main/live继续validation-pending，无新用户决策，gh未安装不编造Issue；不改产品/数据/原文/metadata/URL/hidden/noindex、外部仓库或旧COMPLETE。下一轮优先同head诊断并推进UI-012，不报告为已修复。
+
 ## 2026-10-17 — UI-A09范围先记录
 
 - 真实实现e571673dfe0b1abe46a22bc81019c13d96c7fda0，5个上传blob与本地hash一致；随后只追加SHA检查点保存ui/audit-009。main仍53787e0b，最终分支head production/24新流程截图、人工看图和main/live保持validation-pending，下一轮先核对同一head。

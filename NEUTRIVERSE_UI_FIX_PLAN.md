@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-012 | P2 | 390 Night首页返回顶部圆钮覆盖近期表达Z.A.T.O.卡片正文首行右端，实际原生PNG已复现 | confirmed / fix-pending | 保存ui012-before-home-390-dark.png；需首页最小范围避让、真实文字行不与按钮相交、四宽度双主题生产/main/live截图；UI-A09返回动画等待另待诊断，不冒称同根因 |
 | UI-011 | P2 | 1024px Light实际线上截图中返回顶部圆钮覆盖Library目录漫画计数 | done | 831f2898精确main build/deploy/live通过；四宽度双主题48线上图已人工看并放大原遮挡场景，计数完整且按钮可操作；8组逐行滚动/往返/真实返回顶部、48诊断及192+14通过 |
 | UI-010 | P2 | 390px双主题评分末端提示超出可用视口，被右侧滚动条裁去尾字；旧几何错误按innerWidth验收 | done | 41dca277精确main build/deploy/live通过；四宽度双主题32线上评分图已人工看，首末提示全文可见且在clientWidth/shell内；8分类/摘要/真实键盘/退出隐藏/刷新和192+14通过 |
 | UI-009 | P2 | 390px Light时间线长作品名尾部被固定返回顶部按钮遮住 | done | 8eb17637精确main部署/live通过；四宽度双主题24张首/尾/刷新线上图人工复验，24诊断真实文字行不与可见按钮相交，8时间线加载/滚动/刷新/键盘流程通过 |
@@ -62,6 +63,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+UI-A09首次失败/UI-012新复现（2026-10-17）：8831153b/run39001620617 build117305564644 failure，deploy/live skipped。245 tests/Ruby/T01/authoring/Jekyll及前置门禁通过，主审计仅24场景、新public0/侧栏0完成，不能标完整通过。artifact12089466875独立摘要匹配，实际看首页390 Night九帧并放大第3帧，确认UI-012返回顶部遮正文；优先队列转其首页最小修复。另在真实点击返回后的settle有限动画条件超时，当前无足够动画根因证据；仅补失败PNG/动画快照并原样抛错，不放宽旧门禁。main仍53787e0b，新诊断留ui/audit-009，生产及main/live继续pending，无新用户决策。[证据](docs/ui-evidence/uia09-checks.md)。
 
 UI-A09范围先记录（2026-10-17）：base53787e0bbe111da193918ee959e82780b58d87c3精确run38997545484 build117293294892/deploy117295587015/live117295621809均success。选择首页/OBSERVE/ABOUT四宽度双主题24流程的重叠原生纵向截图、真实滚轮和公开有界往返；只增审计/必要回归及计划日志证据，不猜测改产品。云1363×936首页Light首屏实际看并滚动，无新确认缺陷；完整production/main/live仍validation-pending，先ui/audit-009。gh不可用不编造Issue，无新用户决策；范围与保护见[UI-A09](docs/ui-evidence/uia09-checks.md)，不重复书籍视觉或旧COMPLETE。
 
