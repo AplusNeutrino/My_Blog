@@ -1,6 +1,15 @@
 # UI-020 — THINK筛选与页码触控区域被返回顶部按钮部分覆盖
 
-状态：validation-pending；7d71656e精确production与97控件帧限定验收通过，交付main后的精确build/deploy/live及同场景线上复验待验。before只确认视觉覆盖，原位置指针拦截未实测，不把推测写成已失败点击。
+状态：done（仅UI020控件避让）。f0bb59d0精确main build/deploy/live及97控件帧线上复验通过；THINK其余205帧/完整A10仍pending。before只确认视觉覆盖，原位置指针拦截未实测，不把推测写成已失败点击。
+
+## 2026-10-19 精确main部署及线上限定验收
+
+- 验收main/base f0bb59d065e51638bbde5eef11667422e35d5487，[run39138681681](https://github.com/AplusNeutrino/My_Blog/actions/runs/39138681681) build117708387611/deploy117713026629/verify-live-ui117713227145全部success。271 tests、T01保护44/5/5、authoring44/5/7、production Jekyll、Search/feed、SEO/旧路由/隐蔽边界、资源和全部原浏览器门禁通过；production/live各主192场景完成。live日志UI_LIVE_BASE=https://neutriverse.uk，8流程32页URL均在该站，不用localhost截图代替线上。
+- live专项artifact12141746895（53852246 bytes），下载独立SHA256 669aecd4d7cbdeb7ed892660c6c612f559b883a75a641c3fc40406682c52d9cd匹配。实际看四宽度双主题97控件帧18联系表，放大390 Light page1-5/page3-13、1024 Night page1-3、1366 Light page1-3四原PNG：筛选箭头/重置与所有页码均避开固定圆钮，数字4不再被覆盖；390下一页换行完整，不新增审美改动。与before原遮挡/已看production对照，UI020已消除，无该作用域新缺陷。
+- 8流程32页302原生帧scope/全控件矩形与可见圆钮严格交集0、9操作点实际hit全命中、UI019文字Range、scrollX0/无横向溢出/原生main覆盖均通过；44唯一href顺序12/12/12/8、真实下一页点击/末页同URL刷新/上一页/每页返回顶部通过。390实际截图701高，其他757高，不把窗口900高当viewport。
+- 另下载同head production专项artifact12141850103（52131334 bytes），独立SHA256 25db446af5e7bdd8feafe7f508c2679977563ee6d2994dc8a4c40887df1862c8匹配。逐个302帧比较viewport/滚动坐标/完整writingControlButton与writingTextButton诊断全等；44href与各页帧数相同。不声称像素全等（随机引文内容不同），也不以JSON代替上述实际看图。
+- ui020-live/保留18张已看联系表、4原PNG、摘要（线上/生产8源JSON各自哈希、44href/分页/逐页帧数/限定人工数量/比较条件）。人工只97/302，其余205未看，不累计旧head56/52声称A10完成。后续本证据提交自身CI另核对，不重开已精确部署复验的UI020。
+- 本轮范围仅本证据、uia10、本UI计划日志与公开已看证据；产品CSS/JS/数据/正文/metadata/URL/hidden/noindex/关联项目/旧COMPLETE不改。gh不可用，未虚构Issue；无新用户决策。全站IN PROGRESS；下一项核对证据head并补THINK其余整页、Thought点赞等剩余矩阵，不写最终COMPLETE报告或暂停。
 
 ## 2026-10-18 精确生产限定验收通过，待main/live
 

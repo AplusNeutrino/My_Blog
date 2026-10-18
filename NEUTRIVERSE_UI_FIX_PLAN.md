@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI020线上限定done：验收main f0bb59d065e51638bbde5eef11667422e35d5487/run39138681681 build117708387611/deploy117713026629/live117713227145全部success，271 tests/T01/authoring/Jekyll/原门禁与production/live各主192通过。实际看四宽度双主题97线上控件帧18联系表、放大4原图，箭头/数字4与固定圆钮分离；8流程32页302帧hit/严格矩形/文字Range/真实分页刷新返回顶部通过，302诊断与同head生产全等。其他205帧未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui020-checks.md)。
+
 2026-10-18 UI020生产限定验收通过：7d71656eab5a5bdb2350b1d9f1fa9003e184e97e/run39134358751 build117695744730 success，分支deploy/live skipped；271 tests/T01/authoring/Jekyll/旧门禁与主192成功。人工实际看四宽度双主题97控件帧18联系表、放大4原图/重看2 before，排序箭头/页码4完整避让圆钮；8流程32页302帧严格控件矩形/操作hit/文字Range/原生滚轮及真实分页刷新返回顶部均通过。其他205帧未人工看，A10不整页通过。本轮仅证据/计划日志，不再改产品；可非强推交付main，新main自身build/deploy/live及线上同场景仍pending，无新用户问题。[证据](docs/ui-evidence/ui020-checks.md)。
 
 2026-10-18 UI020原生圆角诊断：351072c485131c515b54b9627bd99de1b9a05564/run39130101572 build117683334367 failure，deploy/live skipped。实际失败点命中父容器而非遮挡层，左/上1px均命中SELECT，原生appearance:auto/5.6px圆角；已看精确原图/JSON，完整控件与圆钮交集0。仅修正审计采样为9个中心/直边/圆角内部点，保留旧角点诊断及完整矩形严格不相交/全部原操作门禁，不改产品CSS/JS。执行实际JS的故障注入验证9点任意拦截失败、只覆盖旧角点的圆钮即使不碰9点也失败；本机271 tests/T01/authoring/diff通过，不称浏览器验收。新head留ui/fix-020，production及main/live仍pending，main c6d7978e未改，无新用户问题。[证据](docs/ui-evidence/ui020-checks.md)。
@@ -23,7 +25,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | validation-pending | 7d71656e精确production通过，四宽度双主题97控件帧/18联系表及4原图实际确认避让；8流程32页302帧控件/文字/分页刷新返回顶部通过；仅生产限定通过，交付main后精确build/deploy/live与线上同场景待验 |
+| UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | done | f0bb59d0精确main build/deploy/live全部成功；四宽度双主题97线上控件帧/18联系表及4原图实际确认避让；8流程32页302帧控件hit/严格矩形/文字/分页刷新返回顶部通过，仅此作用域done，完整A10其余205帧未看 |
 | UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | done | ffbc8a8b精确main build/deploy/live全成功；四宽度双主题52线上目标帧/10联系表实际看及5原图对照放大，文字完整避让圆钮；8流程32页302帧严格Range/分页/滚轮/返回顶部通过，仅此范围done，A10其余250帧未看 |
 | UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
