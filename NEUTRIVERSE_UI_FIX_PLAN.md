@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | validation-pending | 8b3308d原图2/6/7/8确认；已实现仅文字安全空间与严格Range门禁，本机267回归/T01/authoring通过，工作分支ui/fix-019；修复后生产/main/live待验 |
+| UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | validation-pending | d7dd377e精确生产通过；四宽度双主题52目标帧/10联系表实际查看及5原图放大，原文字遮挡消除；8流程32页302帧严格Range与分页/滚轮/返回顶部通过；新main/deploy/live待验，A10其余250帧未看 |
 | UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
 | UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
@@ -71,6 +71,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI019生产限定验收通过：实现d7dd377e864f231e73e9da739c6e6bbca34fb1de/run39114493637 build117637386219 success，工作分支deploy117641019406/live117641020287 skipped。267 tests/T01/authoring44/5/7/Jekyll/原门禁及192主成功；专项artifact12132675504独立摘要匹配。实际看四宽度双主题52目标帧10联系表并放大5原图，THINK介绍与三卡摘要/Fragment文字完整避让按钮，无新确认缺陷。8流程/44唯一href/32页302帧覆盖、尺寸、无溢出、文字Range交集0、真实滚轮/返回顶部/分页/刷新/上一页通过；其余250帧未人工看，不标A10整页done。仅交付已验证修复与公开证据，fresh main40e6ee2b未变才非强推；新main自身CI/build/deploy/live及相同目标图继续validation-pending。无新用户决策，旧内容/数据/隐蔽边界/旧COMPLETE不动。
 
 UI-019最小实现完成，validation-pending：仅THINK介绍/记录body在<=1199.98px留2.75rem文字空间；四页原生每帧严格Text Range/可见按钮不相交、scope计数12/8+介绍1、失败先存PNG/JSON。加2接线回归，本机267 tests/authoring44/5/7/T01保护44/5/5/diff通过；无本机Chrome/Jekyll，修复后production/实际截图/main/live尚未验收，不用8b成功替代。公开before原图/3已看联系表/8流程JSON摘要保存，原门禁不减、main不动；下一项同一ui/fix-019 head精确CI与修复后图。
 

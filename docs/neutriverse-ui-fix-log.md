@@ -1,5 +1,11 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI019精确生产限定验收通过，待main/live
+
+- fresh base main40e6ee2b693778dacca9140ff9fabaf454176c78；工作实现d7dd377e864f231e73e9da739c6e6bbca34fb1de/[run39114493637](https://github.com/AplusNeutrino/My_Blog/actions/runs/39114493637) build117637386219 success、deploy117641019406/live117641020287 skipped（工作分支，不冒称部署）。日志267 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁与192主成功；专项artifact12132675504为51537009 bytes，独立SHA256 fcb02ab3050ef8038c34da5f3d14a9f142fa21c358c48419672ff1a6777b4cef匹配。
+- 实际人工看四宽度双主题52目标帧/10联系表，放大390 Light2/7/9、1024 Night4、1366 Light5原图，对比before确认介绍末行、Progressive Disclosure/互联网标签/Z.A.T.O.摘要、Fragment文字可见且避让按钮，无新确认缺陷。8流程/32页/302帧全部JSON独立核对44唯一href顺序12/12/12/8、末页刷新/上一页、连续main覆盖/PNG实际视口/无横向溢出/scrollX0、真实返回顶部及每帧root1+12或8/非空/文字按钮严格交集0。其余250帧未人工验收，不标A10整页done。
+- 先记录本次范围仅本UI计划日志、ui019/uia10检查与公开52目标联系表/5原图/精简诊断；不追加产品/门禁改动，旧内容/metadata/URL/hidden/noindex/同步数据/外部仓库/旧COMPLETE不动。独立worktree保留原目录修改，已读AGENTS/agents/ADR/旧计划报告/当前台账及用户补充，CONTEXT无、gh不在PATH不编造Issue，无新用户决策。fresh main仍40e6ee2b才expected-head非强推交付；新main自身CI/build/deploy/live和相同目标图需重新验，UI019仍validation-pending，全站IN PROGRESS，不暂停。
+
 ## 2026-10-18 — UI-A10实际看图发现UI-019，先记录最小修复
 
 - 实施后：仅THINK介绍/写作record-body在<=1199.98px添加2.75rem右侧文字空间，不动日期列/按钮/字号/文本；原四页每帧添加介绍1/可见记录12或末页8的scope计数、Text Range/可见按钮严格相交门禁，失败先存PNG/JSON后抛出。加2接线回归，本机267 tests、authoring44/5/7、T01保护44/5/5、diff通过。无本机Chrome/Jekyll，修复后production/截图/main/live仍validation-pending，不能用8b成功替代。before原图4张、3已看联系表和8流程JSON摘要回写；不将其余279帧视为已看。下一项同一ui/fix-019 head真实CI/图，无新增用户决策。

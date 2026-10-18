@@ -1,6 +1,14 @@
 # UI-019 — THINK介绍与写作卡片文字被返回顶部按钮遮挡
 
-状态：validation-pending。最小实现已完成；修复后截图、production与部署未验收。
+状态：validation-pending。精确d7dd377e生产限定视觉/交互验收通过，待交付main与精确main部署/live复验；不将UI-A10整页标done。
+
+## 2026-10-18 精确生产与限定视觉验收
+
+- 实现d7dd377e864f231e73e9da739c6e6bbca34fb1de；[Actions39114493637](https://github.com/AplusNeutrino/My_Blog/actions/runs/39114493637) build117637386219 success，工作分支deploy117641019406/live117641020287 skipped，不当已部署。日志267 tests、T01保护、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/原门禁及192主场景通过。
+- 专项artifact12132675504共51537009 bytes，下载后独立SHA256 fcb02ab3050ef8038c34da5f3d14a9f142fa21c358c48419672ff1a6777b4cef与服务端一致。8流程/32页/302原生帧全部JSON独立核对：每流程44唯一href按12/12/12/8顺序不变、末页刷新/上一页、全main连续覆盖/PNG实际视口/scrollX0/无横向溢出、真实返回顶部；每帧介绍root1与可见记录12或8、非空文字、可见按钮与所有实际Range严格交集0。
+- 人工实际查看52目标帧/10联系表：四宽度双主题每流程介绍、Progressive Disclosure/互联网标签/Z.A.T.O.摘要、Fragment，加其余三页记录抽查。放大390 Light2/7/9、1024 Night4、1366 Light5原图，逐一比对before：介绍末行完整，卡片摘要重排后全文可见、右侧圆钮不盖字；日期/分类/来源链接仍可见，无新增确认缺陷。原390 Light2/6/7/8的遮挡由上述同内容after复核消除，重排后帧号不是原DOM位置保证。
+- 以上仅UI-019文字避让范围生产通过；302帧中250未人工看，不推断A10完整四页视觉通过。字体/主题/按钮/旧内容/metadata/URL/hidden/noindex/同步数据/外部仓库与旧COMPLETE均不变。AGENTS/agents/ADR/旧计划报告/本轮台账/用户补充已核对；CONTEXT无、gh不可用不编造Issue。独立worktree保留原目录修改，无新用户决策。
+- 本次交付范围仅已验证修复/审计及计划日志、ui019-production公开联系表/5原图/精简摘要；不追加产品修改。fresh main仍40e6ee2b才expected-head非强推交付；新main自身CI/build/deploy/live和相同52目标图必须重新核对，保持validation-pending。ui019-production-summary.json记录8原JSON哈希、302逐帧诊断与52实际查看清单。全站IN PROGRESS，不写最终报告或暂停。
 
 ## 2026-10-18 先记录复现、范围及验收
 

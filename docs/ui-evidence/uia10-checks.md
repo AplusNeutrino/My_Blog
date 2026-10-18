@@ -1,6 +1,11 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
-状态：validation-pending；专项8b3308d生产build成功、包已独立核验并开始实际看图，确认UI-019遮挡。不是视觉通过，main不改。
+状态：validation-pending；UI-019已在d7dd377e生产限定验收通过，待main/live；A10整页其余250帧未人工看，不冒称完整视觉通过。
+
+## 2026-10-18 UI-019生产限定通过，不代替整页验收
+
+- d7dd377e864f231e73e9da739c6e6bbca34fb1de/run39114493637 build117637386219 success，工作分支deploy/live skipped。267 tests/T01/authoring/Jekyll/原门禁与新增32页文字Range门禁通过；artifact12132675504独立摘要匹配。四宽度双主题8流程/44唯一href/四页12-12-12-8/刷新/上一页及302原生帧覆盖、尺寸、无溢出、介绍/可见记录文字不与按钮相交全部机械核对。
+- 人工只看52个UI-019目标帧10联系表并放大5原图，介绍/原三卡摘要/Fragment避让正常，余三页为记录抽查；未看250帧，A10完整整页视觉仍pending。UI-019生产限定通过后可非强推main，精确main/live必须再验，不把工作分支成功代替部署。详见ui019-checks.md与ui019-production/ui019-production-summary.json。无新用户决策，其他筛选/Thought点赞/全站余项不变。
 
 ## 2026-10-18 专项包实际验收发现UI-019
 
