@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | validation-pending | 656b78ff精确production192+14/24公开流程及260 tests/T01/authoring/Jekyll通过；四宽度双主题18时间线说明帧/8联系表实际查看、390 Light原图对照无遮挡；允许交付main，新main自身CI/部署/live待验，未标done |
+| UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
 | UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
 | UI-014 | P2 | 实际390 Light OBSERVE说明段与390 Night ABOUT介绍段右端被固定返回顶部按钮覆盖 | done | d1bdcbf2精确main build/deploy/live全成功；两容器四宽度双主题32线上帧16联系表已看、原390两场景放大对比无覆盖，16流程真实返回顶部及公开往返通过；仅本作用域done |
@@ -68,6 +68,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI017限定done：精确main fa1c2c89/run39081409231 build117538917578/deploy117541886151/live117541923994全部success；260 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/原门禁、production/live各192+14及24公开流程177帧通过。live artifact12119179516独立摘要匹配；四宽度双主题18时间线目标帧/8联系表实际查看、390 Light原图before/after全文无遮挡。ABOUT8流程目标5/非空/严格交集0、与production诊断相同，滚轮/顶部按钮/公开往返通过，24流程scrollY差0。新证据head自身CI另核对；全站IN PROGRESS，A09剩余整页与其他矩阵pending，无新用户问题。[限定线上证据](docs/ui-evidence/ui017-checks.md#2026-10-18-精确main部署与线上限定验收)。
 
 2026-10-18 UI017生产限定验收通过：实现656b78ff/run39077837409 build117528572919 success，工作分支deploy117531646803/live117531646743 skipped，不当已部署。260 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/旧门禁/192+14及24公开流程177帧通过。artifact12118321539独立摘要匹配，实际看四宽度双主题18时间线目标帧/8联系表，放大390 Light before/after说明全文避开按钮；8流程根目标5/非空/严格交集0及滚轮/返回顶部/公开往返通过。fresh main d5ac222未变才非强推交付，新main自身CI/deploy/live及线上人工图仍pending；不改同步数据/正文/metadata/URL/hidden/noindex、外部仓库或旧COMPLETE，无新用户问题，A09剩余整页和全站仍IN PROGRESS。[精确生产证据](docs/ui-evidence/ui017-checks.md#2026-10-18-精确生产与限定视觉验收)。
 

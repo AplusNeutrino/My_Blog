@@ -1,6 +1,14 @@
 # UI-017 — ABOUT时间线说明被固定按钮遮挡
 
-状态：validation-pending；656b78ff生产及限定人工视觉验收通过，可交付main；新main自身CI/部署/线上同场景仍待验，不标done。
+状态：done（仅UI-017时间线说明作用域）；fa1c2c89精确main构建/部署/live及同场景人工复验通过。全站矩阵仍IN PROGRESS，新证据提交自身CI另核对。
+
+## 2026-10-18 精确main部署与线上限定验收
+
+- 验收main `fa1c2c89fe9512a7c2527de70b9f68953248d4ac` /[run39081409231](https://github.com/AplusNeutrino/My_Blog/actions/runs/39081409231)：build117538917578、deploy117541886151、verify-live-ui117541923994全部success。260 tests、Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/路由/全部旧门禁及production/live各192+14、24公开流程177原生帧通过；live日志明确https://neutriverse.uk。
+- live artifact12119179516 /491952108 bytes，独立SHA256 `a598c1eb9a6664aed6e328cdbbbee6ba15a91e5ad0fd995be51684125b587361`匹配。实际人工逐张查看四宽度双主题18个时间线说明可见帧/[8联系表](ui017-live-contacts/)，放大[390 Light线上原图](ui017-live-about-timeline-390-light.png)与before对照：Ravenis说明全文完整、按钮与文字分离，日期/标题/链接/外框/主题保持，未确认新缺陷。未把全部177自动帧当人工整页验收。
+- [线上摘要与production对照](ui017-live-summary.json)：ABOUT8流程每帧timeline目标5、emptyRoots0、严格逐行交集0，诊断与656b78ff已验production完全相同；24流程帧数/往返目标一致、scrollY最大差0。原生滚轮全main覆盖、真实返回顶部pointer click、Library/友链点击与浏览器返回通过，无横向溢出/scrollX0。
+- 本机260 tests/authoring44/5/7/T01保护44/5/5/diff再通过，本机无Chrome/Jekyll；AGENTS/docs/agents/ADR/旧COMPLETE与本轮台账/用户补充核对，CONTEXT无，gh不在PATH不编造Issue，独立worktree保留原目录用户修改。本轮仅公开验收证据/计划/日志，不追加产品/数据/原文/metadata/URL/hidden/noindex、外部仓库或旧COMPLETE修改。
+- UI017限定done；A09剩余整页与其余矩阵pending，无新用户决策。fresh main仍fa1c2c89才expected-head非强推，新文档head自身CI/deploy/live另核对，不用本成功代验；全站不标COMPLETE/不写final报告或暂停。
 
 ## 2026-10-18 精确生产与限定视觉验收
 
