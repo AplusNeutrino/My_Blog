@@ -1,0 +1,376 @@
+{
+  "mainEnd": 7872.8125,
+  "mainStart": 48,
+  "pageHeight": 8017,
+  "pageWidth": 379,
+  "scrollX": 0,
+  "scrollY": 6444,
+  "topbarBottom": 0,
+  "viewport": {
+    "clientWidth": 379,
+    "height": 701,
+    "width": 390
+  },
+  "writingTextButton": {
+    "button": {
+      "bottom": 627,
+      "left": 319,
+      "right": 363,
+      "top": 583
+    },
+    "groups": [
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-neutriverse-section=\"think\"] .nv-section-intro"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 0.328125,
+            "left": 33,
+            "right": 289.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据库恢复技术通过数据转储和日志文件等冗余机制，在事务、系统或介质故障发生后恢复数据一致性与完整性。 其核心是基于日志的 UNDO 与 REDO 操作，并遵循“先写日志再写数据库”的原则，实现已提交事务重做、未提交事务回滚。",
+            "top": -23.671875
+          },
+          {
+            "bottom": 27.515625,
+            "left": 33,
+            "right": 281.75,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据库恢复技术通过数据转储和日志文件等冗余机制，在事务、系统或介质故障发生后恢复数据一致性与完整性。 其核心是基于日志的 UNDO 与 REDO 操作，并遵循“先写日志再写数据库”的原则，实现已提交事务重做、未提交事务回滚。",
+            "top": 3.515625
+          },
+          {
+            "bottom": 54.703125,
+            "left": 33,
+            "right": 303.0625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据库恢复技术通过数据转储和日志文件等冗余机制，在事务、系统或介质故障发生后恢复数据一致性与完整性。 其核心是基于日志的 UNDO 与 REDO 操作，并遵循“先写日志再写数据库”的原则，实现已提交事务重做、未提交事务回滚。",
+            "top": 30.703125
+          },
+          {
+            "bottom": 81.890625,
+            "left": 33,
+            "right": 273.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据库恢复技术通过数据转储和日志文件等冗余机制，在事务、系统或介质故障发生后恢复数据一致性与完整性。 其核心是基于日志的 UNDO 与 REDO 操作，并遵循“先写日志再写数据库”的原则，实现已提交事务重做、未提交事务回滚。",
+            "top": 57.890625
+          },
+          {
+            "bottom": 109.078125,
+            "left": 33,
+            "right": 193.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据库恢复技术通过数据转储和日志文件等冗余机制，在事务、系统或介质故障发生后恢复数据一致性与完整性。 其核心是基于日志的 UNDO 与 REDO 操作，并遵循“先写日志再写数据库”的原则，实现已提交事务重做、未提交事务回滚。",
+            "top": 85.078125
+          },
+          {
+            "bottom": 226.734375,
+            "left": 41.1875,
+            "right": 69.90625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Note",
+            "top": 212.734375
+          },
+          {
+            "bottom": 226.734375,
+            "left": 92.671875,
+            "right": 171.640625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Computation",
+            "top": 212.734375
+          },
+          {
+            "bottom": 264.828125,
+            "left": 33,
+            "right": 186.375,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Python笔记 01 杂项",
+            "top": 240.828125
+          },
+          {
+            "bottom": 297.359375,
+            "left": 33,
+            "right": 273.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据类型，数字类型，字典，运算符，循环，转义符号",
+            "top": 273.359375
+          },
+          {
+            "bottom": 324.546875,
+            "left": 33,
+            "right": 177.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "数据类型，数字类型，字典，运算符，循环，转义符号",
+            "top": 300.546875
+          },
+          {
+            "bottom": 442.203125,
+            "left": 39.1875,
+            "right": 96.625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Fragment",
+            "top": 428.203125
+          },
+          {
+            "bottom": 442.203125,
+            "left": 119.390625,
+            "right": 176.828125,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Humanity",
+            "top": 428.203125
+          },
+          {
+            "bottom": 481.296875,
+            "left": 31,
+            "right": 303.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "人们并不想听别人的观点，只是想听自己的观点从别人嘴里说出来。",
+            "top": 457.296875
+          },
+          {
+            "bottom": 508.484375,
+            "left": 31,
+            "right": 239.015625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "人们并不想听别人的观点，只是想听自己的观点从别人嘴里说出来。",
+            "top": 484.484375
+          },
+          {
+            "bottom": 540.265625,
+            "left": 31,
+            "right": 109.671875,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "查看片段原页",
+            "top": 521.265625
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 12,
+        "selector": "[data-writing-item]:not([hidden]) .nv-writing-record-body"
+      }
+    ],
+    "shown": true
+  },
+  "writingControlButton": {
+    "button": {
+      "bottom": 627,
+      "left": 319,
+      "right": 363,
+      "top": 583
+    },
+    "misses": [],
+    "overlaps": [],
+    "resetCount": 1,
+    "selectCount": 4,
+    "shown": true,
+    "totalControls": 10,
+    "visible": [
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 67.1015625,
+            "y": 596.453125
+          },
+          {
+            "hit": true,
+            "x": 33.703125,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 100.5,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 33.703125,
+            "y": 616.640625
+          },
+          {
+            "hit": true,
+            "x": 100.5,
+            "y": 616.640625
+          }
+        ],
+        "rect": {
+          "bottom": 618.640625,
+          "left": 31.703125,
+          "right": 102.5,
+          "top": 574.265625
+        },
+        "tag": "A",
+        "text": "上一页"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 132.5,
+            "y": 596.453125
+          },
+          {
+            "hit": true,
+            "x": 112.5,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 152.5,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 112.5,
+            "y": 616.640625
+          },
+          {
+            "hit": true,
+            "x": 152.5,
+            "y": 616.640625
+          }
+        ],
+        "rect": {
+          "bottom": 618.640625,
+          "left": 110.5,
+          "right": 154.5,
+          "top": 574.265625
+        },
+        "tag": "A",
+        "text": "1"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 182.09375,
+            "y": 596.453125
+          },
+          {
+            "hit": true,
+            "x": 162.09375,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 202.09375,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 162.09375,
+            "y": 616.640625
+          },
+          {
+            "hit": true,
+            "x": 202.09375,
+            "y": 616.640625
+          }
+        ],
+        "rect": {
+          "bottom": 618.640625,
+          "left": 160.09375,
+          "right": 204.09375,
+          "top": 574.265625
+        },
+        "tag": "A",
+        "text": "2"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 281.28125,
+            "y": 596.453125
+          },
+          {
+            "hit": true,
+            "x": 261.28125,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 301.28125,
+            "y": 576.265625
+          },
+          {
+            "hit": true,
+            "x": 261.28125,
+            "y": 616.640625
+          },
+          {
+            "hit": true,
+            "x": 301.28125,
+            "y": 616.640625
+          }
+        ],
+        "rect": {
+          "bottom": 618.640625,
+          "left": 259.28125,
+          "right": 303.28125,
+          "top": 574.265625
+        },
+        "tag": "A",
+        "text": "4"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.4921875,
+            "y": 648.828125
+          },
+          {
+            "hit": true,
+            "x": 134.09375,
+            "y": 628.640625
+          },
+          {
+            "hit": true,
+            "x": 200.890625,
+            "y": 628.640625
+          },
+          {
+            "hit": true,
+            "x": 134.09375,
+            "y": 669.015625
+          },
+          {
+            "hit": true,
+            "x": 200.890625,
+            "y": 669.015625
+          }
+        ],
+        "rect": {
+          "bottom": 671.015625,
+          "left": 132.09375,
+          "right": 202.890625,
+          "top": 626.640625
+        },
+        "tag": "A",
+        "text": "下一页"
+      }
+    ]
+  },
+  "file": "public-sweep-think-page-3-390-light-13.png",
+  "visibleMain": [
+    6444,
+    7145
+  ]
+}

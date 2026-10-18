@@ -5,6 +5,18 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_failed_pointer_probes_keep_assertions_and_capture_actual_target(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        start=source.index('# UI-020:');block=source[start:source.index('require(start <= (covered',start)]
+        for token in ('target:describe(target)', 'neighbors:hit?[]:',
+                      '[[-1,0],[1,0],[0,-1],[0,1]]', 'target:describe(n)',
+                      'appearance:cs.appearance', 'pointerEvents:cs.pointerEvents',
+                      'borderRadius:cs.borderRadius', 'devicePixelRatio',
+                      '[r.left+2,r.top+2],[r.right-2,r.top+2],[r.left+2,r.bottom-2],[r.right-2,r.bottom-2]',
+                      "misses:visible.filter(e=>e.probes.some(p=>!p.hit))",
+                      "require(not controls['overlaps']", "require(not controls['misses']"):
+            self.assertIn(token,block)
+
     def test_think_control_lane_preserves_existing_layout_and_behavior(self):
         css=Path('assets/css/neutriverse-sections.css').read_text()
         start=css.index('/* UI-020:');block=css[start:css.index('.post-series-root a,',start)]

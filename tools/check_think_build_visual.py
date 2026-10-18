@@ -1695,17 +1695,28 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
               const controls=[...document.querySelectorAll('.nv-writing-controls select, .nv-writing-reset, .nv-writing-pagination a[href]')];
               const topbar=document.querySelector('#topbar-wrapper').getBoundingClientRect();
+              const describe=e=>e?{tag:e.tagName,id:e.id,classes:e.className,rect:rect(e.getBoundingClientRect())}:null;
               const visible=controls.map(e=>{
                 const r=e.getBoundingClientRect();
                 if(r.width<=0||r.height<=0||r.bottom<=Math.max(0,topbar.bottom)||r.top>=innerHeight)return null;
                 const points=[[r.left+r.width/2,r.top+r.height/2],
                   [r.left+2,r.top+2],[r.right-2,r.top+2],[r.left+2,r.bottom-2],[r.right-2,r.bottom-2]];
                 const probes=points.filter(([x,y])=>x>0&&x<document.documentElement.clientWidth&&y>Math.max(0,topbar.bottom)&&y<innerHeight)
-                  .map(([x,y])=>({x,y,hit:e.contains(document.elementFromPoint(x,y))}));
-                return {tag:e.tagName,id:e.id,text:e.textContent.trim(),rect:rect(r),probes,
+                  .map(([x,y])=>{
+                    const target=document.elementFromPoint(x,y),hit=e.contains(target);
+                    return {x,y,hit,target:describe(target),neighbors:hit?[]:
+                      [[-1,0],[1,0],[0,-1],[0,1]].map(([dx,dy])=>{
+                        const n=document.elementFromPoint(x+dx,y+dy);
+                        return {x:x+dx,y:y+dy,hit:e.contains(n),target:describe(n)};
+                      })};
+                  });
+                // Diagnostics only: do not move probes or exempt failed corners.
+                const cs=getComputedStyle(e),computed={appearance:cs.appearance,pointerEvents:cs.pointerEvents,
+                  borderRadius:cs.borderRadius,borderWidth:cs.borderWidth,transform:cs.transform};
+                return {tag:e.tagName,id:e.id,text:e.textContent.trim(),rect:rect(r),computed,probes,
                   overlaps:shown&&r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top};
               }).filter(Boolean);
-              return {button:rect(br),shown,totalControls:controls.length,
+              return {button:rect(br),shown,devicePixelRatio,totalControls:controls.length,
                 selectCount:document.querySelectorAll('.nv-writing-controls select').length,
                 resetCount:document.querySelectorAll('.nv-writing-reset').length,visible,
                 overlaps:visible.filter(e=>e.overlaps),misses:visible.filter(e=>e.probes.some(p=>!p.hit))};

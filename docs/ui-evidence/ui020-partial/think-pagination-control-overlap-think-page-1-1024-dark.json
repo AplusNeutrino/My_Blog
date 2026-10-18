@@ -1,0 +1,331 @@
+{
+  "mainEnd": 4637.796875,
+  "mainStart": 48,
+  "pageHeight": 4766,
+  "pageWidth": 1009,
+  "scrollX": 0,
+  "scrollY": 1146,
+  "topbarBottom": 0,
+  "viewport": {
+    "clientWidth": 1009,
+    "height": 757,
+    "width": 1024
+  },
+  "writingTextButton": {
+    "button": {
+      "bottom": 699,
+      "left": 914.5625,
+      "right": 958.5625,
+      "top": 655
+    },
+    "groups": [
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-neutriverse-section=\"think\"] .nv-section-intro"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [
+          {
+            "bottom": 646.1875,
+            "left": 445.6875,
+            "right": 474.40625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Note",
+            "top": 632.1875
+          },
+          {
+            "bottom": 646.1875,
+            "left": 497.171875,
+            "right": 576.140625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "Computation",
+            "top": 632.1875
+          },
+          {
+            "bottom": 682.28125,
+            "left": 437.5,
+            "right": 748.671875,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "哥德尔编码和 RAG Embedding 之间的关系",
+            "top": 661.28125
+          },
+          {
+            "bottom": 714.8125,
+            "left": 437.5,
+            "right": 880.96875,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "读RAG相关文章时发现这俩有点像。两者一个更加关注语句之间如何实现数学运算，一个更加关注语句之间如何实现意义对比。",
+            "top": 694.8125
+          },
+          {
+            "bottom": 742,
+            "left": 437.5,
+            "right": 885.515625,
+            "surface": "[data-writing-item]:not([hidden]) .nv-writing-record-body",
+            "text": "读RAG相关文章时发现这俩有点像。两者一个更加关注语句之间如何实现数学运算，一个更加关注语句之间如何实现意义对比。",
+            "top": 722
+          }
+        ],
+        "overlaps": [],
+        "rootCount": 12,
+        "selector": "[data-writing-item]:not([hidden]) .nv-writing-record-body"
+      }
+    ],
+    "shown": true
+  },
+  "writingControlButton": {
+    "button": {
+      "bottom": 699,
+      "left": 914.5625,
+      "right": 958.5625,
+      "top": 655
+    },
+    "misses": [
+      {
+        "id": "nv-writing-series",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 619.484375,
+            "y": 520.46875
+          },
+          {
+            "hit": true,
+            "x": 568.6875,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 670.28125,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 568.6875,
+            "y": 540.46875
+          },
+          {
+            "hit": false,
+            "x": 670.28125,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 566.6875,
+          "right": 672.28125,
+          "top": 498.46875
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Database Systems Computer Architecture Computer Networks"
+      }
+    ],
+    "overlaps": [],
+    "resetCount": 1,
+    "selectCount": 4,
+    "shown": true,
+    "totalControls": 10,
+    "visible": [
+      {
+        "id": "nv-writing-type",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 384.296875,
+            "y": 520.46875
+          },
+          {
+            "hit": true,
+            "x": 333.5,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 435.09375,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 333.5,
+            "y": 540.46875
+          },
+          {
+            "hit": true,
+            "x": 435.09375,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 331.5,
+          "right": 437.09375,
+          "top": 498.46875
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Note Essay Fragment"
+      },
+      {
+        "id": "nv-writing-topic",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 501.890625,
+            "y": 520.46875
+          },
+          {
+            "hit": true,
+            "x": 451.09375,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 552.6875,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 451.09375,
+            "y": 540.46875
+          },
+          {
+            "hit": true,
+            "x": 552.6875,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 449.09375,
+          "right": 554.6875,
+          "top": 498.46875
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Computation Humanity Otaku Arts"
+      },
+      {
+        "id": "nv-writing-series",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 619.484375,
+            "y": 520.46875
+          },
+          {
+            "hit": true,
+            "x": 568.6875,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 670.28125,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 568.6875,
+            "y": 540.46875
+          },
+          {
+            "hit": false,
+            "x": 670.28125,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 566.6875,
+          "right": 672.28125,
+          "top": 498.46875
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Database Systems Computer Architecture Computer Networks"
+      },
+      {
+        "id": "nv-writing-sort",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 737.0859375,
+            "y": 520.46875
+          },
+          {
+            "hit": true,
+            "x": 686.28125,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 787.890625,
+            "y": 500.46875
+          },
+          {
+            "hit": true,
+            "x": 686.28125,
+            "y": 540.46875
+          },
+          {
+            "hit": true,
+            "x": 787.890625,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 684.28125,
+          "right": 789.890625,
+          "top": 498.46875
+        },
+        "tag": "SELECT",
+        "text": "Newest first / 最新优先 Oldest first / 最早优先"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 847.6953125,
+            "y": 518.671875
+          },
+          {
+            "hit": true,
+            "x": 803.890625,
+            "y": 496.875
+          },
+          {
+            "hit": true,
+            "x": 891.5,
+            "y": 496.875
+          },
+          {
+            "hit": true,
+            "x": 803.890625,
+            "y": 540.46875
+          },
+          {
+            "hit": true,
+            "x": 891.5,
+            "y": 540.46875
+          }
+        ],
+        "rect": {
+          "bottom": 542.46875,
+          "left": 801.890625,
+          "right": 893.5,
+          "top": 494.875
+        },
+        "tag": "BUTTON",
+        "text": "重置条件"
+      }
+    ]
+  }
+}

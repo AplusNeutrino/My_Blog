@@ -1,5 +1,7 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+2026-10-18最新检查点：UI020候选67f281e9/run39126044604在1024 Night Series右下指针探针失败，未合main。已看390 Light两目标原图控件避让改善，但不代替完整视觉/交互验收；失败原图无可见遮挡且与圆钮交集0，实际命中对象缺失，根因未确认。仅追加诊断、保留全部原探针/断言，新head待CI；完整A10继续pending。详见ui020-checks.md，原历史检查不改写。
+
 ## 2026-10-18 UI-A10a先记录390 Light四页整页范围
 
 - base/main c6d7978ede998948740836eb87ce59fdd6e4ce18；[run39122169875](https://github.com/AplusNeutrino/My_Blog/actions/runs/39122169875) build117659800192/deploy117663901328/live117663968118全部success，关闭上次证据提交待验；267 tests/T01/authoring44/5/7/Jekyll/原门禁与production/live主192成功。不重做已done的UI019限定验收或T00–T39。

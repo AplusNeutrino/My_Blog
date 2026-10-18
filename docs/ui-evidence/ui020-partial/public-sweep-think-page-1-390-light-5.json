@@ -1,0 +1,255 @@
+{
+  "mainEnd": 7127.984375,
+  "mainStart": 48,
+  "pageHeight": 7272,
+  "pageWidth": 379,
+  "scrollX": 0,
+  "scrollY": 2116,
+  "topbarBottom": 0,
+  "viewport": {
+    "clientWidth": 379,
+    "height": 701,
+    "width": 390
+  },
+  "writingTextButton": {
+    "button": {
+      "bottom": 627,
+      "left": 319,
+      "right": 363,
+      "top": 583
+    },
+    "groups": [
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-neutriverse-section=\"think\"] .nv-section-intro"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 12,
+        "selector": "[data-writing-item]:not([hidden]) .nv-writing-record-body"
+      }
+    ],
+    "shown": true
+  },
+  "writingControlButton": {
+    "button": {
+      "bottom": 627,
+      "left": 319,
+      "right": 363,
+      "top": 583
+    },
+    "misses": [],
+    "overlaps": [],
+    "resetCount": 1,
+    "selectCount": 4,
+    "shown": true,
+    "totalControls": 10,
+    "visible": [
+      {
+        "id": "nv-writing-type",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.5,
+            "y": 352.203125
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 332.203125
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 332.203125
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 372.203125
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 372.203125
+          }
+        ],
+        "rect": {
+          "bottom": 374.203125,
+          "left": 33,
+          "right": 302,
+          "top": 330.203125
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Note Essay Fragment"
+      },
+      {
+        "id": "nv-writing-topic",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.5,
+            "y": 432.59375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 412.59375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 412.59375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 452.59375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 452.59375
+          }
+        ],
+        "rect": {
+          "bottom": 454.59375,
+          "left": 33,
+          "right": 302,
+          "top": 410.59375
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Computation Humanity Otaku Arts"
+      },
+      {
+        "id": "nv-writing-series",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.5,
+            "y": 512.984375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 492.984375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 492.984375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 532.984375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 532.984375
+          }
+        ],
+        "rect": {
+          "bottom": 534.984375,
+          "left": 33,
+          "right": 302,
+          "top": 490.984375
+        },
+        "tag": "SELECT",
+        "text": "All / 全部 Database Systems Computer Architecture Computer Networks"
+      },
+      {
+        "id": "nv-writing-sort",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.5,
+            "y": 593.375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 573.375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 573.375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 613.375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 613.375
+          }
+        ],
+        "rect": {
+          "bottom": 615.375,
+          "left": 33,
+          "right": 302,
+          "top": 571.375
+        },
+        "tag": "SELECT",
+        "text": "Newest first / 最新优先 Oldest first / 最早优先"
+      },
+      {
+        "id": "",
+        "overlaps": false,
+        "probes": [
+          {
+            "hit": true,
+            "x": 167.5,
+            "y": 651.171875
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 629.375
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 629.375
+          },
+          {
+            "hit": true,
+            "x": 35,
+            "y": 672.96875
+          },
+          {
+            "hit": true,
+            "x": 300,
+            "y": 672.96875
+          }
+        ],
+        "rect": {
+          "bottom": 674.96875,
+          "left": 33,
+          "right": 302,
+          "top": 627.375
+        },
+        "tag": "BUTTON",
+        "text": "重置条件"
+      }
+    ]
+  },
+  "file": "public-sweep-think-page-1-390-light-5.png",
+  "visibleMain": [
+    2116,
+    2817
+  ]
+}

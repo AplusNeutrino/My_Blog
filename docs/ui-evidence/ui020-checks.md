@@ -12,6 +12,14 @@
 
 ## 最小实现与本机结果
 
+### 2026-10-18 精确失败核对与下一步范围（先记录）
+
+- 分支实现/base 67f281e91b9b2e75fdb063fdcdd2749dde3baa5a；[run39126044604](https://github.com/AplusNeutrino/My_Blog/actions/runs/39126044604) build117671277541 failure，deploy117673410066/live117673410331 skipped。269 tests、T01、authoring、production Jekyll/SEO等前置检查通过，但不等于本次构建通过。
+- 专项artifact12136740023（19956808 bytes）下载独立SHA256 95ab3cd27c718e9ee51a9b92b932a2a49f223e5e330ae10b995336f2a7695d83一致。实际放大查看3张原图：390 Light page1-5、page3-13与1024 Night失败图。前两张排序右箭头/页码4已与圆钮分离；分页现在下一行显示“下一页”，未裁切，但仅此两目标图，不是全矩阵验收。
+- 失败条件：1024×757实际viewport、clientWidth1009、scrollY1146；Series rect left566.6875/right672.28125/top498.46875/bottom542.46875。五个探针只有右下(670.28125,540.46875)不命中；圆钮left914.5625/top655，与所有5个可见控件严格交集0。截图无可见遮挡，但不能仅凭截图证明该点可点，也不能认定圆角误报。当前JSON只留布尔值，实际命中元素/计算圆角/邻点尚缺，根因未确认。
+- 最小下一步仅tools/check_think_build_visual.py失败诊断与必要回归、本计划日志及3张已看公开原图/原JSON；记录elementFromPoint实际元素、computed style（圆角/appearance/pointerEvents）、DPR与失败点周围1px命中。保持原5探针坐标、scope、所有require、矩形判定和等待完全不变；不靠更改内缩距离放行。产品CSS维持原候选，不再猜测修改；继续工作分支，不合main。gh仍不可用，不编造Issue；无新增用户决策。
+- 诊断实现后本机270 tests、authoring44/5/7、T01保护44/5/5、diff通过；无本机Chrome/Jekyll。ui020-partial的3张原PNG及3原JSON均逐字复制artifact，未裁切重画；只人工查看这3帧，不冒称全部379文件或8流程完成。新诊断head production待验，失败原因和UI020保持validation-pending。
+
 - 仅<=1199.98px给THINK表单padding-right:calc(1rem + 2.75rem)、分页padding-right:2.75rem；不更换grid/flex/换行规则、不动按钮/字号/产品JS。四页原生每帧检查4 select/1 reset与分页链接scope存在；仅对可见控件记录矩形，与可见返回顶部严格不交叉，并以elementFromPoint检查中心/四角内缩2px的实际命中。视口外和顶栏上方不假判可点；不点击以免改变筛选。失败先PNG/JSON再抛出，既有真实pager点击/刷新/上一页/顶部按钮和全部旧门禁保留。
 - 加2项接线回归，本机269 tests OK、authoring44/5/7、T01保护44/5/5、diff通过；无本机Chrome/Jekyll，不声称修复后视觉/生产通过。未验收留ui/fix-020，main仍c6d7978e。UI019文字Range门禁保留，不放宽为截图通过。
 - ui020-before/保存2实际放大原图与原始JSON、12已看联系表与8流程源JSON摘要/全部44href清单；本head人工56/302帧，其余246未看，不混入旧head52目标声称完整验收。下一项同一新head精确CI与修复后四宽度双主题目标截图。

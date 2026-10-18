@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-18 UI020精确失败检查点：67f281e91b9b2e75fdb063fdcdd2749dde3baa5a/run39126044604 build117671277541失败，deploy/live skipped；不能合main。390 Light排序/页码两目标原图实际确认避让；1024 Night Series右下2px探针未命中，但控件与圆钮交集0，原JSON不含实际命中对象，根因未确认，不把圆角推测当结论。本轮仅加实际命中元素/计算样式/1px邻点诊断，原坐标、全部断言与产品候选CSS不动；保存3张已看PNG/JSON。本机270 tests/T01/authoring/diff通过，下一新head production及main/live仍validation-pending。main仍c6d7978e，无新用户决策；[详细证据](docs/ui-evidence/ui020-checks.md)。
+
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
 | UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | validation-pending | 仅确认视觉覆盖，未声称原点击已失败；已实现控件安全区/矩形与elementFromPoint门禁，本机269回归/T01/authoring通过；工作分支ui/fix-020，修复后production/main/live待验 |

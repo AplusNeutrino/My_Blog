@@ -1,5 +1,11 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI020部分截图改善，精确CI失败不放行
+
+- base/验收分支67f281e91b9b2e75fdb063fdcdd2749dde3baa5a，[run39126044604](https://github.com/AplusNeutrino/My_Blog/actions/runs/39126044604) build117671277541 failure、deploy117673410066/live117673410331 skipped。269 tests/T01/authoring/Jekyll/SEO前置通过，但未完成全部浏览器门禁。main c6d7978ede998948740836eb87ce59fdd6e4ce18未动。
+- 专项artifact12136740023独立SHA256 95ab3cd27c718e9ee51a9b92b932a2a49f223e5e330ae10b995336f2a7695d83匹配。实际看390 Light page1-5/page3-13两原图，排序箭头和页码4与圆钮分离；实际看1024 Night失败原图，无可见覆盖，Series右下(670.28125,540.46875)未命中，其余4点命中、所有可见控件与圆钮交集0。未将画面正常视为交互正常；缺实际命中元素与computed圆角等诊断，根因待定。3PNG/原JSON保存在ui020-partial，不称全页或线上通过。
+- 范围先记ui020-checks：只补实际hit对象、computed样式/DPR/失败点1px邻点诊断和1接线回归，原5坐标/scope/require/矩形/等待全部保留，产品CSS不再猜改、不调整内缩放行。本机270 tests、authoring44/5/7、T01保护44/5/5、diff通过，无本机Chrome/Jekyll；新head精确CI待验，留ui/fix-020。无新用户决策，gh仍不可用未创建Issue；旧内容/URL/边界/外部仓库与旧COMPLETE不改。下一步确认实际命中原因再决定修复，不能用67f前置成功替代新head验收。
+
 ## 2026-10-18 — UI-A10a看完390 Light四页，确认UI020控件部分覆盖
 
 - 最小实现已完成：<=1199.98px仅THINK表单padding-right:calc(1rem + 2.75rem)、分页padding-right:2.75rem；每帧4 select/1 reset/分页scope计数，可见控件矩形与可见按钮不交叉及elementFromPoint中心/四角内缩2px命中，视口/顶栏以外不作可点断言；失败先PNG/JSON再抛出，不替代既有真实分页/刷新/上一页/返回顶部。加2接线回归，本机269 tests/authoring44/5/7/T01保护44/5/5/diff通过。无本机Chrome/Jekyll，修复后production/截图/main/live validation-pending，留ui/fix-020；原文/按钮/字号/产品JS/原门禁不改。ui020-before保留2原图/JSON、12已看联系表及摘要；A10a发现缺陷未通过，其他246帧仍待看。
