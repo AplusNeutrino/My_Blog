@@ -1,5 +1,19 @@
 # UI-A09 — 首页、OBSERVE、ABOUT 原生纵向视口与往返
 
+## 2026-10-18 UI-A09d：1366双主题剩余整页复查（先记录）
+
+- base最新main2640b34390e4a801174d567c739e424c5f8a694c；run39095766609 build117581763831/deploy117584513494/live117584548392全部success，关闭上一证据head CI pending。UI018限定done不重启；本轮只查此前A09c未看的1366px双主题三页完整滚动帧，若无实际确认缺陷不修改产品。
+- 取精确live artifact12125416779，独立校验摘要后查看1366 Night/Light首页、OBSERVE、ABOUT全部原生图，放大必要原图，并核对原生滚轮/返回顶部/公开入口往返。其他宽度不借自动通过当本head人工看完；A09整体验收需明确累计证据与剩余项。
+- 文件范围仅本文件、UI计划/日志及本head公开证据；保护原目录用户修改，不改产品/门禁/数据/原文/metadata/URL/hidden/noindex/外部仓库或旧COMPLETE。不删除作者br/倒计时，不公开隐蔽入口；gh不在PATH不编造Issue，无新增用户决策。结果待记录。
+
+### UI-A09d实际结果：1366三页限定通过
+
+- [run39095766609](https://github.com/AplusNeutrino/My_Blog/actions/runs/39095766609)精确head2640b34390e4a801174d567c739e424c5f8a694c：262 tests、4项Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及全部旧门禁通过，production/live各192主+14侧栏，24公开流程177原生帧通过。live日志明确https://neutriverse.uk；不借其他提交CI代验。
+- artifact12125416779 /491937965 bytes /独立SHA256 2a2facc6754ee7f8596bc67d0c4d6e180f56dbaf8de469996cc46384d085f012匹配。[24流程摘要](uia09d-live-summary.json)保留原JSON SHA256、逐帧原尺寸/覆盖/scroll与往返元数据；[8联系表](uia09d-live-contacts/)实际逐张看完38帧：首页双主题12、OBSERVE4、ABOUT22。放大home1366 Night第5、OBSERVE1366 Light第2、ABOUT1366 Light第8原图，精选卡片正文、NOINDEX卡片/按钮、侧栏引文完整，无新增确认缺陷。
+- 1366六流程mainFullyCovered/nativeViewportOnly均true、PNG实际尺寸与viewport一致、scrollX0/无横向溢出，真实滚轮与返回顶部pointer click通过；首页四入口/OBSERVE两公开项目详情/ABOUT Library友链真实点击与浏览器返回通过。ABOUT旧br/倒计时空白保留，侧栏引文缩小联系表疑点经原图解除，不修改产品。
+- 仅1366三页限定done。此前5ff的390/768/1024双主题139帧已实际看，但UI018之后本head尚未全部重看（已另完成日期10帧专项），不把跨head累计177冒称本head全177视觉验收。A09仍pending，下一项用当前实现的其余139帧补齐最后复查，然后推进其他矩阵。
+- 本机262 tests/authoring/T01/diff通过；本机无Chrome/Jekyll，浏览器与生产证据来自精确CI。gh不可用准确记录，不编造Issue；独立worktree保留用户修改。仅证据与文档提交，无新用户决策/产品改动；新证据head自身CI单独核对，全站仍IN PROGRESS。
+
 ## 2026-10-18 修复后完整整页复查范围（先记录）
 
 - Task UI-A09c；base/验收main `5ff4c8eb503df23b18b9b8c977957449bdb76b8f` /run39085413284 build117550794106/deploy117553847516/live117553882588全部success，关闭上一证据headCI pending。UI012–017已分别限定done，不重复修改产品；首页推荐同步已包含，不沿用旧数据截图冒称最新。

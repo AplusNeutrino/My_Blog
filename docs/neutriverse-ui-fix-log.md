@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A09d补齐1366三页整页限定视觉，无新增缺陷
+
+- fresh base2640b34390e4a801174d567c739e424c5f8a694c；[run39095766609](https://github.com/AplusNeutrino/My_Blog/actions/runs/39095766609) build117581763831/deploy117584513494/live117584548392全部success，关闭上一证据head待验。262 tests、4项Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁、production/live各192+14及24公开流程177帧通过，live日志https://neutriverse.uk。
+- 先记录UI-A09d/base/1366范围后取live artifact12125416779 /491937965 bytes，独立SHA256 2a2facc6754ee7f8596bc67d0c4d6e180f56dbaf8de469996cc46384d085f012匹配。实际人工看完1366双主题三页38原生帧/8联系表（home12/observe4/about22），放大首页Night5、OBSERVELight2、ABOUTLight8原图，精选正文/NOINDEX卡/按钮/引文完整，无新增确认缺陷。ABOUT旧大量br/倒计时保留，未因偏好删除；不改产品/审计/门禁。
+- 六流程原生main覆盖与PNG尺寸一致、scrollX0无横向溢出，真实滚轮/返回顶部pointer click及首页四入口、OBSERVE两公开项目详情、ABOUT Library友链点击与浏览器返回通过。24流程精简摘要/原JSON哈希及8已看联系表永久入库；其余139帧本head未人工重看，不上传其联系表冒称通过。
+- 仅1366三页限定done，A09仍pending：前5ff的390/768/1024共139帧在UI018修复前已看，UI018后只另验日期10目标，下一项补齐其余139帧最终整页复查，不把跨head累计177当本head全人工验收。全站其他矩阵继续IN PROGRESS，没有新用户决策，不写final/COMPLETE或暂停。
+- 本机262 tests/authoring/T01/diff通过；无本机Chrome/Jekyll，真实证据来自精确CI。已读AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮日志和补充，CONTEXT无、gh不在PATH不编造Issue；独立worktree保护原目录用户字体/缓存/未跟踪修改、home_popular/Library同步，原文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE不动。fresh main未变才非强推提交本次3文档与公开证据，新head自己的CI/build/deploy/live另核对。
+
 ## 2026-10-18 — UI018精确main部署与线上限定验收done
 
 - fresh base/验收main c696aa9484d99a5d07fae662615c2381f499daa9；[run39092301033](https://github.com/AplusNeutrino/My_Blog/actions/runs/39092301033) build117571422808/deploy117574250958/live117574288474全部success。262 tests/4项Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及全部旧门禁、production/live各192+14和24公开流程177原生帧通过，live日志明确https://neutriverse.uk，不借其他head代验。

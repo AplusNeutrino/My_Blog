@@ -70,6 +70,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+2026-10-18 UI-A09d 1366三页限定通过：2640b343/run39095766609 build117581763831/deploy117584513494/live117584548392全部success，关闭UI018证据head pending；262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。live artifact12125416779独立SHA256匹配，实际看1366双主题首页12/OBSERVE4/ABOUT22共38帧8联系表，放大三张原图无新增确认缺陷。六流程真实滚轮/返回顶部/四入口或公开详情及Library友链往返、原生main覆盖/无横向溢出通过。仅1366限定done；UI018后其余139帧整页人工重看仍pending，不冒称跨head全177验收。无新用户决策，不修改产品/门禁/旧br/数据/原文/隐蔽边界/旧COMPLETE；新证据head自身CI另核对。下一项补齐其余139帧最终复查。[范围与结果](docs/ui-evidence/uia09-checks.md#ui-a09d实际结果1366三页限定通过)。
+
 2026-10-18 UI018限定done：c696aa9484d99a5d07fae662615c2381f499daa9/run39092301033 build117571422808/deploy117574250958/live117574288474全部success；262 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/旧门禁及production/live各192+14、24公开流程177帧通过。live artifact12124180750独立摘要匹配，实际看10线上日期目标帧/8联系表，放大1024 Night before/after尾端无遮挡。ABOUT八流程目标1/非空/严格交集0、与生产日期诊断相同；真实滚轮/顶部按钮/公开往返通过，24流程scrollY差0。新证据head自身CI另核对；全站IN PROGRESS，下一项先核对新head，再补A09剩余整页及其他矩阵，无新用户问题。[限定线上证据](docs/ui-evidence/ui018-checks.md#2026-10-18-精确main部署与线上限定验收)。
 
 2026-10-18 UI018生产限定验收通过：822b03f0/run39089046015 build117561626252 success、工作分支deploy/live skipped；262 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/旧门禁及192+14/24公开流程177帧通过。artifact12122386729独立SHA256匹配，实际看10日期目标帧/8联系表、放大1024 Night before/after尾端完整避开按钮。ABOUT八流程目标1/非空/严格交集0，真实滚轮/返回顶部/Library友链往返通过。fresh main5ff未变才非强推交付；新main自身CI/deploy/live及线上人工图仍pending，不标done。无新用户决策、不改同步/原文/隐蔽边界/旧COMPLETE；A09及全站IN PROGRESS。[限定生产证据](docs/ui-evidence/ui018-checks.md#2026-10-18-精确生产与限定视觉验收)。
