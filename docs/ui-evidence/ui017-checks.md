@@ -1,6 +1,15 @@
 # UI-017 — ABOUT时间线说明被固定按钮遮挡
 
-状态：validation-pending；最小实现留ui/fix-017，修复后生产/人工截图/部署/线上均待验，main不改。
+状态：validation-pending；656b78ff生产及限定人工视觉验收通过，可交付main；新main自身CI/部署/线上同场景仍待验，不标done。
+
+## 2026-10-18 精确生产与限定视觉验收
+
+- 实现 `656b78ff036c8cfe6028ba67ce106a52894f8236` /[run39077837409](https://github.com/AplusNeutrino/My_Blog/actions/runs/39077837409)：build117528572919 completed/success，deploy117531646803/live117531646743 skipped符合工作分支规则，不冒称已部署。
+- 260 tests、Ruby渲染、T01正文/metadata/URL/hidden保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/路由/全部原门禁，以及主192/侧栏14/公开24流程177原生帧完整通过；字体30s/有限动画20s及旧逐行文字门禁保持。
+- artifact12118321539 /492621257 bytes，独立SHA256 `0a2688f1340db2d563b68c374975a03291946ef03329620e1088e884945ff077`匹配。人工逐张查看时间线说明可见的18帧/[8联系表](ui017-production-contacts/)，覆盖390/768/1024/1366双主题，放大[390 Light修复后原图](ui017-production-about-timeline-390-light.png)与before对照：Ravenis说明全文完整并避开圆钮；日期/标题/来源链接、时间线外框和双主题保持，窄列自然增加换行，没有确认新缺陷。
+- [24流程及目标帧摘要](ui017-production-summary.json)：ABOUT8流程每帧timeline目标rootCount5、emptyRoots0、严格真实文字行overlaps=[]。真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击及浏览器返回通过，无横向溢出/scrollX0。只人工验收18目标帧，不声称全部177帧、A09剩余整页或全站通过。
+- 本机260 tests/authoring44/5/7/T01保护44/5/5/diff再次通过；本机无Chrome/Jekyll，浏览器与production构建证据来自该精确CI。AGENTS/docs/agents/ADR/旧COMPLETE与本轮台账、用户补充核对，CONTEXT无，gh不在PATH不编造Issue；独立worktree保护原目录用户修改。
+- 本轮仅追加公开验收证据/计划/日志，不追加产品或数据修改；fresh main仍d5ac222且保留home_popular/Library同步后才非强推交付。新main自身Actions/build/deploy/live及线上同场景人工截图仍validation-pending，不用工作分支成功替代；全站IN PROGRESS，无新增用户决策，下一项核对该新main。
 
 ## 2026-10-18 范围与复现
 
