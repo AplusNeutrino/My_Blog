@@ -43,7 +43,8 @@
 
 | 页面组 | 视觉检查 | 交互 |
 |---|---|---|
-| 首页、THINK、BUILD、OBSERVE、ABOUT | 导航UI-001：40项截图与几何通过；THINK 1363px双主题已部署复验。全页检查仍pending | THINK侧栏展开/收起、双主题切换已操作；其他pending |
+| 首页、OBSERVE、ABOUT整页（UI-A09） | 限定done：UI012–018已分别线上验收；A09e/846bb111实际看390/768/1024双主题139帧28联系表，1366复用源码未变且逐帧记录相同的A09d/2640b343已看38帧8联系表，无新增确认缺陷；不冒称同一head人工177 | 精确846 build/deploy/live全成功；24流程原生滚轮完整main覆盖、无横向溢出/scrollX0、返回顶部与首页四入口/OBSERVE两公开详情/ABOUT Library友链真实点击返回通过，未列交互不推断 |
+| THINK整页与共有导航 | 导航UI-001：40项截图与几何通过；THINK1363px双主题已部署复验。THINK完整分页整页仍pending | THINK侧栏展开/收起、双主题切换已操作；其余按下一行和剩余矩阵继续 |
 | THINK筛选/分页、Series、Tags、Archive、Thoughts | THINK四状态已检查；UI-A05的Series目录/Tags/Archive/Thoughts：390/768/1024/1366双主题32张生产及线上viewport已人工查看并放大代表原图，无新增确认缺陷 | THINK筛选/刷新/返回通过；UI-A05线上32组长标签/归档打开返回、Series精确筛选数量/返回、Thought稳定锚点/返回通过；点赞及其余hover/focus仍pending |
 | BUILD列表、七个BUILD详情 | 80张两主题四宽度全页截图已生成并看联系表；长项目名与OfficeSpire原图放大；UI-002双主题线上复验通过 | BUILD筛选/刷新/返回属于16组自动交互，通过；线上详情返回/状态筛选通过；应用/外部来源链接不作本轮修改 |
 | 代表文章：代码、表格、图片 | UI-005表格8场景及UI-A07代码/图片16场景：四宽度双主题生产/live截图已人工查看并放大代表原图，未新增确认缺陷 | 表格横向阅读、图片逐张加载、移动touch/桌面arrow翻页关闭、复制提示及UI-A07b线上实际剪贴板16场景通过；其余阅读控件pending |
@@ -69,6 +70,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI-A09三页限定done：846bb111/run39099422688 build117592446734/deploy117595158859/live117595196719全部success，262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。artifact12126387158独立摘要匹配，实际看390/768/1024双主题139帧28联系表并放大三原图无新增确认缺陷；1366明确复用A09d已看38帧8表，源码无变且逐帧元数据相同，不冒称本head人工177。24流程原生覆盖/尺寸/无溢出、滚轮/返回顶部/所列公开点击返回通过。仅此范围done，不改样式/数据/原文/隐蔽边界/旧COMPLETE，无新用户问题；新证据head自身CI另核对，下一项THINK完整分页/Thought点赞等余下矩阵。全站IN PROGRESS。[限定关闭证据](docs/ui-evidence/uia09-checks.md#ui-a09e实际结果与限定关闭)。
 
 2026-10-18 UI-A09d 1366三页限定通过：2640b343/run39095766609 build117581763831/deploy117584513494/live117584548392全部success，关闭UI018证据head pending；262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。live artifact12125416779独立SHA256匹配，实际看1366双主题首页12/OBSERVE4/ABOUT22共38帧8联系表，放大三张原图无新增确认缺陷。六流程真实滚轮/返回顶部/四入口或公开详情及Library友链往返、原生main覆盖/无横向溢出通过。仅1366限定done；UI018后其余139帧整页人工重看仍pending，不冒称跨head全177验收。无新用户决策，不修改产品/门禁/旧br/数据/原文/隐蔽边界/旧COMPLETE；新证据head自身CI另核对。下一项补齐其余139帧最终复查。[范围与结果](docs/ui-evidence/uia09-checks.md#ui-a09d实际结果1366三页限定通过)。
 

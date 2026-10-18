@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A09e补齐其余139帧，三页整页与所列往返限定done
+
+- fresh main/base846bb111f69e1e1e4a4cbdf3726118e69009b8b3；[run39099422688](https://github.com/AplusNeutrino/My_Blog/actions/runs/39099422688) build117592446734/deploy117595158859/live117595196719全部success，关闭上轮证据CI pending。262 tests/4项Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁及production/live各192+14、24公开流程177原生帧通过，live日志https://neutriverse.uk。
+- 先记录UI-A09e/base/三宽度范围，再取live artifact12126387158 /491562177 bytes；独立SHA256 dc639b84a328016ea8a7947a158b4c39e67f1b549588290895d7064187c78d39匹配。实际逐张看390双主题62、768双主题38、1024双主题39共139帧28联系表，放大ABOUT1024 Night6/390 Light8及home768 Night5原图，日期/时间线/精选正文完整避让圆钮，无新增确认缺陷。旧作者br空白/倒计时保留，不改产品或门禁。
+- 1366明确复用A09d/2640b343实际已看38帧8联系表，非本轮重看；源码assets/tools/tests/_includes/_layouts/_tabs/_data无变，六流程逐帧元数据及往返目标相同。摘要列明139新看与38复用和原JSON哈希，不把跨head证据冒称一次人工177。24流程原生main全覆盖/PNG尺寸/scrollX0/无溢出、真实滚轮/返回顶部pointer click、首页四入口/OBSERVE两公开详情/ABOUT Library友链点击及浏览器返回通过。
+- UI012–018均已分别修复并线上限定验收，A09三页本范围无剩余确认缺陷，限定done；总矩阵拆分首页/OBSERVE/ABOUT与THINK，后者完整分页/Thought点赞、阅读其他控件、Library其他库存、Ravenis/Atlas共享导航、隐蔽Gate/NAVI仍pending。全站IN PROGRESS，不写final/COMPLETE或暂停，无新用户决策。
+- 本机262 tests/authoring/T01/diff再通过，无本机Chrome/Jekyll，真实视觉由精确CI；已读AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮台账与用户补充，CONTEXT无、gh不在PATH不编造Issue。独立worktree保护原目录用户字体/缓存/未跟踪修改、home_popular/Library同步；仅3文档、28已看联系表与摘要回写，不改原文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE。fresh main未变才expected-head非强推，新证据head自己的CI/build/deploy/live另核对。
+
 ## 2026-10-18 — UI-A09d补齐1366三页整页限定视觉，无新增缺陷
 
 - fresh base2640b34390e4a801174d567c739e424c5f8a694c；[run39095766609](https://github.com/AplusNeutrino/My_Blog/actions/runs/39095766609) build117581763831/deploy117584513494/live117584548392全部success，关闭上一证据head待验。262 tests、4项Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁、production/live各192+14及24公开流程177帧通过，live日志https://neutriverse.uk。

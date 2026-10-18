@@ -1,5 +1,22 @@
 # UI-A09 — 首页、OBSERVE、ABOUT 原生纵向视口与往返
 
+当前状态：done（限定三页四宽度双主题整页原生视觉与本文件所列公开往返）；全站仍IN PROGRESS。下方失败/pending均为保留的历史，不代表现状态；新证据提交自身CI仍须单独核对。
+
+## 2026-10-18 UI-A09e：修复后其余三宽度最终整页复查（先记录）
+
+- base main846bb111f69e1e1e4a4cbdf3726118e69009b8b3；run39099422688 build117592446734/deploy117595158859/live117595196719全部success，关闭上轮证据CI pending。
+- 本轮仅证据/计划日志：独立校验live artifact12126387158后，实际查看390/768/1024双主题三页139原生滚动帧，放大疑点；核对24流程滚轮/返回顶部/往返、原生main覆盖与无溢出。1366先与已验A09d核对源码无变化和逐帧元数据，明确复用证据，不声称本head人工重看其38帧。若无确认缺陷不修改产品；完成才限定关闭三页整页与所列往返，不推断其他矩阵完成。
+- 不改审计/门禁/数据/正文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE，不删作者br/倒计时；独立worktree保护用户修改，gh不在PATH不编造Issue，无新用户决策。结果待记录。
+
+### UI-A09e实际结果与限定关闭
+
+- 精确验收head846bb111f69e1e1e4a4cbdf3726118e69009b8b3；[run39099422688](https://github.com/AplusNeutrino/My_Blog/actions/runs/39099422688) build117592446734/deploy117595158859/live117595196719全部success。262 tests/4项Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁及production/live各192+14、24公开流程177帧完整通过；live日志目标https://neutriverse.uk。
+- live artifact12126387158 /491562177 bytes /独立SHA256 dc639b84a328016ea8a7947a158b4c39e67f1b549588290895d7064187c78d39匹配。实际人工逐张看完[28联系表](uia09e-live-contacts/)139帧：390双主题62、768双主题38、1024双主题39；放大ABOUT1024 Night6、ABOUT390 Light8、home768 Night5原PNG复查，日期/时间线/精选正文完整避开按钮，无新增确认缺陷。旧br空白与倒计时保留，不作审美改版。
+- 1366双主题三页38帧复用A09d/2640b343已实际查看的8联系表，不宣称本轮重看。已核对2640→846仅文档/证据变化，assets/tools/tests/_includes/_layouts/_tabs/_data无差异；六流程逐帧元数据及往返目标完全一致。[本轮精简摘要](uia09e-live-summary.json)列明139新看与38复用、原JSON SHA256与24流程，不把两次不同截图说成同一次人工177。
+- 四宽度双主题24流程mainFullyCovered/nativeViewportOnly true，原生PNG尺寸与viewport一致、scrollX0、pageWidth<=clientWidth；真实滚轮、有效状态下返回顶部pointer click、首页四入口/OBSERVE两公开项目详情/ABOUT Library友链点击及浏览器返回通过。主192/侧栏14旧菜单/主题/搜索等门禁保留；不由此推断未列交互或应用业务通过。
+- UI012–018均已分别修复并线上限定验收；A09三页本范围无剩余已确认缺陷，限定done。THINK完整分页/Thought点赞、其他阅读控件、Library其他库存、Ravenis/Atlas共享导航与隐蔽Gate/NAVI仍按总矩阵pending，不写全站COMPLETE。
+- 本机262 tests/authoring/T01/diff再通过；本机无Chrome/Jekyll，视觉/production依据精确CI。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/当前日志与用户补充核对，CONTEXT无、gh不在PATH不编造Issue。仅3文档及28已看联系表/摘要回写，用户修改、同步数据、正文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE均不改；无新增用户决策，新证据head自己的build/deploy/live另待核对。
+
 ## 2026-10-18 UI-A09d：1366双主题剩余整页复查（先记录）
 
 - base最新main2640b34390e4a801174d567c739e424c5f8a694c；run39095766609 build117581763831/deploy117584513494/live117584548392全部success，关闭上一证据head CI pending。UI018限定done不重启；本轮只查此前A09c未看的1366px双主题三页完整滚动帧，若无实际确认缺陷不修改产品。
