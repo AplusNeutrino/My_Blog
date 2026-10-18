@@ -71,6 +71,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+2026-10-18 UI-A10继续validation-pending：c1a7bb710467663093b75d947458ac2ebbd35728/run39105966506 build117611754548 success，工作分支deploy117615335443/live117615336133 skipped。264 tests/Ruby/T01/authoring/Jekyll/原门禁及192主通过；总artifact12128916636为543024842 bytes，下载接口536870912上限拒绝，未取得字节/独立校验/人工图，不冒称视觉验收。先记录后仅workflow新增production/live THINK分页专项无损PNG/JSON包并保留原总包，1包装回归；本机265 tests/authoring/T01/diff通过，审计/产品/数据不改。新head重新采证待验，保存ui/audit-010、main仍40e6ee2b，无新用户决策；下一项同一新head专项artifact与真实截图。
+
 2026-10-18 UI-A10 validation-pending：base40e6ee2b/run39102519248 build117601511609/deploy117604332268/live117604361133全部success，关闭A09证据head pending。先记录THINK四页原生整页/分页范围；仅扩审计与2回归，严格44条唯一href/顺序/四页12-12-12-8、URL/current marker、末页刷新/上一页ID，真实pointer pager和既有原生滚轮全main采证，原192+14/24公开流程及字体/动画/失败门禁不减。本机264 tests/authoring/T01/diff通过，无本机Chrome/Jekyll，新增32页真实截图/production/main/live未验，保存ui/audit-010不改main。无新确认产品缺陷或用户决策，不改产品/内容/数据/隐蔽边界/旧COMPLETE；下一项核对同一工作head与真实截图。[范围与限制](docs/ui-evidence/uia10-checks.md)。
 
 2026-10-18 UI-A09三页限定done：846bb111/run39099422688 build117592446734/deploy117595158859/live117595196719全部success，262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。artifact12126387158独立摘要匹配，实际看390/768/1024双主题139帧28联系表并放大三原图无新增确认缺陷；1366明确复用A09d已看38帧8表，源码无变且逐帧元数据相同，不冒称本head人工177。24流程原生覆盖/尺寸/无溢出、滚轮/返回顶部/所列公开点击返回通过。仅此范围done，不改样式/数据/原文/隐蔽边界/旧COMPLETE，无新用户问题；新证据head自身CI另核对，下一项THINK完整分页/Thought点赞等余下矩阵。全站IN PROGRESS。[限定关闭证据](docs/ui-evidence/uia09-checks.md#ui-a09e实际结果与限定关闭)。

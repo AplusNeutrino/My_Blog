@@ -130,6 +130,23 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+      # Keep the complete evidence archive; this additional lossless scope stays
+      # independently downloadable when the combined UI archive grows large.
+      - name: Upload THINK pagination visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-think-pagination-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/neutriverse-think-build-audit/public-sweep-think-page-*.png
+            ${{ runner.temp }}/neutriverse-think-build-audit/public-sweep-think-page-*.json
+            ${{ runner.temp }}/neutriverse-think-build-audit/public-top-think-page-*.png
+            ${{ runner.temp }}/neutriverse-think-build-audit/think-pagination-*.json
+            ${{ runner.temp }}/neutriverse-think-build-audit/think-pagination-*.png
+            ${{ runner.temp }}/neutriverse-think-build-audit/audit.json
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Fetch verified Ravenis public release
         id: ravenis
         env:
@@ -199,4 +216,19 @@ jobs:
           path: ${{ runner.temp }}/neutriverse-live-ui
           retention-days: 14
           if-no-files-found: ignore
+
+      - name: Upload deployed THINK pagination visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-live-think-pagination-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/neutriverse-live-ui/public-sweep-think-page-*.png
+            ${{ runner.temp }}/neutriverse-live-ui/public-sweep-think-page-*.json
+            ${{ runner.temp }}/neutriverse-live-ui/public-top-think-page-*.png
+            ${{ runner.temp }}/neutriverse-live-ui/think-pagination-*.json
+            ${{ runner.temp }}/neutriverse-live-ui/think-pagination-*.png
+            ${{ runner.temp }}/neutriverse-live-ui/audit.json
+          if-no-files-found: ignore
+          retention-days: 14
 

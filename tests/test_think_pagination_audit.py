@@ -5,6 +5,24 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_lossless_scoped_artifacts_keep_complete_archives(self):
+        import yaml
+        workflow = yaml.safe_load(Path('.github/workflows/pages-deploy.yml').read_text())
+        for job, full, scoped in (
+            ('build', 'neutriverse-think-build-', 'neutriverse-think-pagination-'),
+            ('verify-live-ui', 'neutriverse-live-ui-', 'neutriverse-live-think-pagination-'),
+        ):
+            steps = workflow['jobs'][job]['steps']
+            uploads = [s for s in steps if s.get('uses') == 'actions/upload-artifact@v4']
+            self.assertTrue(any(s['with']['name'].startswith(full) for s in uploads))
+            scope = next(s for s in uploads if s['with']['name'].startswith(scoped))
+            self.assertEqual(scope['if'], 'always()')
+            self.assertEqual(scope['with']['retention-days'], 14)
+            for pattern in ('public-sweep-think-page-*.png', 'public-sweep-think-page-*.json',
+                            'public-top-think-page-*.png', 'think-pagination-*.json',
+                            'think-pagination-*.png', 'audit.json'):
+                self.assertIn(pattern, scope['with']['path'])
+
     def helper(self):
         source = Path('tools/check_think_build_visual.py').read_text()
         node = next(n for n in ast.parse(source).body if isinstance(n, ast.FunctionDef)

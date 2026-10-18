@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A10生产成功但总包过大，补专项无损证据包
+
+- fresh main仍40e6ee2b693778dacca9140ff9fabaf454176c78；工作实现c1a7bb710467663093b75d947458ac2ebbd35728/[run39105966506](https://github.com/AplusNeutrino/My_Blog/actions/runs/39105966506) build117611754548 success，工作分支deploy117615335443/live117615336133 skipped，不当已部署。日志核对264 tests、4项Ruby、T01/authoring44/5/7、production Jekyll/Search/feed/SEO/资源/旧门禁和主192成功，但JSON和实际图尚未取回，不能写视觉正常。
+- production artifact12128916636大小543024842 bytes，服务端SHA256 1c246977e59fa99e64e2bb110ac29b0b5cfeef316ac54992af36073c93ffb3cf；download_workflow_artifact明确拒绝超过536870912 bytes。未下载字节，未独立核验摘要、未生成联系表、未实际看原图；不把服务端digest当本机校验，不另猜测UI缺陷。
+- 先记录范围再仅改pages-deploy.yml：production和live各另传THINK分页专项原始PNG/逐帧JSON/8流程JSON及audit.json，原总包仍保留，if always/14天保留，失败证据也包括。不重编码/裁剪图、不改审计/时限/断言或删除原门禁，追加1包装接线回归。本机265 tests/authoring44/5/7/T01保护44/5/5/diff通过；无本机Chrome/Jekyll，新head专项包尚未生成，视觉/main/live继续validation-pending。
+- 工作区维护后从真实GitHub重新clone并检出精确c1，不假设scratch证据仍在，不覆盖用户修改；AGENTS/docs/agents/ADR/旧COMPLETE计划报告/当前台账及补充核对，CONTEXT无、gh不在PATH不编造Issue。只上述workflow/测试/3文档，不改产品/原文/metadata/URL/hidden/noindex/同步数据/外部仓库或旧COMPLETE，无新用户决策。非强推接续ui/audit-010，main不改；下一项核对同一新head及专项包真实截图，全站IN PROGRESS，不暂停。
+
 ## 2026-10-18 — UI-A10 THINK完整分页采证接线，待真实浏览器
 
 - fresh main/base40e6ee2b693778dacca9140ff9fabaf454176c78；run39102519248 build117601511609/deploy117604332268/live117604361133全部success，关闭上一A09证据head pending，不重启A09或T00–T39。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮台账和补充核对，CONTEXT无、gh不在PATH不编造Issue；独立worktree不动原目录用户字体/缓存/未跟踪修改及同步。
