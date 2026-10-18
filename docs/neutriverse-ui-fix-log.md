@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI019精确main线上限定验收done
+
+- 验收main/base ffbc8a8b1dfa3eefca110a0fff011ca76707d1f5/[run39118107146](https://github.com/AplusNeutrino/My_Blog/actions/runs/39118107146) build117647931783/deploy117651883104/live117651919017全部success。267 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁及production/live各192主成功。live日志https://neutriverse.uk，8流程32页的URL均是该站点，不用localhost替代。
+- live专项artifact12134490432下载51386317 bytes，独立SHA256 e0135ad56d7643d48809b66ddcc583c5b50ecf1fbc505a8b296064142d549e24一致。实际看四宽度双主题52线上目标帧10联系表，放大390 Light2/7/9、1024 Night4、1366 Light5原图，对比before/production确认介绍末行、Progressive Disclosure/互联网标签/Z.A.T.O.摘要与Fragment文字可见、圆钮不再遮挡，无新增确认缺陷。
+- 8流程44唯一href顺序12/12/12/8、末页刷新/上一页、32页302原生帧连续main覆盖/PNG实际尺寸/无横向溢出/scrollX0、真实返回顶部和每帧介绍1/记录12或8/非空/文字Range与可见按钮严格交集0均核对通过，302逐帧frameChecks与生产一致。随机侧栏引文与背景变化不是缺陷，不声称像素相同。UI019仅该范围done；其他250帧未人工看，A10整页及其余矩阵继续pending。
+- 先记录UI019-live/base/文件范围，再仅4文档及10已看联系表/5原图/精简摘要回写，产品/审计/门禁/正文/metadata/URL/hidden/noindex/同步数据/外部仓库/旧COMPLETE不改。独立worktree保留原修改，已读AGENTS/agents/ADR/旧计划报告/当前台账及用户补充，CONTEXT无、gh不在PATH不编造Issue；无新用户决策，全站IN PROGRESS，不写final或暂停。fresh main未变才expected-head非强推，新证据提交自身CI/build/deploy/live另核对，下一项补A10剩余实际画面。
+
 ## 2026-10-18 — UI019精确生产限定验收通过，待main/live
 
 - fresh base main40e6ee2b693778dacca9140ff9fabaf454176c78；工作实现d7dd377e864f231e73e9da739c6e6bbca34fb1de/[run39114493637](https://github.com/AplusNeutrino/My_Blog/actions/runs/39114493637) build117637386219 success、deploy117641019406/live117641020287 skipped（工作分支，不冒称部署）。日志267 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁与192主成功；专项artifact12132675504为51537009 bytes，独立SHA256 fcb02ab3050ef8038c34da5f3d14a9f142fa21c358c48419672ff1a6777b4cef匹配。

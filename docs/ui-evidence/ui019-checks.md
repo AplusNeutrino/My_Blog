@@ -1,6 +1,20 @@
 # UI-019 — THINK介绍与写作卡片文字被返回顶部按钮遮挡
 
-状态：validation-pending。精确d7dd377e生产限定视觉/交互验收通过，待交付main与精确main部署/live复验；不将UI-A10整页标done。
+## 2026-10-18 先记录线上复验范围
+
+- Task UI019-live；base/main ffbc8a8b1dfa3eefca110a0fff011ca76707d1f5，[run39118107146](https://github.com/AplusNeutrino/My_Blog/actions/runs/39118107146) build117647931783/deploy117651883104/live117651919017全部success。范围仅计划日志、ui019/uia10证据与公开线上目标截图；不改产品、审计或数据，不重开已COMPLETE的T00–T39。
+- live专项artifact12134490432共51386317 bytes，下载独立SHA256 e0135ad56d7643d48809b66ddcc583c5b50ecf1fbc505a8b296064142d549e24匹配。先核对8流程/32页302原生帧的https://neutriverse.uk/think/ URL、44唯一href顺序12/12/12/8、末页刷新/上一页、全main覆盖/PNG实际视口/无溢出/scrollX0、返回顶部及每帧介绍1/记录12或8/非空/文字按钮严格交集0；机械检查通过不等于图已看。
+- 下一步实际看四宽度双主题52目标帧10联系表（介绍、原三卡摘要、Fragment、其余三页记录抽查），放大同内容原图与before/production对比；仅该范围通过才关闭UI019，余250帧仍pending。无新用户决策；gh不在PATH不编造Issue。独立worktree保留原目录修改，旧内容/metadata/URL/hidden/noindex/同步数据/外部仓库/旧COMPLETE不动。
+
+状态：done（限定UI-019文字避让）。精确main ffbc8a8b生产/部署/live全部success，四宽度双主题52线上目标帧已实际复验；UI-A10整页其余250帧仍pending。
+
+## 2026-10-18 精确main部署与线上限定验收
+
+- 验收main ffbc8a8b1dfa3eefca110a0fff011ca76707d1f5；[Actions39118107146](https://github.com/AplusNeutrino/My_Blog/actions/runs/39118107146) build117647931783、deploy117651883104、verify-live-ui117651919017全部success。267 tests、T01保护44posts/5fragments/5hidden、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/原门禁及production/live各192主场景通过。线上日志UI_LIVE_BASE=https://neutriverse.uk，32分页场景JSON逐一是该站点URL，不拿localhost代线上。
+- live专项artifact12134490432下载51386317 bytes，独立SHA256 e0135ad56d7643d48809b66ddcc583c5b50ecf1fbc505a8b296064142d549e24匹配。全部8流程/32页/302原生帧的44唯一href顺序12/12/12/8、末页刷新/上一页、连续main覆盖、PNG实际视口、scrollX0/无横向溢出、真实返回顶部，以及每帧介绍1/可见记录12或8/非空/所有文字Range与可见按钮严格交集0均核对通过；精简逐帧诊断与生产一致（302帧frameChecks差异0）。
+- 实际逐张看四宽度双主题52线上目标帧/10联系表，另放大390 Light2/7/9、1024 Night4、1366 Light5原图，与before及production同内容比对：介绍末行和Progressive Disclosure/互联网标签/Z.A.T.O.摘要完整，Fragment及分类/日期/来源链接可见、圆钮避让正常，无新增确认缺陷。随机侧栏引文与背景不同不视为UI回归，不声称像素相同。
+- UI-019仅上述文字避让范围done；其余250帧未人工验收，A10完整整页、其他筛选/Thought点赞与全站剩余矩阵不推断通过。ui019-live/持久保存10已看联系表、5原图与8源JSON哈希/302逐帧诊断/52实际查看清单。新证据提交自身CI需另核对，不以本次ffbc成功代替新head。
+- 本轮只4文档和公开证据，不改产品/审计/门禁/正文/metadata/旧URL/hidden/noindex/同步数据/外部仓库/旧COMPLETE。独立worktree保留原修改，AGENTS/agents/ADR/旧计划报告/当前台账及补充核对；CONTEXT无、gh不在PATH不编造Issue。无新用户决策；全站IN PROGRESS，不写final/COMPLETE或暂停。
 
 ## 2026-10-18 精确生产与限定视觉验收
 
