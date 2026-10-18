@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A10c源390 Night完整看图，Library同步保留
+
+- main/base9afeed1354317d04b77646d07893a6fe3f6a0dbf为67d9c5e8之后正常Library同步，只改9个Library源/生成数据文件，保留不覆盖。67d9c5e8/[run39161481365](https://github.com/AplusNeutrino/My_Blog/actions/runs/39161481365) build117775523200/deploy117780238053 success，live117780359206 cancelled；不能关闭为全成功。9afeed13/[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133进行中，不用父CI或源码存在代替。
+- 先记UI-A10c仅取消前已完整390 Night场景范围，artifact12150166881（42044434 bytes）独立SHA256 4f6af4f113bff6f00d9b1315cc3915078a776ddd9436c26928743029f96eca36匹配；实际看390×701四页57帧12联系表、放大目录/page3页码/page4长摘要三原图，未发现新确认缺陷，不新增UI022或审美修改。源head67d9c5e8明确不同于当前base9afeed13，不冒称当前线上所有检查已通过。
+- 源390 Night完整流程独立核对44href顺序12/12/12/8、末页同URL刷新/上一页/真实返回顶部、四页原生main连续覆盖、57PNG尺寸/scrollX0/无横溢出、文字/目录非空根计数与Range严格无交叉、4select/1reset/分页矩形与hit通过。仅该流程完成，不把整体取消或其他尺寸主题当通过；其余完整A10及新main/live validation-pending。
+- uia10c-live保留12已看联系表、3原PNG、源JSON哈希/44href与取消条件摘要。本轮只文档证据，产品/内容/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE与main不改；存audit/ui-a10c，不取消当前main构建。gh不在PATH未建Issue，无新用户决策。下一项核对9afeed13自身CI/部署/线上截图，再做其他主题宽度完整图，不累计旧head看图数冒充当前head验收。
+
 ## 2026-10-19 — UI021精确main线上限定验收done
 
 - 验收main/base93d4c80dac21145eea670b3ae8e08505f062f71f/[run39156738726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39156738726) build117761413839/deploy117765457118/live117765498122全部success。273 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁与production/live各主192通过。线上origin为https://neutriverse.uk，32页均同站URL。

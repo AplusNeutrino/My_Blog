@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-A10c限定看图记录：main推进为9afeed1354317d04b77646d07893a6fe3f6a0dbf正常Library同步，保留9文件变更。父67d9c5e8/run39161481365 build117775523200/deploy117780238053成功、live117780359206取消，不写全通过；当前9afeed13/run39164212435 build117783796133仍进行中。只实际看取消前67d9c5e8已完整捕获的390 Night四页57帧12联系表，放大3原图，未见新确认缺陷，不改样式。该流程44href/分页刷新返回顶部/原生覆盖/文字目录与控件通过，不代表整场取消run或9afeed13已验收；完整A10/最新head保持validation-pending。只保存文档证据audit/ui-a10c不动main，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。
+
 2026-10-19 UI021线上限定done：验收main93d4c80dac21145eea670b3ae8e08505f062f71f/run39156738726 build117761413839/deploy117765457118/live117765498122全部success；273 tests/T01/authoring/Jekyll及原门禁与production/live各主192成功。实际复查四宽度双主题56线上Series目标帧14联系表、放大4原PNG，390 Night说明行尾换行避开圆钮；8流程32页303帧目录/文字/控件与真实分页刷新滚轮返回顶部通过，303诊断与同head生产全等。其他247帧本head未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui021-checks.md)。以下为历史时点。
 
 2026-10-19 UI021生产限定验收通过：dae7e3a50e48d982132943d724fe61cfb7c30e5f/run39152206991 build117747975591 success，分支deploy/live skipped；273 tests/T01/authoring/Jekyll及原门禁和主192成功。专项artifact独立摘要匹配，四宽度双主题56 Series目标帧/14联系表实际看，放大4原图及before，390 Night行末自然换行避开圆钮。8流程32页303原生帧目录/文字/控件/分页刷新滚轮返回顶部通过；其他247帧未人工看，完整A10仍pending。只保存证据与计划日志，不再改产品，可非强推交付main；新main自身CI/部署/线上同场景复验仍validation-pending，不标done，无新用户问题。[证据](docs/ui-evidence/ui021-checks.md)。以下是先前时点。

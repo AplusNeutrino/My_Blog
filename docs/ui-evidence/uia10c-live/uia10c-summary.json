@@ -1,0 +1,184 @@
+{
+  "baseMain": "9afeed1354317d04b77646d07893a6fe3f6a0dbf",
+  "sourceHead": "67d9c5e8f8f99d88a62425d243ccd14313a96b62",
+  "run": 39161481365,
+  "artifact": 12150166881,
+  "sha256": "4f6af4f113bff6f00d9b1315cc3915078a776ddd9436c26928743029f96eca36",
+  "sourceJsonSha256": "df600292191d077c9159b1a7441714e72e47b28a41caaa5d9b584a6a42c36693",
+  "condition": "overall source verify-live-ui cancelled; only complete 390 Night flow recorded before cancellation; not current main deployment acceptance",
+  "viewport": {
+    "width": 390,
+    "height": 701
+  },
+  "frames": 57,
+  "pages": [
+    {
+      "page": 1,
+      "url": "https://neutriverse.uk/think/",
+      "hrefs": [
+        "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+        "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+        "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+        "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+        "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+        "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+        "/thoughts/#fragment-2026-05-02",
+        "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+        "/posts/%E8%AE%A1%E7%BD%91-10/",
+        "/posts/%E8%AE%A1%E7%BD%91-09/",
+        "/posts/%E8%AE%A1%E7%BD%91-08/",
+        "/thoughts/#fragment-2025-11-12"
+      ],
+      "frames": [
+        "public-sweep-think-page-1-390-dark-1.png",
+        "public-sweep-think-page-1-390-dark-2.png",
+        "public-sweep-think-page-1-390-dark-3.png",
+        "public-sweep-think-page-1-390-dark-4.png",
+        "public-sweep-think-page-1-390-dark-5.png",
+        "public-sweep-think-page-1-390-dark-6.png",
+        "public-sweep-think-page-1-390-dark-7.png",
+        "public-sweep-think-page-1-390-dark-8.png",
+        "public-sweep-think-page-1-390-dark-9.png",
+        "public-sweep-think-page-1-390-dark-10.png",
+        "public-sweep-think-page-1-390-dark-11.png",
+        "public-sweep-think-page-1-390-dark-12.png",
+        "public-sweep-think-page-1-390-dark-13.png",
+        "public-sweep-think-page-1-390-dark-14.png"
+      ]
+    },
+    {
+      "page": 2,
+      "url": "https://neutriverse.uk/think/?page=2",
+      "hrefs": [
+        "/posts/%E8%AE%A1%E7%BD%91-07/",
+        "/posts/%E8%AE%A1%E7%BD%91-06/",
+        "/posts/%E8%AE%A1%E7%BD%91-05/",
+        "/posts/%E8%AE%A1%E7%BD%91-04/",
+        "/posts/TMT%E7%90%86%E8%AE%BA/",
+        "/posts/%E8%AE%A1%E7%BD%91-03/",
+        "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+        "/posts/%E8%AE%A1%E7%BD%91-02/",
+        "/posts/%E8%AE%A1%E7%BD%91-01/",
+        "/posts/FF1%E8%AE%B0%E5%BD%95/",
+        "/posts/%E8%AE%A1%E7%BB%84-08/",
+        "/posts/%E8%AE%A1%E7%BB%84-07/"
+      ],
+      "frames": [
+        "public-sweep-think-page-2-390-dark-1.png",
+        "public-sweep-think-page-2-390-dark-2.png",
+        "public-sweep-think-page-2-390-dark-3.png",
+        "public-sweep-think-page-2-390-dark-4.png",
+        "public-sweep-think-page-2-390-dark-5.png",
+        "public-sweep-think-page-2-390-dark-6.png",
+        "public-sweep-think-page-2-390-dark-7.png",
+        "public-sweep-think-page-2-390-dark-8.png",
+        "public-sweep-think-page-2-390-dark-9.png",
+        "public-sweep-think-page-2-390-dark-10.png",
+        "public-sweep-think-page-2-390-dark-11.png",
+        "public-sweep-think-page-2-390-dark-12.png",
+        "public-sweep-think-page-2-390-dark-13.png",
+        "public-sweep-think-page-2-390-dark-14.png",
+        "public-sweep-think-page-2-390-dark-15.png"
+      ]
+    },
+    {
+      "page": 3,
+      "url": "https://neutriverse.uk/think/?page=3",
+      "hrefs": [
+        "/posts/%E8%AE%A1%E7%BB%84-06/",
+        "/posts/%E8%AE%A1%E7%BB%84-05/",
+        "/posts/%E8%AE%A1%E7%BB%84-04/",
+        "/posts/%E8%AE%A1%E7%BB%84-03/",
+        "/thoughts/#fragment-2025-03-23",
+        "/posts/%E8%AE%A1%E7%BB%84-02/",
+        "/posts/%E8%AE%A1%E7%BB%84-01/",
+        "/posts/DBMS-10/",
+        "/posts/DBMS-09/",
+        "/posts/DBMS-08/",
+        "/posts/PythonIntro/",
+        "/thoughts/#fragment-2024-10-30"
+      ],
+      "frames": [
+        "public-sweep-think-page-3-390-dark-1.png",
+        "public-sweep-think-page-3-390-dark-2.png",
+        "public-sweep-think-page-3-390-dark-3.png",
+        "public-sweep-think-page-3-390-dark-4.png",
+        "public-sweep-think-page-3-390-dark-5.png",
+        "public-sweep-think-page-3-390-dark-6.png",
+        "public-sweep-think-page-3-390-dark-7.png",
+        "public-sweep-think-page-3-390-dark-8.png",
+        "public-sweep-think-page-3-390-dark-9.png",
+        "public-sweep-think-page-3-390-dark-10.png",
+        "public-sweep-think-page-3-390-dark-11.png",
+        "public-sweep-think-page-3-390-dark-12.png",
+        "public-sweep-think-page-3-390-dark-13.png",
+        "public-sweep-think-page-3-390-dark-14.png",
+        "public-sweep-think-page-3-390-dark-15.png"
+      ]
+    },
+    {
+      "page": 4,
+      "url": "https://neutriverse.uk/think/?page=4",
+      "hrefs": [
+        "/posts/DBMS-07/",
+        "/posts/DBMS-06/",
+        "/posts/DBMS-05/",
+        "/posts/DBMS-04/",
+        "/posts/DBMS-03/",
+        "/posts/DBMS-02/",
+        "/posts/DBMS-01/",
+        "/thoughts/#fragment-2024-09-12"
+      ],
+      "frames": [
+        "public-sweep-think-page-4-390-dark-1.png",
+        "public-sweep-think-page-4-390-dark-2.png",
+        "public-sweep-think-page-4-390-dark-3.png",
+        "public-sweep-think-page-4-390-dark-4.png",
+        "public-sweep-think-page-4-390-dark-5.png",
+        "public-sweep-think-page-4-390-dark-6.png",
+        "public-sweep-think-page-4-390-dark-7.png",
+        "public-sweep-think-page-4-390-dark-8.png",
+        "public-sweep-think-page-4-390-dark-9.png",
+        "public-sweep-think-page-4-390-dark-10.png",
+        "public-sweep-think-page-4-390-dark-11.png",
+        "public-sweep-think-page-4-390-dark-12.png",
+        "public-sweep-think-page-4-390-dark-13.png"
+      ]
+    }
+  ],
+  "contacts": [
+    "uia10c-390-dark-page1-1.jpg",
+    "uia10c-390-dark-page1-2.jpg",
+    "uia10c-390-dark-page1-3.jpg",
+    "uia10c-390-dark-page2-1.jpg",
+    "uia10c-390-dark-page2-2.jpg",
+    "uia10c-390-dark-page2-3.jpg",
+    "uia10c-390-dark-page3-1.jpg",
+    "uia10c-390-dark-page3-2.jpg",
+    "uia10c-390-dark-page3-3.jpg",
+    "uia10c-390-dark-page4-1.jpg",
+    "uia10c-390-dark-page4-2.jpg",
+    "uia10c-390-dark-page4-3.jpg"
+  ],
+  "mechanical": {
+    "hrefs44": true,
+    "lastPageRefresh": true,
+    "previousPage": true,
+    "nativeMainCoverage": true,
+    "backToTop": true,
+    "textDirectoryAndControls": true
+  },
+  "manualReview": {
+    "actuallyViewedFrames": 57,
+    "actuallyViewedContacts": 12,
+    "nativeZoom": [
+      "public-sweep-think-page-1-390-dark-4.png",
+      "public-sweep-think-page-3-390-dark-13.png",
+      "public-sweep-think-page-4-390-dark-9.png"
+    ],
+    "confirmedNewDefects": [],
+    "result": "No new confirmed disappearance, clipping, overflow or covered text in complete source-head 390 Night four-page images; newer main and overall cancelled run not accepted"
+  },
+  "currentHeadAccepted": false,
+  "completeA10Accepted": false
+}

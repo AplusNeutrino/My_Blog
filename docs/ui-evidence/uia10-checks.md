@@ -1,5 +1,20 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10c结果：完整390 Night源场景已看，新main待验
+
+- artifact12150166881下载独立SHA256 `4f6af4f113bff6f00d9b1315cc3915078a776ddd9436c26928743029f96eca36` 匹配（42044434 bytes）。整体live取消，但390 Night流程JSON已完整保存四页、末页刷新/上一页和真实返回顶部，不将不完整1366或整场run冒称通过。
+- 实际查看67d9c5e8源390×701 Night四页57帧/12联系表（14/15/15/13），逐页覆盖标题/导航/介绍/Topic/Series/筛选/44记录/分页/底部检索/页脚；放大page1-4目录、page3-13页码、page4-9长摘要三原PNG。原Series行尾完整换行避开圆钮，中文/长摘要换行、标题、卡片与分页可见；未发现此已看场景的新确认缺陷，不为偏好改样式、不新增UI022。
+- 独立机械核对该流程44唯一href及12/12/12/8原顺序、每页main原生滚轮连续覆盖、末页同URL刷新/上一页/返回顶部、57 PNG尺寸、scrollX0/无横溢出、介绍/记录与Topic4/Series3/检索5非空根计数与Range严格不交叉、控件4select/1reset/分页矩形与hit均通过。看图与JSON结论分开，不推断其他宽度/主题或控件组合。
+- 9afeed13只含Library同步，THINK源码未改，但其精确run39164212435/build117783796133仍进行中；67d9c5e8 live已cancelled，保留validation-pending，不用源码相同或之前成功代替当前head CI。旧UI021在93d4c80d的限定done不撤销，也不声称新head全站已通过。
+- uia10c-live保存12已看联系表/3原PNG/44href与源JSON哈希摘要，明确sourceHead67d9c5e8而baseMain9afeed13；不将旧head56/57/97数量累加称当前head看过。其他主题宽度/fullA10及最新main继续pending。本轮仅文档证据工作分支audit/ui-a10c，main/Library同步/产品与原门禁不改；gh不在PATH不编造Issue，无新用户决策。
+
+## 2026-10-19 UI-A10c 本轮范围（先记录）
+
+- 当前base/main `9afeed1354317d04b77646d07893a6fe3f6a0dbf` 为Library正常数据同步，父`67d9c5e8f8f99d88a62425d243ccd14313a96b62`；仅9个Library源/生成数据文件改变，保留不覆盖。THINK产品/审计/原文/metadata/URL/hidden/noindex/旧COMPLETE未变。
+- 上轮证据head67d9c5e8的[run39161481365](https://github.com/AplusNeutrino/My_Blog/actions/runs/39161481365) build117775523200/deploy117780238053 success，但live117780359206 cancelled；不写全成功。当前9afeed13/[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133进行中，不以父head成功代替。
+- Task UI-A10c：先补取消前67d9c5e8已生成的390 Night完整四页原生图，核对该流程是否完整；截图仅证明捕获时点的对应场景，不冒称整场取消的live完成或9afeed13已部署。保留实际source SHA/取消条件，其他主题宽度另待检查；如果未捕获完整四页明确pending，不补造。
+- 文件范围先限本文件/UI计划日志与uia10c公开已看联系表/原图/摘要；未确认新缺陷不改样式/产品/门禁，只工作分支audit/ui-a10c，避免取消当前main构建。若发现新缺陷再记录编号/base/原图/最小范围。gh仍不可用不编造Issue，无新用户决策。
+
 2026-10-19 最新：UI021线上限定done，验收main93d4c80d/run39156738726 build117761413839/deploy117765457118/live117765498122全部success。四宽度双主题56线上Series目标帧14联系表和4原PNG实际看，说明行尾自然换行避开圆钮；303原生帧文字/目录/控件/分页刷新滚轮返回顶部通过，同head生产/live303诊断全等。其他247帧本head未人工看，完整A10不通过、不累加旧head看图数。新证据提交CI另核对，详见ui021-checks.md与ui021-live摘要，无新用户决策。
 
 2026-10-19 最新：UI021的dae7e3a5/run39152206991 build成功，273 tests/T01/authoring/Jekyll/原门禁与主192通过。四宽度双主题56 Series目标帧14联系表及4原图实际看，行末避让正常；303原生帧几何/交互独立通过，其他247帧本head未人工看，完整A10不累计旧head图称通过。仅此修复生产限定通过可交付main，新的main build/deploy/live/线上同场景仍pending；详见ui021-checks.md与ui021-production摘要。无新用户决策。
