@@ -643,6 +643,13 @@
   line-height: 1.55;
 }
 
+/* UI-021: reserve the fixed-button lane for THINK Series descriptions. */
+@media (max-width: 1199.98px) {
+  [data-neutriverse-section='think'] [data-writing-series-browser] .nv-topic-browser-description {
+    padding-right: 2.75rem;
+  }
+}
+
 .nv-topic-browser-count {
   color: var(--nv-text-muted);
   font-size: 0.72rem;

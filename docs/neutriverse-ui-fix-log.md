@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI021确认Series说明行尾交叉，最小修复待验
+
+- base工作6220e714f1c932a3b4f89815a4f95d88dad1844e/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd；[run39148513573](https://github.com/AplusNeutrino/My_Blog/actions/runs/39148513573) build117737199765在目录Range门禁failure、deploy117737568622/live117737569395 skipped。272 tests/T01/authoring/production Jekyll与前置门禁成功，不算完整验收。
+- artifact12143773674独立SHA256 1237b6c05c5bce764609406bf9e7351aa84f4ac80ed89c49f7d47780408ffbe0匹配，实际查看失败原PNG与JSON：390×701 Night/THINK第1页/scrollY1575，Computer Architecture说明字行right326.640625/top608.296875/bottom625.296875进入圆钮left315/right359/top583/bottom627。S-A10b-01升级UI021 P2，未声称实测点击失败。保留原PNG/JSON于ui021-before；不是以静态测试充当看图。
+- 先记ui021-checks范围，再仅THINK Series说明<=1199.98px增加padding-right:2.75rem与1限定作用域回归。Topic/检索没有确认缺陷，不猜改；原UI019/020/目录文字Range/控件hit/严格无交叉、真实分页刷新滚轮返回顶部和等待全部保留。不改正文/metadata/URL/hidden/noindex/私密边界/产品JS/按钮/字体/外部仓库/旧COMPLETE。
+- 本机273 tests、authoring44/5/7、T01保护44/5/5、diff通过；首次本机baseline命令缺--output失败，改用全新输出路径重跑通过，未覆盖冻结基线。本机无Chrome/Jekyll，不称新修复后浏览器通过。新head存ui/fix-021，main不改；生产目标图、完整门禁、部署及线上复验仍validation-pending。gh不在PATH，遵守gh-only未创建Issue，无新用户决策。下一项核对精确新head Chrome与同场景原图。
+
 ## 2026-10-19 — UI-A10b完整390 Night看图，目录句号疑点待实测
 
 - base/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd/[run39143676491](https://github.com/AplusNeutrino/My_Blog/actions/runs/39143676491) build117723058771/deploy117727563192/live117727609663全部success；271 tests/T01/authoring/Jekyll/原门禁和production/live各主192成功，关闭上轮证据head待验。UI019/020限定done保持，不重做旧COMPLETE。

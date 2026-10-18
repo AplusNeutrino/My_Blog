@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-021 validation-pending：6220e714/run39148513573 精确build117737199765在Series文字遮挡门禁失败，deploy/live skipped；272回归/T01/authoring/production Jekyll及前置成功不是完整通过。实际看390 Night第1页scrollY1575失败原PNG，Series Computer Architecture说明行末与圆钮区域相交，Range交叉11.640625×17px；S-A10b-01升级确认。先记base/原图/最小范围后，仅THINK Series说明<=1199.98px padding-right:2.75rem，加1作用域回归，不改Topic/底部检索或放宽既有门禁。本机273 tests/T01/authoring/diff通过；新head留ui/fix-021，main d1ddfe95不变，修复后完整生产/图与交互/部署线上均待验，无新用户决策。详见[UI021证据](docs/ui-evidence/ui021-checks.md)。以下UI-A10b段为上次时点记录。
+
 2026-10-19 UI-A10b validation-pending：base main d1ddfe95f178c55b1fef67c86949c639c6f85cdd/run39143676491 build117723058771/deploy117727563192/live117727609663全部success，关闭上一证据head pending。已实际看390 Night完整四页57帧12联系表、放大3原图；S-A10b-01仅为Series说明句号贴近固定圆钮的待核实截图疑点，不是已确认UI021。旧文字Range不覆盖目录/底部检索，不能据旧门禁通过称正常；先记录范围后仅追加Topic4/Series3/检索5说明逐行Range非空/严格不交叉与失败PNG/JSON、1回归，产品不改，原门禁/等待保留。本机272 tests/T01/authoring/diff通过，ui/audit-010b待精确CI；main不改，其他245帧本head未人工看，无新用户决策。[范围与证据](docs/ui-evidence/uia10-checks.md)。
 
 2026-10-19 UI020线上限定done：验收main f0bb59d065e51638bbde5eef11667422e35d5487/run39138681681 build117708387611/deploy117713026629/live117713227145全部success，271 tests/T01/authoring/Jekyll/原门禁与production/live各主192通过。实际看四宽度双主题97线上控件帧18联系表、放大4原图，箭头/数字4与固定圆钮分离；8流程32页302帧hit/严格矩形/文字Range/真实分页刷新返回顶部通过，302诊断与同head生产全等。其他205帧未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui020-checks.md)。
@@ -27,6 +29,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-021 | P2 | 390 Night实际原图：THINK Series Computer Architecture说明行尾进入返回顶部圆钮区域；新Range门禁复现交叉 | validation-pending | 最小Series说明避让已实现，273本机回归/T01/authoring通过；精确新head生产与修复后实际截图/交互、main部署及线上复验待完成 |
 | UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | done | f0bb59d0精确main build/deploy/live全部成功；四宽度双主题97线上控件帧/18联系表及4原图实际确认避让；8流程32页302帧控件hit/严格矩形/文字/分页刷新返回顶部通过，仅此作用域done，完整A10其余205帧未看 |
 | UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | done | ffbc8a8b精确main build/deploy/live全成功；四宽度双主题52线上目标帧/10联系表实际看及5原图对照放大，文字完整避让圆钮；8流程32页302帧严格Range/分页/滚轮/返回顶部通过，仅此范围done，A10其余250帧未看 |
 | UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |

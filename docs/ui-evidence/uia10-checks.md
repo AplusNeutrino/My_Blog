@@ -1,5 +1,7 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+2026-10-19 最新：6220e714/run39148513573真实Chrome在Series说明行尾Range交叉门禁失败，390 Night原PNG已实际看；S-A10b-01升级UI021，详见[ui021-checks.md](ui021-checks.md)。仅Series说明最小避让与作用域回归已实现，273本机测试/T01/authoring通过，ui/fix-021精确新head浏览器/截图/部署仍pending；main d1ddfe95未变。以下疑点未确认/未创建UI021是前次时点，不是当前结论；不累计旧head57/97/52当新head整页通过。
+
 ## 2026-10-19 UI-A10b先记录390 Night完整四页范围
 
 - base/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd；[run39143676491](https://github.com/AplusNeutrino/My_Blog/actions/runs/39143676491) build117723058771/deploy117727563192/live117727609663全部success，关闭上次证据head CI pending；UI020限定done不重做。live专项artifact12143767264（52150996 bytes）独立SHA256 80e59b9efa5b559fe74a0bcf63c97d7feff4e18c2f1e4a05783a0a2347ed69ff匹配。

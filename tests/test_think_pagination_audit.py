@@ -8,6 +8,19 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_series_description_lane_is_limited_to_confirmed_surface(self):
+        css = Path('assets/css/neutriverse-sections.css').read_text()
+        start = css.index('/* UI-021:')
+        block = css[start:css.index('.nv-topic-browser-count {', start)]
+        for token in ('@media (max-width: 1199.98px)',
+                      "[data-neutriverse-section='think'] [data-writing-series-browser] .nv-topic-browser-description",
+                      'padding-right: 2.75rem;'):
+            self.assertIn(token, block)
+        self.assertEqual(block.count('padding-right:'), 1)
+        for token in ('#back-to-top', 'font-size:', 'display:', 'position:',
+                      'grid-template', '[data-writing-topic-browser]', '.nv-section-links'):
+            self.assertNotIn(token, block)
+
     def test_directory_text_scope_requires_real_ranges_and_preserves_existing_guards(self):
         source=Path('tools/check_think_build_visual.py').read_text()
         start=source.index('# UI-A10b:');block=source[start:source.index('require(start <= (covered',start)]
