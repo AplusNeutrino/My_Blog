@@ -1,5 +1,14 @@
 # UI-021 — THINK Series 说明行尾与固定圆钮交叉
 
+## 2026-10-19 精确production限定验收
+
+- 验收head `dae7e3a50e48d982132943d724fe61cfb7c30e5f`，[run39152206991](https://github.com/AplusNeutrino/My_Blog/actions/runs/39152206991) build117747975591 success；工作分支deploy117752696942/live117752697291按规则skipped，不冒称部署。273 tests、T01保护、authoring44/5/7、production Jekyll、Search/Atom、SEO/旧URL/noindex、资源/集成、移动/无障碍及主192浏览器场景全部成功。
+- 先记录本轮范围：只对精确head四宽度双主题Series可见目标图做验收并保存公开证据/更新本UI计划日志；不再改产品CSS/JS/门禁/旧内容与保护边界。main仍d1ddfe95，计划在本范围通过后以expected_sha非强推交付，新的main自身build/deploy/live与同场景复验仍待完成。
+- 专项artifact12146575289（52318374 bytes）下载独立SHA256 `cb680a882b3acaa49c36ce3cac2e38c8ee2838b5428d8c9e76ec4a586eda3571` 匹配。原总包544089007 bytes超过接口上限，未下载，不绕过、不声称已看总包；专项保留原PNG/JSON无损来源。
+- 实际查看56张Series可见帧、14联系表（390/768双主题各8帧、1024双主题各4帧、1366双主题各8帧）；放大390 Night/Light page1-4、768 Night page1-3、1366 Light page1-3四原PNG并重看失败before。390 Night原行末right326.640625，修复后首行right299.765625、末尾“列。”换到下一行left31/right57.890625；圆钮left315不变，完整文字可读且避让。768/1024自然换行、1366原布局保持，未发现本目标范围新缺陷。未用JSON或测试代替看图。
+- 独立机械复核8流程32页303帧：44唯一href且每页12/12/12/8同顺序、末页同URL刷新/上一页、原生滚轮main连续覆盖/返回顶部通过；303原生PNG尺寸匹配、scrollX0、无页面横溢出；介绍/记录和目录Topic4/Series3/检索5非空根计数/文字Range严格无交叉、4select/1reset/分页原控件矩形与pointer hit全部通过。与手工范围分开记证。
+- ui021-production保存14已看联系表、4放大原图及8源JSON哈希/目标文件名单摘要。其他247/303帧本head未人工看，完整A10及全站不通过；不累加旧head57/97/52帧冒称全页。无新用户决策，gh不在PATH未编造Issue。UI021仅production限定通过，部署及线上仍validation-pending。
+
 ## 2026-10-19 实施前记录
 
 - Task UI-021 / P2；base 工作提交 `6220e714f1c932a3b4f89815a4f95d88dad1844e`，main `d1ddfe95f178c55b1fef67c86949c639c6f85cdd` 未变。只接续本轮 UI，不重做 T00–T39 或改写 COMPLETE。

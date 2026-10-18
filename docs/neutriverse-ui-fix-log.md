@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI021生产限定验收通过，交付main待线上复验
+
+- 验收head dae7e3a50e48d982132943d724fe61cfb7c30e5f/[run39152206991](https://github.com/AplusNeutrino/My_Blog/actions/runs/39152206991) build117747975591 success，deploy117752696942/live117752697291分支规则skipped；273 tests、T01/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/移动无障碍及主192成功。base main仍d1ddfe95f178c55b1fef67c86949c639c6f85cdd。
+- 先记录本轮仅Series目标验收与证据范围；artifact12146575289（52318374 bytes）独立SHA256 cb680a882b3acaa49c36ce3cac2e38c8ee2838b5428d8c9e76ec4a586eda3571匹配。实际查看四宽度双主题56 Series可见帧/14联系表、放大390 Night/Light、768 Night、1366 Light四原PNG与before。390 Night行末right326.640625→299.765625并将“列。”自然换行，按钮left315不动，文字清晰避让；未发现本目标范围新确认缺陷。
+- 独立核对8流程32页303原生帧的文字/目录Range非空与严格不交叉、控件hit/矩形、无横溢出/scrollX0/截图尺寸、44href顺序12/12/12/8、真实分页/末页刷新/上一页/滚轮/返回顶部通过，不以机械通过代替看图。其他247帧本head未人工看，完整A10/全站仍pending；ui021-production记录实际名单/源哈希/14联系表/4原PNG。
+- 本轮只更新UI计划日志/uia10/ui021及公开证据，产品/内容/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE不再改，无新用户决策，gh仍不可用未建Issue。以expected main d1ddfe95非强推交付；新main自身build/deploy/live及同场景线上复验仍validation-pending，不标UI021 done。下一项核对真实新main head，不能用dae生产成功代替部署。
+
 ## 2026-10-19 — UI021确认Series说明行尾交叉，最小修复待验
 
 - base工作6220e714f1c932a3b4f89815a4f95d88dad1844e/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd；[run39148513573](https://github.com/AplusNeutrino/My_Blog/actions/runs/39148513573) build117737199765在目录Range门禁failure、deploy117737568622/live117737569395 skipped。272 tests/T01/authoring/production Jekyll与前置门禁成功，不算完整验收。
