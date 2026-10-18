@@ -1558,7 +1558,9 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                           # UI-016: relationship descriptions share the fixed button lane.
                           '[data-about-profile] .about-relation-card > p',
                           # UI-017: timeline event descriptions are distinct from relations.
-                          '[data-about-profile] .about-timeline-event > div > p'],
+                          '[data-about-profile] .about-timeline-event > div > p',
+                          # UI-018: the historical snapshot update label is absolute on desktop.
+                          '[data-about-profile] .about-now-updated'],
             }[name]
             observed['detailTextButton'] = driver.execute_script('''
               const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);

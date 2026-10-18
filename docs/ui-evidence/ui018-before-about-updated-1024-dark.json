@@ -1,0 +1,192 @@
+{
+  "sourceHead": "5ff4c8eb503df23b18b9b8c977957449bdb76b8f",
+  "runId": 39085413284,
+  "artifactId": 12120503918,
+  "artifactSHA256": "acfa73f792bd2236b7abe3715ed5ea90ab6a701ea2afe4b53da742b0b254229b",
+  "rawPublicAuditSHA256": "28ceaf9587fd28d7b57491da98ffd9407e590a2faeca2698ed946e803be00bf4",
+  "evidenceClass": "Actual native screenshot manually enlarged; old frame diagnostics lack snapshot update label ranges",
+  "frame": {
+    "mainEnd": 6536.046875,
+    "mainStart": 48,
+    "pageHeight": 6664,
+    "pageWidth": 1009,
+    "scrollX": 0,
+    "scrollY": 2937,
+    "topbarBottom": 0,
+    "viewport": {
+      "clientWidth": 1009,
+      "height": 757,
+      "width": 1024
+    },
+    "introTextButton": {
+      "button": {
+        "bottom": 699,
+        "left": 914.5625,
+        "right": 958.5625,
+        "top": 655
+      },
+      "lines": [],
+      "overlaps": [],
+      "rootCount": 1,
+      "selector": "[data-about-profile] .about-info-text",
+      "shown": true,
+      "textNodes": 4
+    },
+    "detailTextButton": {
+      "button": {
+        "bottom": 699,
+        "left": 914.5625,
+        "right": 958.5625,
+        "top": 655
+      },
+      "groups": [
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 1,
+          "selector": "[data-about-profile] .about-principle-list"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 1,
+          "selector": "[data-about-profile] .about-current-meta > div:last-child dd"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 10,
+          "selector": "[data-about-profile] .about-stack-item time"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [
+            {
+              "bottom": 265.578125,
+              "left": 346.09375,
+              "right": 467.046875,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+              "top": 248.578125
+            },
+            {
+              "bottom": 286,
+              "left": 346.09375,
+              "right": 426.734375,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+              "top": 269
+            },
+            {
+              "bottom": 306.421875,
+              "left": 346.09375,
+              "right": 455.625,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+              "top": 289.421875
+            },
+            {
+              "bottom": 326.84375,
+              "left": 346.09375,
+              "right": 413.296875,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "阅读、观看与游玩记录继续由现有 Library 页面独立维护和同步。",
+              "top": 309.84375
+            },
+            {
+              "bottom": 265.578125,
+              "left": 551.8125,
+              "right": 672.765625,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+              "top": 248.578125
+            },
+            {
+              "bottom": 286,
+              "left": 551.8125,
+              "right": 672.765625,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+              "top": 269
+            },
+            {
+              "bottom": 306.421875,
+              "left": 551.8125,
+              "right": 605.578125,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "站点邻居与互联网往来继续保存在现有友链页面。",
+              "top": 289.421875
+            },
+            {
+              "bottom": 265.578125,
+              "left": 757.546875,
+              "right": 878.5,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 248.578125
+            },
+            {
+              "bottom": 286,
+              "left": 757.546875,
+              "right": 878.5,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 269
+            },
+            {
+              "bottom": 306.421875,
+              "left": 757.546875,
+              "right": 867.4375,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 289.421875
+            },
+            {
+              "bottom": 326.84375,
+              "left": 757.546875,
+              "right": 878.5,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 309.84375
+            },
+            {
+              "bottom": 347.265625,
+              "left": 757.546875,
+              "right": 878.5,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 330.265625
+            },
+            {
+              "bottom": 367.6875,
+              "left": 757.546875,
+              "right": 797.875,
+              "surface": "[data-about-profile] .about-relation-card > p",
+              "text": "旅行地球的数据、边界来源与交互代码仍保留在 ABOUT；当前开关关闭，因此不提供公开入口或地点明细。",
+              "top": 350.6875
+            }
+          ],
+          "overlaps": [],
+          "rootCount": 3,
+          "selector": "[data-about-profile] .about-relation-card > p"
+        },
+        {
+          "emptyRoots": 0,
+          "lines": [],
+          "overlaps": [],
+          "rootCount": 5,
+          "selector": "[data-about-profile] .about-timeline-event > div > p"
+        }
+      ],
+      "shown": true
+    },
+    "file": "public-sweep-about-1024-dark-6.png",
+    "visibleMain": [
+      2937,
+      3694
+    ]
+  }
+}

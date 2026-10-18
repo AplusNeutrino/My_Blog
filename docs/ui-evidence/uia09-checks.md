@@ -1,5 +1,16 @@
 # UI-A09 — 首页、OBSERVE、ABOUT 原生纵向视口与往返
 
+## 2026-10-18 修复后完整整页复查范围（先记录）
+
+- Task UI-A09c；base/验收main `5ff4c8eb503df23b18b9b8c977957449bdb76b8f` /run39085413284 build117550794106/deploy117553847516/live117553882588全部success，关闭上一证据headCI pending。UI012–017已分别限定done，不重复修改产品；首页推荐同步已包含，不沿用旧数据截图冒称最新。
+- 取精确live artifact12120503918核验摘要；首页/OBSERVE/ABOUT四宽度双主题24流程177原生滚动帧，逐张看完整main并放大疑点，对照真实滚轮/返回顶部及四入口/公开详情/Library友链往返。无确认缺陷只记录，不凭偏好改样式，作者旧br/倒计时保留。
+- 范围仅UI计划/日志、本文件及公开本head证据；不改产品/审计/门禁/正文/metadata/URL/hidden/noindex/数据、外部仓库或旧COMPLETE，gh不在PATH不编造Issue。其他THINK/阅读控件/应用/Library余项与隐蔽边界不由此推断完成，无新用户决策；结果待记录。
+
+### 实际部分结果：转入UI018
+
+- live artifact12120503918 /492063761 bytes，独立SHA256 `acfa73f792bd2236b7abe3715ed5ea90ab6a701ea2afe4b53da742b0b254229b`匹配。177帧完整生成，本轮实际人工查看[28联系表](uia09c-live-contacts/)139帧（390/768/1024三宽度双主题三页），1366的38帧/8联系表未看，仍pending；[精简摘要](uia09c-live-summary.json)保留逐帧文件/几何/交互及原JSON哈希，明确区分已看与未看。未看联系表留scratch不提交当验收。
+- 放大ABOUT1024 Night第6原生PNG，确认历史状态“更新于”日期末端被固定返回顶部圆钮遮挡，编号[UI018](ui018-checks.md)，转最小修复；同1024 Light第6原图日期完整。旧UI012–017修复作用域在已看场景保持，未将测试/部分图当三页全部正常。旧br空白/倒计时保留，无新用户决策，A09/全站仍pending。
+
 ## 2026-10-18 OBSERVE/ABOUT整页复查范围（先记录）
 
 - Task UI-A09b；编辑base最新main `d5ac222e86f348c1097c0b599395eb06f9218aba`，父880bddf8仅新增一条home_popular推荐URL，保留同步，不覆盖。880bddf8 /run39073683931 build117516332761、deploy117519061350、live117519102104全部success，关闭上一证据head的CI pending；最新d5ac没有独立Actions，不能冒称其构建/部署通过。

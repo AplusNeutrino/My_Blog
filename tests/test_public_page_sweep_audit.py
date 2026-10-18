@@ -176,3 +176,24 @@ class PublicPageSweepAuditTests(unittest.TestCase):
             self.assertIn(token,block)
         for token in ('#back-to-top', 'font-size:', 'grid-template', 'display:', 'position:'):
             self.assertNotIn(token,block)
+
+    def test_snapshot_updated_label_uses_existing_strict_line_gate(self):
+        _,helper=self.helper()
+        for token in ('[data-about-profile] .about-now-updated',
+                      "g['rootCount'] > 0 and not g['emptyRoots']",
+                      "all(not g['overlaps'] for g in groups)",
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top',
+                      'detail-text-overlap-', '[data-about-profile] .about-timeline-event > div > p'):
+            self.assertIn(token,helper)
+
+    def test_snapshot_updated_lane_moves_absolute_offset_without_changing_content(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-018:')
+        block=css[start:css.index('/* OBSERVE directory */',start)]
+        for token in ('@media (max-width: 1199.98px)',
+                      '[data-about-profile] .about-now-updated', 'right: 2.75rem;'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top', 'font-size:', 'grid-template', 'display:', 'position:', 'padding:'):
+            self.assertNotIn(token,block)
+        template=Path('_includes/neutriverse-about-profile.html').read_text()
+        self.assertIn('{{ snapshot.as_of_label }}',template)

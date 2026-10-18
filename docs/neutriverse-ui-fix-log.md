@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A09c部分整页检查确认UI018，最小修复待验
+
+- fresh base/main5ff4c8eb503df23b18b9b8c977957449bdb76b8f /[run39085413284](https://github.com/AplusNeutrino/My_Blog/actions/runs/39085413284) build117550794106/deploy117553847516/live117553882588全部success，关闭上一证据headCI pending。260 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁及production/live各192+14、24公开流程177帧通过；live日志明确https://neutriverse.uk，不视为整页视觉正常。
+- 先记录UI-A09c/base/范围，取live artifact12120503918 /492063761 bytes，独立SHA256 acfa73f792bd2236b7abe3715ed5ea90ab6a701ea2afe4b53da742b0b254229b匹配。实际逐张人工看390/768/1024双主题三页139帧/28联系表，1366的38帧/8联系表未看；精简摘要/原JSON哈希和28已看联系表入库，未看联系表留scratch不冒称验收。作者旧br空白/倒计时保留，未凭偏好改样式。
+- 放大ABOUT1024 Night第6原图确认快照“更新于2026-08-17”日期末端被44px返回顶部圆钮覆盖，编号UI018/P2；同1024 Light第6原图日期完整，不写成双主题均复现。原PNG/诊断永久保存，旧文字门禁没覆盖该快照日期，所以旧CI成功不代表无遮挡。
+- 先记录ui018-checks.md再源码定位：.about-now-updated桌面absolute/right0/bottom-1.9rem，旧UI015书目日期scope不同。最小共享CSS仅<=1199.98px right2.75rem，不改原bottom/position、窄屏static规则、日期/字号/布局/主题/按钮/数据；>=1200不变。现有detailTextButton追加该标签，存在/非空/真实Range严格交集0、旧scope/失败采证重抛及30s字体/20s动画门禁保持，新增2接线/CSS回归，不冒充视觉验收。
+- 本机262 tests/authoring44/5/7/T01保护44/5/5/diff通过；本机无Chrome/Jekyll，新精确head production/产物/修复后人工图/main/live均validation-pending，留ui/fix-018、main不改。AGENTS/docs/agents/ADR/旧COMPLETE报告/本轮台账及补充核对，CONTEXT无、gh不在PATH不编造Issue，独立worktree保留原目录用户修改及home_popular/Library同步；不改旧原文/metadata/URL/hidden/noindex/外部仓库或旧COMPLETE，无新用户决策。A09和全站IN PROGRESS，下一项核对UI018同一工作head与真实截图。
+
 ## 2026-10-18 — UI017精确main部署与线上限定验收done
 
 - fresh base/验收main fa1c2c89fe9512a7c2527de70b9f68953248d4ac，[run39081409231](https://github.com/AplusNeutrino/My_Blog/actions/runs/39081409231) build117538917578/deploy117541886151/verify-live-ui117541923994全部success。260 tests/Ruby渲染/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/路由/全部旧门禁、production/live各192+14及24公开流程177原生帧通过；live日志明确https://neutriverse.uk，不借其他head代验。

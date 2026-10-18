@@ -1826,6 +1826,14 @@ article.nv-post .content video {
   }
 }
 
+/* UI-018: move the absolute historical update label out of the fixed lane.
+   The existing narrow-screen static positioning remains unchanged. */
+@media (max-width: 1199.98px) {
+  [data-about-profile] .about-now-updated {
+    right: 2.75rem;
+  }
+}
+
 /* OBSERVE directory */
 /* UI-015: reserve the fixed button lane in the remaining confirmed text scopes.
    Date labels are absolutely positioned, so padding cannot move them. */

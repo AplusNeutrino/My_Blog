@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | validation-pending | base5ff4c8eb；仅该绝对日期标签right避让并追加严格逐行门禁，262 tests/T01/authoring通过，新head生产/人工图/main/live待验，留ui/fix-018 |
 | UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
 | UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
@@ -68,6 +69,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI-A09c部分检查确认UI018：base main5ff4c8eb/run39085413284 build117550794106/deploy117553847516/live117553882588全部success，关闭上一证据CI pending；live artifact12120503918独立摘要匹配。三页177帧中实际看390/768/1024双主题139帧/28联系表，1366的38帧未看。放大1024 Night ABOUT第6原图确认快照更新日期被按钮遮挡，Light同位置完整。先记录后最小CSS <=1199.98px .about-now-updated right2.75rem，保留原static规则/日期/布局/主题，追加严格Range作用域及2回归；262 tests/authoring44/5/7/T01保护44/5/5/diff通过，新head production/修复后图/main/live validation-pending，留ui/fix-018不改main。无新用户决策，不改同步/原文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE，A09及全站仍IN PROGRESS。[范围与原图](docs/ui-evidence/ui018-checks.md)。
 
 2026-10-18 UI017限定done：精确main fa1c2c89/run39081409231 build117538917578/deploy117541886151/live117541923994全部success；260 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/原门禁、production/live各192+14及24公开流程177帧通过。live artifact12119179516独立摘要匹配；四宽度双主题18时间线目标帧/8联系表实际查看、390 Light原图before/after全文无遮挡。ABOUT8流程目标5/非空/严格交集0、与production诊断相同，滚轮/顶部按钮/公开往返通过，24流程scrollY差0。新证据head自身CI另核对；全站IN PROGRESS，A09剩余整页与其他矩阵pending，无新用户问题。[限定线上证据](docs/ui-evidence/ui017-checks.md#2026-10-18-精确main部署与线上限定验收)。
 
