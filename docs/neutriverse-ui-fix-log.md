@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI018精确生产及限定视觉验收通过，交付待main/live
+
+- fresh main仍5ff4c8eb503df23b18b9b8c977957449bdb76b8f；实现822b03f0929ea1b5e0c68f8d2b432f4aef278c7c，[run39089046015](https://github.com/AplusNeutrino/My_Blog/actions/runs/39089046015) build117561626252 success，分支deploy117564304823/live117564305246 skipped。262 tests、4项Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁、主192/侧栏14/公开24流程177原生帧通过，不当已部署。
+- artifact12122386729 /491118024 bytes /独立SHA256 c6cdf084f4ba68ca99e8778beeec748696d9535d76559a1f3a8cd36321eb9e45匹配。实际人工逐张查看四宽度双主题10日期目标帧/8联系表，放大1024 Night原图对比before，原被圆钮遮住的日期尾端完整位于左侧，390静态/1366原布局无新确认缺陷。只限定UI018，不冒称177自动帧或A09全页均人工完成；8联系表/原场景PNG/24流程精简摘要与原JSON哈希永久入库。
+- ABOUT八流程每帧目标rootCount1/emptyRoots0/严格真实行交集0；原生滚轮全main覆盖、返回顶部pointer click、Library/友链点击及浏览器返回通过，24流程scrollX0无横向溢出。旧作用域/字体30s及动画20s门禁全部保持；本轮不追加产品/数据修改。
+- 本机262 tests/authoring/T01/diff再通过；无本机Chrome/Jekyll，真实视觉及production来自精确CI。已读AGENTS/docs/agents/ADR/旧COMPLETE计划报告和本轮计划日志/补充；CONTEXT无，gh不在PATH不编造Issue。独立worktree保护原目录字体/缓存/未跟踪修改，保留home_popular/Library同步、旧原文/metadata/URL/hidden/noindex/外部仓库及旧COMPLETE。
+- fresh main未变才expected-head非强推交付；新main自身Actions/build/deploy/live及部署后同场景人工图仍validation-pending，UI018不标done。无新用户决策，A09剩余整页及其他矩阵仍IN PROGRESS；下一项核对同一新main，不用工作分支成功替代线上通过。
+
 ## 2026-10-18 — UI-A09c部分整页检查确认UI018，最小修复待验
 
 - fresh base/main5ff4c8eb503df23b18b9b8c977957449bdb76b8f /[run39085413284](https://github.com/AplusNeutrino/My_Blog/actions/runs/39085413284) build117550794106/deploy117553847516/live117553882588全部success，关闭上一证据headCI pending。260 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源/全部旧门禁及production/live各192+14、24公开流程177帧通过；live日志明确https://neutriverse.uk，不视为整页视觉正常。

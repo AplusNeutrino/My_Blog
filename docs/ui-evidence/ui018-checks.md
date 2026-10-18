@@ -1,6 +1,6 @@
 # UI-018 — ABOUT历史状态更新日期被固定按钮覆盖
 
-状态：validation-pending；最小实现留ui/fix-018，修复后生产/人工图/main/live待验，main不改。
+状态：validation-pending；精确生产与限定人工图已通过，可交付main；新main自身build/deploy/live及线上原场景仍待验。
 
 ## 2026-10-18 范围与实际复现
 
@@ -21,3 +21,11 @@
 - 根因：.about-now-updated在桌面为position:absolute/right:0/bottom:-1.9rem，固定圆钮进入其右端；旧UI015书目time不覆盖该快照日期。窄屏原position:static规则保留，不改时间/字号来绕过。
 - 最小CSS仅<=1199.98px把该标签right改2.75rem；不改bottom/position/主体布局、原历史日期或主题，>=1200不变。现有detailTextButton追加[data-about-profile] .about-now-updated，目标必须存在/非空/严格真实文字行交集0，旧scope与失败采证/重抛、字体30s/动画20s保持；新增2接线/CSS回归，不当视觉证明。
 - 本机262 tests、authoring44/5/7、T01保护44/5/5、diff通过。本机无Chrome/Jekyll，精确新head production/产物/修复后人工截图/main/live均待验；原[before PNG](ui018-before-about-updated-1024-dark.png)/[原帧诊断](ui018-before-about-updated-1024-dark.json)保留。先核对同一工作head，不用旧5ff成功代验。
+
+## 2026-10-18 精确生产与限定视觉验收
+
+- 实现822b03f0929ea1b5e0c68f8d2b432f4aef278c7c；[run39089046015](https://github.com/AplusNeutrino/My_Blog/actions/runs/39089046015) build117561626252 success；工作分支deploy117564304823/live117564305246 skipped，不当已部署。262 tests、4项Ruby渲染、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及原门禁通过；主192、侧栏14、公开24流程177原生帧完整产出。
+- artifact12122386729 /491118024 bytes，独立SHA256 c6cdf084f4ba68ca99e8778beeec748696d9535d76559a1f3a8cd36321eb9e45匹配；[精简摘要](ui018-production-summary.json)保留原JSON哈希/24流程及该日期逐行诊断。实际逐张查看四宽度双主题10目标帧/8联系表；放大[1024 Night修复后原图](ui018-production-about-updated-1024-dark.png)对照before，原被盖住的日期尾端完整位于按钮左侧。原日期/主题/主体布局保留，390静态日期与1366原布局无新增确认缺陷。
+- ABOUT八流程每帧目标rootCount1、emptyRoots0、严格文字行交集0；真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击及浏览器返回通过，24流程scrollX0且无横向溢出。仅人工验收10目标帧，不冒称177帧/A09全页人工完成。
+- 本机262 tests/authoring/T01/diff再次通过；本机无Chrome/Jekyll，视觉与production证据来自该精确CI。gh仍不在PATH，不编造Issue；独立worktree保护原目录用户修改。只追加公开证据/计划日志，不追加产品或数据修改，旧COMPLETE/原文/metadata/URL/hidden/noindex/外部仓库不动。
+- fresh main仍5ff4c8eb时才expected-head非强推交付；新main自身build/deploy/live及线上同场景仍validation-pending，UI018未标done。无新增用户决策，下一项核对同一新main，全站IN PROGRESS。
