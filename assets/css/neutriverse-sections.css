@@ -877,6 +877,17 @@
   gap: 0.35rem;
 }
 
+/* UI-020: keep THINK control hit areas outside the fixed-button lane. */
+@media (max-width: 1199.98px) {
+  [data-neutriverse-section='think'] .nv-writing-controls {
+    padding-right: calc(1rem + 2.75rem);
+  }
+
+  [data-neutriverse-section='think'] .nv-writing-pagination {
+    padding-right: 2.75rem;
+  }
+}
+
 .post-series-root a,
 .post-series-neighbors a {
   color: var(--nv-accent);

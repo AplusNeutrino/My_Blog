@@ -1,0 +1,44 @@
+{
+  "mainEnd": 7127.984375,
+  "mainStart": 48,
+  "pageHeight": 7272,
+  "pageWidth": 379,
+  "scrollX": 0,
+  "scrollY": 2116,
+  "topbarBottom": 0,
+  "viewport": {
+    "clientWidth": 379,
+    "height": 701,
+    "width": 390
+  },
+  "writingTextButton": {
+    "button": {
+      "bottom": 627,
+      "left": 319,
+      "right": 363,
+      "top": 583
+    },
+    "groups": [
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 1,
+        "selector": "[data-neutriverse-section=\"think\"] .nv-section-intro"
+      },
+      {
+        "emptyRoots": 0,
+        "lines": [],
+        "overlaps": [],
+        "rootCount": 12,
+        "selector": "[data-writing-item]:not([hidden]) .nv-writing-record-body"
+      }
+    ],
+    "shown": true
+  },
+  "file": "public-sweep-think-page-1-390-light-5.png",
+  "visibleMain": [
+    2116,
+    2817
+  ]
+}

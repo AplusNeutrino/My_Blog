@@ -1,6 +1,17 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
-状态：validation-pending；UI-019已在精确main ffbc8a8b部署和线上限定验收done；A10整页其余250帧未人工看，不冒称完整视觉通过。
+## 2026-10-18 UI-A10a先记录390 Light四页整页范围
+
+- base/main c6d7978ede998948740836eb87ce59fdd6e4ce18；[run39122169875](https://github.com/AplusNeutrino/My_Blog/actions/runs/39122169875) build117659800192/deploy117663901328/live117663968118全部success，关闭上次证据提交待验；267 tests/T01/authoring44/5/7/Jekyll/原门禁与production/live主192成功。不重做已done的UI019限定验收或T00–T39。
+- Task UI-A10a：仅补THINK默认四页390px Prospero Light全部原生滚轮截图的人工检查；目录/介绍/Topic/Series/筛选/卡片/分页/辅助入口至main底部均逐帧查看，疑点放大原图。既有8流程JSON仍独立核对分页/文字Range/原生覆盖/无溢出/返回顶部；不将机械通过当视觉正常。其他宽度/主题其余画面仍pending，不把跨head52目标图算成本head全验。
+- live专项artifact12135991011共52437914 bytes，下载独立SHA256 8f143ff7681364e7e3d510f8d2038f649783f56ffa013cc6dd13449c05ec5342与服务端一致。范围仅本文件/本轮UI计划日志和公开已看联系表/精简证据；若发现确认缺陷先记录问题ID/原图/根因/最小文件范围再修，不凭偏好改样式。无新用户决策，gh不可用不虚构Issue；保留用户修改、原文/metadata/URL/hidden/noindex/同步数据/外部仓库及旧COMPLETE。
+
+状态：validation-pending；UI-019保持done。c6d7978e实际看390 Light四页56/302帧，发现UI020控件部分覆盖；新修复待验，其余246帧本head未人工看，不冒称完整视觉通过。
+
+## UI-A10a实际结果与UI020修复检查点
+
+- 实际看完390 Light四页56帧12联系表（13/15/15/13），放大page1-5与page3-13原图确认Order select右端/数字4页码部分被按钮覆盖；记录UI020，未实测原位置指针点击，不冒称点击已失败。介绍/卡片文字仍避让，不重开UI019；A10a不是通过，其他246帧未看。
+- 先记录UI020/base/条件/文件范围后仅为THINK表单/分页保留按钮安全区，追加每帧控件矩形严格不相交与elementFromPoint中心/边缘命中、scope计数、失败PNG/JSON和2回归。269 tests/T01/authoring/diff本机通过，修复后production/真实图/main/live均待验，工作分支ui/fix-020不动main；无新用户决策。详见ui020-checks.md和ui020-before/uia10a-summary.json，不将先前成功CI当正常。
 
 ## 2026-10-18 UI-019线上限定done，A10其余画面仍pending
 

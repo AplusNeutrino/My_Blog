@@ -1688,6 +1688,38 @@ def public_page_sweep(driver, wait, output, width, theme, name):
             require(all(g['rootCount'] == count and not g['emptyRoots']
                         for g, count in zip(groups, expected_roots)), 'THINK visible text scope missing')
             require(all(not g['overlaps'] for g in groups), 'THINK text covered by back-to-top')
+            # UI-020: text clearance does not protect select/pager hit areas.
+            observed['writingControlButton'] = driver.execute_script('''
+              const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
+              const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
+              const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+              const controls=[...document.querySelectorAll('.nv-writing-controls select, .nv-writing-reset, .nv-writing-pagination a[href]')];
+              const topbar=document.querySelector('#topbar-wrapper').getBoundingClientRect();
+              const visible=controls.map(e=>{
+                const r=e.getBoundingClientRect();
+                if(r.width<=0||r.height<=0||r.bottom<=Math.max(0,topbar.bottom)||r.top>=innerHeight)return null;
+                const points=[[r.left+r.width/2,r.top+r.height/2],
+                  [r.left+2,r.top+2],[r.right-2,r.top+2],[r.left+2,r.bottom-2],[r.right-2,r.bottom-2]];
+                const probes=points.filter(([x,y])=>x>0&&x<document.documentElement.clientWidth&&y>Math.max(0,topbar.bottom)&&y<innerHeight)
+                  .map(([x,y])=>({x,y,hit:e.contains(document.elementFromPoint(x,y))}));
+                return {tag:e.tagName,id:e.id,text:e.textContent.trim(),rect:rect(r),probes,
+                  overlaps:shown&&r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top};
+              }).filter(Boolean);
+              return {button:rect(br),shown,totalControls:controls.length,
+                selectCount:document.querySelectorAll('.nv-writing-controls select').length,
+                resetCount:document.querySelectorAll('.nv-writing-reset').length,visible,
+                overlaps:visible.filter(e=>e.overlaps),misses:visible.filter(e=>e.probes.some(p=>!p.hit))};
+            ''')
+            controls = observed['writingControlButton']
+            invalid = (controls['selectCount'] != 4 or controls['resetCount'] != 1
+                       or controls['totalControls'] < 9 or controls['overlaps'] or controls['misses'])
+            if invalid:
+                driver.save_screenshot(str(output / f'think-pagination-control-overlap-{name}-{width}-{theme}.png'))
+                (output / f'think-pagination-control-overlap-{name}-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+            require(controls['selectCount'] == 4 and controls['resetCount'] == 1 and controls['totalControls'] >= 9,
+                    'THINK control scope missing')
+            require(not controls['overlaps'], 'THINK control hit area covered by back-to-top')
+            require(not controls['misses'], 'THINK visible control pointer hit-test failed')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)

@@ -5,6 +5,31 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_think_control_lane_preserves_existing_layout_and_behavior(self):
+        css=Path('assets/css/neutriverse-sections.css').read_text()
+        start=css.index('/* UI-020:');block=css[start:css.index('.post-series-root a,',start)]
+        for token in ('@media (max-width: 1199.98px)',
+                      "[data-neutriverse-section='think'] .nv-writing-controls",
+                      "[data-neutriverse-section='think'] .nv-writing-pagination",
+                      'padding-right: calc(1rem + 2.75rem);','padding-right: 2.75rem;'):
+            self.assertIn(token,block)
+        for token in ('#back-to-top','display:','font-size:','grid-template','position:'):
+            self.assertNotIn(token,block)
+
+    def test_control_edges_require_clearance_and_real_pointer_hit_targets(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        start=source.index('# UI-020:');block=source[start:source.index('require(start <= (covered',start)]
+        for token in ('.nv-writing-controls select, .nv-writing-reset, .nv-writing-pagination a[href]',
+                      'r.right-2,r.bottom-2','document.elementFromPoint(x,y)',
+                      'document.documentElement.clientWidth','topbar.bottom',
+                      "controls['selectCount'] == 4", "controls['resetCount'] == 1",
+                      "require(not controls['overlaps']", "require(not controls['misses']",
+                      'think-pagination-control-overlap-', 'write_text(json.dumps(observed'):
+            self.assertIn(token,block)
+        self.assertLess(block.index('driver.save_screenshot'),block.index('require('))
+        for token in ('.style','dispatchEvent','captureBeyondViewport'):
+            self.assertNotIn(token,block)
+
     def test_think_text_lane_is_scoped_without_changing_button_or_typography(self):
         css = Path('assets/css/neutriverse-sections.css').read_text()
         block = css[css.index('/* UI-019:'):css.index('.nv-writing-taxonomy {')]

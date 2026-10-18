@@ -17,6 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
+| UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | validation-pending | 仅确认视觉覆盖，未声称原点击已失败；已实现控件安全区/矩形与elementFromPoint门禁，本机269回归/T01/authoring通过；工作分支ui/fix-020，修复后production/main/live待验 |
 | UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | done | ffbc8a8b精确main build/deploy/live全成功；四宽度双主题52线上目标帧/10联系表实际看及5原图对照放大，文字完整避让圆钮；8流程32页302帧严格Range/分页/滚轮/返回顶部通过，仅此范围done，A10其余250帧未看 |
 | UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
@@ -71,6 +72,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI020 validation-pending：base main c6d7978ede998948740836eb87ce59fdd6e4ce18/run39122169875 build117659800192/deploy117663901328/live117663968118全部success，关闭上轮证据head待验。live专项artifact12135991011摘要独立匹配；实际看390 Light四页56帧12联系表，放大page1-5/page3-13确认Order select右端/数字4页码部分被按钮覆盖，原位置指针点击未实测。先记录后仅THINK表单/分页安全区+每帧控件矩形不交叉/elementFromPoint中心和边角命中/scope计数/失败PNG-JSON、2接线回归；本机269 tests/T01/authoring/diff通过，无本机Chrome/Jekyll，修复后生产/实际图/main/live仍pending，留ui/fix-020不动main。其余246帧本head未人工验收，不混算旧head52目标；UI019仍done，无新用户决策，不改内容/数据/隐蔽边界/旧COMPLETE。
 
 2026-10-18 UI019限定done：验收main/base ffbc8a8b1dfa3eefca110a0fff011ca76707d1f5/run39118107146 build117647931783/deploy117651883104/live117651919017全部success，267 tests/T01/authoring/Jekyll/原门禁和production/live各192主成功。live专项artifact12134490432独立摘要匹配；实际看四宽度双主题52线上目标帧10联系表，放大5原图与before/production比对，THINK介绍/原三卡摘要/Fragment文字完整避让按钮，无新确认缺陷。8流程32页302帧44唯一href顺序/刷新/上一页、原生覆盖/尺寸/无溢出、root计数与文字Range交集0、真实返回顶部均通过，302帧诊断与生产一致。其余250帧未人工验收，不标A10整页done。仅本计划日志/ui019/uia10与公开live证据更新，旧内容/数据/隐蔽边界/旧COMPLETE不动，新证据head自身CI另核对；无新用户决策，全站IN PROGRESS，下一项先核对新head再补A10其余画面。
 

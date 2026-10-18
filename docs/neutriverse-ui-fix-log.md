@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A10a看完390 Light四页，确认UI020控件部分覆盖
+
+- 最小实现已完成：<=1199.98px仅THINK表单padding-right:calc(1rem + 2.75rem)、分页padding-right:2.75rem；每帧4 select/1 reset/分页scope计数，可见控件矩形与可见按钮不交叉及elementFromPoint中心/四角内缩2px命中，视口/顶栏以外不作可点断言；失败先PNG/JSON再抛出，不替代既有真实分页/刷新/上一页/返回顶部。加2接线回归，本机269 tests/authoring44/5/7/T01保护44/5/5/diff通过。无本机Chrome/Jekyll，修复后production/截图/main/live validation-pending，留ui/fix-020；原文/按钮/字号/产品JS/原门禁不改。ui020-before保留2原图/JSON、12已看联系表及摘要；A10a发现缺陷未通过，其他246帧仍待看。
+
+- base/main c6d7978ede998948740836eb87ce59fdd6e4ce18/run39122169875 build117659800192/deploy117663901328/live117663968118全部success，关闭上轮证据head pending；267 tests/T01/authoring44/5/7/Jekyll/原门禁和production/live各192主通过。live专项artifact12135991011独立SHA256 8f143ff7681364e7e3d510f8d2038f649783f56ffa013cc6dd13449c05ec5342匹配。
+- 先记录UI-A10a仅390 Light四页整页范围，实际看56帧12联系表，放大page1-5和page3-13原图确认固定按钮部分覆盖排序下拉框箭头/页码4触控区域，UI020 P2；数字4仍可见，不声称按钮完全失效或已实测点击失败。原UI019文字避让正常，其余246帧本head未人工看，A10不能整页通过。
+- 根因/最小文件范围先记ui020-checks.md：<=1199.98px仅THINK筛选/分页容器保留2.75rem安全区，四页每帧新增控件矩形不与可见按钮交叉和elementFromPoint关键点命中、失败PNG/JSON、必要回归与公开before证据。未验证存ui/fix-020不动main；正文/metadata/URL/hidden/noindex/数据/外部仓库/旧COMPLETE不动，无新用户决策，gh不可用不虚构Issue。
+
 ## 2026-10-18 — UI019精确main线上限定验收done
 
 - 验收main/base ffbc8a8b1dfa3eefca110a0fff011ca76707d1f5/[run39118107146](https://github.com/AplusNeutrino/My_Blog/actions/runs/39118107146) build117647931783/deploy117651883104/live117651919017全部success。267 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁及production/live各192主成功。live日志https://neutriverse.uk，8流程32页的URL均是该站点，不用localhost替代。
