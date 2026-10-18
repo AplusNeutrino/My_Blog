@@ -17,7 +17,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | validation-pending | 822b03f0精确production成功；四宽度双主题10日期目标帧/8联系表已实际查看，1024 Night原图对照日期完整避开按钮；允许交付main，新main自身build/deploy/live及线上原场景待验 |
+| UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-017 | P2 | 实际390 Light ABOUT时间线Ravenis节点说明行尾被固定返回顶部圆钮遮挡 | done | fa1c2c89精确main build/deploy/live全部success；四宽度双主题18线上时间线目标帧/8联系表实际查看，390 Light原图对照全文无遮挡；8流程原生滚轮/返回顶部/Library友链往返通过，仅本作用域done |
 | UI-016 | P2 | 390 Night线上原生图：ABOUT“友情链接”关系卡片说明右端被固定返回顶部按钮覆盖 | done | 5862ab0e同head attempt2 build/deploy/live全部success；四宽度双主题12线上关系帧/8联系表实际查看，390 Night原图对照全文无覆盖；8流程真实滚轮/返回顶部/Library友链往返通过，仅此作用域done |
 | UI-015 | P2 | 390 Night实际原生图：ABOUT理念段尾字、书目日期/维护说明及OBSERVE卡片noindex状态被固定按钮覆盖 | done | c001784b精确main build/deploy/live全部success；四宽度双主题45线上目标帧/18联系表实际查看，390四原图与before对比尾字/日期/NOINDEX完整，16组真实滚轮/返回顶部/公开往返通过；仅四类作用域done |
@@ -69,6 +69,8 @@
 Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、清除；排序、列表模式、摘置/已放弃尚未验收，随余下Library检查继续，不由此限定done推断全部高级筛选完成。
 
 ## 当前运行
+
+2026-10-18 UI018限定done：c696aa9484d99a5d07fae662615c2381f499daa9/run39092301033 build117571422808/deploy117574250958/live117574288474全部success；262 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/旧门禁及production/live各192+14、24公开流程177帧通过。live artifact12124180750独立摘要匹配，实际看10线上日期目标帧/8联系表，放大1024 Night before/after尾端无遮挡。ABOUT八流程目标1/非空/严格交集0、与生产日期诊断相同；真实滚轮/顶部按钮/公开往返通过，24流程scrollY差0。新证据head自身CI另核对；全站IN PROGRESS，下一项先核对新head，再补A09剩余整页及其他矩阵，无新用户问题。[限定线上证据](docs/ui-evidence/ui018-checks.md#2026-10-18-精确main部署与线上限定验收)。
 
 2026-10-18 UI018生产限定验收通过：822b03f0/run39089046015 build117561626252 success、工作分支deploy/live skipped；262 tests/Ruby/T01保护44/5/5、authoring44/5/7、production Jekyll/产物/旧门禁及192+14/24公开流程177帧通过。artifact12122386729独立SHA256匹配，实际看10日期目标帧/8联系表、放大1024 Night before/after尾端完整避开按钮。ABOUT八流程目标1/非空/严格交集0，真实滚轮/返回顶部/Library友链往返通过。fresh main5ff未变才非强推交付；新main自身CI/deploy/live及线上人工图仍pending，不标done。无新用户决策、不改同步/原文/隐蔽边界/旧COMPLETE；A09及全站IN PROGRESS。[限定生产证据](docs/ui-evidence/ui018-checks.md#2026-10-18-精确生产与限定视觉验收)。
 

@@ -1,6 +1,6 @@
 # UI-018 — ABOUT历史状态更新日期被固定按钮覆盖
 
-状态：validation-pending；精确生产与限定人工图已通过，可交付main；新main自身build/deploy/live及线上原场景仍待验。
+状态：done（仅UI-018日期标签作用域）；c696aa9精确main build/deploy/live与部署后原场景人工复验通过。全站矩阵仍IN PROGRESS，新证据提交自身CI另核对。
 
 ## 2026-10-18 范围与实际复现
 
@@ -29,3 +29,10 @@
 - ABOUT八流程每帧目标rootCount1、emptyRoots0、严格文字行交集0；真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击及浏览器返回通过，24流程scrollX0且无横向溢出。仅人工验收10目标帧，不冒称177帧/A09全页人工完成。
 - 本机262 tests/authoring/T01/diff再次通过；本机无Chrome/Jekyll，视觉与production证据来自该精确CI。gh仍不在PATH，不编造Issue；独立worktree保护原目录用户修改。只追加公开证据/计划日志，不追加产品或数据修改，旧COMPLETE/原文/metadata/URL/hidden/noindex/外部仓库不动。
 - fresh main仍5ff4c8eb时才expected-head非强推交付；新main自身build/deploy/live及线上同场景仍validation-pending，UI018未标done。无新增用户决策，下一项核对同一新main，全站IN PROGRESS。
+
+## 2026-10-18 精确main部署与线上限定验收
+
+- 验收main c696aa9484d99a5d07fae662615c2381f499daa9；[run39092301033](https://github.com/AplusNeutrino/My_Blog/actions/runs/39092301033) build117571422808/deploy117574250958/verify-live-ui117574288474全部success。262 tests、4项Ruby、T01保护44/5/5、authoring44/5/7、production Jekyll/Search/feed/SEO/资源及全部旧门禁通过；production/live各192+14与24公开流程177原生帧，live日志明确https://neutriverse.uk。
+- live artifact12124180750 /493382730 bytes /独立SHA256 a32bf3590395f1be93ee8893bd81a256f27f9b581cac644156af6f8feb828748匹配。实际逐张人工查看四宽度双主题10个日期目标帧/8联系表；放大[1024 Night线上原图](ui018-live-about-updated-1024-dark.png)与before对照，日期末端完整位于圆钮左侧，原日期/主题/主体布局保留，无新确认缺陷。只限定UI018，不将177帧或A09整页冒称全部人工验收。
+- [24流程精简摘要](ui018-live-summary.json)保留原JSON SHA256、来源head/artifact、10目标帧和8联系表。ABOUT八流程每帧目标rootCount1/emptyRoots0/严格逐行交集0，与822b03f0生产日期诊断完全相同；24流程帧数/往返目标一致、scrollY最大差0/scrollX0/无横向溢出。真实原生滚轮覆盖main、返回顶部pointer click、Library/友链点击及浏览器返回通过。
+- 本机262 tests/authoring/T01再通过；本机无Chrome/Jekyll，真实浏览器证据来自精确CI。gh不在PATH不编造Issue；独立worktree不动原目录用户修改。仅追加公开证据与计划日志，不改原文/metadata/URL/hidden/noindex、同步数据、外部仓库或旧COMPLETE。UI018限定done，新证据head自身CI另核对；无新用户决策，A09与全站仍IN PROGRESS，不写final报告或暂停。
