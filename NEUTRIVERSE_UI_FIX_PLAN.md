@@ -71,6 +71,8 @@ Library UI-A08c2仅覆盖下一页/刷新/上一页、来源与年份组合、�
 
 ## 当前运行
 
+2026-10-18 UI-A10 validation-pending：base40e6ee2b/run39102519248 build117601511609/deploy117604332268/live117604361133全部success，关闭A09证据head pending。先记录THINK四页原生整页/分页范围；仅扩审计与2回归，严格44条唯一href/顺序/四页12-12-12-8、URL/current marker、末页刷新/上一页ID，真实pointer pager和既有原生滚轮全main采证，原192+14/24公开流程及字体/动画/失败门禁不减。本机264 tests/authoring/T01/diff通过，无本机Chrome/Jekyll，新增32页真实截图/production/main/live未验，保存ui/audit-010不改main。无新确认产品缺陷或用户决策，不改产品/内容/数据/隐蔽边界/旧COMPLETE；下一项核对同一工作head与真实截图。[范围与限制](docs/ui-evidence/uia10-checks.md)。
+
 2026-10-18 UI-A09三页限定done：846bb111/run39099422688 build117592446734/deploy117595158859/live117595196719全部success，262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。artifact12126387158独立摘要匹配，实际看390/768/1024双主题139帧28联系表并放大三原图无新增确认缺陷；1366明确复用A09d已看38帧8表，源码无变且逐帧元数据相同，不冒称本head人工177。24流程原生覆盖/尺寸/无溢出、滚轮/返回顶部/所列公开点击返回通过。仅此范围done，不改样式/数据/原文/隐蔽边界/旧COMPLETE，无新用户问题；新证据head自身CI另核对，下一项THINK完整分页/Thought点赞等余下矩阵。全站IN PROGRESS。[限定关闭证据](docs/ui-evidence/uia09-checks.md#ui-a09e实际结果与限定关闭)。
 
 2026-10-18 UI-A09d 1366三页限定通过：2640b343/run39095766609 build117581763831/deploy117584513494/live117584548392全部success，关闭UI018证据head pending；262 tests/Ruby/T01/authoring/Jekyll/旧门禁及production/live各192+14、24公开流程177帧通过。live artifact12125416779独立SHA256匹配，实际看1366双主题首页12/OBSERVE4/ABOUT22共38帧8联系表，放大三张原图无新增确认缺陷。六流程真实滚轮/返回顶部/四入口或公开详情及Library友链往返、原生main覆盖/无横向溢出通过。仅1366限定done；UI018后其余139帧整页人工重看仍pending，不冒称跨head全177验收。无新用户决策，不修改产品/门禁/旧br/数据/原文/隐蔽边界/旧COMPLETE；新证据head自身CI另核对。下一项补齐其余139帧最终复查。[范围与结果](docs/ui-evidence/uia09-checks.md#ui-a09d实际结果1366三页限定通过)。

@@ -1477,8 +1477,71 @@ def reading_controls(driver, wait, name, output, width, theme):
     return result
 
 
+def think_pagination_controls(driver, wait, output, width, theme):
+    """UI-A10: all public records, native page sweeps and real pager input."""
+    driver.get(driver.current_url.split('?')[0].split('#')[0])
+    settle(driver, wait, theme)
+    ledger = '[data-writing-ledger]'
+    def inventory(visible=False):
+        return driver.execute_script('''
+          return [...document.querySelectorAll('[data-writing-item]')]
+            .filter(n=>!arguments[0]||!n.hidden)
+            .map(n=>n.querySelector('.nv-writing-record-body a').getAttribute('href'));
+        ''', visible)
+    def current(number):
+        wait.until(lambda d: d.find_element(By.CSS_SELECTOR, ledger).get_attribute('data-writing-page-current') == str(number))
+        require(parse_qs(urlsplit(driver.current_url).query).get('page', ['1']) == [str(number)], 'THINK page URL mismatch')
+        require(driver.find_element(By.CSS_SELECTOR, '[data-writing-pages] [aria-current="page"]').text == str(number), 'THINK current page marker mismatch')
+    def click(selector):
+        e = driver.find_element(By.CSS_SELECTOR, selector)
+        driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", e)
+        driver.execute_async_script('const done=arguments[arguments.length-1];requestAnimationFrame(()=>requestAnimationFrame(()=>done(true)));')
+        wait.until(lambda d: d.execute_script('const e=arguments[0],r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));', e))
+        e.click()
+        pointer = ActionBuilder(driver)
+        pointer.pointer_action.move_to_location(width//2, 8)
+        pointer.perform()
+        settle(driver, wait, theme)
+    expected = inventory()
+    require(len(expected) == 44 and len(set(expected)) == 44, 'THINK public inventory differs from protected 44 records')
+    require(driver.find_element(By.CSS_SELECTOR, ledger).get_attribute('data-writing-page-total') == '4', 'THINK total pages mismatch')
+    rows, seen = [], []
+    result = {'expectedHrefs': expected, 'pages': rows, 'lastPageRefresh': False, 'previousPage': False}
+    try:
+        for number in range(1, 5):
+            current(number)
+            observed = inventory(True)
+            require(observed == expected[(number-1)*12:number*12], 'THINK page IDs/order mismatch')
+            seen.extend(observed)
+            row = {'page':number, 'url':driver.current_url, 'hrefs':observed}
+            rows.append(row)
+            row['sweep'] = public_page_sweep(driver, wait, output, width, theme, f'think-page-{number}')
+            if number < 4:
+                click('[data-writing-page="next"]')
+        require(seen == expected and len(set(seen)) == 44, 'THINK pagination lost or duplicated records')
+        original = driver.current_url
+        driver.refresh()
+        settle(driver, wait, theme)
+        current(4)
+        require(driver.current_url == original and inventory(True) == expected[36:44], 'THINK last-page refresh changed URL or IDs')
+        result['lastPageRefresh'] = True
+        click('[data-writing-page="previous"]')
+        current(3)
+        require(inventory(True) == expected[24:36], 'THINK previous page IDs mismatch')
+        result['previousPage'] = True
+        return result
+    except Exception:
+        driver.save_screenshot(str(output / f'think-pagination-failure-{width}-{theme}.png'))
+        result['failure'] = {'url':driver.current_url, 'visibleHrefs':inventory(True)}
+        raise
+    finally:
+        (output / f'think-pagination-{width}-{theme}.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+
+
 def public_page_sweep(driver, wait, output, width, theme, name):
     """Overlapping native viewports and bounded public-link round trips."""
+    require(name in ('home', 'observe', 'about') or re.fullmatch(r'think-page-[1-4]', name),
+            'Unexpected public sweep scope')
     original = driver.current_url
     driver.execute_script("scrollTo({top:0,behavior:'instant'});")
     frames, covered = [], None
@@ -1626,7 +1689,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         'home': [('.nv-home-explore .nv-primary-nav-link', p) for p in ('/think/','/build/','/observe/','/about/')],
         'observe': [('[data-observe-action="project"]', p) for p in ('/build/ravenis/','/build/occult-atlas/')],
         'about': [('.about-relation-action[href]', p) for p in ('/library/','/links/')],
-    }[name]
+    }.get(name, [])
     visited = []
     for selector, path in targets:
         print(json.dumps({'publicPage':name,'windowWidth':width,'theme':theme,'destination':path,'phase':'click-return'}),flush=True)
@@ -1789,6 +1852,8 @@ def main():
                                 require('noindex' in g['noindex'], f'noindex changed: {result}')
                         if name in ('think-all', 'build-all'):
                             result['interactions'] = exercise_controls(driver, wait, kind)
+                        if name == 'think-all':
+                            result['paginationInventory'] = think_pagination_controls(driver, wait, output, width, theme)
                         if name in ('tags', 'archives', 'thoughts', 'series-directory'):
                             result['interactions'] = retrieval_controls(driver, wait, name)
                         if name in ('library', 'links'):
