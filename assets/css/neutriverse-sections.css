@@ -689,6 +689,14 @@
   min-width: 0;
 }
 
+/* UI-019: reserve the fixed back-to-top lane for flowing THINK text only. */
+@media (max-width: 1199.98px) {
+  [data-neutriverse-section='think'] .nv-section-intro,
+  [data-neutriverse-section='think'] .nv-writing-record-body {
+    padding-right: 2.75rem;
+  }
+}
+
 .nv-writing-taxonomy {
   display: flex;
   flex-wrap: wrap;

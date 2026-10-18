@@ -1,6 +1,12 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
-状态：validation-pending；精确c1a7bb7生产build成功，但总证据包超过下载接口上限，尚未实际看图；仅补专项原图包，main不改。
+状态：validation-pending；专项8b3308d生产build成功、包已独立核验并开始实际看图，确认UI-019遮挡。不是视觉通过，main不改。
+
+## 2026-10-18 专项包实际验收发现UI-019
+
+- 8b3308db63b810c58afbce317a27427d3a38072e / [run39110109162](https://github.com/AplusNeutrino/My_Blog/actions/runs/39110109162) build117624212912 success；工作分支deploy117628254520/live117628258809 skipped。265 tests/T01/authoring44/5/7/production Jekyll与旧门禁成功。专项artifact12129943687共51332149 bytes，下载独立SHA256 60d83add292b465be9e17097e35803e93f4b4cc4b65b7cf36fa10693cfc0eee5一致，下载限制已解除；不需要再下载超限总包。
+- 八流程32页共292原生帧，全部JSON机械核对44条唯一href顺序12/12/12/8、末页刷新/上一页、连续main覆盖/实际PNG尺寸/无横向溢出通过。人工仅查看390 Light第一页13帧3联系表并放大2/6/7/8原图，确认介绍与写作卡摘要被返回顶部按钮遮挡，记录[UI-019](ui019-checks.md)；不能以CI成功判定视觉正常。剩余279帧未人工验收。
+- 当前优先UI-019最小修复，保留A10审计与所有门禁，工作分支ui/fix-019；生产修复后与main/live仍需同head/同场景逐项验收。before原图/实际查看联系表/摘要在ui019-before/与ui019-before-summary.json，无新用户决策。以下旧记录是原时点状态，非当前下载状态。
 
 ## 2026-10-18 精确生产结果与证据下载限制（先记录）
 

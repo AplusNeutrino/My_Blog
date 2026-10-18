@@ -1,0 +1,96 @@
+{
+  "task": "UI-A10 / UI-019",
+  "sourceHead": "8b3308db63b810c58afbce317a27427d3a38072e",
+  "run": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39110109162",
+  "artifactId": 12129943687,
+  "artifactBytes": 51332149,
+  "independentlyVerifiedSha256": "60d83add292b465be9e17097e35803e93f4b4cc4b65b7cf36fa10693cfc0eee5",
+  "mechanicalFlows": [
+    {
+      "file": "think-pagination-1024-dark.json",
+      "sha256": "79686d28bbf7fdcabba7196209671d9afbaf6b6b424e8748756ee6cdb8dd890a",
+      "pages": 4,
+      "frames": 31,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-1024-light.json",
+      "sha256": "f1c87e21fa567a956e5ad1abe6c5a129ec1a828f616585921189135d1101726a",
+      "pages": 4,
+      "frames": 32,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-1366-dark.json",
+      "sha256": "36afeff63d1c99f9c251732374eebb56f04f39c31ce313f751c6c8c0023ea145",
+      "pages": 4,
+      "frames": 31,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-1366-light.json",
+      "sha256": "a5870ab06ef8f6985d2e5e3e0424b7da5eea47c914ec29052fa39a068ea981fc",
+      "pages": 4,
+      "frames": 31,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-390-dark.json",
+      "sha256": "b6046817e9fddf861033244e1c3d6982ba0f5db62403a22f575ae6039df17c70",
+      "pages": 4,
+      "frames": 52,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-390-light.json",
+      "sha256": "e320e0940063fb6bb04e640b3225158ed76bebf1198ea86fc87927a2ba4b0f8b",
+      "pages": 4,
+      "frames": 53,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-768-dark.json",
+      "sha256": "7edf27edf8e68f33878cf2277722489cf30aa10a907377cc4d02db16d36aeb51",
+      "pages": 4,
+      "frames": 31,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "file": "think-pagination-768-light.json",
+      "sha256": "38721a8316eb9d99f22f6b9871781f4b37edc6825d45685d14fdc6a6f17ca52c",
+      "pages": 4,
+      "frames": 31,
+      "lastPageRefresh": true,
+      "previousPage": true
+    }
+  ],
+  "mechanicalFrames": 292,
+  "manuallyReviewed": {
+    "flow": "390-light",
+    "page": 1,
+    "frames": 13,
+    "contacts": 3,
+    "nativeZoomFrames": [
+      2,
+      6,
+      7,
+      8
+    ]
+  },
+  "unreviewedFrames": 279,
+  "visualAcceptance": false,
+  "confirmedDefect": "UI-019",
+  "limitations": [
+    "Production CI, not live deployment",
+    "No text-button Range measurement in this base audit",
+    "Other 279 frames not manually reviewed",
+    "Fix-head screenshots and live review pending"
+  ]
+}

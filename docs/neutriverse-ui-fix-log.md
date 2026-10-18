@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI-A10实际看图发现UI-019，先记录最小修复
+
+- 实施后：仅THINK介绍/写作record-body在<=1199.98px添加2.75rem右侧文字空间，不动日期列/按钮/字号/文本；原四页每帧添加介绍1/可见记录12或末页8的scope计数、Text Range/可见按钮严格相交门禁，失败先存PNG/JSON后抛出。加2接线回归，本机267 tests、authoring44/5/7、T01保护44/5/5、diff通过。无本机Chrome/Jekyll，修复后production/截图/main/live仍validation-pending，不能用8b成功替代。before原图4张、3已看联系表和8流程JSON摘要回写；不将其余279帧视为已看。下一项同一ui/fix-019 head真实CI/图，无新增用户决策。
+
+- fresh main40e6ee2b、工作8b3308db63b810c58afbce317a27427d3a38072e；run39110109162 build117624212912 success，deploy117628254520/live117628258809 skipped。日志265 tests/T01/authoring44/5/7/production Jekyll/原门禁通过。专项包12129943687下载51332149 bytes，独立SHA256 60d83add292b465be9e17097e35803e93f4b4cc4b65b7cf36fa10693cfc0eee5匹配；8JSON/32页/292原生帧机械分页完整/刷新/上一页/覆盖/尺寸/无溢出核对通过，非视觉验收。
+- 实际看390 Light第1页13帧3联系表并放大2/6/7/8原图，确认介绍末行、Progressive Disclosure、互联网标签、Z.A.T.O.摘要右端被固定返回顶部圆钮覆盖，UI-019 P2。其余279帧未人工验收，A10仍pending，不把CI成功当正常。保留before原图与逐帧元数据；问题不是偏好或用户报告。
+- 根因和范围先记docs/ui-evidence/ui019-checks.md：仅<=1199.98px给THINK介绍/记录body留2.75rem文字安全空间；现有THINK四页原生滚轮增加逐帧Text Range/可见按钮不相交门禁、先保存失败证据再抛出，必要回归和计划日志。工作分支ui/fix-019，不动main；修复后生产/main/live均待验。AGENTS/docs/agents/ADR/旧COMPLETE计划报告/本轮台账及用户补充核对，CONTEXT无、gh不在PATH不编造Issue；独立worktree保护原修改，不改旧内容/metadata/URL/hidden/noindex/同步数据/外部仓库或旧COMPLETE。无新用户决策。
+
 ## 2026-10-18 — UI-A10生产成功但总包过大，补专项无损证据包
 
 - fresh main仍40e6ee2b693778dacca9140ff9fabaf454176c78；工作实现c1a7bb710467663093b75d947458ac2ebbd35728/[run39105966506](https://github.com/AplusNeutrino/My_Blog/actions/runs/39105966506) build117611754548 success，工作分支deploy117615335443/live117615336133 skipped，不当已部署。日志核对264 tests、4项Ruby、T01/authoring44/5/7、production Jekyll/Search/feed/SEO/资源/旧门禁和主192成功，但JSON和实际图尚未取回，不能写视觉正常。

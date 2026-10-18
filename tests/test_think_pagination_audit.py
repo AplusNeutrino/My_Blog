@@ -5,6 +5,33 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_think_text_lane_is_scoped_without_changing_button_or_typography(self):
+        css = Path('assets/css/neutriverse-sections.css').read_text()
+        block = css[css.index('/* UI-019:'):css.index('.nv-writing-taxonomy {')]
+        for token in ('@media (max-width: 1199.98px)',
+                      "[data-neutriverse-section='think'] .nv-section-intro",
+                      "[data-neutriverse-section='think'] .nv-writing-record-body",
+                      'padding-right: 2.75rem;'):
+            self.assertIn(token, block)
+        for token in ('#back-to-top', 'font-size:', 'display:', 'position:', 'grid-template'):
+            self.assertNotIn(token, block)
+
+    def test_visible_record_ranges_reject_overlap_and_save_failure_before_raise(self):
+        source = Path('tools/check_think_build_visual.py').read_text()
+        block = source[source.index("elif name.startswith('think-page-'):"):
+                       source.index("require(start <= (covered")]
+        for token in ('[data-neutriverse-section="think"] .nv-section-intro',
+                      '[data-writing-item]:not([hidden]) .nv-writing-record-body',
+                      'document.createTreeWalker', 'document.createRange()', 'range.getClientRects()',
+                      'Number(s.opacity)>0', "[1, 8 if name == 'think-page-4' else 12]",
+                      "g['rootCount'] == count and not g['emptyRoots']",
+                      "all(not g['overlaps'] for g in groups)",
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top',
+                      'think-pagination-overlap-', 'THINK text covered by back-to-top'):
+            self.assertIn(token, block)
+        self.assertLess(block.index('driver.save_screenshot'), block.index('require('))
+        self.assertNotIn('.style', block)
+
     def test_lossless_scoped_artifacts_keep_complete_archives(self):
         import yaml
         workflow = yaml.safe_load(Path('.github/workflows/pages-deploy.yml').read_text())
