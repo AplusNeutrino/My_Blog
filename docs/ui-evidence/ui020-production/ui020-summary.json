@@ -1,0 +1,918 @@
+{
+  "head": "7d71656eab5a5bdb2350b1d9f1fa9003e184e97e",
+  "run": 39134358751,
+  "artifact": 12139628306,
+  "bytes": 53511302,
+  "sha256": "15a6df51feac4309c2385d3d10f6b93961932cdfb3802931bf8050ca21449d21",
+  "flows": [
+    {
+      "width": 390,
+      "theme": "dark",
+      "sourceJson": "think-pagination-390-dark.json",
+      "sourceJsonSha256": "d54ed850f14dac835b7e5efccac775ff669edb3523d6f8d10b064a2bcc10a2cd",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 14,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 15,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 15,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 13,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 57,
+      "controlFrames": [
+        "public-sweep-think-page-1-390-dark-5.png",
+        "public-sweep-think-page-1-390-dark-6.png",
+        "public-sweep-think-page-1-390-dark-12.png",
+        "public-sweep-think-page-2-390-dark-5.png",
+        "public-sweep-think-page-2-390-dark-6.png",
+        "public-sweep-think-page-2-390-dark-13.png",
+        "public-sweep-think-page-3-390-dark-5.png",
+        "public-sweep-think-page-3-390-dark-6.png",
+        "public-sweep-think-page-3-390-dark-13.png",
+        "public-sweep-think-page-3-390-dark-14.png",
+        "public-sweep-think-page-4-390-dark-5.png",
+        "public-sweep-think-page-4-390-dark-6.png",
+        "public-sweep-think-page-4-390-dark-11.png"
+      ],
+      "contacts": [
+        "ui020-390-dark-1.jpg",
+        "ui020-390-dark-2.jpg",
+        "ui020-390-dark-3.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "sourceJson": "think-pagination-390-light.json",
+      "sourceJsonSha256": "1d5af952f005dab88bc901750efa7f887daf1d276647802ca105caf0bea8cfda",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 13,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 15,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 15,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 13,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 56,
+      "controlFrames": [
+        "public-sweep-think-page-1-390-light-5.png",
+        "public-sweep-think-page-1-390-light-6.png",
+        "public-sweep-think-page-1-390-light-12.png",
+        "public-sweep-think-page-2-390-light-5.png",
+        "public-sweep-think-page-2-390-light-6.png",
+        "public-sweep-think-page-2-390-light-13.png",
+        "public-sweep-think-page-3-390-light-5.png",
+        "public-sweep-think-page-3-390-light-6.png",
+        "public-sweep-think-page-3-390-light-13.png",
+        "public-sweep-think-page-3-390-light-14.png",
+        "public-sweep-think-page-4-390-light-5.png",
+        "public-sweep-think-page-4-390-light-6.png",
+        "public-sweep-think-page-4-390-light-11.png"
+      ],
+      "contacts": [
+        "ui020-390-light-1.jpg",
+        "ui020-390-light-2.jpg",
+        "ui020-390-light-3.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "sourceJson": "think-pagination-768-dark.json",
+      "sourceJsonSha256": "dbbd3f9bcfbd43fdae2db2775fc0d99518304d975c7545af015419a5073b600e",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 31,
+      "controlFrames": [
+        "public-sweep-think-page-1-768-dark-3.png",
+        "public-sweep-think-page-1-768-dark-7.png",
+        "public-sweep-think-page-1-768-dark-8.png",
+        "public-sweep-think-page-2-768-dark-3.png",
+        "public-sweep-think-page-2-768-dark-7.png",
+        "public-sweep-think-page-2-768-dark-8.png",
+        "public-sweep-think-page-3-768-dark-3.png",
+        "public-sweep-think-page-3-768-dark-7.png",
+        "public-sweep-think-page-3-768-dark-8.png",
+        "public-sweep-think-page-4-768-dark-3.png",
+        "public-sweep-think-page-4-768-dark-6.png",
+        "public-sweep-think-page-4-768-dark-7.png"
+      ],
+      "contacts": [
+        "ui020-768-dark-1.jpg",
+        "ui020-768-dark-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "sourceJson": "think-pagination-768-light.json",
+      "sourceJsonSha256": "17f5329ddd204b15201a7119271e49ca8a6227c49aec4b535f9a111ae841a275",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 31,
+      "controlFrames": [
+        "public-sweep-think-page-1-768-light-3.png",
+        "public-sweep-think-page-1-768-light-7.png",
+        "public-sweep-think-page-1-768-light-8.png",
+        "public-sweep-think-page-2-768-light-3.png",
+        "public-sweep-think-page-2-768-light-7.png",
+        "public-sweep-think-page-2-768-light-8.png",
+        "public-sweep-think-page-3-768-light-3.png",
+        "public-sweep-think-page-3-768-light-7.png",
+        "public-sweep-think-page-3-768-light-8.png",
+        "public-sweep-think-page-4-768-light-3.png",
+        "public-sweep-think-page-4-768-light-6.png",
+        "public-sweep-think-page-4-768-light-7.png"
+      ],
+      "contacts": [
+        "ui020-768-light-1.jpg",
+        "ui020-768-light-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "sourceJson": "think-pagination-1024-dark.json",
+      "sourceJsonSha256": "ac9250d3184833a1606d7a83d4866106ab278e5f080e68adb9d2f713e0b5c495",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 9,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 32,
+      "controlFrames": [
+        "public-sweep-think-page-1-1024-dark-3.png",
+        "public-sweep-think-page-1-1024-dark-7.png",
+        "public-sweep-think-page-1-1024-dark-8.png",
+        "public-sweep-think-page-2-1024-dark-3.png",
+        "public-sweep-think-page-2-1024-dark-8.png",
+        "public-sweep-think-page-3-1024-dark-3.png",
+        "public-sweep-think-page-3-1024-dark-8.png",
+        "public-sweep-think-page-3-1024-dark-9.png",
+        "public-sweep-think-page-4-1024-dark-3.png",
+        "public-sweep-think-page-4-1024-dark-6.png",
+        "public-sweep-think-page-4-1024-dark-7.png"
+      ],
+      "contacts": [
+        "ui020-1024-dark-1.jpg",
+        "ui020-1024-dark-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "sourceJson": "think-pagination-1024-light.json",
+      "sourceJsonSha256": "74d649731629895fb5b73966e0dbddee075116fc5a7a01422ff6bbfbca18124c",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 9,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 9,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 33,
+      "controlFrames": [
+        "public-sweep-think-page-1-1024-light-3.png",
+        "public-sweep-think-page-1-1024-light-7.png",
+        "public-sweep-think-page-1-1024-light-8.png",
+        "public-sweep-think-page-2-1024-light-3.png",
+        "public-sweep-think-page-2-1024-light-8.png",
+        "public-sweep-think-page-2-1024-light-9.png",
+        "public-sweep-think-page-3-1024-light-3.png",
+        "public-sweep-think-page-3-1024-light-8.png",
+        "public-sweep-think-page-3-1024-light-9.png",
+        "public-sweep-think-page-4-1024-light-3.png",
+        "public-sweep-think-page-4-1024-light-6.png",
+        "public-sweep-think-page-4-1024-light-7.png"
+      ],
+      "contacts": [
+        "ui020-1024-light-1.jpg",
+        "ui020-1024-light-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 1366,
+      "theme": "dark",
+      "sourceJson": "think-pagination-1366-dark.json",
+      "sourceJsonSha256": "7c87cdd42c62557641d2f8847dcab68cdf6a33b13cd3e70a07d81d875d2d6e67",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 31,
+      "controlFrames": [
+        "public-sweep-think-page-1-1366-dark-3.png",
+        "public-sweep-think-page-1-1366-dark-7.png",
+        "public-sweep-think-page-1-1366-dark-8.png",
+        "public-sweep-think-page-2-1366-dark-3.png",
+        "public-sweep-think-page-2-1366-dark-7.png",
+        "public-sweep-think-page-2-1366-dark-8.png",
+        "public-sweep-think-page-3-1366-dark-3.png",
+        "public-sweep-think-page-3-1366-dark-7.png",
+        "public-sweep-think-page-3-1366-dark-8.png",
+        "public-sweep-think-page-4-1366-dark-3.png",
+        "public-sweep-think-page-4-1366-dark-6.png",
+        "public-sweep-think-page-4-1366-dark-7.png"
+      ],
+      "contacts": [
+        "ui020-1366-dark-1.jpg",
+        "ui020-1366-dark-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    },
+    {
+      "width": 1366,
+      "theme": "light",
+      "sourceJson": "think-pagination-1366-light.json",
+      "sourceJsonSha256": "7b4021f762e5daaaa62b3e0fb956f1dd4140d9bc13d7ffdd89d09390e0aedc1f",
+      "pages": [
+        {
+          "page": 1,
+          "url": "http://127.0.0.1:40617/think/",
+          "hrefs": [
+            "/posts/%E5%93%A5%E5%BE%B7%E5%B0%94%E7%BC%96%E7%A0%81%E5%92%8C-rag-embedding-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/",
+            "/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/",
+            "/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/",
+            "/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/",
+            "/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/",
+            "/posts/%E8%B6%85%E8%BF%87%E4%BA%94%E5%8D%83%E4%BA%BF%E5%90%A8%E7%A9%BA%E6%B0%94%E7%9A%84%E9%87%8D%E5%8E%8B%E4%B9%8B%E4%B8%8B/",
+            "/thoughts/#fragment-2026-05-02",
+            "/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/",
+            "/posts/%E8%AE%A1%E7%BD%91-10/",
+            "/posts/%E8%AE%A1%E7%BD%91-09/",
+            "/posts/%E8%AE%A1%E7%BD%91-08/",
+            "/thoughts/#fragment-2025-11-12"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 2,
+          "url": "http://127.0.0.1:40617/think/?page=2",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BD%91-07/",
+            "/posts/%E8%AE%A1%E7%BD%91-06/",
+            "/posts/%E8%AE%A1%E7%BD%91-05/",
+            "/posts/%E8%AE%A1%E7%BD%91-04/",
+            "/posts/TMT%E7%90%86%E8%AE%BA/",
+            "/posts/%E8%AE%A1%E7%BD%91-03/",
+            "/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/",
+            "/posts/%E8%AE%A1%E7%BD%91-02/",
+            "/posts/%E8%AE%A1%E7%BD%91-01/",
+            "/posts/FF1%E8%AE%B0%E5%BD%95/",
+            "/posts/%E8%AE%A1%E7%BB%84-08/",
+            "/posts/%E8%AE%A1%E7%BB%84-07/"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 3,
+          "url": "http://127.0.0.1:40617/think/?page=3",
+          "hrefs": [
+            "/posts/%E8%AE%A1%E7%BB%84-06/",
+            "/posts/%E8%AE%A1%E7%BB%84-05/",
+            "/posts/%E8%AE%A1%E7%BB%84-04/",
+            "/posts/%E8%AE%A1%E7%BB%84-03/",
+            "/thoughts/#fragment-2025-03-23",
+            "/posts/%E8%AE%A1%E7%BB%84-02/",
+            "/posts/%E8%AE%A1%E7%BB%84-01/",
+            "/posts/DBMS-10/",
+            "/posts/DBMS-09/",
+            "/posts/DBMS-08/",
+            "/posts/PythonIntro/",
+            "/thoughts/#fragment-2024-10-30"
+          ],
+          "frameCount": 8,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        },
+        {
+          "page": 4,
+          "url": "http://127.0.0.1:40617/think/?page=4",
+          "hrefs": [
+            "/posts/DBMS-07/",
+            "/posts/DBMS-06/",
+            "/posts/DBMS-05/",
+            "/posts/DBMS-04/",
+            "/posts/DBMS-03/",
+            "/posts/DBMS-02/",
+            "/posts/DBMS-01/",
+            "/thoughts/#fragment-2024-09-12"
+          ],
+          "frameCount": 7,
+          "nativeCoverage": true,
+          "backToTopClick": true
+        }
+      ],
+      "frameCount": 31,
+      "controlFrames": [
+        "public-sweep-think-page-1-1366-light-3.png",
+        "public-sweep-think-page-1-1366-light-7.png",
+        "public-sweep-think-page-1-1366-light-8.png",
+        "public-sweep-think-page-2-1366-light-3.png",
+        "public-sweep-think-page-2-1366-light-7.png",
+        "public-sweep-think-page-2-1366-light-8.png",
+        "public-sweep-think-page-3-1366-light-3.png",
+        "public-sweep-think-page-3-1366-light-7.png",
+        "public-sweep-think-page-3-1366-light-8.png",
+        "public-sweep-think-page-4-1366-light-3.png",
+        "public-sweep-think-page-4-1366-light-6.png",
+        "public-sweep-think-page-4-1366-light-7.png"
+      ],
+      "contacts": [
+        "ui020-1366-light-1.jpg",
+        "ui020-1366-light-2.jpg"
+      ],
+      "lastPageRefresh": true,
+      "previousPage": true,
+      "noTextOrControlButtonOverlap": true,
+      "allOperationProbesHit": true
+    }
+  ],
+  "totalFrames": 302,
+  "selectedFrames": 97,
+  "manualReview": {
+    "frames": 97,
+    "contacts": 18,
+    "scope": "all frames with visible THINK controls across 4 widths, 2 themes, 4 pages",
+    "nativeZoom": [
+      "public-sweep-think-page-1-390-light-5.png",
+      "public-sweep-think-page-3-390-light-13.png",
+      "public-sweep-think-page-1-1024-dark-3.png",
+      "public-sweep-think-page-1-1366-light-3.png"
+    ],
+    "comparison": "390 Light original before select/pager and current native originals viewed; arrows/page 4 now separate from button",
+    "remainingUnreviewedFrames": 205,
+    "completeA10Accepted": false,
+    "productionUI020ScopeAccepted": true,
+    "limitation": "Production screenshots only; exact new main build/deploy and same-scenario live review pending. Other frames not manually accepted."
+  }
+}

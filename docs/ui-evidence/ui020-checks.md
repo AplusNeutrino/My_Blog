@@ -1,6 +1,15 @@
 # UI-020 — THINK筛选与页码触控区域被返回顶部按钮部分覆盖
 
-状态：validation-pending；最小实现已完成，实际修复后截图/production/main/live待验。before只确认视觉覆盖，原位置指针拦截未实测，不把推测写成已失败点击。
+状态：validation-pending；7d71656e精确production与97控件帧限定验收通过，交付main后的精确build/deploy/live及同场景线上复验待验。before只确认视觉覆盖，原位置指针拦截未实测，不把推测写成已失败点击。
+
+## 2026-10-18 精确生产限定验收通过，待main/live
+
+- 验收head 7d71656eab5a5bdb2350b1d9f1fa9003e184e97e，[run39134358751](https://github.com/AplusNeutrino/My_Blog/actions/runs/39134358751) build117695744730 success；deploy117700221025/live117700221171按分支规则skipped。271 tests、T01、authoring44/5/7、production Jekyll、Search/feed、SEO/旧路由、资源及原浏览器门禁全部通过，主192场景完成。不以本机模拟代替Chrome，此处实际四宽度双主题原生Chrome执行。
+- 专项artifact12139628306，53511302 bytes，下载独立SHA256 15a6df51feac4309c2385d3d10f6b93961932cdfb3802931bf8050ca21449d21与服务端相同。总包545310095 bytes超过接口上限未下载；不规避限制，用原专项包，所有原图/诊断未重画。
+- 实际看四宽度双主题全部控件可见97帧/18联系表：390 Night/Light各13，768各12，1024 Night11/Light12，1366各12；另放大390 Light page1-5/page3-13、1024 Night page1-3、1366 Light page1-3四张原图，并重新看before两张390 Light原图。排序右端箭头、页码4已完整与固定圆钮分离，移动“下一页”换行可见，筛选/重置/页码没有被圆钮遮挡，未发现该作用域新缺陷。原生select选中长文本的宽度截断不据偏好改版，此处不声称全部option文本展开视觉通过。
+- 8流程/32页/302原生帧诊断：4 select/1 reset/至少9控件scope完整；每帧可见操作点真实elementFromPoint全部命中、整个控件矩形与可见圆钮交集0；UI019文字Range门禁仍全通过；main原生连续覆盖/无横向溢出与scrollX0。每流程44唯一href精确按12/12/12/8顺序完整，真实下一页点击、末页同URL刷新、上一页及各页真实返回顶部通过。实际窗口390×844对应截图390×701；其余窗口900高对应实际757高，不冒充900高截图。
+- 保存ui020-production/的18张已看联系表、4张实际放大原PNG及summary（8源JSON哈希/逐页href/帧数/检查结果/明确人工范围）。人工97/302，其他205帧本head未看，不与旧head56或UI019旧52累计成全页验收；A10整体仍pending。
+- 本轮只追加本证据/本UI计划日志与公开证据，不改产品或数据，允许将已生产验收的小修复非强推交付main；新main自身build/deploy/live与同场景线上截图仍validation-pending，不标UI020 done。gh不可用不编造Issue，无新用户决策；原文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE保持。下一项精确新main head及同97控件帧线上复验。
 
 ## 2026-10-18 先记录范围与复现
 

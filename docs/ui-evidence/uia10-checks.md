@@ -1,5 +1,7 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+2026-10-18 UI020生产限定通过：7d71656e/run39134358751 build117695744730 success，分支deploy/live skipped。实际看97控件可见帧18联系表和4原图/2 before，箭头/页码完整避让，8流程32页302帧控件hit/严格矩形/文字Range/真实分页刷新返回顶部通过。只此产品小修复可交付main，新main build/deploy/live/同场景线上复验pending，其他205帧未人工看，完整A10仍pending。ui020-production/summary明确源head与范围，不累计旧head人工数量。
+
 2026-10-18 UI020诊断追加：351072c4/run39130101572完整构建仍失败，精确原图/JSON确认右下2px点位于原生select实际hit轮廓外而命中父容器，左/上1px命中SELECT、无覆盖层且与圆钮交集0。只修正审计9点采样，旧角点诊断/完整矩形严格无交叉及原交互门禁保留；新增实际JS故障注入9点全部逐个拒绝和仅旧角点圆钮覆盖拒绝。本机271 tests/T01/authoring/diff通过，不冒称视觉/浏览器通过。新head ui/fix-020仍validation-pending，main未动，A10全页待验。
 
 2026-10-18最新检查点：UI020候选67f281e9/run39126044604在1024 Night Series右下指针探针失败，未合main。已看390 Light两目标原图控件避让改善，但不代替完整视觉/交互验收；失败原图无可见遮挡且与圆钮交集0，实际命中对象缺失，根因未确认。仅追加诊断、保留全部原探针/断言，新head待CI；完整A10继续pending。详见ui020-checks.md，原历史检查不改写。
