@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-18 — UI020确认原生圆角采样误判，修正审计但不放行产品
+
+- base分支351072c485131c515b54b9627bd99de1b9a05564/[run39130101572](https://github.com/AplusNeutrino/My_Blog/actions/runs/39130101572) build117683334367 failure，deploy117685602137/live117685602951 skipped；270 tests/T01/authoring/production Jekyll及前置门禁通过，不算完整成功。main仍c6d7978ede998948740836eb87ce59fdd6e4ce18。
+- 专项artifact12137722054（20002706 bytes）独立SHA256 508869000b1197cf68cc2f34c958f897bd073e481b8eb8a9110843042c478bbf匹配。实际看1024 Night失败原图；Series右下2px点命中父DIV.nv-writing-control，不是遮挡层，向左/上1px即命中SELECT，向右/下仍父DIV。computed appearance:auto/圆角5.6px/pointerEvents:auto/transform:none；圆钮和全部可见控件交集0，精确PNG/JSON保存在ui020-native-corner。此项是审计错误，不另报网站缺陷或审美问题。
+- 先记录范围后，只修正审计命中采样：中心+四直边2px中点+四圆角内部点共9点，旧4角点保留诊断，每个可见操作点必须命中真实目标，完整控件矩形严格不交叉不变，不能以父命中充当成功。新增执行实际JS的Node故障注入：9点逐个遮挡均拒绝、只覆盖旧角点而未覆盖9点也由原矩形门禁拒绝。所有旧scope/Range/真实分页/刷新/上一页/滚轮/返回顶部/等待保留；不改候选产品CSS/JS/内容/URL/隐蔽边界/外部仓库/旧COMPLETE。
+- 本机271 tests、authoring44/5/7、T01保护44/5/5、diff通过；Node模拟不是Chrome或视觉通过。新head留ui/fix-020，精确production/修正后截图/main/live仍validation-pending；无新用户决策，gh不可用未创建Issue。下一项核对新head是否完整通过并实际查看四宽度双主题控件目标原图，未通过不合main。
+
 ## 2026-10-18 — UI020部分截图改善，精确CI失败不放行
 
 - base/验收分支67f281e91b9b2e75fdb063fdcdd2749dde3baa5a，[run39126044604](https://github.com/AplusNeutrino/My_Blog/actions/runs/39126044604) build117671277541 failure、deploy117673410066/live117673410331 skipped。269 tests/T01/authoring/Jekyll/SEO前置通过，但未完成全部浏览器门禁。main c6d7978ede998948740836eb87ce59fdd6e4ce18未动。

@@ -1699,9 +1699,18 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               const visible=controls.map(e=>{
                 const r=e.getBoundingClientRect();
                 if(r.width<=0||r.height<=0||r.bottom<=Math.max(0,topbar.bottom)||r.top>=innerHeight)return null;
-                const points=[[r.left+r.width/2,r.top+r.height/2],
-                  [r.left+2,r.top+2],[r.right-2,r.top+2],[r.left+2,r.bottom-2],[r.right-2,r.bottom-2]];
-                const probes=points.filter(([x,y])=>x>0&&x<document.documentElement.clientWidth&&y>Math.max(0,topbar.bottom)&&y<innerHeight)
+                const cs=getComputedStyle(e),computed={appearance:cs.appearance,pointerEvents:cs.pointerEvents,
+                  borderRadius:cs.borderRadius,borderWidth:cs.borderWidth,transform:cs.transform};
+                // Native appearance may exclude the 2px corner from SELECT's hit shape.
+                // Keep old corners as evidence; test nine points inside the painted control.
+                const radius=Math.max(...['borderTopLeftRadius','borderTopRightRadius',
+                  'borderBottomLeftRadius','borderBottomRightRadius'].map(k=>parseFloat(cs[k])||0));
+                const ix=Math.min(r.width/2,radius+2),iy=Math.min(r.height/2,radius+2);
+                const cx=r.left+r.width/2,cy=r.top+r.height/2;
+                const points=[[cx,cy],[r.left+2,cy],[r.right-2,cy],[cx,r.top+2],[cx,r.bottom-2],
+                  [r.left+ix,r.top+iy],[r.right-ix,r.top+iy],
+                  [r.left+ix,r.bottom-iy],[r.right-ix,r.bottom-iy]];
+                const sample=points=>points.filter(([x,y])=>x>0&&x<document.documentElement.clientWidth&&y>Math.max(0,topbar.bottom)&&y<innerHeight)
                   .map(([x,y])=>{
                     const target=document.elementFromPoint(x,y),hit=e.contains(target);
                     return {x,y,hit,target:describe(target),neighbors:hit?[]:
@@ -1710,10 +1719,9 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                         return {x:x+dx,y:y+dy,hit:e.contains(n),target:describe(n)};
                       })};
                   });
-                // Diagnostics only: do not move probes or exempt failed corners.
-                const cs=getComputedStyle(e),computed={appearance:cs.appearance,pointerEvents:cs.pointerEvents,
-                  borderRadius:cs.borderRadius,borderWidth:cs.borderWidth,transform:cs.transform};
-                return {tag:e.tagName,id:e.id,text:e.textContent.trim(),rect:rect(r),computed,probes,
+                const probes=sample(points),cornerDiagnostics=sample([
+                  [r.left+2,r.top+2],[r.right-2,r.top+2],[r.left+2,r.bottom-2],[r.right-2,r.bottom-2]]);
+                return {tag:e.tagName,id:e.id,text:e.textContent.trim(),rect:rect(r),computed,probes,cornerDiagnostics,
                   overlaps:shown&&r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top};
               }).filter(Boolean);
               return {button:rect(br),shown,devicePixelRatio,totalControls:controls.length,

@@ -1,10 +1,62 @@
 """Wiring checks only; actual screenshots and pointer flows run in Chrome CI."""
 import ast
+import json
 from pathlib import Path
+import shutil
+import subprocess
 import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_actual_pointer_script_rejects_each_interior_or_edge_obstruction(self):
+        """Execute the production JS, not a Python copy; not a visual/browser pass."""
+        node=shutil.which('node')
+        self.assertIsNotNone(node, 'Node is required for pointer audit regression')
+        tree=ast.parse(Path('tools/check_think_build_visual.py').read_text())
+        assignment=next(n for n in ast.walk(tree) if isinstance(n,ast.Assign)
+                        and any(isinstance(t,ast.Subscript) and isinstance(t.slice,ast.Constant)
+                                and t.slice.value=='writingControlButton' for t in n.targets))
+        script=ast.literal_eval(assignment.value.args[0])
+        harness=r'''
+          const audit=new Function(SCRIPT),rect={left:100,right:206,top:100,bottom:144,width:106,height:44};
+          const parent={tagName:'DIV',id:'',className:'nv-writing-control',getBoundingClientRect:()=>rect};
+          const e={tagName:'SELECT',id:'series',className:'',textContent:'All',
+            getBoundingClientRect:()=>rect,contains:n=>n===e};
+          const outside={left:500,right:544,top:500,bottom:544,width:44,height:44};
+          let buttonRect=outside,blocked=null,rounded=true;
+          const button={getBoundingClientRect:()=>buttonRect};
+          global.innerHeight=757;global.devicePixelRatio=1;
+          global.getComputedStyle=()=>({display:'block',visibility:'visible',opacity:'1',
+            appearance:'auto',pointerEvents:'auto',transform:'none',borderWidth:'1px',borderRadius:'5.6px',
+            borderTopLeftRadius:'5.6px',borderTopRightRadius:'5.6px',
+            borderBottomLeftRadius:'5.6px',borderBottomRightRadius:'5.6px'});
+          global.document={documentElement:{clientWidth:1009},
+            querySelector:q=>q==='#back-to-top'?button:{getBoundingClientRect:()=>({bottom:0})},
+            querySelectorAll:q=>q==='.nv-writing-controls select'?[e,e,e,e]:
+              q==='.nv-writing-reset'?[e]:Array(10).fill(e),
+            elementFromPoint:(x,y)=>{
+              if(blocked&&Math.abs(x-blocked.x)<0.01&&Math.abs(y-blocked.y)<0.01)return parent;
+              if(rounded&&x===204&&y===142)return parent;
+              return e;
+            }};
+          const valid=r=>r.selectCount===4&&r.resetCount===1&&r.totalControls>=9&&
+            !r.overlaps.length&&!r.misses.length;
+          const base=audit();
+          if(!valid(base)||base.visible[0].probes.length!==9||
+            base.visible[0].cornerDiagnostics.filter(p=>!p.hit).length!==1)throw Error('rounded fixture');
+          let rejected=0;
+          for(const p of base.visible[0].probes){blocked=p;if(valid(audit()))throw Error('miss accepted');rejected++;}
+          blocked=null;
+          // Same legacy corner is covered by a tiny fixed button without covering any new probe.
+          buttonRect={left:203.5,right:204.5,top:141.5,bottom:142.5,width:1,height:1};
+          const overlap=audit();
+          if(valid(overlap)||!overlap.overlaps.length||overlap.misses.length)throw Error('corner overlap accepted');
+          console.log(JSON.stringify({rejected,cornerOverlapRejected:true,legacyCornerRecorded:true}));
+        '''.replace('SCRIPT',json.dumps(script))
+        result=subprocess.run([node,'-e',harness],capture_output=True,text=True,check=True)
+        self.assertEqual(json.loads(result.stdout),
+                         {'rejected':9,'cornerOverlapRejected':True,'legacyCornerRecorded':True})
+
     def test_failed_pointer_probes_keep_assertions_and_capture_actual_target(self):
         source=Path('tools/check_think_build_visual.py').read_text()
         start=source.index('# UI-020:');block=source[start:source.index('require(start <= (covered',start)]

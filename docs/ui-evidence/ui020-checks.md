@@ -12,6 +12,13 @@
 
 ## 最小实现与本机结果
 
+### 2026-10-18 诊断确认及采样修正范围（先记录）
+
+- base 351072c485131c515b54b9627bd99de1b9a05564；[run39130101572](https://github.com/AplusNeutrino/My_Blog/actions/runs/39130101572) build117683334367 failure，deploy117685602137/live117685602951 skipped。270 tests/T01/authoring/production Jekyll及前置检查通过，仍不是整构建通过。main保持c6d7978ede998948740836eb87ce59fdd6e4ce18。
+- 专项artifact12137722054，20002706 bytes，独立SHA256 508869000b1197cf68cc2f34c958f897bd073e481b8eb8a9110843042c478bbf匹配。实际查看1024 Night失败原图并读原JSON：同一Series右下点命中父DIV.nv-writing-control，向左1px或向上1px即命中同一SELECT，向右/下1px仍命中父DIV；appearance:auto、borderRadius5.6px、pointerEvents:auto、transform:none。没有命中覆盖层，返回顶部与所有可见控件交集0。说明原5点把原生圆角边界处父容器误当拦截，并非UI020遮挡复发；不将CSS圆角公式等同Chrome原生控件实际hit轮廓。
+- 最小范围仅审计脚本/必要回归/本UI计划日志与已看失败原PNG/JSON：原4个2px角点保留诊断，操作命中采样改为中心、四条直边中点内缩2px、按计算圆角+2px内缩的4个内部角点，共9个。每一可见有效点仍必须命中目标，整个控件矩形与返回顶部严格不交叉的门禁原样保留；不以父容器命中充当操作成功。故障注入验证9点任意拦截均失败、原角点圆钮覆盖即使未碰采样点也失败。原scope/文字Range/分页真实点击/刷新/上一页/滚轮/返回顶部和所有等待不减；产品CSS/JS不再改，真实新head生产与截图仍待验。gh不可用不编造Issue，无新用户问题。
+- 本机实际271 tests OK（新增Node执行审计原JS的故障注入，不是另写等价算法）；9个操作点逐个被拦截均misses失败，1px圆钮仅覆盖旧角点但没碰任何操作点仍overlaps失败，圆角父容器命中保留原target/邻点诊断。authoring44/5/7、T01保护44/5/5、diff通过；无本机Chrome/Jekyll，新head生产/main/live继续pending。ui020-native-corner仅存本次实际看过的1张1024 Night原PNG及原始JSON，不裁切、不改像素，不扩大人工验收数量。
+
 ### 2026-10-18 精确失败核对与下一步范围（先记录）
 
 - 分支实现/base 67f281e91b9b2e75fdb063fdcdd2749dde3baa5a；[run39126044604](https://github.com/AplusNeutrino/My_Blog/actions/runs/39126044604) build117671277541 failure，deploy117673410066/live117673410331 skipped。269 tests、T01、authoring、production Jekyll/SEO等前置检查通过，但不等于本次构建通过。

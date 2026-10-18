@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-18 UI020原生圆角诊断：351072c485131c515b54b9627bd99de1b9a05564/run39130101572 build117683334367 failure，deploy/live skipped。实际失败点命中父容器而非遮挡层，左/上1px均命中SELECT，原生appearance:auto/5.6px圆角；已看精确原图/JSON，完整控件与圆钮交集0。仅修正审计采样为9个中心/直边/圆角内部点，保留旧角点诊断及完整矩形严格不相交/全部原操作门禁，不改产品CSS/JS。执行实际JS的故障注入验证9点任意拦截失败、只覆盖旧角点的圆钮即使不碰9点也失败；本机271 tests/T01/authoring/diff通过，不称浏览器验收。新head留ui/fix-020，production及main/live仍pending，main c6d7978e未改，无新用户问题。[证据](docs/ui-evidence/ui020-checks.md)。
+
 2026-10-18 UI020精确失败检查点：67f281e91b9b2e75fdb063fdcdd2749dde3baa5a/run39126044604 build117671277541失败，deploy/live skipped；不能合main。390 Light排序/页码两目标原图实际确认避让；1024 Night Series右下2px探针未命中，但控件与圆钮交集0，原JSON不含实际命中对象，根因未确认，不把圆角推测当结论。本轮仅加实际命中元素/计算样式/1px邻点诊断，原坐标、全部断言与产品候选CSS不动；保存3张已看PNG/JSON。本机270 tests/T01/authoring/diff通过，下一新head production及main/live仍validation-pending。main仍c6d7978e，无新用户决策；[详细证据](docs/ui-evidence/ui020-checks.md)。
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
