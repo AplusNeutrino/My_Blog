@@ -1,5 +1,18 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10e结果：1024px两主题完整四页已看
+
+- 源main1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e/run39170640643 build117802761688/deploy117807257896/live117807298317全部success，关闭该head pending。实际看1024×757 Night32帧（8/8/9/7）、Prospero Light33帧（8/9/9/7），共65帧19原生尺寸联系表；另放大public-sweep-think-page-1-1024-dark-3.png、public-sweep-think-page-3-1024-light-7.png、public-sweep-think-page-4-1024-light-7.png。标题/目录/筛选/44记录/分页/检索入口/页脚可见，无新确认缺陷，不为审美偏好改产品。
+- 303帧独立机械核对原生连续覆盖/尺寸/无横溢出/scrollX0、44href顺序/真实分页末页刷新上一页返回顶部、非空文字目录Range/控件严格避让与hit通过，303诊断与同head生产全等，不声称像素全等。其余238帧本head未人工看，完整A10与全站仍pending，不累计旧head数量或以机械检查代视觉。
+- uia10e-live永久保存19已看联系表、3原PNG和摘要（artifact摘要/8源JSON哈希/44href/实际目标名单）。本机273 tests/T01/authoring/diff通过；gh不可用未编造Issue，无新用户决策。仅证据文档交付，新head CI另核对；下一项1366px两主题完整四页。
+
+## 2026-10-19 UI-A10e范围（先记录）
+
+- Task UI-A10e；base/main/source 1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e，[run39170640643](https://github.com/AplusNeutrino/My_Blog/actions/runs/39170640643) build117802761688/deploy117807257896/live117807298317均success，关闭该证据head pending，不改写旧取消记录。
+- 本轮仅实际查看1024px Night/Prospero Light默认四页完整原生滚轮图，疑点放大原PNG；独立核对8流程原JSON与同head生产，不以303帧机械成功代替看图、不累加旧head人工数量。其他宽度/筛选组合继续pending。
+- live专项12153585956（53442793 bytes）SHA256 494a9ba5500e5b267e162ee7d18744ebc73296211112b7241fa79b7fc3fbf28b、production专项12152384998（52974740 bytes）SHA256 acaf1c52c15927599eee4eea807b606e5160593328627ff27d247876f54d0e9c均与下载字节独立摘要匹配；总包超接口上限未下载未绕过。
+- 文件范围先限UI计划/日志、本文件及公开已看证据；没有确认缺陷不改产品/样式/门禁。若确认问题另记ID/base/原图/最小范围后修。保留旧正文/metadata/URL/hidden/noindex/私有边界/七项目/Library同步/外部仓库/旧COMPLETE。gh不在PATH不编造Issue，无新用户决策。
+
 ## 2026-10-19 UI-A10d结果：768px两主题完整四页已看
 
 - 源main9afeed1354317d04b77646d07893a6fe3f6a0dbf/run39164212435 build117783796133/deploy117788476002/live117788538863全部success，关闭该head pending。仅实际看本head 768×757 Night/Prospero Light各31帧（四页8/8/8/7），共62帧16原生尺寸联系表；放大public-sweep-think-page-1-768-light-3.png、public-sweep-think-page-3-768-dark-7.png、public-sweep-think-page-4-768-light-7.png。标题/目录/筛选/44记录/分页/检索入口/页脚可见，中文长摘要无新确认遮挡、消失或横向溢出，不为偏好改产品。

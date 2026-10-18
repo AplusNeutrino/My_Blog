@@ -15,6 +15,12 @@
 
 ## 问题台账
 
+2026-10-19 UI-A10e：base/main/source 1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e/[run39170640643](https://github.com/AplusNeutrino/My_Blog/actions/runs/39170640643) build117802761688/deploy117807257896/live117807298317全部success，关闭该head pending。实际看1024px Night/Prospero Light四页65帧19联系表、放大3原PNG，无新确认缺陷，不改样式。303帧机械检查及同head生产比较另行通过，不代替本head其余238帧人工验收，不累加旧head数量。273 tests/T01/authoring/diff本机通过；只更新证据与台账，新提交自身CI仍validation-pending，完整A10/全站IN PROGRESS；gh不可用未建Issue，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。下一项1366px双主题完整四页。
+
+| 本轮矩阵增量 | 源 head | 实际视觉 | 交互与局限 |
+|---|---|---|---|
+| UI-A10e：THINK默认四页 / 1024px / 两主题 | 1b0244a5 | 65帧全部查看，19联系表、3原图；未见新确认缺陷 | 44href/分页/刷新/上一页/原生滚轮/返回顶部通过；非其他宽度、非筛选组合验收 |
+
 2026-10-19 UI-A10d：9afeed1354317d04b77646d07893a6fe3f6a0dbf/[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133/deploy117788476002/live117788538863全部success，关闭该head pending，不改写父67d9取消历史。实际看本head 768px Night/Prospero Light默认四页62帧16原生尺寸联系表，放大3原PNG，无新确认缺陷，不改产品。独立核对8流程32页303帧文字/目录/控件、44href与分页刷新滚轮返回顶部，诊断与同head生产一致；其余241帧本head未人工看，完整A10仍pending，不累加旧head数量。只交付本轮证据及上次audit/ui-a10c记录，新交付head自身CI仍validation-pending；273 tests/T01/authoring/diff本机通过，gh不可用未建Issue，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。下一项1024px双主题整页图。
 
 | 本轮矩阵增量 | 源 head | 实际视觉 | 交互与局限 |
