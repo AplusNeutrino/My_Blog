@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A10d：768px双主题完整四页证据
+
+- base/main/source 9afeed1354317d04b77646d07893a6fe3f6a0dbf，[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133/deploy117788476002/live117788538863全部success；关闭上轮该head pending。工作树基于上轮证据0bf4549fc7e423a6ab62dbd9e3e3e09f985df714，保留Library同步与旧记录，不把67d9取消改为成功。
+- 先记录UI-A10d范围再实际看当前head 768×757 Night/Prospero Light各四页31帧（8/8/8/7），共62帧16原生尺寸联系表；放大page1 Light第3帧目录/表单、page3 Night第7帧长摘要、page4 Light第7帧分页/检索/页脚。标题、中文换行、44记录、控件与底部入口可见，未发现新确认缺陷，不新增UI022或凭偏好改样式。
+- live专项12151147429/production专项12150935706实际下载字节独立SHA256分别70f5579a44a27f2a009f2bd48360fa638d2a8a67d443c03244dd484a8abc450e、e72302e47659b33b714b48b0fef760946645ecd1ce0d3502ea7b74c6e7f51810匹配。总包超接口限制未下载未绕过。8源JSON哈希、完整44href顺序12/12/12/8与已看目标在uia10d-live/uia10d-summary.json。
+- 独立核对8流程32页303帧：末页同URL刷新/上一页、main原生连续覆盖/实际PNG尺寸/scrollX0/无横溢出/真实返回顶部，文字与Topic4/Series3/检索5非空Range严格不交叉、4select/1reset及分页矩形/hit通过；303帧viewport/scroll/文字/控件/目录诊断与同head生产全等，非像素全等。机械检查不替代看图，本head其余241帧未人工看，完整A10仍validation-pending，旧head不累加。
+- 本机273 tests OK、authoring44/5/7、T01正文/URL/hidden基线44/5/5、diff通过；本机未运行production Jekyll/Chrome，源9afeed精确Actions完成这些检查，新证据head需另验。command -v gh无结果（组合命令最终exit1仅来自此项），未创建Issue，无新用户决策。
+- 仅更新本轮UI计划/日志/公开证据；产品/正文/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE不改。以expected main9afeed13非强推交付，含父0bf既有A10c证据；新交付head build/deploy/live仍pending，下轮先核对精确head，再补1024px双主题整页，不写最终报告/COMPLETE、不暂停。
+
 ## 2026-10-19 — UI-A10c源390 Night完整看图，Library同步保留
 
 - main/base9afeed1354317d04b77646d07893a6fe3f6a0dbf为67d9c5e8之后正常Library同步，只改9个Library源/生成数据文件，保留不覆盖。67d9c5e8/[run39161481365](https://github.com/AplusNeutrino/My_Blog/actions/runs/39161481365) build117775523200/deploy117780238053 success，live117780359206 cancelled；不能关闭为全成功。9afeed13/[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133进行中，不用父CI或源码存在代替。

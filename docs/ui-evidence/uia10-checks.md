@@ -1,5 +1,18 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10d结果：768px两主题完整四页已看
+
+- 源main9afeed1354317d04b77646d07893a6fe3f6a0dbf/run39164212435 build117783796133/deploy117788476002/live117788538863全部success，关闭该head pending。仅实际看本head 768×757 Night/Prospero Light各31帧（四页8/8/8/7），共62帧16原生尺寸联系表；放大public-sweep-think-page-1-768-light-3.png、public-sweep-think-page-3-768-dark-7.png、public-sweep-think-page-4-768-light-7.png。标题/目录/筛选/44记录/分页/检索入口/页脚可见，中文长摘要无新确认遮挡、消失或横向溢出，不为偏好改产品。
+- 全部8流程32页303帧独立机械核对44唯一href顺序12/12/12/8、末页同URL刷新/上一页/原生main连续滚轮覆盖/真实返回顶部、PNG尺寸/scrollX0/无横溢出、介绍/记录/目录非空Range与控件矩形严格避让、4select/1reset/分页hit通过；与同head生产303帧诊断全等。不是随机引文像素全等，也不代表其余241帧已人工看。完整A10与其他筛选组合继续pending，不累加旧head人工数量。
+- uia10d-live保存16已看联系表、3原PNG与摘要（源artifact摘要/8JSON哈希/44href/实际名单）。本机273 tests、T01基线44/5/5、authoring44/5/7与diff通过；gh不可用未编造Issue，无新用户决策。只文档证据交付，新head CI需独立核对；下一项1024px双主题完整四页，未达COMPLETE。
+
+## 2026-10-19 UI-A10d范围（先记录）
+
+- 当前main/source `9afeed1354317d04b77646d07893a6fe3f6a0dbf`，[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133/deploy117788476002/live117788538863均success，关闭上轮该head pending；父67d9c5e8取消记录仍保留不改写。工作基于0bf4549f证据分支接续，Library同步不覆盖。
+- Task UI-A10d：本轮仅看当前source 768px Night/Prospero Light默认四页完整原生滚轮图，预计62帧；独立核对303帧目录/文字/控件和分页/刷新/上一页/返回顶部等原JSON，并与同head生产比较，不代替实际看图。不累加67d9c5e8或旧head看图数为当前head整页通过；390/1024/1366剩余完整图继续pending。
+- live专项12151147429（52439230 bytes）独立SHA256 `70f5579a44a27f2a009f2bd48360fa638d2a8a67d443c03244dd484a8abc450e`、production专项12150935706（51734103 bytes）独立SHA256 `e72302e47659b33b714b48b0fef760946645ecd1ce0d3502ea7b74c6e7f51810`均匹配。总包超过接口上限不下载，不绕过；来源为无损专项PNG/JSON。
+- 范围先限本文件/UI计划日志/公开已看证据；未确认缺陷不改产品/样式/门禁/内容/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE。无新用户决策，gh不可用不编造Issue。验收后可将纯证据与上次未合main的A10c安全接续；新交付head自身CI另核对。
+
 ## 2026-10-19 UI-A10c结果：完整390 Night源场景已看，新main待验
 
 - artifact12150166881下载独立SHA256 `4f6af4f113bff6f00d9b1315cc3915078a776ddd9436c26928743029f96eca36` 匹配（42044434 bytes）。整体live取消，但390 Night流程JSON已完整保存四页、末页刷新/上一页和真实返回顶部，不将不完整1366或整场run冒称通过。

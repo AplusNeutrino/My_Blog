@@ -15,6 +15,12 @@
 
 ## 问题台账
 
+2026-10-19 UI-A10d：9afeed1354317d04b77646d07893a6fe3f6a0dbf/[run39164212435](https://github.com/AplusNeutrino/My_Blog/actions/runs/39164212435) build117783796133/deploy117788476002/live117788538863全部success，关闭该head pending，不改写父67d9取消历史。实际看本head 768px Night/Prospero Light默认四页62帧16原生尺寸联系表，放大3原PNG，无新确认缺陷，不改产品。独立核对8流程32页303帧文字/目录/控件、44href与分页刷新滚轮返回顶部，诊断与同head生产一致；其余241帧本head未人工看，完整A10仍pending，不累加旧head数量。只交付本轮证据及上次audit/ui-a10c记录，新交付head自身CI仍validation-pending；273 tests/T01/authoring/diff本机通过，gh不可用未建Issue，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。下一项1024px双主题整页图。
+
+| 本轮矩阵增量 | 源 head | 实际视觉 | 交互与局限 |
+|---|---|---|---|
+| UI-A10d：THINK默认四页 / 768px / 两主题 | 9afeed13 | 62帧全部查看，16联系表、3原图；未见新确认缺陷 | 44href/分页/刷新/上一页/原生滚轮/返回顶部通过；非其他宽度、非筛选组合验收 |
+
 2026-10-19 UI-A10c限定看图记录：main推进为9afeed1354317d04b77646d07893a6fe3f6a0dbf正常Library同步，保留9文件变更。父67d9c5e8/run39161481365 build117775523200/deploy117780238053成功、live117780359206取消，不写全通过；当前9afeed13/run39164212435 build117783796133仍进行中。只实际看取消前67d9c5e8已完整捕获的390 Night四页57帧12联系表，放大3原图，未见新确认缺陷，不改样式。该流程44href/分页刷新返回顶部/原生覆盖/文字目录与控件通过，不代表整场取消run或9afeed13已验收；完整A10/最新head保持validation-pending。只保存文档证据audit/ui-a10c不动main，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。
 
 2026-10-19 UI021线上限定done：验收main93d4c80dac21145eea670b3ae8e08505f062f71f/run39156738726 build117761413839/deploy117765457118/live117765498122全部success；273 tests/T01/authoring/Jekyll及原门禁与production/live各主192成功。实际复查四宽度双主题56线上Series目标帧14联系表、放大4原PNG，390 Night说明行尾换行避开圆钮；8流程32页303帧目录/文字/控件与真实分页刷新滚轮返回顶部通过，303诊断与同head生产全等。其他247帧本head未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui021-checks.md)。以下为历史时点。
