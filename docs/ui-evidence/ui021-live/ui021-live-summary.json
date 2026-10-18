@@ -1,0 +1,208 @@
+{
+  "head": "93d4c80dac21145eea670b3ae8e08505f062f71f",
+  "run": 39156738726,
+  "liveArtifact": 12148182796,
+  "liveSha256": "8445ea45d2a0821e0f7f191c91e1561c2e17a44f8994285088f4b8f88341e24a",
+  "productionArtifact": 12148300139,
+  "productionSha256": "c4e0943e998d494324fc9e34e6687a073e9d6eeb44e5992a1a870e657e1f08bb",
+  "frames": 303,
+  "seriesTargets": 56,
+  "contacts": [
+    "ui021-live-390-dark-1.jpg",
+    "ui021-live-390-dark-2.jpg",
+    "ui021-live-390-light-1.jpg",
+    "ui021-live-390-light-2.jpg",
+    "ui021-live-768-dark-1.jpg",
+    "ui021-live-768-dark-2.jpg",
+    "ui021-live-768-light-1.jpg",
+    "ui021-live-768-light-2.jpg",
+    "ui021-live-1024-dark-1.jpg",
+    "ui021-live-1024-light-1.jpg",
+    "ui021-live-1366-dark-1.jpg",
+    "ui021-live-1366-dark-2.jpg",
+    "ui021-live-1366-light-1.jpg",
+    "ui021-live-1366-light-2.jpg"
+  ],
+  "flows": [
+    {
+      "width": 390,
+      "theme": "dark",
+      "source": "think-pagination-390-dark.json",
+      "sourceSha256": "df600292191d077c9159b1a7441714e72e47b28a41caaa5d9b584a6a42c36693",
+      "frames": 57,
+      "seriesFrames": [
+        "public-sweep-think-page-1-390-dark-4.png",
+        "public-sweep-think-page-1-390-dark-5.png",
+        "public-sweep-think-page-2-390-dark-4.png",
+        "public-sweep-think-page-2-390-dark-5.png",
+        "public-sweep-think-page-3-390-dark-4.png",
+        "public-sweep-think-page-3-390-dark-5.png",
+        "public-sweep-think-page-4-390-dark-4.png",
+        "public-sweep-think-page-4-390-dark-5.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "source": "think-pagination-390-light.json",
+      "sourceSha256": "50e6dbeb35a5ecbe0a75cd72f152b16d0857c852ba251b457c4082b74f0acdf3",
+      "frames": 57,
+      "seriesFrames": [
+        "public-sweep-think-page-1-390-light-4.png",
+        "public-sweep-think-page-1-390-light-5.png",
+        "public-sweep-think-page-2-390-light-4.png",
+        "public-sweep-think-page-2-390-light-5.png",
+        "public-sweep-think-page-3-390-light-4.png",
+        "public-sweep-think-page-3-390-light-5.png",
+        "public-sweep-think-page-4-390-light-4.png",
+        "public-sweep-think-page-4-390-light-5.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "source": "think-pagination-768-dark.json",
+      "sourceSha256": "e6b7939ef9a3de3c8dbdd7fd7c1fd85428a1169e76796dca041488a99470af3a",
+      "frames": 31,
+      "seriesFrames": [
+        "public-sweep-think-page-1-768-dark-2.png",
+        "public-sweep-think-page-1-768-dark-3.png",
+        "public-sweep-think-page-2-768-dark-2.png",
+        "public-sweep-think-page-2-768-dark-3.png",
+        "public-sweep-think-page-3-768-dark-2.png",
+        "public-sweep-think-page-3-768-dark-3.png",
+        "public-sweep-think-page-4-768-dark-2.png",
+        "public-sweep-think-page-4-768-dark-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "source": "think-pagination-768-light.json",
+      "sourceSha256": "be8e300598939ecf7e2c7b091a8250598d532e2abf8908b1f9ba8aefdfbcb542",
+      "frames": 31,
+      "seriesFrames": [
+        "public-sweep-think-page-1-768-light-2.png",
+        "public-sweep-think-page-1-768-light-3.png",
+        "public-sweep-think-page-2-768-light-2.png",
+        "public-sweep-think-page-2-768-light-3.png",
+        "public-sweep-think-page-3-768-light-2.png",
+        "public-sweep-think-page-3-768-light-3.png",
+        "public-sweep-think-page-4-768-light-2.png",
+        "public-sweep-think-page-4-768-light-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "source": "think-pagination-1024-dark.json",
+      "sourceSha256": "b43cb65e97285c7ae86dea6ff8ac66a69c86dd7c78f68fb9cc065da8ce6368f0",
+      "frames": 32,
+      "seriesFrames": [
+        "public-sweep-think-page-1-1024-dark-3.png",
+        "public-sweep-think-page-2-1024-dark-3.png",
+        "public-sweep-think-page-3-1024-dark-3.png",
+        "public-sweep-think-page-4-1024-dark-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "source": "think-pagination-1024-light.json",
+      "sourceSha256": "b7a2502b2b9360b232a906f8da581c1ec375e990951027bd68a288b9016d5a35",
+      "frames": 33,
+      "seriesFrames": [
+        "public-sweep-think-page-1-1024-light-3.png",
+        "public-sweep-think-page-2-1024-light-3.png",
+        "public-sweep-think-page-3-1024-light-3.png",
+        "public-sweep-think-page-4-1024-light-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 1366,
+      "theme": "dark",
+      "source": "think-pagination-1366-dark.json",
+      "sourceSha256": "630d938712bc43ebedb6159680853445c10931b4d316a301598898f7490e8a18",
+      "frames": 31,
+      "seriesFrames": [
+        "public-sweep-think-page-1-1366-dark-2.png",
+        "public-sweep-think-page-1-1366-dark-3.png",
+        "public-sweep-think-page-2-1366-dark-2.png",
+        "public-sweep-think-page-2-1366-dark-3.png",
+        "public-sweep-think-page-3-1366-dark-2.png",
+        "public-sweep-think-page-3-1366-dark-3.png",
+        "public-sweep-think-page-4-1366-dark-2.png",
+        "public-sweep-think-page-4-1366-dark-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    },
+    {
+      "width": 1366,
+      "theme": "light",
+      "source": "think-pagination-1366-light.json",
+      "sourceSha256": "f3dff20f09801709b9870b4179ef5ee901244ccff584497b3f3db478fc07d6e9",
+      "frames": 31,
+      "seriesFrames": [
+        "public-sweep-think-page-1-1366-light-2.png",
+        "public-sweep-think-page-1-1366-light-3.png",
+        "public-sweep-think-page-2-1366-light-2.png",
+        "public-sweep-think-page-2-1366-light-3.png",
+        "public-sweep-think-page-3-1366-light-2.png",
+        "public-sweep-think-page-3-1366-light-3.png",
+        "public-sweep-think-page-4-1366-light-2.png",
+        "public-sweep-think-page-4-1366-light-3.png"
+      ],
+      "hrefCount": 44,
+      "lastPageRefresh": true,
+      "previousPage": true
+    }
+  ],
+  "comparison": {
+    "fields": [
+      "viewport",
+      "scrollX",
+      "scrollY",
+      "pageWidth",
+      "writingTextButton",
+      "writingControlButton",
+      "writingDirectoryButton"
+    ],
+    "identicalFrames": 303,
+    "total": 303,
+    "pixelEqualityClaimed": false
+  },
+  "manualReview": {
+    "actuallyViewedSeriesFrames": 56,
+    "actuallyViewedContacts": 14,
+    "nativeZoom": [
+      "public-sweep-think-page-1-390-dark-4.png",
+      "public-sweep-think-page-1-390-light-4.png",
+      "public-sweep-think-page-1-768-dark-3.png",
+      "public-sweep-think-page-1-1366-light-3.png"
+    ],
+    "result": "UI021 Series text visibly clear of fixed button in inspected live scope; narrow-screen line ending wraps naturally",
+    "uia10Complete": false
+  },
+  "remainingUnreviewedFrames": 247,
+  "completeA10Accepted": false
+}

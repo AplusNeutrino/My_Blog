@@ -1,5 +1,18 @@
 # UI-021 — THINK Series 说明行尾与固定圆钮交叉
 
+## 2026-10-19 线上限定done
+
+- 验收main `93d4c80dac21145eea670b3ae8e08505f062f71f`，[run39156738726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39156738726) build117761413839/deploy117765457118/live117765498122全部success；273 tests、T01、authoring44/5/7、production Jekyll/Search/feed/SEO/旧URL/资源/移动无障碍及production/live各主192成功。live日志明确origin `https://neutriverse.uk`，32分页URL均为同站THINK。
+- 实际复查该head四宽度双主题56张线上Series目标帧、14联系表，放大390 Night/Light page1-4、768 Night page1-3、1366 Light page1-3四原PNG。390 Night说明末尾“列。”自然换行，首行right299.765625、末行right57.890625，原圆钮left315不动；原before的right326.640625交叉不再出现。其余目标图文字/计数可见，未发现本限定作用域新缺陷；不称整页视觉通过。
+- 8流程32页303原生帧：44唯一href和12/12/12/8顺序、末页刷新同URL/上一页/原生滚轮main覆盖与真实返回顶部、无横溢出/scrollX0/PNG尺寸、文字Range根计数与严格不相交、控件矩形/hit全部通过。独立比较同head production/live，303帧viewport/scroll/文字与控件/目录诊断全等；不是像素全等（右侧随机引文不同），比较不代替看图。
+- ui021-live保留14实际已看联系表、4原PNG及8源JSON哈希/目标名单/303比较摘要。其他247帧本head未人工看，完整A10/全站不完成，不累加旧head57/97/52。UI021仅此范围done；本轮只证据/计划日志，无产品改动或新用户问题，gh仍不可用未编造Issue。新证据提交自身CI另核对，下一项THINK剩余完整帧和其余矩阵。
+
+## 2026-10-19 线上复验范围（先记录）
+
+- Task UI021-live；base/main `93d4c80dac21145eea670b3ae8e08505f062f71f`，[run39156738726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39156738726) build117761413839/deploy117765457118/live117765498122均success。只核对该head线上Series目标原图及原交互，完成后记录限定done，不据CI成功或旧图代替本次看图。
+- 拟改范围仅本文件/UI计划日志/uia10与公开线上联系表、已放大原PNG、摘要；不再改产品CSS/JS/内容/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE。其他THINK未人工帧及全站剩余矩阵不顺带标done，无新用户决策。
+- live专项artifact12148182796（52187393 bytes）独立SHA256 `8445ea45d2a0821e0f7f191c91e1561c2e17a44f8994285088f4b8f88341e24a` 匹配；同head production专项12148300139（53024391 bytes）独立SHA256 `c4e0943e998d494324fc9e34e6687a073e9d6eeb44e5992a1a870e657e1f08bb` 匹配。总包超下载接口上限不取回，不绕过；将从专项原PNG/JSON核验，当前人工复查未开始。
+
 ## 2026-10-19 精确production限定验收
 
 - 验收head `dae7e3a50e48d982132943d724fe61cfb7c30e5f`，[run39152206991](https://github.com/AplusNeutrino/My_Blog/actions/runs/39152206991) build117747975591 success；工作分支deploy117752696942/live117752697291按规则skipped，不冒称部署。273 tests、T01保护、authoring44/5/7、production Jekyll、Search/Atom、SEO/旧URL/noindex、资源/集成、移动/无障碍及主192浏览器场景全部成功。

@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI021线上限定done：验收main93d4c80dac21145eea670b3ae8e08505f062f71f/run39156738726 build117761413839/deploy117765457118/live117765498122全部success；273 tests/T01/authoring/Jekyll及原门禁与production/live各主192成功。实际复查四宽度双主题56线上Series目标帧14联系表、放大4原PNG，390 Night说明行尾换行避开圆钮；8流程32页303帧目录/文字/控件与真实分页刷新滚轮返回顶部通过，303诊断与同head生产全等。其他247帧本head未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui021-checks.md)。以下为历史时点。
+
 2026-10-19 UI021生产限定验收通过：dae7e3a50e48d982132943d724fe61cfb7c30e5f/run39152206991 build117747975591 success，分支deploy/live skipped；273 tests/T01/authoring/Jekyll及原门禁和主192成功。专项artifact独立摘要匹配，四宽度双主题56 Series目标帧/14联系表实际看，放大4原图及before，390 Night行末自然换行避开圆钮。8流程32页303原生帧目录/文字/控件/分页刷新滚轮返回顶部通过；其他247帧未人工看，完整A10仍pending。只保存证据与计划日志，不再改产品，可非强推交付main；新main自身CI/部署/线上同场景复验仍validation-pending，不标done，无新用户问题。[证据](docs/ui-evidence/ui021-checks.md)。以下是先前时点。
 
 2026-10-19 UI-021 validation-pending：6220e714/run39148513573 精确build117737199765在Series文字遮挡门禁失败，deploy/live skipped；272回归/T01/authoring/production Jekyll及前置成功不是完整通过。实际看390 Night第1页scrollY1575失败原PNG，Series Computer Architecture说明行末与圆钮区域相交，Range交叉11.640625×17px；S-A10b-01升级确认。先记base/原图/最小范围后，仅THINK Series说明<=1199.98px padding-right:2.75rem，加1作用域回归，不改Topic/底部检索或放宽既有门禁。本机273 tests/T01/authoring/diff通过；新head留ui/fix-021，main d1ddfe95不变，修复后完整生产/图与交互/部署线上均待验，无新用户决策。详见[UI021证据](docs/ui-evidence/ui021-checks.md)。以下UI-A10b段为上次时点记录。
@@ -31,7 +33,7 @@
 
 | ID | 优先级 | 已复现问题 | 状态 | 验收 |
 |---|---|---|---|---|
-| UI-021 | P2 | 390 Night实际原图：THINK Series Computer Architecture说明行尾进入返回顶部圆钮区域；新Range门禁复现交叉 | validation-pending | dae7e3a5精确production成功，四宽度双主题56 Series目标帧14联系表/4原图实际确认避让，303帧严格目录文字/控件及分页刷新返回顶部通过；新main部署与线上同场景复验仍待完成，完整A10其他247帧未人工看 |
+| UI-021 | P2 | 390 Night实际原图：THINK Series Computer Architecture说明行尾进入返回顶部圆钮区域；新Range门禁复现交叉 | done | 93d4c80d精确main build/deploy/live全部成功；四宽度双主题56线上Series目标帧14联系表/4原图实际确认文字避让，303帧严格目录文字/控件及分页刷新返回顶部通过；仅此范围done，完整A10其他247帧未人工看 |
 | UI-020 | P2 | 390 Light实际线上原图：固定返回顶部圆钮部分覆盖THINK排序下拉框右端与第3页数字4页码触控区域 | done | f0bb59d0精确main build/deploy/live全部成功；四宽度双主题97线上控件帧/18联系表及4原图实际确认避让；8流程32页302帧控件hit/严格矩形/文字/分页刷新返回顶部通过，仅此作用域done，完整A10其余205帧未看 |
 | UI-019 | P2 | 实际390 Light THINK介绍及写作卡片摘要右端文字被固定返回顶部按钮遮挡 | done | ffbc8a8b精确main build/deploy/live全成功；四宽度双主题52线上目标帧/10联系表实际看及5原图对照放大，文字完整避让圆钮；8流程32页302帧严格Range/分页/滚轮/返回顶部通过，仅此范围done，A10其余250帧未看 |
 | UI-018 | P2 | 实际1024 Night ABOUT历史状态右下更新日期末端被返回顶部圆钮遮挡 | done | c696aa9精确main build/deploy/live全部success；四宽度双主题10线上日期目标帧/8联系表实际查看，1024 Night原图before/after末端完整；8组滚轮/返回顶部/Library友链往返通过，仅此作用域done |

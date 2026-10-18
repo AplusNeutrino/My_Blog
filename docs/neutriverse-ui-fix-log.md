@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI021精确main线上限定验收done
+
+- 验收main/base93d4c80dac21145eea670b3ae8e08505f062f71f/[run39156738726](https://github.com/AplusNeutrino/My_Blog/actions/runs/39156738726) build117761413839/deploy117765457118/live117765498122全部success。273 tests/T01保护44/5/5/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/原门禁与production/live各主192通过。线上origin为https://neutriverse.uk，32页均同站URL。
+- live专项artifact12148182796独立SHA256 8445ea45d2a0821e0f7f191c91e1561c2e17a44f8994285088f4b8f88341e24a匹配；同head production专项12148300139独立SHA256 c4e0943e998d494324fc9e34e6687a073e9d6eeb44e5992a1a870e657e1f08bb匹配。实际复查四宽度双主题56线上Series目标帧/14联系表，放大390 Night/Light、768 Night、1366 Light四原图，行尾完整自然换行且避让圆钮，未发现限定范围新缺陷。
+- 独立核对8流程32页303原生帧：44href完整顺序12/12/12/8、真实分页/末页同URL刷新/上一页/滚轮覆盖/返回顶部通过；文字和目录Range非空/严格不交叉、控件矩形/hit、PNG尺寸/无横溢出/scrollX0通过。303帧viewport/scroll/文字与控件/目录诊断与同head生产全等，非随机引文像素全等，不拿机械比较代看图。
+- ui021-live保存14已看联系表/4原PNG/8源JSON哈希及目标名单/比较摘要。其他247帧本head未人工看，完整A10与全站仍IN PROGRESS，不写最终报告/COMPLETE或暂停。此轮只证据与UI计划日志，不改产品/旧内容/metadata/URL/hidden/noindex/外部仓库/旧COMPLETE，gh不在PATH未编造Issue，无新用户决策。新证据head CI另核对，下一项THINK剩余完整帧与余下矩阵。
+
 ## 2026-10-19 — UI021生产限定验收通过，交付main待线上复验
 
 - 验收head dae7e3a50e48d982132943d724fe61cfb7c30e5f/[run39152206991](https://github.com/AplusNeutrino/My_Blog/actions/runs/39152206991) build117747975591 success，deploy117752696942/live117752697291分支规则skipped；273 tests、T01/authoring44/5/7/production Jekyll/Search/feed/SEO/资源/移动无障碍及主192成功。base main仍d1ddfe95f178c55b1fef67c86949c639c6f85cdd。
