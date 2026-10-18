@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-A10b validation-pending：base main d1ddfe95f178c55b1fef67c86949c639c6f85cdd/run39143676491 build117723058771/deploy117727563192/live117727609663全部success，关闭上一证据head pending。已实际看390 Night完整四页57帧12联系表、放大3原图；S-A10b-01仅为Series说明句号贴近固定圆钮的待核实截图疑点，不是已确认UI021。旧文字Range不覆盖目录/底部检索，不能据旧门禁通过称正常；先记录范围后仅追加Topic4/Series3/检索5说明逐行Range非空/严格不交叉与失败PNG/JSON、1回归，产品不改，原门禁/等待保留。本机272 tests/T01/authoring/diff通过，ui/audit-010b待精确CI；main不改，其他245帧本head未人工看，无新用户决策。[范围与证据](docs/ui-evidence/uia10-checks.md)。
+
 2026-10-19 UI020线上限定done：验收main f0bb59d065e51638bbde5eef11667422e35d5487/run39138681681 build117708387611/deploy117713026629/live117713227145全部success，271 tests/T01/authoring/Jekyll/原门禁与production/live各主192通过。实际看四宽度双主题97线上控件帧18联系表、放大4原图，箭头/数字4与固定圆钮分离；8流程32页302帧hit/严格矩形/文字Range/真实分页刷新返回顶部通过，302诊断与同head生产全等。其他205帧未人工看，完整A10仍pending。本轮只证据/计划日志，新证据head CI另核对，无新用户决策。[证据](docs/ui-evidence/ui020-checks.md)。
 
 2026-10-18 UI020生产限定验收通过：7d71656eab5a5bdb2350b1d9f1fa9003e184e97e/run39134358751 build117695744730 success，分支deploy/live skipped；271 tests/T01/authoring/Jekyll/旧门禁与主192成功。人工实际看四宽度双主题97控件帧18联系表、放大4原图/重看2 before，排序箭头/页码4完整避让圆钮；8流程32页302帧严格控件矩形/操作hit/文字Range/原生滚轮及真实分页刷新返回顶部均通过。其他205帧未人工看，A10不整页通过。本轮仅证据/计划日志，不再改产品；可非强推交付main，新main自身build/deploy/live及线上同场景仍pending，无新用户问题。[证据](docs/ui-evidence/ui020-checks.md)。

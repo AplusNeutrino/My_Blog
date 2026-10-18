@@ -1739,6 +1739,41 @@ def public_page_sweep(driver, wait, output, width, theme, name):
                     'THINK control scope missing')
             require(not controls['overlaps'], 'THINK control hit area covered by back-to-top')
             require(not controls['misses'], 'THINK visible control pointer hit-test failed')
+            # UI-A10b: directory/retrieval descriptions are not UI019 record bodies.
+            observed['writingDirectoryButton'] = driver.execute_script('''
+              const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
+              const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
+              const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
+              const selectors=['[data-writing-topic-browser] .nv-topic-browser-description',
+                '[data-writing-series-browser] .nv-topic-browser-description',
+                '[data-neutriverse-section="think"] .nv-section-links .nv-section-link > span:last-child'];
+              const groups=selectors.map(selector=>{
+                const roots=[...document.querySelectorAll(selector)],lines=[];let emptyRoots=0;
+                for(const root of roots){
+                  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let textNodes=0;
+                  while(walker.nextNode()){
+                    const n=walker.currentNode;if(!n.textContent.trim())continue;textNodes++;
+                    const range=document.createRange();range.selectNodeContents(n);
+                    for(const r of range.getClientRects())if(r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight)
+                      lines.push({...rect(r),text:n.textContent.trim(),surface:selector});
+                  }
+                  if(!textNodes)emptyRoots++;
+                }
+                return {selector,rootCount:roots.length,emptyRoots,lines,
+                  overlaps:shown?lines.filter(r=>r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top):[]};
+              });
+              return {button:rect(br),shown,groups};
+            ''')
+            directories = observed['writingDirectoryButton']['groups']
+            counts = [4, 3, 5]
+            invalid = any(g['rootCount'] != count or g['emptyRoots'] or g['overlaps']
+                          for g, count in zip(directories, counts))
+            if invalid:
+                driver.save_screenshot(str(output / f'think-pagination-directory-overlap-{name}-{width}-{theme}.png'))
+                (output / f'think-pagination-directory-overlap-{name}-{width}-{theme}.json').write_text(json.dumps(observed,ensure_ascii=False,indent=2))
+            require(all(g['rootCount'] == count and not g['emptyRoots']
+                        for g, count in zip(directories, counts)), 'THINK directory text scope missing')
+            require(all(not g['overlaps'] for g in directories), 'THINK directory text covered by back-to-top')
         require(start <= (covered if covered is not None else observed['mainStart'])+1,
                 'Public page native viewports have a coverage gap')
         covered = max(covered or end, end)

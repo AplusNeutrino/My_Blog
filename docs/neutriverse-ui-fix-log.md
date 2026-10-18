@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A10b完整390 Night看图，目录句号疑点待实测
+
+- base/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd/[run39143676491](https://github.com/AplusNeutrino/My_Blog/actions/runs/39143676491) build117723058771/deploy117727563192/live117727609663全部success；271 tests/T01/authoring/Jekyll/原门禁和production/live各主192成功，关闭上轮证据head待验。UI019/020限定done保持，不重做旧COMPLETE。
+- live专项artifact12143767264（52150996 bytes）独立SHA256 80e59b9efa5b559fe74a0bcf63c97d7feff4e18c2f1e4a05783a0a2347ed69ff匹配。先记390 Night完整四页范围，实际看57帧12联系表（14/15/15/13），放大page1-4目录/page4-9长摘要/page2-14检索三原PNG。Series说明句号非常贴近圆钮，S-A10b-01只记疑点，不声称确认遮字或已失败点击、不编造UI021；其他245帧本head未人工看。8流程44href/原生覆盖/文字/控件/分页刷新返回顶部旧诊断通过，但不包含目录字行，不能替代看图和新scope实测。
+- 在uia10-checks先补核实范围后，只加四页每帧Topic4/Series3/底部检索5说明非空根计数、真实Range与可见圆钮严格不交叉检查，失败先think-pagination-directory-overlap PNG/JSON再抛出；保留旧UI019/020/原生交互/等待。新增1接线回归，本机272 tests/T01保护44/5/5/authoring44/5/7/diff通过。无本机Chrome/Jekyll，新head真实production及疑点待验，ui/audit-010b不合main；未确认前不动产品CSS/JS/内容/数据/URL/隐蔽边界/外部仓库。gh不可用不编造Issue，无新用户决策。
+- uia10b-live保留12已看联系表/3原PNG/8流程源哈希及明确57/302人工范围。UI-A10b/完整A10保持validation-pending，下一项核对同一新head目录Range与原截图；若确认相交再编号和最小根因修复，不凭偏好改样式。
+
 ## 2026-10-19 — UI020精确main线上限定验收done
 
 - 验收main/base f0bb59d065e51638bbde5eef11667422e35d5487/[run39138681681](https://github.com/AplusNeutrino/My_Blog/actions/runs/39138681681) build117708387611/deploy117713026629/live117713227145全部success，271 tests/T01保护44/5/5/authoring44/5/7/Jekyll/Search/feed/SEO/资源/原门禁与production/live各主192通过。live日志origin为https://neutriverse.uk，8流程32页均同站URL。

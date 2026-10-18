@@ -8,6 +8,23 @@ import unittest
 
 
 class ThinkPaginationAuditTests(unittest.TestCase):
+    def test_directory_text_scope_requires_real_ranges_and_preserves_existing_guards(self):
+        source=Path('tools/check_think_build_visual.py').read_text()
+        start=source.index('# UI-A10b:');block=source[start:source.index('require(start <= (covered',start)]
+        for token in ('[data-writing-topic-browser] .nv-topic-browser-description',
+                      '[data-writing-series-browser] .nv-topic-browser-description',
+                      '.nv-section-links .nv-section-link > span:last-child', 'counts = [4, 3, 5]',
+                      'document.createTreeWalker', 'document.createRange()', 'range.getClientRects()',
+                      'g[\'rootCount\'] == count and not g[\'emptyRoots\']',
+                      "all(not g['overlaps'] for g in directories)",
+                      'r.left<br.right&&r.right>br.left&&r.top<br.bottom&&r.bottom>br.top',
+                      'think-pagination-directory-overlap-'):
+            self.assertIn(token,block)
+        self.assertLess(block.index('driver.save_screenshot'),block.index('require('))
+        self.assertIn("require(not controls['misses']",source[:start])
+        self.assertIn('THINK text covered by back-to-top',source[:start])
+        self.assertNotIn('.style',block)
+
     def test_actual_pointer_script_rejects_each_interior_or_edge_obstruction(self):
         """Execute the production JS, not a Python copy; not a visual/browser pass."""
         node=shutil.which('node')

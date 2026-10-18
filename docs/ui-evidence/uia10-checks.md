@@ -1,5 +1,18 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10b先记录390 Night完整四页范围
+
+- base/main d1ddfe95f178c55b1fef67c86949c639c6f85cdd；[run39143676491](https://github.com/AplusNeutrino/My_Blog/actions/runs/39143676491) build117723058771/deploy117727563192/live117727609663全部success，关闭上次证据head CI pending；UI020限定done不重做。live专项artifact12143767264（52150996 bytes）独立SHA256 80e59b9efa5b559fe74a0bcf63c97d7feff4e18c2f1e4a05783a0a2347ed69ff匹配。
+- Task UI-A10b：仅补390px Night默认四页完整原生滚轮图（预计57帧）实际查看，包括介绍/Topic/Series/筛选/所有记录/分页/辅助入口到main底部，疑点放大原PNG。不复用旧head人工数量；其他主题/宽度其余帧继续pending。既有44href/分页/刷新/上一页/原生连续覆盖/文字Range/控件hit与返回顶部JSON另核对，不将机械通过替代看图。
+- 文件范围先限本文件、UI计划/日志及uia10b公开实际已看联系表/原图/摘要；没有实际确认缺陷则不改样式、测试或产品，不新增功能/重做旧COMPLETE。若发现缺陷另记编号/base/原图/最小根因范围后修。gh仍不可用不虚构Issue，无新用户决策；旧正文/metadata/URL/hidden/noindex/private边界/外部项目不改。
+
+### UI-A10b结果与S-A10b-01核实范围（先记录）
+
+- 已实际看390 Night四页57原生帧/12联系表（14/15/15/13），另放大page1-4目录、page4-9长摘要、page2-14底部检索原PNG。卡片/记录/分页/检索入口存在，无新确认的内容消失或溢出；但Series Computer Architecture说明句号贴近圆钮左缘，S-A10b-01仅为实际截图疑点，尚不能确认可见字形被覆盖，不创建UI021或编造Issue。
+- page1-4条件：实际390×701、clientWidth375、scrollY1575、圆钮left315/right359/top583/bottom627；当前writingTextButton只覆盖介绍/记录，不包含Topic/Series/检索说明，所以旧Range通过不能证明此处无相交。辅助入口与Topic其余说明也需独立scope，不用静态CSS估算代替实际文字坐标。
+- 因此本轮范围在此先扩为tools/check_think_build_visual.py与必要回归：四页每帧新增Topic4/Series3/底部检索5说明的非空根计数、真实文字Range与可见圆钮严格相交检查，失败先保存think-pagination-directory-overlap PNG/JSON再抛出，保留所有旧scope/断言/等待/真实交互。只补审计，不改产品CSS/JS；先ui/audit-010b，CI/相交根因与完整A10b仍validation-pending，不称57帧完全验收通过。其他245帧本head未人工看，无新用户决策。
+- 实现后本机272 tests OK（新增1接线回归），T01保护44/5/5、authoring44/5/7、diff通过，无本机Chrome/Jekyll；新审计production/目录字行坐标与完整A10b验收待新head。uia10b-live/保留12已看联系表、3放大原PNG、8源JSON哈希及44href/原生检查摘要，明确只有57/302实际看、疑点未确认，不以DOM或静态测试声称视觉通过。
+
 2026-10-19最新状态：UI020限定done，验收main f0bb59d0/run39138681681 build117708387611/deploy117713026629/live117713227145全部success。实际看四宽度双主题97线上控件帧18联系表及4原PNG，箭头/页码避让正常；8流程32页302帧严格hit/矩形/Range/原生滚轮及真实分页刷新返回顶部通过，控件/文字诊断与同head生产302帧全等。只有UI020完成，其他205帧本head未人工看，完整A10仍pending，旧head56/52不累加。仅追加公开证据与计划日志，后续证据head CI另验，无新缺陷/用户问题。详见ui020-checks.md及ui020-live/ui020-live-summary.json。
 
 2026-10-18 UI020生产限定通过：7d71656e/run39134358751 build117695744730 success，分支deploy/live skipped。实际看97控件可见帧18联系表和4原图/2 before，箭头/页码完整避让，8流程32页302帧控件hit/严格矩形/文字Range/真实分页刷新返回顶部通过。只此产品小修复可交付main，新main build/deploy/live/同场景线上复验pending，其他205帧未人工看，完整A10仍pending。ui020-production/summary明确源head与范围，不累计旧head人工数量。
