@@ -1,5 +1,10 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI024 首轮CI失败：补侧栏动画点击命中等待
+
+- 实现17a5aeb0/run39228088897 build117979204316回归/T01/authoring/production Build site成功，但OBSERVE新增fixture在line138桌面sidebar展开过渡后原生click chartControlToggle被sky-command拦截(point45,204)，deploy/live skipped；完整失败不当作通过。此失败未进入该fixture焦点断言，不推测新增产品侧栏缺陷。
+- 范围仅tools/check_observe_dialog.py点击helper等实际中心命中目标/非空矩形（10s有限等待）再原生click、文档记录；不改产品/禁动画/JS click/放宽原断言。修订head须独立验证与看图，UI024仍validation-pending、main e44不变。真实实现/复现详见ui024-checks.md与17a5父提交，audit/ui-a12-focus 8f4520dc记录此前pending历史不改写。
+
 ## 2026-10-19 — UI-024：加载态初始焦点确认与预定范围
 
 - 最新main e44fba12，审计父127c1ee7；独立worktree保护原修改。先读取AGENTS/docs agents/相关ADR/本轮记录与用户补充，旧主计划/最终报告保护要求继续有效；不重做T00–T39。浏览器技能本地工具Unknown tool，按指引云fallback。

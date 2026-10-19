@@ -7,6 +7,12 @@
 - 验收：禁用首按钮时首个可交互控件获得焦点，已加载时仍优先刷新；rAF执行前关闭不得抢回隐藏panel焦点；反向Tab/正向Tab边界、Escape恢复保留。四宽度双主题production及部署同场景真实截图与交互未完成前validation-pending，工作分支不提前main。
 - gh不在PATH时如实记录未建Issue；无新用户决定。云不可调视口，其他宽度依赖CI实际截图，不以Node执行或DOM代视觉。
 
+## 首轮精确CI失败及审计时序修正
+
+- 实现17a5aeb0b538fb7337e3a2c0127d504b25085cf9 / run39228088897 build117979204316：回归、T01、authoring、production Build site成功；OBSERVE专项失败，deploy/live跳过，不称完整通过。
+- 2026-10-19 09:12:21 UTC trace tools/check_observe_dialog.py line138，桌面sidebar重新展开后新增fixture click chartControlToggle，被sky-command拦截(point45,204)。尚未进入该次fixture焦点断言，不推断产品焦点修复失败或新侧栏缺陷。
+- 仅审计click helper增加有限10s真实elementFromPoint命中目标及非空矩形等待，再原生click；不JS点击、不禁动画、不放宽焦点/层级断言。aria-expanded先变而过渡未结束，等待实际可点击状态与浏览器可见性一致。原失败保留，修订head须独立CI/真实看图；main不变，UI024继续validation-pending。
+
 ## 最小实现与当前验证
 
 - 初始focus与原trap共用既有enabled/visible列表，不再focus disabled刷新；rAF执行时panel已关闭则不抢焦点。资源版本40；不改变原trap或服务/样式语义。

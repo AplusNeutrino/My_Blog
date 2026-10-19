@@ -51,6 +51,13 @@ def assert_open(metrics):
 def click(driver, selector):
     target = driver.find_element(By.CSS_SELECTOR, selector)
     driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", target)
+    # aria-expanded updates before the desktop sidebar transition finishes.
+    # Wait for the real native click point, never bypass interception with JS.
+    WebDriverWait(driver, 10).until(lambda d: d.execute_script('''
+      const n=arguments[0],r=n.getBoundingClientRect();
+      const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
+      return r.width>0 && r.height>0 && hit && (hit===n || n.contains(hit));
+    ''', target))
     target.click()
 
 
