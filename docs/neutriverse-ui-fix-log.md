@@ -1,5 +1,16 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — ac3430d9专项看图与完整CI字体阻塞
+
+- Task UI025/UI024/UI-A09-F；base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，工作ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3，审计父2974d1ff3af36a9f46464ce4abc6fe969b67b7f0。最新refs/API与fetch复核；AGENTS/docs agents/ADR、旧COMPLETE报告/主计划保护段、本轮计划日志及用户补充重读。CONTEXT不存在、gh不可用未建Issue，无新增用户决定，独立worktree不覆盖原dirty目录。
+- 预定本轮仅计划/日志/ui025-checks及公开ui025-ac3430-evidence截图/JSON/来源清单；没有新确认产品缺陷，不改CSS/app.js/v41/字体/工作流/旧门禁，不重做T00–T39，不触发无方案的同head重跑。
+- 精确run39281958731 build118157843464 completed/failure，2026-10-19 16:15:30 UTC结束；285tests/T01/authoring/production Jekyll/Search/feed/压缩脚本/图标8组/OBSERVE8组/点赞/SEO/资源/移动与响应式无障碍均success。THINK/BUILD检查在1366 Night think-all的settle/document.fonts.ready line102异步30s超时；deploy118173857688、verify-live-ui118170749265 skipped。不把专项成功当完整build或上线通过。
+- 图标artifact12201067407（306732bytes）ZIP SHA2563cb8416426100fc821ffb51ce1b0e4d84565fdfcbdf7d6da8202add7c8dfb236匹配；本轮实际逐张看新head四宽度双主题8原PNG，普通/选中太阳/月亮/土星均清晰，audit的6图加载/底色/无溢出及4Light旧色精确注入拒绝通过。隔离CSS+原PNG fixture，不冒称自然应用或远端业务；原PNG与先前ui025-production逐字节比较结果见source.json。
+- OBSERVE artifact12202300450（4029746bytes）ZIP SHA2569e3344e12e08074d6eb574fc264ef56497edba9137eca2716f0eb0061ebd0f57匹配；本轮实际看全部58 viewport的8联系表、放大1024 Night/1366 Light loading-wrap原PNG。8组passed、first=date且两首button disabled，Shift+Tab至aspectLinesToggle、inside/focusIsLast均true；自然初焦点date、旧层级故障注入/Tab/Escape/重开/共享导航与主题保持通过。390 scroll192、768/1024 scroll31、1366 scroll0（内容短不虚称长滚动）。16帧明确disabled fixture，当前服务/星盘仍加载、无10行星节点，不认证完整动态菜单/服务健康或UI025整应用图标效果。
+- THINK总artifact12201628024（366269914bytes）ZIP SHA256885248c54e1382bf153d932dc16136bd0fdb2d589e0d844af0795aee56a4aad5匹配；只取回并实际看scene-failure.png及解析JSON，其他2165文件未人工验收。1366×757 Night失败原图中文/四入口可见，但不能认证字体就绪。566字体面=112loaded/3loading/451unloaded，loading为Noto Sans SC400/500/600同一U+7722…U+784B段；51个已采Font网络请求均finished、46条resource timing。与此前UI024四个Noto Serif SC loading不同，不能强归相同根因，也不能凭请求finished推定CDN/缓存/Chrome根因。
+- 已保存8联系表、2放大原图、2原audit、失败PNG/JSON及58原PNG哈希尺寸；本轮不新增产品修复、不合main，UI024/UI025仍validation-pending。下一项以字体CSS src→FontFace→具体请求/缓存生命周期关联做受控诊断，维持原30s/失败门禁；也可继续UI-A12剩余自然控件，不重复已done层级/fixture、不盲重跑。全站IN PROGRESS，不写最终报告或暂停。
+- 本机285tests（4.069s）、authoring44/5/7、T01正文/URL/hidden44/5/5、git diff --check通过；Ravenis LKG打印来自既有unit fixture，不是本次真实线上服务故障。无本机Jekyll/Chrome，production结论来自上述精确Actions；8新图标PNG与永久ui025-production对应文件逐字节SHA256相同，来源清单明确引用旧存储字节，不冒称复用旧head代替本轮看图。
+
 ## 2026-10-19 — OBSERVE fixture前提被异步回调覆盖，限定修订
 
 - Base/main004447db、工作9e1e5a13、审计父31004361；规定上下文已读，CONTEXT不存在、gh不可用无Issue，独立worktree保护用户修改，无新用户决定。

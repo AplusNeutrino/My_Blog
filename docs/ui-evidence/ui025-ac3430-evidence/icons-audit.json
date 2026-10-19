@@ -1,0 +1,202 @@
+[
+  {
+    "name": "planet-icons-390-dark",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 390,
+      "fills": [
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 390
+    },
+    "oldLightFillRejected": false
+  },
+  {
+    "name": "planet-icons-390-light",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 390,
+      "fills": [
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 390
+    },
+    "oldLightFillRejected": true
+  },
+  {
+    "name": "planet-icons-768-dark",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 768,
+      "fills": [
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 768
+    },
+    "oldLightFillRejected": false
+  },
+  {
+    "name": "planet-icons-768-light",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 768,
+      "fills": [
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 768
+    },
+    "oldLightFillRejected": true
+  },
+  {
+    "name": "planet-icons-1024-dark",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 1024,
+      "fills": [
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 1024
+    },
+    "oldLightFillRejected": false
+  },
+  {
+    "name": "planet-icons-1024-light",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 1024,
+      "fills": [
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 1024
+    },
+    "oldLightFillRejected": true
+  },
+  {
+    "name": "planet-icons-1366-dark",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 1366,
+      "fills": [
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)",
+        "rgb(231, 236, 243)",
+        "rgb(255, 252, 232)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 1366
+    },
+    "oldLightFillRejected": false
+  },
+  {
+    "name": "planet-icons-1366-light",
+    "fixture": "isolated built CSS and PNG only",
+    "metrics": {
+      "docWidth": 1366,
+      "fills": [
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)",
+        "rgb(255, 248, 231)"
+      ],
+      "images": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "width": 1366
+    },
+    "oldLightFillRejected": true
+  }
+]

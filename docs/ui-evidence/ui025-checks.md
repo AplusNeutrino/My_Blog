@@ -1,5 +1,13 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-20 ac3430d9生产专项通过、完整构建字体阻塞
+
+- [run39281958731](https://github.com/AplusNeutrino/My_Blog/actions/runs/39281958731)精确head ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3；build118157843464 failure于2026-10-19 16:15:30 UTC。285tests/T01/authoring/production Jekyll、图标8组、OBSERVE8组成功；后续THINK1366 Night等待document.fonts.ready超时。deploy118173857688/live118170749265 skipped，main仍004447db，不称本修复上线。
+- 本轮实际看图标8原图：普通/active符号均清晰；隔离built CSS+原PNG而非整应用业务。OBSERVE58帧用8联系表全看，放大1024 Night及1366 Light loading-wrap原图；标题无遮挡、disabled fixture焦点date→末checkbox且inside=true，8组原回环/导航/Escape通过。16帧为明确disabled UI fixture，当前没有已加载完整行星菜单，不认证服务健康或自然已加载图标；1366短内容scroll0不虚称滚动。
+- 原始ZIP摘要、已看图、原audit、失败原图/字体快照与全部58PNG哈希尺寸见[本head来源清单](ui025-ac3430-evidence/source.json)。3个包摘要独立匹配。THINK包只看失败PNG/JSON，其他2165文件未人工验收；没有把总包存在当整页矩阵通过。
+- 失败快照fontSet=loading，566面中112loaded/3loading/451unloaded；3loading为Noto Sans SC400/500/600同Unicode段，51个采集Font请求均finished、46resource条目。不同于UI024旧Serif面，不强归同因；尚无CSS src到面/请求一一关联，不推断CDN/缓存/Chrome。未重跑、不增timeout/跳字体、不改产品。UI024/025完整CI/部署复验仍pending，无新增用户决定。
+- 下一项：字体CSS规则src/Unicode/weight与FontFace/网络缓存生命周期的受控诊断，原超时门禁必须保留；独立UI-A12自然业务控件可继续。仅证据提交audit/ui-a12-focus，不再推进产品分支制造新CI。
+
 ## 最新fixture修订提交
 
 - `ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3` 已非强推更新ui/fix-025；[run39281958731](https://github.com/AplusNeutrino/My_Blog/actions/runs/39281958731)真实创建且queued。仅修测试fixture并加强前提，产品CSS/v41/app.js与9e1e5a13相同；285tests（3.253s）/T01/authoring/diff本机通过，非视觉验收。
