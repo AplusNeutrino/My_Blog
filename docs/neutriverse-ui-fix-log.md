@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A12b / UI025 行星图标可读性
+
+- Base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父77a3c16a17a5335133a8cb193d47313fb1b9d1ea；先读规定上下文、原COMPLETE/ADR/本轮日志及用户补充，独立worktree保护原目录，CONTEXT不存在、gh不可用未建Issue，无新用户决定。
+- 使用浏览器技能，本地连接Unknown tool改云Chrome1363×936，实际Light自然加载完成后关全部连线11→0（10节点），恢复再隐藏太阳10→9节点/11→10连线，左表14/17→13/17；恢复原值。截图实际看并保存，加载/已加载时序明确，不mock服务或改DOM状态。实际选太阳后侧边FOCUS内容与选中图标可见。
+- 新确认UI025 P2：Light普通PNG行星符号几乎不可辨，背景circle=#17445a，深色透明PNG与底色低对比；选太阳后浅底#fff8e7相同符号清晰，左表同资源正常。非图标缺失/偏好；先记录ui025-checks复现/范围后最小CSS底色token分离，Night保持原#e7ecf3、Light用已有选中浅底#fff8e7，资源40→41。PNG/业务/元数据/URL/noindex/隐蔽边界/外部仓库均不动。
+- 具体回归验证普通/active底色与原PNG代表深青笔画对比>=4.5，旧Light底色同条件<3故障拒绝。新增Chrome4宽度×双主题隔离fixture，使用真实built CSS/原PNG，检查6图加载、普通底色/无溢出，保存8正常viewport，并在可丢弃fixture注入旧heading耦合拒绝Light。明确不是整个应用布局/远端服务/实际业务验收；原门禁完整保留。
+- 本机280tests（3.327s）、authoring44/5/7、T01正文/URL/hidden44/5/5及diff通过；无Ruby/Jekyll/Chrome，production/fixture新图/完整CI/main部署未验证，修复只留ui/fix-025，不提前交付main。UI024字体阻塞/失败历史保持，不盲重跑。下一项先核对UI025精确实现CI与8图，再决定交付；UI-A12b其余历史查询/折叠等仍pending，不虚称尝试成功。
+
 ## 2026-10-19 — UI024 重跑失败与字体诊断
 
 - 任务UI024/UI-A09-F诊断；预记base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父1ee05b3d9431a4bb1b925d38ae2a311b1db21c0d。仅计划/本日志/ui024-checks及公开失败证据ui024-live-retry-failure；独立worktree保护原dirty目录，无产品/门禁改动。规定上下文已读，CONTEXT不存在、gh不可用，未编造Issue，无新用户决策。

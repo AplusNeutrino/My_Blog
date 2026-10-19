@@ -96,6 +96,20 @@ jobs:
       - name: Parse production-compressed like scripts
         run: python tools/check_like_scripts.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Verify Atlas planet icon contrast fixture
+        run: python tools/check_atlas_planet_icons.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_ATLAS_ICONS_DIR: ${{ runner.temp }}/neutriverse-atlas-icons
+
+      - name: Upload Atlas planet icon fixture evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-atlas-icons-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-atlas-icons
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Verify OBSERVE dialog stacking and controls
         run: python tools/check_observe_dialog.py "_site${{ steps.pages.outputs.base_path }}"
         env:

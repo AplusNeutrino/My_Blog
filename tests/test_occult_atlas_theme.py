@@ -90,7 +90,22 @@ class OccultAtlasThemeTest(unittest.TestCase):
     def test_asset_version_is_bumped_for_theme_css(self):
         source = CONFIG.read_text(encoding="utf-8")
 
-        self.assertIn('asset_version: "40"', source)
+        self.assertIn('asset_version: "41"', source)
+
+    def test_planet_icon_backplates_keep_dark_png_symbols_readable(self):
+        source = STYLES.read_text(encoding="utf-8")
+        root, light = source.split("html[data-mode='light']", 1)
+        for palette in (root, light.split("\n}", 1)[0]):
+            colors = dict(re.findall(r"(--atlas-[\w-]+):\s*(#[0-9a-fA-F]{6})", palette))
+            # Representative opaque dark-teal strokes in the shipped PNG icons.
+            for token in ("--atlas-planet-fill", "--atlas-planet-active-fill"):
+                self.assertGreaterEqual(self._contrast_ratio("#07504d", colors[token]), 4.5)
+        self.assertIn("--atlas-planet-fill: #e7ecf3", root)  # Night unchanged.
+        normal = re.search(r"\.planet-node circle\s*\{(.*?)\}", source, re.S).group(1)
+        self.assertIn("fill: var(--atlas-planet-fill)", normal)
+        self.assertNotIn("fill: var(--atlas-heading)", normal)
+        # The pre-fix Light background must fail this same readability criterion.
+        self.assertLess(self._contrast_ratio("#07504d", "#17445a"), 3)
 
     def test_open_dialog_command_escapes_the_scrim_stacking_context(self):
         source = STYLES.read_text(encoding="utf-8")

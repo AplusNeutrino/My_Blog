@@ -34,6 +34,7 @@
   --atlas-chart-signal-faint: rgba(226, 207, 91, 0.26);
   --atlas-chart-muted: rgba(116, 129, 145, 0.58);
   --atlas-planet-stroke: #315b66;
+  --atlas-planet-fill: #e7ecf3;
   --atlas-planet-active-fill: #fffce8;
   --atlas-aspect-conjunction: #b79b42;
   --atlas-callout-line: rgba(226, 207, 91, 0.76);
@@ -83,6 +84,7 @@ html[data-bs-theme='light'] {
   --atlas-chart-signal-faint: rgba(173, 125, 41, 0.32);
   --atlas-chart-muted: rgba(83, 96, 96, 0.62);
   --atlas-planet-stroke: #197f93;
+  --atlas-planet-fill: #fff8e7;
   --atlas-planet-active-fill: #fff8e7;
   --atlas-aspect-conjunction: #9a6d1f;
   --atlas-callout-line: rgba(173, 125, 41, 0.8);
@@ -1114,7 +1116,7 @@ body.sidebar-collapsed .astro-visual svg {
 }
 
 .planet-node circle {
-  fill: var(--atlas-heading);
+  fill: var(--atlas-planet-fill);
   stroke: var(--atlas-planet-stroke);
   stroke-width: 2;
   transition: fill 180ms var(--atlas-ease), stroke 180ms var(--atlas-ease), stroke-width 180ms var(--atlas-ease);
