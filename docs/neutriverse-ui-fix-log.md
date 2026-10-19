@@ -6,6 +6,7 @@
 - 实际1363×936 Light加载态打开后两个观察调用active=chartControlToggle、inside=false、refresh.disabled=true；加载完成仍遗留trigger，Shift+Tab实际跑到弹层外主站链接，S-A12-01转确认UI-024 P2。截图捕获时已加载完成，明确不冒称加载态截图。UI023遮罩层级正常不重复修复。
 - 修改前记录：仅app.js初始focus、资源v40、必要执行回归及真实CI焦点门禁、计划/日志/公开证据。禁用首button仍被querySelector选中导致focus无效；选择首可交互控件，兼顾rAF前关闭防抢焦点。四宽度双主题/production/精确headCI/部署复验未完成前保持validation-pending，留工作分支。无新用户决策，gh不可用未建或编造Issue。
 - 最小实现完成：复用原trap enabled/visible列表选择初始focus，关闭后rAF不抢焦点；资源v40。两项实际函数执行回归及旧selector故障注入通过，279 tests（2.615s）、T01/authoring、Node语法/Python编译/diff通过。本机无Jekyll/Chrome；新增8流程稳定初焦点及独立可恢复disabled前两按钮UI fixture/Shift+Tab/新截图，不mock网络、不认证远端健康、不放宽原门禁。两张修复前截图已保存，捕获时已加载完成，不冒称加载中；production/完整CI/修复后看图/main部署复验仍validation-pending，分支ui/fix-024。下轮先核对精确实现head，不重复UI023层级或凭静态测试标done。
+- 真实实现17a5aeb0b538fb7337e3a2c0127d504b25085cf9已推ui/fix-024，[run39228088897](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228088897) build117979204316运行中（Checkout）；main仍e44fba12。不将旧head成功当本次通过、无新增修复后视觉结论。状态记录另存audit/ui-a12-focus以免取消同一head CI，下一轮先核对实现head及新截图；未验证半成品不交付main，无新用户决策。
 
 ## 2026-10-19 — UI-023：同head重跑与部署视觉限定验收完成
 

@@ -13,3 +13,9 @@
 - 2项Node实际函数执行回归覆盖disabled→datetime、loaded→refresh、Shift+Tab/Tab边界、Escape恢复、快速关闭及空列表fallback；旧first-button逻辑故障注入必须失败。279 tests（2.615s）、authoring44/5/7、T01正文/URL/hidden44/5/5通过，node语法/专项Python编译/diff通过；这不是视觉验收。
 - 原OBSERVE8流程增加稳定初始focus wait；另每流程独立“仅前两按钮disabled”的可恢复UI fixture检查datetime初焦点、原生Shift+Tab到末控件及Escape返回，保存loading-focus/loading-wrap正常viewport。不拦截网络或修改远端服务，fixture明确不等于自然加载状态/后端健康。原层级故障注入/滚动/Tab/导航等门禁保留。
 - 真实修复前两图保存ui024-before/light-open-focus-outside.jpg与light-shift-tab-escaped.jpg：截图已加载完成，后图主站链接focus框在panel后方可见，AX与DOM记录active A aria-label返回Neutriverse主站、inside=false、panel仍open。未做修复后线上操作；production Jekyll/四宽度双主题截图/完整CI/部署仍validation-pending。
+
+## 精确实现与后续核对
+
+- 实现`17a5aeb0b538fb7337e3a2c0127d504b25085cf9`，分支`ui/fix-024`，[Actions39228088897](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228088897)，build117979204316运行中（Checkout）。main仍e44fba12，不称实现已上线或分支deploy已通过。
+- 修复前图SHA256分别`fbabbb08c04aa4fff0559653e535d02a756ce4438f66a90294598881017ae492`、`be1989fe884755acedd38b698800607afa424d00d45ade61b31291abca098985`。修复后CI图片尚未产生或人工查看，不虚构前后视觉验收。
+- 本状态仅存不触发CI的audit/ui-a12-focus，不修改验证中的ui/fix-024，避免取消同head run。下轮先核对17a5aeb0的完整CI/专项42+16帧；新16帧为明确disabled UI fixture，不冒称自然加载或真实服务完整健康。验收通过再交付main并核对新main精确head。
