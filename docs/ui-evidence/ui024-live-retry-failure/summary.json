@@ -1,0 +1,21 @@
+{
+  "head": "004447dbdf2a8187c2cac9e7ab568709296ac8ab",
+  "run": 39234519303,
+  "attempt": 2,
+  "liveJob": 118021850681,
+  "status": "failure",
+  "completedAt": "2026-10-19T11:11:45Z",
+  "artifact": 12181648252,
+  "artifactBytes": 366303644,
+  "artifactSHA256": "e9f2e7c9b6acd334262f366f924a4eb670fdf4629057e1844137b42b2580ea72",
+  "filesInArtifact": 2167,
+  "reviewed": ["scene-failure.png", "scene-failure.json"],
+  "viewport": [1366, 757],
+  "theme": "dark",
+  "scene": "think-all",
+  "newAtlasImages": 0,
+  "fontFaces": {"loaded": 123, "loading": 4, "unloaded": 439},
+  "capturedFontRequests": {"finished": 57, "pending": 0, "failed": 0},
+  "rootCause": "unproven; captured request completion is not proof every loading face has a matching complete event",
+  "gate": "unchanged document.fonts.ready and 30s script timeout; no further automatic rerun"
+}

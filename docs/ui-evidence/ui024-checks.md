@@ -1,5 +1,14 @@
 # UI-024 — Atlas 加载态打开弹层未移入焦点
 
+## 2026-10-19 重跑失败与字体诊断
+
+- 预记本轮base/main `004447dbdf2a8187c2cac9e7ab568709296ac8ab`，审计父`1ee05b3d9431a4bb1b925d38ae2a311b1db21c0d`，范围仅计划/日志/本记录及`ui024-live-retry-failure/`公开证据。无产品修改、无新确认UI缺陷或用户决策，gh不可用。
+- [attempt2 live118021850681](https://github.com/AplusNeutrino/My_Blog/actions/runs/39234519303/job/118021850681)于2026-10-19 11:11:45 UTC failure。build118021851655/deploy118021853239是复用成功结果；不能把它们写成完整run成功。THINK/BUILD步骤在1366 Night think-all的settle line102等待document.fonts.ready异步30s超时，尚未执行本次Thought likes与OBSERVE，所以没有重跑Atlas图。首次失败是1024 Night Ravenis，二者分别保留。
+- 本次artifact12181648252（366303644bytes）ZIP独立SHA256 `e9f2e7c9b6acd334262f366f924a4eb670fdf4629057e1844137b42b2580ea72`匹配。含2167文件，仅提取且实际查看scene-failure.png（1366×757）及解析scene-failure.json，其他2165文件未人工验收。画面中文、THINK标题与四入口可见，未确认新的显示缺陷，不能因可见而宣称字体门禁通过。
+- 快照566字体面：123 loaded、4 loading、439 unloaded。loading均Noto Serif SC normal/display swap，400/600各两Unicode范围（详见原JSON）；FontFaceSet仍loading。采集到57条Font网络事件均finished，无pending/failed；这不保证日志完整对应每个加载面，不能据此断言CDN故障、缓存或Chrome内部根因。与旧UI-A09-F的Noto Sans SC快照不同，不混为同一个已知故障。
+- 原30s/ready/失败阻断保持，不盲目第三次重跑，不换字体/禁缓存/删除门禁。UI024仍validation-pending，完整live受字体等待阻塞；先有可诊断复现方案再重新验证，旧云焦点及首轮28图仅显式复用。不把本轮失败诊断当四宽度视觉验收，也不将局部受阻扩大成全站无事可做。
+- 原图、原JSON和summary来源/摘要永久保存`ui024-live-retry-failure/`，main不动；下一项UI-A12独立应用控件，另跟进字体等待证据。全站IN PROGRESS，不写最终报告或暂停。
+
 ## 2026-10-19 线上部分复验：仍 validation-pending
 
 - 本轮base/main `004447dbdf2a8187c2cac9e7ab568709296ac8ab`，审计父`78446763f885148448df4b4278bbded533a8b046`。预定仅本记录/计划/日志及`ui024-live/`证据；无产品修改、无新用户决定、gh不可用未建Issue。

@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI024 重跑失败与字体诊断
+
+- 任务UI024/UI-A09-F诊断；预记base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父1ee05b3d9431a4bb1b925d38ae2a311b1db21c0d。仅计划/本日志/ui024-checks及公开失败证据ui024-live-retry-failure；独立worktree保护原dirty目录，无产品/门禁改动。规定上下文已读，CONTEXT不存在、gh不可用，未编造Issue，无新用户决策。
+- 精确run39234519303 attempt2 live118021850681于11:11:45 UTC completed/failure；build118021851655/deploy118021853239复用成功。失败发生于1366 Night think-all场景的settle/document.fonts.ready line102、async30s超时，未执行后续Thought likes/OBSERVE。本次没有新的Atlas图；不得用首次artifact12180635906当重跑验收。
+- 独立下载本次总artifact12181648252（366303644bytes），SHA256 e9f2e7c9b6acd334262f366f924a4eb670fdf4629057e1844137b42b2580ea72匹配。仅提取scene-failure.png/json；实际查看1366×757失败viewport，中文/四入口/标题可见，未确认新视觉缺陷，其余2165文件未看，不称全包验收。
+- 原诊断：readyState complete、mode dark、FontFaceSet loading；566面中123 loaded/4 loading/439 unloaded。4面均Noto Serif SC normal display swap，400/600各两Unicode范围；所采Font网络57条均finished，未见pending/failed。网络事件仅当前采集窗口，不能由此证明所有字体面所对应请求齐全，更不能归因CDN/HTTP3/缓存或浏览器内部机制；unloaded不等于错误。与旧A09-F三Noto Sans SC加载面不同，不混用旧根因。
+- 不再自动重跑同job、不延长/跳过fonts.ready或删除旧门禁、不换字体或禁缓存。UI024保持validation-pending，完整live受字体等待阻塞；解除条件是保留原门禁的可诊断复现及同产品head完整线上矩阵通过。实际稳定加载/已加载云焦点证据明确复用上轮，不冒称本轮新操作。
+- 原始公开失败PNG/JSON及来源摘要永久保存ui024-live-retry-failure；只审计分支提交，main仍004447db。全站仍有独立UI-A12/Library/阅读/缩放项，不属全面阻塞，不暂停任务。下一项先实际复查UI-A12独立控件；字体诊断需新证据，不逐小时重复无收益重跑。
+- 本机279 tests（2.962s）、authoring44/5/7、T01正文/URL/hidden44/5/5及diff check通过；无本机Ruby/Jekyll/Chrome，production只引用同004447db的真实build。没有将单测Ravenis LKG fixture日志当线上远端故障。
+
 ## 2026-10-19 — UI024 同main线上部分复验
 
 - 预记任务UI024，base/main 004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父78446763f885148448df4b4278bbded533a8b046；仅计划/本日志/ui024-checks及ui024-live公开证据，产品与门禁不改。已读取规定上下文，独立worktree保护原dirty目录；gh不可用，未编造Issue。

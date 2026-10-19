@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI024重跑诊断：预记base/main004447db、审计父1ee05b3d，仅计划/日志/ui024-checks及ui024-live-retry-failure证据。run39234519303 attempt2 live118021850681于11:11:45 UTC failure，1366 Night THINK等待document.fonts.ready超时，尚未执行Thought likes/OBSERVE，未产生新Atlas图；不再盲目重跑、不放宽门禁。已独立核对artifact12181648252的ZIP摘要并实际看失败1366×757 viewport：中文/四入口可见，无新确认视觉缺陷。566面中4个Noto Serif SC400/600面loading，所采57个Font请求均finished，不能据此归因CDN或浏览器；原始快照保存。UI024仍validation-pending（完整live检查受字体等待阻塞），main产品不改；无新用户决定，全站IN PROGRESS。下一项UI-A12独立应用控件实际复查，字体问题仅有新诊断方案后再验证，禁止无证据逐小时重跑。[诊断](docs/ui-evidence/ui024-checks.md#2026-10-19-重跑失败与字体诊断)。
+
 2026-10-19 UI024线上增量：base/main 004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父78446763；本轮只更新计划/日志/ui024-checks及ui024-live公开证据，不改产品。精确main build/deploy success；首次live在第5流程1024 Night进入Ravenis等待document.fonts.ready超时，并非焦点断言失败。390/768双主题4流程28 viewport已逐张看；仅失败job重跑一次，attempt2 live118021850681仍运行。云1363×936双主题自然加载首次打开稳定focus=datetime、加载后重开focus=refresh，Shift+Tab/Tab回环、Escape返回与共享导航通过；时间先后/截图局限详见[线上记录](docs/ui-evidence/ui024-checks.md)。UI024保留validation-pending，1024/1366完整线上矩阵待同head重跑，无新用户决定；全站IN PROGRESS，不暂停任务。
 
 2026-10-19 UI024生产限定验收与main交付准备：base/main e44fba12，审计父c8c886e7；实现765c57a2/run39228556141 build117980704074于09:37:03 UTC完整success，deploy117989980198/live117989979476分支规则skipped。实际看四宽度双主题58 viewport/8联系表，放大2原PNG；初焦点/反向Tab回环与Escape/导航通过，16图明确disabled UI fixture、远端未加载不认证服务健康。8流程passed、initial/loading focus=datetime与回环true；原门禁未削弱。仅新增公开证据及计划日志后携原最小修复非强推main，产品同765。新main自身CI/build/deploy/live及线上复验仍validation-pending，不标UI024 done；全站IN PROGRESS，无新用户决策，gh不可用。[生产证据与限制](docs/ui-evidence/ui024-checks.md)。下一项先核对新main同head再线上焦点复验。
