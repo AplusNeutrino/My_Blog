@@ -90,7 +90,7 @@ class OccultAtlasThemeTest(unittest.TestCase):
     def test_asset_version_is_bumped_for_theme_css(self):
         source = CONFIG.read_text(encoding="utf-8")
 
-        self.assertIn('asset_version: "39"', source)
+        self.assertIn('asset_version: "40"', source)
 
     def test_open_dialog_command_escapes_the_scrim_stacking_context(self):
         source = STYLES.read_text(encoding="utf-8")

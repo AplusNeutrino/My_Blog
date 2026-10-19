@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-024 P2 confirmed：base/main e44fba12，S-A12-01在云1363×936 Light加载态真实click后两个观察调用仍focus在trigger、disabled refresh不能focus，后续Shift+Tab逃至主站链接。预定仅初始focus可用控件选择/资源v40/必要执行回归及四宽度双主题焦点专项，范围与复现先记[UI024](docs/ui-evidence/ui024-checks.md)。UI-023层级仍done；UI024验证未完成前留工作分支validation-pending，不改服务等待/原门禁/保护内容。无新用户决定。
+
 2026-10-19 UI-023 done（仅Atlas弹层层级故障）：main/source e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，[run39207405231 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39207405231/attempts/2) completed/success，build117933481131/deploy117933435392/live117933434240均success，07:28:38 UTC结束。实际查看本次线上四宽度双主题42 viewport的8张原生联系表，并放大1366双主题open原图；标题完整、scrim仅压暗背景，Tab焦点可见。8流程真实click/Tab/Escape/重开/导航返回、旧z50故障注入拒绝通过；390滚动192px、768/1024滚动31px，1366短内容容纳不虚称滚动。明确复用此前同一e44云1363×936双主题已加载32选项长弹层截图/操作，不称本轮新云图；结合精确head完整CI，关闭UI-023限定pending，首次字体超时历史保留。S-A12-01加载态初始焦点、应用业务/全站矩阵仍pending。只在audit/ui-a12-live补计划/日志/证据，不新增产品修复或触发main部署；main仍e44。gh不可用，无新用户决策。[重跑证据](docs/ui-evidence/uia12-live-checks.md#重跑完整复核2026-10-19)。下一项UI-A12加载态稳定焦点及其余控件，避免重复已done层级检查。
 
 2026-10-19 UI-023线上部分复验：base/main e44fba12d6ddd0aba4b5252ddb265aa25ec45e70/run39207405231 build117913149025/deploy117919391087 success，首轮live117919453041在第7流程Ravenis document.fonts.ready等待超时failure，不标全通过。6流程30 viewport/6联系表实际看无本项新遮挡；1366两主题完整CI仍缺。云1363×936双主题已加载32选项长弹层实际看，标题/层级恢复，稳定初始焦点refresh、Light Tab与Escape返回正常，加载态焦点候选及业务余项仍pending。仅对同head失败job重跑一次，不改timeout/门禁；attempt2 build117933481131/deploy117933435392 success，live117933434240运行中。只保存audit/ui-a12-live证据，避免取消重跑，main不动、UI-023不标done；277tests/T01/authoring复核通过，gh不可用，无新用户决策。[证据与局限](docs/ui-evidence/uia12-live-checks.md)。下一项先核对该head attempt2及1366双主题，保留原失败历史。

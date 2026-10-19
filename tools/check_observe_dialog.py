@@ -90,6 +90,8 @@ def main():
                     row['open'] = metrics
                     driver.save_screenshot(str(output / (name + '-open.png')))
                     assert_open(metrics)
+                    wait.until(lambda d: dialog_metrics(d)['focusedInside'])
+                    row['initialFocus'] = driver.execute_script('return document.activeElement.id')
                     # Reproduce the old ancestor level in this disposable CI page.
                     # The same gate MUST reject it; restore the exact inline style.
                     old = driver.execute_script("const n=document.querySelector('.sky-command');const old=n.getAttribute('style');n.style.zIndex='50';return old;")
@@ -126,6 +128,30 @@ def main():
                         driver.save_screenshot(str(output / (name + '-sidebar-closed.png')))
                         click(driver, '#sidebarToggle')
                         wait.until(lambda d: d.find_element(By.ID, 'sidebarToggle').get_attribute('aria-expanded') == 'true')
+                    # UI-024 deterministic loading-controls fixture only: no network
+                    # interception or backend-health claim. Restore exact disabled flags.
+                    saved = driver.execute_script('''
+                      return ['refreshAstroButton','exportChartButton'].map(id=>{
+                        const n=document.getElementById(id),disabled=n.disabled;
+                        n.disabled=true;return {id,disabled};});''')
+                    try:
+                        click(driver, '#chartControlToggle')
+                        wait.until(lambda d: d.execute_script('return document.activeElement.id') == 'chartDateTime')
+                        row['loadingInitialFocus'] = driver.execute_script('return document.activeElement.id')
+                        driver.save_screenshot(str(output / (name + '-loading-focus.png')))
+                        ActionChains(driver).key_down(Keys.SHIFT).send_keys(Keys.TAB).key_up(Keys.SHIFT).perform()
+                        assert driver.execute_script('''
+                          const p=document.querySelector('#chartControlPanel');
+                          const a=Array.from(p.querySelectorAll("button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])"))
+                            .filter(n=>!n.hidden && n.offsetParent!==null);
+                          return document.activeElement===a[a.length-1];'''), 'Reverse Tab must wrap within loading dialog'
+                        row['loadingReverseTabWrapped'] = True
+                        driver.save_screenshot(str(output / (name + '-loading-wrap.png')))
+                        ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+                        wait.until(lambda d: d.find_element(By.ID, 'chartControlPanel').get_attribute('hidden'))
+                        assert driver.execute_script('return document.activeElement.id') == 'chartControlToggle'
+                    finally:
+                        driver.execute_script('arguments[0].forEach(x=>document.getElementById(x.id).disabled=x.disabled);', saved)
                     click(driver, '[data-observe-app-nav] a[href="/observe/"]')
                     wait.until(lambda d: '/observe/' in d.current_url)
                     driver.back()

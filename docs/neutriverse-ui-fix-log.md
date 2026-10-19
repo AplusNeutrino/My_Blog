@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-024：加载态初始焦点确认与预定范围
+
+- 最新main e44fba12，审计父127c1ee7；独立worktree保护原修改。先读取AGENTS/docs agents/相关ADR/本轮记录与用户补充，旧主计划/最终报告保护要求继续有效；不重做T00–T39。浏览器技能本地工具Unknown tool，按指引云fallback。
+- 实际1363×936 Light加载态打开后两个观察调用active=chartControlToggle、inside=false、refresh.disabled=true；加载完成仍遗留trigger，Shift+Tab实际跑到弹层外主站链接，S-A12-01转确认UI-024 P2。截图捕获时已加载完成，明确不冒称加载态截图。UI023遮罩层级正常不重复修复。
+- 修改前记录：仅app.js初始focus、资源v40、必要执行回归及真实CI焦点门禁、计划/日志/公开证据。禁用首button仍被querySelector选中导致focus无效；选择首可交互控件，兼顾rAF前关闭防抢焦点。四宽度双主题/production/精确headCI/部署复验未完成前保持validation-pending，留工作分支。无新用户决策，gh不可用未建或编造Issue。
+- 最小实现完成：复用原trap enabled/visible列表选择初始focus，关闭后rAF不抢焦点；资源v40。两项实际函数执行回归及旧selector故障注入通过，279 tests（2.615s）、T01/authoring、Node语法/Python编译/diff通过。本机无Jekyll/Chrome；新增8流程稳定初焦点及独立可恢复disabled前两按钮UI fixture/Shift+Tab/新截图，不mock网络、不认证远端健康、不放宽原门禁。两张修复前截图已保存，捕获时已加载完成，不冒称加载中；production/完整CI/修复后看图/main部署复验仍validation-pending，分支ui/fix-024。下轮先核对精确实现head，不重复UI023层级或凭静态测试标done。
+
 ## 2026-10-19 — UI-023：同head重跑与部署视觉限定验收完成
 
 - 预定范围：base/main/source e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，审计父8108fcf2391bf52fdd642e3847eafbd81435fdad；仅NEUTRIVERSE_UI_FIX_PLAN.md、此日志、uia12-live-checks.md及uia12-live-retry公开截图/JSON，不改产品/门禁/旧原文/metadata/URL/noindex/隐蔽边界。独立worktree保护原目录修改，AGENTS/docs agents/ADR/旧计划与最终报告保护复核，CONTEXT不存在，gh不可用，未编造Issue。

@@ -577,7 +577,8 @@ function setChartControlOpen(open, { restoreFocus = false } = {}) {
   document.body.classList.toggle("control-menu-open", open);
   if (open) {
     window.requestAnimationFrame(() => {
-      const firstControl = elements.chartControlPanel.querySelector("button, input, [tabindex='0']");
+      if (elements.chartControlPanel.hidden) return;
+      const firstControl = chartControlFocusTargets()[0];
       (firstControl || elements.chartControlPanel).focus();
     });
   } else if (restoreFocus) {
@@ -585,10 +586,14 @@ function setChartControlOpen(open, { restoreFocus = false } = {}) {
   }
 }
 
-function trapChartControlFocus(event) {
-  const focusable = Array.from(elements.chartControlPanel.querySelectorAll(
+function chartControlFocusTargets() {
+  return Array.from(elements.chartControlPanel.querySelectorAll(
     "button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])"
   )).filter((element) => !element.hidden && element.offsetParent !== null);
+}
+
+function trapChartControlFocus(event) {
+  const focusable = chartControlFocusTargets();
   if (!focusable.length) {
     event.preventDefault();
     elements.chartControlPanel.focus();
