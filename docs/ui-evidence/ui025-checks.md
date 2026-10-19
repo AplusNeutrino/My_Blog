@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 最新诊断提交
+
+- 只读诊断修订 `9e1e5a137bbaf06523d894fb9856909b97d12a8c` 已非强推更新ui/fix-025；[run39274494467](https://github.com/AplusNeutrino/My_Blog/actions/runs/39274494467)真实创建且in_progress。产品CSS/v41/app.js与b0939630相同，新增按键前后快照、保留原focusIsLast门禁及失败后截图、1项诊断执行回归和已看八图/真实失败记录；283tests/T01/authoring/diff本机通过，不称新CI通过。
+- 下轮先核对该head完整CI及反向Tab前后快照，不根据未知原因改产品，不把此前8图成功替代新head完整验收。main仍004447db，无新用户决定，UI025/UI024及全站pending；本收据另存audit/ui-a12-focus，避免取消新工作分支CI。
+
 ## 2026-10-19 八图通过但完整构建受阻
 
 - 本轮base/main004447db，工作head b0939630，审计父88c7923a。run39265653590 build118104425275于14:06:43 UTC failure；282tests/T01/authoring/production Jekyll与图标8场景成功，但OBSERVE第7流程1366 Night反向Tab断言失败，deploy118105593856/live118105594009 skipped。不交付main、不称全通过。
