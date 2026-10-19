@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — OBSERVE fixture前提被异步回调覆盖，限定修订
+
+- Base/main004447db、工作9e1e5a13、审计父31004361；规定上下文已读，CONTEXT不存在、gh不可用无Issue，独立worktree保护用户修改，无新用户决定。
+- run39274494467 build118135137834 failure于OBSERVE第5流程1024 Night；283tests/T01/authoring/Jekyll/图标8场景通过，deploy118136152642/live118136154401 skipped。未完整构建不交付main。
+- artifact12196887004/1884332bytes，ZIP SHA25664b2374542fb9d397695ec375d67dbccbbbf0167c0e990716d6209b04a42983a独立匹配。实际看1024 Night loading-focus/wrap两原图，刷新已可用；before1742.4ms active=date/first=refresh/refresh.disabled=false、after1753.1ms active=refresh/inside=true，last=aspectLinesToggle。一次性disabled fixture被请求完成/失败回调重启用打破前提，产品Shift+Tab实际留在弹层内；不改trap，不反推无快照旧1366必然同因。
+- 修改前限定范围：既有明确首两button disabled UI fixture安装/恢复helper、2项Node执行与旧one-off故障拒绝回归、计划日志/证据。临时own disabled accessor仅两目标，原生disabled属性先固定true，异步写入保存latest；finally恢复原own descriptor和最新请求值，无回调则原值。非全局prototype、不取消/拦截服务、不冻结其他控件；自然加载/原生Tab/滚动/导航路径保持，额外断言first=date与两button disabled，原last回环门禁保留。
+- 新head需完整CI/截图/部署，半成品只ui/fix-025、main不动；UI024字体阻塞与前失败历史保留，不拿产品未变或旧图成功当新head通过。下一项先核对精准新head，条件满足再交付。
+- 本机285tests（3.253s）、authoring44/5/7、T01正文/URL/hidden44/5/5、diff通过；无Ruby/Jekyll/Chrome，新head production待CI。不将Node执行fixture性质测试当作浏览器/视觉验收。
+
 ## 2026-10-19 — UI025八图复核与OBSERVE反向Tab诊断
 
 - Base/main004447db、工作b0939630、审计父88c7923a；规定上下文已读，CONTEXT不存在、gh不可用无Issue，独立worktree保护用户修改，无新用户决定。

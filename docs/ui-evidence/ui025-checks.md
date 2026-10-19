@@ -1,5 +1,12 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-19 反向Tab诊断判因与预定修订
+
+- Base/main004447db，工作9e1e5a13，审计父31004361。run39274494467 build118135137834 failure，图标8场景、283tests/T01/authoring/Jekyll成功，OBSERVE此次在1024 Night失败（不是此前1366）。deploy118136152642/live118136154401 skipped。无新用户决定、gh不可用。
+- artifact12196887004（1884332bytes），ZIP SHA25664b2374542fb9d397695ec375d67dbccbbbf0167c0e990716d6209b04a42983a匹配。原audit显示按键前1742.4ms active=datetime，但first=refresh、refresh.disabled=false/export=true；按键后1753.1ms active=refresh、inside=true，控件集合未变化。实际看1024 Night loading-focus/wrap两图，刷新已明亮可用且后图焦点仍在弹层内。因此本次是异步请求回调破坏“首两button disabled”fixture前提，不是产品反向Tab逃出，不据此改trap。不能反推上次无快照1366失败原因一定相同。
+- 本轮先限定仅tools/check_observe_dialog.py中既有明确disabled UI fixture：在此可丢弃场景临时固定两按钮disabled getter/原生disabled属性，保存应用回调希望写入的最新值，finally恢复原own descriptor及最新请求值；不改全局prototype、不拦截网络/取消请求、不冻结其他控件，不修改app.js/CSS/v41。原自然加载/真实Tab/滚动/导航检查不变，另加强按键前first=datetime和两按钮disabled前提断言，末控件回环断言保持。新增实际执行fixture安装/恢复回归及故障拒绝，保存原失败两图/audit。
+- 未验证修订只ui/fix-025，main不动，完整新head/部署复验仍pending；UI024字体阻塞不因局部fixture修订关闭，不冒称远端服务健康。
+
 ## 最新诊断提交
 
 - 只读诊断修订 `9e1e5a137bbaf06523d894fb9856909b97d12a8c` 已非强推更新ui/fix-025；[run39274494467](https://github.com/AplusNeutrino/My_Blog/actions/runs/39274494467)真实创建且in_progress。产品CSS/v41/app.js与b0939630相同，新增按键前后快照、保留原focusIsLast门禁及失败后截图、1项诊断执行回归和已看八图/真实失败记录；283tests/T01/authoring/diff本机通过，不称新CI通过。

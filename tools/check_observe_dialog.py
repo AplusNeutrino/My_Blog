@@ -79,6 +79,34 @@ def loading_focus_metrics(driver):
     ''')
 
 
+def pin_loading_controls(driver):
+    """Isolate the two explicitly disabled fixture controls from async callbacks."""
+    driver.execute_script('''
+      for(const id of ['refreshAstroButton','exportChartButton']) {
+        const n=document.getElementById(id);
+        if(n.__uiDisabledFixture)throw new Error('fixture already installed');
+        const saved={own:Object.getOwnPropertyDescriptor(n,'disabled'),latest:n.disabled};
+        n.disabled=true;
+        n.__uiDisabledFixture=saved;
+        Object.defineProperty(n,'disabled',{configurable:true,get(){return true;},
+          set(value){saved.latest=Boolean(value);}});
+      }
+    ''')
+
+
+def restore_loading_controls(driver):
+    driver.execute_script('''
+      for(const id of ['refreshAstroButton','exportChartButton']) {
+        const n=document.getElementById(id),saved=n.__uiDisabledFixture;
+        if(!saved)continue;
+        delete n.disabled;
+        if(saved.own)Object.defineProperty(n,'disabled',saved.own);
+        n.disabled=saved.latest;
+        delete n.__uiDisabledFixture;
+      }
+    ''')
+
+
 def main():
     output = Path(os.environ.get('UI_OBSERVE_DIR', '/tmp/neutriverse-observe-dialog'))
     output.mkdir(parents=True, exist_ok=True)
@@ -154,17 +182,17 @@ def main():
                         click(driver, '#sidebarToggle')
                         wait.until(lambda d: d.find_element(By.ID, 'sidebarToggle').get_attribute('aria-expanded') == 'true')
                     # UI-024 deterministic loading-controls fixture only: no network
-                    # interception or backend-health claim. Restore exact disabled flags.
-                    saved = driver.execute_script('''
-                      return ['refreshAstroButton','exportChartButton'].map(id=>{
-                        const n=document.getElementById(id),disabled=n.disabled;
-                        n.disabled=true;return {id,disabled};});''')
+                    # interception or backend-health claim. Async callbacks may request
+                    # new values; restore those latest values after this isolated fixture.
+                    pin_loading_controls(driver)
                     try:
                         click(driver, '#chartControlToggle')
                         wait.until(lambda d: d.execute_script('return document.activeElement.id') == 'chartDateTime')
                         row['loadingInitialFocus'] = driver.execute_script('return document.activeElement.id')
                         driver.save_screenshot(str(output / (name + '-loading-focus.png')))
                         row['loadingBeforeReverseTab'] = loading_focus_metrics(driver)
+                        assert row['loadingBeforeReverseTab']['first']['id'] == 'chartDateTime'
+                        assert all(n['disabled'] for n in row['loadingBeforeReverseTab']['requestButtons'])
                         ActionChains(driver).key_down(Keys.SHIFT).send_keys(Keys.TAB).key_up(Keys.SHIFT).perform()
                         row['loadingAfterReverseTab'] = loading_focus_metrics(driver)
                         driver.save_screenshot(str(output / (name + '-loading-wrap.png')))
@@ -175,7 +203,7 @@ def main():
                         wait.until(lambda d: d.find_element(By.ID, 'chartControlPanel').get_attribute('hidden'))
                         assert driver.execute_script('return document.activeElement.id') == 'chartControlToggle'
                     finally:
-                        driver.execute_script('arguments[0].forEach(x=>document.getElementById(x.id).disabled=x.disabled);', saved)
+                        restore_loading_controls(driver)
                     click(driver, '[data-observe-app-nav] a[href="/observe/"]')
                     wait.until(lambda d: '/observe/' in d.current_url)
                     driver.back()

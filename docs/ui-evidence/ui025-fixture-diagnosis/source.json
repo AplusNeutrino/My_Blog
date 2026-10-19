@@ -1,0 +1,14 @@
+{
+  "head": "9e1e5a137bbaf06523d894fb9856909b97d12a8c",
+  "run": 39274494467,
+  "buildJob": 118135137834,
+  "conclusion": "failure",
+  "artifact": 12196887004,
+  "zipBytes": 1884332,
+  "zipSHA256": "64b2374542fb9d397695ec375d67dbccbbbf0167c0e990716d6209b04a42983a",
+  "reviewedImages": ["observe-dialog-1024-dark-loading-focus.png", "observe-dialog-1024-dark-loading-wrap.png"],
+  "before": {"active": "chartDateTime", "first": "refreshAstroButton", "refreshDisabled": false},
+  "after": {"active": "refreshAstroButton", "inside": true, "focusIsLast": false},
+  "finding": "one-off disabled fixture precondition was overwritten before the key; focus did not escape",
+  "limitation": "not proof prior 1366 failure shared same cause; remaining artifact images not reviewed"
+}

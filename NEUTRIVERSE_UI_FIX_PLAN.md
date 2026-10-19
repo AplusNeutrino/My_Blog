@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI025/OBSERVE fixture判因：9e1e5a13/run39274494467 build118135137834 failure，图标8场景/Jekyll/283tests/T01/authoring通过。新1024 Night快照与2已看原图证明按键前refresh已被异步回调启用，date不再first；Shift+Tab回refresh且inside=true，不是产品逃出。本轮先记范围后只隔离既有首两按钮disabled UI fixture，暂存回调最新disabled写入、finally还原own descriptor及最新值，不改全局prototype/网络/其他控件/产品。加强first=date/disabled前提，保留last回环断言及自然路径，新增执行安装恢复/旧one-off故障拒绝回归。未验留ui/fix-025，main004447db不动；旧1366无快照不强归同因，UI024字体阻塞不关闭，无新用户决定。[证据](docs/ui-evidence/ui025-checks.md)。
+
 2026-10-19 UI025八图限定通过、完整构建受阻：base/main004447db，工作b0939630/审计父88c7923a。run39265653590 build118104425275 failure，282tests/T01/authoring/Jekyll/图标8场景成功；实际逐张看四宽度双主题8图，普通/选中符号清晰，4Light旧色精确注入拒绝。但OBSERVE第7流程1366 Night反向Tab断言失败，未有按键后焦点/控件快照，不能归因为产品或加载竞争。仅补原断言前后只读诊断与失败截图、必要回归，不改产品/selector/断言/disabled fixture/网络/字体等待，无盲重试；新head待完整CI，main不动，UI025仍validation-pending，UI024阻塞保留。gh不可用、无新用户决定。[证据](docs/ui-evidence/ui025-checks.md)。
 
 2026-10-19 UI025审计时序修订：ae6f7c7d/run39259609173 build118083524733 failure，production Jekyll/280tests/T01/authoring通过，fixture在768 Light旧色注入后即读computed fill未等180ms过渡；deploy/live skipped。artifact12188139422摘要匹配，实际看390/768双主题4正常viewport图，普通/选中符号可辨；不是8图/线上验收。先记范围后只新增旧色精确到达的有限5s等待及2实际helper回归，不禁动画、不放宽断言，产品CSS/v41与ae6相同。完整新head/8图/部署仍validation-pending，main004447db不动；UI024字体阻塞不变，无新用户决定。[记录](docs/ui-evidence/ui025-checks.md)。
