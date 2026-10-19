@@ -1,5 +1,27 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10默认四页矩阵限定done（跨head来源明确）
+
+验收main a17613bca018ad0dd15992d115ca4629716d3754/[run39179281541](https://github.com/AplusNeutrino/My_Blog/actions/runs/39179281541)：build117828392686/deploy117832344988/live117832382626全部success。本轮新看390×701两主题114帧24原生尺寸联系表，另放大page1 Night第4帧、page3 Light第13帧、page4 Light第13帧原PNG，无新确认缺陷。303帧机械核对与同head生产诊断一致，不声称像素全等。
+
+| 默认四页视觉范围 | 实际截图来源 head / run | 帧数与证据 | 此轮处理 |
+|---|---|---|---|
+| 390px两主题 | a17613bca018ad0dd15992d115ca4629716d3754 / 39179281541 | 114帧，24联系表/3原图，uia10g-live | 本轮全部实际看；每主题14/15/15/13帧 |
+| 768px两主题 | 9afeed1354317d04b77646d07893a6fe3f6a0dbf / 39164212435 | 62帧，uia10d-live | 显式复用此前已看证据，不算本head新图 |
+| 1024px两主题 | 1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e / 39170640643 | 65帧，uia10e-live | 同上 |
+| 1366px两主题 | 1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006 / 39174888841 | 62帧，uia10f-live | 同上 |
+
+- 复用条件实际核对：git diff各来源至a17613bc仅本轮计划/执行日志/公开UI证据改变，产品/样式/正文/数据/审计/构建配置均未变。完整路径清单保留uia10g-live/uia10g-summary.json；114新看+189明确复用覆盖默认矩阵，不冒称本head303帧全部重新看，也不用其他head CI代替a176自身成功。
+- 8流程32页44唯一href原顺序12/12/12/8、真实分页/末页同URL刷新/上一页/原生main连续覆盖/返回顶部、PNG尺寸/scrollX0/无横溢出、文字/目录非空Range和控件严格避让/hit均独立核对通过。源码不变仅作为证据复用条件，视觉结论仍来自此前逐帧看图，机械通过不独立构成视觉验收。
+- 仅UI-A10默认四页矩阵限定done；筛选组合、Thought点赞/hover/focus及全站余项继续pending。273 tests/T01/authoring/diff通过，gh不可用未建Issue，无新用户决策；没有新产品修改。新证据提交自身CI另验，下一项UI-A11未覆盖的Thoughts交互，不重做已限定覆盖的默认分页矩阵。
+
+## 2026-10-19 UI-A10g范围（先记录）
+
+- Task UI-A10g；base/main/source a17613bca018ad0dd15992d115ca4629716d3754，[run39179281541](https://github.com/AplusNeutrino/My_Blog/actions/runs/39179281541) build117828392686/deploy117832344988/live117832382626均success，关闭该head pending；不改写旧取消记录。
+- 仅看修复后390px Night/Prospero Light默认四页完整原生滚轮图，疑点放大；8流程原JSON与同head生产独立比较不代替看图。随后检查768/1024/1366既有证据源至本head的产品/数据/审计差异，显式写来源/复用条件，不能冒称本head重新看过所有303帧，也不以旧head CI代当前CI。
+- live专项12156656296（53626487 bytes）服务端SHA256 d680f3bab3f0416608e7c7fcffef3b900e361f2c6a931e45485f775348b9a605、production专项12156047220（52303550 bytes）SHA256 d3553da8e7d9b7b85885d90bd4c72e5e8eba1fb0fa565170eb164ad5193fe381，下载后独立校验；总包超限未下载未绕过。
+- 范围先限UI计划/日志、本文件与公开已看证据；无新确认缺陷不改产品/门禁，若确认另记ID/base/原图/最小范围后修。保护旧正文/metadata/URL/hidden/noindex/私有边界/七项目/同步数据/外部仓库/旧COMPLETE。gh不在PATH不编造Issue，无新用户决策。
+
 ## 2026-10-19 UI-A10f结果：1366px两主题完整四页已看
 
 - 源main1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006/run39174888841 build117815414102/deploy117819110260/live117819154649全部success，关闭该head pending。实际看1366×757两主题各31帧（8/8/8/7），共62帧16原生尺寸联系表；放大public-sweep-think-page-1-1366-light-3.png、public-sweep-think-page-3-1366-dark-6.png、public-sweep-think-page-4-1366-light-7.png。侧栏/标题/目录/筛选/44记录/分页/检索入口/页脚可见，无新确认缺陷，不凭偏好改产品。

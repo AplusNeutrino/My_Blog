@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A10g：390双主题完整四页，默认分页矩阵限定done
+
+- base/main/source a17613bca018ad0dd15992d115ca4629716d3754，[run39179281541](https://github.com/AplusNeutrino/My_Blog/actions/runs/39179281541) build117828392686/deploy117832344988/live117832382626全部success，关闭该head pending；读取AGENTS/docs agents/ADR/主计划/最终报告/本轮计划日志，CONTEXT不存在。独立worktree保留原目录用户/先前未提交修改，Library同步不覆盖，旧取消历史不改写。
+- 先记UI-A10g范围再实际看390×701 Night/Prospero Light各四页57帧（14/15/15/13），共114帧24原生尺寸联系表；放大page1 Night第4帧Series说明、page3 Light第13帧长摘要/页码4、page4 Light第13帧底部入口/页脚。介绍/所有44记录/目录/控件/分页/检索入口可见，无新确认遮挡、消失或横溢出，不新增UI022，不凭偏好改样式。
+- live专项12156656296（53626487 bytes）与production专项12156047220（52303550 bytes）独立下载SHA256分别d680f3bab3f0416608e7c7fcffef3b900e361f2c6a931e45485f775348b9a605、d3553da8e7d9b7b85885d90bd4c72e5e8eba1fb0fa565170eb164ad5193fe381匹配；超限总包未下载未绕过。
+- 8流程32页303帧独立机械核对44唯一href原顺序12/12/12/8、末页同URL刷新/上一页/main原生连续覆盖/PNG尺寸/scrollX0/无横溢出/真实返回顶部通过；文字与Topic4/Series3/检索5非空Range、完整控件矩形严格避让，4select/1reset/总控件>=9及hit通过。303帧viewport/scroll/文字/目录/控件与同head生产诊断全等，非随机引文像素全等、不代替看图。
+- 明确跨head复用：768px双主题62帧来源9afeed13/run39164212435（uia10d）；1024px65帧来源1b0244a5/run39170640643（uia10e）；1366px62帧来源1b24ac13/run39174888841（uia10f）。git diff每个来源至a17613bc仅NEUTRIVERSE_UI_FIX_PLAN.md、docs/neutriverse-ui-fix-log.md与docs/ui-evidence/改变；产品/样式/正文/数据/审计/构建配置没有差异。路径清单写入uia10g-summary.json。复用189帧不称本head新图，当前head其余189帧没有重新人工查看；此前取消或修复前390证据不用于关闭本次矩阵。
+- 因此仅UI-A10默认四页/4宽度/2主题矩阵限定done（114新看+189明确复用），不是所有筛选组合/Thought点赞/全站通过。最新a17613bc自身CI完整成功已独立核对，不用旧CI替代。新证据提交自身build/deploy/live仍validation-pending，下一轮先核对后转UI-A11 Thoughts点赞/状态保持与hover/focus余项；不循环重做默认分页或写全站最终报告/COMPLETE/暂停。
+- uia10g-live保存24已看联系表/3原PNG、8JSON哈希/44href/新看名单/同head生产比较/跨head路径清单。本机273 tests OK、authoring44/5/7、T01正文/URL/hidden44/5/5、diff通过；本机无Jekyll/Chrome执行，源a176精确Actions完成生产构建/产物与浏览器。gh不在PATH未创建/编造Issue，无新用户决策。仅本轮UI计划日志与公开证据，不改产品/内容/metadata/旧URL/hidden/noindex/私密边界/外部仓库/旧COMPLETE。
+
 ## 2026-10-19 — UI-A10f：1366px双主题完整四页证据
 
 - base/main/source 1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006，[run39174888841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39174888841) build117815414102/deploy117819110260/live117819154649全部success，关闭该head pending，不改写旧取消记录。先读取最新head/AGENTS/docs agents/ADR/旧主计划与最终报告/本轮计划日志，CONTEXT不存在。独立worktree保护原目录未提交修改，未覆盖Library同步。
