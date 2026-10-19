@@ -1,0 +1,1490 @@
+[
+  {
+    "name": "thought-likes-390-dark",
+    "passed": true,
+    "viewport": {
+      "height": 701,
+      "width": 390
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-390-dark-initial.png",
+        "sha256": "ce3f221716b18b0f6d56963028ea0d7d264953754599a670d4786157aea44771"
+      },
+      {
+        "file": "thought-likes-390-dark-keyboard-focus.png",
+        "sha256": "6f4d13cc8d34bac04a0b2e14a4ac45ddf420430b67bc1264db047ebdfd54f195"
+      },
+      {
+        "file": "thought-likes-390-dark-liked-hover.png",
+        "sha256": "1fe3edfca0488834f59a389ff4631b4e7fc167811f8d3ec53d503b3faaf98e92"
+      },
+      {
+        "file": "thought-likes-390-dark-refresh.png",
+        "sha256": "7324f351331a47ecc34368000fd7d7b51e505651b0d87b32a92e4a98645b126c"
+      }
+    ],
+    "states": {
+      "thought-likes-390-dark-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-dark-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-dark-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-dark-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-390-light",
+    "passed": true,
+    "viewport": {
+      "height": 701,
+      "width": 390
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-390-light-initial.png",
+        "sha256": "efbfe48ecab49740e9aa7ea0b74999fc52a449f6ca9cca42e50fe40151da96bc"
+      },
+      {
+        "file": "thought-likes-390-light-keyboard-focus.png",
+        "sha256": "a14a32668ff3ffc81e1b3fa4fe64f97d4a37dd479cacf4fcec95700fad683dcc"
+      },
+      {
+        "file": "thought-likes-390-light-liked-hover.png",
+        "sha256": "ee46794b7efba0ee8235f3d1090bbb31ec3988024a30bcd1a6ea745628834e18"
+      },
+      {
+        "file": "thought-likes-390-light-refresh.png",
+        "sha256": "2914e8cbac0404eccc63b6d8f12d752dd7fa7b11fe37d4cc38d97e422af3652f"
+      }
+    ],
+    "states": {
+      "thought-likes-390-light-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-light-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-light-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-390-light-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-768-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 768
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-768-dark-initial.png",
+        "sha256": "bd62d7460087a4c6191ba3e300c316bf1d53cb00f513b5acc6862a1c28c9cadf"
+      },
+      {
+        "file": "thought-likes-768-dark-keyboard-focus.png",
+        "sha256": "64a299d42d5ea936d5a83b8f5b2a2805d39e35745d2b99397d1a65de301663b4"
+      },
+      {
+        "file": "thought-likes-768-dark-liked-hover.png",
+        "sha256": "ff8e57551712090934d926bf4762632adcde73bc75f6aae5e623d341b53bdb2f"
+      },
+      {
+        "file": "thought-likes-768-dark-refresh.png",
+        "sha256": "3d4ffd8fa9a0910793c1abfd3b9a27287838e5973c0e2932ab71d0ba14d237c5"
+      }
+    ],
+    "states": {
+      "thought-likes-768-dark-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-dark-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-dark-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-dark-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-768-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 768
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-768-light-initial.png",
+        "sha256": "df820d8b9e50b87945a0178558cbc75a00da36f65c0f4a7667f8dac3c391bc5d"
+      },
+      {
+        "file": "thought-likes-768-light-keyboard-focus.png",
+        "sha256": "af7c3018c877b2aa665d678bad6cff01b189f1f11507831ad5372980e112e577"
+      },
+      {
+        "file": "thought-likes-768-light-liked-hover.png",
+        "sha256": "8f99a64b9abf768522fa25bd88eff419dacf163a1eaa123311ec1e8181b3790c"
+      },
+      {
+        "file": "thought-likes-768-light-refresh.png",
+        "sha256": "53744c279a27c55db0f11a7ce92ccf9022d221240ff34e938f1cb5ddd94571ca"
+      }
+    ],
+    "states": {
+      "thought-likes-768-light-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-light-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-light-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-768-light-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-1024-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1024
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-1024-dark-initial.png",
+        "sha256": "a2ffe6a87c40b7805584f9d0236f12ebbb948c321d677de1359dc9c65a48af6b"
+      },
+      {
+        "file": "thought-likes-1024-dark-keyboard-focus.png",
+        "sha256": "4b241a06bb5eb3804a567714923c0383c7d9afd45ed0b124d78cd1db69a6943a"
+      },
+      {
+        "file": "thought-likes-1024-dark-liked-hover.png",
+        "sha256": "9eb07930227f08b83c7d3372ccd96788872a1801bc94b379e905ae5e3a7bcfcd"
+      },
+      {
+        "file": "thought-likes-1024-dark-refresh.png",
+        "sha256": "6fb73c5f33b3c0e0ebf22e8ac51042dbac160177489d49ee0a319eda1e1a5ffe"
+      }
+    ],
+    "states": {
+      "thought-likes-1024-dark-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-dark-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-dark-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-dark-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-1024-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1024
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-1024-light-initial.png",
+        "sha256": "78015cb8feb835873020e0cd77d4cb716b40b99d526dc72e1685466cd6f2a03e"
+      },
+      {
+        "file": "thought-likes-1024-light-keyboard-focus.png",
+        "sha256": "5afb251bd0e4adbec3ef97d71be2c5359d7689011a4955c95e4efa5280ffc026"
+      },
+      {
+        "file": "thought-likes-1024-light-liked-hover.png",
+        "sha256": "1557e8607a31b555f228af271b823f25a35978b728c087b374761696ed60091a"
+      },
+      {
+        "file": "thought-likes-1024-light-refresh.png",
+        "sha256": "1029d8e0947351e82d2ae08b1f9647dfe114ecd06525338c1d8087c40c22c29c"
+      }
+    ],
+    "states": {
+      "thought-likes-1024-light-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-light-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-light-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1024-light-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-1366-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1366
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-1366-dark-initial.png",
+        "sha256": "c2343d6cba168832e3387296a3f4b9652dbac686578872d2a2656baff49b71a8"
+      },
+      {
+        "file": "thought-likes-1366-dark-keyboard-focus.png",
+        "sha256": "797b96ae5fd690b4941441530f4134e29d5054618d3fceb85e7e61518962d8f5"
+      },
+      {
+        "file": "thought-likes-1366-dark-liked-hover.png",
+        "sha256": "396fba416f1da006aa3475fa16b020ea37071aed2800bb463f0bba0c40bb179b"
+      },
+      {
+        "file": "thought-likes-1366-dark-refresh.png",
+        "sha256": "11815f2eb84a3ccd0d0b8c61572effe2f3f3a5f6652382a148f6fe770f75a083"
+      }
+    ],
+    "states": {
+      "thought-likes-1366-dark-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-dark-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-dark-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-dark-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  },
+  {
+    "name": "thought-likes-1366-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1366
+    },
+    "posts": [
+      {
+        "key": "/thoughts/fragment-1",
+        "method": "POST"
+      },
+      {
+        "key": "/thoughts/fragment-2",
+        "method": "POST"
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "thought-likes-1366-light-initial.png",
+        "sha256": "0e65d989684c915e952186477146daade233723c37fb2a97dcb7304c972a147a"
+      },
+      {
+        "file": "thought-likes-1366-light-keyboard-focus.png",
+        "sha256": "7752a356435deb852105355efa9ef214affaebc824d6e4697d0aed1ed0d55c5d"
+      },
+      {
+        "file": "thought-likes-1366-light-liked-hover.png",
+        "sha256": "f960248946747fcf1bcf7ab496859aed0acbb54cbc98047870c1bc720683ad39"
+      },
+      {
+        "file": "thought-likes-1366-light-refresh.png",
+        "sha256": "4cdd39b35f83da1f241fa034b24d881dee6359b2e015f7242edf48ab2fd548d7"
+      }
+    ],
+    "states": {
+      "thought-likes-1366-light-initial": [
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-light-keyboard-focus": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-2",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-light-liked-hover": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": true,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ],
+      "thought-likes-1366-light-refresh": [
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-1",
+          "pressed": "true"
+        },
+        {
+          "count": "1",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-2",
+          "pressed": "true"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-3",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-4",
+          "pressed": "false"
+        },
+        {
+          "count": "0",
+          "disabled": false,
+          "focused": false,
+          "key": "/thoughts/fragment-5",
+          "pressed": "false"
+        }
+      ]
+    }
+  }
+]
