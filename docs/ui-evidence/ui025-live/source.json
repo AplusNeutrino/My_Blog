@@ -1,0 +1,783 @@
+{
+  "source_head": "3b68f4984477636b40bf58af2a8b8db3e2d466f1",
+  "audit_parent": "2aeca3e8945ec7dfc44d0db3eba9a50a09cac59c",
+  "run_url": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035",
+  "jobs": [
+    {
+      "id": 118251656940,
+      "name": "build",
+      "conclusion": "success",
+      "completed_at": "2026-10-19T19:30:34Z"
+    },
+    {
+      "id": 118262207923,
+      "name": "deploy",
+      "conclusion": "success",
+      "completed_at": "2026-10-19T19:31:06Z"
+    },
+    {
+      "id": 118262473888,
+      "name": "verify-live-ui",
+      "conclusion": "success",
+      "completed_at": "2026-10-19T19:51:37Z"
+    }
+  ],
+  "artifact": {
+    "id": 12216824195,
+    "bytes": 3938552,
+    "independently_verified_zip_sha256": "fcf1b4161a62ea5ff3ba1ff314a9b4edbb8d74fe8ae55e3eb6cfc936dce1b0b2"
+  },
+  "manual_review": {
+    "all_live_viewports": 58,
+    "contact_sheets": 8,
+    "enlarged_originals": [
+      "observe-dialog-1024-dark-loading-wrap.png",
+      "observe-dialog-1366-light-loading-wrap.png"
+    ],
+    "fixture_frames": 16,
+    "fixture_limit": "Explicit disabled-controls UI fixture; CI natural path still service-loading. Not backend health or full dynamic-business acceptance.",
+    "scroll": {
+      "390": 192,
+      "768": 31,
+      "1024": 31,
+      "1366": 0
+    }
+  },
+  "cloud": {
+    "url": "https://neutriverse.uk/occult-atlas/",
+    "viewport": [
+      1363,
+      936
+    ],
+    "version": 41,
+    "robots": "noindex,nofollow",
+    "screenshot_count": 7,
+    "method": "Real native UI actions, natural service completion; no mock, DOM mutation or interception.",
+    "light": {
+      "normal_fill": "#fff8e7",
+      "loaded_nodes": 10,
+      "selection": "Sun updates active node/FOCUS",
+      "focus_loop": "refresh -> Shift+Tab south-node -> Tab refresh; Escape returns trigger",
+      "all_aspect_lines": "10 -> 0 -> 10",
+      "sun_visibility": "10 -> 9 -> 10 nodes; 14 -> 13 -> 14 table rows; 10 -> 9 -> 10 lines"
+    },
+    "night": {
+      "normal_fill": "#e7ecf3",
+      "loaded_nodes": 10,
+      "selection": "Sun updates active node/FOCUS",
+      "focus_loop": "refresh -> Shift+Tab south-node -> Tab refresh; Escape returns trigger"
+    },
+    "navigation": "Ravenis Light -> Night theme toggle -> shared Atlas link, theme retained.",
+    "limitations": [
+      "Light initial filename incorrectly said night; renamed light-normal to match actual theme.",
+      "Excluded transitional Sun-hidden screenshot; stable screenshot preserves previously selected Sun FOCUS.",
+      "Ravenis click tool timed out/no_matches; only subsequent fresh AX proves actual navigation, not failed tool result.",
+      "Night had finished loading before control-open action; this turn cannot claim natural loading initial date focus. Earlier UI024 cloud evidence reused explicitly because app.js unchanged.",
+      "Night selected screenshot timed out once; fresh state then one successful screenshot retry.",
+      "No historical query/export, no backend/data freshness certification.",
+      "Night table/FOCUS dark-icon candidate S-A12-02 remains pending."
+    ]
+  },
+  "reused_production_icon_evidence": {
+    "head": "8a7ac42a690124ffbb3aea8d656c9c8556f48255",
+    "source": "../ui025-8a7-production/source.json",
+    "reviewed_in_prior_turn": true,
+    "newly_downloaded_this_turn": false,
+    "reason": "Product/tools/tests/workflow identical at current main, only audit evidence/docs differ.",
+    "limit": "Eight four-width dual-theme isolated built-CSS/original-PNG fixtures, not all-size naturally loaded app."
+  },
+  "excluded_full_live_artifact": {
+    "id": 12216754356,
+    "bytes": 544059788,
+    "reason": "Exceeds known 536870912-byte download limit; not requested, downloaded or manually reviewed this turn."
+  },
+  "scope_status": {
+    "UI024": "done, limited initial focus and trap defect; current main evidence does not rewrite old failed run",
+    "UI025": "done, limited normal planet-node contrast defect",
+    "global": "IN PROGRESS; other matrix and UI-A12 business still pending"
+  },
+  "original_live_pngs": [
+    {
+      "file": "observe-dialog-1024-dark-atlas.png",
+      "sha256": "9d4f514cc636dec071d8b89d9abbae8495e65a4b87f9f50417113896eca01f67",
+      "bytes": 62936,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-focus.png",
+      "sha256": "88c3c333d8890fb54c275ed4758a673c5ea0859703ff018619cba143e6282f6b",
+      "bytes": 50352,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-loading-focus.png",
+      "sha256": "bef899dca7948046181aae45919488c2b33c4b88d0e2e93ec7aa33f600fa863c",
+      "bytes": 50004,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-loading-wrap.png",
+      "sha256": "b3c7ddf08532a54635199244676d2eb2789fb7226393f121c6a16b3989473924",
+      "bytes": 49401,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-open.png",
+      "sha256": "2c00930d63851286d7a5d46eabd7ab5c373fa389803628e4cfcf2efe261613fb",
+      "bytes": 50546,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-ravenis.png",
+      "sha256": "5a93b1fd0e0cc243f7ee2d1031e50a33848ad5b42d33b155266abc7b9180bea5",
+      "bytes": 146000,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-scrolled.png",
+      "sha256": "fc3bc7a8b70721da92671908ea3c305bd4beacdf51bf929032068d50f1494ed7",
+      "bytes": 49824,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-atlas.png",
+      "sha256": "13c3830551f0644bd8c0fc0de98ede67c043ab5cb6b460293c02c140a35aae17",
+      "bytes": 72309,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-focus.png",
+      "sha256": "c802f3e35697d7934e8f5a14522b767a80e32dcfa1a5e1cd1cfc12c31101884e",
+      "bytes": 53798,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-loading-focus.png",
+      "sha256": "3694c5d5e836a88405f0e10d3e844bf95c7747e3001f1d0c277f9a614c7dc2f2",
+      "bytes": 53422,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-loading-wrap.png",
+      "sha256": "e95915368754fde1f034f86c078f99c15d46cd1348a52c399ab90620b8276bd7",
+      "bytes": 52767,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-open.png",
+      "sha256": "fccff6fd66f846ba0f2708e05277daea99839ba6a217e165b6f0ed902aa6c2ab",
+      "bytes": 54014,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-ravenis.png",
+      "sha256": "5f9f3ec5058cf02572a78fdc384dc7c521c8303d9c52b0085c7c2424cf0a0407",
+      "bytes": 214413,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-scrolled.png",
+      "sha256": "45f88881cf8bc5bd9c3e62f9ac3560bb17026f4e3f77445f8a4ebf71660028fa",
+      "bytes": 53196,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-atlas.png",
+      "sha256": "ac0461b02a5837c47d589ea8c036ca11b5bc8ec90859298d84499a91171f2e51",
+      "bytes": 74859,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-focus.png",
+      "sha256": "2b5432582bccfd2edd6dd9747c4a2f583cb8a0bd65bfa0553efa39ecc8c9d79c",
+      "bytes": 75274,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-loading-focus.png",
+      "sha256": "346ea0e9b1eac078affb316a0f900bddade1eb2b62820f6463277e5867e630f0",
+      "bytes": 75881,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-loading-wrap.png",
+      "sha256": "9bf1293ee27a2f24d2bce7fe4a5381ba4d1c65be0356e66f39a8a3e75d54c55f",
+      "bytes": 75090,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-open.png",
+      "sha256": "a8651594ae550cce8a4213ac8311f7f9170d9f67f6d3a303345cce34a39ee2a3",
+      "bytes": 75717,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-ravenis.png",
+      "sha256": "c9109499ce5ae28b06afb977c8d96975940c5bd812fa7adfe84d766676750f7d",
+      "bytes": 201272,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-scrolled.png",
+      "sha256": "1312e44e7e2b089e35b185c2d7cb0cc2ccd6ed4175d668fdde4c6e81ac50f4b2",
+      "bytes": 75540,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-sidebar-closed.png",
+      "sha256": "b6a059c7a00d1dc384bd42059e819765596c252c9df9aa173cf54c4498168e52",
+      "bytes": 63654,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-atlas.png",
+      "sha256": "4f0ee9d57f213305438bc7438e5392fdbcc331362b6cd1e1c33b9f618556e2b7",
+      "bytes": 80601,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-focus.png",
+      "sha256": "58914636812b574670643eedda87c629e767303380d747b95988df53d7598de4",
+      "bytes": 92012,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-loading-focus.png",
+      "sha256": "114fe02c3f244b82c80d0d90be9bf2b7829f7c028e8cc299d7a2eb898c06f956",
+      "bytes": 92486,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-loading-wrap.png",
+      "sha256": "df477f34ac62492f1b335134900376c6477df13b747afde0e4e2b6d38f4a7c44",
+      "bytes": 92010,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-open.png",
+      "sha256": "146e47634d73c65e4dd35aaa96472c0cc579facc82bf82c52c60961dd378d2a3",
+      "bytes": 92559,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-ravenis.png",
+      "sha256": "b900d75d42a356212a08baecc72727d2ac6e7464c40059c3524ddcb4f00b418f",
+      "bytes": 300894,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-scrolled.png",
+      "sha256": "2a690af5b0a00be3b0c24dd8bbcc2ddde62f0b6ecee45f839aa70783bc531f38",
+      "bytes": 92241,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-sidebar-closed.png",
+      "sha256": "f76ba81649cec701907256679d1888dc04a6bd257749938fa7db6636fe758ec4",
+      "bytes": 70385,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-atlas.png",
+      "sha256": "44698e7c976d6d0bd5db5953e527798800ea18f3ad147ec8afea922614dcd7c3",
+      "bytes": 40069,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-focus.png",
+      "sha256": "1b11a540c9fb227d42f434fe6c776cb20bb0135a4d0ff36a4e4fbf156ef85d24",
+      "bytes": 35706,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-loading-focus.png",
+      "sha256": "4f702dfb7fbfbb391fb2b83b7fd5d1334d4efa39571c3ffc3ac70c8cb55a9692",
+      "bytes": 37124,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-loading-wrap.png",
+      "sha256": "0a50a7f52503a3a2d9760b0d9152bb98e03ad76f78443ab979ab03ded081f632",
+      "bytes": 36857,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-open.png",
+      "sha256": "0ae5949f89121032aa962377c4010a25522d710f09182635e699f988cfbb78b9",
+      "bytes": 35693,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-ravenis.png",
+      "sha256": "abe1f9141927dc75008377dd863af5eb8e2ea6b78fd2f15242f9e88d4e087e42",
+      "bytes": 55367,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-scrolled.png",
+      "sha256": "ea8abf3c9a928222fd6ce97e68da43a0113ee54daa4238d59fa6f983c68d5b75",
+      "bytes": 37122,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-atlas.png",
+      "sha256": "e1f4e7d2155d5ad5089aef17c407c963195aeb105d81f1d6ed409e15df03967d",
+      "bytes": 40303,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-focus.png",
+      "sha256": "4c18b547673d6b20713ab6d94349f4e697b19e13e5dec05334b81ad3083196e4",
+      "bytes": 37803,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-loading-focus.png",
+      "sha256": "e1f945aa7a3e21aa653710fa8f2d5bc1b411f7eb32c0860e1819081966c3ed06",
+      "bytes": 39194,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-loading-wrap.png",
+      "sha256": "409d480753ed47c4f3e081c3ca4f68573be58a2ae5fe99e3cd780cc310a963c7",
+      "bytes": 38953,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-open.png",
+      "sha256": "e0dbce1c520ff8d187165a7be3e1d1ff5f148498f7b5fff06f25cea2eea90381",
+      "bytes": 37789,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-ravenis.png",
+      "sha256": "86aa7e6d963a046daefd6ca8084490ff647a7eaaa6dc4397862e179648885706",
+      "bytes": 70735,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-scrolled.png",
+      "sha256": "841244716e97a7acf4ff8be3d4e228bdc05d8b4141bb6232283a49a753aecd18",
+      "bytes": 39191,
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-atlas.png",
+      "sha256": "a23395ce50f2e585cfc01c13e4fc756ec7e9dd9cf8b81bbd6d608ccdd830bac7",
+      "bytes": 56347,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-focus.png",
+      "sha256": "30330db798bc4767342a8530b4a6bc966b92e74af3e1508c9761390210493077",
+      "bytes": 50529,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-loading-focus.png",
+      "sha256": "a93b71917449035bfe337b760f1dfd854e352ee1314c2759fdfce9ebc6526f19",
+      "bytes": 50061,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-loading-wrap.png",
+      "sha256": "5636aca170cee82dacf3371d978d27db3bf09492d45b6f346a41d6a630243e24",
+      "bytes": 49833,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-open.png",
+      "sha256": "0321a5a6cf346352a32520ce7f1d1d4ceb9eb2064b7c9e2306b8706137aebcef",
+      "bytes": 50518,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-ravenis.png",
+      "sha256": "d019d84a7e2ae15b22154ae553a64d1701cca5ccbb2361fd96c2a47da07f0884",
+      "bytes": 92040,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-scrolled.png",
+      "sha256": "0727d7bb9be58dba60f9872255aa537bcaed3810cd90f6560db0566bad89f8fa",
+      "bytes": 50064,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-atlas.png",
+      "sha256": "8273427bc3b303e65fc3f35af8c68bd4421007d1e891e06bb97c20f1f5c136b3",
+      "bytes": 62417,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-focus.png",
+      "sha256": "fc26a526d1acc663817032dbebb69f0e5dc3f9d550fb02ef8a023273820946c3",
+      "bytes": 53850,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-loading-focus.png",
+      "sha256": "2f7ad2ab27c4c904c1efe629ff85bc4697e14d36b286181fda18b85c91660653",
+      "bytes": 53398,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-loading-wrap.png",
+      "sha256": "e2fde2165b2c812fa0c7539ce939b7661101fe662099a859cbeec56dcaa8a0a7",
+      "bytes": 53149,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-open.png",
+      "sha256": "9843125a31b82048b04158ff323dd5c59dd55549e102200de29eb95936767f82",
+      "bytes": 53846,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-ravenis.png",
+      "sha256": "d30951d4e286df26a677775a50d0a9f88dc3cdad00e35d3e783bb2213d35d823",
+      "bytes": 111312,
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-scrolled.png",
+      "sha256": "cb41d91d533e40a150b707a35b8d32f0ac7c468c0536b3cba286880aa2b5d8c6",
+      "bytes": 53398,
+      "size": [
+        768,
+        757
+      ]
+    }
+  ],
+  "published_files": [
+    {
+      "file": "audit.json",
+      "sha256": "2eb208ea8f3482b415f63be8d187388ea79ac68c4096aa56a5f7cd146c53c3f2",
+      "bytes": 44972
+    },
+    {
+      "file": "live-observe-dialog-1024-dark-review.jpg",
+      "sha256": "139e2e91aa39044cb9c8890065ff6730130d270510302c9ee923d91beca2215e",
+      "bytes": 174563,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-1024-light-review.jpg",
+      "sha256": "99370aa7d048ef71210eacf16eb96b5a2a1940f59682776d9240fc78ae654903",
+      "bytes": 186580,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-1366-dark-review.jpg",
+      "sha256": "fe7b936da64d83103123cd8c14c1be2e798706bf38c495907451621afbbc817e",
+      "bytes": 140321,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-1366-light-review.jpg",
+      "sha256": "6bd1c3bffb280237601b687584476fd1aa92cb30b8a837d585c98ded97df5e2d",
+      "bytes": 149100,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-390-dark-review.jpg",
+      "sha256": "044d7884366e8362799e9f83e01bf5e56a2620160363d498f7c97422f8d0e2da",
+      "bytes": 251684,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-390-light-review.jpg",
+      "sha256": "f004cebb83ca78421dcbfad45e93b678247359c6883a1d45e05e9a7dbc86d99e",
+      "bytes": 258940,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-768-dark-review.jpg",
+      "sha256": "757b305dacc7889c7791250fecc97024d7d9d8ee9970a82497e56c002819e402",
+      "bytes": 209263,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "live-observe-dialog-768-light-review.jpg",
+      "sha256": "abade83aef9806ecdca2c0f5af1d6b0c24904698f200d3ca28e4647a7bdec499",
+      "bytes": 219278,
+      "size": [
+        1590,
+        2250
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-loading-wrap.png",
+      "sha256": "b3c7ddf08532a54635199244676d2eb2789fb7226393f121c6a16b3989473924",
+      "bytes": 49401,
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-loading-wrap.png",
+      "sha256": "df477f34ac62492f1b335134900376c6477df13b747afde0e4e2b6d38f4a7c44",
+      "bytes": 92010,
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "ui025-live-light-loaded-panel.jpg",
+      "sha256": "49717f1044708f4f6c21176deaf81aa18f15fd2511b697806f43f943608c1fe0",
+      "bytes": 99880,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-light-normal.jpg",
+      "sha256": "7b20f3cb813306bdec82068d65fc51c396e4e2c52d4ef557dad823a8245096a5",
+      "bytes": 100615,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-light-selected.jpg",
+      "sha256": "ce7f785cb239f7366c28cb8c1c5e63739a53b45a1d512541d167ec7ed2454682",
+      "bytes": 116961,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-light-sun-hidden-stable.jpg",
+      "sha256": "28d30e1c628dda836b3bb84ca05cb32ff25c235d92568666a15ea2bd5f00445f",
+      "bytes": 116610,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-night-loaded-wrap.jpg",
+      "sha256": "b22fe7fb1dfbdbce3c15c36f43f27a7d82c1b8e8d7e0fab4fab7544ac46000b0",
+      "bytes": 71610,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-night-normal-real.jpg",
+      "sha256": "7c5b0529486f11a0c90a078dafb89e789e60029f610967a31b2e1722ecb09b86",
+      "bytes": 92347,
+      "size": [
+        1363,
+        936
+      ]
+    },
+    {
+      "file": "ui025-live-night-selected.jpg",
+      "sha256": "8e9aa98fe31f2d877ea2ed05d1360f08ee0c26fbc2422a0c5253b8a8b9091b29",
+      "bytes": 105703,
+      "size": [
+        1363,
+        936
+      ]
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # UI-024 — Atlas 加载态打开弹层未移入焦点
 
+## 2026-10-20 当前main补齐线上限定验收：done
+
+- 当前main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，[run39308494035](https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035) build118251656940/deploy118262207923/live118262473888全部success。初焦点app.js自004447db未改，现新head完整四宽度双主题线上8组通过，补齐此前1024/1366缺口；旧0044失败仍是失败，不改写历史。
+- 线上58帧/8联系表全看、1024 Night与1366 Light loading-wrap放大：自然initial=date、明确disabled fixture的first=date/两首button disabled、Shift+Tab=aspectLinesToggle/inside/focusIsLast=true。16帧为UI fixture，不是自然服务/健康；真实Tab/Escape/重开/导航及小尺寸滚动通过。原audit/哈希/ZIP来源见[ui025-live/source.json](ui025-live/source.json)。
+- 本轮云1363×936双主题自然已加载focus=refresh、Shift+Tab末south-node/Tab首/Escape返回trigger通过；本轮Night加载已在点击前完成，不冒称新云加载态图。明确复用此前同产品0044云自然加载focus=date证据，结合当前完整live矩阵关闭本缺陷pending。UI-A12其他业务/全站未完成，字体历史及未确定根因保留，不盲重跑或改门禁，无新用户决定。
+
 ## 2026-10-19 重跑失败与字体诊断
 
 - 预记本轮base/main `004447dbdf2a8187c2cac9e7ab568709296ac8ab`，审计父`1ee05b3d9431a4bb1b925d38ae2a311b1db21c0d`，范围仅计划/日志/本记录及`ui024-live-retry-failure/`公开证据。无产品修改、无新确认UI缺陷或用户决策，gh不可用。

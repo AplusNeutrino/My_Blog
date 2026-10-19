@@ -1,5 +1,16 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI024/UI025当前main线上限定验收完成
+
+- 预定仅计划/此日志/ui024-checks/ui025-checks及ui025-live公开截图/JSON/来源；base/main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，审计父2aeca3e8945ec7dfc44d0db3eba9a50a09cac59c。fresh refs核对/规定上下文与用户补充已读、CONTEXT不存在、gh不可用未建Issue、独立worktree保护用户dirty内容，无新用户决定。不改产品/门禁/旧COMPLETE/原文/metadata/URL/noindex/隐蔽边界/外部仓库。
+- 精确run39308494035 build118251656940于19:30:34 UTC、deploy118262207923于19:31:06 UTC、live118262473888于19:51:37 UTC全部success（2026-10-19）；289tests/T01/authoring/production Jekyll/产物及全部原门禁/完整线上矩阵通过。以当前新head验收，不用旧分支成功替代、不将旧004447db两次字体失败改写成功；本次没触发失败来源采集，不能宣称字体根因修复。
+- 线上OBSERVE artifact12216824195（3938552bytes）独立ZIP SHA256fcf1b4161a62ea5ff3ba1ff314a9b4edbb8d74fe8ae55e3eb6cfc936dce1b0b2匹配。实际看全部58 viewport的8联系表、放大1024 Night/1366 Light loading-wrap原PNG。8组passed/oldStackRejected/initial=date；fixture first=date/两首button disabled，reverse=aspectLinesToggle、inside/focusIsLast=true。Tab/Escape返回/重开/共享导航与主题保持、桌面侧栏通过；390 scroll192/768与1024 scroll31/1366短内容0，不虚称长滚动。16帧explicit disabled UI fixture、自然路径仍服务加载，不认证远端健康/完整动态菜单。
+- 使用浏览器技能local Unknown tool后按指引云fallback，1363×936真实v41/noindex,nofollow。初始Light（首张误命名night，已更名light-normal按真实主题保存）自然已加载10节点，普通底#fff8e7/PNG清晰；选太阳后active/FOCUS可辨。已加载弹层稳定focus=refresh，Shift+Tab=末south-node、Tab=refresh、Escape=trigger。Light全部相位线10→0，再开启并隐藏太阳10→9节点/表14→13/线10→9，再恢复10节点/14表项/10线。稳定hidden截图保留已选太阳FOCUS，不冒称默认态；首张关闭动画中截图不作稳定验收。
+- Ravenis导航工具报timeout/no_matches，但fresh AX确认实际已导航且加载公开目录；失败调用本身不算成功。Ravenis主题Light→Night后共享链接回Atlas，Night页面曾加载中但点击弹层前已完成，真实active=refresh/disabled=false/10节点，不能冒称本轮云加载态初焦点图。Night首末回环/Escape通过；普通底#e7ecf3原色且图标清晰，选太阳FOCUS更新，首次截图超时，fresh状态后一次截图成功。未mock/改DOM/拦截服务，不认证星历时间准确或全部业务健康。
+- 保存7云原JPEG/8联系表/两放大原PNG/原audit/58PNG哈希尺寸。live总包544059788bytes超已知下载上限，本轮不请求/下载/看、不绕过限制、不冒称全站人工验收。UI024以当前3b68完整live8组补齐旧缺1024/1366关闭；app.js自0044未变，明确复用此前0044自然加载focus=date云证据，非本轮新图。UI025四宽度双主题CSS+PNG生产八图明确复用已看8a7（产品至本head相同），本次云自然已加载补线上before/after，非所有宽度自然应用手测。
+- UI024与UI025仅两缺陷done；Night左表/FOCUS暗图标候选S-A12-02未扩成本次修改，UI-A12历史查询等业务/全站其余矩阵仍pending。只审计分支更新，不推纯文档main制造新pending；全站IN PROGRESS，不写最终报告或暂停。下一项UI-A12自然业务/图标候选及其余矩阵。
+- 本机复核289tests（14.681s）、authoring44/5/7、T01正文/URL/hidden44/5/5和git diff --check通过；Ravenis LKG输出为既有unit fixture。再次T01生成因目标已存在保护拒绝，改用新输出文件后通过，不覆盖原基线；本机无Ruby/Jekyll/Chrome，production结果以上述精确Actions为准，不将本机静态测试冒充视觉。
+
 ## 2026-10-20 — UI025完整分支CI与生产看图，准备main交付
 
 - Base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父164700588492e789dae0758efcdc7579bf1bea1b，实现8a7ac42a690124ffbb3aea8d656c9c8556f48255；fresh refs/API/fetch已核对，规定上下文/用户补充重读。CONTEXT不存在、gh不可用未编造Issue；独立worktree保护原dirty内容，无新增用户决定。

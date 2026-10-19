@@ -1,5 +1,12 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-20 线上限定done
+
+- main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1；[run39308494035](https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035) build118251656940/deploy118262207923/live118262473888全部success，2026-10-19 19:51:37 UTC完成。字体旧失败历史保留，不宣称根因修复。
+- 云1363×936/v41/noindex/nofollow自然已加载10节点：Light普通底#fff8e7从旧近实心饼恢复清晰，Night#e7ecf3原色保留；双主题太阳选择/FOCUS可辨，Light线10→0再恢复、隐藏太阳10→9/表14→13再恢复，双主题稳定focus=refresh/Shift+Tab=末south-node/Tab=refresh/Escape=trigger和主题往返通过。来源/时序及工具失败局限见[ui025-live/source.json](ui025-live/source.json)、本轮日志，不认证全部业务/数据时效。
+- 本head线上OBSERVE58帧8联系表全看、两loading-wrap原图放大，8流程通过；16帧explicit disabled UI fixture非自然服务健康。四宽度双主题隔离CSS+PNG生产8图明确复用已看8a7证据（至本head产品相同），不称本次新下载/所有尺寸自然app手测。关闭UI025此项底色缺陷；UI-A12其他业务和S-A12-02 Night表/FOCUS候选仍pending。
+- 仅审计计划/日志/ui024-checks/本记录/公开证据，不改main或产品。全站IN PROGRESS，无新用户决定、gh不可用，不写最终报告或暂停。
+
 ## main交付与自身CI收据
 
 - main已非强推更新为3b68f4984477636b40bf58af2a8b8db3e2d466f1，expected旧main004447db再次核对后CAS更新；[run39308494035](https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035)真实创建、head精确匹配、in_progress。新main产品/工具/测试/workflow与已完整build成功的8a7ac42a相同，仅增加已看生产证据/记录；新main自身build/deploy/live及自然已加载图标/选择开关与UI024线上焦点仍validation-pending。

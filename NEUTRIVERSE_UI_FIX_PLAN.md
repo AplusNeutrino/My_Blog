@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI024/UI025限定done：base/main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，run39308494035 build118251656940/deploy118262207923/live118262473888全部success，2026-10-19 19:51:37 UTC完成。实际看线上58 viewport/8联系表及两放大原图，八组初焦点date/禁用fixture末端回环/inside、Escape/导航通过；16帧明确fixture。云1363×936双主题已加载10节点，Light普通底#fff8e7/符号清晰、Night原#e7ecf3，太阳选择/FOCUS、Light线10→0再恢复及隐藏太阳10→9/表14→13并恢复、双主题Tab/Shift+Tab/Escape与主题往返通过，v41/noindex保留。UI024在当前新head完整验收关闭，不改写旧0044失败；字体未定根因历史保留。只审计计划/日志/ui024-checks/ui025-checks与ui025-live公开证据，main不动。UI-A12其他业务、S-A12-02 Night表/FOCUS图标候选及全站其余矩阵仍pending，不标COMPLETE或暂停。无新用户决定，gh不可用。[证据](docs/ui-evidence/ui025-checks.md)。
+
 2026-10-20 UI025生产限定通过、main交付准备：base/main004447db，审计父16470058，实现8a7ac42a/run39299220841 build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/T01/authoring/Jekyll/产物/原门禁均通过，deploy118230273842/live118230275552分支规则skipped。新head图标8原图、OBSERVE58帧/8联系表及1024 Night/1366 Light loading-wrap两原图实际查看，图标清晰、标题/焦点回环正常；16帧为disabled UI fixture，服务未加载、业务健康不认证。字体超时未复现、不宣称根因已修好；旧main失败历史与UI024线上pending保留。本轮先限定仅计划/日志/ui025-checks及ui025-8a7-production公开证据，再携已验证原产品/审计非强推main，不新增样式或改门禁。新main精确head build/deploy/live与线上自然已加载同场景必须另验，UI025不标done、全站IN PROGRESS，无新用户决定。下一项先核对新main，再图标选择/显示开关及UI024焦点线上补验。
 
 2026-10-20 UI-A09-F只读来源诊断：base/main004447db、工作ac3430d9、审计父9776385f；先记录ui025-checks范围后仅扩THINK settle失败后字体CSS src/FontFace/已有请求缓存关联与必要回归、计划日志。只读已收到的Google Fonts CSS body，不新增网络请求/读取任意body或headers；匹配缺失/不唯一/读取失败照实记录。原30s ready等待/raise/所有门禁不变、不改产品、不盲重跑。未验实现留ui/fix-025，UI024/025仍validation-pending，无新用户决定；此次不重看旧图冒称新视觉证据。
