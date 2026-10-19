@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## main交付与自身CI收据
+
+- main已非强推更新为3b68f4984477636b40bf58af2a8b8db3e2d466f1，expected旧main004447db再次核对后CAS更新；[run39308494035](https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035)真实创建、head精确匹配、in_progress。新main产品/工具/测试/workflow与已完整build成功的8a7ac42a相同，仅增加已看生产证据/记录；新main自身build/deploy/live及自然已加载图标/选择开关与UI024线上焦点仍validation-pending。
+- UI025尚未标done，全站IN PROGRESS，无新用户决定。下轮先核对同3b68f498实际Actions/build/deploy及线上同场景，不能用8a7分支success代替本次通过；UI024旧main字体失败历史保留，新main完整矩阵通过前不关闭。此收据单独存audit/ui-a12-focus，不反复推main取消进行中的验证。
+
 ## 2026-10-20 精确生产限定验收与main交付准备
 
 - [run39299220841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39299220841)精确8a7ac42a，build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/Ruby4/T01/authoring/Jekyll/产物/全部原门禁成功。deploy118230273842/live118230275552分支规则skipped；不能代替新main部署验收。字体本次未超时，无新增来源诊断现场、不宣称字体根因修复，旧失败记录/UI024线上pending保留。
