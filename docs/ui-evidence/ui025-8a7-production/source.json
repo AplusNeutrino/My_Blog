@@ -1,0 +1,557 @@
+{
+  "observePNGs": [
+    {
+      "file": "observe-dialog-1024-dark-atlas.png",
+      "sha256": "9d4f514cc636dec071d8b89d9abbae8495e65a4b87f9f50417113896eca01f67",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-focus.png",
+      "sha256": "44b503ddcd5b4e535237bc544ea20ad6441370ae570c4dd91871324953ac881e",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-loading-focus.png",
+      "sha256": "a6c91d457dd732333f141dcc3af2d0d56a8a212606733b8b912d2441db4c9828",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-loading-wrap.png",
+      "sha256": "59bb702abda1e900e0a204f5a1f60681d32c0791110945b3f64575c1f1afb0c6",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-open.png",
+      "sha256": "0bad58bdabc0825ea8f5917029037c6f3bd5712e0366accd7108a6a22fd7d890",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-ravenis.png",
+      "sha256": "11ca89947194cebae33955b7ab681b30638be65da847844649a39e82fa1e0566",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-dark-scrolled.png",
+      "sha256": "cead32d120343e97e3d73ce1ed1a78b5e8e51e185fc748c0aa4deb51832f170d",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-atlas.png",
+      "sha256": "13c3830551f0644bd8c0fc0de98ede67c043ab5cb6b460293c02c140a35aae17",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-focus.png",
+      "sha256": "35449d230d80b43436f44f1508275c7b9e07b6ee781b9da4fcfc0f4fa0fab736",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-loading-focus.png",
+      "sha256": "410e20fdc85b0ecbffe9d535112ae2ac37452ef8f792dd5cb375146f728a6602",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-loading-wrap.png",
+      "sha256": "fb82bfd4aa683a5b9a2a577f17f9fae4fcaf0a0969efa9692ec4abe398893dd1",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-open.png",
+      "sha256": "bfe1bf3c2209a52d26a34e37e1960224fd96374033962358ac49dded0c33896a",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-ravenis.png",
+      "sha256": "61fcc5c8fd5a9f29360d00a3513e47ee84ea6b55f7678553951f331eda4fb276",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1024-light-scrolled.png",
+      "sha256": "864efd9bb7e28f3d46af86ca4da675dfa394d6bf9a551495e96eee25e06035db",
+      "size": [
+        1024,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-atlas.png",
+      "sha256": "ac0461b02a5837c47d589ea8c036ca11b5bc8ec90859298d84499a91171f2e51",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-focus.png",
+      "sha256": "37d8e21a16bb2a5e49820616fcdc9d45067c45283dcdec2fba0f78513bb83923",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-loading-focus.png",
+      "sha256": "6ec77adbf2bf99c5fe0477eef300c5a73aaf4bd24db5e799639739457fde2150",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-loading-wrap.png",
+      "sha256": "3bf1e046bc92f8f3a75eb5a7c3557d37b122f2fdfb3a18b0192459c39c9e6007",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-open.png",
+      "sha256": "c44e9edb8c35baa339346e3fc980c2480c3824ed24586b826afac5897e8bfa83",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-ravenis.png",
+      "sha256": "d06cf47a17577cddffe807da907f25ed8b55708d09621e469733af8fdad5005c",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-scrolled.png",
+      "sha256": "32988b478f22c22e89f91dca01defc7ab4e2ddbb99f515835fb5e96bf490607c",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-dark-sidebar-closed.png",
+      "sha256": "a5c0eb3061d6cdb4c4d83f9f9d18b6881625617d85117100f5c258b6486119a3",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-atlas.png",
+      "sha256": "4f0ee9d57f213305438bc7438e5392fdbcc331362b6cd1e1c33b9f618556e2b7",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-focus.png",
+      "sha256": "e73f463f6f590ac6785661a0c8cb37b2701ce902be1fdfc5f2f06b8329cc8de9",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-loading-focus.png",
+      "sha256": "727295c2abec54df437a0f1aa7a25e192ca4e3824f5e05caf6698d34546de7c5",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-loading-wrap.png",
+      "sha256": "cc89cf0852058d7773bd59cddbe59c51a0c2b1176f8bb5144e5619f6bbe5189c",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-open.png",
+      "sha256": "e84e2713d5155f063c85db8187f0938f93ee2822fd3a32be5fd94be4cea80df2",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-ravenis.png",
+      "sha256": "cf6b070b98ac478bdacb959814e284af1b8a59de06ba70c9d728c38325799166",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-scrolled.png",
+      "sha256": "b21be19498203cfd9b024ffd671223e6925ce2703d973a49164de51c0004f98d",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-1366-light-sidebar-closed.png",
+      "sha256": "a5390ff43c22d6d082432538716b4085ca2ed00ae50a94cb8d26c2299e1901d0",
+      "size": [
+        1366,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-atlas.png",
+      "sha256": "44698e7c976d6d0bd5db5953e527798800ea18f3ad147ec8afea922614dcd7c3",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-focus.png",
+      "sha256": "4b160a892a0727e440714f75adc88c471c80efddec6fa54fd974452ab67d212b",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-loading-focus.png",
+      "sha256": "b2499731fe261faefacc8167796420139f62bfbbfcf221af34ddc36fb056ad02",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-loading-wrap.png",
+      "sha256": "a2a05b7da69e1f60d46fbdca52511033ba038860a21eadc591b367ce85c4464a",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-open.png",
+      "sha256": "a7262fc245a57659096049c42cc4e7cfef8471db6c9846836d2d5013e90f4df5",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-ravenis.png",
+      "sha256": "56fb54995bcb9649f4427db6f921d25c49740dffcfa4cf348197de5ba8a96102",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-dark-scrolled.png",
+      "sha256": "0e238b4949331dd64ad0be56d426ba59ea8e5749cad099defa7b1b88567406c5",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-atlas.png",
+      "sha256": "da68c441b9a3b54313d540cb36f8377638cd50c285c4ba31747f23e8a073442f",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-focus.png",
+      "sha256": "31e75a54b7cc9d09a45e0eaee354de7a945ea73f1ee364f896810aa0edc5eed9",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-loading-focus.png",
+      "sha256": "1528de452c84a2453706c484ad267f51ffefa98c0751d11b9551e32c36ff5cf3",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-loading-wrap.png",
+      "sha256": "3ba7232e40966716ad8b9bb087bf190c51524e0cd6369c880af0852f6a18421f",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-open.png",
+      "sha256": "04197494bb9e366a26aaacdfb8630b91ea8fafdca3f36773695942d52af58638",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-ravenis.png",
+      "sha256": "efa3d2125c66e56e74f147c9f7595265baec411914f49111e32d3cf158deee1f",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-390-light-scrolled.png",
+      "sha256": "98c2e3b2e679a91b4940dc3fb4aa8ba1c9256103299c5e998154fa84fd43c4e5",
+      "size": [
+        390,
+        701
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-atlas.png",
+      "sha256": "a23395ce50f2e585cfc01c13e4fc756ec7e9dd9cf8b81bbd6d608ccdd830bac7",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-focus.png",
+      "sha256": "739706c7a66d00255dc5dbb12408fdbaaca1c183893c2b34b9d86a68d2ef7228",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-loading-focus.png",
+      "sha256": "8e0305e99357f26bd635848750155c4be947f4fc3c92ae62351f00b95a1b3778",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-loading-wrap.png",
+      "sha256": "0a25ae5ee1b60bfea5dde7cdc9fda3325f5cdde1d5f2c74d637fac663a6cd550",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-open.png",
+      "sha256": "522407c413556fb512b11230261acaac4bfaf4cc8aea7cc90334b84fd4b8f1c6",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-ravenis.png",
+      "sha256": "91fd3c31c8b6e8cf38311b9d5c0bafffd07e8170b5422a200a70e5482c646781",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-dark-scrolled.png",
+      "sha256": "653ab659afc5391ac611e5cca4f5c497c04c9dc01f38731ac6a082df16813488",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-atlas.png",
+      "sha256": "8273427bc3b303e65fc3f35af8c68bd4421007d1e891e06bb97c20f1f5c136b3",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-focus.png",
+      "sha256": "098bbfb4d0d12e02ebfdc8713e134f587111257b77d98333a974e81c782dc6d9",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-loading-focus.png",
+      "sha256": "256de97b3be3501ae8ba22b3ba7197d7c9af8ae9cb68b0e897051c8595af62e7",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-loading-wrap.png",
+      "sha256": "cf2b87a2355c4f886b0d5a2795fc59ab321779cfac5c23a1ebf52e40eb5a9bb3",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-open.png",
+      "sha256": "e588b16f3adcb114af8803777d45b71ff524b7d91948706e1a89107c18579569",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-ravenis.png",
+      "sha256": "42eecfd8165aac4b2b4cdab12d29f465202e27bb54e80caf6e1fe23ebeda4587",
+      "size": [
+        768,
+        757
+      ]
+    },
+    {
+      "file": "observe-dialog-768-light-scrolled.png",
+      "sha256": "2a55a119e72e5d14e24604fa65620c0b63d0ab0f54e48517d03be044c8fb58ba",
+      "size": [
+        768,
+        757
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "file": "planet-icons-1024-dark.png",
+      "sha256": "93520004c708a725b26e452e0158997f0ab24bf837581f3939da518d85fa34ed",
+      "storedAt": "../ui025-production/planet-icons-1024-dark.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-1024-light.png",
+      "sha256": "6be23ebe5d68491ccffe77bf6d7120f812def97b218ab1ab1c80947b03390af9",
+      "storedAt": "../ui025-production/planet-icons-1024-light.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-1366-dark.png",
+      "sha256": "940d5a1585260803b483b4a68d83024ffc5873005375f6f4b968138a73c92ddc",
+      "storedAt": "../ui025-production/planet-icons-1366-dark.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-1366-light.png",
+      "sha256": "726f38ded9a6ce754edefdda2069bf10518bf78ec1561bac7e2668fc4635c460",
+      "storedAt": "../ui025-production/planet-icons-1366-light.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-390-dark.png",
+      "sha256": "20f537bf5f4074a80027749c931d18b32c52e6a82d22e79f06e31ef959b7599b",
+      "storedAt": "../ui025-production/planet-icons-390-dark.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-390-light.png",
+      "sha256": "87ba3b820d57f580295c3519ee345952740ac23805a51467b8c993306264c40f",
+      "storedAt": "../ui025-production/planet-icons-390-light.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-768-dark.png",
+      "sha256": "925ac8a891a7158bbca35241af92f80d64d3db3b4b94d640b3baae0c396091ac",
+      "storedAt": "../ui025-production/planet-icons-768-dark.png",
+      "identicalToStored": true
+    },
+    {
+      "file": "planet-icons-768-light.png",
+      "sha256": "7d0b301cdf043940d411144810f4fe926729c84c25766a36c21497fea86505f2",
+      "storedAt": "../ui025-production/planet-icons-768-light.png",
+      "identicalToStored": true
+    }
+  ],
+  "head": "8a7ac42a690124ffbb3aea8d656c9c8556f48255",
+  "run": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39299220841",
+  "build": {
+    "id": 118219671529,
+    "conclusion": "success",
+    "completed_at": "2026-10-19T18:24:50Z"
+  },
+  "deploy": {
+    "id": 118230273842,
+    "conclusion": "skipped"
+  },
+  "live": {
+    "id": 118230275552,
+    "conclusion": "skipped"
+  },
+  "artifacts": [
+    {
+      "id": 12211350643,
+      "bytes": 306732,
+      "verifiedZipSHA256": "758d09ac3e639bb5e18a3da2f1ad594059908408b9bba656fdc1813e3425fd2e"
+    },
+    {
+      "id": 12209184773,
+      "bytes": 4028978,
+      "verifiedZipSHA256": "211e2273cc36554095cecfc1ed913473e6268a870f72ef15b8903228b8ddadc3"
+    }
+  ],
+  "review": {
+    "icons": "8 freshly downloaded original viewport PNGs individually viewed; SHA256 checked against permanent prior copies",
+    "observe": "58 viewports viewed via 8 labelled contact sheets; 1024-dark and 1366-light loading-wrap originals enlarged",
+    "limitations": [
+      "production, NOT live; natural app still loading",
+      "16 disabled-controls fixture frames, NOT natural service state",
+      "isolated CSS/PNG icon fixture NOT whole-app or backend business certification",
+      "1366 short content: scrollTop=0, no long-scroll claim",
+      "font timeout not reproduced in this run; root cause NOT established",
+      "oversize total THINK artifact not downloaded/reviewed; no whole-site visual certification"
+    ]
+  }
+}

@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI025完整分支CI与生产看图，准备main交付
+
+- Base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父164700588492e789dae0758efcdc7579bf1bea1b，实现8a7ac42a690124ffbb3aea8d656c9c8556f48255；fresh refs/API/fetch已核对，规定上下文/用户补充重读。CONTEXT不存在、gh不可用未编造Issue；独立worktree保护原dirty内容，无新增用户决定。
+- 本轮预定仅计划/日志/ui025-checks与ui025-8a7-production公开截图/JSON/来源清单。CI原产品最小修复与全部工具/测试保持不变，8a7→164仅收据；通过后携此已验证实现与记录非强推main（先复核expected main004447db），不重写旧COMPLETE/原文/metadata/URL/hidden/noindex/七项目或外部仓库。新main完整build/deploy/live及自然已加载图标/焦点部署复验仍pending，不提前关闭UI025/UI024。
+- 精确run39299220841 build118219671529于2026-10-19 18:24:50 UTC success；289tests（CI6.142s）、Ruby4表格回归、T01/authoring/production Jekyll/Search/feed/压缩脚本/图标8组/OBSERVE8组/点赞/SEO/资源/移动及响应式/THINK BUILD完整检查/Ravenis/Pages产物全部成功。deploy118230273842/live118230275552按工作分支规则skipped，不称上线通过。字体30s门禁未变，本次未超时，没有新增fontFaceSources失败现场，不能断言字体根因已修复；原失败历史保留。
+- 图标artifact12211350643（306732bytes）ZIP SHA256758d09ac3e639bb5e18a3da2f1ad594059908408b9bba656fdc1813e3425fd2e独立匹配；本轮逐张实际看新head8原PNG，四宽度双主题普通/active太阳/月亮/土星均清晰，加载/无溢出/正确底色及4Light旧耦合拒绝通过。隔离CSS+PNG fixture，不代表已加载应用业务；永久原图按字节相同引用旧ui025-production，来源清单另记本artifact。
+- OBSERVE artifact12209184773（4028978bytes）ZIP SHA256211e2273cc36554095cecfc1ed913473e6268a870f72ef15b8903228b8ddadc3独立匹配；实际看新head全部58 viewport的8联系表，放大1024 Night/1366 Light loading-wrap原PNG。8组passed/oldStackRejected，initial/date、first=date/两首button disabled成立、reverseTab=aspectLinesToggle/inside/focusIsLast均true，Escape返回/重开/共享导航与主题保持通过；390 scroll192、768/1024 scroll31、1366短内容scroll0。16帧explicit disabled UI fixture，其他自然路径仍服务加载中，不认证远端健康/完整动态菜单/真实已加载图标；此限定生产证据不代替新main线上复验。
+- 总THINK包12211192996为545489361bytes超已知下载接口536870912上限，此轮未请求下载/未独立摘要/未看，不绕过限制或将全包上传当人工验收；API摘要仅05514ea30092cab0eab5e039550bbbe52ea078a8b23b36689759f21b19f108ba。原已限定done页面历史不重跑人工整站。本次仅专项修复看图验收；全站其余矩阵仍pending。
+- 本机289tests（3.607s）、authoring44/5/7、T01正文/URL/hidden44/5/5、git diff --check通过；本机无Ruby/Jekyll/Chrome，production结果来自上述精确Actions；Ravenis LKG打印为unit fixture，不是新线上故障。保存新head8联系表/两放大原图/原audit与58PNG哈希尺寸，图标8PNG与原永久文件逐字节相同按source明确引用，不把旧head图当本次新下载图。
+
 ## 2026-10-20 — 字体来源关联诊断范围
 
 - Task UI-A09-F/UI024/UI025；fresh main004447db、工作ac3430d9、审计父9776385f，refs/API/fetch核对。规定上下文及用户补充已读，CONTEXT不存在、gh不可用无Issue；独立worktree保护用户dirty目录，无新增用户决定。

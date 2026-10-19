@@ -1,5 +1,11 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-20 精确生产限定验收与main交付准备
+
+- [run39299220841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39299220841)精确8a7ac42a，build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/Ruby4/T01/authoring/Jekyll/产物/全部原门禁成功。deploy118230273842/live118230275552分支规则skipped；不能代替新main部署验收。字体本次未超时，无新增来源诊断现场、不宣称字体根因修复，旧失败记录/UI024线上pending保留。
+- 新head图标8原PNG逐张看、OBSERVE58帧8联系表全看，放大1024 Night/1366 Light loading-wrap原图；普通/active符号清晰，弹层标题/层级/焦点回环正常，8组原交互成功。16帧disabled UI fixture、自然服务仍加载，不认证完整动态业务/服务或自然已加载图标。哈希尺寸/两ZIP独立摘要与保存来源见[ui025-8a7-production/source.json](ui025-8a7-production/source.json)。
+- 本轮仅计划/日志/本记录与公开证据，产品/工具/测试/工作流与8a7相同，准备非强推main；新main精确head完整build/deploy/live及自然已加载双主题图标选择/显示开关、UI024焦点复查仍validation-pending，未标UI025 done。base main004447db、审计父16470058；无新用户决定，gh不可用。超限THINK包不下载、不冒称人工整站通过。
+
 ## 来源诊断提交与精确CI收据
 
 - 只读诊断提交8a7ac42a690124ffbb3aea8d656c9c8556f48255已非强推保存ui/fix-025；[run39299220841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39299220841)真实创建、in_progress，head精确匹配。289tests/T01/authoring/diff本机通过；尚无新head完整build/production图或失败来源关联现场，不声称诊断已定位根因。

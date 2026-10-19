@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI025生产限定通过、main交付准备：base/main004447db，审计父16470058，实现8a7ac42a/run39299220841 build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/T01/authoring/Jekyll/产物/原门禁均通过，deploy118230273842/live118230275552分支规则skipped。新head图标8原图、OBSERVE58帧/8联系表及1024 Night/1366 Light loading-wrap两原图实际查看，图标清晰、标题/焦点回环正常；16帧为disabled UI fixture，服务未加载、业务健康不认证。字体超时未复现、不宣称根因已修好；旧main失败历史与UI024线上pending保留。本轮先限定仅计划/日志/ui025-checks及ui025-8a7-production公开证据，再携已验证原产品/审计非强推main，不新增样式或改门禁。新main精确head build/deploy/live与线上自然已加载同场景必须另验，UI025不标done、全站IN PROGRESS，无新用户决定。下一项先核对新main，再图标选择/显示开关及UI024焦点线上补验。
+
 2026-10-20 UI-A09-F只读来源诊断：base/main004447db、工作ac3430d9、审计父9776385f；先记录ui025-checks范围后仅扩THINK settle失败后字体CSS src/FontFace/已有请求缓存关联与必要回归、计划日志。只读已收到的Google Fonts CSS body，不新增网络请求/读取任意body或headers；匹配缺失/不唯一/读取失败照实记录。原30s ready等待/raise/所有门禁不变、不改产品、不盲重跑。未验实现留ui/fix-025，UI024/025仍validation-pending，无新用户决定；此次不重看旧图冒称新视觉证据。
 
 2026-10-20 UI025/OBSERVE生产专项通过，完整构建仍受字体等待阻塞：base/main004447db、工作ac3430d9、审计父2974d1ff。run39281958731 build118157843464于2026-10-19 16:15:30 UTC failure，285tests/T01/authoring/Jekyll/图标8组/OBSERVE8组及其余前置门禁成功，THINK1366 Night document.fonts.ready超时，deploy/live skipped。实际看本head图标8原图及OBSERVE58帧/8联系表、放大1024 Night与1366 Light loading-wrap两图，disabled UI fixture前提成立、焦点date→末checkbox且inside=true；不是线上/远端健康验收。失败1366原图中文/四入口可见，但566字体面中3个Noto Sans SC400/500/600同Unicode段仍loading、所采51个Font请求均finished，不能与旧Serif故障强归同因。先限定仅计划/日志/ui025-checks及ui025-ac3430-evidence公开证据，不改产品/门禁、不盲重跑、不合main；UI024/025仍validation-pending。下一项字体等待有证据的独立诊断（关联字体CSS src、缓存/请求与FontFace状态并保留超时失败），其间可继续UI-A12未覆盖自然控件，不反复验已通过的fixture。gh不可用，无新用户决定，全站IN PROGRESS。
