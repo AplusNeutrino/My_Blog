@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI025八图限定通过、完整构建受阻：base/main004447db，工作b0939630/审计父88c7923a。run39265653590 build118104425275 failure，282tests/T01/authoring/Jekyll/图标8场景成功；实际逐张看四宽度双主题8图，普通/选中符号清晰，4Light旧色精确注入拒绝。但OBSERVE第7流程1366 Night反向Tab断言失败，未有按键后焦点/控件快照，不能归因为产品或加载竞争。仅补原断言前后只读诊断与失败截图、必要回归，不改产品/selector/断言/disabled fixture/网络/字体等待，无盲重试；新head待完整CI，main不动，UI025仍validation-pending，UI024阻塞保留。gh不可用、无新用户决定。[证据](docs/ui-evidence/ui025-checks.md)。
+
 2026-10-19 UI025审计时序修订：ae6f7c7d/run39259609173 build118083524733 failure，production Jekyll/280tests/T01/authoring通过，fixture在768 Light旧色注入后即读computed fill未等180ms过渡；deploy/live skipped。artifact12188139422摘要匹配，实际看390/768双主题4正常viewport图，普通/选中符号可辨；不是8图/线上验收。先记范围后只新增旧色精确到达的有限5s等待及2实际helper回归，不禁动画、不放宽断言，产品CSS/v41与ae6相同。完整新head/8图/部署仍validation-pending，main004447db不动；UI024字体阻塞不变，无新用户决定。[记录](docs/ui-evidence/ui025-checks.md)。
 
 2026-10-19 UI025 P2 confirmed/implementation validation-pending：base/main004447db，审计父77a3c16a。UI-A12b云1363×936 Light真实已加载显示菜单开关及选太阳时，发现未选中行星PNG符号几乎融入深色圆底，而选中浅底立即可辨。根因circle复用Light深色heading token；先记[UI025范围/截图](docs/ui-evidence/ui025-checks.md)后仅分离普通planet底色（Night原#e7ecf3不变、Light复用原active浅底#fff8e7），资源41；新增具体对比回归和四宽度双主题实际CSS/PNG隔离fixture/旧耦合故障注入，不改业务/PNG/门禁。280tests/T01/authoring通过非视觉验收；精确head生产/8图/完整CI及部署复验pending，留ui/fix-025，main不动。UI024字体阻塞继续保留，无新用户决定。UI-A12b历史查询/其他控件仍pending。

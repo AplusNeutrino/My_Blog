@@ -1,5 +1,13 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-19 八图通过但完整构建受阻
+
+- 本轮base/main004447db，工作head b0939630，审计父88c7923a。run39265653590 build118104425275于14:06:43 UTC failure；282tests/T01/authoring/production Jekyll与图标8场景成功，但OBSERVE第7流程1366 Night反向Tab断言失败，deploy118105593856/live118105594009 skipped。不交付main、不称全通过。
+- 图标artifact12192852185（306732bytes），ZIP SHA2561edd7b9b38c756ac957056aff4f02ded84c76233cae19b7ec74ade6a919b595c独立匹配；实际逐张看四宽度双主题8正常viewport，普通/选中太阳/月亮/土星清晰。8audit均6张原PNG加载、无溢出/正确底色通过，4个Light旧色精确注入拒绝；Night未发生旧色差异，oldLightFillRejected=false是预期，不当失败。此隔离fixture仅CSS/PNG，不是服务/整应用布局验收。
+- OBSERVE artifact12193391732（3088261bytes）SHA25649236205d7d120f6799fb70b263e883a0c580d65d03cbafbef3d329fe3b97d98匹配。6流程passed；1366 Night initial/loadingFocus=datetime后反向Tab失败，1366 Light未开始。仅实际查看1366 Night loading-focus原PNG：截图时服务仍加载，两个首按钮disabled；未捕获按键后active/disabled/控件列表，不能判断是加载完成后可用控件变化、DOM替换或实际焦点逃出。
+- 修改前范围限定：tools/check_observe_dialog.py仅记录原断言按键前后焦点/启用控件/是否末端/加载节点数和失败截图；同一selector与最后控件断言不变，不增加自动重试、不mock网络/钉死disabled、不改产品。必要执行诊断回归、计划日志及公开证据；没有根据推测修复业务。
+- 保存图标8原PNG/audit、OBSERVE原audit及1已看失败前PNG至ui025-production/；其余48 OBSERVE原PNG未逐张看，仅Actions保留。新head完整CI/部署仍pending，UI024字体阻塞也不由本次生产结果关闭；gh不可用，无新用户决定。
+
 ## 最新精确修订与CI入口
 
 - 审计时序修订 `b09396304d5418203d27c2ed82aebfd6f5a78176` 已非强推更新ui/fix-025；[run39265653590](https://github.com/AplusNeutrino/My_Blog/actions/runs/39265653590)真实创建且in_progress。产品CSS/v41与ae6f7c7d相同，仅审计时序、2回归及真实失败/部分截图记录变化。282tests/T01/authoring/diff本机通过非视觉验收。

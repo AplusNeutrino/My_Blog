@@ -1,0 +1,18 @@
+{
+  "head": "b09396304d5418203d27c2ed82aebfd6f5a78176",
+  "run": 39265653590,
+  "buildJob": 118104425275,
+  "buildConclusion": "failure",
+  "completedAt": "2026-10-19T14:06:43Z",
+  "iconArtifact": 12192852185,
+  "iconZipBytes": 306732,
+  "iconZipSHA256": "1edd7b9b38c756ac957056aff4f02ded84c76233cae19b7ec74ade6a919b595c",
+  "iconImagesReviewed": 8,
+  "iconFixture": "isolated built CSS and original PNG; not backend/full-app acceptance",
+  "observeArtifact": 12193391732,
+  "observeZipBytes": 3088261,
+  "observeZipSHA256": "49236205d7d120f6799fb70b263e883a0c580d65d03cbafbef3d329fe3b97d98",
+  "observeImagesReviewed": ["observe-dialog-1366-dark-loading-focus.png"],
+  "observeOtherImagesNotReviewed": 48,
+  "limitation": "6 observe flows passed; 1366 Night reverse Tab failed without after-key state; 1366 Light not executed; deploy/live skipped"
+}

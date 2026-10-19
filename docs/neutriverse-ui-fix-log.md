@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI025八图复核与OBSERVE反向Tab诊断
+
+- Base/main004447db、工作b0939630、审计父88c7923a；规定上下文已读，CONTEXT不存在、gh不可用无Issue，独立worktree保护用户修改，无新用户决定。
+- run39265653590 build118104425275于14:06:43 UTC failure；282tests/T01/authoring/production Jekyll/图标专项成功，OBSERVE第7流程1366 Night loading反向Tab断言失败；deploy118105593856/live118105594009 skipped。完整构建未过，不上线。
+- 图标artifact12192852185/306732bytes独立SHA2561edd7b9b38c756ac957056aff4f02ded84c76233cae19b7ec74ade6a919b595c匹配。实际看四宽度双主题8正常viewport，普通与选中太阳/月亮/土星清晰；8audit加载/底色/无溢出通过，4Light旧色注入拒绝。隔离built CSS/原PNG fixture，不认证服务/整页业务。
+- OBSERVE artifact12193391732/3088261bytes独立SHA25649236205d7d120f6799fb70b263e883a0c580d65d03cbafbef3d329fe3b97d98匹配。6流程passed，第7 initial/loadingFocus=datetime但反向Tab失败、第8未开始。只实际查看1366 Night loading-focus前PNG（当时disabled首两按钮/服务加载中），没有按键后状态，不推断加载竞争或产品陷阱失效。其他48PNG未人工验收。
+- 预记修改范围：check_observe_dialog仅原反向Tab前后记录active/inside/first/last/启用控件/两按钮disabled/planetNodes，失败也保存wrap帧；原selector与focusIsLast断言保持、不重试/钉死disabled/拦截网络/改产品。新增执行只读helper及门禁接线回归。公开8图/audit及OBSERVEaudit/已看前图保存ui025-production。UI025完整新head/部署仍pending，UI024字体阻塞不关闭；下一项精确新head诊断判因，不凭猜测调整产品或放宽门禁。
+- 本机283tests（3.404s）、authoring44/5/7、T01正文/URL/hidden44/5/5及diff通过；无本机Ruby/Jekyll/Chrome，新诊断head实际CI待执行。产品CSS/v41/PNG/app.js与b093相同，不将旧head专项成功代替新head完整通过。
+
 ## 2026-10-19 — UI025 首轮部分看图与故障注入时序修订
 
 - Base/main004447db，ui/fix-025 ae6f7c7d，审计父8a157def；规定上下文/用户补充已读、独立worktree保护原dirty修改，CONTEXT不存在、gh不可用，未编造Issue，无新用户决定。

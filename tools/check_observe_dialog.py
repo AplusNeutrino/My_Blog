@@ -61,6 +61,24 @@ def click(driver, selector):
     target.click()
 
 
+def loading_focus_metrics(driver):
+    """Capture only public control state; never alter fixture timing or requests."""
+    return driver.execute_script('''
+      const p=document.querySelector('#chartControlPanel');
+      const a=Array.from(p.querySelectorAll("button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])"))
+        .filter(n=>!n.hidden && n.offsetParent!==null);
+      const describe=n=>n?{tag:n.tagName,id:n.id,disabled:!!n.disabled,
+        filterBody:n.dataset.filterBody||null,filterAspect:n.dataset.filterAspect||null,
+        filterBodyVisibility:n.dataset.filterBodyVisibility||null}:null;
+      return {at:performance.now(),active:describe(document.activeElement),
+        inside:p.contains(document.activeElement),hidden:p.hidden,
+        first:describe(a[0]),last:describe(a[a.length-1]),
+        focusIsLast:document.activeElement===a[a.length-1],
+        controls:a.map(describe),planetNodes:document.querySelectorAll('.planet-node').length,
+        requestButtons:['refreshAstroButton','exportChartButton'].map(id=>describe(document.getElementById(id)))};
+    ''')
+
+
 def main():
     output = Path(os.environ.get('UI_OBSERVE_DIR', '/tmp/neutriverse-observe-dialog'))
     output.mkdir(parents=True, exist_ok=True)
@@ -146,14 +164,13 @@ def main():
                         wait.until(lambda d: d.execute_script('return document.activeElement.id') == 'chartDateTime')
                         row['loadingInitialFocus'] = driver.execute_script('return document.activeElement.id')
                         driver.save_screenshot(str(output / (name + '-loading-focus.png')))
+                        row['loadingBeforeReverseTab'] = loading_focus_metrics(driver)
                         ActionChains(driver).key_down(Keys.SHIFT).send_keys(Keys.TAB).key_up(Keys.SHIFT).perform()
-                        assert driver.execute_script('''
-                          const p=document.querySelector('#chartControlPanel');
-                          const a=Array.from(p.querySelectorAll("button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])"))
-                            .filter(n=>!n.hidden && n.offsetParent!==null);
-                          return document.activeElement===a[a.length-1];'''), 'Reverse Tab must wrap within loading dialog'
-                        row['loadingReverseTabWrapped'] = True
+                        row['loadingAfterReverseTab'] = loading_focus_metrics(driver)
                         driver.save_screenshot(str(output / (name + '-loading-wrap.png')))
+                        assert row['loadingAfterReverseTab']['focusIsLast'], (
+                            'Reverse Tab must wrap within loading dialog', row['loadingAfterReverseTab'])
+                        row['loadingReverseTabWrapped'] = True
                         ActionChains(driver).send_keys(Keys.ESCAPE).perform()
                         wait.until(lambda d: d.find_element(By.ID, 'chartControlPanel').get_attribute('hidden'))
                         assert driver.execute_script('return document.activeElement.id') == 'chartControlToggle'
