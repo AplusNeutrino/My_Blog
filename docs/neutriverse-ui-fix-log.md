@@ -2,6 +2,8 @@
 
 ## 2026-10-20 — UI-A12c首组自然服务失败与只读诊断
 
+- 诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。
+
 - fresh main b084b8a1f7818a1b9d2e1935456308ad9e6ff22e，仅7份Library数据同步，完整保留不推旧branch覆盖；实现e64e5154、审计父a944177280850288060e53c5b4e2175fa1775428。规定上下文/最新用户补充重读，CONTEXT不存在，gh不在PATH未编造Issue；新干净clone保护上轮目录和用户dirty内容。未改旧COMPLETE/原文/metadata/URL/noindex/隐蔽边界或外部仓库，无新用户决定。
 - 精确run39332927464 build118335278024于2026-10-19 22:11:28 UTC failure；293tests/T01/authoring/production Jekyll/Search/feed/压缩脚本/图标8组/OBSERVE弹层8组成功，deploy118336045529/live118336047439 skipped。新增自然专项390 Night首开wait_ready即APIerror（0节点/0行、无法连接），尚未执行折叠/历史查询；不是历史状态断言失败。无新增字体超时现场、不重写旧失败。
 - artifact12225237586/44869bytes ZIP独立SHA2562b812e6caa4c6251c34cd2caa1964b156e7f644b5b87e9581aed3677fe93502f匹配；实际看唯一390×844失败PNG，错误与重新连接提示可见，保存原PNG/原audit及来源哈希。只此失败图，不算8组通过或视觉正常；前置图标/弹层包未在本轮下载/看图，不混称新验收。

@@ -1,5 +1,9 @@
 # UI-A12c — Atlas 数据折叠、历史查询与实时返回
 
+## 诊断提交精确CI收据
+
+- 诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。
+
 ## 2026-10-20 首轮自然服务失败与只读诊断范围
 
 - fresh main已变b084b8a1f7818a1b9d2e1935456308ad9e6ff22e，仅7份Library数据同步，完整保留、不推旧branch覆盖；审计父a944177280850288060e53c5b4e2175fa1775428，实现仍e64e5154。规定上下文/用户补充已读，CONTEXT不存在，gh不可用。新干净clone不覆盖上轮目录。

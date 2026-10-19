@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-A12c诊断CI收据：诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。
+
 2026-10-20 UI-A12c自然服务首组失败/只读诊断：fresh main b084b8a1为7份Library同步，保留不覆盖；审计父a9441772/实现e64e5154。run39332927464 build118335278024于22:11:28 UTC failure，293tests/T01/authoring/Jekyll与前置图标/弹层成功；390 Night首开服务error/0节点，未进入折叠/历史查询，deploy/live skipped。独立核验artifact12225237586摘要并实际看唯一390×844失败原图，错误/重连提示可见，不推断根因。预记范围后仅补已有CDP已配置API now请求失败诊断及5执行回归，禁止headers/body/query/无关请求/新fetch，不改origin/安全/重试/原门禁/产品。298tests/T01/authoring/diff通过，CORS/网络出口/服务仍待证；新实现先存audit/ui-a12-focus（不触发CI），避免取消main39334089997正在运行的live；ui/audit-012c暂不动，main结束后再非强推同提交触发CI。无新确认产品缺陷或用户决定，全站IN PROGRESS/validation-pending，详见uia12-history-checks。
 
 2026-10-20 UI-A12c精确CI收据：实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。
