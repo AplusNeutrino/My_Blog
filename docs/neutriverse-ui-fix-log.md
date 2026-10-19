@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI024 同main线上部分复验
+
+- 预记任务UI024，base/main 004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父78446763f885148448df4b4278bbded533a8b046；仅计划/本日志/ui024-checks及ui024-live公开证据，产品与门禁不改。已读取规定上下文，独立worktree保护原dirty目录；gh不可用，未编造Issue。
+- run39234519303首轮build118000246276/deploy118008364191 success，live118008468448于10:40:27 UTC failure：第5流程1024 Night进入Ravenis，settle/document.fonts.ready异步30s超时；未到Atlas焦点断言，不推断字体产品缺陷。仅失败job重跑一次；attempt2复用build/deploy成功结果，live118021850681仍in_progress。完整线上矩阵未通过。
+- 首轮artifact12180635906，1382139bytes，ZIP SHA25672177d6a2d51437ba9de4df95339a661050da059b4aa43c166a7782ef24d02c6独立匹配；实际逐张查看390/768双主题28正常viewport的4联系表。4流程passed，initial/loadingFocus=datetime、loadingReverseTabWrapped=true；未见本项新增遮挡。1024 Night无截图、其余3流程未开始，不冒称完整8流程。
+- 云Chrome1363×936真实线上双主题：自然加载首次打开稳定focus=datetime，加载后Escape重开稳定focus=refresh；Shift+Tab至south-node末checkbox、Tab回refresh、Escape返回trigger通过。真实Ravenis主题切换及Atlas返回保持主题；app.js?v=40、noindex,nofollow核实。4真实截图及CI联系表/原audit/源PNG摘要永久保存ui024-live。未操纵网络或disabled状态；浏览器自然服务加载完成，仍不认证所有业务功能或远端健康。
+- 即时click后第一观察可能尚在rAF前trigger，后续独立观察稳定进入panel；Light初始截图显示加载中但紧接DOM时服务已完成，不能混为同一时刻。Light loaded截图捕获于Shift+Tab后绘制前，仍显示refresh，回环依据AX/DOM；Night末checkbox截图实际显示焦点。云视口不可调，未验证四宽度已加载完整业务；不将DOM代视觉。
+- UI024仍validation-pending，无新用户决定。只保存audit/ui-a12-focus，main不动避免取消重跑；下轮先核对同004447db attempt2及1024/1366四流程新图，再继续UI-A12其余业务/全站矩阵。不写最终报告或COMPLETE。
+- 本轮独立worktree复核279 tests（3.017s）、authoring44/5/7、T01正文/URL/hidden44/5/5、git diff --check通过；本机无Jekyll/Chrome，production只引用精确main构建证据，不伪造本机构建。测试日志中的Ravenis LKG是既有单测fixture，不是本轮线上远端故障。
+
 ## 2026-10-19 — UI024 完整分支生产验收与main交付准备
 
 - 最新main/base e44fba12，审计父c8c886e7；读取AGENTS/docs agents/相关ADR/旧主计划与最终报告/本轮计划日志，CONTEXT不存在，gh不在PATH未建或编造Issue。独立worktree保护原目录修改，未覆盖用户修改。
