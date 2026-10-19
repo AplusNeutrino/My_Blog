@@ -93,6 +93,23 @@ jobs:
       - name: Validate Search and Atom feed
         run: python tools/check_search_feed.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Parse production-compressed like scripts
+        run: python tools/check_like_scripts.py "_site${{ steps.pages.outputs.base_path }}"
+
+      - name: Exercise Thoughts likes with isolated service fixture
+        run: python tools/check_thought_likes.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_LIKES_DIR: ${{ runner.temp }}/neutriverse-thought-likes
+
+      - name: Upload Thoughts likes client evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-thought-likes-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-thought-likes
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Validate SEO, sitemap, redirects, and internal routes
         run: python tools/check_seo_routes.py "_site${{ steps.pages.outputs.base_path }}"
 
@@ -209,6 +226,19 @@ jobs:
           UI_LIVE_BASE: https://neutriverse.uk
           UI_AUDIT_DIR: ${{ runner.temp }}/neutriverse-live-ui
         run: python tools/check_think_build_visual.py .
+      - name: Verify deployed Thoughts likes client with isolated service fixture
+        env:
+          UI_LIVE_BASE: https://neutriverse.uk
+          UI_LIKES_DIR: ${{ runner.temp }}/neutriverse-live-thought-likes
+        run: python tools/check_thought_likes.py .
+      - name: Upload deployed Thoughts likes client evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-live-thought-likes-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-live-thought-likes
+          if-no-files-found: ignore
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
