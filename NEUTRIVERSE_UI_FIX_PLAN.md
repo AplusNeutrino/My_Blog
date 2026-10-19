@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI024生产限定验收与main交付准备：base/main e44fba12，审计父c8c886e7；实现765c57a2/run39228556141 build117980704074于09:37:03 UTC完整success，deploy117989980198/live117989979476分支规则skipped。实际看四宽度双主题58 viewport/8联系表，放大2原PNG；初焦点/反向Tab回环与Escape/导航通过，16图明确disabled UI fixture、远端未加载不认证服务健康。8流程passed、initial/loading focus=datetime与回环true；原门禁未削弱。仅新增公开证据及计划日志后携原最小修复非强推main，产品同765。新main自身CI/build/deploy/live及线上复验仍validation-pending，不标UI024 done；全站IN PROGRESS，无新用户决策，gh不可用。[生产证据与限制](docs/ui-evidence/ui024-checks.md)。下一项先核对新main同head再线上焦点复验。
+
 UI024最新：17a5aeb0/run39228088897 production Jekyll成功但新增fixture桌面过渡期间nativeclick拦截而整场failure，未部署。仅审计等待实际点击命中修订765c57a284173a47e75210ecf1e4932b712bd00b/ui/fix-024，[新run39228556141](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228556141)运行中；产品同17a5，不放宽门禁。已看首轮390双主题4张fixture焦点/回环原图，仅部分生产证据；完整四宽度新head/部署复验仍validation-pending。main e44不动，状态另存audit/ui-a12-focus，无新用户决定。
 
 2026-10-19 UI-024 P2 confirmed：base/main e44fba12，S-A12-01在云1363×936 Light加载态真实click后两个观察调用仍focus在trigger、disabled refresh不能focus，后续Shift+Tab逃至主站链接。预定仅初始focus可用控件选择/资源v40/必要执行回归及四宽度双主题焦点专项，范围与复现先记[UI024](docs/ui-evidence/ui024-checks.md)。UI-023层级仍done；UI024验证未完成前留工作分支validation-pending，不改服务等待/原门禁/保护内容。无新用户决定。

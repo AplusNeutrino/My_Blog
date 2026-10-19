@@ -1,5 +1,14 @@
 # UI-024 — Atlas 加载态打开弹层未移入焦点
 
+## 2026-10-19 生产限定验收，准备main交付
+
+- 最新main/base `e44fba12d6ddd0aba4b5252ddb265aa25ec45e70`，审计父`c8c886e7e89061b401678b27da1e070d5043421a`；精确实现`765c57a284173a47e75210ecf1e4932b712bd00b`/[run39228556141](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228556141) build117980704074于09:37:03 UTC完整success。279 tests、T01、authoring、production Jekyll及原门禁全部通过。deploy117989980198/live117989979476按工作分支规则skipped，不等于已上线。
+- artifact12176111372（3997064bytes）独立下载ZIP SHA256 `166c709895ae1f97738abd895439fd496e4a40323c6ad1762a71543bf108aece`匹配。本轮实际逐张看58正常viewport/8不缩放联系表，另放大1366 Light loading-wrap、390 Night open原PNG。首次打开时间控件有焦点、Tab后到地点名、反向Tab回环至末checkbox，标题及控件未见新遮挡或横溢出；从旧trigger外遗留/Shift+Tab逃出，变为弹层内可交互控件焦点。
+- 8流程passed=true、initialFocus=chartDateTime、loadingInitialFocus=chartDateTime、loadingReverseTabWrapped=true；原层级故障注入/原生滚动/Tab/Escape返回/重开/导航往返/主题/侧栏收放保持。自然截图全部远端未加载，16张loading-focus/wrap为明确的可恢复disabled前两按钮UI fixture；不mock网络但不认证远端健康、不借此验证完整32选项或已加载时全部浏览器行为。Node覆盖loaded→refresh，线上同场景仍需复验。
+- `ui024-production/`永久保存8张已看联系表、2放大原PNG、原audit.json、58源PNG哈希及尺寸summary；其余56原PNG留该head Actions artifact（14天）。旧失败及旧4张部分图不冒充本head验收；不下载/绕过超限总包。
+- 交付前范围：以c8c886e为父仅新增上述公开证据和更新计划/日志/本记录，携既有最小focus修复/v40/必要回归与审计交付main；产品/样式/数据/门禁与精确765相同，无额外修复。expected main=e44、force=false，main若改变先停下重核，不覆盖用户修改。T01正文/URL/hidden、noindex/私密边界、七项目/外部仓库与旧COMPLETE保护保持。
+- 本机重新跑279 tests、T01、authoring/diff；无本机Jekyll/Chrome，production来源仅上述精确CI。新main自身build/deploy/live及线上同场景仍validation-pending，UI024不标done、全站IN PROGRESS。gh不可用未编造Issue，无新增用户决策。下一项先核对新main精确head，再加载态/已加载态焦点/Shift+Tab/Escape复验。
+
 ## 最新状态：审计时序修订，仍validation-pending
 
 - 首实现17a5aeb0/run39228088897 build117979204316回归/T01/authoring/production Build site成功，OBSERVE第7流程1366 Night侧栏展开动画后line138 click chartControlToggle被sky-command拦截(point45,204)，尚未进入该fixture焦点断言。整场failure，deploy/live skipped，不能标done。原失败历史保留，不推断新产品侧栏缺陷。
