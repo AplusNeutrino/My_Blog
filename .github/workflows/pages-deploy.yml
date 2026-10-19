@@ -124,6 +124,20 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+      - name: Verify natural OBSERVE history and disclosure controls
+        run: python tools/check_observe_history.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_OBSERVE_HISTORY_DIR: ${{ runner.temp }}/neutriverse-observe-history
+
+      - name: Upload natural OBSERVE history evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-observe-history-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-observe-history
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Exercise Thoughts likes with isolated service fixture
         run: python tools/check_thought_likes.py "_site${{ steps.pages.outputs.base_path }}"
         env:
@@ -264,6 +278,19 @@ jobs:
           UI_LIVE_BASE: https://neutriverse.uk
           UI_OBSERVE_DIR: ${{ runner.temp }}/neutriverse-live-observe-dialog
         run: python tools/check_observe_dialog.py .
+      - name: Verify deployed natural OBSERVE history and disclosure controls
+        env:
+          UI_LIVE_BASE: https://neutriverse.uk
+          UI_OBSERVE_HISTORY_DIR: ${{ runner.temp }}/neutriverse-live-observe-history
+        run: python tools/check_observe_history.py .
+      - name: Upload deployed natural OBSERVE history evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-live-observe-history-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-live-observe-history
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Upload deployed OBSERVE dialog evidence
         if: always()
         uses: actions/upload-artifact@v4

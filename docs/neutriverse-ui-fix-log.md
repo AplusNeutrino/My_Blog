@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A12c四宽度自然服务专项实现
+
+- base/main3b68f4984477636b40bf58af2a8b8db3e2d466f1、审计父baee0519c68ddba6ef1ccf949bc2b6ef9505b210；fresh refs/AGENTS/docs agents/ADR0001/重构18–19与旧COMPLETE报告/最新UI计划日志/控件记录/用户补充已读，CONTEXT不存在。新干净clone后detach最新审计父，不覆盖上轮目录或用户dirty修改；gh不可用未编造Issue，无新用户决定。
+- 先记uia12-history-checks范围，再仅新增tools/check_observe_history.py、tests/test_observe_history_audit.py、pages-deploy production/live专项与各自无损包及三份审计文档。四宽度双主题8自然流程：加载完成/两details折叠展开/2020查询/返回实时/自建记录重新载入/返回并删除仅该项，8帧每组加失败PNG/JSON。390/768用CDP touchStart/end实际坐标命中，其他原生pointer；不拦截网络、不伪造图表/disabled，不读写外部项目。
+- 时间框是明确form setup（value与input/change），非原生date-picker/逐字键入验收；query/返回/记录/summary实际触发。UTC浏览器测试时区与网页默认经纬度/自建UI-A12c CHECK，无个人信息。真实返回需隐藏chartState且无error/按钮未disabled/10节点与行数据、历史标题和2020时间匹配；不能将失败后残留旧图算成功。产品原45s超时不动，测试55s有界等待、不盲重试；错误截图后raise，原字体30s及其他门禁完整保留。
+- 4回归执行实际assert_ready函数，拒绝loading/error/disabled/0节点/0表行/旧实时标题/错误时间或date，返回实时拒绝残留history/label；验证failure不吞掉/touch及workflow双入口/旧门禁保留。本机293tests（3.347s）、authoring44/5/7、T01正文/URL/hidden44/5/5、git diff --check通过；Ravenis LKG打印是unit fixture。没有本次新多视口截图/production结论，不冒称视觉通过。
+- 本地无Chrome/Selenium/Ruby/Jekyll，apt浏览器安装因setgroups/setegid权限拒绝已停止，没有绕过；按用户要求用现有CI，不把环境限制归因站点。未验实现存ui/audit-012c，main不改；精确head完整CI/Jekyll/新PNG人工看图以及最终main自身部署复验全部validation-pending。本轮没有产品修改或新确认缺陷，未把S-A12-02候选当已确认，不重做UI024/025。全站IN PROGRESS、不写最终报告或暂停，下一项核对同head真实结果和截图。
+
 ## 2026-10-20 — UI-A12c自然历史查询与折叠检查
 
 - 2026-10-20 UI-A12c partial/pending：base/main3b68f498，审计父32d08873；先限定docs/ui-evidence/uia12-history-checks.md、计划日志与公开截图/来源。云1363×936双主题实际折叠/展开14/17行星与10/19相位、查询公开测试时间2020-01-01T12:00并返回实时；Night还从自建历史记录重新载入，最终用UI删除仅此测试项恢复空列表。9张原JPEG已逐张看，不mock服务/改DOM。未确认新缺陷，不改产品/门禁/main；四宽度/移动/缩放/其余控件仍pending，S-A12-02独立候选未扩成本次。fresh main精确run39308494035三job success，只是既有实现CI，非新审计head验收；本机空目录未重跑整库回归/Jekyll。无新用户决定，gh不可用未编造Issue。全站IN PROGRESS，下一项补本路径真实多视口证据或UI-A12其余控件。

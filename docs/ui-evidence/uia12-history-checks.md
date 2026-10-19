@@ -1,5 +1,12 @@
 # UI-A12c — Atlas 数据折叠、历史查询与实时返回
 
+## 2026-10-20 多视口专项预定范围
+
+- base main3b68f4984477636b40bf58af2a8b8db3e2d466f1 / 审计父baee0519c68ddba6ef1ccf949bc2b6ef9505b210，fresh refs及规定上下文已读。gh不可用，不编造Issue；新干净克隆不覆盖既有工作目录。先记录后只新增tools/check_observe_history.py、tests/test_observe_history_audit.py、pages-deploy build/live专项及独立证据包、计划/日志/本记录，不改产品/门禁/原文/metadata/URL/保护边界/外部仓库。
+- 补四宽度双主题自然加载、两details原生折叠/展开、2020公开测试查询、历史记录载入与返回实时，保存每状态viewport PNG、可见数据/控件/几何及失败现场。只有真实服务完成才通过，既有45s产品超时不修改、测试有界等待不伪造响应/按钮/图表；错误或残留旧数据不算查询成功，不认证天文准确性/服务全面健康。
+- 仅UI工作分支提交，完整回归/T01/authoring/生产Jekyll/精确head CI与新截图实际看图前保持validation-pending。原全部门禁/无损专项包保留，不用本轮代码存在或上轮云截图代替多视口验收。无新用户决定，全站IN PROGRESS。
+- 实现后本机293tests/T01/authoring/diff通过。时间框明确form setup（value+input/change），不称原生date-picker通过；其他触发为真实touch/pointer，严格检查实际历史时间与标题避免旧图误通过。浏览器apt安装因setgroups/setegid权限失败已停止，无本机Chrome/Jekyll；未生成本次新图，CI/视觉待验。完整条件与局限见本轮日志，不称该新审计head已构建或部署。
+
 - 状态：in-progress；2026-10-20。base/main `3b68f4984477636b40bf58af2a8b8db3e2d466f1`，审计父 `32d08873a480615d74d117746a147faf2f19d3de`。
 - 最小检查组：自然加载后的行星位置/主要相位折叠与展开、指定公开非个人历史时间查询及回到此刻，真实截图和双主题操作。先云1363×936；其余四宽度/移动/缩放仍pending，不推断全应用健康。
 - 预定文件范围：本记录、NEUTRIVERSE_UI_FIX_PLAN.md、docs/neutriverse-ui-fix-log.md及公开证据uia12-history。没有确认缺陷不改产品；如确认先编号/条件/截图/最小产品范围另记后修。

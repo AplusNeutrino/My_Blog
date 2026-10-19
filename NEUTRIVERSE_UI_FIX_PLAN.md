@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-A12c多视口采证validation-pending：base/main3b68f498，审计父baee0519；先在uia12-history-checks限定范围后仅新增自然服务历史/折叠专项、4执行门禁回归、现有workflow production/live双入口与独立无损包、计划日志。八流程四宽度双主题，390/768用CDP真实touch，其他原生pointer；时间框明确form setup派发input/change，不冒称原生日期选择器验收，不mock响应/图表/disabled。严格拒绝loading/error/残留实时旧时间/无节点或数据，失败存PNG/JSON并raise，不修改产品45s超时或旧门禁。本机293tests/T01/authoring/diff通过，本机浏览器安装权限失败已停止、无Ruby/Jekyll；新head生产/多视口图/实际看图/main/live尚未通过，留ui/audit-012c不改main。无新产品缺陷或用户决定，gh不可用，全站IN PROGRESS。下一项核对精确新head及原图，不把云九图或测试通过当视觉通过。
+
 2026-10-20 UI-A12c partial/pending：base/main3b68f498，审计父32d08873；先限定docs/ui-evidence/uia12-history-checks.md、计划日志与公开截图/来源。云1363×936双主题实际折叠/展开14/17行星与10/19相位、查询公开测试时间2020-01-01T12:00并返回实时；Night还从自建历史记录重新载入，最终用UI删除仅此测试项恢复空列表。9张原JPEG已逐张看，不mock服务/改DOM。未确认新缺陷，不改产品/门禁/main；四宽度/移动/缩放/其余控件仍pending，S-A12-02独立候选未扩成本次。fresh main精确run39308494035三job success，只是既有实现CI，非新审计head验收；本机空目录未重跑整库回归/Jekyll。无新用户决定，gh不可用未编造Issue。全站IN PROGRESS，下一项补本路径真实多视口证据或UI-A12其余控件。
 
 2026-10-20 UI024/UI025限定done：base/main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，run39308494035 build118251656940/deploy118262207923/live118262473888全部success，2026-10-19 19:51:37 UTC完成。实际看线上58 viewport/8联系表及两放大原图，八组初焦点date/禁用fixture末端回环/inside、Escape/导航通过；16帧明确fixture。云1363×936双主题已加载10节点，Light普通底#fff8e7/符号清晰、Night原#e7ecf3，太阳选择/FOCUS、Light线10→0再恢复及隐藏太阳10→9/表14→13并恢复、双主题Tab/Shift+Tab/Escape与主题往返通过，v41/noindex保留。UI024在当前新head完整验收关闭，不改写旧0044失败；字体未定根因历史保留。只审计计划/日志/ui024-checks/ui025-checks与ui025-live公开证据，main不动。UI-A12其他业务、S-A12-02 Night表/FOCUS图标候选及全站其余矩阵仍pending，不标COMPLETE或暂停。无新用户决定，gh不可用。[证据](docs/ui-evidence/ui025-checks.md)。
