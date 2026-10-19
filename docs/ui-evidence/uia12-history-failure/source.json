@@ -1,0 +1,21 @@
+{
+  "head": "e64e5154be53791955102b9ad9587554ffa8da9a",
+  "run": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464",
+  "build_job": 118335278024,
+  "conclusion": "failure",
+  "completed_at": "2026-10-19T22:11:28Z",
+  "deploy_job": {"id": 118336045529, "conclusion": "skipped"},
+  "live_job": {"id": 118336047439, "conclusion": "skipped"},
+  "artifact": 12225237586,
+  "bytes": 44869,
+  "independently_verified_zip_sha256": "2b812e6caa4c6251c34cd2caa1964b156e7f644b5b87e9581aed3677fe93502f",
+  "actually_reviewed_pngs": 1,
+  "condition": "390x844 Night; first natural load failed before collapse/history query; 0 nodes/rows, error and reconnect visible.",
+  "root_cause": "Unconfirmed; no network/CORS diagnostic captured in this old head. No blind retry or security/origin changes.",
+  "files": [
+    {"file": "audit.json", "bytes": 2308, "sha256": "a8ab6ed195d1fea995e3b20ed7b1ecbd144ed66f372c5b8998948d87a842d8fa"},
+    {"file": "observe-history-390-dark-failure.png", "bytes": 45853, "size": [390, 844], "sha256": "68bbfef8baa919d62b33b50ade41074a6b649af0ac6c7c9083ce5eb1845924e7"}
+  ],
+  "excluded": "Other icon/dialog artifacts not downloaded or manually reviewed in this turn; no 8-flow/history/production-live acceptance claim.",
+  "status": "validation-pending"
+}

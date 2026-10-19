@@ -1,0 +1,64 @@
+[
+  {
+    "name": "observe-history-390-dark",
+    "passed": false,
+    "states": {},
+    "input": "CDP touch",
+    "service": "unmocked; no astronomy or general health certification",
+    "formSetup": "datetime value + input/change events; date-picker typing NOT verified",
+    "error": "AssertionError: {'aspectRows': 0, 'date': '2026-10-19T22:11', 'details': [{'open': False, 'rect': {'bottom': 924.40625, 'height': 30, 'left': 12, 'right': 363, 'top': 894.40625, 'width': 351, 'x': 12, 'y': 894.40625}, 'summary': '行星位置\\n            0'}, {'open': False, 'rect': {'bottom': 972.40625, 'height': 30, 'left': 12, 'right': 363, 'top': 942.40625, 'width': 351, 'x': 12, 'y': 942.40625}, 'summary': '主要相位\\n            0'}], 'disabled': [False, True, False, False], 'docWidth': 375, 'height': 844, 'history': [], 'label': '', 'nodes': 0, 'noindex': 'noindex, nofollow', 'planetRows': 0, 'state': 'error', 'stateHidden': False, 'status': '无法连接星历服务，请检查网络后重试', 'theme': 'dark', 'title': '实时星盘', 'width': 390}",
+    "failure": {
+      "aspectRows": 0,
+      "date": "2026-10-19T22:11",
+      "details": [
+        {
+          "open": false,
+          "rect": {
+            "bottom": 924.40625,
+            "height": 30,
+            "left": 12,
+            "right": 363,
+            "top": 894.40625,
+            "width": 351,
+            "x": 12,
+            "y": 894.40625
+          },
+          "summary": "行星位置\n            0"
+        },
+        {
+          "open": false,
+          "rect": {
+            "bottom": 972.40625,
+            "height": 30,
+            "left": 12,
+            "right": 363,
+            "top": 942.40625,
+            "width": 351,
+            "x": 12,
+            "y": 942.40625
+          },
+          "summary": "主要相位\n            0"
+        }
+      ],
+      "disabled": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "docWidth": 375,
+      "height": 844,
+      "history": [],
+      "label": "",
+      "nodes": 0,
+      "noindex": "noindex, nofollow",
+      "planetRows": 0,
+      "state": "error",
+      "stateHidden": false,
+      "status": "无法连接星历服务，请检查网络后重试",
+      "theme": "dark",
+      "title": "实时星盘",
+      "width": 390
+    }
+  }
+]

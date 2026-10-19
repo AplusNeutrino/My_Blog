@@ -1,5 +1,13 @@
 # UI-A12c — Atlas 数据折叠、历史查询与实时返回
 
+## 2026-10-20 首轮自然服务失败与只读诊断范围
+
+- fresh main已变b084b8a1f7818a1b9d2e1935456308ad9e6ff22e，仅7份Library数据同步，完整保留、不推旧branch覆盖；审计父a944177280850288060e53c5b4e2175fa1775428，实现仍e64e5154。规定上下文/用户补充已读，CONTEXT不存在，gh不可用。新干净clone不覆盖上轮目录。
+- run39332927464 build118335278024于2026-10-19 22:11:28 UTC failure，293tests/T01/authoring/production Jekyll与前置图标/弹层专项通过；首组390 Night在wait_ready首开自然服务error（0节点/0数据，无法连接），尚未折叠/查询，deploy/live skipped。artifact12225237586 ZIP SHA256独立匹配2b812e6caa4c6251c34cd2caa1964b156e7f644b5b87e9581aed3677fe93502f；已实际看唯一390×844 failure原图，错误/重连提示可见，不推断UI正常或全站服务故障。
+- 尚无网络错误或CORS现场，CORS/CI出口/服务状态都只是待证假设；不更改API origin/网络路线/安全设置、不加重试、不mock、不跳过门禁。预定仅tools/check_observe_history.py失败后读取已有CDP network/browser事件并严格筛已配置星历origin+now路径，记录状态/网络码/阻断/CORS枚举与缺失诊断；不采headers/body/query/任意请求或新fetch。加必要纯函数回归，计划/日志/本记录与公开failure证据。原assert_ready/45s产品超时/55s等待/失败raise/workflow不变，诊断失败不覆盖原错误。
+- 未验诊断仍留ui/audit-012c，main不动。完整新head CI/自然服务成功/8组多视口图及实际看图尚未通过，保持validation-pending；不把旧失败重写成功，不盲重跑同head。没有新增用户决定或确认产品缺陷，全站IN PROGRESS。
+- 实现后298tests（3.279s）、T01/authoring/diff通过；最初只读字典变量requests触发禁止HTTP requests.get文本门禁，改名by_id后原门禁保留，未删改测试。新增5回归执行实际reducer/捕获器，严格route/去query/userinfo/headers/body/foreign过滤、CORS/HTTP枚举关联、日志缺失/畸形/采集异常不覆盖原失败。本机无新Chrome/Jekyll结论；此刻main b084/run39334089997 build118339109590/deploy118347830382成功、live118347913336运行中。为避免共享pages concurrency取消main，诊断先只存不触发CI的audit/ui-a12-focus，ui/audit-012c保持e64；待main结束后才可将同诊断提交非强推推进ui分支触发自身CI，不冒称已排队。
+
 ## 实现与精确CI收据
 
 - 实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。

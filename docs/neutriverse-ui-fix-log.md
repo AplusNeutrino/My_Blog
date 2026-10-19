@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A12c首组自然服务失败与只读诊断
+
+- fresh main b084b8a1f7818a1b9d2e1935456308ad9e6ff22e，仅7份Library数据同步，完整保留不推旧branch覆盖；实现e64e5154、审计父a944177280850288060e53c5b4e2175fa1775428。规定上下文/最新用户补充重读，CONTEXT不存在，gh不在PATH未编造Issue；新干净clone保护上轮目录和用户dirty内容。未改旧COMPLETE/原文/metadata/URL/noindex/隐蔽边界或外部仓库，无新用户决定。
+- 精确run39332927464 build118335278024于2026-10-19 22:11:28 UTC failure；293tests/T01/authoring/production Jekyll/Search/feed/压缩脚本/图标8组/OBSERVE弹层8组成功，deploy118336045529/live118336047439 skipped。新增自然专项390 Night首开wait_ready即APIerror（0节点/0行、无法连接），尚未执行折叠/历史查询；不是历史状态断言失败。无新增字体超时现场、不重写旧失败。
+- artifact12225237586/44869bytes ZIP独立SHA2562b812e6caa4c6251c34cd2caa1964b156e7f644b5b87e9581aed3677fe93502f匹配；实际看唯一390×844失败PNG，错误与重新连接提示可见，保存原PNG/原audit及来源哈希。只此失败图，不算8组通过或视觉正常；前置图标/弹层包未在本轮下载/看图，不混称新验收。
+- CORS/CI出口/服务状态均未证实。先在uia12-history-checks记范围，再只扩tools/check_observe_history.py失败后读取已有CDP network/browser事件，硬限制已配置https://occult-atlas.onrender.com/api/astrology/now；输出路由不含query/userinfo、仅HTTP/网络码/blocked/CORS枚举，console只输出分类标志。不读headers/body、不发新fetch、不改origin/网络路线/安全保护、无重试/response fixture；采集异常/缺失明确记录不覆盖原失败，原assert_ready/45s产品超时/55s测试等待/raise及workflow完全不动。
+- 新增5项实际reducer/捕获器回归含foreign、userinfo、恶意后缀、query/headers/body过滤、CORS/HTTP关联、缺失/畸形事件与采集失败、原门禁/无新fetch接线。本机298tests（3.279s）、authoring44/5/7、T01正文/URL/hidden44/5/5、diff通过；首次297测试中只读字典requests.get文本触发禁止HTTP门禁，改局部变量by_id，原断言未放宽。Ravenis LKG输出仍unit fixture；无本机Chrome/Jekyll及本次新成功图，不认证远端健康或根因。
+- main b084精确run39334089997 build118339109590/deploy118347830382 success，live118347913336运行中；现有pages共享concurrency会取消在跑main。故新诊断先保存audit/ui-a12-focus，不移动ui/audit-012c（仍e64）触发冲突CI，不虚称新run排队。下轮先核对该main结束，再把同诊断提交非强推推进ui分支并核对自身完整CI/失败网络现场/多视口PNG；当前validation-pending，无新产品修改或确认缺陷，不盲重跑/不暂停/不写最终报告。
+
 ## 2026-10-20 — UI-A12c四宽度自然服务专项实现
 
 - 实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。

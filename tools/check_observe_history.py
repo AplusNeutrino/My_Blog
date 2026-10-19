@@ -6,9 +6,11 @@ All activation uses native pointer or CDP touch, and screenshots need human revi
 """
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -18,6 +20,85 @@ from selenium.webdriver.support.ui import WebDriverWait
 from check_mobile_sidebar import serve
 from check_observe_dialog import assert_open, click, dialog_metrics
 from check_think_build_visual import VIEWPORTS, settle
+
+
+def service_route(url):
+    """Only the configured public now endpoint; exclude query/fragment/userinfo."""
+    try:
+        parsed = urlsplit(url)
+        if (parsed.scheme == 'https' and parsed.netloc == 'occult-atlas.onrender.com'
+                and parsed.path == '/api/astrology/now'):
+            return 'https://occult-atlas.onrender.com/api/astrology/now'
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
+def summarize_service_events(entries, console):
+    """Reduce already observed events; no requests, headers, body or full logs."""
+    events = []
+    malformed = 0
+    for entry in entries:
+        try:
+            event = json.loads(entry['message'])['message']
+            if not isinstance(event, dict) or not isinstance(event.get('params', {}), dict):
+                malformed += 1
+                continue
+            events.append(event)
+        except (ValueError, KeyError, TypeError):
+            malformed += 1
+    by_id = {}
+    for event in events:
+        params = event.get('params', {})
+        if event.get('method') == 'Network.requestWillBeSent':
+            request = params.get('request', {})
+            route = service_route(request.get('url', ''))
+            if route:
+                by_id[params['requestId']] = {'route':route,
+                    'method':request.get('method'), 'events':[]}
+    for event in events:
+        params = event.get('params', {})
+        row = by_id.get(params.get('requestId'))
+        if row is None:
+            continue
+        method = event.get('method')
+        if method == 'Network.responseReceived':
+            row['events'].append({'kind':'response','status':params.get('response', {}).get('status')})
+        elif method == 'Network.responseReceivedExtraInfo':
+            row['events'].append({'kind':'response-extra','status':params.get('statusCode')})
+        elif method == 'Network.loadingFailed':
+            row['events'].append({'kind':'failed',
+                'networkCodes':re.findall(r'net::ERR_[A-Z_0-9]+', params.get('errorText', '')),
+                'blockedReason':params.get('blockedReason'),
+                'corsError':params.get('corsErrorStatus', {}).get('corsError')})
+        elif method == 'Network.loadingFinished':
+            row['events'].append({'kind':'finished'})
+    console_flags = []
+    for entry in console:
+        text = entry.get('message', '')
+        if 'https://occult-atlas.onrender.com/api/astrology/now' in text:
+            console_flags.append({'level':entry.get('level'), 'corsMentioned':'CORS' in text,
+                'networkCodes':re.findall(r'net::ERR_[A-Z_0-9]+', text)})
+    return {'requests':list(by_id.values()),'consoleFlags':console_flags,
+            'malformedEvents':malformed, 'missingRequests':not bool(by_id)}
+
+
+def service_failure(driver):
+    """Diagnostic errors must never replace the original failed gate."""
+    result = {'diagnosticErrors':[]}
+    logs = {}
+    for kind in ('performance', 'browser'):
+        try:
+            logs[kind] = driver.get_log(kind)
+        except Exception as error:
+            result['diagnosticErrors'].append({'source':kind,'type':type(error).__name__})
+            logs[kind] = []
+    try:
+        result.update(summarize_service_events(logs['performance'], logs['browser']))
+    except Exception as error:
+        result['diagnosticErrors'].append({'source':'reducer','type':type(error).__name__})
+        result['missingRequests'] = True
+    return result
 
 
 def snapshot(driver):
@@ -108,6 +189,7 @@ def main():
     live = os.environ.get('UI_LIVE_BASE', '').rstrip('/')
     assert live in ('', 'https://neutriverse.uk')
     options = webdriver.ChromeOptions()
+    options.set_capability('goog:loggingPrefs', {'performance':'ALL', 'browser':'ALL'})
     options.binary_location = next((shutil.which(n) for n in
         ('google-chrome', 'google-chrome-stable', 'chromium') if shutil.which(n)), None)
     for flag in ('--headless=new', '--no-sandbox', '--disable-dev-shm-usage', '--lang=en-US'):
@@ -116,6 +198,7 @@ def main():
     try:
         with serve(Path(sys.argv[1]).resolve()) as port, webdriver.Chrome(options=options) as driver:
             driver.set_script_timeout(30)
+            driver.execute_cdp_cmd('Network.enable', {})
             driver.execute_cdp_cmd('Emulation.setTimezoneOverride', {'timezoneId':'UTC'})
             base = live or f'http://127.0.0.1:{port}'
             wait = WebDriverWait(driver, 25)
@@ -192,6 +275,7 @@ def main():
                         row['passed'] = True
                     except Exception as error:
                         row['error'] = f'{type(error).__name__}: {error}'
+                        row['serviceFailure'] = service_failure(driver)
                         driver.save_screenshot(str(output / (name + '-failure.png')))
                         row['failure'] = snapshot(driver)
                         raise
