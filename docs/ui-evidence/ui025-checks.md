@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 最新精确修订与CI入口
+
+- 审计时序修订 `b09396304d5418203d27c2ed82aebfd6f5a78176` 已非强推更新ui/fix-025；[run39265653590](https://github.com/AplusNeutrino/My_Blog/actions/runs/39265653590)真实创建且in_progress。产品CSS/v41与ae6f7c7d相同，仅审计时序、2回归及真实失败/部分截图记录变化。282tests/T01/authoring/diff本机通过非视觉验收。
+- 下轮先核对同一b0939630完整build及新8帧；旧4图仅首轮部分证据。main仍004447db，未部署本次修复，UI025保持validation-pending；本收据另存audit/ui-a12-focus，不再次推进工作分支取消CI。无新用户决定。
+
 ## 2026-10-19 首轮失败与审计时序修订范围
 
 - 本轮base/main004447db、工作head ae6f7c7d、审计父8a157def。run39259609173 build118083524733 failure：production Jekyll/280tests/T01/authoring成功，图标fixture在768 Light注入旧heading后立即读取仍rgb(255,248,231)，未等待fill180ms过渡；不是产品普通浅底断言失败。deploy118084179998/live118084180556 skipped，不称上线。
