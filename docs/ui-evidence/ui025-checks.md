@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 来源诊断提交与精确CI收据
+
+- 只读诊断提交8a7ac42a690124ffbb3aea8d656c9c8556f48255已非强推保存ui/fix-025；[run39299220841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39299220841)真实创建、in_progress，head精确匹配。289tests/T01/authoring/diff本机通过；尚无新head完整build/production图或失败来源关联现场，不声称诊断已定位根因。
+- main再次核对仍004447db，UI024/025 validation-pending；产品CSS/v41/app.js/工作流未变，未部署。此收据另存audit/ui-a12-focus，不推进工作分支取消CI；下一项核对同8a7ac42a完整结果，若字体再失败检查候选src及缓存关联，缺失证据明确保留，不盲重跑/放宽门禁。无新用户决定，全站IN PROGRESS，不暂停。
+
 ## 2026-10-20 字体来源诊断预定范围
 
 - Task UI-A09-F/UI024/UI025；base/main004447db、工作ac3430d9、审计父9776385f。已知复现是run39281958731在1366 Night THINK的30s document.fonts.ready超时，原PNG/JSON见ui025-ac3430-evidence；3个Noto Sans SC面仍loading但51请求finished，缺少src关联，不能认定产品缺陷或网络根因。
