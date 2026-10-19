@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — 字体来源关联诊断范围
+
+- Task UI-A09-F/UI024/UI025；fresh main004447db、工作ac3430d9、审计父9776385f，refs/API/fetch核对。规定上下文及用户补充已读，CONTEXT不存在、gh不可用无Issue；独立worktree保护用户dirty目录，无新增用户决定。
+- 修改前限定tools/check_think_build_visual.py失败后只读来源诊断、tests/test_font_network_diagnostics.py执行回归与本轮计划/日志/ui025-checks。现有失败1366 Night THINK的3个Sans面/51finished请求缺src关联；只能诊断，不能据此改字体或判根因。原失败截图/JSON已存ui025-ac3430-evidence，此次不冒称新截图。
+- 拟读取当次导航performance中已收到的Google Fonts CSS响应body，解析family/style/weight/unicode/src并与loading FontFace、已有Font网络与资源timing精确URL关联；缓存事件补充但不据此定因。只读公开Fonts CSS，不发fetch、不取任意body/headers/凭据；读取失败与多候选保留。原30s/document.fonts.ready/raise/所有门禁保持、不清缓存/重载/font.load/拦截网络、不改产品。未验证留工作分支，main不动，完整CI/部署仍pending。
+- 实现仅在原失败后调用Network.getResponseBody；严格HTTPS fonts.googleapis.com的/css或/css2且无用户名密码，font src仅HTTPS fonts.gstatic.com；按family/style/数值或variable weight区间/规范化Unicode精确找候选，URL关联已有Font网络与resource timing，保留matchCount=0或多候选、CSS读取失败类型，不复制异常敏感详情/原body/headers。补requestServedFromCache/fromServiceWorker/loaderId元数据，不能据finished或cache断言根因。
+- 新增4项执行真实helper回归：variable weight与Unicode匹配、精确src/已有请求关联、无关/伪域/带凭据CSS不读取、base64响应、缓存事件、读取失败/多候选/缺失保留及失败后只读接线。289tests（3.441s）、authoring44/5/7、T01正文/URL/hidden44/5/5及diff通过。本机无Ruby/Jekyll/Chrome；新诊断尚未获真实失败现场或新head production图，不能将模拟helper通过当浏览器/视觉/产品修复验收。Ravenis LKG打印是unit fixture，不是新线上故障。UI025产品CSS/v41/app.js完全不变，UI024/025仍pending。
+
 ## 2026-10-20 — ac3430d9专项看图与完整CI字体阻塞
 
 - Task UI025/UI024/UI-A09-F；base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，工作ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3，审计父2974d1ff3af36a9f46464ce4abc6fe969b67b7f0。最新refs/API与fetch复核；AGENTS/docs agents/ADR、旧COMPLETE报告/主计划保护段、本轮计划日志及用户补充重读。CONTEXT不存在、gh不可用未建Issue，无新增用户决定，独立worktree不覆盖原dirty目录。

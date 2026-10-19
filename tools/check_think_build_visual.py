@@ -54,10 +54,13 @@ def visible_count(driver, kind):
 def font_network_events(entries):
     """Keep only font request metadata, never headers or unrelated requests."""
     fonts = {}
+    served_from_cache = set()
     for entry in entries:
         event = json.loads(entry['message'])['message']
         method, params = event['method'], event.get('params', {})
         request_id = params.get('requestId')
+        if method == 'Network.requestServedFromCache':
+            served_from_cache.add(request_id)
         if method == 'Network.requestWillBeSent' and params.get('type') == 'Font':
             fonts[request_id] = {'requestId': request_id, 'url': params['request']['url'],
                                  'requestedAt': params.get('timestamp'), 'state': 'pending'}
@@ -66,6 +69,8 @@ def font_network_events(entries):
             row = fonts.setdefault(request_id, {'requestId': request_id, 'url': response['url'], 'state': 'pending'})
             row.update({'status': response['status'], 'protocol': response.get('protocol'),
                         'fromDiskCache': response.get('fromDiskCache'),
+                        'fromServiceWorker': response.get('fromServiceWorker'),
+                        'loaderId': params.get('loaderId'),
                         'respondedAt': params.get('timestamp')})
         elif request_id in fonts and method == 'Network.loadingFinished':
             fonts[request_id].update({'state': 'finished', 'finishedAt': params.get('timestamp'),
@@ -74,7 +79,91 @@ def font_network_events(entries):
             fonts[request_id].update({'state': 'failed', 'failedAt': params.get('timestamp'),
                                       'errorText': params.get('errorText'),
                                       'canceled': params.get('canceled'), 'blockedReason': params.get('blockedReason')})
+    for request_id, row in fonts.items():
+        row['requestServedFromCache'] = request_id in served_from_cache
     return list(fonts.values())
+
+
+def font_face_sources(driver, entries, faces, resources, network):
+    """Read already-received public Google Fonts CSS, only after a failed gate.
+
+    A descriptor match is a candidate, not proof of which font was painted or
+    why FontFaceSet stalled. Never fetch, load fonts, or read arbitrary bodies.
+    """
+    sheets, rules, seen = [], [], set()
+    for entry in entries:
+        event = json.loads(entry['message'])['message']
+        params = event.get('params', {})
+        if event['method'] != 'Network.responseReceived' or params.get('type') != 'Stylesheet':
+            continue
+        url = params.get('response', {}).get('url', '')
+        parsed = urlsplit(url)
+        if (parsed.scheme != 'https' or parsed.hostname != 'fonts.googleapis.com'
+                or parsed.path not in ('/css', '/css2') or parsed.username or parsed.password):
+            continue
+        request_id = params.get('requestId')
+        if not request_id or request_id in seen:
+            continue
+        seen.add(request_id)
+        sheet = {'url': url, 'requestId': request_id, 'bodyRead': False}
+        sheets.append(sheet)
+        try:
+            response = driver.execute_cdp_cmd('Network.getResponseBody', {'requestId': request_id})
+            body = response['body']
+            if response.get('base64Encoded'):
+                body = base64.b64decode(body).decode('utf-8')
+            sheet['bodyRead'] = True
+            sheet_rules = []
+            for block in re.findall(r'@font-face\s*\{([^{}]*)\}', body, flags=re.I):
+                fields = dict(re.findall(r'([\w-]+)\s*:\s*([^;]+)', block))
+                urls = re.findall(r'url\(\s*[\'"]?([^\s)\'\"]+)', fields.get('src', ''))
+                urls = [u for u in urls if urlsplit(u).scheme == 'https'
+                        and urlsplit(u).hostname == 'fonts.gstatic.com'
+                        and not urlsplit(u).username and not urlsplit(u).password]
+                rule = {'family': fields.get('font-family', '').strip().strip('\'"'),
+                        'style': fields.get('font-style', 'normal').strip(),
+                        'weight': fields.get('font-weight', 'normal').strip(),
+                        'unicodeRange': fields.get('unicode-range', 'U+0-10FFFF').strip(),
+                        'sources': urls, 'stylesheet': url}
+                sheet_rules.append(rule)
+            sheet['fontFaceCount'] = len(sheet_rules)
+            rules.extend(sheet_rules)
+        except Exception as error:
+            # CDP cache eviction or body absence is missing evidence, not pass.
+            sheet['bodyReadError'] = type(error).__name__
+
+    def normalized_range(value):
+        return re.sub(r'\s+', '', value).upper()
+
+    def weight_matches(declared, actual):
+        aliases = {'normal': '400', 'bold': '700'}
+        declared, actual = aliases.get(declared, declared), aliases.get(actual, actual)
+        if declared == actual:
+            return True
+        try:
+            bounds = [int(n) for n in declared.split()]
+            return len(bounds) == 2 and bounds[0] <= int(actual) <= bounds[1]
+        except ValueError:
+            return False
+
+    loading = []
+    for face in faces:
+        if face.get('status') != 'loading':
+            continue
+        candidates = []
+        for rule in rules:
+            if (rule['family'] != face['family'].strip('\'"')
+                    or rule['style'] != face['style']
+                    or not weight_matches(rule['weight'], face['weight'])
+                    or normalized_range(rule['unicodeRange']) != normalized_range(face['unicodeRange'])):
+                continue
+            candidates.append({**rule,
+                'network': [n for n in network if n.get('url') in rule['sources']],
+                'resources': [r for r in resources if r.get('name') in rule['sources']]})
+        loading.append({'face': face, 'candidates': candidates,
+                        'matchCount': len(candidates)})
+    return {'stylesheets': sheets, 'loadingFaces': loading,
+            'interpretation': 'descriptor candidates only; missing/ambiguous matches and finished requests do not establish root cause'}
 
 
 def settle(driver, wait, theme):
@@ -1909,7 +1998,11 @@ def main():
                                 toggle:r?{x:r.x,y:r.y,w:r.width,h:r.height,display:getComputedStyle(e).display}:null};
                             """)
                             try:
-                                failure['fontNetwork'] = font_network_events(driver.get_log('performance'))
+                                font_entries = driver.get_log('performance')
+                                failure['fontNetwork'] = font_network_events(font_entries)
+                                failure['fontFaceSources'] = font_face_sources(
+                                    driver, font_entries, failure['fonts'],
+                                    failure['fontResources'], failure['fontNetwork'])
                             except Exception as diagnostic_error:
                                 failure['fontNetworkDiagnosticError'] = str(diagnostic_error)
                             (output / 'scene-failure.json').write_text(json.dumps(failure,ensure_ascii=False,indent=2),encoding='utf-8')

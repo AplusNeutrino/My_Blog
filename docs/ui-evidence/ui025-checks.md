@@ -1,5 +1,12 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-20 字体来源诊断预定范围
+
+- Task UI-A09-F/UI024/UI025；base/main004447db、工作ac3430d9、审计父9776385f。已知复现是run39281958731在1366 Night THINK的30s document.fonts.ready超时，原PNG/JSON见ui025-ac3430-evidence；3个Noto Sans SC面仍loading但51请求finished，缺少src关联，不能认定产品缺陷或网络根因。
+- 只改tools/check_think_build_visual.py失败路径只读诊断、tests/test_font_network_diagnostics.py必要执行回归、计划日志。失败后从该次导航已有performance事件识别fonts.googleapis.com/css或/css2响应，用CDP Network.getResponseBody读取浏览器已有公开CSS（不fetch/新增请求、不读任意body或headers）；解析font-face family/style/weight/unicode/src，关联loading FontFace与Font资源/网络缓存元数据。读取失败/匹配不唯一明确记录，不强行判因。
+- 原document.fonts.ready/30s/截图/raise与所有视觉交互门禁不变；不清缓存、重载、替换字体、主动font.load、拦截网络或改产品。诊断只在原失败后执行，未出现超时不伪称收集到真实故障；新head本机/production/完整CI及部署按实际保留pending，先工作分支，main不动。验收包括实际helper执行、无关/敏感响应不读、Unicode/weight关联、读取失败保留，及新head精确CI结果。无新用户决定，gh不可用。
+- 本机289tests（3.441s）、authoring44/5/7、T01保护44/5/5及diff通过；4新执行回归覆盖真实helper的来源限制/base64/weight/Unicode/缓存/缺失多候选/错误与只读失败接线。当前只有模拟输入执行，不是新增真实浏览器故障证据；原失败历史保留，新精确head CI/production及部署仍待验证。CSS/v41/app.js和工作流不变。
+
 ## 2026-10-20 ac3430d9生产专项通过、完整构建字体阻塞
 
 - [run39281958731](https://github.com/AplusNeutrino/My_Blog/actions/runs/39281958731)精确head ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3；build118157843464 failure于2026-10-19 16:15:30 UTC。285tests/T01/authoring/production Jekyll、图标8组、OBSERVE8组成功；后续THINK1366 Night等待document.fonts.ready超时。deploy118173857688/live118170749265 skipped，main仍004447db，不称本修复上线。
