@@ -2,6 +2,7 @@
 
 ## 2026-10-19 — UI-A12 / UI-023：Atlas控制弹层层叠遮挡
 
+- 同一6c88687c精确run39203108583：production Jekyll、Search/Atom、压缩点赞脚本及新增OBSERVE专项success（05:11:40 UTC），完整build仍运行不标通过。artifact12164324126，3152313bytes，下载SHA256 0cdee4d0c39c5a61f543db3af05f76254c113c906bc86b020eb2ddc300372035匹配。实际看42 viewport/8原生联系表及2原PNG，标题无遮挡、scrim不再覆盖弹层、Tab焦点可见；8次旧z50故障注入被拒绝，Escape恢复/重开/导航返回通过。注意所有专项截图仍是应用加载态，不能代替Ravenis正文/Atlas已加载长弹层、动态业务或服务健康验收；已加载场景与完整CI/部署复验仍pending。详情/局限和截图哈希见uia12-checks/uia12-production。证据继续仅audit/ui-a12，不动main不取消实现验证。
 - 实现已存 `ui/fix-023`：6c88687ce47212e9eb4035d5c56b22852831b295；精确[run39203108583](https://github.com/AplusNeutrino/My_Blog/actions/runs/39203108583) build117900091713运行中，production/新专项/完整CI尚未称通过；main仍dd55edad。后续审计状态另存audit/ui-a12（不触发全局CI），避免取消当前实现验证。四张before原图已保存，尚无本实现修复后视觉验收，不标done。下一轮先核对此head和正常viewport PNG。
 - Base/main dd55edad557f265429653577b69371abbc565628 精确run39197940928 build/deploy/verify-live-ui全部success。读取最新AGENTS/docs agents、ADR0001、重构计划相关约束/最终报告、本轮计划日志；CONTEXT不存在。独立worktree不覆盖原目录修改，不重做T00–T39或默认THINK分页。
 - 浏览器技能本地连接缺originating context，按技能用云Chrome1363×936。实际查看Ravenis Light首屏、Night筛选展开，切换共享导航进入Atlas；Night/Light各打开星盘控制并保存原图：顶栏遮住标题，scrim使弹层整体变暗。只读DOM补证父.sky-command z50与子panel1000、scrim900/nav120层叠根因，不以DOM替代看图。Escape恢复触发器焦点、Atlas→Ravenis与主题保持实际通过。初始星历服务唤醒后数据到达，不冒称业务后端故障或全面健康。

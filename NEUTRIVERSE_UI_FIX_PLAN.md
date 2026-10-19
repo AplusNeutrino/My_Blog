@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+UI-023专项增量：6c88687c/run39203108583 production Jekyll及OBSERVE8流程success，实际看四宽度双主题42 viewport/8联系表、放大2原图，弹层标题与层级恢复。artifact12164324126摘要匹配；当前截图为应用加载态，不代表完整动态选项/远端业务验收。完整CI/main部署/线上已加载弹层仍validation-pending；只补audit/ui-a12证据，不动main或取消实现CI。
+
 2026-10-19 UI-A12 / UI-023 P1：base/main dd55edad557f265429653577b69371abbc565628，[run39197940928](https://github.com/AplusNeutrino/My_Blog/actions/runs/39197940928) build/deploy/live全部success，关闭该head pending。实际云Chrome1363×936双主题：Atlas“星盘控制”打开后标题被共享导航盖住，遮罩叠在整个弹层上；父.sky-command z50困住子panel z1000，低于scrim900/nav120。预先记录截图/范围后，仅打开状态父z提升1001，资源版本38→39；必要静态回归及8组真实Chrome专项新增，不删减原门禁。277 tests/authoring/T01通过，本机无Jekyll/Chrome；未验证实现留ui/fix-023，production/四宽度双主题看图/完整CI/main部署复验均validation-pending，不标done。gh不可用未建Issue，无新用户决策，全部旧内容/URL/noindex/隐蔽边界不变。[详细复现与验收](docs/ui-evidence/uia12-checks.md)。下一项先核对此实现head；UI-A12其余应用控制与全站矩阵继续pending。
 
 2026-10-19 UI-022 done（限定原点赞脚本初始化故障）：base/main/source f45ada8a7910361bef15cf6e2cb5f680307344a0，[run39193075042](https://github.com/AplusNeutrino/My_Blog/actions/runs/39193075042) build117869873518/deploy117875152602/verify-live-ui117875206344全部success。实际查看此head线上四宽度双主题32张点赞viewport/8联系表、放大2原PNG；与同headproduction的8流程states/viewport/calls全等，非像素全等、非远端健康。云Chrome1363×936未拦截服务：Thoughts由持续“…”变正常计数，真实click/Tab/Space后前两条1/true、刷新及Night切换保持、后三条0/false；代表文章Night从“…”/无响应变0→1/true并刷新保持；SyntaxError日志为空。6张云截图、artifact摘要与局限见uia11-checks.md及uia11-live。本轮仅计划/日志/公开证据，不再修改产品；276 tests/T01/authoring通过。UI-A11仅点赞及其hover/focus限定done，不代表其余控件或所有文章/后端。新证据提交自身CI仍validation-pending，全站IN PROGRESS，无新用户决策，gh不可用。下一项先核对证据head，再UI-A12 Ravenis/Occult Atlas共享导航，其他Library/阅读/hover-focus/缩放矩阵继续pending；不重复已验收默认分页，不写全站COMPLETE/最终报告或暂停。

@@ -20,3 +20,11 @@
 - 4张本轮云浏览器原截图在 `uia12-before/`，其中Atlas Light/Night均是修复前遮挡，不冒充修复后画面。Ravenis主题切换、筛选展开、共享导航到Atlas及返回、Atlas Escape关闭并恢复触发器焦点已真实操作。
 - 新CI专项8流程需要查看正常viewport PNG；机械诊断/故障注入不是视觉验收，远端服务未fixture也不据此全面认证健康。production专项/完整CI/main交付/部署后同场景仍validation-pending。
 - 审计记录分支 `audit/ui-a12` 不触发全局Pages队列，避免取消实现CI。main仍dd55edad，产品修复尚未上线；无新增用户决策。下轮先核对6c88687c同一head与截图，不直接合入main。
+
+### 同一实现 production 专项增量（非完整CI/部署验收）
+
+- run39203108583 的 production Jekyll、Search/Atom、压缩点赞脚本及新增OBSERVE专项已success；专项于05:11:40 UTC结束。完整build仍运行，deploy/live尚无成功证据，不将这些子步骤写成整场通过。
+- 专项artifact12164324126，3152313 bytes，独立下载SHA256 `0cdee4d0c39c5a61f543db3af05f76254c113c906bc86b020eb2ddc300372035`与Actions digest匹配。
+- 实际查看42张正常viewport PNG组成的8张原生尺寸联系表，另放大1366 Light open和390 Night focus两原PNG。原遮挡已消除：弹层标题完整、内容不再被scrim压暗、原生Tab焦点可见；手机展开/滚动画面未见本作用域新增横溢出。8流程click/Tab/Escape焦点恢复/重开/导航返回通过，旧z50注入8次均被同门禁拒绝；390滚动192px、768/1024滚动31px，1366短内容未溢出故scrollTop0，不伪称桌面已滚完整长内容。
+- 重要局限：此次CI访问两应用时仍处加载态，Ravenis正文及Atlas服务数据/完整动态选项未加载；图中disabled按钮是原加载状态。没有fixture，但这不是远端健康或已加载业务控件验收；已加载长弹层/查询/导出/星体筛选仍pending，应补线上同场景。布局层级专项通过不等于UI-A12/全站完成。
+- `uia12-production/`保存8张已看联系表、2原PNG、原audit.json与42源PNG哈希summary；其余原PNG在精确head artifact（14天），未称全站永久截图。修复前4云图仍独立保存，不混作after。
