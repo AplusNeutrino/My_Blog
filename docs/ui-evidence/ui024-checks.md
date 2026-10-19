@@ -1,5 +1,10 @@
 # UI-024 — Atlas 加载态打开弹层未移入焦点
 
+## main真实交付与待验收head
+
+- 2026-10-19已按expected旧main=e44、force=false交付`004447dbdf2a8187c2cac9e7ab568709296ac8ab`；[main Actions39234519303](https://github.com/AplusNeutrino/My_Blog/actions/runs/39234519303)已创建，当前in_progress，尚不声称build/deploy/live成功。产品与已完整build验收的765c57a2相同，新增仅本轮文档/公开证据。
+- UI024仍validation-pending，不能用工作分支success代替新main；下轮优先核对同一004447db的完整CI/部署/live，并实际复查加载态/已加载态焦点与Shift+Tab/Escape。此真实SHA/URL记录单独保存audit/ui-a12-focus，不再次推main取消部署。无新用户决策，全站IN PROGRESS。
+
 ## 2026-10-19 生产限定验收，准备main交付
 
 - 最新main/base `e44fba12d6ddd0aba4b5252ddb265aa25ec45e70`，审计父`c8c886e7e89061b401678b27da1e070d5043421a`；精确实现`765c57a284173a47e75210ecf1e4932b712bd00b`/[run39228556141](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228556141) build117980704074于09:37:03 UTC完整success。279 tests、T01、authoring、production Jekyll及原门禁全部通过。deploy117989980198/live117989979476按工作分支规则skipped，不等于已上线。
