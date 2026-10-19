@@ -15,6 +15,12 @@
 
 ## 问题台账
 
+2026-10-19 UI-A10f：base/main/source 1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006/[run39174888841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39174888841) build117815414102/deploy117819110260/live117819154649全部success，关闭该head pending。实际看1366px Night/Prospero Light各四页31帧（8/8/8/7），共62帧16联系表、放大3原PNG，未见新确认缺陷，不改样式。8流程32页303帧机械检查及同head生产诊断比较通过，非像素全等、非本head其余241帧人工验收；不累加旧head数量。273 tests/T01/authoring/diff本机通过，仅证据文档交付，新提交自身CI仍validation-pending。全站IN PROGRESS，无新用户决策，gh不可用未建Issue。[证据](docs/ui-evidence/uia10-checks.md)。下一项UI-A10g：修复后390px双主题完整四页；随后按产品/数据/审计差异显式整理各尺寸证据来源，不能把旧图当本head新图或以其他head CI代本次验证。
+
+| 本轮矩阵增量 | 源 head | 实际视觉 | 交互与局限 |
+|---|---|---|---|
+| UI-A10f：THINK默认四页 / 1366px / 两主题 | 1b24ac13 | 62帧全部查看，16联系表、3原图；未见新确认缺陷 | 44href/分页/刷新/上一页/原生滚轮/返回顶部通过；非其他宽度、非筛选组合验收 |
+
 2026-10-19 UI-A10e：base/main/source 1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e/[run39170640643](https://github.com/AplusNeutrino/My_Blog/actions/runs/39170640643) build117802761688/deploy117807257896/live117807298317全部success，关闭该head pending。实际看1024px Night/Prospero Light四页65帧19联系表、放大3原PNG，无新确认缺陷，不改样式。303帧机械检查及同head生产比较另行通过，不代替本head其余238帧人工验收，不累加旧head数量。273 tests/T01/authoring/diff本机通过；只更新证据与台账，新提交自身CI仍validation-pending，完整A10/全站IN PROGRESS；gh不可用未建Issue，无新用户决策。[证据](docs/ui-evidence/uia10-checks.md)。下一项1366px双主题完整四页。
 
 | 本轮矩阵增量 | 源 head | 实际视觉 | 交互与局限 |

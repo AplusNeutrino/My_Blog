@@ -1,5 +1,18 @@
 # UI-A10 — THINK四页原生整页与分页往返
 
+## 2026-10-19 UI-A10f结果：1366px两主题完整四页已看
+
+- 源main1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006/run39174888841 build117815414102/deploy117819110260/live117819154649全部success，关闭该head pending。实际看1366×757两主题各31帧（8/8/8/7），共62帧16原生尺寸联系表；放大public-sweep-think-page-1-1366-light-3.png、public-sweep-think-page-3-1366-dark-6.png、public-sweep-think-page-4-1366-light-7.png。侧栏/标题/目录/筛选/44记录/分页/检索入口/页脚可见，无新确认缺陷，不凭偏好改产品。
+- 303帧原生覆盖/尺寸/无横溢出/scrollX0/44href原顺序/真实分页末页刷新上一页返回顶部、文字目录非空Range/控件严格避让及hit机械检查通过；与同head生产303诊断全等，非像素全等。其余241帧本head未人工看，完整A10与全站仍pending，旧head人工数量不累计成本head。
+- uia10f-live保存16已看联系表、3原PNG、源artifact摘要/8JSON哈希/44href与实际目标名单。273 tests/T01/authoring/diff本机通过，gh不可用未建Issue，无新用户决策。只证据文档交付，新head CI另验；下一项修复后390双主题整页，再依据实际产品/数据/审计diff明确跨head证据映射，不重复生成已覆盖尺寸或把旧图冒称新图。
+
+## 2026-10-19 UI-A10f范围（先记录）
+
+- Task UI-A10f；base/main/source 1b24ac13e9db9ed1e4acdeaae1b85bfb5c564006，[run39174888841](https://github.com/AplusNeutrino/My_Blog/actions/runs/39174888841) build117815414102/deploy117819110260/live117819154649均success，关闭该head pending，旧取消记录不改写。
+- 本轮只实际查看1366px Night/Prospero Light默认四页完整原生滚轮图，疑点放大原PNG；全部8流程原JSON与同head生产独立比较，不代替看图、不累加旧head人工数量。其他宽度/筛选组合继续pending。
+- live专项12154956955（53604139 bytes）SHA256 a2950e3066566e77fda15f34ec68f3b5a22dfbf49fae098020d173003bb27e3c、production专项12154437601（53050776 bytes）SHA256 e1d3fa07418cc74a28df033c3ad7e3b165de08f4cd43990d1a2e411599226c5f均与下载字节独立摘要匹配；总包超限未下载未绕过。
+- 文件先限UI计划/日志、本文件/公开已看证据；没有确认缺陷不改产品/样式/门禁，若确认另记ID/base/原图/最小范围后修。旧正文/metadata/URL/hidden/noindex/私有边界/七项目/Library同步/外部仓库/旧COMPLETE保护。gh不在PATH不编造Issue，无新用户决策。
+
 ## 2026-10-19 UI-A10e结果：1024px两主题完整四页已看
 
 - 源main1b0244a5b7b5cfd8c34ca467c17e0bf2fcd72c7e/run39170640643 build117802761688/deploy117807257896/live117807298317全部success，关闭该head pending。实际看1024×757 Night32帧（8/8/9/7）、Prospero Light33帧（8/9/9/7），共65帧19原生尺寸联系表；另放大public-sweep-think-page-1-1024-dark-3.png、public-sweep-think-page-3-1024-light-7.png、public-sweep-think-page-4-1024-light-7.png。标题/目录/筛选/44记录/分页/检索入口/页脚可见，无新确认缺陷，不为审美偏好改产品。
