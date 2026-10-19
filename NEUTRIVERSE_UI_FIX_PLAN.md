@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-A12c partial/pending：base/main3b68f498，审计父32d08873；先限定docs/ui-evidence/uia12-history-checks.md、计划日志与公开截图/来源。云1363×936双主题实际折叠/展开14/17行星与10/19相位、查询公开测试时间2020-01-01T12:00并返回实时；Night还从自建历史记录重新载入，最终用UI删除仅此测试项恢复空列表。9张原JPEG已逐张看，不mock服务/改DOM。未确认新缺陷，不改产品/门禁/main；四宽度/移动/缩放/其余控件仍pending，S-A12-02独立候选未扩成本次。fresh main精确run39308494035三job success，只是既有实现CI，非新审计head验收；本机空目录未重跑整库回归/Jekyll。无新用户决定，gh不可用未编造Issue。全站IN PROGRESS，下一项补本路径真实多视口证据或UI-A12其余控件。
+
 2026-10-20 UI024/UI025限定done：base/main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，run39308494035 build118251656940/deploy118262207923/live118262473888全部success，2026-10-19 19:51:37 UTC完成。实际看线上58 viewport/8联系表及两放大原图，八组初焦点date/禁用fixture末端回环/inside、Escape/导航通过；16帧明确fixture。云1363×936双主题已加载10节点，Light普通底#fff8e7/符号清晰、Night原#e7ecf3，太阳选择/FOCUS、Light线10→0再恢复及隐藏太阳10→9/表14→13并恢复、双主题Tab/Shift+Tab/Escape与主题往返通过，v41/noindex保留。UI024在当前新head完整验收关闭，不改写旧0044失败；字体未定根因历史保留。只审计计划/日志/ui024-checks/ui025-checks与ui025-live公开证据，main不动。UI-A12其他业务、S-A12-02 Night表/FOCUS图标候选及全站其余矩阵仍pending，不标COMPLETE或暂停。无新用户决定，gh不可用。[证据](docs/ui-evidence/ui025-checks.md)。
 
 2026-10-20 UI025生产限定通过、main交付准备：base/main004447db，审计父16470058，实现8a7ac42a/run39299220841 build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/T01/authoring/Jekyll/产物/原门禁均通过，deploy118230273842/live118230275552分支规则skipped。新head图标8原图、OBSERVE58帧/8联系表及1024 Night/1366 Light loading-wrap两原图实际查看，图标清晰、标题/焦点回环正常；16帧为disabled UI fixture，服务未加载、业务健康不认证。字体超时未复现、不宣称根因已修好；旧main失败历史与UI024线上pending保留。本轮先限定仅计划/日志/ui025-checks及ui025-8a7-production公开证据，再携已验证原产品/审计非强推main，不新增样式或改门禁。新main精确head build/deploy/live与线上自然已加载同场景必须另验，UI025不标done、全站IN PROGRESS，无新用户决定。下一项先核对新main，再图标选择/显示开关及UI024焦点线上补验。
@@ -140,7 +142,7 @@ UI-A11最新进度：UI-022最小实现bcb8c15e324d19aea1b07548ee5bf8ac1a5769d9�
 | Library愿望单（UI-A08g） | 32张四宽度双主题生产/live目录/分类/刷新/空状态图已人工查看，长标题/封面/计数/空提示可见，无新增确认缺陷 | 8组目录计数、category/status隔离、整页刷新URL/ID、空提示及刷新、两级返回与书籍原ID恢复线上通过；限定done，完整库存/离屏加载及评分控件仍pending |
 | Library评分（UI-A08h / UI-010） | 四宽度双主题32张生产/live评分状态图已人工查看、放大390双主题首末提示及1024 Light原图，评分提示裁切已修复；另确认UI-011目录计数被固定按钮覆盖，不作全页通过 | 8组八分类分箱/摘要、真实Shift+Tab/Tab首末提示及退出隐藏、刷新恢复全域线上通过，32诊断与生产一致；评分限定done，完整库存/离屏加载/Steam及全站余项pending |
 | Library目录计数/固定按钮（UI-011） | 四宽度双主题根目录四状态/愿望单首末48生产/live图已人工看并放大1024 Light漫画、390 Night愿望单入口、390 Light愿望单末端，计数无遮挡；限定done | 8组根8/愿望单7计数逐行滚动真实文字不与按钮相交、目录往返计数不变、真实返回顶部点击通过；48诊断与生产相同，不据此推断完整库存/离屏加载通过 |
-| Ravenis、Occult Atlas | UI-023层级故障限定done；UI-A12其余pending | e44fba12精确run39207405231 attempt2 build/deploy/live success；线上四宽度双主题42 viewport/8联系表已看，1366双主题open放大；原生click/Tab/Escape/重开/导航返回/小尺寸滚动通过。同head云1363已加载双主题32选项长弹层证据显式复用；加载态初始焦点S-A12-01、其余业务控件未验，不当作全应用通过 |
+| Ravenis、Occult Atlas | UI-023层级/UI-024初焦点/UI-025普通节点底色限定done；UI-A12其余pending | 当前main3b68f498精确run39308494035 build/deploy/live success；UI024/025线上58帧与自然已加载双主题证据见ui025-checks。UI-A12c云1363×936双主题折叠/展开、2020历史查询或记录载入、返回实时及自建记录清理通过，9原JPEG已看；仅该云路径，不代替四宽度/移动/缩放/其他控件或远端健康验收，详见uia12-history-checks |
 | Library默认书籍全网格（UI-A08k） | 71ceb601精确main build/deploy/live通过；四宽度双主题310线上原生行图的992卡片32联系表已人工看，放大390 Light/1024 Night原图，封面/标题完整，无新确认缺陷；限定done | 八流程124书籍6页全ID/原生逐行覆盖、无溢出、992加载及原分页刷新返回门禁线上通过；与生产ID/图片相同，卡片坐标最大差0.543px；其他分类仍pending |
 | Library默认书籍分页/加载（UI-A08j） | 4140b667精确main build/deploy/live通过；四宽度双主题96页首/尾线上图已人工看并放大390 Light首、768 Night末页首，浮层关闭、封面可见，限定done；中间区域完整视觉见已done的UI-A08k | 8组完整124书籍6页/992原生封面加载、ID完整无重复、末页刷新URL/ID、上一页/返回根/重入首批ID通过；96几何横向边界与生产一致，纵坐标差异最大0.307px；其他分类仍pending |
 | Library Steam/游戏首批离屏封面（UI-A08i） | b4a50239精确main重试build/deploy/live通过；四宽度双主题40线上图已人工看，关闭浮层后8张空提示清晰可见，统计/首屏/末端/刷新无新确认缺陷；限定done | 8组游戏第一页24卡原生滚动/解码共192次加载、时长排序分组、刷新URL/ID、Steam空来源刷新/清除/返回线上通过，40诊断与生产相同；仅当前无遥测路径，不推断完整库存或有数据时成就通过 |
@@ -427,3 +429,4 @@ UI-003已部署并验收：实现head e020fb73e9de4fcd91732c2bc7e281575f3395af�
 UI-001 done；base = dd2e52ee17322519190fdacf1a12e5d35f035ead；最终实现head = 0348b33c7e00a5f4584181c8d7244da88fc50244；[run38500122266](https://github.com/AplusNeutrino/My_Blog/actions/runs/38500122266) build/deploy成功；无待答问题。下一项：THINK筛选/分页/阅读区与BUILD列表/七详情全页视觉检查，继续补矩阵，不把导航截图当全站通过。
 
 UI-001证据：[前后对照](docs/ui-evidence/ui001-comparison.md)，40项几何JSON与两主题线上截图持久保存。必要CI修复包含推荐预期模块/3项测试、viewport截图与CJK字体；内容/数据/URL未改。
+

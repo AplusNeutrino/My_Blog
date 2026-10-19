@@ -1,0 +1,111 @@
+{
+  "task": "UI-A12c",
+  "status": "partial/pending",
+  "source_head": "3b68f4984477636b40bf58af2a8b8db3e2d466f1",
+  "audit_parent": "32d08873a480615d74d117746a147faf2f19d3de",
+  "url": "https://neutriverse.uk/occult-atlas/",
+  "viewport": [
+    1363,
+    936
+  ],
+  "version": 41,
+  "robots": "noindex, nofollow",
+  "method": "Native AX UI input + visible locator input; all 9 original JPEGs emitted and actually reviewed; read-only DOM supplements, no DOM mutation, mock or interception.",
+  "test_query": {
+    "datetime_local": "2020-01-01T12:00",
+    "label": "UI CHECK",
+    "latitude": "31.2304",
+    "longitude": "121.4737",
+    "source": "Coordinates unchanged from site default; no private or chat-memory data."
+  },
+  "results": {
+    "light": {
+      "collapse": "Both original details/summary fold and reopen; loaded 14/17 planets and 10/19 aspects, 10 chart nodes retained.",
+      "query": "Query button -> actual loading disabled -> historical title and 2020/01/01 12:00; 10 nodes/14 rows/8 aspects.",
+      "return_now": "Current title returned, 10 nodes/14 rows/10 aspects; visible status 2026/10/19 13:59, label cleared."
+    },
+    "night": {
+      "collapse": "Both loaded sections fold and reopen; 10 nodes retained.",
+      "query": "Native existing UI CHECK history record reloaded same historical title/time; 10 nodes/14 rows/8 aspects.",
+      "return_now": "Current title returned, 10 nodes/14 rows/10 aspects; visible status 2026/10/19 14:01, label cleared."
+    },
+    "cleanup": "Initial history empty; deleted only the one self-created UI CHECK item through UI. Empty hint restored; no existing user entries removed, no storage clear. Both details finally open=true.",
+    "navigation": "Shared Ravenis link -> actual theme switch Light to Night -> shared Atlas link; not full Ravenis business acceptance."
+  },
+  "limits": [
+    "First screenshot was still Light loading, following AX already loaded. Originally misnamed night-loading, renamed light-loading; exact ordering preserved.",
+    "getByRole(button, exact summary text) failed no_matches; native summary represented as button in AX. Attempt not counted, fresh AX native clicks then succeeded.",
+    "Cloud fixed viewport only. 390/768/1024/1366, touch and zoom not verified for this new natural business path.",
+    "No historical-invalid-input, coordinate bounds, export/refresh or remaining filters verification.",
+    "Page timestamps are observed UI values, not a statement of current UTC/Asia-Shanghai time or astronomical correctness/data freshness.",
+    "S-A12-02 Night table/FOCUS dark-icon candidate remains separate, no speculative product style edits."
+  ],
+  "unchanged_product_ci": {
+    "run": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39308494035",
+    "jobs": [
+      {
+        "id": 118251656940,
+        "name": "build",
+        "result": "success"
+      },
+      {
+        "id": 118262207923,
+        "name": "deploy",
+        "result": "success"
+      },
+      {
+        "id": 118262473888,
+        "name": "verify-live-ui",
+        "result": "success"
+      }
+    ],
+    "scope": "Existing main implementation 289 regressions/T01/authoring/Jekyll. Fresh API rechecked; not new audit commit CI and not a new full regression executed locally."
+  },
+  "files": [
+    {
+      "file": "uia12c-light-history-query.jpg",
+      "sha256": "6522aba52f0a08d3daca9bccfa3b625848ade7b6ed0456e629ab4182919fcdcb",
+      "bytes": 83013
+    },
+    {
+      "file": "uia12c-light-history-result.jpg",
+      "sha256": "2b54e566bfdb29883a38f11889574df2d8fbb1c030abfc1647ce3ecc56c51470",
+      "bytes": 100141
+    },
+    {
+      "file": "uia12c-light-loaded-collapsed.jpg",
+      "sha256": "8689f147af6bc18fa07b3c8f9648cfe9bfcbf6f02cb541397ebeed64a2e79f04",
+      "bytes": 76949
+    },
+    {
+      "file": "uia12c-light-loading-collapsed.jpg",
+      "sha256": "86765ccbf4dd67bb3f3ab5530eae077bc9399290ae39ed4eea4885c7e234324e",
+      "bytes": 43324
+    },
+    {
+      "file": "uia12c-light-now-result.jpg",
+      "sha256": "9b70fc27e34378a2cf819768157f233e5ca47ca320c892f8d844b7dd8da43610",
+      "bytes": 103791
+    },
+    {
+      "file": "uia12c-night-history-record.jpg",
+      "sha256": "f4772135c936aa3a9671b17fa5d164eaa0864aa79f971e08ff83f80b1a03e21e",
+      "bytes": 72339
+    },
+    {
+      "file": "uia12c-night-history-result.jpg",
+      "sha256": "dcd7af25163b39a2c0d4446847b549b2d9dce8291481fe0fa460dfff411dbe76",
+      "bytes": 90400
+    },
+    {
+      "file": "uia12c-night-loaded-collapsed.jpg",
+      "sha256": "29a67dcf3929d3ef78d7a01449809f94050831997ce3b9c4b35dfb47f30345bb",
+      "bytes": 69167
+    },
+    {
+      "file": "uia12c-night-now-result.jpg",
+      "sha256": "40c9bebbd5045b852343adf5fab314ee52999881756b12d330a388a2d655fc96",
+      "bytes": 93869
+    }
+  ]
+}

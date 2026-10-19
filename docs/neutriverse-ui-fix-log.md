@@ -1,5 +1,11 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A12c自然历史查询与折叠检查
+
+- 2026-10-20 UI-A12c partial/pending：base/main3b68f498，审计父32d08873；先限定docs/ui-evidence/uia12-history-checks.md、计划日志与公开截图/来源。云1363×936双主题实际折叠/展开14/17行星与10/19相位、查询公开测试时间2020-01-01T12:00并返回实时；Night还从自建历史记录重新载入，最终用UI删除仅此测试项恢复空列表。9张原JPEG已逐张看，不mock服务/改DOM。未确认新缺陷，不改产品/门禁/main；四宽度/移动/缩放/其余控件仍pending，S-A12-02独立候选未扩成本次。fresh main精确run39308494035三job success，只是既有实现CI，非新审计head验收；本机空目录未重跑整库回归/Jekyll。无新用户决定，gh不可用未编造Issue。全站IN PROGRESS，下一项补本路径真实多视口证据或UI-A12其余控件。
+- 原生details/summary在AX呈button，getByRole精确button无匹配；失败尝试未计通过，后用fresh AX点击成功。首张Light loading图误命名Night后已更名，截图/紧随AX服务已完成的时序分开记录。地点/经纬度仅网页默认+UI CHECK，不使用聊天或个人信息；不认证天文数据正确性/时效。Ravenis仅作为共享主题切换路径，不据此验收全部新闻/搜索。
+- 已读取AGENTS/docs agents/ADR0001、重构约束18–19/旧COMPLETE报告、最新UI计划日志/控件记录与用户补充；CONTEXT不存在。旧临时worktree不在当前环境，新空目录仅写审计文件，不覆盖用户修改。详见uia12-history-checks及uia12-history/source.json；本轮无产品实现、新部署或新CI，不创建额外任务、不标COMPLETE或暂停。
+
 ## 2026-10-20 — UI024/UI025当前main线上限定验收完成
 
 - 预定仅计划/此日志/ui024-checks/ui025-checks及ui025-live公开截图/JSON/来源；base/main/source3b68f4984477636b40bf58af2a8b8db3e2d466f1，审计父2aeca3e8945ec7dfc44d0db3eba9a50a09cac59c。fresh refs核对/规定上下文与用户补充已读、CONTEXT不存在、gh不可用未建Issue、独立worktree保护用户dirty内容，无新用户决定。不改产品/门禁/旧COMPLETE/原文/metadata/URL/noindex/隐蔽边界/外部仓库。
@@ -1207,3 +1213,4 @@
 - 线上部署后Chrome1363×936：/think/ Light和Night展开侧栏均4张卡片144.5625px、cell144.5625px；前后截图逐一确认边框底部对齐，中文换行与文字/入口原样保留。双主题切换正常。
 - 本轮额外看到THINK Light1363px列表、Fragment筛选、分页/辅助导航区，未在这些画面确认新的显示缺陷；首页Night首屏已看。未冒称全页面/全尺寸审计完成。
 - UI-001 done。原文、metadata、文件名/date/slug/permalink、旧URL、hidden/noindex、应用业务与外部仓库未改变。gh不可用已记；无新增待答问题。下一项THINK筛选/分页与BUILD列表/详情的全页视觉矩阵。
+
