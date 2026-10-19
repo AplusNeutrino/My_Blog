@@ -1,6 +1,6 @@
 # UI-A11 / UI-022 Thoughts 点赞压缩语法错误
 
-状态：validation-pending。不代表全站 COMPLETE，也不代表远端点赞服务健康。
+状态：生产限定验收通过，main部署/线上复验validation-pending。不代表全站 COMPLETE，也不代表远端点赞服务健康。
 
 ## 实际复现与根因
 
@@ -13,9 +13,9 @@
 ## 工作分支验证
 
 - 实现head `bcb8c15e324d19aea1b07548ee5bf8ac1a5769d9`，分支 `ui/fix-022`。
-- [Actions 39188642432](https://github.com/AplusNeutrino/My_Blog/actions/runs/39188642432)，build job `117856336619`。本记录时完整build仍运行，不冒称分支总通过；分支按现有规则不部署。
+- [Actions 39188642432](https://github.com/AplusNeutrino/My_Blog/actions/runs/39188642432)，build job `117856336619` 已于2026-10-19 02:31:02 UTC completed/success。deploy `117861510830`、live `117861511847` 按分支规则skipped，不冒称部署通过。
 - 本机276 tests、T01正文/URL/hidden基线44/5/5、authoring44/5/7、diff通过；本机无Ruby/Jekyll/Chrome。
-- 本head Actions已通过production Jekyll、真实压缩产物Thoughts五份/文章一份Node解析、专项8流程；后续完整门禁尚待完成。新增3项回归含旧注释故障注入，确实拒绝同类吞尾语法错误。
+- 本head Actions已完整通过276 tests、T01/authoring/legacy table/production Jekyll、真实压缩产物Thoughts五份/文章一份Node解析、专项8流程，以及Search/Atom、SEO、集成、移动/无障碍、THINK/BUILD原门禁与Ravenis产物。新增3项回归含旧注释故障注入，确实拒绝同类吞尾语法错误。
 - 专项artifact `12158993310`，16314300 bytes，独立下载SHA256 `dc229618b1b4f4fb9b8791653b3c50cd2e38a4cc111005b46606cc1596ee51de` 与Actions digest匹配。
 
 ## 真实浏览器客户端交互与实际看图
@@ -34,6 +34,6 @@
 
 ## 待完成
 
-完整分支build；获验收后非强推提交main；核对同一main head Actions/build/deploy/live，实际线上同场景截图与交互、记录remote/fallback真实结果后才关闭UI-022。UI-A11与全站其余矩阵保持pending。gh不可用未建Issue；无新待答用户决定。
+以最新main c59add7d与审计父提交262c7611为base交付：本轮只更新计划/日志/本证据文档，产品/数据/回归/审计与bcb8c15e完全相同；显式复用同一实现此前已看32张viewport证据，不称本轮新图。获生产限定验收后非强推交付main；新main提交自身Actions/build/deploy/live仍须独立核对，实际线上同场景截图与交互、remote/fallback结果后才关闭UI-022。UI-A11与全站其余矩阵保持pending。gh不可用未建Issue；无新待答用户决定。
 
 看图联系表是由原始viewport PNG拼接的审阅辅助图，不改变页面内容；原始PNG及完整full截图在上述精确head artifact，原始32张viewport SHA256在uia11-production/summary.json。保留一张390 Light联系表供快速对照；其余7张联系表已实际查看但不重复入库，大体积原图继续按Actions artifact归档，不称全部已永久入库。

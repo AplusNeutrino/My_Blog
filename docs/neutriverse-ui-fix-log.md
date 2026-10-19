@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-022：精确分支完整build成功，main交付
+
+- 最新main仍c59add7d72e766757b95688b7edf01af65a3a45e，核对ui/fix-022实现bcb8c15e324d19aea1b07548ee5bf8ac1a5769d9及audit/ui-a11证据262c761125d7e14d1d8ec2a54bd0cab09529c368。读取AGENTS/docs agents/ADR/重构计划与最终报告/本轮计划日志及用户补充；CONTEXT不存在，gh不在PATH，未建或编造Issue。
+- 精确[run39188642432](https://github.com/AplusNeutrino/My_Blog/actions/runs/39188642432) build117856336619 completed/success，结束2026-10-19 02:31:02 UTC。全部276 tests、legacy table、T01、authoring、production Jekyll、Search/Atom、SEO、资源/集成、移动/无障碍、THINK/BUILD及原门禁、Ravenis产物均success。分支deploy117861510830及live117861511847是skipped，不将其表述为已部署。
+- 显式复用同一精确实现bcb8c15e此前实际查看的32张viewport/8联系表和4 full原图，来源与SHA256已在uia11-checks.md/summary.json记录；本轮没有重新看这些图或新增截图。fixture只验证客户端，不等于远端服务健康；full固定侧栏捕获差异仍不用于布局验收。结合完整build，UI-022生产限定验收通过，线上不标done。
+- 本轮先记录交付范围：以262c7611为父，文件仅NEUTRIVERSE_UI_FIX_PLAN.md、docs/neutriverse-ui-fix-log.md、docs/ui-evidence/uia11-checks.md更新；携原有一行注释修复、必要回归/产物门禁/专项及证据交付main。独立/tmp/neutriverse-ui022-delivery worktree保护原目录未提交修改；c59add7d至实现/审计差异列表确认无正文/metadata/数据/旧URL/隐蔽边界或外部仓库更改。非强推+expected main SHA租约，远端变更则停止重核，不覆盖。
+- 本机重新运行276 tests（2.986s OK）、authoring44/5/7、T01正文/URL/hidden44/5/5与diff均通过；本机无Jekyll/Chrome，生产结果只来自上述精确head Actions。交付main自身Actions/build/deploy/live和部署后Thoughts/代表文章同场景仍validation-pending，下一轮先核对新的main head再线上复验；不以分支CI代替新head CI。不改全站IN PROGRESS/旧COMPLETE历史，无新增待决问题，不创建或暂停额外任务。
+
 ## 2026-10-19 — UI-A11 / UI-022：Thoughts点赞脚本压缩后语法错误
 
 - 先核对main c59add7d72e766757b95688b7edf01af65a3a45e / run39184250925：build117843200595、deploy117847617665、verify-live-ui117847660972均success，关闭上轮证据提交pending。读取AGENTS/docs agents/ADR/重构主计划及最终报告/本轮计划日志；CONTEXT不存在。新clone工作树干净，不覆盖旧用户修改；gh不在PATH，不创建/编造Issue。
