@@ -15,9 +15,11 @@
 
 ## 问题台账
 
-UI024接续：17a5aeb0/run39228088897 production Jekyll/T01/authoring/回归成功，OBSERVE新增fixture在侧栏展开动画期间nativeclick被header拦截，完整CI failure、deploy/live skipped。只补审计有限实际点击命中等待，不改产品或放宽焦点断言；修订head另验，UI024保持validation-pending、main不动。[原失败与修正](docs/ui-evidence/ui024-checks.md)。
+UI024最新：17a5aeb0/run39228088897 production Jekyll成功但新增fixture桌面过渡期间nativeclick拦截而整场failure，未部署。仅审计等待实际点击命中修订765c57a284173a47e75210ecf1e4932b712bd00b/ui/fix-024，[新run39228556141](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228556141)运行中；产品同17a5，不放宽门禁。已看首轮390双主题4张fixture焦点/回环原图，仅部分生产证据；完整四宽度新head/部署复验仍validation-pending。main e44不动，状态另存audit/ui-a12-focus，无新用户决定。
 
 2026-10-19 UI-024 P2 confirmed：base/main e44fba12，S-A12-01在云1363×936 Light加载态真实click后两个观察调用仍focus在trigger、disabled refresh不能focus，后续Shift+Tab逃至主站链接。预定仅初始focus可用控件选择/资源v40/必要执行回归及四宽度双主题焦点专项，范围与复现先记[UI024](docs/ui-evidence/ui024-checks.md)。UI-023层级仍done；UI024验证未完成前留工作分支validation-pending，不改服务等待/原门禁/保护内容。无新用户决定。
+
+UI024实现17a5aeb0b538fb7337e3a2c0127d504b25085cf9已存ui/fix-024；[run39228088897](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228088897) build117979204316运行中。279 tests/T01/authoring/语法通过不等于视觉验收，production/四宽度双主题新截图/完整CI/main部署复验仍validation-pending。状态证据存audit/ui-a12-focus，不改main或取消同head run；下一项先核对该实现及disabled-controls fixture截图。
 
 2026-10-19 UI-023 done（仅Atlas弹层层级故障）：main/source e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，[run39207405231 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39207405231/attempts/2) completed/success，build117933481131/deploy117933435392/live117933434240均success，07:28:38 UTC结束。实际查看本次线上四宽度双主题42 viewport的8张原生联系表，并放大1366双主题open原图；标题完整、scrim仅压暗背景，Tab焦点可见。8流程真实click/Tab/Escape/重开/导航返回、旧z50故障注入拒绝通过；390滚动192px、768/1024滚动31px，1366短内容容纳不虚称滚动。明确复用此前同一e44云1363×936双主题已加载32选项长弹层截图/操作，不称本轮新云图；结合精确head完整CI，关闭UI-023限定pending，首次字体超时历史保留。S-A12-01加载态初始焦点、应用业务/全站矩阵仍pending。只在audit/ui-a12-live补计划/日志/证据，不新增产品修复或触发main部署；main仍e44。gh不可用，无新用户决策。[重跑证据](docs/ui-evidence/uia12-live-checks.md#重跑完整复核2026-10-19)。下一项UI-A12加载态稳定焦点及其余控件，避免重复已done层级检查。
 

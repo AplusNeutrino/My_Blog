@@ -1,9 +1,11 @@
 # Neutriverse UI 修复执行日志
 
-## 2026-10-19 — UI024 首轮CI失败：补侧栏动画点击命中等待
+## 2026-10-19 — UI024 CI首轮失败、原生点击时序修订及部分看图
 
-- 实现17a5aeb0/run39228088897 build117979204316回归/T01/authoring/production Build site成功，但OBSERVE新增fixture在line138桌面sidebar展开过渡后原生click chartControlToggle被sky-command拦截(point45,204)，deploy/live skipped；完整失败不当作通过。此失败未进入该fixture焦点断言，不推测新增产品侧栏缺陷。
-- 范围仅tools/check_observe_dialog.py点击helper等实际中心命中目标/非空矩形（10s有限等待）再原生click、文档记录；不改产品/禁动画/JS click/放宽原断言。修订head须独立验证与看图，UI024仍validation-pending、main e44不变。真实实现/复现详见ui024-checks.md与17a5父提交，audit/ui-a12-focus 8f4520dc记录此前pending历史不改写。
+- 实现17a5aeb0/run39228088897 build117979204316回归/T01/authoring/production Jekyll成功，OBSERVE第7流程1366 Night侧栏展开动画后line138 nativeclick chartControlToggle被sky-command拦截(point45,204)。完整failure，deploy/live skipped，不标通过；此前“Checkout运行中”为真实历史快照保留。
+- 只修审计helper：原生click前有限10s等待矩形非空且elementFromPoint中心命中目标，再nativeclick；不JS click/禁动画/放宽焦点/层级断言、不猜测产品新侧栏缺陷。修订765c57a284173a47e75210ecf1e4932b712bd00b已推ui/fix-024，新run39228556141运行中；产品同17a5。修订后279tests（2.664s）与diff通过。
+- 部分artifact12175181738/3001524bytes，独立SHA2566a9d1887f0cd75d897488802341be98aca87740716cfbeb1a3c428d62c12e813匹配。6流程390/768/1024双主题passed、自然/fixture初焦点datetime、Shift+Tab回环true；1366 Night fixture没开始，Light未开始，不冒称完整矩阵。只实际查看390双主题4张loading-focus/loading-wrap原PNG，焦点框可见；四图+原audit保存ui024-production-partial，其他图留精确artifact14天。fixture非自然服务状态/健康、生产图非线上，不以局部成功关闭UI024。
+- main仍e44、全站IN PROGRESS，无新用户决定。记录存audit/ui-a12-focus，避免取消新head CI；下一轮先核对765c57a2/新run全部门禁和四宽度双主题新图，再交付main部署复验。旧UI023已done不重复；本次使用浏览器技能发现真实键盘焦点缺陷，未因静态测试或偏好改样式。
 
 ## 2026-10-19 — UI-024：加载态初始焦点确认与预定范围
 
@@ -11,6 +13,7 @@
 - 实际1363×936 Light加载态打开后两个观察调用active=chartControlToggle、inside=false、refresh.disabled=true；加载完成仍遗留trigger，Shift+Tab实际跑到弹层外主站链接，S-A12-01转确认UI-024 P2。截图捕获时已加载完成，明确不冒称加载态截图。UI023遮罩层级正常不重复修复。
 - 修改前记录：仅app.js初始focus、资源v40、必要执行回归及真实CI焦点门禁、计划/日志/公开证据。禁用首button仍被querySelector选中导致focus无效；选择首可交互控件，兼顾rAF前关闭防抢焦点。四宽度双主题/production/精确headCI/部署复验未完成前保持validation-pending，留工作分支。无新用户决策，gh不可用未建或编造Issue。
 - 最小实现完成：复用原trap enabled/visible列表选择初始focus，关闭后rAF不抢焦点；资源v40。两项实际函数执行回归及旧selector故障注入通过，279 tests（2.615s）、T01/authoring、Node语法/Python编译/diff通过。本机无Jekyll/Chrome；新增8流程稳定初焦点及独立可恢复disabled前两按钮UI fixture/Shift+Tab/新截图，不mock网络、不认证远端健康、不放宽原门禁。两张修复前截图已保存，捕获时已加载完成，不冒称加载中；production/完整CI/修复后看图/main部署复验仍validation-pending，分支ui/fix-024。下轮先核对精确实现head，不重复UI023层级或凭静态测试标done。
+- 真实实现17a5aeb0b538fb7337e3a2c0127d504b25085cf9已推ui/fix-024，[run39228088897](https://github.com/AplusNeutrino/My_Blog/actions/runs/39228088897) build117979204316运行中（Checkout）；main仍e44fba12。不将旧head成功当本次通过、无新增修复后视觉结论。状态记录另存audit/ui-a12-focus以免取消同一head CI，下一轮先核对实现head及新截图；未验证半成品不交付main，无新用户决策。
 
 ## 2026-10-19 — UI-023：同head重跑与部署视觉限定验收完成
 
