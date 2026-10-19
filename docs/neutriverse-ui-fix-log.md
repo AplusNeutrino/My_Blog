@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-023：同head重跑与部署视觉限定验收完成
+
+- 预定范围：base/main/source e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，审计父8108fcf2391bf52fdd642e3847eafbd81435fdad；仅NEUTRIVERSE_UI_FIX_PLAN.md、此日志、uia12-live-checks.md及uia12-live-retry公开截图/JSON，不改产品/门禁/旧原文/metadata/URL/noindex/隐蔽边界。独立worktree保护原目录修改，AGENTS/docs agents/ADR/旧计划与最终报告保护复核，CONTEXT不存在，gh不可用，未编造Issue。
+- 精确[run39207405231 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39207405231/attempts/2) completed/success，head=e44fba12；build117933481131/deploy117933435392/verify-live-ui117933434240全部success，run更新07:28:38 UTC。仅先前失败job重跑一次，未修改字体等待或放宽门禁；首轮live117919453041字体超时保留，不改写成成功。
+- 本次live artifact12169433653（3101104bytes）独立SHA25662abc4899145206358f216c49e1244b7c1f57b2aeb75b2e664261609bba09f3b匹配。实际看42 viewport/8原生联系表、放大1366 Night/Light open原PNG，标题与内容无遮挡、遮罩只盖背景，Tab焦点框可见。8流程passed及oldStackRejected均true；390滚动192px、768/1024滚动31px、1366内容未溢出滚动0不伪称长滚动；真实Escape返回/重开/共享导航/主题保持/桌面收放由该head专项操作通过。保存全部8已看联系表、2放大原PNG、audit及42PNG哈希/尺寸summary，原42PNG在精确artifact14天。
+- 显式复用上一轮同一e44真实云1363×936双主题已加载32选项长弹层及Tab/Escape/导航证据，非本轮新增云操作。原遮挡→标题完整且scrim在后，UI-023层级故障限定done；CI加载态8份即时focusedInside=false仍不等于稳定焦点缺陷，S-A12-01及业务余项保持pending，不新增推测修复。服务未mock但健康不认证，不将此当远端业务全通过。
+- 审计只更新audit/ui-a12-live，main仍e44且自身CI已完整通过；不为纯记录反复推main制造新的部署pending，后续产品交付再携审计记录。全站仍IN PROGRESS，无新增用户决策，不写最终报告或暂停；下一项加载态稳定初始焦点与UI-A12余项，不重复层级验收。
+- 本机277 tests（2.750s）、authoring44/5/7、T01正文/URL/hidden44/5/5和git diff --check通过；本机未运行Jekyll/Chrome，production与线上浏览器结果来自上述精确e44 Actions，不冒称审计分支已部署。
+
 ## 2026-10-19 — UI-023：部署复验部分成功，字体等待超时重跑
 
 - Base/main e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，精确run39207405231 build117913149025/deploy117919391087 success；live117919453041 failure。THINK/BUILD及Thoughts专项成功，OBSERVE已完成390/768/1024双主题6流程，第7流程1366 Night在settle document.fonts.ready异步等待30秒超时，未发生层级断言失败，不以此推断网站字体坏或放宽门禁。首次失败保留。

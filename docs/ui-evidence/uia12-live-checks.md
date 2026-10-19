@@ -1,5 +1,14 @@
 # UI-A12 / UI-023 — e44fba12 部署复验
 
+## 重跑完整复核（2026-10-19）
+
+- 本段为新状态；下方首轮失败/重跑中记录保留历史。最新main/source仍`e44fba12d6ddd0aba4b5252ddb265aa25ec45e70`，精确[run39207405231 attempt2](https://github.com/AplusNeutrino/My_Blog/actions/runs/39207405231/attempts/2) completed/success，build117933481131/deploy117933435392/live117933434240全部success，run更新时间07:28:38 UTC。未重跑其他head、未改timeout/断言/门禁。
+- 本次artifact12169433653（3101104bytes），实际下载ZIP独立SHA256 `62abc4899145206358f216c49e1244b7c1f57b2aeb75b2e664261609bba09f3b`匹配。8流程全部passed、oldStackRejected=true。42张正常viewport经8张不缩放联系表全部实际查看；另放大1366双主题open原PNG。弹层标题完整、背景变暗但弹层不被scrim压暗、Tab焦点可见；没有本项新确认遮挡/横溢出。
+- 390×701、768/1024/1366×757为真实截图尺寸；390/768/1024面板真实滚动分别192/31/31px，1366加载态短内容可容纳、scrollTop=0，不声称长内容滚动。真实click/Tab/Escape/重开、共享导航往返/主题保持及1366侧栏收放均为该head完整专项通过，不拿DOM代看图。
+- 永久证据`uia12-live-retry/`保存8张已看联系表、2张1366 open原PNG、原audit.json、42PNG哈希/尺寸summary；其他40原PNG仅保留精确Actions artifact（14天）。没有下载/绕过超限总包。
+- 显式复用此前同e44云1363×936双主题已加载32选项长弹层截图及操作（`uia12-live/`两图，下方详述）；本次无新增云浏览器操作。结合此前production/同head完整build与此次部署/live/人工看图，UI-023仅层级故障done，关闭该问题validation-pending。首次字体超时仍是真实失败历史，不归因网站字体故障。
+- 限制：CI截图仍是Atlas加载态；即时focusedInside=false未完成稳定态验证，S-A12-01加载中首按钮disabled候选仍pending，不当新确认缺陷。已加载初始焦点只复用云1363证据；32业务选项/查询导出/远端健康及UI-A12其他矩阵未完整验收。全站IN PROGRESS，无新用户决策；纯审计存audit/ui-a12-live，main保持已验证e44不触发新部署。
+
 - 2026-10-19 base/main/source `e44fba12d6ddd0aba4b5252ddb265aa25ec45e70`，run39207405231：build117913149025、deploy117919391087 success；首轮verify-live-ui117919453041 failure，不能标全通过或done。
 - 先记录范围：只复验UI-023层级/已加载长弹层、滚动、Escape与主题/共享导航，调查初始焦点候选S-A12-01；本轮预定只写计划/日志/公开截图证据，不凭推测改产品。全部原文/metadata/URL/noindex/隐蔽边界不变。
 - 首轮live：THINK/BUILD及Thoughts专项成功；OBSERVE已完成390/768/1024双主题6流程，1366 Night进入Ravenis时在settle的document.fonts.ready异步等待30秒超时，尚未产生第7流程截图；1366 Light未开始。不是弹层层级断言失败，也不凭此认定网站字体故障。
