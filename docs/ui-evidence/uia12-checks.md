@@ -12,3 +12,11 @@
 - 最小文件范围：`occult-atlas-app/styles.css`（仅打开时父层级）、`_data/occult_atlas.yml`（资源缓存版本）、必要专项脚本/测试/workflow、计划日志与截图。不改业务/远端服务/内容/路由/noindex。
 - 验收：打开后标题与控件可见、弹层在scrim/共享导航之上；四宽度双主题正常viewport截图实际看；真实click、Escape焦点返回、重开、Tab与侧栏开闭/共享导航往返；全部既有门禁、精确head production/Actions、main部署及线上同场景。未验证保留工作分支validation-pending。
 - Atlas初始显示服务连接/唤醒，随后出现数据；不把暂态服务延迟直接记成UI缺陷，不修改关联服务仓库。
+
+## 实现与真实验证状态
+
+- 实现：`6c88687ce47212e9eb4035d5c56b22852831b295`，工作分支 `ui/fix-023`。[精确run39203108583](https://github.com/AplusNeutrino/My_Blog/actions/runs/39203108583)，build117900091713运行中；不以其他head的成功代替本次。
+- 277 tests、authoring44/5/7、T01正文/URL/hidden44/5/5、专项Python语法与git diff check本机通过。无本机Ruby/Jekyll/Chrome，尚未运行production或多视口浏览器验收。
+- 4张本轮云浏览器原截图在 `uia12-before/`，其中Atlas Light/Night均是修复前遮挡，不冒充修复后画面。Ravenis主题切换、筛选展开、共享导航到Atlas及返回、Atlas Escape关闭并恢复触发器焦点已真实操作。
+- 新CI专项8流程需要查看正常viewport PNG；机械诊断/故障注入不是视觉验收，远端服务未fixture也不据此全面认证健康。production专项/完整CI/main交付/部署后同场景仍validation-pending。
+- 审计记录分支 `audit/ui-a12` 不触发全局Pages队列，避免取消实现CI。main仍dd55edad，产品修复尚未上线；无新增用户决策。下轮先核对6c88687c同一head与截图，不直接合入main。
