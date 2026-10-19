@@ -1,5 +1,9 @@
 # UI-A12c — Atlas 数据折叠、历史查询与实时返回
 
+## 实现与精确CI收据
+
+- 实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。
+
 ## 2026-10-20 多视口专项预定范围
 
 - base main3b68f4984477636b40bf58af2a8b8db3e2d466f1 / 审计父baee0519c68ddba6ef1ccf949bc2b6ef9505b210，fresh refs及规定上下文已读。gh不可用，不编造Issue；新干净克隆不覆盖既有工作目录。先记录后只新增tools/check_observe_history.py、tests/test_observe_history_audit.py、pages-deploy build/live专项及独立证据包、计划/日志/本记录，不改产品/门禁/原文/metadata/URL/保护边界/外部仓库。

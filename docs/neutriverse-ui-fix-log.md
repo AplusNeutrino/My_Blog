@@ -2,6 +2,8 @@
 
 ## 2026-10-20 — UI-A12c四宽度自然服务专项实现
 
+- 实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。
+
 - base/main3b68f4984477636b40bf58af2a8b8db3e2d466f1、审计父baee0519c68ddba6ef1ccf949bc2b6ef9505b210；fresh refs/AGENTS/docs agents/ADR0001/重构18–19与旧COMPLETE报告/最新UI计划日志/控件记录/用户补充已读，CONTEXT不存在。新干净clone后detach最新审计父，不覆盖上轮目录或用户dirty修改；gh不可用未编造Issue，无新用户决定。
 - 先记uia12-history-checks范围，再仅新增tools/check_observe_history.py、tests/test_observe_history_audit.py、pages-deploy production/live专项与各自无损包及三份审计文档。四宽度双主题8自然流程：加载完成/两details折叠展开/2020查询/返回实时/自建记录重新载入/返回并删除仅该项，8帧每组加失败PNG/JSON。390/768用CDP touchStart/end实际坐标命中，其他原生pointer；不拦截网络、不伪造图表/disabled，不读写外部项目。
 - 时间框是明确form setup（value与input/change），非原生date-picker/逐字键入验收；query/返回/记录/summary实际触发。UTC浏览器测试时区与网页默认经纬度/自建UI-A12c CHECK，无个人信息。真实返回需隐藏chartState且无error/按钮未disabled/10节点与行数据、历史标题和2020时间匹配；不能将失败后残留旧图算成功。产品原45s超时不动，测试55s有界等待、不盲重试；错误截图后raise，原字体30s及其他门禁完整保留。

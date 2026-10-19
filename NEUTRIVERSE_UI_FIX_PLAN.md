@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-A12c精确CI收据：实现已保存ui/audit-012c：`e64e5154be53791955102b9ad9587554ffa8da9a`；[精确head run39332927464](https://github.com/AplusNeutrino/My_Blog/actions/runs/39332927464)已实际创建，build118335278024运行中，新增专项尚未执行/没有新截图。main再次核对仍3b68f498，不部署、不标done；状态收据单独audit/ui-a12-focus，不追加ui提交取消当前CI。下一项先核对同e64e5154完整CI/Jekyll/8流程PNG及失败现场，时间框form setup/物理触控与日期选择器未验的局限保留。本机再次293tests（3.092s）通过；首次update_ref因新ref不存在422，改用create_branch成功，未force或覆盖任何既有ref。
+
 2026-10-20 UI-A12c多视口采证validation-pending：base/main3b68f498，审计父baee0519；先在uia12-history-checks限定范围后仅新增自然服务历史/折叠专项、4执行门禁回归、现有workflow production/live双入口与独立无损包、计划日志。八流程四宽度双主题，390/768用CDP真实touch，其他原生pointer；时间框明确form setup派发input/change，不冒称原生日期选择器验收，不mock响应/图表/disabled。严格拒绝loading/error/残留实时旧时间/无节点或数据，失败存PNG/JSON并raise，不修改产品45s超时或旧门禁。本机293tests/T01/authoring/diff通过，本机浏览器安装权限失败已停止、无Ruby/Jekyll；新head生产/多视口图/实际看图/main/live尚未通过，留ui/audit-012c不改main。无新产品缺陷或用户决定，gh不可用，全站IN PROGRESS。下一项核对精确新head及原图，不把云九图或测试通过当视觉通过。
 
 2026-10-20 UI-A12c partial/pending：base/main3b68f498，审计父32d08873；先限定docs/ui-evidence/uia12-history-checks.md、计划日志与公开截图/来源。云1363×936双主题实际折叠/展开14/17行星与10/19相位、查询公开测试时间2020-01-01T12:00并返回实时；Night还从自建历史记录重新载入，最终用UI删除仅此测试项恢复空列表。9张原JPEG已逐张看，不mock服务/改DOM。未确认新缺陷，不改产品/门禁/main；四宽度/移动/缩放/其余控件仍pending，S-A12-02独立候选未扩成本次。fresh main精确run39308494035三job success，只是既有实现CI，非新审计head验收；本机空目录未重跑整库回归/Jekyll。无新用户决定，gh不可用未编造Issue。全站IN PROGRESS，下一项补本路径真实多视口证据或UI-A12其余控件。
