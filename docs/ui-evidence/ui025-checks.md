@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 最新fixture修订提交
+
+- `ac3430d954ae4ac2e6009d0bb798e63a5c5d95f3` 已非强推更新ui/fix-025；[run39281958731](https://github.com/AplusNeutrino/My_Blog/actions/runs/39281958731)真实创建且queued。仅修测试fixture并加强前提，产品CSS/v41/app.js与9e1e5a13相同；285tests（3.253s）/T01/authoring/diff本机通过，非视觉验收。
+- 下一轮先核对同ac3430d9完整CI与原回环门禁、新head截图，不用旧图或产品存在代替通过。main仍004447db，UI025与UI024 pending；本收据另存audit/ui-a12-focus，不再推进工作分支取消检查，无新用户决定。
+
 ## 2026-10-19 反向Tab诊断判因与预定修订
 
 - Base/main004447db，工作9e1e5a13，审计父31004361。run39274494467 build118135137834 failure，图标8场景、283tests/T01/authoring/Jekyll成功，OBSERVE此次在1024 Night失败（不是此前1366）。deploy118136152642/live118136154401 skipped。无新用户决定、gh不可用。
