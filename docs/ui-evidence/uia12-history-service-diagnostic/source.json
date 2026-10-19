@@ -1,0 +1,21 @@
+{
+  "head": "36c097e299ea98b09d4b14dfb4f2ab40613046b8",
+  "run": "https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922",
+  "build_job": 118355840133,
+  "conclusion": "failure",
+  "completed_at": "2026-10-19T23:04:56Z",
+  "deploy": {"id": 118356557471, "conclusion": "skipped"},
+  "live": {"id": 118356557408, "conclusion": "skipped"},
+  "artifact": 12228157855,
+  "bytes": 45154,
+  "independently_verified_zip_sha256": "802b1a064d83a22d61b3e42c7afb97cf582b411d879f49214d616480dde013fb",
+  "actually_reviewed_pngs": 1,
+  "observed": "First 390x844 Night load: 0 nodes/rows, error/reconnect visible. No history actions reached. Exact API GET: HTTP200 response-extra, net::ERR_FAILED, corsError AllowOriginMismatch; console CORS flag; no diagnostic errors or missing request.",
+  "limits": "CORS prevents CI preview response access; not a server outage or production same-origin failure claim. No retry/security/origin/backend change. Other icon/dialog packages not downloaded or visually reviewed this turn.",
+  "files": [
+    {"file": "audit.json", "bytes": 3236, "sha256": "2823f4a6f0d762414567ac1017f356be8d7e554027e5dcb8dbb8f01aace847fc"},
+    {"file": "observe-history-390-dark-failure.png", "bytes": 45853, "size": [390,844], "sha256": "68bbfef8baa919d62b33b50ade41074a6b649af0ac6c7c9083ce5eb1845924e7"}
+  ],
+  "decision": "Q-UI-01 awaiting-user; no gate/security change without decision; independent work remains available.",
+  "global_status": "IN PROGRESS"
+}

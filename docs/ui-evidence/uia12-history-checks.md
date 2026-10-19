@@ -1,5 +1,11 @@
 # UI-A12c — Atlas 数据折叠、历史查询与实时返回
 
+## 诊断结果：CORS阻断，Q-UI-01待决
+
+- 36c097e2/run39339079922 build118355840133于2026-10-19 23:04:56 UTC failure，298tests/T01/authoring/Jekyll及前置专项成功，deploy118356557471/live118356557408 skipped。artifact12228157855/45154bytes ZIP SHA256802b1a064d83a22d61b3e42c7afb97cf582b411d879f49214d616480dde013fb独立匹配；实际看唯一390×844 failure原图，仍首开0节点，未进入查询。新增只读现场：目标API GET response-extra HTTP200，loadingFailed net::ERR_FAILED / corsError AllowOriginMismatch，console CORS标志true，诊断无错误/无缺失。确认CI构建预览无法读取响应，不能推断服务宕机/历史控件缺陷，也不等于线上同源失败。
+- 当前构建预览自然服务验收blocked/decision-needed（Q-UI-01），不盲重跑/伪装origin/禁用安全/CORS放行/跳过失败；不修改外部Atlas后端仓库。新问题推荐保留后端边界、由用户批准将新自然服务门禁分层为构建产物UI与线上真实业务；备选为单独明确授权外部后端CI origin配置。两者目前均不实施，无答复不是同意。详情见计划集中队列；该门禁未进main，不影响从最新main继续独立阅读/Library余项。
+- 本轮仅保存本结果/原audit/原PNG与来源清单至审计分支，不再推进ui/audit-012c（保持失败诊断36c）、不改main b084/Library同步；新字体等待失败保持独立未定根因记录。此后CI/8组成功图/线上仍未完成，全站IN PROGRESS；下一项独立阅读控件/Library其余分类，受影响项等用户决定。
+
 ## 诊断提交精确CI收据
 
 - 诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。

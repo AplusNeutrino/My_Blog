@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A12c只读现场确认CORS，集中问题Q-UI-01
+
+- 36c097e2/run39339079922 build118355840133于2026-10-19 23:04:56 UTC failure，298tests/T01/authoring/Jekyll及前置专项成功，deploy118356557471/live118356557408 skipped。artifact12228157855/45154bytes ZIP SHA256802b1a064d83a22d61b3e42c7afb97cf582b411d879f49214d616480dde013fb独立匹配；实际看唯一390×844 failure原图，仍首开0节点，未进入查询。新增只读现场：目标API GET response-extra HTTP200，loadingFailed net::ERR_FAILED / corsError AllowOriginMismatch，console CORS标志true，诊断无错误/无缺失。确认CI构建预览无法读取响应，不能推断服务宕机/历史控件缺陷，也不等于线上同源失败。
+- 新诊断现场没有headers/body/query/无关请求；与旧e64的未知原因区分，不倒改旧失败根因。相同失败PNG本次新artifact字节相同仍单独来源标36c；无8组成功、无历史/原生触控业务通过或新线上验收。main b084/Library同步未改，main最新run39334089997的字体ready失败独立保留，不判同因、不盲重跑。
+- Q-UI-01首次记录并通知：CI构建预览自然服务受CORS限制，而当前授权禁止外部后端变更及放宽门禁。推荐保留CORS边界，由用户批准构建产物UI/线上同源真实业务分层方案；备选另行明确授权外部Atlas后端有限CI origin配置，超当前范围。未答不实施、不伪装origin/禁安全/代理绕过/改网络路线/跳过门禁。该新门禁只在工作分支，未合main；将受影响UI-A12c标blocked/decision-needed，继续独立阅读/Library其他分类，不因单项决策暂停全部任务。
+- 本轮实现36c与298tests/T01/authoring本机结果已记录，精确CI也验证同298/T01/authoring/Jekyll，完整build仍failure，不冒称通过。此后仅文档/公开证据，不动产品、workflow或原门禁、ui/audit-012c保持36c不再触发CI，审计分支追加结果。不写最终报告/COMPLETE或暂停；后续不重复催问Q-UI-01。
+
 ## 2026-10-20 — UI-A12c首组自然服务失败与只读诊断
 
 - 诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。

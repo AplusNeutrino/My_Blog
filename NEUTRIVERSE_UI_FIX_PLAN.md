@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-A12c诊断结果blocked/decision-needed Q-UI-01：36c097e2/run39339079922 build118355840133于2026-10-19 23:04:56 UTC failure，298tests/T01/authoring/Jekyll及前置专项成功，deploy118356557471/live118356557408 skipped。artifact12228157855/45154bytes ZIP SHA256802b1a064d83a22d61b3e42c7afb97cf582b411d879f49214d616480dde013fb独立匹配；实际看唯一390×844 failure原图，仍首开0节点，未进入查询。新增只读现场：目标API GET response-extra HTTP200，loadingFailed net::ERR_FAILED / corsError AllowOriginMismatch，console CORS标志true，诊断无错误/无缺失。确认CI构建预览无法读取响应，不能推断服务宕机/历史控件缺陷，也不等于线上同源失败。 不改CORS/origin/外部仓库、不放宽门禁，不再盲重跑。新门禁尚未合main；main仍b084同步保留，其他独立阅读/Library检查继续，全站IN PROGRESS，决策详见集中队列。
+
 2026-10-20 UI-A12c诊断CI收据：诊断实现36c097e299ea98b09d4b14dfb4f2ab40613046b8已先存审计分支；随后main run39334089997结束，build118339109590于22:41:17 UTC/deploy118347830382于22:41:30 UTC success，live118347913336于23:01:28 UTC failure。栈定位OBSERVE进入Ravenis的settle/document.fonts.ready script timeout，不是历史查询或焦点断言；未取其43文件包或新FontFace现场、不认定字体根因、不盲重跑。确认无任何in_progress workflow后，ui/audit-012c从e64非强推推进同36c；真实[run39339079922](https://github.com/AplusNeutrino/My_Blog/actions/runs/39339079922)已创建in_progress。main仍b084不动，Library同步完整保留。此收据仅audit/ui-a12-focus，不追加ui提交取消新CI；新诊断网络现场/完整build/8组看图/线上仍validation-pending。
 
 2026-10-20 UI-A12c自然服务首组失败/只读诊断：fresh main b084b8a1为7份Library同步，保留不覆盖；审计父a9441772/实现e64e5154。run39332927464 build118335278024于22:11:28 UTC failure，293tests/T01/authoring/Jekyll与前置图标/弹层成功；390 Night首开服务error/0节点，未进入折叠/历史查询，deploy/live skipped。独立核验artifact12225237586摘要并实际看唯一390×844失败原图，错误/重连提示可见，不推断根因。预记范围后仅补已有CDP已配置API now请求失败诊断及5执行回归，禁止headers/body/query/无关请求/新fetch，不改origin/安全/重试/原门禁/产品。298tests/T01/authoring/diff通过，CORS/网络出口/服务仍待证；新实现先存audit/ui-a12-focus（不触发CI），避免取消main39334089997正在运行的live；ui/audit-012c暂不动，main结束后再非强推同提交触发CI。无新确认产品缺陷或用户决定，全站IN PROGRESS/validation-pending，详见uia12-history-checks。
@@ -158,7 +160,11 @@ UI-A11最新进度：UI-022最小实现bcb8c15e324d19aea1b07548ee5bf8ac1a5769d9�
 
 ## 集中问题队列
 
-无新增需要用户决定的问题。未来按Q编号记录影响、选项、推荐；未回复不视为同意，继续无关任务。
+| ID | 首次提出/通知 | 影响与证据 | 选项与推荐 | 状态 |
+|---|---|---|---|---|
+| Q-UI-01 | 2026-10-20；本轮首次通知 | UI-A12c构建预览自然服务门禁blocked；36c097e2/run39339079922实际HTTP200但CORS AllowOriginMismatch，四宽度历史流程尚未开始。现有边界禁止改外部Atlas后端、禁止放宽门禁，两者不自行越界 | 推荐：保留后端CORS边界，用户批准将新自然服务验收分层为构建产物UI和线上同源真实业务，明确各自证据/精确资产head；备选：另行明确授权外部后端有限CI origin配置，超当前仓库范围。无答复前不实施任一选项、不跳过失败/伪装origin/禁用安全 | awaiting-user；仅阻塞受影响项；从最新main继续独立阅读/Library余项，不停止全部工作 |
+
+已通知待答项不重复催问；无答复不视为同意。不将Q-UI-01当网站已确认UI缺陷，其他矩阵仍IN PROGRESS。
 
 ## 完成条件
 
