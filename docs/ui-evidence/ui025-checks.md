@@ -1,5 +1,12 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 2026-10-19 首轮失败与审计时序修订范围
+
+- 本轮base/main004447db、工作head ae6f7c7d、审计父8a157def。run39259609173 build118083524733 failure：production Jekyll/280tests/T01/authoring成功，图标fixture在768 Light注入旧heading后立即读取仍rgb(255,248,231)，未等待fill180ms过渡；不是产品普通浅底断言失败。deploy118084179998/live118084180556 skipped，不称上线。
+- artifact12188139422（149657bytes）独立ZIP SHA25625ea2cd95f17d5f3d52b110fe9d536511b77ec9d62a7df7a8ca2998ab11c3ccb匹配。实际看390/768双主题4正常viewport PNG，普通与选中太阳/月亮/土星符号清晰；不是完整8图，1024/1366未执行、audit.json未写出，不把其余矩阵或线上算通过。
+- 预记仅修tools/check_atlas_planet_icons.py的故障注入时序及必要执行回归、计划/日志/本记录和部分公开证据ui025-production-partial。等待实际computed fill精确达到旧Light rgb(23,68,90)，有限5s，未达到仍失败；不禁动画/放宽原产品底色或图片加载/溢出门禁，不改CSS/v41/PNG/业务/字体等待。首轮390 Light可能读到中间色也不当充分故障注入证据。
+- 未验证修订仍ui/fix-025，main不动，完整新head CI/8图/部署复验pending；UI024字体阻塞不变，gh不可用未建Issue，无新用户决定。
+
 ## 精确工作提交与验收入口
 
 - 实现 `ae6f7c7d1d544990e5f8a200cb07de4f4ddba01c`，工作分支 `ui/fix-025`；[Actions39259609173](https://github.com/AplusNeutrino/My_Blog/actions/runs/39259609173)真实创建且in_progress。main复核仍004447db，未部署本次修复，不称8图/完整build成功。

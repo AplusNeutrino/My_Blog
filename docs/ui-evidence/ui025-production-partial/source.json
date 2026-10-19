@@ -1,0 +1,14 @@
+{
+  "head": "ae6f7c7d1d544990e5f8a200cb07de4f4ddba01c",
+  "run": 39259609173,
+  "buildJob": 118083524733,
+  "conclusion": "failure",
+  "artifact": 12188139422,
+  "zipBytes": 149657,
+  "zipSHA256": "25ea2cd95f17d5f3d52b110fe9d536511b77ec9d62a7df7a8ca2998ab11c3ccb",
+  "reviewedImages": 4,
+  "widths": [390, 768],
+  "themes": ["dark", "light"],
+  "fixture": "isolated real built CSS and original PNG only",
+  "limitation": "1024/1366 not executed; no audit.json; no deploy/live; old-color injection read before CSS transition completed"
+}

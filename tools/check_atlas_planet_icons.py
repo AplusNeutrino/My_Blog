@@ -7,9 +7,21 @@ import shutil
 import sys
 
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 
 from check_mobile_sidebar import serve
 from check_think_build_visual import VIEWPORTS
+
+
+def inject_old_backplate(driver, theme):
+    driver.execute_script("document.querySelectorAll('.planet-node:not(.active) circle').forEach(n=>n.style.fill='var(--atlas-heading)')")
+    read_fill = "return getComputedStyle(document.querySelector('.planet-node circle')).fill"
+    if theme == 'light':
+        # CSS fill transitions take 180ms. Reject intermediate colors as evidence.
+        WebDriverWait(driver, 5).until(
+            lambda d: d.execute_script(read_fill) == 'rgb(23, 68, 90)'
+        )
+    return driver.execute_script(read_fill)
 
 
 def main():
@@ -65,10 +77,9 @@ def main():
                 name = f'planet-icons-{width}-{theme}'
                 driver.save_screenshot(str(output / (name + '.png')))
                 # Inject precisely the old coupling in this disposable fixture; it must fail.
-                driver.execute_script("document.querySelectorAll('.planet-node:not(.active) circle').forEach(n=>n.style.fill='var(--atlas-heading)')")
-                old = driver.execute_script("return getComputedStyle(document.querySelector('.planet-node circle')).fill")
+                old = inject_old_backplate(driver, theme)
                 if theme == 'light':
-                    assert old != expected, old
+                    assert old == 'rgb(23, 68, 90)' and old != expected, old
                 rows.append({'name': name, 'fixture': 'isolated built CSS and PNG only',
                              'metrics': metrics, 'oldLightFillRejected': theme == 'light' and old != expected})
         (output / 'audit.json').write_text(json.dumps(rows, indent=2) + '\n')

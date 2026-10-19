@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI025 首轮部分看图与故障注入时序修订
+
+- Base/main004447db，ui/fix-025 ae6f7c7d，审计父8a157def；规定上下文/用户补充已读、独立worktree保护原dirty修改，CONTEXT不存在、gh不可用，未编造Issue，无新用户决定。
+- run39259609173 build118083524733 failure于图标fixture line71：768 Light注入旧heading立即读仍rgb(255,248,231)，CSS fill180ms过渡未结束。不是原产品浅底/资源加载/溢出断言失败；280tests/T01/authoring/production Jekyll已success，后续原门禁未执行、deploy118084179998/live118084180556 skipped，不称完整通过。
+- artifact12188139422（149657bytes）ZIP SHA25625ea2cd95f17d5f3d52b110fe9d536511b77ec9d62a7df7a8ca2998ab11c3ccb独立匹配。实际看390/768双主题4正常viewport，普通/选中太阳/月亮/土星符号清晰；保存ui025-production-partial。1024/1366未开始、原audit.json未写，不称8流程/线上；390 Light注入旧色可能读到过渡中间值，不当作充分故障证据。
+- 修改前范围记录：仅审计helper有限5s等待computed fill精确等旧Light rgb(23,68,90)，超时仍失败；2项执行真实helper回归验证原色/中间色必须等待、未到旧色仍阻断。产品CSS/PNG/v41/业务不改、不禁动画、不放宽旧门禁或字体等待。未验证修订留ui/fix-025，main004447db不动，UI024与全站仍pending。
+- 本机282tests（3.081s）、authoring44/5/7、T01正文/URL/hidden44/5/5、diff通过；没有本机Jekyll/Chrome，不冒称新修订production通过。下一项精确修订head完整CI及四宽度8图，再决定main交付；原失败与4张部分图保留。
+
 ## 2026-10-19 — UI-A12b / UI025 行星图标可读性
 
 - Base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父77a3c16a17a5335133a8cb193d47313fb1b9d1ea；先读规定上下文、原COMPLETE/ADR/本轮日志及用户补充，独立worktree保护原目录，CONTEXT不存在、gh不可用未建Issue，无新用户决定。
