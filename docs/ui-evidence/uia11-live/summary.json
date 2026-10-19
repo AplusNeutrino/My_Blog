@@ -1,0 +1,226 @@
+[
+  {
+    "name": "thought-likes-390-dark",
+    "passed": true,
+    "viewport": {
+      "height": 701,
+      "width": 390
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-390-dark-initial.png",
+        "sha256": "ce3f221716b18b0f6d56963028ea0d7d264953754599a670d4786157aea44771"
+      },
+      {
+        "file": "thought-likes-390-dark-keyboard-focus.png",
+        "sha256": "b6e5d212d13257537520466bf74da896ba216ec4fe41ded39209e53f29273f65"
+      },
+      {
+        "file": "thought-likes-390-dark-liked-hover.png",
+        "sha256": "1fe3edfca0488834f59a389ff4631b4e7fc167811f8d3ec53d503b3faaf98e92"
+      },
+      {
+        "file": "thought-likes-390-dark-refresh.png",
+        "sha256": "7324f351331a47ecc34368000fd7d7b51e505651b0d87b32a92e4a98645b126c"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-390-light",
+    "passed": true,
+    "viewport": {
+      "height": 701,
+      "width": 390
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-390-light-initial.png",
+        "sha256": "efbfe48ecab49740e9aa7ea0b74999fc52a449f6ca9cca42e50fe40151da96bc"
+      },
+      {
+        "file": "thought-likes-390-light-keyboard-focus.png",
+        "sha256": "2d6d2cbbfae3a89362d58b59b0c05ca6d915fed70674800207672b1ee3976077"
+      },
+      {
+        "file": "thought-likes-390-light-liked-hover.png",
+        "sha256": "ee46794b7efba0ee8235f3d1090bbb31ec3988024a30bcd1a6ea745628834e18"
+      },
+      {
+        "file": "thought-likes-390-light-refresh.png",
+        "sha256": "2914e8cbac0404eccc63b6d8f12d752dd7fa7b11fe37d4cc38d97e422af3652f"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-768-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 768
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-768-dark-initial.png",
+        "sha256": "bd62d7460087a4c6191ba3e300c316bf1d53cb00f513b5acc6862a1c28c9cadf"
+      },
+      {
+        "file": "thought-likes-768-dark-keyboard-focus.png",
+        "sha256": "8ed6297427424a090e3cd2de76e5e1b1debe9cb887a7cd8aadcb8e9e7d39919e"
+      },
+      {
+        "file": "thought-likes-768-dark-liked-hover.png",
+        "sha256": "ff8e57551712090934d926bf4762632adcde73bc75f6aae5e623d341b53bdb2f"
+      },
+      {
+        "file": "thought-likes-768-dark-refresh.png",
+        "sha256": "3d4ffd8fa9a0910793c1abfd3b9a27287838e5973c0e2932ab71d0ba14d237c5"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-768-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 768
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-768-light-initial.png",
+        "sha256": "df820d8b9e50b87945a0178558cbc75a00da36f65c0f4a7667f8dac3c391bc5d"
+      },
+      {
+        "file": "thought-likes-768-light-keyboard-focus.png",
+        "sha256": "af7c3018c877b2aa665d678bad6cff01b189f1f11507831ad5372980e112e577"
+      },
+      {
+        "file": "thought-likes-768-light-liked-hover.png",
+        "sha256": "8f99a64b9abf768522fa25bd88eff419dacf163a1eaa123311ec1e8181b3790c"
+      },
+      {
+        "file": "thought-likes-768-light-refresh.png",
+        "sha256": "53744c279a27c55db0f11a7ce92ccf9022d221240ff34e938f1cb5ddd94571ca"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-1024-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1024
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-1024-dark-initial.png",
+        "sha256": "c3ef143be766993120440e5140644e06b11497f6086a67c66c81a0726502496d"
+      },
+      {
+        "file": "thought-likes-1024-dark-keyboard-focus.png",
+        "sha256": "b731961c4d3ef591792f009c10b0eb39b9523021f39419518b98e1fb7fd7eca7"
+      },
+      {
+        "file": "thought-likes-1024-dark-liked-hover.png",
+        "sha256": "57fc4e58b41bcb2de54137a4f46a18083b3f45108a2cf708f513eb0701692871"
+      },
+      {
+        "file": "thought-likes-1024-dark-refresh.png",
+        "sha256": "366e676746ebf457d5ae585d715bf125b0ccebc184608433079696c1bed0139b"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-1024-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1024
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-1024-light-initial.png",
+        "sha256": "84d6be4fbf85a2aabb1a641b094ff877d435ca9c041fa45bbbb3e393486eaaf2"
+      },
+      {
+        "file": "thought-likes-1024-light-keyboard-focus.png",
+        "sha256": "2fa59b6a3c5c41c7cc0ea8e79aeb36b2d7704cd3591ef943ec6fe293abd36f8a"
+      },
+      {
+        "file": "thought-likes-1024-light-liked-hover.png",
+        "sha256": "ddf4476f46d9d73d67982889b7ec15ce4d554d0915389f87c9d6a14e598dd381"
+      },
+      {
+        "file": "thought-likes-1024-light-refresh.png",
+        "sha256": "ad426108e4186c5f1555f8f04173f561afab72fe6c3e06160d9cfae828c2d036"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-1366-dark",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1366
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-1366-dark-initial.png",
+        "sha256": "f8183f9930bafd07b6b6fcc3c7f11f539d6237bec4f371514c042368026646e9"
+      },
+      {
+        "file": "thought-likes-1366-dark-keyboard-focus.png",
+        "sha256": "1209d37ef013650bf8af36b95189b1862745a520d947e1a012aec193602a4ca4"
+      },
+      {
+        "file": "thought-likes-1366-dark-liked-hover.png",
+        "sha256": "fe195a95b114bd0d83f0c1b8e0710357e4db34bda3aefa7d1b76f3c982ec79f3"
+      },
+      {
+        "file": "thought-likes-1366-dark-refresh.png",
+        "sha256": "a4c159c7c199e2be0c766f0356a6f6fab2bf56df45894f6e1f2878ae9ee10655"
+      }
+    ]
+  },
+  {
+    "name": "thought-likes-1366-light",
+    "passed": true,
+    "viewport": {
+      "height": 757,
+      "width": 1366
+    },
+    "production_state_equal": true,
+    "fixture_posts": 2,
+    "screenshots": [
+      {
+        "file": "thought-likes-1366-light-initial.png",
+        "sha256": "87872673970452061e24693c828d5b6c0c494e1cdaebba35dd1066ae6c7884a3"
+      },
+      {
+        "file": "thought-likes-1366-light-keyboard-focus.png",
+        "sha256": "c01872db43caa0d06ee328d71575e002e13fb05fb814f0f21fcd5f521ead4266"
+      },
+      {
+        "file": "thought-likes-1366-light-liked-hover.png",
+        "sha256": "dd8a5ff1a12b2d4edaad68291d8384d1f198df4964afbc7c446805f64fc7d793"
+      },
+      {
+        "file": "thought-likes-1366-light-refresh.png",
+        "sha256": "f317cb9ae9a4246a773dae963571041bb0f482cae81dd4dffcb8cd2bc6e4e334"
+      }
+    ]
+  }
+]

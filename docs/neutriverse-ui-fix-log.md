@@ -1,5 +1,15 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-022：部署后同场景限定验收done
+
+- 最新main/base/source f45ada8a7910361bef15cf6e2cb5f680307344a0；精确[run39193075042](https://github.com/AplusNeutrino/My_Blog/actions/runs/39193075042) build117869873518、deploy117875152602、verify-live-ui117875206344全部completed/success，关闭该head pending。原门禁、production Jekyll/产物及线上浏览器均成功，不用bcb分支CI代替。读取AGENTS/docs agents/本轮计划日志及证据；ADR/重构主计划和最终报告与已读版本git diff为空，旧COMPLETE不变，CONTEXT不存在。
+- 本轮范围UI-022部署复验：独立/tmp/neutriverse-ui022-live worktree保留原目录修改；仅计划、日志、uia11-checks.md及公开uia11-live证据，产品/数据/旧URL/metadata/hidden/noindex/外部仓库不改。gh不在PATH未建Issue，无新增用户决策。
+- 浏览器技能本地连接仍requires originating browser context，按技能指导用云Chrome。真实1363×936未fixture：Thoughts初始五条0/false，click首条→1/true；原生Tab焦点到第二条并看截图框线，Space→第二条1/true；刷新及Night切换后前两条1/true、后三条0/false。Night《计组笔记07》初始0，click→1/true，刷新仍1/true、button可用；当前tab SyntaxError过滤日志为空，线上DOM包含块注释。未替换fetch/存储/页面代码；这些UI表现不单独证明远端服务健康或所有文章交互均验收。
+- 实际查看同head live四宽度双主题32张viewport组成的8张原生联系表，并放大390 Light键盘焦点/1024 Night刷新2原PNG；计数/色态/焦点框/正文标签可见，暂无本项新确认遮挡或溢出。8流程states/viewport/calls与同headproduction全部一致（非像素全等），每组5独立key/仅2fixture POST、刷新保持。fixture仅隔离点赞服务，full固定侧栏捕获局限保留，正常viewport作为本项布局证据。
+- live专项12161469893（16215052 bytes）独立下载SHA256 6823132c5d268117950e81df4b3203e1c990d937ec9e38679445ed9f57980e6f；production12161250052（16082741 bytes）独立SHA256 1e91dec5bb67940e51a302de490518c2896b90e1bd1dd37f76da9ab0eab8a1f3，均匹配Actions digest。没有下载/绕过超限总包；本轮不是全站图人工验收。
+- UI-022原“压缩语法错误导致未初始化”限定done，UI-A11点赞及其hover/focus限定done；保留6张云端新截图、1张390 Light新联系表、线上JSON与32原图哈希。完整8联系表实际已看，余7不重复入库，原PNG在精确head artifact。276 tests（2.866s OK）、authoring44/5/7、T01正文/URL/hidden44/5/5本机通过；本机没有Jekyll/Chrome运行，以本head真实Actions为生产证据。
+- 新证据提交自身Actions/build/deploy/live仍需单独核对，不冒称已经通过。下一项先核对证据head，再UI-A12 Ravenis/Occult Atlas共享导航与核心返回；其余Library/阅读/hover-focus/缩放矩阵继续pending，不重做默认THINK分页，不写全站最终报告/COMPLETE，不暂停或创建额外任务。
+
 ## 2026-10-19 — UI-022：精确分支完整build成功，main交付
 
 - 最新main仍c59add7d72e766757b95688b7edf01af65a3a45e，核对ui/fix-022实现bcb8c15e324d19aea1b07548ee5bf8ac1a5769d9及audit/ui-a11证据262c761125d7e14d1d8ec2a54bd0cab09529c368。读取AGENTS/docs agents/ADR/重构计划与最终报告/本轮计划日志及用户补充；CONTEXT不存在，gh不在PATH，未建或编造Issue。
