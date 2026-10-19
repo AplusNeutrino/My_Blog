@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-023生产限定验收与main交付：最新main/base dd55edad557f265429653577b69371abbc565628，审计父提交d157607469cd2eeff48183ceb9f7fcda65c01863。已核对精确实现6c88687ce47212e9eb4035d5c56b22852831b295/[run39203108583](https://github.com/AplusNeutrino/My_Blog/actions/runs/39203108583)：build117900091713于05:30:53 UTC完整success；deploy117905656913/live117905656858按工作分支规则skipped，不冒称线上通过。277 tests/T01/authoring/production Jekyll/全部原门禁和OBSERVE8流程通过。明确复用此前实际查看的同一6c88687c四宽度双主题42 viewport/8联系表及2原PNG，不称本轮新图；加载态、远端健康及初始焦点S-A12-01局限保留。此次仅更新计划、日志、uia12-checks后携原最小层级修复/证据非强推交付main，产品/脚本/样式与6c88687c相同。新main自身build/deploy/live与线上已加载弹层复验仍validation-pending，UI-023不标done，UI-A12/全站IN PROGRESS。gh不可用，无新用户决策；本机277tests/T01/authoring/diff通过，原目录修改受独立worktree保护。下一项先核对新main精确head，再补已加载长弹层/主题/键盘/滚动，初始焦点候选不当作已通过。
+
 UI-023专项增量：6c88687c/run39203108583 production Jekyll及OBSERVE8流程success，实际看四宽度双主题42 viewport/8联系表、放大2原图，弹层标题与层级恢复。artifact12164324126摘要匹配；当前截图为应用加载态，不代表完整动态选项/远端业务验收。完整CI/main部署/线上已加载弹层仍validation-pending；只补audit/ui-a12证据，不动main或取消实现CI。
 
 2026-10-19 UI-A12 / UI-023 P1：base/main dd55edad557f265429653577b69371abbc565628，[run39197940928](https://github.com/AplusNeutrino/My_Blog/actions/runs/39197940928) build/deploy/live全部success，关闭该head pending。实际云Chrome1363×936双主题：Atlas“星盘控制”打开后标题被共享导航盖住，遮罩叠在整个弹层上；父.sky-command z50困住子panel z1000，低于scrim900/nav120。预先记录截图/范围后，仅打开状态父z提升1001，资源版本38→39；必要静态回归及8组真实Chrome专项新增，不删减原门禁。277 tests/authoring/T01通过，本机无Jekyll/Chrome；未验证实现留ui/fix-023，production/四宽度双主题看图/完整CI/main部署复验均validation-pending，不标done。gh不可用未建Issue，无新用户决策，全部旧内容/URL/noindex/隐蔽边界不变。[详细复现与验收](docs/ui-evidence/uia12-checks.md)。下一项先核对此实现head；UI-A12其余应用控制与全站矩阵继续pending。

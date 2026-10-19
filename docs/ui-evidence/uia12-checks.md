@@ -1,5 +1,11 @@
 # UI-A12 — Ravenis / Occult Atlas 共享导航与控件
 
+## 2026-10-19 完整分支CI核对与交付范围
+
+- 精确实现6c88687ce47212e9eb4035d5c56b22852831b295/run39203108583 build117900091713于05:30:53 UTC完整success；deploy117905656913、live117905656858按工作分支规则skipped。全部原门禁/production Jekyll及OBSERVE专项成功，不再把build记作运行中；以下早期记录保留为历史时点。
+- 当前base/main dd55edad557f265429653577b69371abbc565628，审计父d157607469cd2eeff48183ceb9f7fcda65c01863。本轮只更新计划/日志/本证据状态，产品与6c88687c相同；明确复用此前已实际看过的42张正常viewport/8联系表/2原PNG，不称新图。对UI-023层级修复生产限定验收，不扩展为已加载动态控件/远端健康/初始焦点验收。
+- 非强推交付main后，该新head自身build/deploy/live及线上已加载长弹层仍须另验。UI-023/UI-A12保持validation-pending；S-A12-01仍候选待复查，不凭快照修复、不宣称初始焦点已通过。无新用户决策，gh不可用。
+
 - Base/main：`dd55edad557f265429653577b69371abbc565628`（2026-10-19）。精确 [run39197940928](https://github.com/AplusNeutrino/My_Blog/actions/runs/39197940928) build/deploy/verify-live-ui 全部 success；关闭该证据 head pending。
 - 预先范围：两应用既有共享导航、主题、滚动、核心控件与返回；Night / Prospero Light，390/768/1024/1366px。先实际复现，未确认不改产品。云浏览器当前仅1363×936；其余尺寸 pending，不能用 DOM 或旧矩阵替代。
 - 如确认缺陷，允许最小修改共享导航 include/CSS、应用自身布局/脚本、必要专项回归与 workflow 接入；每个缺陷先另记编号、截图、条件和精确文件。不开发新功能、不修改关联仓库、数据与旧内容、应用 noindex/隐蔽边界。

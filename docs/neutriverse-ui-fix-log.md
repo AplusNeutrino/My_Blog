@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-023：完整分支CI核对，main交付
+
+- Base/main dd55edad557f265429653577b69371abbc565628，审计父d157607469cd2eeff48183ceb9f7fcda65c01863；独立worktree保留原目录全部修改。读取AGENTS/docs agents/本轮计划日志及uia12证据；ADR/重构主计划和最终报告与已读版本差异为空，相关公开/hidden/路由/平台保护不变，CONTEXT不存在。
+- 精确实现6c88687ce47212e9eb4035d5c56b22852831b295/[run39203108583](https://github.com/AplusNeutrino/My_Blog/actions/runs/39203108583)：build117900091713于2026-10-19 05:30:53 UTC completed/success；277 tests、T01、authoring、production Jekyll、Search/Atom、压缩脚本、OBSERVE、SEO/旧路由、资源/集成、移动/响应式与THINK/BUILD旧门禁完整成功。deploy117905656913和live117905656858按工作分支条件skipped，不当线上证据。
+- 本轮交付范围预先限定：UI-023既有最小CSS层级修复/资源版本及必要回归，携带已保存公开证据；新增改动仅计划/日志/uia12-checks状态。git diff6c88687c→d1576074仅文档/证据，产品/数据/脚本/样式没有变；显式复用上一轮同实现实际查看42 viewport/8联系表/2原PNG，不冒称本轮新增视觉检查。当前生产限定目标为弹层层级，仍保留加载态、完整动态选项与初始焦点候选S-A12-01局限。
+- 本机重新运行277tests（3.201s OK）、authoring44/5/7、T01正文/URL/hidden44/5/5；无本机Jekyll/Chrome新运行，生产证据只来自上述精确head。gh不可用未建或编造Issue，无新增用户决策。旧正文/metadata/旧URL/noindex/隐蔽边界/外部仓库不变。
+- 以expected main dd55edad非强推交付，远端head变动即停止重核。新main提交自身Actions/build/deploy/live及部署后已加载长弹层双主题、滚动、Escape焦点与共享导航仍validation-pending；UI-023不标done，不用分支CI替代新main CI；下一轮先核对新head，再实际线上同场景复验，继续初始焦点候选和UI-A12其他独立检查。全站仍IN PROGRESS，不写最终报告/COMPLETE或暂停。
+
 ## 2026-10-19 — UI-A12 / UI-023：Atlas控制弹层层叠遮挡
 
 - 同一6c88687c精确run39203108583：production Jekyll、Search/Atom、压缩点赞脚本及新增OBSERVE专项success（05:11:40 UTC），完整build仍运行不标通过。artifact12164324126，3152313bytes，下载SHA256 0cdee4d0c39c5a61f543db3af05f76254c113c906bc86b020eb2ddc300372035匹配。实际看42 viewport/8原生联系表及2原PNG，标题无遮挡、scrim不再覆盖弹层、Tab焦点可见；8次旧z50故障注入被拒绝，Escape恢复/重开/导航返回通过。注意所有专项截图仍是应用加载态，不能代替Ravenis正文/Atlas已加载长弹层、动态业务或服务健康验收；已加载场景与完整CI/部署复验仍pending。详情/局限和截图哈希见uia12-checks/uia12-production。证据继续仅audit/ui-a12，不动main不取消实现验证。
