@@ -1,5 +1,13 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-023：部署复验部分成功，字体等待超时重跑
+
+- Base/main e44fba12d6ddd0aba4b5252ddb265aa25ec45e70，精确run39207405231 build117913149025/deploy117919391087 success；live117919453041 failure。THINK/BUILD及Thoughts专项成功，OBSERVE已完成390/768/1024双主题6流程，第7流程1366 Night在settle document.fonts.ready异步等待30秒超时，未发生层级断言失败，不以此推断网站字体坏或放宽门禁。首次失败保留。
+- artifact12167877026（1814326bytes）独立下载SHA2564a22c54f58af3643ea672fac96cd38b1a5ac7809de9d48beb29d79cedd1ee08f匹配。实际看30 viewport/6联系表无本项新遮挡；不冒称未完成1366两主题验收。保存1联系表、原audit/30PNG哈希，其余原PNG留精确artifact14天。没有下载或绕过超限总包。
+- 浏览器技能本地工具Unknown tool，按指引用云Chrome1363×936。Light/Night均等数据加载后实际打开32选项长弹层，标题完整、内容不再受遮罩压暗；稳定焦点均refreshAstroButton/inside=true，Light原生Tab至export及Escape返回trigger正常，Ravenis主题切换/共享导航往返正常。各882px内容刚好容纳，未伪称无溢出内容有滚动；两张真实云图保存。noindex,nofollow保留。加载中首按钮disabled候选S-A12-01和业务余项仍pending，不改产品。
+- 只重跑同head失败job一次；attempt2 build117933481131/deploy117933435392 success，live117933434240运行中。审计保存audit/ui-a12-live，main仍e44fba12，避免新main取消重跑；UI-023/UI-A12/全站保持pending/IN PROGRESS，不用局部或其他head成功冒充完整验收。
+- 读取最新AGENTS/docs agents、本轮计划日志；ADR/重构计划/旧最终报告与此前已读版本无差异，相关保护重核、CONTEXT不存在。独立worktree保护原目录修改；277 tests、authoring44/5/7、T01正文/URL/hidden44/5/5复核通过，gh不可用未建或编造Issue，无新用户决策。只计划/日志/公开证据，不改内容/metadata/URL/hidden/noindex/私密边界/外部仓库。下一项先核对此head attempt2与1366两主题，重跑未完不标done，不写全站最终报告/暂停。
+
 ## 2026-10-19 — UI-023：完整分支CI核对，main交付
 
 - Base/main dd55edad557f265429653577b69371abbc565628，审计父d157607469cd2eeff48183ceb9f7fcda65c01863；独立worktree保留原目录全部修改。读取AGENTS/docs agents/本轮计划日志及uia12证据；ADR/重构主计划和最终报告与已读版本差异为空，相关公开/hidden/路由/平台保护不变，CONTEXT不存在。

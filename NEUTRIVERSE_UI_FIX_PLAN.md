@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-19 UI-023线上部分复验：base/main e44fba12d6ddd0aba4b5252ddb265aa25ec45e70/run39207405231 build117913149025/deploy117919391087 success，首轮live117919453041在第7流程Ravenis document.fonts.ready等待超时failure，不标全通过。6流程30 viewport/6联系表实际看无本项新遮挡；1366两主题完整CI仍缺。云1363×936双主题已加载32选项长弹层实际看，标题/层级恢复，稳定初始焦点refresh、Light Tab与Escape返回正常，加载态焦点候选及业务余项仍pending。仅对同head失败job重跑一次，不改timeout/门禁；attempt2 build117933481131/deploy117933435392 success，live117933434240运行中。只保存audit/ui-a12-live证据，避免取消重跑，main不动、UI-023不标done；277tests/T01/authoring复核通过，gh不可用，无新用户决策。[证据与局限](docs/ui-evidence/uia12-live-checks.md)。下一项先核对该head attempt2及1366双主题，保留原失败历史。
+
 2026-10-19 UI-023生产限定验收与main交付：最新main/base dd55edad557f265429653577b69371abbc565628，审计父提交d157607469cd2eeff48183ceb9f7fcda65c01863。已核对精确实现6c88687ce47212e9eb4035d5c56b22852831b295/[run39203108583](https://github.com/AplusNeutrino/My_Blog/actions/runs/39203108583)：build117900091713于05:30:53 UTC完整success；deploy117905656913/live117905656858按工作分支规则skipped，不冒称线上通过。277 tests/T01/authoring/production Jekyll/全部原门禁和OBSERVE8流程通过。明确复用此前实际查看的同一6c88687c四宽度双主题42 viewport/8联系表及2原PNG，不称本轮新图；加载态、远端健康及初始焦点S-A12-01局限保留。此次仅更新计划、日志、uia12-checks后携原最小层级修复/证据非强推交付main，产品/脚本/样式与6c88687c相同。新main自身build/deploy/live与线上已加载弹层复验仍validation-pending，UI-023不标done，UI-A12/全站IN PROGRESS。gh不可用，无新用户决策；本机277tests/T01/authoring/diff通过，原目录修改受独立worktree保护。下一项先核对新main精确head，再补已加载长弹层/主题/键盘/滚动，初始焦点候选不当作已通过。
 
 UI-023专项增量：6c88687c/run39203108583 production Jekyll及OBSERVE8流程success，实际看四宽度双主题42 viewport/8联系表、放大2原图，弹层标题与层级恢复。artifact12164324126摘要匹配；当前截图为应用加载态，不代表完整动态选项/远端业务验收。完整CI/main部署/线上已加载弹层仍validation-pending；只补audit/ui-a12证据，不动main或取消实现CI。

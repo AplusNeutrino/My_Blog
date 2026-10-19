@@ -1,0 +1,284 @@
+{
+  "head": "e44fba12d6ddd0aba4b5252ddb265aa25ec45e70",
+  "artifact": 12167877026,
+  "zipSha256": "4a22c54f58af3643ea672fac96cd38b1a5ac7809de9d48beb29d79cedd1ee08f",
+  "sourcePNG": {
+    "observe-dialog-768-light-focus.png": "41c12b86c6f6b77f6219bad6d8bc0fe3e1d05be581aa3d333b4134cb09cd11d9",
+    "observe-dialog-768-dark-open.png": "6daca91eda6d5f980e4c6732c03ee5eebc484661131bed2e94a36eacfdba9d7a",
+    "observe-dialog-768-light-ravenis.png": "7821cba69bb35cd95ff1bb65c4108cbb15372c644844924bfe6301ba23d94e01",
+    "observe-dialog-768-light-atlas.png": "8273427bc3b303e65fc3f35af8c68bd4421007d1e891e06bb97c20f1f5c136b3",
+    "observe-dialog-390-light-focus.png": "acf2230a58a861914778eaf828ff46ebd65e4a90db63440cce14862ca7e21491",
+    "observe-dialog-768-dark-scrolled.png": "6e17d86dd678a07e080289292481baac5c8fa0120f781ac0d0a4d8f11303f530",
+    "observe-dialog-1024-dark-ravenis.png": "94621feb9243d42917a1148a5618274ea38ee932270218e29559e9e3da5c8eb0",
+    "observe-dialog-1024-dark-atlas.png": "b929daf036c9c75614239fd59e3d747292bed43c397fa41aa5265895ec336332",
+    "observe-dialog-390-light-open.png": "b9635b66dc9cc7fd64c1143d8925d325f383d1ddf1aef5003ae8643c59ae3ec0",
+    "observe-dialog-1024-light-open.png": "fb19e845696154a7085679f7625f5013ad95723b1f775dcf984a7e58ca08f9b7",
+    "observe-dialog-768-light-open.png": "0f4ada5fbf9bb1a914f6b43b06c2b683821a5b39551c3a0b92e532a5a0b1de20",
+    "observe-dialog-390-light-ravenis.png": "52a2b2d74cba13ba6b0518a67606ebb2ffd32a7c77bc142421e794c994a7e9dd",
+    "observe-dialog-768-dark-atlas.png": "a23395ce50f2e585cfc01c13e4fc756ec7e9dd9cf8b81bbd6d608ccdd830bac7",
+    "observe-dialog-768-dark-ravenis.png": "01d43c9d3a7b307b6fa3756a1f94cf47cff953874b49670f9feb1f358b7a2444",
+    "observe-dialog-390-dark-atlas.png": "44698e7c976d6d0bd5db5953e527798800ea18f3ad147ec8afea922614dcd7c3",
+    "observe-dialog-1024-light-atlas.png": "13c3830551f0644bd8c0fc0de98ede67c043ab5cb6b460293c02c140a35aae17",
+    "observe-dialog-390-dark-scrolled.png": "0b72924d39615219514d57b7f2b0231506e4de13f0c5205ddd340568845cbf58",
+    "observe-dialog-390-dark-focus.png": "0b36e8e5ff78db8ad7045a0ffed5a70c5c9be47838727203f895a9d294b98cfc",
+    "observe-dialog-1024-light-ravenis.png": "be362437f186baacde504c7b7585446c534feefd4f9853afb227fdb57b824579",
+    "observe-dialog-1024-light-focus.png": "cb37dc0bba7a557ebd23db2e47b2b4e61d1b3ea076a71917a7f28fe5f553ed96",
+    "observe-dialog-390-dark-ravenis.png": "6d8d8f2a5ec8a17899b0aed70134adc5ba9e286a1e0b179bc344480d0de31c1f",
+    "observe-dialog-768-light-scrolled.png": "02304ab5396a35281e1122853d2125d062c40deb5f7af259f300d69e01140b99",
+    "observe-dialog-768-dark-focus.png": "9db5d13fda02c70d9340f25469921144ccce3efa25bb4e89f68d35e0deb439f5",
+    "observe-dialog-1024-light-scrolled.png": "1c2b42a6f934acc6ca58637975a8b4ce04478afa481c97eccf52633da5f76086",
+    "observe-dialog-1024-dark-open.png": "680ae57396f5d1ec68317bf579b5a200a0838e31fca7517dcd92fe54867deb9c",
+    "observe-dialog-390-light-scrolled.png": "deb59da87c25357dc397c2284598cc257b91f6950ed354b8a768ebf4866bf2de",
+    "observe-dialog-1024-dark-scrolled.png": "4ff8be8aca8a807c0cd52e0ad615db68e0c934071b1f12f677351a76623e757a",
+    "observe-dialog-1024-dark-focus.png": "54d9403000c0c6d95060056726276795ed6442af8fcb8a501cb6a385cb7cf428",
+    "observe-dialog-390-dark-open.png": "a2d018141b6f6a2c93d75709c8074c5f1f5c269b42bc57c2943a2e7fb53cc9a5",
+    "observe-dialog-390-light-atlas.png": "e1f4e7d2155d5ad5089aef17c407c963195aeb105d81f1d6ed409e15df03967d"
+  },
+  "flows": [
+    {
+      "name": "observe-dialog-390-dark",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 342,
+        "docWidth": 375,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 75,
+          "height": 35,
+          "left": 24,
+          "right": 336,
+          "top": 40,
+          "width": 312,
+          "x": 24,
+          "y": 40
+        },
+        "height": 701,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 693,
+          "height": 685,
+          "left": 8,
+          "right": 367,
+          "top": 8,
+          "width": 359,
+          "x": 8,
+          "y": 8
+        },
+        "panelWidth": 342,
+        "scrimZ": 900,
+        "width": 390
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 192
+    },
+    {
+      "name": "observe-dialog-390-light",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 342,
+        "docWidth": 375,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 75,
+          "height": 35,
+          "left": 24,
+          "right": 336,
+          "top": 40,
+          "width": 312,
+          "x": 24,
+          "y": 40
+        },
+        "height": 701,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 693,
+          "height": 685,
+          "left": 8,
+          "right": 367,
+          "top": 8,
+          "width": 359,
+          "x": 8,
+          "y": 8
+        },
+        "panelWidth": 342,
+        "scrimZ": 900,
+        "width": 390
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 192
+    },
+    {
+      "name": "observe-dialog-768-dark",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 712,
+        "docWidth": 753,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 82,
+          "height": 35,
+          "left": 31,
+          "right": 707,
+          "top": 47,
+          "width": 676,
+          "x": 31,
+          "y": 47
+        },
+        "height": 757,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 745,
+          "height": 733,
+          "left": 12,
+          "right": 741,
+          "top": 12,
+          "width": 729,
+          "x": 12,
+          "y": 12
+        },
+        "panelWidth": 712,
+        "scrimZ": 900,
+        "width": 768
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 31
+    },
+    {
+      "name": "observe-dialog-768-light",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 712,
+        "docWidth": 753,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 82,
+          "height": 35,
+          "left": 31,
+          "right": 707,
+          "top": 47,
+          "width": 676,
+          "x": 31,
+          "y": 47
+        },
+        "height": 757,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 745,
+          "height": 733,
+          "left": 12,
+          "right": 741,
+          "top": 12,
+          "width": 729,
+          "x": 12,
+          "y": 12
+        },
+        "panelWidth": 712,
+        "scrimZ": 900,
+        "width": 768
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 31
+    },
+    {
+      "name": "observe-dialog-1024-dark",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 968,
+        "docWidth": 1009,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 82,
+          "height": 35,
+          "left": 31,
+          "right": 963,
+          "top": 47,
+          "width": 932,
+          "x": 31,
+          "y": 47
+        },
+        "height": 757,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 745,
+          "height": 733,
+          "left": 12,
+          "right": 997,
+          "top": 12,
+          "width": 985,
+          "x": 12,
+          "y": 12
+        },
+        "panelWidth": 968,
+        "scrimZ": 900,
+        "width": 1024
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 31
+    },
+    {
+      "name": "observe-dialog-1024-light",
+      "passed": true,
+      "service": "unmocked; health NOT certified",
+      "open": {
+        "commandZ": 1001,
+        "contentWidth": 968,
+        "docWidth": 1009,
+        "focusedInside": false,
+        "heading": {
+          "bottom": 82,
+          "height": 35,
+          "left": 31,
+          "right": 963,
+          "top": 47,
+          "width": 932,
+          "x": 31,
+          "y": 47
+        },
+        "height": 757,
+        "hidden": false,
+        "navZ": 120,
+        "noindex": "noindex, nofollow",
+        "panel": {
+          "bottom": 745,
+          "height": 733,
+          "left": 12,
+          "right": 997,
+          "top": 12,
+          "width": 985,
+          "x": 12,
+          "y": 12
+        },
+        "panelWidth": 968,
+        "scrimZ": 900,
+        "width": 1024
+      },
+      "oldStackRejected": true,
+      "dialogScrollTop": 31
+    },
+    {
+      "name": "observe-dialog-1366-dark",
+      "passed": false,
+      "service": "unmocked; health NOT certified"
+    }
+  ]
+}
