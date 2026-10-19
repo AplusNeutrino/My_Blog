@@ -90,7 +90,15 @@ class OccultAtlasThemeTest(unittest.TestCase):
     def test_asset_version_is_bumped_for_theme_css(self):
         source = CONFIG.read_text(encoding="utf-8")
 
-        self.assertIn('asset_version: "38"', source)
+        self.assertIn('asset_version: "39"', source)
+
+    def test_open_dialog_command_escapes_the_scrim_stacking_context(self):
+        source = STYLES.read_text(encoding="utf-8")
+        match = re.search(r"body\.control-menu-open \.sky-command\s*\{(.*?)\}", source, re.S)
+        self.assertIsNotNone(match)
+        self.assertRegex(match.group(1), r"z-index:\s*1001\s*;")
+        # The scrim is preserved; raising only the child dialog cannot fix this.
+        self.assertRegex(source, r"body\.control-menu-open::after\s*\{[^}]*z-index:\s*900")
 
     def test_existing_responsive_breakpoints_still_cover_mobile(self):
         source = STYLES.read_text(encoding="utf-8")

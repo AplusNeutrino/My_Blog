@@ -1,5 +1,12 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-19 — UI-A12 / UI-023：Atlas控制弹层层叠遮挡
+
+- Base/main dd55edad557f265429653577b69371abbc565628 精确run39197940928 build/deploy/verify-live-ui全部success。读取最新AGENTS/docs agents、ADR0001、重构计划相关约束/最终报告、本轮计划日志；CONTEXT不存在。独立worktree不覆盖原目录修改，不重做T00–T39或默认THINK分页。
+- 浏览器技能本地连接缺originating context，按技能用云Chrome1363×936。实际查看Ravenis Light首屏、Night筛选展开，切换共享导航进入Atlas；Night/Light各打开星盘控制并保存原图：顶栏遮住标题，scrim使弹层整体变暗。只读DOM补证父.sky-command z50与子panel1000、scrim900/nav120层叠根因，不以DOM替代看图。Escape恢复触发器焦点、Atlas→Ravenis与主题保持实际通过。初始星历服务唤醒后数据到达，不冒称业务后端故障或全面健康。
+- 先在uia12-checks记录UI-023 P1、base、原图、最小范围/验收，再实施：仅打开态父层级1001、资源版本39；添加静态回归和四宽度双主题真实点击/Tab/原生弹层滚动/Escape焦点/重开/桌面侧栏/OBSERVE与Ravenis返回专项、正常viewport PNG与旧z50故障注入必须拒绝。旧门禁完整保留，未改业务/内容/路由/隐蔽边界/noindex/外部仓库。
+- 本机277 tests（2.638s OK）、authoring44/5/7与T01正文/URL/hidden44/5/5通过。T01首次漏--output而usage error，按原工具补参数后完整通过，未放宽门禁。本机无Ruby/Jekyll/Chrome，production与多视口视觉尚未验证；实现存ui/fix-023，不动main、不标done。gh不在PATH未创建/编造Issue，无新用户决策。下一轮先核对精确实现CI与截图；全部通过后才可交付main及线上同场景复验。
+
 ## 2026-10-19 — UI-022：部署后同场景限定验收done
 
 - 最新main/base/source f45ada8a7910361bef15cf6e2cb5f680307344a0；精确[run39193075042](https://github.com/AplusNeutrino/My_Blog/actions/runs/39193075042) build117869873518、deploy117875152602、verify-live-ui117875206344全部completed/success，关闭该head pending。原门禁、production Jekyll/产物及线上浏览器均成功，不用bcb分支CI代替。读取AGENTS/docs agents/本轮计划日志及证据；ADR/重构主计划和最终报告与已读版本git diff为空，旧COMPLETE不变，CONTEXT不存在。

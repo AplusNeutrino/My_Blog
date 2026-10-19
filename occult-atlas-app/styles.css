@@ -301,6 +301,12 @@ body.control-menu-open::after {
   pointer-events: none;
 }
 
+/* The fixed dialog must escape the command's normal stacking level: the
+   shared navigation and body scrim otherwise paint over its contents. */
+body.control-menu-open .sky-command {
+  z-index: 1001;
+}
+
 body.control-menu-open .sky-main,
 body.control-menu-open .sky-sidebar {
   pointer-events: none;

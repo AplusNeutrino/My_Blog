@@ -96,6 +96,20 @@ jobs:
       - name: Parse production-compressed like scripts
         run: python tools/check_like_scripts.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Verify OBSERVE dialog stacking and controls
+        run: python tools/check_observe_dialog.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_OBSERVE_DIR: ${{ runner.temp }}/neutriverse-observe-dialog
+
+      - name: Upload OBSERVE dialog evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-observe-dialog-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-observe-dialog
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Exercise Thoughts likes with isolated service fixture
         run: python tools/check_thought_likes.py "_site${{ steps.pages.outputs.base_path }}"
         env:
@@ -231,6 +245,19 @@ jobs:
           UI_LIVE_BASE: https://neutriverse.uk
           UI_LIKES_DIR: ${{ runner.temp }}/neutriverse-live-thought-likes
         run: python tools/check_thought_likes.py .
+      - name: Verify deployed OBSERVE dialog stacking and controls
+        env:
+          UI_LIVE_BASE: https://neutriverse.uk
+          UI_OBSERVE_DIR: ${{ runner.temp }}/neutriverse-live-observe-dialog
+        run: python tools/check_observe_dialog.py .
+      - name: Upload deployed OBSERVE dialog evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-live-observe-dialog-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-live-observe-dialog
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Upload deployed Thoughts likes client evidence
         if: always()
         uses: actions/upload-artifact@v4
