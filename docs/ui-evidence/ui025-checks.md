@@ -1,5 +1,10 @@
 # UI-025 — Light 星盘未选中行星符号不可辨
 
+## 精确工作提交与验收入口
+
+- 实现 `ae6f7c7d1d544990e5f8a200cb07de4f4ddba01c`，工作分支 `ui/fix-025`；[Actions39259609173](https://github.com/AplusNeutrino/My_Blog/actions/runs/39259609173)真实创建且in_progress。main复核仍004447db，未部署本次修复，不称8图/完整build成功。
+- 本收据单独保存audit/ui-a12-focus，不推进ui/fix-025避免取消精确head CI；下一轮先核对同一ae6f7c7d完整build、图标8帧与原门禁，未验收不合main。UI024失败及字体根因未证实状态仍有效。
+
 - 2026-10-19 confirmed，P2内容可读性，不是用户偏好。base/main `004447dbdf2a8187c2cac9e7ab568709296ac8ab`；审计父 `77a3c16a17a5335133a8cb193d47313fb1b9d1ea`。gh不可用未建Issue，无新用户决定。
 - 实际云Chrome1363×936 Prospero Light，真实服务自然加载完成，未选中10个行星节点只显深色圆饼，符号几乎不可辨；选择左表太阳后，太阳圆底变浅且相同PNG符号立即清晰。实际截图uia12b-light-lines-off.jpg、uia12b-light-sun-hidden.jpg及ui025-light-selected-before.jpg；前两图分别是0连线10节点、10连线9节点，菜单临时开关已恢复原值，不伪称全程默认。
 - DOM/源码佐证：normal circle fill=rgb(23,68,90)，来自`fill:var(--atlas-heading)`；active fill=rgb(255,248,231)。planet-sun PNG是透明背景深青符号（原图已看），左表及选中同资源清晰，所以不是图标缺失。root主题heading浅色而Light heading深色，错误复用文字token使Light圆底与深色符号低对比。
