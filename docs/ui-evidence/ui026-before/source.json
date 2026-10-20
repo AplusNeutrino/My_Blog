@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-20 Asia/Shanghai",
+  "site": "https://neutriverse.uk",
+  "mainHeadChecked": "b084b8a1f7818a1b9d2e1935456308ad9e6ff22e",
+  "auditParent": "dcb1aace27726a12779884fa498105b824978e3a",
+  "articleUrl": "https://neutriverse.uk/posts/%E8%AE%A1%E7%BB%84-07/",
+  "source": "cloud Chrome; Archive real link then real TOC click / back-to-top / theme UI",
+  "viewport": {"width":1363,"height":936},
+  "images": [
+    {"file":"uia07c-light-last-20261020.jpg","bytes":101123,"sha256":"19a902b366bfe4cdd2e47546911294e797ec0df58e77143ff01bf3359ceaab57","theme":"light","sidebar":"collapsed","scrollY":2692,"inspected":true},
+    {"file":"uia07c-light-top-20261020.jpg","bytes":131580,"sha256":"ca854e1bb21b66256fa272e52dcb81b41db1d4ddcda2a67d475c9839dabf38fb","theme":"light","sidebar":"collapsed","scrollY":0,"inspected":true},
+    {"file":"uia07c-night-last-20261020.jpg","bytes":110859,"sha256":"fd8cedab6712b7808ab0afcc1db86616251aac569145a9aa8569497a282bfd02","theme":"dark","sidebar":"expanded","scrollY":2580,"inspected":true}
+  ],
+  "confirmedDefect": {
+    "id":"UI-026",
+    "surface":"desktop reading sidebar series link 8 date 06/11",
+    "buttonRect":{"left":1236.609375,"right":1280.609375,"top":834,"bottom":878},
+    "dateRect":{"left":1253.25,"right":1282.40625,"top":851.921875,"bottom":870.015625},
+    "dateCenterHit":"<i class=\"fas fa-angle-up\"></i>",
+    "stack":{"top":0,"bottom":936,"maxHeight":"936px","overflowY":"auto","position":"sticky"}
+  },
+  "limits":["cloud only 1363x936; not four-width acceptance","different sidebar states; no cross-theme same-layout claim","no repaired product / deployment / post-fix screenshots yet","main own live run39334089997 failed font readiness; not called complete live success","no external backend, network, product DOM, comments or likes modified","initial guessed English path404 is not a site defect; actual route obtained from Archive"]
+}

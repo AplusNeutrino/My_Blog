@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A07c确认UI-026，独立最小实现与精确CI收据
+
+- fresh main b084b8a1f7818a1b9d2e1935456308ad9e6ff22e、审计父dcb1aace27726a12779884fa498105b824978e3a；最新规定上下文/用户补充已读，AGENTS三文档/ADR/旧COMPLETE重构报告未变，CONTEXT不存在、gh不可用不编造Issue。新clone保护旧用户目录；main7份Library同步保留。Q-UI-01无答复，仅受影响Atlas历史项blocked，不重跑、不修改CORS/外部仓库/门禁，不重复催问。
+- 先记UI-A07c任务/base/范围/验收后实际云浏览器检查。Browser插件初始化Unknown tool，改用用户允许云Chrome，1363×936；初猜英文路径404不是站内链接故障，经Archive真实进入计组07。Light收起侧栏目录8末节/返回顶部scrollY0正常，Night展开侧栏真实目录8后发现系列第8项日期06/11被返回顶部圆钮遮住。三原JPEG已实际看、来源哈希永久保存ui026-before。未改产品DOM/评论/点赞，未触及隐藏边界。
+- UI-026/P2实际复现：button x1236.609..1280.609/y834..878，date06/11 x1253.25..1282.406/y851.922..870.016，其中心elementFromPoint命中fas-angle-up。排除圆角矩形误判，未实际点击被盖日期以免混淆导航。根因为sticky右侧stack max-height100vh与底部固定按钮无安全区，不是日期数据错误。最小CSS仅min1200的stack max-height calc(100vh - 10rem)，留3rem顶栏及7rem按钮/底部空隙，原overflow、所有链接/日期、移动、按钮位置、主题色/字号均保留；CSS已有build revision查询无需手改版本。
+- 从最新main独立ui/fix-026，不携入audit分支的受阻Atlas新脚本/门禁。新增tools/check_post_panel.py，1366/1920×900/640窗口×两主题8流程：真实目录click、W3C wheel完整10链接可达、逐字符Range实际button hit、有限旧100vh故障拒绝、真实返回顶部；独立production/live截图/JSON包，现有字体30s与其余门禁完整保留，无网络/字体mock。7必要回归执行实际assert_clear拒绝日期遮挡/旧全高/缺链接/隐藏按钮/溢出并保护CSS/输入/双CI接线。
+- 本机296tests两次3.176s/3.150s、authoring44/5/7、T01正文/URL/hidden44/5/5、Python编译与diff通过；Ravenis LKG输出是既有unit fixture。无本机Chrome/Ruby/Jekyll，不重试安装权限边界；没有修复后实际图，不凭静态测试认证10rem修复有效。390/768/1024目录弹层、触控/缩放及全站其他矩阵继续pending，本次云图不能替代多视口验收。
+- 实现真实SHA a5664d8e99c4b27e31e775781104b33fbabb4a2e；ui/fix-026新ref非强推创建，[run39346235657](https://github.com/AplusNeutrino/My_Blog/actions/runs/39346235657)实际in_progress。创建前已核对in_progress workflows为空，不取消用户main run；main仍b084、audit仍dcb。此收据单独更新audit/ui-a12-focus，不再追加ui提交取消自身CI。精确head完整build/Jekyll/修复后PNG人工逐张检查/main自身deploy/live和同场景复验validation-pending，未上线、未done。不写final-report/COMPLETE或暂停；下一轮先核对同a566而非其他head。
+
 ## 2026-10-20 — UI-A12c只读现场确认CORS，集中问题Q-UI-01
 
 - 36c097e2/run39339079922 build118355840133于2026-10-19 23:04:56 UTC failure，298tests/T01/authoring/Jekyll及前置专项成功，deploy118356557471/live118356557408 skipped。artifact12228157855/45154bytes ZIP SHA256802b1a064d83a22d61b3e42c7afb97cf582b411d879f49214d616480dde013fb独立匹配；实际看唯一390×844 failure原图，仍首开0节点，未进入查询。新增只读现场：目标API GET response-extra HTTP200，loadingFailed net::ERR_FAILED / corsError AllowOriginMismatch，console CORS标志true，诊断无错误/无缺失。确认CI构建预览无法读取响应，不能推断服务宕机/历史控件缺陷，也不等于线上同源失败。
