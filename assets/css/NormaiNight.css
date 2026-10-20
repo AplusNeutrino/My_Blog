@@ -2548,6 +2548,15 @@ footer a:hover,
   display: none;
 }
 
+/* UI-026: keep the scrollable desktop reading panel above the fixed button.
+   Reserve the 3rem top bar plus 7rem for the button and its bottom clearance.
+   The existing overflow keeps every TOC/series link reachable on short windows. */
+@media (min-width: 1200px) {
+  #post-panel-stack {
+    max-height: calc(100vh - 10rem);
+  }
+}
+
 #post-panel-stack #toc-wrapper {
   position: static !important;
   max-height: none;

@@ -93,6 +93,20 @@ jobs:
       - name: Validate Search and Atom feed
         run: python tools/check_search_feed.py "_site${{ steps.pages.outputs.base_path }}"
 
+      - name: Verify desktop post panel clearance
+        run: python tools/check_post_panel.py "_site${{ steps.pages.outputs.base_path }}"
+        env:
+          UI_POST_PANEL_DIR: ${{ runner.temp }}/neutriverse-post-panel
+
+      - name: Upload desktop post panel evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-post-panel-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-post-panel
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Parse production-compressed like scripts
         run: python tools/check_like_scripts.py "_site${{ steps.pages.outputs.base_path }}"
 
@@ -254,6 +268,19 @@ jobs:
           UI_LIVE_BASE: https://neutriverse.uk
           UI_AUDIT_DIR: ${{ runner.temp }}/neutriverse-live-ui
         run: python tools/check_think_build_visual.py .
+      - name: Verify deployed desktop post panel clearance
+        env:
+          UI_LIVE_BASE: https://neutriverse.uk
+          UI_POST_PANEL_DIR: ${{ runner.temp }}/neutriverse-live-post-panel
+        run: python tools/check_post_panel.py .
+      - name: Upload deployed desktop post panel evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: neutriverse-live-post-panel-${{ github.sha }}
+          path: ${{ runner.temp }}/neutriverse-live-post-panel
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Verify deployed Thoughts likes client with isolated service fixture
         env:
           UI_LIVE_BASE: https://neutriverse.uk

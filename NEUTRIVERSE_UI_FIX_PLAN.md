@@ -15,6 +15,8 @@
 
 ## 问题台账
 
+2026-10-20 UI-026/P2 confirmed、实现validation-pending：fresh main b084b8a1（Library同步保留），云1363×936 Night/展开侧栏/计组07真实目录末节时，固定按钮覆盖系列第8项日期06/11，日期中心实际命中fas-angle-up。先记docs/ui-evidence/uia07c-checks.md再仅桌面右侧post-panel-stack限高留3rem顶栏+7rem按钮安全区，原overflow/链接/日期/移动/配色不变；追加独立真实滚轮/10链接/逐字Range命中/旧100vh故障拒绝与四桌面窗口双主题PNG专项及CI。未验证留ui/fix-026，不改main，不携入受阻Atlas历史门禁，不把云图当多尺寸验收；Q-UI-01沿用审计分支dcb1aace待决、不重复催问。gh不可用未造issue。全站IN PROGRESS，下一项精确实现head完整CI与原图，部署复验仍pending。
+
 2026-10-20 UI025生产限定通过、main交付准备：base/main004447db，审计父16470058，实现8a7ac42a/run39299220841 build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/T01/authoring/Jekyll/产物/原门禁均通过，deploy118230273842/live118230275552分支规则skipped。新head图标8原图、OBSERVE58帧/8联系表及1024 Night/1366 Light loading-wrap两原图实际查看，图标清晰、标题/焦点回环正常；16帧为disabled UI fixture，服务未加载、业务健康不认证。字体超时未复现、不宣称根因已修好；旧main失败历史与UI024线上pending保留。本轮先限定仅计划/日志/ui025-checks及ui025-8a7-production公开证据，再携已验证原产品/审计非强推main，不新增样式或改门禁。新main精确head build/deploy/live与线上自然已加载同场景必须另验，UI025不标done、全站IN PROGRESS，无新用户决定。下一项先核对新main，再图标选择/显示开关及UI024焦点线上补验。
 
 2026-10-20 UI-A09-F只读来源诊断：base/main004447db、工作ac3430d9、审计父9776385f；先记录ui025-checks范围后仅扩THINK settle失败后字体CSS src/FontFace/已有请求缓存关联与必要回归、计划日志。只读已收到的Google Fonts CSS body，不新增网络请求/读取任意body或headers；匹配缺失/不唯一/读取失败照实记录。原30s ready等待/raise/所有门禁不变、不改产品、不盲重跑。未验实现留ui/fix-025，UI024/025仍validation-pending，无新用户决定；此次不重看旧图冒称新视觉证据。

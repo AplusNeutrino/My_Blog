@@ -1,5 +1,14 @@
 # Neutriverse UI 修复执行日志
 
+## 2026-10-20 — UI-A07c实际目录检查确认UI-026，最小修复待验
+
+- fresh main b084b8a1f7818a1b9d2e1935456308ad9e6ff22e，审计父dcb1aace27726a12779884fa498105b824978e3a；最新规定AGENTS/三docs agents/ADR/重构18–19/旧最终报告/本轮计划日志/用户补充已读，CONTEXT不存在、gh不在PATH。新clone，用户旧目录不改，main7份Library同步完整保留。受阻Atlas不重跑/不携入独立实现，Q-UI-01沿用dcb1aace集中队列awaiting-user，不重复催问；无新增用户决定。
+- 先记UI-A07c范围，Browser插件初始化Unknown tool后采用云浏览器，实际1363×936。最初猜错英文路径404，不作为缺陷；通过Archive真实链接打开公开计组07。Light收起侧栏下目录8点击/末节标题可见、返回顶部最终scrollY0；Night展开侧栏同目录8实际点击后确认日期06/11被固定按钮盖住。三原JPEG逐张查看保存；未mock、未改DOM、未触及评论或点赞。
+- UI-026/P2：原图中返回顶部rect x1236.609..1280.609/y834..878；第8系列日期rect x1253.25..1282.406/y851.922..870.016，其中心elementFromPoint命中按钮fas-angle-up，不是矩形圆角误判。产品根因为sticky post-panel-stack最大100vh、可滚动区域伸入底部固定按钮位置。先记task/base/范围/验收后，仅桌面min1200的stack max-height改calc(100vh - 10rem)，留3rem顶部bar与7rem按钮/底部空隙，保持原滚动及全部链接、日期metadata、按钮位置、移动布局、颜色/字号；CSS已有build revision查询，不另手改版本。
+- 必要回归：独立tools/check_post_panel.py，在1366/1920、900/640窗口高、两主题8流程真实目录click/原生wheel全10链接/逐字符Range实际button hit-test/旧100vh有限故障注入拒绝/真实返回顶部；图片和每帧诊断独立artifact，不mock网络/字体，不改既有30s字体或任何旧门禁。新专项/测试/两个CI入口及上述文档和公开before证据限定本次范围，不改内容或外部仓库。
+- 状态implementation/validation-pending：本机检查、精确head production/Jekyll/全部原门禁、修复后新PNG人工看图、main自身CI/build/deploy/live和同场景线上尚待；本次云图仅1363不代替390/768/1024/1366/移动触控/缩放或目录弹层，后续分别采证。main最新字体ready失败历史保留，不冒称服务问题已修好；仅独立工作分支保存，不写COMPLETE/final-report或暂停。
+- 本机296tests（3.176s）、authoring44/5/7、T01保护44/5/5、Python编译与git diff --check通过，7项新增回归含实际assert_clear拒绝确认日期遮挡等。Ravenis LKG是unit fixture；本机无Chrome/Ruby/Jekyll，不重试安装权限边界。三原JPEG来源/哈希已存ui026-before/source.json，全部逐张看过；尚无修复后PNG或完整新head成功结果，必须继续pending。
+
 ## 2026-10-20 — UI025完整分支CI与生产看图，准备main交付
 
 - Base/main004447dbdf2a8187c2cac9e7ab568709296ac8ab，审计父164700588492e789dae0758efcdc7579bf1bea1b，实现8a7ac42a690124ffbb3aea8d656c9c8556f48255；fresh refs/API/fetch已核对，规定上下文/用户补充重读。CONTEXT不存在、gh不可用未编造Issue；独立worktree保护原dirty内容，无新增用户决定。
