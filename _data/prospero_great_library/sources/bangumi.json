@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-10-26T22:37:40Z",
-  "last_success_at": "2026-10-26T22:37:40Z",
+  "fetched_at": "2026-10-27T22:10:11Z",
+  "last_success_at": "2026-10-27T22:10:11Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 371,
   "records": [
@@ -3521,8 +3521,8 @@
         "轮回",
         "推理",
         "PC",
-        "kemco",
         "骚话王历险记",
+        "kemco",
         "ADV"
       ],
       "identifiers": {
@@ -3546,8 +3546,8 @@
           "轮回",
           "推理",
           "PC",
-          "kemco",
           "骚话王历险记",
+          "kemco",
           "ADV"
         ],
         "book_category": null
@@ -4465,9 +4465,9 @@
         "日本",
         "电波",
         "ACECOOL",
-        "电影",
         "偶像",
-        "2020-2029"
+        "电影",
+        "动画电影"
       ],
       "identifiers": {
         "bangumi_subject_id": 540411
@@ -4490,9 +4490,9 @@
           "日本",
           "电波",
           "ACECOOL",
-          "电影",
           "偶像",
-          "2020-2029"
+          "电影",
+          "动画电影"
         ],
         "book_category": null
       }
@@ -5993,8 +5993,8 @@
         "JUMP",
         "恶搞",
         "銀魂~搞笑才是人生~",
-        "GINTAMA",
         "TV",
+        "GINTAMA",
         "SUNRISE"
       ],
       "identifiers": {
@@ -6018,8 +6018,8 @@
           "JUMP",
           "恶搞",
           "銀魂~搞笑才是人生~",
-          "GINTAMA",
           "TV",
+          "GINTAMA",
           "SUNRISE"
         ],
         "book_category": null
@@ -7842,8 +7842,8 @@
         "历史",
         "战争",
         "2003",
-        "古希腊",
         "青年漫画",
+        "古希腊",
         "坑",
         "军事",
         "传记"
@@ -7867,8 +7867,8 @@
           "历史",
           "战争",
           "2003",
-          "古希腊",
           "青年漫画",
+          "古希腊",
           "坑",
           "军事",
           "传记"
@@ -7911,7 +7911,7 @@
         "2021",
         "炒外汇",
         "惊悚",
-        "KADOKAWA"
+        "日本"
       ],
       "identifiers": {
         "bangumi_subject_id": 339887
@@ -7936,7 +7936,7 @@
           "2021",
           "炒外汇",
           "惊悚",
-          "KADOKAWA"
+          "日本"
         ],
         "book_category": null
       }
@@ -11996,12 +11996,12 @@
       "progress": null,
       "tags": [
         "卡牌",
-        "PC",
         "CDPR",
         "rogue",
+        "PC",
+        "DBG",
         "游戏",
-        "GOG",
-        "DBG"
+        "GOG"
       ],
       "identifiers": {
         "bangumi_subject_id": 390976
@@ -12018,12 +12018,12 @@
         "platform": null,
         "subject_tags": [
           "卡牌",
-          "PC",
           "CDPR",
           "rogue",
+          "PC",
+          "DBG",
           "游戏",
-          "GOG",
-          "DBG"
+          "GOG"
         ],
         "book_category": null
       }
@@ -12116,11 +12116,11 @@
         "昆特牌",
         "巫师",
         "RPG",
-        "CDProject",
         "STEAM",
+        "CDProject",
         "多结局",
         "2018",
-        "PS4"
+        "Switch"
       ],
       "identifiers": {
         "bangumi_subject_id": 264568
@@ -12141,11 +12141,11 @@
           "昆特牌",
           "巫师",
           "RPG",
-          "CDProject",
           "STEAM",
+          "CDProject",
           "多结局",
           "2018",
-          "PS4"
+          "Switch"
         ],
         "book_category": null
       }
@@ -12650,8 +12650,8 @@
         "東方",
         "ZUN",
         "東方Project",
-        "弹幕",
         "东方",
+        "弹幕",
         "PC",
         "快感拍摄STG",
         "东方Project"
@@ -12675,8 +12675,8 @@
           "東方",
           "ZUN",
           "東方Project",
-          "弹幕",
           "东方",
+          "弹幕",
           "PC",
           "快感拍摄STG",
           "东方Project"
@@ -14316,7 +14316,7 @@
         "PC",
         "东方",
         "同人",
-        "东方干zun传"
+        "2015"
       ],
       "identifiers": {
         "bangumi_subject_id": 131875
@@ -14341,7 +14341,7 @@
           "PC",
           "东方",
           "同人",
-          "东方干zun传"
+          "2015"
         ],
         "book_category": null
       }
@@ -15062,9 +15062,9 @@
         "NBGI",
         "2004",
         "单机",
+        "PS4",
         "视频通关",
-        "游戏",
-        "PS4"
+        "游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 46305
@@ -15087,9 +15087,9 @@
           "NBGI",
           "2004",
           "单机",
+          "PS4",
           "视频通关",
-          "游戏",
-          "PS4"
+          "游戏"
         ],
         "book_category": null
       }
@@ -16909,8 +16909,8 @@
         "PC",
         "CRPG",
         "RPG",
-        "STEAM",
         "康米主义",
+        "STEAM",
         "侦探",
         "2019",
         "悬疑",
@@ -16934,8 +16934,8 @@
           "PC",
           "CRPG",
           "RPG",
-          "STEAM",
           "康米主义",
+          "STEAM",
           "侦探",
           "2019",
           "悬疑",
@@ -17445,8 +17445,8 @@
         "SquareEnix",
         "网游",
         "最终幻想",
-        "2010",
         "RPG",
+        "2010",
         "Online",
         "Square-Enix"
       ],
@@ -17470,8 +17470,8 @@
           "SquareEnix",
           "网游",
           "最终幻想",
-          "2010",
           "RPG",
+          "2010",
           "Online",
           "Square-Enix"
         ],
