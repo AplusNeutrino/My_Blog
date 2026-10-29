@@ -644,6 +644,18 @@
         "title": "斗牌传说",
         "source": "neodb"
       }
+    },
+    {
+      "id": "evt_57de6c5b9462230d",
+      "observed_at": "2026-10-29T22:43:13Z",
+      "local_date": "2026-10-30",
+      "entity_id": "game:2bea45391d",
+      "category": "game",
+      "event": "entity_first_seen",
+      "source": null,
+      "data": {
+        "title": "赛博朋克：边缘行者 2"
+      }
     }
   ]
 }

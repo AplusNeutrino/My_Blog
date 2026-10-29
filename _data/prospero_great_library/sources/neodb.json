@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-10-28T22:31:34Z",
-  "last_success_at": "2026-10-28T22:31:34Z",
+  "fetched_at": "2026-10-29T22:43:13Z",
+  "last_success_at": "2026-10-29T22:43:13Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -165,7 +165,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.6,
-        "community_rating_count": 515,
+        "community_rating_count": 516,
         "comment_text": null,
         "api_url": "/api/movie/4amEobU9Tt4UB6e07YHg7P"
       }
@@ -382,10 +382,12 @@
       "progress": null,
       "tags": [],
       "identifiers": {
-        "neodb_item_id": "0L9DTwNiUGCwSn5kIXzWJX"
+        "neodb_item_id": "0L9DTwNiUGCwSn5kIXzWJX",
+        "bangumi_subject_id": 43275
       },
       "links": {
-        "neodb": "https://neodb.social/movie/0L9DTwNiUGCwSn5kIXzWJX"
+        "neodb": "https://neodb.social/movie/0L9DTwNiUGCwSn5kIXzWJX",
+        "bangumi": "https://bgm.tv/subject/43275"
       },
       "telemetry": {},
       "updated_at": "2026-08-17T16:14:47.057Z",
@@ -717,7 +719,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.7,
-        "community_rating_count": 1245,
+        "community_rating_count": 1246,
         "comment_text": null,
         "api_url": "/api/movie/6cDZwOtvGwKV2ywEkPvuMW"
       }
@@ -2011,7 +2013,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 1765,
+        "community_rating_count": 1766,
         "comment_text": null,
         "api_url": "/api/movie/1RX2ikFCBoIpTsQPph7B7I"
       }
@@ -3058,8 +3060,8 @@
       "raw_type": "book",
       "extra": {
         "raw_collection_status": "complete",
-        "community_rating": 8.3,
-        "community_rating_count": 56,
+        "community_rating": 8.2,
+        "community_rating_count": 57,
         "comment_text": null,
         "api_url": "/api/book/2CgfmTYjXy6LMyu9gu8Oj9"
       }
@@ -3219,7 +3221,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.5,
-        "community_rating_count": 476,
+        "community_rating_count": 477,
         "comment_text": null,
         "api_url": "/api/book/4MFiRhOCK2RddnliFVq4PG"
       }
@@ -4780,10 +4782,12 @@
       "progress": null,
       "tags": [],
       "identifiers": {
-        "neodb_item_id": "2DJf49NMgDNJuBaNa9rlj8"
+        "neodb_item_id": "2DJf49NMgDNJuBaNa9rlj8",
+        "bangumi_subject_id": 35296
       },
       "links": {
-        "neodb": "https://neodb.social/movie/2DJf49NMgDNJuBaNa9rlj8"
+        "neodb": "https://neodb.social/movie/2DJf49NMgDNJuBaNa9rlj8",
+        "bangumi": "https://bgm.tv/subject/35296"
       },
       "telemetry": {},
       "updated_at": "2023-01-24T15:54:00Z",

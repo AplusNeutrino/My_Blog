@@ -1,18 +1,18 @@
 {
   "stats_schema_version": 2,
-  "total_items": 520,
+  "total_items": 521,
   "by_category": {
+    "game": 189,
     "anime": 123,
-    "game": 188,
     "book": 124,
     "movie": 56,
     "comic": 26,
     "drama": 3
   },
   "by_status": {
+    "completed": 371,
     "wishlist": 123,
     "in_progress": 9,
-    "completed": 370,
     "on_hold": 14,
     "dropped": 4
   },
@@ -21,7 +21,7 @@
     "5": 5,
     "6": 36,
     "7": 85,
-    "8": 53,
+    "8": 54,
     "9": 13,
     "10": 4
   },
@@ -48,7 +48,7 @@
         5,
         35,
         85,
-        52,
+        53,
         13,
         4
       ],
@@ -120,7 +120,7 @@
         1,
         18,
         40,
-        23,
+        24,
         5,
         1
       ],
@@ -145,10 +145,10 @@
       "movie": 48,
       "drama": 3,
       "anime": 62,
-      "game": 120,
+      "game": 121,
       "music": 0
     },
-    "default_total": 379,
+    "default_total": 380,
     "wishlist_by_category": {
       "book": 0,
       "comic": 3,
