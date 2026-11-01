@@ -1,11 +1,78 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-10-31T21:29:57Z",
-  "last_success_at": "2026-10-31T21:29:57Z",
+  "fetched_at": "2026-11-01T21:58:50Z",
+  "last_success_at": "2026-11-01T21:58:50Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
+    {
+      "source": "bangumi",
+      "source_id": "822",
+      "category_hint": "anime",
+      "title": "FLCL",
+      "title_original": "フリクリ",
+      "alternate_titles": [
+        "フリクリ"
+      ],
+      "year": 2000,
+      "release_date": "2000-04-26",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/af/da/822_9y55j.jpg",
+      "summary": "近未来的日本，一个叫做“疏濑”的城市中，市民过着平凡的生活，只不过，在城市的一角，山冈上面耸立着医疗机器制造厂建造的外形酷似熨斗的工厂，每天固定时刻，那个工厂都像刚烫完东西一样散发出大量蒸汽。\r\n小学六年级学生直太，与高中女生真见美，直太那",
+      "status": "completed",
+      "rating": {
+        "value": 7.0,
+        "scale": 10.0,
+        "normalized_10": 7.0,
+        "source": "bangumi"
+      },
+      "progress": {
+        "current": 0,
+        "total": 6,
+        "unit": "episode",
+        "percent": 0.0,
+        "source": "bangumi"
+      },
+      "tags": [
+        "GAINAX",
+        "OVA",
+        "意识流",
+        "原创",
+        "鹤卷和哉",
+        "贞本义行",
+        "2000",
+        "FLCL",
+        "青春",
+        "神配乐"
+      ],
+      "identifiers": {
+        "bangumi_subject_id": 822
+      },
+      "links": {
+        "bangumi": "https://bgm.tv/subject/822"
+      },
+      "telemetry": {},
+      "updated_at": "2026-11-01T22:15:50+08:00",
+      "raw_type": 2,
+      "extra": {
+        "comment": "非常震惊的表现，但是非常遗憾这部最终没有触到我",
+        "private": false,
+        "platform": null,
+        "subject_tags": [
+          "GAINAX",
+          "OVA",
+          "意识流",
+          "原创",
+          "鹤卷和哉",
+          "贞本义行",
+          "2000",
+          "FLCL",
+          "青春",
+          "神配乐"
+        ],
+        "book_category": null
+      }
+    },
     {
       "source": "bangumi",
       "source_id": "513878",
@@ -806,8 +873,8 @@
         "PC",
         "2026",
         "Galgame",
-        "全年龄",
         "STEAM",
+        "全年龄",
         "DigitalCats"
       ],
       "identifiers": {
@@ -831,8 +898,8 @@
           "PC",
           "2026",
           "Galgame",
-          "全年龄",
           "STEAM",
+          "全年龄",
           "DigitalCats"
         ],
         "book_category": null
@@ -863,8 +930,8 @@
       "tags": [
         "历史",
         "漫画改",
-        "2026年7月",
         "山田尚子",
+        "2026年7月",
         "ScienceSARU",
         "TV",
         "2026",
@@ -888,8 +955,8 @@
         "subject_tags": [
           "历史",
           "漫画改",
-          "2026年7月",
           "山田尚子",
+          "2026年7月",
           "ScienceSARU",
           "TV",
           "2026",
@@ -2372,7 +2439,7 @@
         "绝对神作",
         "Clover",
         "PS3",
-        "天照"
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 1536
@@ -2397,7 +2464,7 @@
           "绝对神作",
           "Clover",
           "PS3",
-          "天照"
+          "PC"
         ],
         "book_category": null
       }
@@ -3588,8 +3655,8 @@
         "轮回",
         "推理",
         "PC",
-        "骚话王历险记",
         "kemco",
+        "骚话王历险记",
         "ADV"
       ],
       "identifiers": {
@@ -3613,8 +3680,8 @@
           "轮回",
           "推理",
           "PC",
-          "骚话王历险记",
           "kemco",
+          "骚话王历险记",
           "ADV"
         ],
         "book_category": null
@@ -3755,8 +3822,8 @@
         "丸户史明",
         "HERMIT",
         "欢乐",
-        "女儿",
         "PC",
+        "女儿",
         "GAL",
         "汉化"
       ],
@@ -3780,8 +3847,8 @@
           "丸户史明",
           "HERMIT",
           "欢乐",
-          "女儿",
           "PC",
+          "女儿",
           "GAL",
           "汉化"
         ],
@@ -5732,12 +5799,12 @@
         "FPS",
         "PC",
         "战锤40K",
-        "RPG",
         "PVE",
+        "RPG",
         "STEAM",
+        "多人",
         "Fatshark",
         "装备驱动",
-        "四人打僵尸",
         "放弃全成就"
       ],
       "identifiers": {
@@ -5757,12 +5824,12 @@
           "FPS",
           "PC",
           "战锤40K",
-          "RPG",
           "PVE",
+          "RPG",
           "STEAM",
+          "多人",
           "Fatshark",
           "装备驱动",
-          "四人打僵尸",
           "放弃全成就"
         ],
         "book_category": null
@@ -6368,8 +6435,8 @@
         "战争",
         "0080",
         "1989",
-        "原创",
         "萝卜",
+        "原创",
         "科幻",
         "美树本晴彦"
       ],
@@ -6393,8 +6460,8 @@
           "战争",
           "0080",
           "1989",
-          "原创",
           "萝卜",
+          "原创",
           "科幻",
           "美树本晴彦"
         ],
@@ -8170,10 +8237,10 @@
         "讲谈社",
         "福本伸行",
         "青年",
-        "中篇",
         "漫画系列",
-        "连载中",
-        "职场"
+        "职场",
+        "中篇",
+        "单元剧"
       ],
       "identifiers": {
         "bangumi_subject_id": 333688
@@ -8195,10 +8262,10 @@
           "讲谈社",
           "福本伸行",
           "青年",
-          "中篇",
           "漫画系列",
-          "连载中",
-          "职场"
+          "职场",
+          "中篇",
+          "单元剧"
         ],
         "book_category": null
       }
@@ -9648,8 +9715,8 @@
         "东方",
         "Metroidvania",
         "横版",
-        "同人游戏",
-        "STEAM"
+        "STEAM",
+        "同人游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 265119
@@ -9673,8 +9740,8 @@
           "东方",
           "Metroidvania",
           "横版",
-          "同人游戏",
-          "STEAM"
+          "STEAM",
+          "同人游戏"
         ],
         "book_category": null
       }
@@ -10284,8 +10351,8 @@
         "PC",
         "多人",
         "沙盒",
-        "STEAM",
         "恐怖",
+        "STEAM",
         "2014",
         "独立游戏",
         "野人",
@@ -10309,8 +10376,8 @@
           "PC",
           "多人",
           "沙盒",
-          "STEAM",
           "恐怖",
+          "STEAM",
           "2014",
           "独立游戏",
           "野人",
@@ -10406,8 +10473,8 @@
         "PC",
         "多人",
         "XGP",
-        "合作",
         "精神续作",
+        "合作",
         "丧尸",
         "PVE",
         "2021",
@@ -10431,8 +10498,8 @@
           "PC",
           "多人",
           "XGP",
-          "合作",
           "精神续作",
+          "合作",
           "丧尸",
           "PVE",
           "2021",
@@ -10872,10 +10939,10 @@
         "STG",
         "空战",
         "STEAM",
-        "VR",
         "indie",
-        "2020",
+        "VR",
         "XGP",
+        "2020",
         "游戏",
         "独立"
       ],
@@ -10897,10 +10964,10 @@
           "STG",
           "空战",
           "STEAM",
-          "VR",
           "indie",
-          "2020",
+          "VR",
           "XGP",
+          "2020",
           "游戏",
           "独立"
         ],
@@ -11111,12 +11178,12 @@
         "PC",
         "mafia",
         "射击",
-        "TPS",
         "剧情",
+        "TPS",
         "2KGames",
+        "STEAM",
         "ACT",
-        "2020",
-        "STEAM"
+        "2020"
       ],
       "identifiers": {
         "bangumi_subject_id": 496201
@@ -11136,12 +11203,12 @@
           "PC",
           "mafia",
           "射击",
-          "TPS",
           "剧情",
+          "TPS",
           "2KGames",
+          "STEAM",
           "ACT",
-          "2020",
-          "STEAM"
+          "2020"
         ],
         "book_category": null
       }
@@ -13988,7 +14055,7 @@
         "2010",
         "西部沙箱",
         "开放世界",
-        "PC"
+        "AAVG"
       ],
       "identifiers": {
         "bangumi_subject_id": 3504
@@ -14013,7 +14080,7 @@
           "2010",
           "西部沙箱",
           "开放世界",
-          "PC"
+          "AAVG"
         ],
         "book_category": null
       }
@@ -15129,9 +15196,9 @@
         "NBGI",
         "2004",
         "单机",
-        "PS4",
         "视频通关",
-        "游戏"
+        "游戏",
+        "PS4"
       ],
       "identifiers": {
         "bangumi_subject_id": 46305
@@ -15154,9 +15221,9 @@
           "NBGI",
           "2004",
           "单机",
-          "PS4",
           "视频通关",
-          "游戏"
+          "游戏",
+          "PS4"
         ],
         "book_category": null
       }
@@ -17453,8 +17520,8 @@
         "探索",
         "PC",
         "神作",
-        "STEAM",
-        "AVG"
+        "AVG",
+        "STEAM"
       ],
       "identifiers": {
         "bangumi_subject_id": 283730
@@ -17477,8 +17544,8 @@
           "探索",
           "PC",
           "神作",
-          "STEAM",
           "AVG",
+          "STEAM",
           "世纪第一探索Game"
         ],
         "book_category": null
@@ -18547,8 +18614,8 @@
         "热血",
         "漫画改",
         "战斗",
-        "TV",
         "2014年4月",
+        "TV",
         "2014",
         "燃",
         "学姿势"
@@ -18572,8 +18639,8 @@
           "热血",
           "漫画改",
           "战斗",
-          "TV",
           "2014年4月",
+          "TV",
           "2014",
           "燃",
           "学姿势"
@@ -20855,68 +20922,6 @@
           "2008",
           "codegeass",
           "谷口悟朗"
-        ],
-        "book_category": null
-      }
-    },
-    {
-      "source": "bangumi",
-      "source_id": "822",
-      "category_hint": "anime",
-      "title": "FLCL",
-      "title_original": "フリクリ",
-      "alternate_titles": [
-        "フリクリ"
-      ],
-      "year": 2000,
-      "release_date": "2000-04-26",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/af/da/822_9y55j.jpg",
-      "summary": "近未来的日本，一个叫做“疏濑”的城市中，市民过着平凡的生活，只不过，在城市的一角，山冈上面耸立着医疗机器制造厂建造的外形酷似熨斗的工厂，每天固定时刻，那个工厂都像刚烫完东西一样散发出大量蒸汽。\r\n小学六年级学生直太，与高中女生真见美，直太那",
-      "status": "wishlist",
-      "rating": null,
-      "progress": {
-        "current": 0,
-        "total": 6,
-        "unit": "episode",
-        "percent": 0.0,
-        "source": "bangumi"
-      },
-      "tags": [
-        "GAINAX",
-        "OVA",
-        "意识流",
-        "原创",
-        "鹤卷和哉",
-        "贞本义行",
-        "2000",
-        "FLCL",
-        "青春",
-        "神配乐"
-      ],
-      "identifiers": {
-        "bangumi_subject_id": 822
-      },
-      "links": {
-        "bangumi": "https://bgm.tv/subject/822"
-      },
-      "telemetry": {},
-      "updated_at": "2025-06-26T06:40:33+08:00",
-      "raw_type": 2,
-      "extra": {
-        "comment": null,
-        "private": false,
-        "platform": null,
-        "subject_tags": [
-          "GAINAX",
-          "OVA",
-          "意识流",
-          "原创",
-          "鹤卷和哉",
-          "贞本义行",
-          "2000",
-          "FLCL",
-          "青春",
-          "神配乐"
         ],
         "book_category": null
       }

@@ -656,6 +656,34 @@
       "data": {
         "title": "赛博朋克：边缘行者 2"
       }
+    },
+    {
+      "id": "evt_0f1d63df9d3e1577",
+      "observed_at": "2026-11-01T21:58:50Z",
+      "local_date": "2026-11-02",
+      "entity_id": "anime:24c4c93b25",
+      "category": "anime",
+      "event": "rating_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "FLCL",
+        "from": null,
+        "to": 7.0
+      }
+    },
+    {
+      "id": "evt_323fda8c5add5ea0",
+      "observed_at": "2026-11-01T21:58:50Z",
+      "local_date": "2026-11-02",
+      "entity_id": "anime:24c4c93b25",
+      "category": "anime",
+      "event": "status_changed",
+      "source": "bangumi",
+      "data": {
+        "title": "FLCL",
+        "from": "wishlist",
+        "to": "completed"
+      }
     }
   ]
 }

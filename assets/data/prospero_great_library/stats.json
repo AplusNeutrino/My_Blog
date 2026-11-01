@@ -2,16 +2,16 @@
   "stats_schema_version": 2,
   "total_items": 521,
   "by_category": {
-    "game": 189,
     "anime": 123,
+    "game": 189,
     "book": 124,
     "movie": 56,
     "comic": 26,
     "drama": 3
   },
   "by_status": {
-    "completed": 371,
-    "wishlist": 123,
+    "completed": 372,
+    "wishlist": 122,
     "in_progress": 9,
     "on_hold": 14,
     "dropped": 4
@@ -20,7 +20,7 @@
     "3": 2,
     "5": 5,
     "6": 36,
-    "7": 85,
+    "7": 86,
     "8": 54,
     "9": 13,
     "10": 4
@@ -47,7 +47,7 @@
         0,
         5,
         35,
-        85,
+        86,
         53,
         13,
         4
@@ -107,7 +107,7 @@
         0,
         3,
         11,
-        20,
+        21,
         16,
         5,
         0
@@ -144,21 +144,21 @@
       "comic": 22,
       "movie": 48,
       "drama": 3,
-      "anime": 62,
+      "anime": 63,
       "game": 121,
       "music": 0
     },
-    "default_total": 380,
+    "default_total": 381,
     "wishlist_by_category": {
       "book": 0,
       "comic": 3,
       "movie": 8,
       "drama": 0,
-      "anime": 57,
+      "anime": 56,
       "game": 55,
       "music": 0
     },
-    "wishlist_total": 123,
+    "wishlist_total": 122,
     "other_status_by_category": {
       "on_hold": {
         "book": 0,
@@ -203,6 +203,13 @@
       "recent_playtime_minutes": 0
     },
     {
+      "entity_id": "game:1afeffe82d",
+      "category": "game",
+      "reason": "in_progress",
+      "last_activity": "2026-11-01T21:58:50Z",
+      "recent_playtime_minutes": 0
+    },
+    {
       "entity_id": "game:2945907362",
       "category": "game",
       "reason": "in_progress",
@@ -225,13 +232,6 @@
     },
     {
       "entity_id": "game:00b3a1b0c3",
-      "category": "game",
-      "reason": "in_progress",
-      "last_activity": "2026-08-19T02:23:23Z",
-      "recent_playtime_minutes": 0
-    },
-    {
-      "entity_id": "game:1afeffe82d",
       "category": "game",
       "reason": "in_progress",
       "last_activity": "2026-08-19T02:23:23Z",
