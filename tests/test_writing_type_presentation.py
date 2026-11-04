@@ -58,6 +58,12 @@ class WritingTypePresentationTest(unittest.TestCase):
         self.assertIn("max-width: 46rem", css)
         self.assertIn("overflow-x: auto", css)
 
+    def test_heading_anchor_has_accessible_section_label(self):
+        source = (ROOT / "_includes" / "refactor-content.html").read_text(encoding="utf-8")
+        self.assertIn('aria-label="链接到本节：', source)
+        self.assertIn("heading_text = left | split: '<span class=\"me-2\">' | last | strip_html", source)
+        self.assertIn('class="fas fa-hashtag" aria-hidden="true"', source)
+
 
 if __name__ == "__main__":
     unittest.main()

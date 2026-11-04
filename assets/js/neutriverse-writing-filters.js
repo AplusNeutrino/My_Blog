@@ -110,6 +110,7 @@
         });
 
     const syncControls = () => {
+      syncFilterDetails();
       typeSelect.value = state.type;
       topicSelect.value = state.topic;
       seriesSelect.value = state.series;
@@ -275,6 +276,93 @@
     window.addEventListener('popstate', () => {
       state = parseState();
       render({ historyMode: 'replace' });
+    });
+
+    const filterDetails = Array.from(controls.querySelectorAll('[data-filter-target]'));
+    const stateKeys = {
+      'nv-writing-type': 'type',
+      'nv-writing-topic': 'topic',
+      'nv-writing-series': 'series',
+      'nv-writing-sort': 'sort'
+    };
+
+    const syncFilterDetails = () => {
+      filterDetails.forEach((details) => {
+        const currentValue = state[stateKeys[details.dataset.filterTarget]];
+        const summary = details.querySelector('summary');
+        const options = Array.from(details.querySelectorAll('[role="option"]'));
+        const selected = options.find((option) => option.dataset.value === currentValue) || options[0];
+        options.forEach((option) => option.setAttribute('aria-selected', String(option === selected)));
+        summary.querySelector('[data-filter-value]').textContent = selected.textContent;
+        summary.setAttribute('aria-label', `${details.dataset.filterName}：${selected.textContent}`);
+      });
+    };
+
+    const closeFilterDetails = (details, restoreFocus = false) => {
+      details.open = false;
+      if (restoreFocus) {
+        details.querySelector('summary').focus();
+      }
+    };
+
+    filterDetails.forEach((details) => {
+      const summary = details.querySelector('summary');
+      const options = Array.from(details.querySelectorAll('[role="option"]'));
+      const select = document.getElementById(details.dataset.filterTarget);
+      details.hidden = false;
+
+      summary.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+          return;
+        }
+        event.preventDefault();
+        details.open = true;
+        const selected = options.find((option) => option.getAttribute('aria-selected') === 'true') || options[0];
+        const target = event.key === 'ArrowUp' ? options[options.length - 1] : selected;
+        target?.focus();
+      });
+
+      options.forEach((option, index) => {
+        option.addEventListener('click', () => {
+          select.value = option.dataset.value;
+          updateFromControls();
+          closeFilterDetails(details, true);
+        });
+
+        option.addEventListener('keydown', (event) => {
+          let target;
+          if (event.key === 'ArrowDown') target = options[(index + 1) % options.length];
+          if (event.key === 'ArrowUp') target = options[(index - 1 + options.length) % options.length];
+          if (event.key === 'Home') target = options[0];
+          if (event.key === 'End') target = options[options.length - 1];
+          if (target) {
+            event.preventDefault();
+            target.focus();
+          }
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            closeFilterDetails(details, true);
+          }
+          if (event.key === 'Tab') {
+            closeFilterDetails(details);
+          }
+        });
+      });
+
+      details.addEventListener('toggle', () => {
+        summary.setAttribute('aria-expanded', String(details.open));
+        if (details.open) {
+          filterDetails.filter((other) => other !== details).forEach((other) => closeFilterDetails(other));
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      filterDetails.forEach((details) => {
+        if (!details.contains(event.target)) {
+          closeFilterDetails(details);
+        }
+      });
     });
 
     controls.hidden = false;

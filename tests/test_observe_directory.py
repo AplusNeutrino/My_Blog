@@ -19,7 +19,7 @@ SECTION_DATA = (ROOT / "_data" / "neutriverse_sections.yml").read_text(
     encoding="utf-8"
 )
 PAGE = (ROOT / "observe" / "index.md").read_text(encoding="utf-8")
-CSS = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(
+CSS = (ROOT / "assets" / "css" / "neutriverse-editorial.css").read_text(
     encoding="utf-8"
 )
 
@@ -73,26 +73,27 @@ class ObserveDirectoryTest(unittest.TestCase):
         self.assertIn("robots: noindex,nofollow", ravenis)
         self.assertIn('<meta name="robots" content="noindex, nofollow">', occult_layout)
 
-    def test_cards_explain_noindex_and_have_no_javascript_dependency(self):
-        self.assertIn("应用保持 noindex", INCLUDE)
+    def test_noindex_stays_in_metadata_not_public_copy(self):
+        self.assertIn('data-observe-visibility="{{ project.visibility | escape }}"', INCLUDE)
+        self.assertNotIn("应用保持 noindex", INCLUDE)
         self.assertIn("href=", INCLUDE)
         self.assertNotIn("<script", INCLUDE)
         self.assertNotIn('href="#"', INCLUDE)
 
     def test_shared_styles_are_two_column_and_mobile_safe(self):
         for token in (
-            "var(--nv-surface-1)",
-            "var(--nv-surface-2)",
-            "var(--nv-text-strong)",
-            "var(--nv-border)",
-            "var(--nv-focus)",
+            "var(--nv-ed-surface)",
+            "var(--nv-ed-raised)",
+            "var(--nv-ed-strong)",
+            "var(--nv-ed-border)",
+            "var(--nv-ed-accent)",
         ):
             self.assertIn(token, CSS)
         self.assertIn(".nv-observe-grid", CSS)
         self.assertRegex(
             CSS,
             re.compile(
-                r"@media \(max-width: 767\.98px\).*?"
+                r"@media \(max-width: 849px\).*?"
                 r"\.nv-observe-grid\s*\{.*?"
                 r"grid-template-columns: minmax\(0, 1fr\)",
                 re.DOTALL,

@@ -4,12 +4,6 @@ layout: page
 <article class="nv-section" data-neutriverse-section="{{ page.section_id }}">
   {% include neutriverse-section-identity.html current=page.section_id %}
 
-  {% include neutriverse-primary-nav.html current=page.section_id %}
-
-  <div class="nv-section-intro">
-    {{ content }}
-  </div>
-
   {% if page.section_id == 'think' %}
     {% include neutriverse-writing-list.html %}
     <script src="{{ '/assets/js/neutriverse-writing-filters.js' | relative_url }}" defer></script>
@@ -18,9 +12,5 @@ layout: page
     <script src="{{ '/assets/js/neutriverse-project-filters.js' | relative_url }}" defer></script>
   {% elsif page.section_id == 'observe' %}
     {% include neutriverse-observe-list.html %}
-  {% endif %}
-
-  {% if page.section_id != 'build' and page.section_id != 'observe' %}
-    {% include neutriverse-section-links.html current=page.section_id %}
   {% endif %}
 </article>

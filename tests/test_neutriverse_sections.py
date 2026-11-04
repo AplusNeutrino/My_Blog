@@ -10,10 +10,10 @@ DATA = (ROOT / "_data" / "neutriverse_sections.yml").read_text(encoding="utf-8")
 class NeutriverseSectionsTest(unittest.TestCase):
     def test_single_data_source_has_four_canonical_entries(self):
         expected = {
-            "think": ("THINK", "我如何思考与表达", "/think/"),
-            "build": ("BUILD", "我正在制作什么", "/build/"),
-            "observe": ("OBSERVE", "我持续观察什么", "/observe/"),
-            "about": ("ABOUT", "我是谁以及这个站如何生长", "/about/"),
+            "think": ("THINK", "写作与思考", "/think/"),
+            "build": ("BUILD", "项目与制作", "/build/"),
+            "observe": ("OBSERVE", "观察与记录", "/observe/"),
+            "about": ("ABOUT", "关于站主与站点", "/about/"),
         }
         self.assertEqual(DATA.count("  - id:"), 4)
         for section_id, (name, label, url) in expected.items():
@@ -50,20 +50,19 @@ class NeutriverseSectionsTest(unittest.TestCase):
         nav = (ROOT / "_includes" / "neutriverse-primary-nav.html").read_text(encoding="utf-8")
         links = (ROOT / "_includes" / "neutriverse-section-links.html").read_text(encoding="utf-8")
         self.assertIn("neutriverse-section-identity.html", layout)
-        self.assertIn("neutriverse-primary-nav.html", layout)
-        self.assertIn("neutriverse-section-links.html", layout)
+        self.assertNotIn("neutriverse-primary-nav.html", layout)
+        self.assertNotIn("neutriverse-section-links.html", layout)
         self.assertIn("site.data.neutriverse_sections.sections", nav)
         self.assertIn('aria-current="page"', nav)
         self.assertIn("site.data.neutriverse_sections.sections", identity)
         self.assertIn('data-section-identity="{{ nv_identity_id }}"', identity)
-        self.assertIn("nv_identity.signal_label", identity)
-        self.assertIn("nv_identity.signal_note", identity)
-        self.assertIn("nv_section.links", links)
+        self.assertIn("nv_identity.label_zh", identity)
+        self.assertNotIn("nv_identity.signal_label", identity)
 
     def test_about_keeps_its_route_and_uses_shared_components(self):
         about = (ROOT / "_tabs" / "about.md").read_text(encoding="utf-8")
-        self.assertIn("neutriverse-primary-nav.html current='about'", about)
-        self.assertIn("neutriverse-section-links.html current='about'", about)
+        self.assertNotIn("neutriverse-primary-nav.html current='about'", about)
+        self.assertNotIn("neutriverse-section-links.html current='about'", about)
         self.assertIn("neutriverse-section-identity.html current='about'", about)
         self.assertIn('data-neutriverse-section="about"', about)
         self.assertNotIn("permalink:", about)
@@ -111,7 +110,10 @@ class NeutriverseSectionsTest(unittest.TestCase):
     def test_shared_stylesheet_and_theme_tokens_are_wired(self):
         hook = (ROOT / "_includes" / "metadata-hook.html").read_text(encoding="utf-8")
         shared = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(encoding="utf-8")
+        editorial = (ROOT / "assets" / "css" / "neutriverse-editorial.css").read_text(encoding="utf-8")
         self.assertIn("/assets/css/neutriverse-sections.css", hook)
+        self.assertIn("/assets/css/neutriverse-editorial.css", hook)
+        self.assertIn(".nv-section-identity", editorial)
         self.assertIn(".nv-primary-nav", shared)
         self.assertIn(".nv-section-identity", shared)
         for section_id in ("think", "build", "observe", "about"):

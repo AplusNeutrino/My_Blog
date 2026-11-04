@@ -2,6 +2,26 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-11-03 — UI-EDITORIAL 截图反馈补充修正
+
+- 范围：站主指出首页文章色条、BUILD/OBSERVE 旧卡片、ABOUT 元叙事文案，以及书单标题消失。保留前一轮实现和历史验收，不回退已确认的编辑式方向。
+- 修正：去除首页 Essay 内嵌色条及项目/观察卡片边框、背景和胶囊按钮；ABOUT 链接、当前记录、历史状态与书单改为细分隔线和正常文档流。删除公开的“网站哲学”面板，保留真实站点链接、时间线和个人历史状态；书单改为待读书单/待看清单，修复绝对定位导致的书名挤压。
+- 验证：production Jekyll、291 项回归、40 项响应式/可读性检查、移动导航与键盘筛选、authoring、Search/feed、SEO、资源及 642 个内部链接通过。新增真实浏览器断言，检查列表零圆角、旧卡片背景清除和十条书单标题完整可见。
+- 外部阻塞：完整矩阵在独立 Library 封面流程中失败；四张 `lain.bgm.tv` 封面 `naturalWidth=0`，两个对应 URL 的 curl 均在 20 秒后连接超时。未修改 Library 业务或用本地假图绕过；其余页面继续按原长滚动/交互门禁验收。
+- 补充验收：32 个双主题长页面场景、8 组 BUILD 状态与 14 个短屏侧栏场景全部通过；390/768/1024/1366 的 Light/Night 新截图已人工复核。文章色条、项目/观察旧卡片、ABOUT 元叙事与书单标题问题均已修正，个人状态和书单事实未改。
+- 当前状态：本次截图反馈的实现与相关验收完成，尚未提交、推送或部署；精确 head CI 和外部封面检查保持 pending。证据保存于本机 `D:/Workarea/.tools/editorial-focused-audit` 与 `D:/Workarea/.tools/editorial-followup-visual`。
+
+## Run 2026-11-03 — UI-EDITORIAL 全站编辑式改版与本地验收
+
+- Base / branch：`8a6c4a79d184cd3e8580aa531dff6cb040d9a3e4` / `ui/editorial-blog-redesign`；跟踪 Issue #14。站主已确认编辑式双主题原型并要求落地全站。
+- 实际交付：共享 Night / Prospero Light 编辑式表现层；首页五条最近更新、三条重点文章、当前焦点与低调统计；四栏目自然语言标题；轻量主题化下拉；文章阅读与目录优先；保留萌 ICP 页脚。删除重复首页站点目录、公共维护说明、第一人称栏目文案和旧控制台式首页卡片。
+- 视觉修正：统一细腻衬线与札记行距，修复 Light 侧栏对比度、重点文章内边距、ABOUT 重复标题、短屏侧栏裁切和文章目录/札记叠印。桌面侧栏不设置独立滚动区域；右侧文章目录与札记改为自然文档流。
+- 已通过的本地门禁：production Jekyll、291 项回归、40 项响应式/可读性检查、390px 移动菜单与键盘筛选、14 项短屏侧栏双主题检查、内容基线/authoring、Search/feed、SEO、资源、点赞脚本、表格和 HTML-Proofer。星图图标、8 个 OBSERVE 弹层与 8 个 Fragment 点赞 fixture 流程也通过。
+- 浏览器实测：下拉选择写入 URL 并保持刷新/返回状态；方向键/Home/End、Enter、Escape 与 Tab 焦点顺序正确；双主题切换与移动抽屉可用。390/768/1024/1366 截图按场景复核，新证据目录与历史审计输出分离。
+- 内容边界：未改 `_posts`、`_thoughts`、旧 URL、七项目、Search/feed、hidden/noindex、Gate/NAVI/旅行边界或备案链接；原型目录继续排除在 production 构建之外。
+- 完整终审：最终 production 产物的 192 个场景全部通过，四个视口各 48 个、Night/Light 各 96 个；24 个公开页面长滚动与 14 个短屏侧栏场景通过。实测桌面视口尺寸与记录一致，桌面侧栏 scrollHeight 不超过 clientHeight + 1；文章目录自然滚动无双主题叠印。证据保存于本机 `D:/Workarea/.tools/editorial-final-verification`，与历史输出分离。
+- 当前状态：本地实现与验收完成；尚未提交、推送、运行精确实现 head 的 CI 或部署。保持交付 validation-pending，不提前关闭 Issue，不改写 T00–T39 历史验收。
+
 ## Run 2026-10-11 18:01 — T39 最终交付与 COMPLETE 收敛
 
 - Task / parent：T39；status = done；依赖 T38 done。

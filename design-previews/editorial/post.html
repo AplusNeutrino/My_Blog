@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>哥德尔编码和 RAG Embedding 之间的关系 · 中间层</title><link rel="stylesheet" href="editorial.css"><script src="editorial.js" defer></script>
+</head>
+<body><div class="site-shell">
+  <aside class="site-sidebar" aria-label="站点侧栏">
+    <div class="sidebar-brand"><div class="sidebar-mark"><img src="../../assets/img/logo.png" alt="Neutriverse 标志"></div><a class="site-title" href="index.html">中间层</a><p class="site-subtitle">NEUTRIVERSE</p><p class="sidebar-signature">Quatium Pandamonia</p></div>
+    <nav class="sidebar-nav" aria-label="主导航"><p class="nav-caption">目录</p><ul>
+      <li><a href="index.html"><span class="nav-number">00</span><span class="nav-copy"><strong>HOME</strong><small>首页</small></span></a></li>
+      <li class="active"><a href="think.html"><span class="nav-number">01</span><span class="nav-copy"><strong>THINK</strong><small>写作与思考</small></span></a></li>
+      <li><a href="https://neutriverse.uk/build/"><span class="nav-number">02</span><span class="nav-copy"><strong>BUILD</strong><small>项目与制作</small></span></a></li>
+      <li><a href="https://neutriverse.uk/observe/"><span class="nav-number">03</span><span class="nav-copy"><strong>OBSERVE</strong><small>观察与记录</small></span></a></li>
+      <li><a href="https://neutriverse.uk/about/"><span class="nav-number">04</span><span class="nav-copy"><strong>ABOUT</strong><small>关于站主与站点</small></span></a></li>
+    </ul></nav>
+    <div class="sidebar-utilities"><p class="nav-caption">检索与订阅</p><ul><li><a href="https://neutriverse.uk/">搜索</a></li><li><a href="https://neutriverse.uk/archives/">归档</a></li><li><a href="https://neutriverse.uk/feed.xml">RSS</a></li></ul></div><p class="sidebar-bottom">写于日常，留作日后回看。<br>© 2026 Neutrino</p>
+  </aside>
+  <div class="page-wrap">
+    <header class="mobile-brand"><a href="index.html"><img src="../../assets/img/logo.png" alt=""><strong>中间层</strong></a><span>笔记 · Computation</span></header>
+    <header class="topbar"><div class="breadcrumb"><a href="index.html">中间层</a> / <a href="think.html">THINK</a> / 笔记</div><div class="topbar-actions"><a class="search-link" href="https://neutriverse.uk/">搜索站内内容</a><div class="preview-theme" aria-label="原型主题"><button type="button" data-theme-choice="light" aria-pressed="false">昼</button><button type="button" data-theme-choice="dark" aria-pressed="true">夜</button></div></div></header>
+    <div class="editorial-grid">
+      <main class="main-column">
+        <article>
+          <header class="post-header"><p class="post-type">笔记 · Computation</p><h1>哥德尔编码和 RAG Embedding 之间的关系</h1><p class="post-description">读 RAG 相关文章时发现这俩有点像。两者一个更加关注语句之间如何实现数学运算，一个更加关注语句之间如何实现意义对比。</p><div class="post-meta"><span>Neutrino</span><time datetime="2026-08-17">写于 2026/08/17</time><time datetime="2026-09-30">修订于 2026/09/30</time><span>约 4 分钟</span></div></header>
+          <div class="masthead-rule" aria-hidden="true"><span>✦</span></div>
+          <div class="post-content">
+            <h2 id="why">我为什么要写这个<a href="#why" aria-label="链接到本节：我为什么要写这个">#</a></h2>
+            <p>前些日子里学习了一些关于 RAG 的内容，突然有一种明显的 déjà vu，确信自己在以前曾经学习过类似的东西。遂检查之前的记录，判断应该是之前《形式系统的极限：从对角线法到不完备定理》一文中关于哥德尔编码（Gödel numbering）的部分。</p><p>于是进行一下对比分析。</p>
+            <h2 id="godel">什么是哥德尔编码<a href="#godel" aria-label="链接到本节：什么是哥德尔编码">#</a></h2>
+            <p>在《形式系统的极限：从对角线法到不完备定理》中，我记录了哥德尔第一不完备性定理的证明核心思想是：</p>
+            <blockquote><p>通过 Gödel 编码将证明转化为算术，构造自指命题：“我不可证明”。若证明 → 矛盾；若不证明 → 真但不可证。</p></blockquote>
+            <p>也就是前文理查德悖论中，将所有有限的自然语言句子中一切字符组合都编码成自然数。这样一来，原本关于句子和证明的元数学问题，就可以转化为可以被计算的自然数算术问题。Stanford Encyclopedia of Philosophy 给 Gödel numbering 的核心定义就是给形式理论中的 terms、formulas、proofs 分配自然数编码，即一种从语言对象 ⟶ 数学对象的映射。</p>
+            <h2 id="embedding">为什么是 Embedding<a href="#embedding" aria-label="链接到本节：为什么是 Embedding">#</a></h2>
+            <p>Embedding 实现的也是一种语言对象 ⟶ 数学对象的映射。但和哥德尔编码不同的是，Embedding 主要保留的是关系而非对文字本身进行编码。</p>
+            <p>例如 <code>E(“项目延期了”) = (0.13, −0.71, 0.42, …)</code>。在这个例子中，Embedding 所获得的向量通常来说并不是一个可以被精确解码转换回原句的编号，其目标在于将意义相近的句子转化为距离较近的向量，以便后续实现语义的判断和其他处理。其和哥德尔编码的区别也就是在这里。</p>
+            <p>两者一个关注的是语句算术，一个关注的是语句意义。这就是答案，很奇妙吧。</p>
+          </div>
+          <footer class="post-tail"><div class="post-tail-tags"><a href="https://neutriverse.uk/tags/g%C3%B6del-numbering/">Gödel Numbering</a><a href="https://neutriverse.uk/tags/embeddings/">Embeddings</a><a href="https://neutriverse.uk/tags/rag/">RAG</a><a href="https://neutriverse.uk/tags/semantic-search/">Semantic Search</a></div><p>本文由作者按照 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 进行授权</p></footer>
+        </article>
+      </main>
+      <aside class="margin-column" aria-label="文章侧栏">
+        <nav class="margin-note" aria-labelledby="toc-title"><h2 id="toc-title">本文目录</h2><ol class="toc-list"><li><a href="#why">我为什么要写这个</a></li><li><a href="#godel">什么是哥德尔编码</a></li><li><a href="#embedding">为什么是 Embedding</a></li></ol></nav>
+        <section class="margin-note"><h2>页边札记</h2><p class="handwritten">过于宏大的目标太过耀眼，会遮住其他小目标的可能性。</p><p>Fragment · 2024-09-12</p></section>
+        <section class="margin-note"><h2>继续阅读</h2><nav><a href="https://neutriverse.uk/posts/%E4%B8%8D%E5%AE%8C%E5%A4%87%E6%80%A7/">形式系统的极限：从对角线法到不完备定理</a><a href="think.html">返回写作与思考</a></nav></section>
+      </aside>
+    </div>
+    <footer class="site-footer">© 2026 Neutrino · CC BY-NC 4.0<br>写于日常，留作日后回看。<br><a href="https://icp.gov.moe/?keyword=20268753" target="_blank" rel="noopener noreferrer">萌ICP备20268753号</a></footer>
+  </div>
+</div></body></html>

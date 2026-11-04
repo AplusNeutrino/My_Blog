@@ -15,6 +15,10 @@
 
 ## 问题台账
 
+UI-EDITORIAL：base/main 8a6c4a79d184cd3e8580aa531dff6cb040d9a3e4，工作分支 `ui/editorial-blog-redesign`，跟踪 Issue #14。站主已批准独立审美重构范围：编辑式个人博客、细腻衬线、Night 星象手稿与 Prospero Light 纸质藏书。实现覆盖首页、THINK、BUILD、OBSERVE、ABOUT、文章页、双主题侧栏与轻量下拉；保留既有主题/搜索控制器、旧 URL、正文和 metadata、hidden/noindex、七项目、Gate/NAVI/旅行边界和萌 ICP 备案。标题锚点补可访问名称，维护说明不再进入公共页面。首页底部旧卡片与 ABOUT 重复标题已清除，Light 侧栏对比度、短屏裁切和文章目录/札记叠印已修复；桌面侧栏不得出现独立滚动区域。本地验收通过：production 构建、291 项回归、40 项响应式/可读性检查、移动导航/键盘筛选、内容/链接门禁，以及最终 192 个双主题场景、24 个公开页面长滚动和 14 个短屏侧栏场景均通过。尚未提交、推送、执行精确 head 的 CI 或部署，保持交付 validation-pending，不标 done，不改写历史验收。
+
+UI-EDITORIAL-FOLLOWUP：站主截图反馈已修正。首页 Essay 不再残留内嵌色条；BUILD/OBSERVE 卡片与胶囊按钮改为细分隔线；ABOUT 删除元叙事“网站哲学”面板，站点链接改为直接描述，历史状态改为独立信息行；待读书单/待看清单恢复完整标题，序号与日期回到正常网格。保留个人状态、书单和既有链接事实。当前 production 构建、291 项回归、40 项响应式/可读性检查、32 个双主题长页面场景、8 组 BUILD 状态、14 个短屏侧栏场景及 642 个内部链接检查通过。完整矩阵的独立 Library 在线封面步骤因 `lain.bgm.tv` 重复连接超时保持 pending，未使用替代图片或跳过断言伪装通过。尚未提交、推送或部署。
+
 2026-10-20 UI025生产限定通过、main交付准备：base/main004447db，审计父16470058，实现8a7ac42a/run39299220841 build118219671529于2026-10-19 18:24:50 UTC完整success；289tests/T01/authoring/Jekyll/产物/原门禁均通过，deploy118230273842/live118230275552分支规则skipped。新head图标8原图、OBSERVE58帧/8联系表及1024 Night/1366 Light loading-wrap两原图实际查看，图标清晰、标题/焦点回环正常；16帧为disabled UI fixture，服务未加载、业务健康不认证。字体超时未复现、不宣称根因已修好；旧main失败历史与UI024线上pending保留。本轮先限定仅计划/日志/ui025-checks及ui025-8a7-production公开证据，再携已验证原产品/审计非强推main，不新增样式或改门禁。新main精确head build/deploy/live与线上自然已加载同场景必须另验，UI025不标done、全站IN PROGRESS，无新用户决定。下一项先核对新main，再图标选择/显示开关及UI024焦点线上补验。
 
 2026-10-20 UI-A09-F只读来源诊断：base/main004447db、工作ac3430d9、审计父9776385f；先记录ui025-checks范围后仅扩THINK settle失败后字体CSS src/FontFace/已有请求缓存关联与必要回归、计划日志。只读已收到的Google Fonts CSS body，不新增网络请求/读取任意body或headers；匹配缺失/不唯一/读取失败照实记录。原30s ready等待/raise/所有门禁不变、不改产品、不盲重跑。未验实现留ui/fix-025，UI024/025仍validation-pending，无新用户决定；此次不重看旧图冒称新视觉证据。

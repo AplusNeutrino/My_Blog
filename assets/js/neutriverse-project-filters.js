@@ -6,7 +6,7 @@
   const filters = [...catalog.querySelectorAll('[data-project-filter]')];
   const count = catalog.querySelector('[data-project-visible-count]');
   const empty = catalog.querySelector('[data-project-filter-empty]');
-  const valid = new Set(filters.map((button) => button.dataset.projectFilter));
+  const valid = new Set(['all', ...cards.map((card) => card.dataset.projectStatus), ...filters.map((button) => button.dataset.projectFilter)]);
 
   const normalize = (value) => valid.has(value) ? value : 'all';
 

@@ -26,7 +26,7 @@ class ThinkPaginationAuditTests(unittest.TestCase):
         start=source.index('# UI-A10b:');block=source[start:source.index('require(start <= (covered',start)]
         for token in ('[data-writing-topic-browser] .nv-topic-browser-description',
                       '[data-writing-series-browser] .nv-topic-browser-description',
-                      '.nv-section-links .nv-section-link > span:last-child', 'counts = [4, 3, 5]',
+                      'counts = [4, 3]',
                       'document.createTreeWalker', 'document.createRange()', 'range.getClientRects()',
                       'g[\'rootCount\'] == count and not g[\'emptyRoots\']',
                       "all(not g['overlaps'] for g in directories)",
@@ -139,7 +139,7 @@ class ThinkPaginationAuditTests(unittest.TestCase):
         source = Path('tools/check_think_build_visual.py').read_text()
         block = source[source.index("elif name.startswith('think-page-'):"):
                        source.index("require(start <= (covered")]
-        for token in ('[data-neutriverse-section="think"] .nv-section-intro',
+        for token in ('[data-neutriverse-section="think"] .nv-section-summary',
                       '[data-writing-item]:not([hidden]) .nv-writing-record-body',
                       'document.createTreeWalker', 'document.createRange()', 'range.getClientRects()',
                       'Number(s.opacity)>0', "[1, 8 if name == 'think-page-4' else 12]",

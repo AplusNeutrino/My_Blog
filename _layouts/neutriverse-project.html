@@ -31,7 +31,9 @@ layout: default
       <section data-project-status-panel data-project-status="{% if project.status %}{{ project.status | escape }}{% else %}unspecified{% endif %}" aria-labelledby="project-status">
         <p class="nv-project-section-index">02 / STATUS</p>
         <h2 id="project-status">公开状态</h2>
-        {% if project.status %}
+        {% if project.status == 'implemented_unverified' %}
+          <p class="nv-project-status-value">已实现，待验证</p>
+        {% elsif project.status %}
           <p class="nv-project-status-value">{{ project.status | replace: '_', ' ' }}</p>
         {% else %}
           <p>公开 catalog 尚未单独记录状态；这里不根据版本号、页面可达性或文章日期推断 active、complete 或 paused。</p>

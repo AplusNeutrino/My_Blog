@@ -188,7 +188,7 @@ def require_reduced_motion(driver):
     )
     result = driver.execute_script(
         r"""
-        const node = document.querySelector('.nv-primary-nav-link');
+        const node = document.querySelector('.nv-filter-select summary');
         const style = getComputedStyle(node);
         return {
           matches: matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -251,28 +251,113 @@ def require_article_reading(driver, site_url, wait, theme):
         f"article reading contract failed: {result}",
     )
     require_contrast(driver, "article.nv-post .content", "article body")
+    driver.execute_script(
+        "document.querySelector('.post-tail-wrapper').scrollIntoView({behavior:'instant',block:'end'});"
+    )
+    panel = driver.execute_script(
+        """
+        const stack = document.querySelector('#post-panel-stack');
+        const memory = document.querySelector('#panel-wrapper .access');
+        return {
+          position: getComputedStyle(stack).position,
+          overflowY: getComputedStyle(stack).overflowY,
+          stackBottom: stack.getBoundingClientRect().bottom,
+          memoryTop: memory.getBoundingClientRect().top
+        };
+        """
+    )
+    require(
+        panel["position"] == "static"
+        and panel["overflowY"] == "visible"
+        and panel["stackBottom"] <= panel["memoryTop"] + 1,
+        f"article panel overlaps the memory note after a long scroll: {panel}",
+    )
 
 
 def require_navigation_alignment(driver, context):
-    """UI-001: a Grid cell and its clickable card must share the same bounds."""
+    """Every editorial page exposes real, visible content rather than duplicate navigation."""
     cards = driver.execute_script(
         """
-        return [...document.querySelectorAll('.nv-primary-nav-item')].map(cell => {
-          const link = cell.querySelector('.nv-primary-nav-link');
-          const a = cell.getBoundingClientRect();
-          const b = link.getBoundingClientRect();
-          return {label: link.innerText, cellHeight: a.height, cardHeight: b.height,
-                  topDifference: Math.abs(a.top - b.top),
-                  bottomDifference: Math.abs(a.bottom - b.bottom),
-                  widthDifference: Math.abs(a.width - b.width)};
+        return [...document.querySelectorAll(
+          '.nv-home-featured-card, .nv-writing-record, .nv-project-card, .nv-observe-card, .about-info'
+        )].filter(node => !node.hidden && node.getClientRects().length > 0).map((node, index) => {
+          const rect = node.getBoundingClientRect();
+          return {index, width: rect.width, height: rect.height, text: node.innerText.slice(0, 80)};
         });
         """
     )
-    require(len(cards) == 4, f"missing entrance cards {context}: {cards}")
+    require(cards, f"missing editorial content {context}")
     for card in cards:
-        require(card['topDifference'] <= 1 and card['bottomDifference'] <= 1
-                and card['widthDifference'] <= 1,
-                f"entrance card does not fill its Grid cell {context}: {card}")
+        require(card['width'] > 0 and card['height'] > 0 and card['text'].strip(),
+                f"invisible or empty editorial component {context}: {card}")
+
+    audit = driver.execute_script(
+        """
+        const section = document.querySelector('[data-neutriverse-section]')?.dataset.neutriverseSection;
+        const definition = {
+          build: {section, selector: '.nv-project-card', count: 7, borderless: true},
+          observe: {section, selector: '.nv-observe-card', count: 2, borderless: true},
+          about: {
+            section,
+            selector: '.about-current, .about-context-panel, .about-current-meta, .about-current-meta > div, .about-stack-panel, .about-stack-item',
+            count: 17,
+            borderless: false
+          }
+        }[section];
+        const surfaces = definition ? [...document.querySelectorAll(definition.selector)].map(node => {
+          const style = getComputedStyle(node);
+          return {
+            className: node.className,
+            borderTopWidth: style.borderTopWidth,
+            borderRadius: style.borderTopLeftRadius,
+            backgroundColor: style.backgroundColor,
+            boxShadow: style.boxShadow
+          };
+        }) : [];
+        const stackTitles = definition?.section === 'about'
+          ? [...document.querySelectorAll('.about-stack-item')].map(item => {
+              const title = item.querySelector('strong');
+              return {
+                text: title.textContent.trim(),
+                width: title.getBoundingClientRect().width,
+                whiteSpace: getComputedStyle(title).whiteSpace,
+                opacity: getComputedStyle(title).opacity,
+                indexPosition: getComputedStyle(item.querySelector('.about-stack-index')).position,
+                datePosition: getComputedStyle(item.querySelector('time')).position
+              };
+            })
+          : [];
+        return {definition, surfaces, stackTitles};
+        """
+    )
+    definition = audit["definition"]
+    if definition:
+        surfaces = audit["surfaces"]
+        require(len(surfaces) == definition["count"], f"editorial surface count changed {context}: {surfaces}")
+        require(
+            all(
+                surface["borderRadius"] == "0px"
+                and surface["backgroundColor"] == "rgba(0, 0, 0, 0)"
+                and surface["boxShadow"] == "none"
+                and (not definition["borderless"] or surface["borderTopWidth"] == "0px")
+                for surface in surfaces
+            ),
+            f"legacy card surface remains {context}: {surfaces}",
+        )
+    if audit["stackTitles"]:
+        require(
+            len(audit["stackTitles"]) == 10
+            and all(
+                title["text"]
+                and title["width"] > 40
+                and title["whiteSpace"] == "normal"
+                and title["opacity"] == "1"
+                and title["indexPosition"] == "static"
+                and title["datePosition"] == "static"
+                for title in audit["stackTitles"]
+            ),
+            f"about stack titles are clipped or misplaced {context}: {audit['stackTitles']}",
+        )
     return cards
 
 
@@ -305,11 +390,23 @@ def main():
         site_url = f"http://127.0.0.1:{port}"
         for width, height in VIEWPORTS:
             driver.set_window_size(width, height)
+            if os.name == 'nt':
+                driver.execute_cdp_cmd(
+                    'Emulation.setDeviceMetricsOverride',
+                    {'width': width, 'height': height, 'deviceScaleFactor': 1, 'mobile': width < 850},
+                )
             for theme in THEMES:
                 for path, root_selector in PAGE_CONTRACTS.items():
                     driver.get(site_url + path)
                     wait.until(lambda current: current.execute_script("return document.readyState") == "complete")
                     set_theme(driver, theme)
+                    driver.execute_async_script(
+                        "const done = arguments[arguments.length - 1]; document.fonts.ready.then(() => done(true));"
+                    )
+                    wait.until(lambda current: current.execute_script(
+                        "return document.getAnimations().every(a => a.playState !== 'running'"
+                        " || a.effect.getTiming().iterations === Infinity);"
+                    ))
                     layout = read_layout(driver, root_selector)
                     require(
                         layout["rootVisible"]
@@ -318,29 +415,87 @@ def main():
                         and layout["documentScrollWidth"] <= layout["documentClientWidth"] + 1,
                         f"responsive layout failed at {width}px {theme} {path}: {layout}",
                     )
+                    if width >= 850:
+                        sidebar = driver.execute_script(
+                            """
+                            const node = document.querySelector('#sidebar');
+                            return {
+                              overflowY: getComputedStyle(node).overflowY,
+                              clientHeight: node.clientHeight,
+                              scrollHeight: node.scrollHeight
+                            };
+                            """
+                        )
+                        require(
+                            sidebar["overflowY"] == "hidden"
+                            and sidebar["scrollHeight"] <= sidebar["clientHeight"] + 1,
+                            f"desktop sidebar scrolls at {width}px {theme} {path}: {sidebar}",
+                        )
+                        require_contrast(driver, "#sidebar .site-title", f"sidebar title {theme} {path}")
+                        require_contrast(
+                            driver,
+                            "#sidebar .nv-sidebar-primary .nav-link[aria-current='page'] small",
+                            f"sidebar current item {theme} {path}",
+                        )
                     if path == "/":
                         require_contrast(driver, ".nv-home-identity", f"home identity {theme}")
-                        require_focus(driver, ".nv-home-explore .nv-primary-nav-link", "home entrance")
+                        require_focus(driver, ".nv-home-more", "home writing entrance")
+                        card_shells = driver.execute_script(
+                            """
+                            return [...document.querySelectorAll(
+                              '.nv-home-transmission, .nv-home-featured-card, .nv-home-signal-card, .nv-home-status-grid > div'
+                            )].map(node => {
+                              const style = getComputedStyle(node);
+                              return {
+                                className: node.className,
+                                borderTopWidth: style.borderTopWidth,
+                                borderRadius: style.borderTopLeftRadius,
+                                backgroundColor: style.backgroundColor,
+                                boxShadow: style.boxShadow
+                              };
+                            });
+                            """
+                        )
+                        require(
+                            len(card_shells) == 13
+                            and all(
+                                card["borderTopWidth"] == "0px"
+                                and card["borderRadius"] == "0px"
+                                and card["backgroundColor"] == "rgba(0, 0, 0, 0)"
+                                and card["boxShadow"] == "none"
+                                for card in card_shells
+                            ),
+                            f"legacy homepage card styling remains at {width}px {theme}: {card_shells}",
+                        )
                     else:
-                        require_contrast(driver, ".nv-section-label", f"section label {theme} {path}")
+                        require_contrast(driver, ".nv-section-identity h1", f"section title {theme} {path}")
                         require_contrast(driver, ".nv-section-summary", f"section summary {theme} {path}")
-                        require_contrast(driver, ".nv-primary-nav-name", f"section navigation {theme} {path}")
-                        require_focus(driver, ".nv-primary-nav-link", f"section navigation {path}")
-                    if path == "/build/":
-                        require_focus(driver, ".nv-project-filters button", "BUILD filter")
-                    if path == "/observe/":
-                        require_focus(driver, ".nv-observe-card-actions a", "OBSERVE action")
+                        focus_selector = {
+                            "/think/": ".nv-writing-reset",
+                            "/build/": ".nv-project-card-action a",
+                            "/observe/": ".nv-observe-card-actions a",
+                            "/about/": ".about-relation-action[href]",
+                        }[path]
+                        require_focus(driver, focus_selector, f"section action {path}")
                     cards = require_navigation_alignment(driver, f"{width}px {theme} {path}")
+                    visible_h1_count = driver.execute_script(
+                        "return [...document.querySelectorAll('main h1')]"
+                        ".filter(node => node.getClientRects().length > 0).length;"
+                    )
+                    require(
+                        visible_h1_count == 1,
+                        f"duplicate or missing page title at {width}px {theme} {path}: {visible_h1_count}",
+                    )
                     if screenshot_dir:
                         name = path.strip('/').replace('/', '-') or 'home'
-                        navigation = driver.find_element(By.CSS_SELECTOR, '.nv-primary-nav')
+                        header = driver.find_element(By.CSS_SELECTOR, '.nv-section-identity, .nv-home-identity')
                         driver.execute_script(
                             "arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});",
-                            navigation,
+                            header,
                         )
                         require(driver.save_screenshot(
-                            str(Path(screenshot_dir) / f'{width}-{theme}-{name}-navigation.png')
-                        ), f"could not save navigation screenshot: {width} {theme} {path}")
+                            str(Path(screenshot_dir) / f'{width}-{theme}-{name}-editorial.png')
+                        ), f"could not save editorial screenshot: {width} {theme} {path}")
                     results.append({"width": width, "theme": theme, "path": path, "cards": cards})
 
                 require_article_reading(driver, site_url, wait, theme)

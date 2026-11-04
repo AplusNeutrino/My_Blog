@@ -9,10 +9,10 @@ DESIGN = (ROOT / "DESIGN.md").read_text(encoding="utf-8")
 class DesignContractTest(unittest.TestCase):
     def test_four_primary_entrances_are_canonical(self):
         for name, description, route in (
-            ("THINK", "我如何思考与表达", "/think/"),
-            ("BUILD", "我正在制作什么", "/build/"),
-            ("OBSERVE", "我持续观察什么", "/observe/"),
-            ("ABOUT", "我是谁以及这个站如何生长", "/about/"),
+            ("THINK", "写作与思考", "/think/"),
+            ("BUILD", "项目与制作", "/build/"),
+            ("OBSERVE", "观察与记录", "/observe/"),
+            ("ABOUT", "关于站主与站点", "/about/"),
         ):
             with self.subTest(name=name):
                 self.assertIn(f"| {name} | {description} | `{route}`", DESIGN)

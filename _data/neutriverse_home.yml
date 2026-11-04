@@ -4,17 +4,18 @@ schema_version: 1
 section_order:
   - identity
   - latest_transmissions
-  - explore
-  - current_signal
   - featured
+  - current_signal
   - system_status
 
 identity:
   source: public_site_identity
-  kicker: A PERSONAL DIGITAL UNIVERSE
-  title: NEUTRIVERSE
+  kicker: A PERSONAL COMMONPLACE BOOK
+  title: 中间层
+  english_title: NEUTRIVERSE
   owner: Neutrino
-  summary: 思考、系统、观察与时间在这里汇合，并持续留下公开可见的轨迹。
+  summary: 这里存放笔记、读后感和记忆碎片，也记录正在制作的工具与持续观察的事物。
+  welcome: 欢迎所有的你。
 
 latest_transmissions:
   order: date_desc
@@ -22,14 +23,11 @@ latest_transmissions:
   fragment_source: thoughts.fragments
   project_log_relation: project
   hidden_policy: exclude
-  limit: 8
-
-explore:
-  source: neutriverse_sections.sections
+  limit: 5
 
 current_signal:
-  title: Neutriverse 网站重构
-  summary: 正在把这个网站重组为可长期生长的个人数字宇宙。
+  title: 目前正在整理这个网站
+  summary: 这里将持续整理写作、项目与观察记录。
   url: /about/
   source: approved_master_plan
 
@@ -41,7 +39,7 @@ featured:
     - home_popular.posts
     - latest_visible_posts
   hidden_policy: exclude
-  limit: 4
+  limit: 3
 
 system_status:
   source: public_content

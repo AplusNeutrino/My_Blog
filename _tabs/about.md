@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-title: 中间层漫游指南
+title: 关于站主与站点
 icon: fas fa-info-circle
 order: 5
 excerpt_separator: <!-- about-excerpt-end -->
@@ -8,8 +8,6 @@ excerpt_separator: <!-- about-excerpt-end -->
 
 <div class="nv-about-entry" data-neutriverse-section="about">
   {% include neutriverse-section-identity.html current='about' %}
-  {% include neutriverse-primary-nav.html current='about' %}
-  {% include neutriverse-section-links.html current='about' %}
 </div>
 
 {% include neutriverse-about-profile.html %}
@@ -102,86 +100,86 @@ excerpt_separator: <!-- about-excerpt-end -->
 <script type="module" src="{{ '/assets/js/travel-globe.js' | relative_url }}?v={{ site.github.build_revision | default: 'local' }}-{{ site.time | date: '%Y%m%d%H%M%S' }}"></script>
 {% endif %}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p id="middle-layer-countdown" class="about-countdown">剩余--年--月--日--时--分--秒</p>
 
 <script>

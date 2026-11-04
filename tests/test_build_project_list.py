@@ -17,7 +17,7 @@ SCRIPT = (ROOT / "assets" / "js" / "neutriverse-project-filters.js").read_text(
     encoding="utf-8"
 )
 PAGE = (ROOT / "build" / "index.md").read_text(encoding="utf-8")
-CSS = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(
+CSS = (ROOT / "assets" / "css" / "neutriverse-editorial.css").read_text(
     encoding="utf-8"
 )
 
@@ -70,13 +70,14 @@ class BuildProjectListTest(unittest.TestCase):
         self.assertEqual(gate["detail_url"], "/build/gate/")
         self.assertNotIn("/gate/", INCLUDE)
 
-    def test_status_filter_uses_only_catalog_status_and_unspecified(self):
+    def test_status_filter_only_appears_with_multiple_known_statuses(self):
         known = [project["status"] for project in CATALOG if project.get("status")]
         unspecified = [project for project in CATALOG if not project.get("status")]
         self.assertEqual(known, ["implemented_unverified"])
         self.assertEqual(len(unspecified), 6)
         self.assertIn("map: 'status' | compact | uniq | sort", INCLUDE)
-        self.assertIn("data-project-filter=\"unspecified\"", INCLUDE)
+        self.assertIn("if project_statuses.size > 1", INCLUDE)
+        self.assertIn("已实现，待验证", INCLUDE)
         self.assertNotIn("active", INCLUDE.lower())
         self.assertNotIn("complete", INCLUDE.lower())
 
@@ -88,23 +89,23 @@ class BuildProjectListTest(unittest.TestCase):
         self.assertIn("window.history.replaceState", SCRIPT)
         self.assertNotIn("display: none", INCLUDE)
 
-    def test_build_layout_uses_catalog_instead_of_legacy_three_link_block(self):
+    def test_build_layout_uses_catalog_without_duplicate_navigation(self):
         self.assertIn("neutriverse-project-list.html", LAYOUT)
         self.assertIn("neutriverse-project-filters.js", LAYOUT)
-        self.assertIn("page.section_id != 'build'", LAYOUT)
-        self.assertIn("七个项目实体", PAGE)
+        self.assertNotIn("neutriverse-primary-nav.html", LAYOUT)
+        self.assertIn("制作和持续维护", PAGE)
 
     def test_mobile_and_theme_styles_use_shared_tokens(self):
         for token in (
-            "var(--nv-surface-1)",
-            "var(--nv-surface-2)",
-            "var(--nv-text-strong)",
-            "var(--nv-border)",
-            "var(--nv-focus)",
+            "var(--nv-ed-surface)",
+            "var(--nv-ed-raised)",
+            "var(--nv-ed-strong)",
+            "var(--nv-ed-border)",
+            "var(--nv-ed-accent)",
         ):
             self.assertIn(token, CSS)
         self.assertIn(".nv-project-grid", CSS)
-        self.assertIn("@media (max-width: 767.98px)", CSS)
+        self.assertIn("@media (max-width: 849px)", CSS)
 
 
 if __name__ == "__main__":

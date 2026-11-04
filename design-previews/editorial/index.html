@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>中间层 · 编辑式个人博客原型</title>
+  <link rel="stylesheet" href="editorial.css">
+  <script src="editorial.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="site-sidebar" aria-label="站点侧栏">
+      <div class="sidebar-brand">
+        <div class="sidebar-mark"><img src="../../assets/img/logo.png" alt="Neutriverse 标志"></div>
+        <a class="site-title" href="index.html">中间层</a>
+        <p class="site-subtitle">NEUTRIVERSE</p>
+        <p class="sidebar-signature">Quatium Pandamonia</p>
+      </div>
+      <nav class="sidebar-nav" aria-label="主导航">
+        <p class="nav-caption">目录</p>
+        <ul>
+          <li class="active"><a href="index.html"><span class="nav-number">00</span><span class="nav-copy"><strong>HOME</strong><small>首页</small></span></a></li>
+          <li><a href="think.html"><span class="nav-number">01</span><span class="nav-copy"><strong>THINK</strong><small>写作与思考</small></span></a></li>
+          <li><a href="https://neutriverse.uk/build/"><span class="nav-number">02</span><span class="nav-copy"><strong>BUILD</strong><small>项目与制作</small></span></a></li>
+          <li><a href="https://neutriverse.uk/observe/"><span class="nav-number">03</span><span class="nav-copy"><strong>OBSERVE</strong><small>观察与记录</small></span></a></li>
+          <li><a href="https://neutriverse.uk/about/"><span class="nav-number">04</span><span class="nav-copy"><strong>ABOUT</strong><small>关于站主与站点</small></span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-utilities">
+        <p class="nav-caption">检索与订阅</p>
+        <ul><li><a href="https://neutriverse.uk/search/">搜索</a></li><li><a href="https://neutriverse.uk/archives/">归档</a></li><li><a href="https://neutriverse.uk/feed.xml">RSS</a></li></ul>
+      </div>
+      <p class="sidebar-bottom">写于日常，留作日后回看。<br>© 2026 Neutrino</p>
+    </aside>
+
+    <div class="page-wrap">
+      <header class="mobile-brand">
+        <a href="index.html"><img src="../../assets/img/logo.png" alt=""><strong>中间层</strong></a>
+        <details class="mobile-menu"><summary>目录</summary><nav aria-label="移动端主导航"><a href="index.html">HOME · 首页</a><a href="think.html">THINK · 写作与思考</a><a href="https://neutriverse.uk/build/">BUILD · 制作项目</a><a href="https://neutriverse.uk/observe/">OBSERVE · 持续观察</a><a href="https://neutriverse.uk/about/">ABOUT · 关于站主</a></nav></details>
+      </header>
+      <header class="topbar">
+        <div class="breadcrumb"><a href="index.html">中间层</a> / 首页</div>
+        <div class="topbar-actions">
+          <a class="search-link" href="https://neutriverse.uk/">搜索站内内容</a>
+          <div class="preview-theme" aria-label="原型主题"><button type="button" data-theme-choice="light" aria-pressed="false">昼</button><button type="button" data-theme-choice="dark" aria-pressed="true">夜</button></div>
+        </div>
+      </header>
+
+      <div class="editorial-grid">
+        <main class="main-column">
+          <section class="masthead" aria-labelledby="home-title">
+            <div>
+              <p class="masthead-kicker">A PERSONAL COMMONPLACE BOOK</p>
+              <h1 id="home-title">中间层<span class="english-title">NEUTRIVERSE · BY NEUTRINO</span></h1>
+              <p class="masthead-summary">这里存放笔记、读后感和记忆碎片，也记录正在制作的工具与持续观察的事物。</p>
+              <p class="masthead-welcome">欢迎所有的你。</p>
+            </div>
+            <div class="masthead-seal" aria-hidden="true"><img src="../../assets/img/logo.png" alt=""><span>EST. 2024</span></div>
+          </section>
+          <div class="masthead-rule" aria-hidden="true"><span>✦</span></div>
+
+          <section class="section-block" aria-labelledby="latest-title">
+            <div class="section-heading"><span class="section-index">01</span><h2 id="latest-title">最近更新</h2><a href="think.html">查看全部写作</a></div>
+            <ol class="entry-list">
+              <li class="entry">
+                <time class="entry-date" datetime="2026-08-17"><strong>08-17</strong>2026</time>
+                <article><p class="entry-meta">笔记 · Computation</p><h3><a href="post.html">哥德尔编码和 RAG Embedding 之间的关系</a></h3><p class="entry-description">读 RAG 相关文章时发现这俩有点像。两者一个更加关注语句之间如何实现数学运算，一个更加关注语句之间如何实现意义对比。</p></article>
+              </li>
+              <li class="entry">
+                <time class="entry-date" datetime="2026-08-07"><strong>08-07</strong>2026</time>
+                <article><p class="entry-meta">笔记 · Computation</p><h3><a href="https://neutriverse.uk/posts/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-progressive-disclosure%E5%92%8Cskill/">学习笔记：Progressive Disclosure 和 SKILL</a></h3><p class="entry-description">总结了渐进式披露的原理和 SKILL 的一些设计思路。比起原创文章，我更愿意称其为摘抄笔记。</p></article>
+              </li>
+              <li class="entry">
+                <time class="entry-date" datetime="2026-07-09"><strong>07-09</strong>2026</time>
+                <article><p class="entry-meta">笔记 · Project Log</p><h3><a href="https://neutriverse.uk/posts/%E4%B8%B0%E8%81%AA%E8%80%B3%E6%9C%BAtoyosatomimisheadphone/">丰聪耳机 Toyosatomimi’s headphone v0.2.0</a></h3><p class="entry-description">最近找到一些不错的 AI 播客，但长期戴耳机让听力稍有下降，于是决定寻找一个不戴耳机也能听的方法。</p></article>
+              </li>
+              <li class="entry">
+                <time class="entry-date" datetime="2026-07-06"><strong>07-06</strong>2026</time>
+                <article><p class="entry-meta">随笔 · Humanity</p><h3><a href="https://neutriverse.uk/posts/%E4%BA%8E%E5%9B%A0%E7%89%B9%E7%BD%91%E6%A0%87%E7%AD%BE%E4%BB%AC%E5%B1%95%E5%BC%80%E5%8F%8C%E7%BF%BC/">于因特网，标签们展开双翼</a></h3><p class="entry-description">借助互联网展开双翼的标签化，是不是世界滑向极端化的重要推手？</p></article>
+              </li>
+              <li class="entry">
+                <time class="entry-date" datetime="2026-06-30"><strong>06-30</strong>2026</time>
+                <article><p class="entry-meta">笔记 · Project Log</p><h3><a href="https://neutriverse.uk/posts/%E9%98%BF%E5%8D%A1%E5%A4%8F%E4%BE%BF%E7%AC%BAakashanotes/">阿卡夏便笺 Akasha Notes v0.1.2</a></h3><p class="entry-description">一个自用的小工具，也是六月份 vibe coding 的成果之一。高度自定义，或许也会有人需要。</p></article>
+              </li>
+            </ol>
+          </section>
+
+          <section class="section-block" aria-labelledby="featured-title">
+            <div class="section-heading"><span class="section-index">02</span><h2 id="featured-title">重点文章</h2><span class="section-note">站主选编</span></div>
+            <div class="featured-grid">
+              <article class="featured-main"><span class="featured-label">随笔 · Otaku</span><h3><a href="https://neutriverse.uk/posts/FF1%E8%AE%B0%E5%BD%95/">游戏记录：Final Fantasy 1</a></h3><p>优秀的战斗系统，并不平庸的剧情展开，重置版新增的减负设计，造就了一个即使在今天也有其独特魅力的作品。</p></article>
+              <div class="featured-side">
+                <article><span class="featured-label">随笔 · Otaku</span><h3><a href="https://neutriverse.uk/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A6%81%E8%B7%B3%E8%BF%87FF2/">为什么我决定跳过 FF2</a></h3><p>我没找到方便的刷级办法，不方便摸鱼玩。</p></article>
+                <article><span class="featured-label">笔记 · Computation</span><h3><a href="https://neutriverse.uk/posts/%E8%AE%A1%E7%BB%84-07/">计组笔记 07：微型计算机原理及接口基础</a></h3><p>从 CPU、主存与 I/O 出发，整理微型计算机的工作方式。</p></article>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-block current-note" aria-labelledby="current-title"><h2 id="current-title">目前正在整理这个网站</h2><p>这里将持续整理写作、项目与观察记录。</p><a href="https://neutriverse.uk/about/">查看网站后记</a></section>
+          <div class="site-stats" aria-label="站点记录"><span><strong>44</strong> 条公开表达</span><span><strong>39 + 5</strong> 文章与片段</span><span><strong>7</strong> 个项目记录</span><span>最近写于 2026-08-17</span></div>
+        </main>
+
+        <aside class="margin-column" aria-label="页边札记">
+          <section class="margin-note"><h2>作者札记</h2><p class="handwritten">侦探小说中一旦出现了枪，这把枪就一定会背叛自己的第一任主人。</p><p>Fragment · 2026-05-02</p><a href="https://neutriverse.uk/thoughts/">查看全部片段</a></section>
+          <section class="margin-note"><h2>关于站主</h2><p>Neutrino 的个人文字站。主要用于存储笔记、读后感和记忆碎片。</p><a href="https://neutriverse.uk/about/">认识 Neutrino</a></section>
+          <section class="margin-note"><h2>站内索引</h2><nav><a href="https://neutriverse.uk/tags/">按标签检索</a><a href="https://neutriverse.uk/archives/">按时间归档</a><a href="https://neutriverse.uk/library/">中间层大图书馆</a></nav></section>
+        </aside>
+      </div>
+      <footer class="site-footer">© 2026 Neutrino · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a><br>Powered by Jekyll · Theme by Chirpy<br><a href="https://icp.gov.moe/?keyword=20268753" target="_blank" rel="noopener noreferrer">萌ICP备20268753号</a></footer>
+    </div>
+  </div>
+</body>
+</html>

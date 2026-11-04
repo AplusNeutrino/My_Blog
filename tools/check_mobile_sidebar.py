@@ -2,6 +2,7 @@
 """Exercise the built mobile sidebar in a real 390px Chrome viewport."""
 
 import json
+import os
 import shutil
 import sys
 import threading
@@ -16,7 +17,7 @@ from homepage_featured_contract import expected_featured_paths
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -162,19 +163,13 @@ def read_section_identity(driver):
     return driver.execute_script(
         r"""
         const identity = document.querySelector('[data-section-identity]');
-        const nav = document.querySelector('.nv-primary-nav');
-        const mark = identity?.querySelector('.nv-section-signal-mark');
+        const duplicateNav = document.querySelector('.nv-primary-nav');
         return {
           id: identity?.dataset.sectionIdentity || null,
-          name: identity?.querySelector('h1')?.textContent.trim() || null,
-          label: identity?.querySelector('.nv-section-label')?.textContent.trim() || null,
+          name: identity?.querySelector('.nv-section-kicker')?.textContent.trim() || null,
+          label: identity?.querySelector('h1')?.textContent.trim() || null,
           summary: identity?.querySelector('.nv-section-summary')?.textContent.trim() || null,
-          signal: identity?.querySelector('.nv-section-signal strong')?.textContent.trim() || null,
-          note: identity?.querySelector('.nv-section-signal > span:last-child')?.textContent.trim() || null,
-          signalAria: identity?.querySelector('.nv-section-signal')?.getAttribute('aria-label') || null,
-          markVisible: Boolean(mark && mark.getBoundingClientRect().height > 0),
-          navCount: nav?.querySelectorAll('.nv-primary-nav-link').length || 0,
-          currentCount: nav?.querySelectorAll('[aria-current="page"]').length || 0,
+          duplicateNavCount: duplicateNav?.querySelectorAll('.nv-primary-nav-link').length || 0,
           bodyClientWidth: document.body.clientWidth,
           bodyScrollWidth: document.body.scrollWidth
         };
@@ -188,13 +183,8 @@ def require_section_identity(driver, expected):
         actual["id"] == expected["id"]
         and actual["name"] == expected["name"]
         and actual["label"] == expected["label"]
-        and actual["signal"] == expected["signal"]
-        and expected["note"] in (actual["note"] or "")
-        and actual["note"] in (actual["signalAria"] or "")
         and bool(actual["summary"])
-        and actual["markVisible"]
-        and actual["navCount"] == 4
-        and actual["currentCount"] == 1
+        and actual["duplicateNavCount"] == 0
         and actual["bodyScrollWidth"] <= actual["bodyClientWidth"],
         f"section identity contract failed: {actual}",
     )
@@ -287,6 +277,57 @@ def require(condition, message):
         raise AssertionError(message)
 
 
+def select_filter_option(driver, select_id, value):
+    details = driver.find_element(By.CSS_SELECTOR, f'[data-filter-target="{select_id}"]')
+    driver.execute_script("arguments[0].querySelector('summary').click();", details)
+    option = details.find_element(By.CSS_SELECTOR, f'[data-value="{value}"]')
+    driver.execute_script("arguments[0].click();", option)
+
+
+def check_filter_keyboard(driver, wait):
+    reset = driver.find_element(By.CSS_SELECTOR, '.nv-writing-reset')
+    driver.execute_script("arguments[0].scrollIntoView({behavior:'instant',block:'center'});", reset)
+    reset.click()
+    wait.until(lambda current: read_state(current)["visibleWritingCount"] == 12)
+    details = driver.find_element(By.CSS_SELECTOR, '[data-filter-target="nv-writing-type"]')
+    summary = details.find_element(By.TAG_NAME, 'summary')
+    summary.click()
+    summary.send_keys(Keys.ARROW_DOWN)
+    selected = details.find_element(By.CSS_SELECTOR, '[aria-selected="true"]')
+    require(driver.switch_to.active_element == selected, 'ArrowDown did not focus the selected option')
+    active = driver.switch_to.active_element
+    active.send_keys(Keys.HOME)
+    require(driver.switch_to.active_element.get_attribute('data-value') == 'all', 'Home did not focus the first option')
+    active.send_keys(Keys.END)
+    require(driver.switch_to.active_element.get_attribute('data-value') == 'fragment', 'End did not focus the last option')
+    driver.switch_to.active_element.send_keys(Keys.ARROW_UP)
+    require(driver.switch_to.active_element.get_attribute('data-value') == 'essay',
+            'ArrowUp did not focus the essay option')
+    driver.switch_to.active_element.send_keys(Keys.ENTER)
+    wait.until(lambda current: read_state(current)["visibleWritingCount"] == 4)
+    require(not details.get_property('open') and driver.switch_to.active_element == summary,
+            'Enter did not select and return focus to the filter summary')
+    summary.send_keys(Keys.ENTER)
+    wait.until(lambda current: summary.get_attribute('aria-expanded') == 'true')
+    summary.send_keys(Keys.ARROW_UP)
+    require(driver.switch_to.active_element.get_attribute('data-value') == 'fragment',
+            'ArrowUp did not focus the last option')
+    driver.switch_to.active_element.send_keys(Keys.ESCAPE)
+    require(not details.get_property('open') and driver.switch_to.active_element == summary,
+            'Escape did not close the filter and restore its trigger focus')
+    summary.send_keys(Keys.SPACE)
+    wait.until(lambda current: summary.get_attribute('aria-expanded') == 'true')
+    summary.send_keys(Keys.TAB)
+    wait.until(lambda current: current.switch_to.active_element.get_attribute('role') == 'option')
+    driver.switch_to.active_element.send_keys(Keys.TAB)
+    next_filter = driver.execute_script(
+        "return document.activeElement.closest('[data-filter-target]')?.dataset.filterTarget || null;"
+    )
+    require(not details.get_property('open') and next_filter == 'nv-writing-topic',
+            f'Tab did not close the filter and advance naturally: {next_filter}')
+    return {'selected': 'essay', 'escapeRestoredFocus': True, 'tabDestination': next_filter}
+
+
 def main():
     site = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
     require((site / "think" / "index.html").exists(), f"missing built THINK page: {site}")
@@ -329,6 +370,11 @@ def main():
 
     with serve(site) as port, webdriver.Chrome(options=options) as driver:
         driver.set_window_size(390, 844)
+        if os.name == 'nt':
+            driver.execute_cdp_cmd(
+                'Emulation.setDeviceMetricsOverride',
+                {'width': 390, 'height': 844, 'deviceScaleFactor': 1, 'mobile': True},
+            )
         driver.get(f"http://127.0.0.1:{port}/think/")
         wait = WebDriverWait(driver, 10)
         wait.until(lambda current: current.execute_script("return document.readyState") == "complete")
@@ -337,9 +383,7 @@ def main():
         require_section_identity(driver, {
             "id": "think",
             "name": "THINK",
-            "label": "我如何思考与表达",
-            "signal": "DRAFT / TRACE",
-            "note": "纸面线",
+            "label": "写作与思考",
         })
         require(380 <= initial["innerWidth"] <= 400, f"unexpected viewport: {initial}")
         require(initial["bodyScrollWidth"] <= initial["bodyClientWidth"], f"horizontal overflow: {initial}")
@@ -352,12 +396,8 @@ def main():
         )
         require(initial["utilitiesVisible"] == 3, f"utility links unavailable: {initial}")
         require(
-            initial["retrievalEntries"] == [
-                {"kind": "archive", "tag": "A", "href": "/archives/"},
-                {"kind": "tags", "tag": "A", "href": "/tags/"},
-                {"kind": "search", "tag": "BUTTON", "href": None},
-            ],
-            f"THINK retrieval entries changed: {initial}",
+            initial["retrievalEntries"] == [],
+            f"THINK should not repeat retrieval cards below the list: {initial}",
         )
         require(initial["controls"] == "sidebar" and initial["expanded"] == "false", f"trigger semantics wrong: {initial}")
         require(initial["writingCount"] == 44, f"writing count changed: {initial}")
@@ -465,11 +505,11 @@ def main():
         driver.back()
         wait.until(lambda current: read_state(current)["filterSeries"] == "all")
 
-        Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("fragment")
+        select_filter_option(driver, "nv-writing-type", "fragment")
         wait.until(lambda current: read_state(current)["visibleWritingCount"] == 5)
-        Select(driver.find_element(By.ID, "nv-writing-topic")).select_by_value("humanity")
+        select_filter_option(driver, "nv-writing-topic", "humanity")
         wait.until(lambda current: read_state(current)["visibleWritingCount"] == 4)
-        Select(driver.find_element(By.ID, "nv-writing-sort")).select_by_value("oldest")
+        select_filter_option(driver, "nv-writing-sort", "oldest")
         wait.until(
             lambda current: (
                 (state := read_state(current))["visibleFirstWritingDate"] == "2024-09-12"
@@ -490,7 +530,7 @@ def main():
             f"refresh lost filter state: {refreshed}",
         )
 
-        Select(driver.find_element(By.ID, "nv-writing-type")).select_by_value("essay")
+        select_filter_option(driver, "nv-writing-type", "essay")
         wait.until(lambda current: read_state(current)["visibleWritingCount"] == 1)
         driver.back()
         wait.until(
@@ -511,6 +551,7 @@ def main():
             and no_results["filterEmptyVisible"],
             f"filter empty state failed: {no_results}",
         )
+        filter_keyboard = check_filter_keyboard(driver, wait)
 
         driver.get(think_url + "?sort=oldest")
         wait.until(lambda current: read_state(current)["controlsVisible"])
@@ -697,8 +738,11 @@ def main():
         driver.get(think_url)
         wait.until(lambda current: read_state(current)["controlsVisible"])
 
+        trigger = driver.find_element(By.ID, "sidebar-trigger")
+        trigger.click()
+        wait.until(lambda current: read_state(current)["open"])
         search_action = driver.find_element(
-            By.CSS_SELECTOR, '.nv-section-links [data-nv-retrieval="search"]'
+            By.CSS_SELECTOR, '#sidebar [data-nv-search-trigger]'
         )
         driver.execute_script("arguments[0].click();", search_action)
         wait.until(
@@ -710,8 +754,10 @@ def main():
         search_cancel = driver.find_element(By.ID, "search-cancel")
         driver.execute_script("arguments[0].click();", search_cancel)
         wait.until(lambda current: not read_state(current)["searchInputVisible"])
+        if read_state(driver)["open"]:
+            driver.execute_script("arguments[0].click();", trigger)
+            wait.until(lambda current: not read_state(current)["open"])
 
-        trigger = driver.find_element(By.ID, "sidebar-trigger")
         trigger.click()
         wait.until(
             lambda current: (
@@ -799,6 +845,7 @@ def main():
                 };
                 return {
                   current: catalog.dataset.projectFilterCurrent,
+                  filterCount: catalog.querySelectorAll('[data-project-filter]').length,
                   ids: cards.map((card) => card.dataset.projectId),
                   visibleIds: cards.filter((card) => !card.hidden)
                     .map((card) => card.dataset.projectId),
@@ -820,9 +867,7 @@ def main():
         require_section_identity(driver, {
             "id": "build",
             "name": "BUILD",
-            "label": "我正在制作什么",
-            "signal": "ASSEMBLE / VERIFY",
-            "note": "构造网格",
+            "label": "项目与制作",
         })
         require(
             build_initial["ids"] == [
@@ -834,7 +879,8 @@ def main():
                 "gate",
                 "officespire",
             ]
-            and build_initial["visibleIds"] == build_initial["ids"],
+            and build_initial["visibleIds"] == build_initial["ids"]
+            and build_initial["filterCount"] == 0,
             f"BUILD project catalog changed: {build_initial}",
         )
         require(
@@ -923,7 +969,7 @@ def main():
                 "id": "officespire",
                 "name": "OfficeSpire",
                 "status": "implemented_unverified",
-                "status_phrase": "implemented unverified",
+                "status_phrase": "已实现，待验证",
                 "actions": {
                     "repository": "https://github.com/AplusNeutrino/OfficeSpire",
                     "documentation": (
@@ -1033,9 +1079,7 @@ def main():
         require_section_identity(driver, {
             "id": "observe",
             "name": "OBSERVE",
-            "label": "我持续观察什么",
-            "signal": "SCAN / CONTEXT",
-            "note": "观测准星",
+            "label": "观察与记录",
         })
         require(
             observe_directory["ids"] == ["ravenis", "occult-atlas"]
@@ -1051,7 +1095,7 @@ def main():
                     "application": "/occult-atlas/",
                 },
             }
-            and "应用保持 noindex" in observe_directory["text"]
+            and "应用保持 noindex" not in observe_directory["text"]
             and all(
                 forbidden not in observe_directory["text"]
                 for forbidden in ("Gate", "NAVI", "MMXProj")
@@ -1157,47 +1201,12 @@ def main():
             ) == "true"
         )
 
-        implemented_filter = driver.find_element(
-            By.CSS_SELECTOR,
-            '[data-project-filter="implemented_unverified"]',
-        )
-        driver.execute_script("arguments[0].click();", implemented_filter)
-        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
-        implemented = read_projects(driver)
+        unfiltered_projects = read_projects(driver)
         require(
-            implemented["urlSearch"] == "?status=implemented_unverified"
-            and implemented["pressed"] == "implemented_unverified",
-            f"BUILD known-status state is not shareable: {implemented}",
-        )
-
-        driver.refresh()
-        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
-        refreshed = read_projects(driver)
-        require(
-            refreshed["pressed"] == "implemented_unverified",
-            f"BUILD status did not survive refresh: {refreshed}",
-        )
-
-        all_filter = driver.find_element(
-            By.CSS_SELECTOR,
-            '[data-project-filter="all"]',
-        )
-        driver.execute_script("arguments[0].click();", all_filter)
-        wait.until(lambda current: len(read_projects(current)["visibleIds"]) == 7)
-        driver.back()
-        wait.until(lambda current: read_projects(current)["visibleIds"] == ["officespire"])
-
-        unspecified_filter = driver.find_element(
-            By.CSS_SELECTOR,
-            '[data-project-filter="unspecified"]',
-        )
-        driver.execute_script("arguments[0].click();", unspecified_filter)
-        wait.until(lambda current: len(read_projects(current)["visibleIds"]) == 6)
-        unspecified = read_projects(driver)
-        require(
-            "officespire" not in unspecified["visibleIds"]
-            and unspecified["urlSearch"] == "?status=unspecified",
-            f"BUILD unspecified filter failed: {unspecified}",
+            unfiltered_projects["filterCount"] == 0
+            and len(unfiltered_projects["visibleIds"]) == 7
+            and unfiltered_projects["current"] == "all",
+            f"BUILD should not expose filters with only one known status: {unfiltered_projects}",
         )
 
         driver.get(build_url + "?status=unknown")
@@ -1224,12 +1233,7 @@ def main():
             const items = [...document.querySelectorAll('[data-home-transmission]')];
             return {
               sections: sections.map((section) => section.dataset.homeSection),
-              entrances: [...document.querySelectorAll(
-                '.nv-home-explore .nv-primary-nav-link'
-              )].map((link) => ({
-                name: link.querySelector('.nv-primary-nav-name')?.textContent.trim(),
-                href: path(link)
-              })),
+              writingEntrance: path(document.querySelector('.nv-home-more')),
               dates: items.map((item) => item.dataset.homeDate),
               types: items.map((item) => item.dataset.homeType),
               projects: items
@@ -1237,8 +1241,8 @@ def main():
                 .map((item) => item.dataset.homeProject),
               firstPath: path(items[0]?.querySelector('a')),
               currentSignal: {
-                title: document.querySelector('.nv-home-signal-card h3')?.textContent.trim(),
-                href: path(document.querySelector('.nv-home-signal-card a'))
+                title: document.querySelector('.nv-home-signal-card h2')?.textContent.trim(),
+                href: path(document.querySelector('.nv-home-signal-link'))
               },
               featuredPaths: [...document.querySelectorAll(
                 '[data-home-featured] h3 a'
@@ -1263,29 +1267,23 @@ def main():
             homepage["sections"] == [
                 "identity",
                 "latest_transmissions",
-                "explore",
-                "current_signal",
                 "featured",
+                "current_signal",
                 "system_status",
             ],
             f"homepage section order changed: {homepage}",
         )
         require(
-            homepage["entrances"] == [
-                {"name": "THINK", "href": "/think/"},
-                {"name": "BUILD", "href": "/build/"},
-                {"name": "OBSERVE", "href": "/observe/"},
-                {"name": "ABOUT", "href": "/about/"},
-            ],
-            f"homepage entrances changed: {homepage}",
+            homepage["writingEntrance"] == "/think/",
+            f"homepage writing entrance changed: {homepage}",
         )
         require(
-            len(homepage["dates"]) == 8
+            len(homepage["dates"]) == 5
             and homepage["dates"] == sorted(homepage["dates"], reverse=True),
             f"homepage mixed stream order changed: {homepage}",
         )
         require(
-            {"note", "essay", "fragment"}.issubset(set(homepage["types"])),
+            {"note", "essay"}.issubset(set(homepage["types"])),
             f"homepage mixed stream lost a Type: {homepage}",
         )
         require(
@@ -1302,7 +1300,7 @@ def main():
         )
         require(
             homepage["currentSignal"] == {
-                "title": "Neutriverse 网站重构",
+                "title": "目前正在整理这个网站",
                 "href": "/about/",
             },
             f"Current Signal does not use the approved source: {homepage}",
@@ -1392,7 +1390,7 @@ def main():
         )
         require(
             homepage_theme_layout["visible"]
-            and homepage_theme_layout["count"] == 6
+            and homepage_theme_layout["count"] == 5
             and (
                 homepage_theme_layout["bodyScrollWidth"]
                 <= homepage_theme_layout["bodyClientWidth"]
@@ -1434,7 +1432,7 @@ def main():
                   target: link.getAttribute('target'),
                   rel: link.getAttribute('rel')
                 })),
-              principleCount: profile?.querySelectorAll('.about-principle-list li').length || 0,
+              internetLinkCount: profile?.querySelectorAll('.about-coordinate-list li').length || 0,
               timelineCount: timeline?.querySelectorAll('.about-timeline-event').length || 0,
               timelineDates: [...timeline?.querySelectorAll('.about-timeline-event time') || []]
                 .map((item) => item.getAttribute('datetime')),
@@ -1472,9 +1470,7 @@ def main():
         require_section_identity(driver, {
             "id": "about",
             "name": "ABOUT",
-            "label": "我是谁以及这个站如何生长",
-            "signal": "ORIGIN / CONTINUITY",
-            "note": "连续轨道",
+            "label": "关于站主与站点",
         })
         require(
             about_state["schema"] == "3"
@@ -1486,7 +1482,7 @@ def main():
                 {"path": "/Neutrino_X", "target": "_blank", "rel": "noopener noreferrer"},
                 {"path": "/links/", "target": None, "rel": None},
             ]
-            and about_state["principleCount"] == 4
+            and about_state["internetLinkCount"] == 4
             and about_state["timelineCount"] == 5
             and about_state["timelineDates"] == sorted(about_state["timelineDates"])
             and len(about_state["timelineSources"]) == 5
@@ -1505,13 +1501,9 @@ def main():
             and about_state["statusCount"] == 4
             and about_state["roadmapCount"] == 3
             and about_state["stackCounts"] == [5, 5]
-            and about_state["related"] == [
-                "/library/",
-                "/links/",
-                "/about/#about-relations-title",
-            ]
+            and about_state["related"] == []
             and "更新于 2026-08-17" in about_state["text"]
-            and "Neutriverse 网站重构" in about_state["text"]
+            and "目前正在整理这个网站" in about_state["text"]
             and "网站维护状态 · 非个人实时状态" in about_state["text"]
             and about_state["bodyScrollWidth"] <= about_state["bodyClientWidth"],
             f"ABOUT data/snapshot/mobile contract failed: {about_state}",
@@ -1533,6 +1525,7 @@ def main():
             "masked": masked,
             "themed": themed,
             "navigated": navigated,
+            "filterKeyboard": filter_keyboard,
         }, ensure_ascii=False, sort_keys=True))
 
 

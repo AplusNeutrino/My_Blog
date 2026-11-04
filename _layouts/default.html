@@ -34,14 +34,23 @@ layout: compress
 
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+            {% if page.layout == 'post' %}
+              {% for _include in layout.panel_includes %}
+                {% assign _include_path = _include | append: '.html' %}
+                {% include {{ _include_path }} lang=lang %}
+              {% endfor %}
+            {% endif %}
+
             <div class="access">
               {% include trending-tags.html lang=lang middle_memory=true %}
             </div>
 
-            {% for _include in layout.panel_includes %}
-              {% assign _include_path = _include | append: '.html' %}
-              {% include {{ _include_path }} lang=lang %}
-            {% endfor %}
+            {% unless page.layout == 'post' %}
+              {% for _include in layout.panel_includes %}
+                {% assign _include_path = _include | append: '.html' %}
+                {% include {{ _include_path }} lang=lang %}
+              {% endfor %}
+            {% endunless %}
           </aside>
         </div>
 

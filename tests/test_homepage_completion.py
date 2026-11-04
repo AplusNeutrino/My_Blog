@@ -5,19 +5,18 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = (ROOT / "_layouts" / "home.html").read_text(encoding="utf-8")
 CONFIG = (ROOT / "_data" / "neutriverse_home.yml").read_text(encoding="utf-8")
-CSS = (ROOT / "assets" / "css" / "neutriverse-sections.css").read_text(encoding="utf-8")
+CSS = (ROOT / "assets" / "css" / "neutriverse-editorial.css").read_text(encoding="utf-8")
 
 
 class HomepageCompletionTest(unittest.TestCase):
-    def test_all_six_sections_are_rendered_in_configured_order(self):
+    def test_all_five_sections_are_rendered_in_configured_order(self):
         markers = [
             f'data-home-section="{section}"'
             for section in (
                 "identity",
                 "latest_transmissions",
-                "explore",
-                "current_signal",
                 "featured",
+                "current_signal",
                 "system_status",
             )
         ]
@@ -28,7 +27,7 @@ class HomepageCompletionTest(unittest.TestCase):
         self.assertIn("home_config.current_signal.title", LAYOUT)
         self.assertIn("home_config.current_signal.summary", LAYOUT)
         self.assertIn("home_config.current_signal.url", LAYOUT)
-        self.assertIn("title: Neutriverse 网站重构", CONFIG)
+        self.assertIn("title: 目前正在整理这个网站", CONFIG)
         self.assertNotIn("site.time", LAYOUT)
 
     def test_featured_records_have_public_fallbacks_and_a_limit(self):
@@ -53,15 +52,15 @@ class HomepageCompletionTest(unittest.TestCase):
 
     def test_mobile_and_theme_styles_use_shared_tokens(self):
         for token in (
-            "var(--nv-surface-1)",
-            "var(--nv-surface-2)",
-            "var(--nv-text-strong)",
-            "var(--nv-border)",
+            "var(--nv-ed-surface)",
+            "var(--nv-ed-raised)",
+            "var(--nv-ed-strong)",
+            "var(--nv-ed-border)",
         ):
             self.assertIn(token, CSS)
         self.assertIn(".nv-home-featured-list", CSS)
         self.assertIn(".nv-home-status-grid", CSS)
-        self.assertIn("@media (max-width: 767.98px)", CSS)
+        self.assertIn("@media (max-width: 849px)", CSS)
 
 
 if __name__ == "__main__":
