@@ -181,6 +181,11 @@ def main():
                         driver.save_screenshot(str(output / (name + '-sidebar-closed.png')))
                         click(driver, '#sidebarToggle')
                         wait.until(lambda d: d.find_element(By.ID, 'sidebarToggle').get_attribute('aria-expanded') == 'true')
+                        wait.until(lambda d: d.find_element(By.ID, 'chartControlToggle').is_displayed())
+                        wait.until(lambda d: d.execute_script(
+                            "return document.getAnimations().every(a => a.playState !== 'running'"
+                            " || a.effect.getTiming().iterations === Infinity);"
+                        ))
                     # UI-024 deterministic loading-controls fixture only: no network
                     # interception or backend-health claim. Async callbacks may request
                     # new values; restore those latest values after this isolated fixture.
