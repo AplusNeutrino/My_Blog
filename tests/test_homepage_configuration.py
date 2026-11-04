@@ -19,9 +19,8 @@ class HomepageConfigurationTest(unittest.TestCase):
             [
                 "identity",
                 "latest_transmissions",
-                "explore",
-                "current_signal",
                 "featured",
+                "current_signal",
                 "system_status",
             ],
         )
@@ -31,14 +30,14 @@ class HomepageConfigurationTest(unittest.TestCase):
             "primary_source: visible_posts",
             "fragment_source: thoughts.fragments",
             "project_log_relation: project",
-            "source: neutriverse_sections.sections",
+            "source: public_site_identity",
             "post_scope: visible_posts",
         ):
             self.assertIn(contract, CONFIG)
         self.assertEqual(CONFIG.count("hidden_policy: exclude"), 2)
 
     def test_current_signal_uses_only_the_approved_site_fact(self):
-        self.assertIn("title: Neutriverse 网站重构", CONFIG)
+        self.assertIn("title: 目前正在整理这个网站", CONFIG)
         self.assertIn("source: approved_master_plan", CONFIG)
         for forbidden in ("工作", "考试", "住址", "健康"):
             self.assertNotIn(forbidden, CONFIG)

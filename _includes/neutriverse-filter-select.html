@@ -1,0 +1,14 @@
+<details class="nv-filter-select" data-filter-name="{{ include.label }}" data-filter-target="{{ include.id }}" hidden>
+  <summary aria-haspopup="listbox" aria-expanded="false" aria-label="{{ include.label }}：{{ include.default_label }}">
+    <span data-filter-value>{{ include.default_label }}</span>
+    <span class="nv-filter-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="nv-filter-options" role="listbox" aria-label="{{ include.label }}">
+    {% assign option_pairs = include.options | split: ',' %}
+    {% for pair in option_pairs %}
+      {% assign value = pair | split: ':' | first %}
+      {% assign label = pair | split: ':' | last %}
+      <button type="button" role="option" data-value="{{ value }}" aria-selected="{% if value == include.default_value %}true{% else %}false{% endif %}">{{ label }}</button>
+    {% endfor %}
+  </div>
+</details>

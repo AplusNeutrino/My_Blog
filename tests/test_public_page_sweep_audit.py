@@ -24,9 +24,10 @@ class PublicPageSweepAuditTests(unittest.TestCase):
         source,helper=self.helper()
         for token in ('link.click()', 'driver.back()', 'd.current_url == original',
                       "By.ID, 'back-to-top'", 'top.click()', 'return scrollY <= 1',
-                      "'/think/'", "'/build/'", "'/observe/'", "'/about/'",
-                      "'/build/ravenis/'", "'/build/occult-atlas/'", "'/library/'", "'/links/'"):
+                      "'/think/'", "'/build/ravenis/'", "'/build/occult-atlas/'", "'/library/'", "'/links/'"):
             self.assertIn(token,helper)
+        self.assertIn('.nv-home-more',helper)
+        self.assertNotIn('.nv-home-explore',helper)
         self.assertIn('public_page_sweep(driver, wait, output, width, theme, public_name)',source)
         self.assertIn("output / 'public-page-audit.json'",source)
         self.assertNotIn("'/navi/",helper)
@@ -74,7 +75,7 @@ class PublicPageSweepAuditTests(unittest.TestCase):
     def test_observe_about_intro_range_rejects_missing_scope_and_intersections(self):
         _,helper=self.helper()
         block=helper[helper.index("elif name in ('observe', 'about'):"):helper.index('Public page native viewports have a coverage gap')]
-        for token in ('[data-neutriverse-section="observe"] .nv-section-intro',
+        for token in ('[data-neutriverse-section="observe"] .nv-section-summary',
                       '[data-about-profile] .about-info-text', 'document.createTreeWalker',
                       'range.getClientRects()', "intro['rootCount'] == 1 and intro['textNodes'] > 0",
                       "require(not intro['overlaps']", 'intro-text-overlap-',
@@ -111,9 +112,9 @@ class PublicPageSweepAuditTests(unittest.TestCase):
     def test_remaining_detail_scopes_are_nonempty_and_reject_real_line_overlaps(self):
         _,helper=self.helper()
         block=helper[helper.index('# UI-015:'):helper.index('Public page native viewports have a coverage gap')]
-        for token in ('[data-observe-catalog] .nv-observe-card-meta',
-                      '[data-about-profile] .about-principle-list',
-                      '[data-about-profile] .about-current-meta > div:last-child dd',
+        for token in ('[data-observe-catalog] .nv-observe-card > p',
+                      '[data-about-profile] .about-coordinate-list',
+                      '[data-about-profile] .about-current-meta dd',
                       '[data-about-profile] .about-stack-item time', 'document.createRange()',
                       'range.getClientRects()', "g['rootCount'] > 0 and not g['emptyRoots']",
                       "all(not g['overlaps'] for g in groups)", 'detail-text-overlap-'):
@@ -122,14 +123,13 @@ class PublicPageSweepAuditTests(unittest.TestCase):
         self.assertIn("require(not intro['overlaps']",helper)
         self.assertIn("observed['recentTextButton']['overlaps']",helper)
 
-    def test_detail_css_keeps_fixed_button_and_handles_absolute_dates(self):
+    def test_detail_css_keeps_fixed_button_lane_for_normal_flow_dates(self):
         css=Path('assets/css/neutriverse-sections.css').read_text()
         start=css.index('/* UI-015:')
         block=css[start:css.index('.nv-observe-catalog {',start)]
-        for token in ('@media (max-width: 1199.98px)', '.about-principle-list > li',
-                      '.about-current-meta > div:last-child dd', '.nv-observe-card-meta',
-                      'padding-right: 2.75rem;', '.about-stack-item time',
-                      'right: calc(0.62rem + 2.75rem);'):
+        for token in ('@media (max-width: 1199.98px)', '.about-coordinate-list > li',
+                      '.about-current-meta dd', '.nv-observe-card-meta',
+                      'padding-right: 2.75rem;', '.about-stack-item time'):
             self.assertIn(token,block)
         for token in ('#back-to-top', 'font-size:', 'grid-template-columns:', 'display: none'):
             self.assertNotIn(token,block)

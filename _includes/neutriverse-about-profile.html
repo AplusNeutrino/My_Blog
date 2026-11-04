@@ -27,10 +27,6 @@
         <dt>SOURCE</dt>
         <dd>{{ about.currently.source_label }}</dd>
       </div>
-      <div>
-        <dt>MAINTAIN</dt>
-        <dd><code>{{ about.currently.maintenance.file }}</code> → <code>{{ about.currently.maintenance.field }}</code><br>{{ about.currently.maintenance.note }}</dd>
-      </div>
     </dl>
   </section>
 
@@ -52,19 +48,6 @@
       </ul>
     </section>
 
-    <section class="about-context-panel" aria-labelledby="about-philosophy-title" data-about-philosophy>
-      <span class="about-section-kicker">{{ about.philosophy.kicker }}</span>
-      <h2 id="about-philosophy-title">{{ about.philosophy.title }}</h2>
-      <p class="about-context-intro">{{ about.philosophy.intro }}</p>
-      <ol class="about-principle-list">
-        {% for principle in about.philosophy.principles %}
-          <li>
-            <strong>{{ principle.title }}</strong>
-            <p>{{ principle.text }}</p>
-          </li>
-        {% endfor %}
-      </ol>
-    </section>
   </div>
 
   <section class="about-timeline" aria-labelledby="about-timeline-title" data-about-timeline>
@@ -159,7 +142,7 @@
     {% endfor %}
   </div>
 
-  <div class="about-stacks" aria-label="阅读与影像历史记录栈">
+  <div class="about-stacks" aria-label="待读与待看清单">
     {% assign stack_keys = 'reading,visual' | split: ',' %}
     {% for stack_key in stack_keys %}
       {% assign stack = about.stacks[stack_key] %}

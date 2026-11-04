@@ -1,6 +1,8 @@
 ---
 layout: default
 refactor: true
+panel_includes:
+  - neutriverse-home-panel
 ---
 
 {% include lang.html %}
@@ -15,7 +17,7 @@ refactor: true
 {% assign home_transmissions = home_visible_posts | concat: home_fragments | sort: 'date' | reverse %}
 {% assign home_latest_transmission = home_transmissions | first %}
 {% assign home_record_count = home_visible_posts.size | plus: home_fragments.size %}
-{% assign home_featured_limit = home_config.featured.limit | default: 4 %}
+{% assign home_featured_limit = home_config.featured.limit | default: 3 %}
 {% assign home_featured_urls = '' | split: '' %}
 
 {% for featured_url in home_config.featured.posts %}
@@ -49,16 +51,24 @@ refactor: true
 {% endif %}
 
 <section class="nv-home-identity" data-home-section="identity" aria-labelledby="nv-home-title">
-  <p class="nv-home-kicker">{{ home_config.identity.kicker }}</p>
-  <h1 id="nv-home-title">{{ home_config.identity.title }}</h1>
-  <p class="nv-home-owner">by {{ home_config.identity.owner }}</p>
-  <p class="nv-home-summary">{{ home_config.identity.summary }}</p>
+  <div class="nv-home-identity-copy">
+    <p class="nv-home-kicker">{{ home_config.identity.kicker }}</p>
+    <h1 id="nv-home-title">{{ home_config.identity.title }}<span>{{ home_config.identity.english_title }} · BY {{ home_config.identity.owner | upcase }}</span></h1>
+    <p class="nv-home-summary">{{ home_config.identity.summary }}</p>
+    <p class="nv-home-welcome">{{ home_config.identity.welcome }}</p>
+  </div>
+  <div class="nv-home-seal" aria-hidden="true">
+    <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="">
+    <span>EST. 2024</span>
+  </div>
 </section>
+<div class="nv-home-rule" aria-hidden="true"><span>✦</span></div>
 
 <section class="nv-home-latest" data-home-section="latest_transmissions" aria-labelledby="nv-home-latest-title">
   <div class="nv-home-section-heading">
-    <p>LATEST TRANSMISSIONS</p>
-    <h2 id="nv-home-latest-title">近期表达</h2>
+    <span class="nv-home-section-index">01</span>
+    <h2 id="nv-home-latest-title">最近更新</h2>
+    <a class="nv-home-more" href="{{ '/think/' | relative_url }}">查看全部写作</a>
   </div>
 
   {% if home_transmissions.size > 0 %}
@@ -88,23 +98,22 @@ refactor: true
             data-home-type="{{ item.type | escape }}"
             {% if home_project_log %}data-home-project="{{ home_project_log.project | escape }}"{% endif %}
           >
-            <time datetime="{{ item.date | date_to_xmlschema }}">{{ home_date }}</time>
+            <time datetime="{{ item.date | date_to_xmlschema }}"><strong>{{ item.date | date: '%m-%d' }}</strong><span>{{ item.date | date: '%Y' }}</span></time>
             <div class="nv-home-transmission-body">
               <div class="nv-home-transmission-meta" aria-label="内容分类">
-                <span>{{ home_type.label | default: item.type }}</span>
-                <span>{{ home_topic.label | default: item.topic }}</span>
+                <span>{{ home_type.label_zh | default: home_type.label | default: item.type }}</span>
+                <span>· {{ home_topic.label | default: item.topic }}</span>
                 {% if home_project_log %}
-                  <span class="nv-home-project-log">Project Log / {{ home_project_log.project }}</span>
+                  <span>· Project Log</span>
                 {% endif %}
               </div>
 
               {% if home_is_fragment %}
-                <p>{{ item.text }}</p>
-                <a href="{{ home_fragment_page.url | relative_url }}#{{ home_fragment_id | escape }}">查看 Fragment 原页</a>
+                <p class="nv-home-fragment">{{ item.text }}<a href="{{ home_fragment_page.url | relative_url }}#{{ home_fragment_id | escape }}">查看片段原页</a></p>
               {% else %}
                 <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
                 {% if item.description %}
-                  <p>{{ item.description }}</p>
+                  <p class="nv-home-transmission-description">{{ item.description }}</p>
                 {% endif %}
               {% endif %}
             </div>
@@ -112,46 +121,16 @@ refactor: true
         </li>
       {% endfor %}
     </ol>
-    <a class="nv-home-more" href="{{ '/think/' | relative_url }}">进入 THINK 查看全部公开写作</a>
   {% else %}
     <p class="nv-home-empty">暂无公开表达。</p>
   {% endif %}
 </section>
 
-<section class="nv-home-explore" data-home-section="explore" aria-labelledby="nv-home-explore-title">
-  <div class="nv-home-section-heading">
-    <p>EXPLORE THE UNIVERSE</p>
-    <h2 id="nv-home-explore-title">探索四个入口</h2>
-  </div>
-  {% include neutriverse-primary-nav.html %}
-</section>
-
-
-<section class="nv-home-current-signal" data-home-section="current_signal" aria-labelledby="nv-home-current-title">
-  <div class="nv-home-section-heading">
-    <p>CURRENT SIGNAL</p>
-    <h2 id="nv-home-current-title">当前焦点</h2>
-  </div>
-  {% if home_config.current_signal.title %}
-    <article class="nv-home-signal-card">
-      <p class="nv-home-signal-source">来自已确认的站内计划</p>
-      <h3>{{ home_config.current_signal.title }}</h3>
-      {% if home_config.current_signal.summary %}
-        <p>{{ home_config.current_signal.summary }}</p>
-      {% endif %}
-      {% if home_config.current_signal.url %}
-        <a href="{{ home_config.current_signal.url | relative_url }}">查看当前焦点的站内说明</a>
-      {% endif %}
-    </article>
-  {% else %}
-    <p class="nv-home-empty">当前没有公开焦点。</p>
-  {% endif %}
-</section>
-
 <section class="nv-home-featured" data-home-section="featured" aria-labelledby="nv-home-featured-title">
   <div class="nv-home-section-heading">
-    <p>FEATURED RECORDS</p>
-    <h2 id="nv-home-featured-title">精选内容</h2>
+    <span class="nv-home-section-index">02</span>
+    <h2 id="nv-home-featured-title">重点文章</h2>
+    <span class="nv-home-section-note">站主选编</span>
   </div>
   {% if home_featured_urls.size > 0 %}
     <ol class="nv-home-featured-list">
@@ -162,10 +141,7 @@ refactor: true
           {% assign featured_topic = site.data.content_taxonomy.topics[featured_post.topic] %}
           <li>
             <article class="nv-home-featured-card" data-home-featured>
-              <p>
-                <span>{{ featured_type.label | default: featured_post.type }}</span>
-                <span>{{ featured_topic.label | default: featured_post.topic }}</span>
-              </p>
+              <p class="nv-home-featured-label">{{ featured_type.label_zh | default: featured_type.label | default: featured_post.type }} · {{ featured_topic.label | default: featured_post.topic }}</p>
               <h3><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h3>
               {% if featured_post.description %}
                 <p>{{ featured_post.description }}</p>
@@ -180,39 +156,43 @@ refactor: true
   {% endif %}
 </section>
 
-<section class="nv-home-system-status" data-home-section="system_status" aria-labelledby="nv-home-status-title">
-  <div class="nv-home-section-heading">
-    <p>SYSTEM STATUS</p>
-    <h2 id="nv-home-status-title">站点状态</h2>
-  </div>
+<section class="nv-home-current-signal" data-home-section="current_signal" aria-labelledby="nv-home-current-title">
+  {% if home_config.current_signal.title %}
+    <article class="nv-home-signal-card">
+      <h2 id="nv-home-current-title">{{ home_config.current_signal.title }}</h2>
+      {% if home_config.current_signal.summary %}
+        <p>{{ home_config.current_signal.summary }}</p>
+      {% endif %}
+      {% if home_config.current_signal.url %}
+        <a class="nv-home-signal-link" href="{{ home_config.current_signal.url | relative_url }}">查看网站后记</a>
+      {% endif %}
+    </article>
+  {% else %}
+    <p class="nv-home-empty">当前没有公开焦点。</p>
+  {% endif %}
+</section>
+
+<section class="nv-home-system-status" data-home-section="system_status" aria-label="站点记录">
   <dl class="nv-home-status-grid">
     <div data-home-status="records" data-home-value="{{ home_record_count }}">
-      <dt>PUBLIC RECORDS</dt>
+      <dt>公开表达</dt>
       <dd>{{ home_record_count }}</dd>
-      <p>当前公开表达总数</p>
     </div>
-    <div
-      data-home-status="writing_sources"
-      data-home-posts="{{ home_visible_posts.size }}"
-      data-home-fragments="{{ home_fragments.size }}"
-    >
-      <dt>WRITING SOURCES</dt>
+    <div data-home-status="writing_sources" data-home-posts="{{ home_visible_posts.size }}" data-home-fragments="{{ home_fragments.size }}">
+      <dt>文章与片段</dt>
       <dd>{{ home_visible_posts.size }} + {{ home_fragments.size }}</dd>
-      <p>Posts + Fragments</p>
     </div>
-    {% if home_latest_transmission %}
-      <div data-home-status="last_update" data-home-value="{{ home_latest_transmission.date | date: '%Y-%m-%d' }}">
-        <dt>LAST UPDATE</dt>
-        <dd>{{ home_latest_transmission.date | date: '%Y-%m-%d' }}</dd>
-        <p>最近一次公开内容更新</p>
-      </div>
-    {% endif %}
     {% assign home_project_catalog = site.data.neutriverse_projects.projects %}
     {% if home_project_catalog and home_project_catalog.size > 0 %}
       <div data-home-status="projects" data-home-value="{{ home_project_catalog.size }}">
-        <dt>PROJECTS</dt>
+        <dt>项目记录</dt>
         <dd>{{ home_project_catalog.size }}</dd>
-        <p>具有公开目录记录的项目</p>
+      </div>
+    {% endif %}
+    {% if home_latest_transmission %}
+      <div data-home-status="last_update" data-home-value="{{ home_latest_transmission.date | date: '%Y-%m-%d' }}">
+        <dt>最近写于</dt>
+        <dd>{{ home_latest_transmission.date | date: '%Y-%m-%d' }}</dd>
       </div>
     {% endif %}
   </dl>

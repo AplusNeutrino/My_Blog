@@ -14,7 +14,7 @@ HOME = (ROOT / "_data" / "neutriverse_home.yml").read_text(encoding="utf-8")
 class AboutIdentityCurrentlyTest(unittest.TestCase):
     def test_currently_is_a_dated_site_signal_not_a_personal_claim(self):
         for marker in (
-            "title: Neutriverse 网站重构",
+            "title: 目前正在整理这个网站",
             'as_of: "2026-10-08"',
             "notice: 网站维护状态 · 非个人实时状态",
             "source_label: 来源：已批准的 Neutriverse 重构主计划",
@@ -23,18 +23,17 @@ class AboutIdentityCurrentlyTest(unittest.TestCase):
         ):
             with self.subTest(marker=marker):
                 self.assertIn(marker, DATA + PROFILE)
-        self.assertIn("title: Neutriverse 网站重构", HOME)
+        self.assertIn("title: 目前正在整理这个网站", HOME)
 
-    def test_currently_has_one_explicit_maintenance_point(self):
+    def test_maintenance_metadata_stays_in_source_not_public_html(self):
         for marker in (
             "file: _data/neutriverse_about.yml",
             "field: currently",
-            "about.currently.maintenance.file",
-            "about.currently.maintenance.field",
-            "about.currently.maintenance.note",
         ):
             with self.subTest(marker=marker):
-                self.assertIn(marker, DATA + PROFILE)
+                self.assertIn(marker, DATA)
+        self.assertNotIn("about.currently.maintenance", PROFILE)
+        self.assertNotIn("MAINTAIN", PROFILE)
 
     def test_public_coordinates_are_limited_to_existing_site_configuration(self):
         expected = (
@@ -57,17 +56,26 @@ class AboutIdentityCurrentlyTest(unittest.TestCase):
         self.assertIn("{% if link.external %}{{ link.url }}{% else %}", PROFILE)
         self.assertIn("{{ link.url | relative_url }}{% endif %}", PROFILE)
 
-    def test_philosophy_matches_the_approved_information_architecture(self):
+    def test_public_copy_avoids_meta_philosophy_and_preserves_real_lists(self):
         for marker in (
-            "写作属于网站本身",
-            "清晰导航先于世界观",
-            "连续性比重写更重要",
-            "状态应当可维护且诚实",
-            "THINK、BUILD、OBSERVE、ABOUT",
+            "title: 站点与友链",
+            "title: 2026 年 8 月的记录",
+            "title: 待读书单",
+            "title: 待看清单",
         ):
             with self.subTest(marker=marker):
                 self.assertIn(marker, DATA)
-        self.assertIn("about.philosophy.principles", PROFILE)
+        for marker in (
+            "这个站如何生长",
+            "清晰导航先于世界观",
+            "状态应当可维护且诚实",
+            "Neutrino 状态监控",
+            "FUTURE READING STACK",
+            "FUTURE MEDIA STACK",
+            "data-about-philosophy",
+        ):
+            with self.subTest(marker=marker):
+                self.assertNotIn(marker, DATA + PROFILE)
 
     def test_historical_snapshot_remains_separate_and_explicit(self):
         self.assertIn('as_of: "2026-08-17"', DATA)

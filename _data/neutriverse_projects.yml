@@ -100,7 +100,7 @@
     {
       "id": "occult-atlas",
       "name": "Occult Atlas",
-      "summary": "Live and historical astrology chart workbench.",
+      "summary": "用于绘制实时与历史星盘的工作台。",
       "contexts": [
         "build",
         "observe"

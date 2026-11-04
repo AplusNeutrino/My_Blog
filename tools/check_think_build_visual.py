@@ -205,7 +205,10 @@ def geometry(driver):
       const detail = document.querySelector('[data-project-detail]');
       const surfaces = [...document.querySelectorAll(
         '.nv-project-card, .nv-project-hero, .nv-project-detail-grid > section'
-      )].filter(visible).map(n => ({radius: getComputedStyle(n).borderTopLeftRadius}));
+      )].filter(visible).map(n => ({
+        radius: getComputedStyle(n).borderTopLeftRadius,
+        kind: n.classList.contains('nv-project-card') ? 'ledger' : 'detail'
+      }));
       const mono = detail?.querySelector('.nv-project-breadcrumb');
       const title = document.getElementById('topbar-title');
       const sidebar = document.getElementById('sidebar').getBoundingClientRect();
@@ -215,6 +218,7 @@ def geometry(driver):
       return {
         title: title.textContent.trim(), titleTooltip: title.title,
         pageTitle: document.querySelector('main h1')?.textContent.trim(),
+        sectionKicker: document.querySelector('.nv-section-kicker')?.textContent.trim(),
         titleVisible: visible(title), titleLeft: titleRect.left, titleRight: titleRect.right,
         menuRight: menu.right, searchLeft: search.left,
         sidebar: {left: sidebar.left, right: sidebar.right, width: sidebar.width},
@@ -231,27 +235,30 @@ def geometry(driver):
 
 def exercise_controls(driver, wait, kind):
     if kind == 'think':
-        Select(driver.find_element(By.ID, 'nv-writing-type')).select_by_value('fragment')
+        details = driver.find_element(By.CSS_SELECTOR, '[data-filter-target="nv-writing-type"]')
+        driver.execute_script("arguments[0].querySelector('summary').click();", details)
+        option = details.find_element(By.CSS_SELECTOR, '[data-value="fragment"]')
+        driver.execute_script("arguments[0].click();", option)
         wait.until(lambda d: visible_count(d, kind) == 5)
         require('type=fragment' in driver.current_url, 'THINK state is not shareable')
-    else:
-        driver.find_element(By.CSS_SELECTOR, '[data-project-filter="implemented_unverified"]').send_keys(Keys.ENTER)
-        wait.until(lambda d: visible_count(d, kind) == 1)
-        require('status=implemented_unverified' in driver.current_url, 'BUILD state is not shareable')
+        driver.refresh()
+        wait.until(lambda d: visible_count(d, kind) == 5)
+        driver.back()
+        wait.until(lambda d: visible_count(d, kind) == 12)
+        return {'filter': True, 'refresh': True, 'back': True}
+
+    driver.get(driver.current_url + '?status=implemented_unverified')
+    wait.until(lambda d: visible_count(d, kind) == 1)
+    require('status=implemented_unverified' in driver.current_url, 'BUILD state is not shareable')
     driver.refresh()
-    wait.until(lambda d: visible_count(d, kind) == (5 if kind == 'think' else 1))
+    wait.until(lambda d: visible_count(d, kind) == 1)
     driver.back()
-    wait.until(lambda d: visible_count(d, kind) == (12 if kind == 'think' else 7))
-    if kind == 'build':
-        button = driver.find_element(By.CSS_SELECTOR, '[data-project-filter="unspecified"]')
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", button)
-        button.click()
-        wait.until(lambda d: visible_count(d, kind) == 6)
-        button = driver.find_element(By.CSS_SELECTOR, '[data-project-filter="all"]')
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", button)
-        button.click()
-        wait.until(lambda d: visible_count(d, kind) == 7)
-    return {'filter': True, 'refresh': True, 'back': True}
+    wait.until(lambda d: visible_count(d, kind) == 7)
+    driver.get(driver.current_url + '?status=unspecified')
+    wait.until(lambda d: visible_count(d, kind) == 6)
+    driver.get(driver.current_url.split('?')[0])
+    wait.until(lambda d: visible_count(d, kind) == 7)
+    return {'filter': 'url-only', 'refresh': True, 'back': True}
 
 
 def sidebar_checks(driver, wait, base, output):
@@ -260,6 +267,9 @@ def sidebar_checks(driver, wait, base, output):
     for width, height in ((390, 700), (768, 700), (1024, 700), (1366, 700),
                           (1024, 900), (1366, 900), (1366, 1100)):
         driver.set_window_size(width, height)
+        driver.execute_cdp_cmd('Emulation.setDeviceMetricsOverride', {
+            'width': width, 'height': height, 'deviceScaleFactor': 1, 'mobile': width < 850,
+        })
         for theme in ('dark', 'light'):
             driver.get(base + '/build/')
             settle(driver, wait, theme)
@@ -275,9 +285,12 @@ def sidebar_checks(driver, wait, base, output):
                 return {top:r.top,bottom:r.bottom};};
               const controls=[...document.querySelectorAll('.nv-sidebar-utilities .nav-link, .sidebar-bottom button, .sidebar-bottom > a')]
                 .filter(e=>e.getBoundingClientRect().width>0);
+              const sidebar = document.querySelector('#sidebar');
               return {viewport:[innerWidth,innerHeight], primary:box('.nv-sidebar-primary'),
                 utilities:box('.nv-sidebar-utility-group'), bottom:box('.sidebar-bottom'),
-                scroll:document.querySelector('#sidebar').scrollTop,
+                overflowY:getComputedStyle(sidebar).overflowY,
+                clientHeight:sidebar.clientHeight, scrollHeight:sidebar.scrollHeight,
+                scroll:sidebar.scrollTop,
                 accessible:controls.map(e=>{const r=e.getBoundingClientRect(),
                   hit=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);
                   return {name:e.getAttribute('aria-label')||e.textContent.trim(),
@@ -287,6 +300,9 @@ def sidebar_checks(driver, wait, base, output):
             results.append(row)
             driver.save_screenshot(str(output / f'sidebar-{width}-{height}-{theme}.png'))
             require(g['primary']['bottom'] <= g['utilities']['top'] + 1, f'primary overlaps utilities: {row}')
+            require(g['viewport'] == [width, height], f'sidebar viewport simulation mismatch: {row}')
+            require(mobile or (g['overflowY'] == 'hidden' and g['scrollHeight'] <= g['clientHeight'] + 1),
+                    f'desktop sidebar has an independent scroll region: {row}')
             require(g['utilities']['bottom'] <= g['bottom']['top'] + 1, f'utility/social overlap: {row}')
             require(all(c['hit'] and c['top'] >= 0 and c['bottom'] <= g['viewport'][1]+1 for c in g['accessible']),
                     f'sidebar controls obscured: {row}')
@@ -1673,7 +1689,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         elif name in ('observe', 'about'):
             # UI-014: separate ordinary paragraph scopes, not the homepage cards.
             selector = {
-                'observe': '[data-neutriverse-section="observe"] .nv-section-intro',
+                'observe': '[data-neutriverse-section="observe"] .nv-section-summary',
                 'about': '[data-about-profile] .about-info-text',
             }[name]
             observed['introTextButton'] = driver.execute_script('''
@@ -1703,9 +1719,9 @@ def public_page_sweep(driver, wait, output, width, theme, name):
             require(not intro['overlaps'], 'Public intro text covered by back-to-top')
             # UI-015: distinct remaining text surfaces; preserve the intro gate.
             selectors = {
-                'observe': ['[data-observe-catalog] .nv-observe-card-meta'],
-                'about': ['[data-about-profile] .about-principle-list',
-                          '[data-about-profile] .about-current-meta > div:last-child dd',
+                'observe': ['[data-observe-catalog] .nv-observe-card > p'],
+                'about': ['[data-about-profile] .about-coordinate-list',
+                          '[data-about-profile] .about-current-meta dd',
                           '[data-about-profile] .about-stack-item time',
                           # UI-016: relationship descriptions share the fixed button lane.
                           '[data-about-profile] .about-relation-card > p',
@@ -1748,7 +1764,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               const b=document.querySelector('#back-to-top'),br=b.getBoundingClientRect(),s=getComputedStyle(b);
               const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
               const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
-              const selectors=['[data-neutriverse-section="think"] .nv-section-intro',
+              const selectors=['[data-neutriverse-section="think"] .nv-section-summary',
                 '[data-writing-item]:not([hidden]) .nv-writing-record-body'];
               const groups=selectors.map(selector=>{
                 const roots=[...document.querySelectorAll(selector)],lines=[];let emptyRoots=0;
@@ -1834,8 +1850,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               const shown=br.width>0&&br.height>0&&s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>0;
               const rect=r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom});
               const selectors=['[data-writing-topic-browser] .nv-topic-browser-description',
-                '[data-writing-series-browser] .nv-topic-browser-description',
-                '[data-neutriverse-section="think"] .nv-section-links .nv-section-link > span:last-child'];
+                '[data-writing-series-browser] .nv-topic-browser-description'];
               const groups=selectors.map(selector=>{
                 const roots=[...document.querySelectorAll(selector)],lines=[];let emptyRoots=0;
                 for(const root of roots){
@@ -1854,7 +1869,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
               return {button:rect(br),shown,groups};
             ''')
             directories = observed['writingDirectoryButton']['groups']
-            counts = [4, 3, 5]
+            counts = [4, 3]
             invalid = any(g['rootCount'] != count or g['emptyRoots'] or g['overlaps']
                           for g, count in zip(directories, counts))
             if invalid:
@@ -1896,7 +1911,7 @@ def public_page_sweep(driver, wait, output, width, theme, name):
         top_clicked = True
     driver.save_screenshot(str(output / f'public-top-{name}-{width}-{theme}.png'))
     targets = {
-        'home': [('.nv-home-explore .nv-primary-nav-link', p) for p in ('/think/','/build/','/observe/','/about/')],
+        'home': [('.nv-home-more', '/think/')],
         'observe': [('[data-observe-action="project"]', p) for p in ('/build/ravenis/','/build/occult-atlas/')],
         'about': [('.about-relation-action[href]', p) for p in ('/library/','/links/')],
     }.get(name, [])
@@ -1971,6 +1986,9 @@ def main():
             })
             for width, height in VIEWPORTS:
                 driver.set_window_size(width, height)
+                driver.execute_cdp_cmd('Emulation.setDeviceMetricsOverride', {
+                    'width': width, 'height': height, 'deviceScaleFactor': 1, 'mobile': width < 850,
+                })
                 driver.execute_cdp_cmd('Emulation.setTouchEmulationEnabled', {
                     'enabled': width <= 768, 'maxTouchPoints': 1,
                 })
@@ -2015,6 +2033,7 @@ def main():
                         if name == 'library':
                             wait.until(lambda d: d.find_elements(By.CSS_SELECTOR, '#pgl-current-list [data-open-pgl]'))
                         g = geometry(driver)
+                        require(g['width'] == width, f'viewport simulation mismatch: {g}')
                         result = {'name': name, 'path': path, 'window': [width, height],
                                   'theme': theme, 'geometry': g, 'count': count}
                         results.append(result)
@@ -2050,16 +2069,20 @@ def main():
                         if name in ('think-all', 'build-all', 'observe', 'project-toyosatomimis-headphone', 'tags', 'archives', 'thoughts', 'series-directory', 'library', 'links'):
                             driver.save_screenshot(str(output / f'viewport-{width}-{theme}-{name}.png'))
                         if g['titleVisible'] and not name.startswith('article-') and name not in ('library', 'links'):
-                            require(g['title'] == g['pageTitle'], f'internal layout name in topbar: {result}')
-                            require(g['titleTooltip'] == g['pageTitle'], f'full title is unavailable: {result}')
+                            allowed_titles = {g['pageTitle'], g.get('sectionKicker')}
+                            require(g['title'] in allowed_titles, f'internal layout name in topbar: {result}')
+                            require(g['titleTooltip'] == g['title'], f'full title is unavailable: {result}')
                             require(g['titleLeft'] >= g['menuRight'] - 1 and
                                     g['titleRight'] <= g['searchLeft'] + 1,
                                     f'topbar controls overlap title: {result}')
                         require(g['body'] <= g['width'] + 1 and g['document'] <= g['width'] + 1,
                                 f'page overflow: {result}')
                         require(not g['headings'], f'heading clipping: {result}')
-                        require(all(float(x['radius'].removesuffix('px')) > 0 for x in g['surfaces']),
-                                f'project radius token is ineffective: {result}')
+                        require(all(
+                            (float(x['radius'].removesuffix('px')) == 0) if x['kind'] == 'ledger'
+                            else (float(x['radius'].removesuffix('px')) > 0)
+                            for x in g['surfaces']),
+                            f'project surface radius does not match the editorial contract: {result}')
                         if name.startswith('project'):
                             require(g['font'] and 'mono' in g['font'].lower(), f'project data font missing: {result}')
                             if name in ('project-gate', 'project-ravenis', 'project-occult-atlas'):

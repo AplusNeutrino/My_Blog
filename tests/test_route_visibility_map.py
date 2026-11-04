@@ -22,10 +22,10 @@ class RouteVisibilityMapTest(unittest.TestCase):
 
     def test_four_public_entries_and_chinese_explanations_are_fixed(self):
         expected = {
-            "THINK": ("我如何思考与表达", "/think/"),
-            "BUILD": ("我正在制作什么", "/build/"),
-            "OBSERVE": ("我持续观察什么", "/observe/"),
-            "ABOUT": ("我是谁以及这个站如何生长", "/about/"),
+            "THINK": ("写作与思考", "/think/"),
+            "BUILD": ("项目与制作", "/build/"),
+            "OBSERVE": ("观察与记录", "/observe/"),
+            "ABOUT": ("关于站主与站点", "/about/"),
         }
         for name, (description, route) in expected.items():
             with self.subTest(entry=name):

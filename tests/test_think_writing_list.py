@@ -83,6 +83,22 @@ class ThinkWritingListTest(unittest.TestCase):
                 self.assertIn(selector, css)
         self.assertRegex(css, r"\.nv-writing-record h3 a:focus-visible")
 
+    def test_custom_filters_keep_native_state_and_accessible_options(self):
+        include = (ROOT / "_includes" / "neutriverse-writing-list.html").read_text(encoding="utf-8")
+        filter_include = (ROOT / "_includes" / "neutriverse-filter-select.html").read_text(encoding="utf-8")
+        script = (ROOT / "assets" / "js" / "neutriverse-writing-filters.js").read_text(encoding="utf-8")
+        for target in ("nv-writing-type", "nv-writing-topic", "nv-writing-series", "nv-writing-sort"):
+            with self.subTest(target=target):
+                self.assertIn(f"id='{target}'", include)
+        self.assertIn('role="listbox"', filter_include)
+        self.assertIn('role="option"', filter_include)
+        self.assertIn("class=\"nv-writing-native-select\" hidden", include)
+        self.assertIn("const syncFilterDetails", script)
+        self.assertIn("select.value = option.dataset.value", script)
+        self.assertIn("updateFromControls()", script)
+        self.assertIn("closeFilterDetails(details, true)", script)
+        self.assertIn("event.key === 'Escape'", script)
+
 
 if __name__ == "__main__":
     unittest.main()

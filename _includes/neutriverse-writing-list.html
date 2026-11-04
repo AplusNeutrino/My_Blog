@@ -14,8 +14,8 @@
 >
   <div class="nv-writing-heading">
     <div>
-      <p>CHRONOLOGICAL RECORD</p>
-      <h2 id="nv-writing-ledger-title">写作时间线</h2>
+      <span class="nv-section-index">01</span>
+      <h2 id="nv-writing-ledger-title">按时间阅读</h2>
     </div>
     <p class="nv-writing-count">
       <strong data-writing-match-count>{{ nv_writing_items.size }}</strong>
@@ -23,51 +23,52 @@
     </p>
   </div>
 
-  {% include neutriverse-topic-browser.html items=nv_writing_items %}
-  {% include neutriverse-series-browser.html items=nv_writing_items %}
-
   {% if nv_writing_items.size > 0 %}
     <form class="nv-writing-controls" data-writing-controls hidden>
       <div class="nv-writing-control">
-        <label for="nv-writing-type">Type / 类型</label>
-        <select id="nv-writing-type" name="type">
-          <option value="all">All / 全部</option>
+        <label for="nv-writing-type">类型</label>
+        <select id="nv-writing-type" name="type" class="nv-writing-native-select" hidden>
+          <option value="all">全部</option>
           <option value="note">Note</option>
           <option value="essay">Essay</option>
           <option value="fragment">Fragment</option>
         </select>
+        {% include neutriverse-filter-select.html id='nv-writing-type' label='类型' options='all:全部,note:Note,essay:Essay,fragment:Fragment' default_value='all' default_label='全部' %}
       </div>
 
       <div class="nv-writing-control">
-        <label for="nv-writing-topic">Topic / 主题</label>
-        <select id="nv-writing-topic" name="topic">
-          <option value="all">All / 全部</option>
+        <label for="nv-writing-topic">主题</label>
+        <select id="nv-writing-topic" name="topic" class="nv-writing-native-select" hidden>
+          <option value="all">全部</option>
           <option value="computation">Computation</option>
           <option value="humanity">Humanity</option>
           <option value="otaku">Otaku</option>
           <option value="arts">Arts</option>
         </select>
+        {% include neutriverse-filter-select.html id='nv-writing-topic' label='主题' options='all:全部,computation:Computation,humanity:Humanity,otaku:Otaku,arts:Arts' default_value='all' default_label='全部' %}
       </div>
 
       <div class="nv-writing-control">
-        <label for="nv-writing-series">Series / 系列</label>
-        <select id="nv-writing-series" name="series">
-          <option value="all">All / 全部</option>
+        <label for="nv-writing-series">系列</label>
+        <select id="nv-writing-series" name="series" class="nv-writing-native-select" hidden>
+          <option value="all">全部</option>
           {% for series in site.data.content_taxonomy.series %}
             <option value="{{ series.id }}">{{ series.label }}</option>
           {% endfor %}
         </select>
+        {% include neutriverse-filter-select.html id='nv-writing-series' label='系列' options='all:全部,database-systems:Database Systems,computer-architecture:Computer Architecture,computer-networks:Computer Networks' default_value='all' default_label='全部' %}
       </div>
 
       <div class="nv-writing-control">
-        <label for="nv-writing-sort">Order / 顺序</label>
-        <select id="nv-writing-sort" name="sort">
-          <option value="newest">Newest first / 最新优先</option>
-          <option value="oldest">Oldest first / 最早优先</option>
+        <label for="nv-writing-sort">顺序</label>
+        <select id="nv-writing-sort" name="sort" class="nv-writing-native-select" hidden>
+          <option value="newest">最新优先</option>
+          <option value="oldest">最早优先</option>
         </select>
+        {% include neutriverse-filter-select.html id='nv-writing-sort' label='顺序' options='newest:最新优先,oldest:最早优先' default_value='newest' default_label='最新优先' %}
       </div>
 
-      <button type="reset" class="nv-writing-reset">重置条件</button>
+      <button type="reset" class="nv-writing-reset">重置</button>
     </form>
 
     <noscript>
@@ -113,10 +114,10 @@
 
             <div class="nv-writing-record-body">
               <div class="nv-writing-taxonomy" aria-label="内容分类">
-                <span>{{ nv_type.label | default: item.type }}</span>
-                <span>{{ nv_topic.label | default: item.topic }}</span>
+                <span>{{ nv_type.label_zh | default: nv_type.label | default: item.type }}</span>
+                <span>· {{ nv_topic.label | default: item.topic }}</span>
                 {% if item.series %}
-                  <span>{{ item.series }}</span>
+                  <span>· {{ item.series }}</span>
                 {% endif %}
               </div>
 
@@ -152,6 +153,9 @@
       <span class="nv-writing-pages" data-writing-pages></span>
       <a href="{{ '/think/' | relative_url }}" data-writing-page="next">下一页</a>
     </nav>
+
+    {% include neutriverse-topic-browser.html items=nv_writing_items %}
+    {% include neutriverse-series-browser.html items=nv_writing_items %}
   {% else %}
     <div class="nv-writing-empty" role="status">
       <strong>还没有公开写作记录。</strong>

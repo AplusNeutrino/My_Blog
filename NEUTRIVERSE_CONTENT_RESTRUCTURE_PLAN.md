@@ -204,6 +204,24 @@ The old idea of Archive is therefore split:
 
 ---
 
+## 3A. Editorial blog refinement (approved new phase)
+
+The approved editorial phase replaces the console-like presentation with a traditional personal-blog reading experience while keeping the established platform, four routes, content model and visibility contracts intact.
+
+- Night is a restrained celestial manuscript; Prospero Light is an ivory-paper personal library. Delicate serif typography, fine rules, paper texture and real writing carry the visual identity.
+- The homepage uses a compact masthead, five recent records, three featured records, a current note and derived site counts. The duplicate four-entrance chapter directory is removed; primary navigation remains in the existing sidebar and mobile drawer.
+- Section pages use the noun labels THINK 写作与思考, BUILD 项目与制作, OBSERVE 观察与记录, ABOUT 关于站主与站点. Repeated entrance cards and maintainer-facing implementation notes are removed from public pages.
+- THINK keeps its existing filtering, pagination and URL state, with lightweight theme-native dropdowns and topic/series directories after the writing list.
+- BUILD and OBSERVE use quiet project ledgers. Unknown project states are omitted, internal status vocabulary is translated for readers, and noindex remains in metadata rather than visible explanatory copy.
+- Article pages prioritize long-form reading and the table of contents. Heading anchors receive accessible section labels, and the existing ICP footer remains unchanged.
+- `assets/css/neutriverse-editorial.css` is the shared editorial presentation layer. It consumes the existing dual-theme controller and does not introduce another preference store or route model.
+
+Validation status: local validation passed on branch `ui/editorial-blog-redesign`; delivery remains validation-pending until commit, CI and deployment. Production build, 291 regression tests, 40 responsive/accessibility checks, mobile navigation and keyboard filtering, protected content, Search/feed, SEO, resources and internal-link checks have passed locally. The final browser audit passed 192 scenes across 390/768/1024/1366 and both themes, 24 public-page sweeps and 14 short-window sidebar checks. Desktop sidebars have no independent scroll region, and article panels remain in normal document flow without memory-note overlap. Protected content, old URLs, seven projects and hidden/noindex boundaries remain protected. Historical T00–T39 acceptance records are unchanged.
+
+Follow-up validation: the owner's screenshot corrections also passed 32 public-page dual-theme sweeps, eight BUILD state checks and 14 short-window sidebar checks on the current build. Full titles remain visible in both reading lists. The independent online Library-cover check remains pending because `lain.bgm.tv` repeatedly timed out; no local fixture or behavioral bypass was introduced.
+
+---
+
 ## 3. Homepage direction
 
 The homepage should stop behaving like a combination of category index, dashboard, blog feed, and hidden-navigation puzzle.

@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HEAD = (ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
 EXPECTED = {
-    "about.md": "中间层漫游指南",
+    "about.md": "关于站主与站点",
     "archives.md": "中间层时间线",
     "categories.md": "中间文段索引",
     "library.md": "中间层大图书馆",

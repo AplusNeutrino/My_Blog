@@ -13,10 +13,10 @@ Neutriverse keeps the proven Chirpy shell mechanics—content widths, panel beha
 
 | Entrance | Chinese explanation | Route | Visual role |
 |---|---|---|---|
-| THINK | 我如何思考与表达 | `/think/` | writing, inquiry, signals and records |
-| BUILD | 我正在制作什么 | `/build/` | projects, releases and working systems |
-| OBSERVE | 我持续观察什么 | `/observe/` | observation interfaces and watched fields |
-| ABOUT | 我是谁以及这个站如何生长 | `/about/` | identity, site history and personal connections |
+| THINK | 写作与思考 | `/think/` | writing, inquiry, signals and records |
+| BUILD | 项目与制作 | `/build/` | projects, releases and working systems |
+| OBSERVE | 观察与记录 | `/observe/` | observation interfaces and watched fields |
+| ABOUT | 关于站主与站点 | `/about/` | identity, site history and personal connections |
 
 The English name and Chinese explanation are both present in the accessible navigation label or adjacent visible copy. Lore may add a tertiary subtitle, but it never replaces these plain-language labels.
 
@@ -28,13 +28,15 @@ Night and Prospero Light express the same hierarchy, semantics, actions and cont
 
 | Role | Night | Prospero Light |
 |---|---|---|
-| Atmosphere | deep-space observation console | modern arcane archive |
-| Canvas | near-black void | sandstone page |
-| Primary surface | dark instrument panel | ivory paper |
-| Structural accent | signal blue | lapis / turquoise |
-| Rare emphasis | restrained signal yellow / violet | old gold / rare violet |
-| Depth | borders, low-contrast gradients, sparse stars | layered paper, rules, restrained shadow |
-| Tone | operational, quiet, observant | scholarly, archival, operational |
+| Atmosphere | celestial manuscript | personal paper library |
+| Canvas | ink-blue night page | ivory paper |
+| Primary surface | quiet manuscript layer | warm paper |
+| Structural accent | restrained celestial blue | lapis / turquoise |
+| Rare emphasis | restrained old gold | old gold / rare violet |
+| Depth | fine rules, sparse stars, delicate serif type | paper texture, fine rules, restrained shadow |
+| Tone | quiet, editorial, personal | scholarly, archival, operational |
+
+`assets/css/neutriverse-editorial.css` owns the approved editorial presentation. Its `--nv-ed-*` tokens describe the two visual states without adding a second theme controller. Repeated console cards, telemetry labels and first-person-sentence navigation are not part of the public blog shell.
 
 Neither theme may change route availability, sort order, field names, counts, hidden filtering, focus order, accessible names or error meaning. Theme-specific decorative copy may coexist in the HTML through `.theme-copy-night` and `.theme-copy-day`; essential meaning must remain available in both states and may not depend on JavaScript completing.
 

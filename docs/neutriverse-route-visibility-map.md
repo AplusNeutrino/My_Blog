@@ -25,10 +25,10 @@
 
 | 入口 | 中文说明 | canonical | 公开发现 | 收录目标 | 内容边界 |
 |---|---|---|---|---|---|
-| THINK | 我如何思考与表达 | `/think/`（新增） | 主导航、首页 | index | 文章、Fragments、Type/Topic/Series/Tags 入口；Archive 仍只统计写作 |
-| BUILD | 我正在制作什么 | `/build/`（新增） | 主导航、首页 | index | 仅 Q5 名单；项目详情与实际应用入口分开 |
-| OBSERVE | 我持续观察什么 | `/observe/`（新增） | 主导航、首页 | index | 公开列出 Ravenis、Occult Atlas；两者的应用页仍 `noindex` |
-| ABOUT | 我是谁以及这个站如何生长 | `/about/`（保留） | 主导航、首页 | index | 作者/网站资料、Currently、时间线；关联 Library、友链、旅行地球 |
+| THINK | 写作与思考 | `/think/`（新增） | 主导航、首页 | index | 文章、Fragments、Type/Topic/Series/Tags 入口；Archive 仍只统计写作 |
+| BUILD | 项目与制作 | `/build/`（新增） | 主导航、首页 | index | 仅 Q5 名单；项目详情与实际应用入口分开 |
+| OBSERVE | 观察与记录 | `/observe/`（新增） | 主导航、首页 | index | 公开列出 Ravenis、Occult Atlas；两者的应用页仍 `noindex` |
+| ABOUT | 关于站主与站点 | `/about/`（保留） | 主导航、首页 | index | 作者/网站资料、Currently、时间线；关联 Library、友链、旅行地球 |
 
 主导航第一层只使用这四个英文入口，并带中文说明。Search、Tags、Archive、RSS、社交链接和主题切换是辅助入口，不与四入口争夺同一层级。Night 与 Prospero Light 使用同一套信息架构。
 

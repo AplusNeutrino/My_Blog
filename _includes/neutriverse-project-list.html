@@ -10,28 +10,27 @@
 <section class="nv-project-catalog" data-project-catalog aria-labelledby="nv-project-catalog-title">
   <div class="nv-project-catalog-heading">
     <div>
-      <p>PROJECT DIRECTORY</p>
+      <span class="nv-section-index">01</span>
       <h2 id="nv-project-catalog-title">项目目录</h2>
     </div>
-    <p><span data-project-visible-count>{{ project_catalog.size }}</span> / {{ project_catalog.size }} projects</p>
+    <p><span data-project-visible-count>{{ project_catalog.size }}</span> 个项目</p>
   </div>
 
-  <div class="nv-project-filters" data-project-filters role="group" aria-label="按公开状态筛选项目">
-    <button type="button" data-project-filter="all" aria-pressed="true">
-      全部 <span>{{ project_catalog.size }}</span>
-    </button>
-    {% for status in project_statuses %}
-      {% assign status_count = project_catalog | where: 'status', status | size %}
-      <button type="button" data-project-filter="{{ status | escape }}" aria-pressed="false">
-        {{ status | replace: '_', ' ' }} <span>{{ status_count }}</span>
-      </button>
-    {% endfor %}
-    {% if project_unspecified_count > 0 %}
-      <button type="button" data-project-filter="unspecified" aria-pressed="false">
-        状态未记录 <span>{{ project_unspecified_count }}</span>
-      </button>
-    {% endif %}
-  </div>
+  {% if project_statuses.size > 1 %}
+    <div class="nv-project-filters" data-project-filters role="group" aria-label="按公开状态筛选项目">
+      <button type="button" data-project-filter="all" aria-pressed="true">全部 <span>{{ project_catalog.size }}</span></button>
+      {% for status in project_statuses %}
+        {% assign status_count = project_catalog | where: 'status', status | size %}
+        <button type="button" data-project-filter="{{ status | escape }}" aria-pressed="false">
+          {% if status == 'implemented_unverified' %}已实现，待验证{% else %}{{ status | replace: '_', ' ' }}{% endif %}
+          <span>{{ status_count }}</span>
+        </button>
+      {% endfor %}
+      {% if project_unspecified_count > 0 %}
+        <button type="button" data-project-filter="unspecified" aria-pressed="false">状态未记录 <span>{{ project_unspecified_count }}</span></button>
+      {% endif %}
+    </div>
+  {% endif %}
 
   {% if project_catalog.size > 0 %}
     <ol class="nv-project-grid" data-project-list>
@@ -55,25 +54,22 @@
 
         <li data-project-card data-project-id="{{ project.id | escape }}" data-project-status="{{ project_status | escape }}">
           <article class="nv-project-card">
-            <div class="nv-project-card-meta">
-              <span>{{ project.contexts | join: ' + ' | upcase }}</span>
-              {% if project.status %}
-                <span class="is-status-known">{{ project.status | replace: '_', ' ' }}</span>
-              {% else %}
-                <span>状态未记录</span>
-              {% endif %}
-            </div>
+            {% if project.status %}
+              <div class="nv-project-card-meta">
+                <span class="is-status-known">{% if project.status == 'implemented_unverified' %}已实现，待验证{% else %}{{ project.status | replace: '_', ' ' }}{% endif %}</span>
+              </div>
+            {% endif %}
             <h3>{{ project.name }}</h3>
             <p>{{ project.summary }}</p>
             <div class="nv-project-card-action">
               {% if project_primary_url %}
                 {% if project_primary_url contains '://' %}
-                  <a href="{{ project_primary_url }}">{{ project_primary_label }}</a>
+                  <a href="{{ project_primary_url }}" aria-label="{{ project_primary_label }}：{{ project.name }}">{{ project_primary_label }}</a>
                 {% else %}
-                  <a href="{{ project_primary_url | relative_url }}">{{ project_primary_label }}</a>
+                  <a href="{{ project_primary_url | relative_url }}" aria-label="{{ project_primary_label }}：{{ project.name }}">{{ project_primary_label }}</a>
                 {% endif %}
               {% else %}
-                <span>项目实体已记录；工具入口保持未公开。</span>
+                <span>项目记录已保留，工具入口未公开。</span>
               {% endif %}
             </div>
           </article>

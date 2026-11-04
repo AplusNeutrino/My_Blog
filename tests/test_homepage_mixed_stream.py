@@ -9,13 +9,13 @@ CONFIG = (ROOT / "_data" / "neutriverse_home.yml").read_text(encoding="utf-8")
 
 
 class HomepageMixedStreamTest(unittest.TestCase):
-    def test_identity_and_explore_use_public_shared_sources(self):
+    def test_identity_uses_public_sources_without_duplicate_navigation(self):
         self.assertIn("home_config.identity", LAYOUT)
         self.assertIn("NEUTRIVERSE", CONFIG)
         self.assertIn("owner: Neutrino", CONFIG)
-        self.assertIn("neutriverse-primary-nav.html", LAYOUT)
+        self.assertNotIn("neutriverse-primary-nav.html", LAYOUT)
         self.assertIn('data-home-section="identity"', LAYOUT)
-        self.assertIn('data-home-section="explore"', LAYOUT)
+        self.assertNotIn('data-home-section="explore"', LAYOUT)
 
     def test_posts_and_fragments_share_one_real_date_stream(self):
         self.assertIn(
@@ -28,11 +28,11 @@ class HomepageMixedStreamTest(unittest.TestCase):
         )
         self.assertIn("limit: home_config.latest_transmissions.limit", LAYOUT)
         self.assertIn("fragment_source: thoughts.fragments", CONFIG)
-        self.assertIn("limit: 8", CONFIG)
+        self.assertIn("limit: 5", CONFIG)
 
     def test_project_log_is_secondary_and_not_a_type(self):
         self.assertIn("home_config.project_logs", LAYOUT)
-        self.assertIn("Project Log /", LAYOUT)
+        self.assertIn("Project Log", LAYOUT)
         self.assertIn("project: Akasha Notes", CONFIG)
         self.assertIn("project: Toyosatomimi's Headphone", CONFIG)
         types = (ROOT / "_data" / "content_taxonomy.yml").read_text(encoding="utf-8")
