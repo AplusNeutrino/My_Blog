@@ -24,3 +24,13 @@ class ObserveFocusDiagnosticsTests(unittest.TestCase):
         for forbidden in ('localStorage', 'fetch(', '.focus()', '.disabled=', 'headers'):
             self.assertNotIn(forbidden, script)
         self.assertIn("assert row['loadingAfterReverseTab']['focusIsLast']", source)
+
+    def test_sidebar_expansion_settles_before_control_click(self):
+        source = Path('tools/check_observe_dialog.py').read_text()
+        expanded = source.index("get_attribute('aria-expanded') == 'true'")
+        visible = source.index("'chartControlToggle').is_displayed()", expanded)
+        settled = source.index('document.getAnimations().every', visible)
+        click = source.index("pin_loading_controls(driver)", settled)
+        self.assertLess(expanded, visible)
+        self.assertLess(visible, settled)
+        self.assertLess(settled, click)

@@ -2,6 +2,13 @@
 主计划：[根目录总计划](../NEUTRIVERSE_CONTENT_RESTRUCTURE_PLAN.md)。时间均为 Asia/Shanghai。
 只记录真实完成的工作；用户未在本次要求创建自动化。
 
+## Run 2026-11-04 — UI-EDITORIAL 生产合并与星盘审计时序修正
+
+- 分支交付：`b7103b5a7bfbfb1bdec25f64082d13bf6de8c014` 的 [CI 41755101267](https://github.com/AplusNeutrino/My_Blog/actions/runs/41755101267) completed/success，包含 Library 在线封面检查。通过 GitHub 普通合并保留 main 的 9 个新提交，生成 `e0e6d160ec108af32021822ba0c9f39fe449a3aa`，未强推。
+- 实际失败：main [run 41793938810](https://github.com/AplusNeutrino/My_Blog/actions/runs/41793938810) 在 1366 Light 的 OBSERVE 流程失败，前七个场景通过。星盘侧栏刚展开时，原生点击被 `.sky-command` 拦截；失败日志与截图已下载核对，main 新增差异仅 Library 数据，星盘业务代码未改。
+- 最小修正：只修改 `tools/check_observe_dialog.py`，在原有控制点击前等待按钮真实可见和有限动画结束；`tests/test_observe_focus_diagnostics.py` 固定等待顺序，保留全部弹层、焦点与导航断言，不修改 fixture 或业务逻辑。
+- 验证：292 项回归及本地八组 OBSERVE 流程通过。等待新提交的完整生产 CI、部署和线上验收，不将审计等待修正记作线上已通过。
+
 ## Run 2026-11-03 — UI-EDITORIAL 截图反馈补充修正
 
 - 范围：站主指出首页文章色条、BUILD/OBSERVE 旧卡片、ABOUT 元叙事文案，以及书单标题消失。保留前一轮实现和历史验收，不回退已确认的编辑式方向。
