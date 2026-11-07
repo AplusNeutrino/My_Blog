@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-11-06T23:05:22Z",
-  "last_success_at": "2026-11-06T23:05:22Z",
+  "fetched_at": "2026-11-07T21:46:11Z",
+  "last_success_at": "2026-11-07T21:46:11Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.7,
-        "community_rating_count": 523,
+        "community_rating_count": 526,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }
@@ -69,7 +69,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.0,
-        "community_rating_count": 857,
+        "community_rating_count": 860,
         "comment_text": null,
         "api_url": "/api/movie/0p2zNbJGVlkmWckcdSLhRL"
       }
@@ -101,7 +101,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.2,
-        "community_rating_count": 806,
+        "community_rating_count": 807,
         "comment_text": null,
         "api_url": "/api/movie/0U2hVLI57JJzXwpZZfwTMP"
       }
@@ -327,7 +327,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.3,
-        "community_rating_count": 2148,
+        "community_rating_count": 2149,
         "comment_text": null,
         "api_url": "/api/movie/2V5JzwI8AsHEqfEYqx0pzY"
       }
@@ -361,7 +361,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 1832,
+        "community_rating_count": 1834,
         "comment_text": null,
         "api_url": "/api/movie/1EorKpdrqwhOPLLIeyBSWo"
       }
@@ -395,7 +395,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.1,
-        "community_rating_count": 1453,
+        "community_rating_count": 1454,
         "comment_text": null,
         "api_url": "/api/movie/0L9DTwNiUGCwSn5kIXzWJX"
       }
@@ -1775,7 +1775,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.6,
-        "community_rating_count": 9,
+        "community_rating_count": 10,
         "comment_text": null,
         "api_url": "/api/book/5MFQOXAJvtk5Qho9eujuBq"
       }
@@ -2013,7 +2013,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 1771,
+        "community_rating_count": 1772,
         "comment_text": null,
         "api_url": "/api/movie/1RX2ikFCBoIpTsQPph7B7I"
       }
@@ -2341,7 +2341,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 2263,
+        "community_rating_count": 2266,
         "comment_text": null,
         "api_url": "/api/movie/33LWgbD3AIK7K8wSxAhtTp"
       }
@@ -2507,7 +2507,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 1878,
+        "community_rating_count": 1879,
         "comment_text": null,
         "api_url": "/api/movie/0gp4bua6YIKKZyjBqNqCxj"
       }
@@ -2575,7 +2575,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 182,
+        "community_rating_count": 183,
         "comment_text": null,
         "api_url": "/api/tv/season/1xQJwtwnXoTiNMosLoduMa"
       }
@@ -2771,7 +2771,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.9,
-        "community_rating_count": 215,
+        "community_rating_count": 216,
         "comment_text": null,
         "api_url": "/api/book/18sVsE1V1Y9snGRjGPBUql"
       }
@@ -2933,7 +2933,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.2,
-        "community_rating_count": 59,
+        "community_rating_count": 60,
         "comment_text": null,
         "api_url": "/api/book/1RKdqQrKWBhlyVEXkC6I6O"
       }
@@ -3028,8 +3028,8 @@
       "raw_type": "book",
       "extra": {
         "raw_collection_status": "complete",
-        "community_rating": 8.9,
-        "community_rating_count": 21,
+        "community_rating": 8.8,
+        "community_rating_count": 22,
         "comment_text": null,
         "api_url": "/api/book/0fkvhy5RBOChyc3fRgcWXd"
       }
@@ -3093,7 +3093,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.1,
-        "community_rating_count": 180,
+        "community_rating_count": 181,
         "comment_text": null,
         "api_url": "/api/book/10GFXy3MzhsXqF4u8LTI5z"
       }
@@ -3189,7 +3189,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 258,
+        "community_rating_count": 259,
         "comment_text": null,
         "api_url": "/api/book/0gyOgm4Sd5MkOZ4Gk9BnpN"
       }
@@ -3413,7 +3413,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.6,
-        "community_rating_count": 45,
+        "community_rating_count": 46,
         "comment_text": null,
         "api_url": "/api/book/49sIMZbS4DUFDBPHgTOeJ2"
       }
@@ -3445,7 +3445,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 252,
+        "community_rating_count": 253,
         "comment_text": null,
         "api_url": "/api/book/3TvaJGJqvQb9NcHGcElqj9"
       }
@@ -3477,7 +3477,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 47,
+        "community_rating_count": 48,
         "comment_text": null,
         "api_url": "/api/book/29gUcXnNujRsE5WooIhFwd"
       }
@@ -3541,7 +3541,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.8,
-        "community_rating_count": 35,
+        "community_rating_count": 36,
         "comment_text": null,
         "api_url": "/api/book/2WDV7Akx6s2LtTqWRHA8rT"
       }
@@ -3573,7 +3573,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 41,
+        "community_rating_count": 42,
         "comment_text": null,
         "api_url": "/api/book/0QwseoDzSMwIAfto0syLTU"
       }
@@ -3669,7 +3669,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.9,
-        "community_rating_count": 27,
+        "community_rating_count": 28,
         "comment_text": null,
         "api_url": "/api/book/43D4LAyQYzsmLp4xKBzlVx"
       }
@@ -3797,7 +3797,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 10,
+        "community_rating_count": 11,
         "comment_text": null,
         "api_url": "/api/book/69z2yGkDT2msnEd9yHB5qy"
       }
@@ -3925,7 +3925,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.0,
-        "community_rating_count": 8,
+        "community_rating_count": 9,
         "comment_text": null,
         "api_url": "/api/book/4XKbySreL7ri0eWeoDOcwZ"
       }
@@ -4372,7 +4372,7 @@
       "raw_type": "book",
       "extra": {
         "raw_collection_status": "complete",
-        "community_rating": 9.6,
+        "community_rating": 9.5,
         "community_rating_count": 26,
         "comment_text": null,
         "api_url": "/api/book/3gVuHzjtkyOrfRNCRcfGiw"
@@ -4426,10 +4426,12 @@
       "progress": null,
       "tags": [],
       "identifiers": {
-        "neodb_item_id": "25QrAoeMK1MUYpPX7Zbqaf"
+        "neodb_item_id": "25QrAoeMK1MUYpPX7Zbqaf",
+        "bangumi_subject_id": 697928
       },
       "links": {
-        "neodb": "https://neodb.social/movie/25QrAoeMK1MUYpPX7Zbqaf"
+        "neodb": "https://neodb.social/movie/25QrAoeMK1MUYpPX7Zbqaf",
+        "bangumi": "https://bgm.tv/subject/697928"
       },
       "telemetry": {},
       "updated_at": "2023-01-24T15:54:00Z",
@@ -4471,7 +4473,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 2467,
+        "community_rating_count": 2469,
         "comment_text": null,
         "api_url": "/api/movie/0TedD5jkKhyavhtwJkqOxi"
       }
@@ -4569,7 +4571,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.9,
-        "community_rating_count": 2218,
+        "community_rating_count": 2219,
         "comment_text": null,
         "api_url": "/api/movie/1QgmUXvlmFRCUuSV6GnJZg"
       }
@@ -4603,7 +4605,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 1933,
+        "community_rating_count": 1934,
         "comment_text": null,
         "api_url": "/api/movie/5CI5m5EoxnKbgZOzQF75tN"
       }
@@ -4829,7 +4831,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.3,
-        "community_rating_count": 1274,
+        "community_rating_count": 1275,
         "comment_text": null,
         "api_url": "/api/movie/4i77XtzQUoz8ORPTdB3uOL"
       }
