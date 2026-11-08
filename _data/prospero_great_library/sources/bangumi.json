@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-07T21:46:11Z",
-  "last_success_at": "2026-11-07T21:46:11Z",
+  "fetched_at": "2026-11-08T21:59:34Z",
+  "last_success_at": "2026-11-08T21:59:34Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -873,8 +873,8 @@
         "PC",
         "2026",
         "全年龄",
-        "Galgame",
         "STEAM",
+        "Galgame",
         "DigitalCats"
       ],
       "identifiers": {
@@ -898,8 +898,8 @@
           "PC",
           "2026",
           "全年龄",
-          "Galgame",
           "STEAM",
+          "Galgame",
           "DigitalCats"
         ],
         "book_category": null
@@ -2553,12 +2553,13 @@
       },
       "tags": [
         "奇幻",
-        "硬奇幻",
         "猎魔人",
-        "波兰",
-        "单卷",
         "小说",
-        "奇幻小说"
+        "硬奇幻",
+        "波兰",
+        "欧美",
+        "奇幻小说",
+        "单卷"
       ],
       "identifiers": {
         "bangumi_subject_id": 287008
@@ -2575,12 +2576,13 @@
         "platform": null,
         "subject_tags": [
           "奇幻",
-          "硬奇幻",
           "猎魔人",
-          "波兰",
-          "单卷",
           "小说",
-          "奇幻小说"
+          "硬奇幻",
+          "波兰",
+          "欧美",
+          "奇幻小说",
+          "单卷"
         ],
         "book_category": null
       }
@@ -2743,14 +2745,14 @@
       "tags": [
         "猎魔人",
         "小说",
-        "巫师",
         "奇幻",
+        "巫师",
         "Witcher",
         "波兰",
-        "硬奇幻",
-        "单卷",
-        "The_Witcher",
-        "奇幻小说"
+        "冒险",
+        "群像剧",
+        "战争",
+        "2026"
       ],
       "identifiers": {
         "bangumi_subject_id": 287005
@@ -2768,14 +2770,14 @@
         "subject_tags": [
           "猎魔人",
           "小说",
-          "巫师",
           "奇幻",
+          "巫师",
           "Witcher",
           "波兰",
-          "硬奇幻",
-          "单卷",
-          "The_Witcher",
-          "奇幻小说"
+          "冒险",
+          "群像剧",
+          "战争",
+          "2026"
         ],
         "book_category": null
       }
@@ -3051,7 +3053,7 @@
       ],
       "year": null,
       "release_date": null,
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/6d/e2/218023_W7m3N.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/6d/e2/218023_B1C60.jpg",
       "summary": "猎魔人系列（波兰语：Cykl wiedźmiński，英语：Witcher series）是由波兰作家安杰伊·萨普科夫斯基所著的十五则短篇、五部曲长篇以及一部独立长篇奇幻小说，讲述了猎魔人利维亚的杰洛特的故事，并构筑了一个庞大纷繁的奇幻架空",
       "status": "completed",
       "rating": {
@@ -3647,8 +3649,8 @@
         "轮回",
         "推理",
         "PC",
-        "kemco",
         "骚话王历险记",
+        "kemco",
         "ADV"
       ],
       "identifiers": {
@@ -3672,8 +3674,8 @@
           "轮回",
           "推理",
           "PC",
-          "kemco",
           "骚话王历险记",
+          "kemco",
           "ADV"
         ],
         "book_category": null
@@ -5105,9 +5107,9 @@
         "2014",
         "OAD",
         "JUMP",
-        "银他妈",
         "漫画改",
-        "热血"
+        "银他妈",
+        "杉田智和"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -5130,9 +5132,9 @@
           "2014",
           "OAD",
           "JUMP",
-          "银他妈",
           "漫画改",
-          "热血"
+          "银他妈",
+          "杉田智和"
         ],
         "book_category": null
       }
@@ -5736,8 +5738,8 @@
         "合金装备",
         "Konami",
         "PS4",
-        "小岛秀夫",
         "ACT",
+        "小岛秀夫",
         "PC",
         "2015",
         "MGS",
@@ -5761,8 +5763,8 @@
           "合金装备",
           "Konami",
           "PS4",
-          "小岛秀夫",
           "ACT",
+          "小岛秀夫",
           "PC",
           "2015",
           "MGS",
@@ -6495,8 +6497,8 @@
         "0079",
         "原创",
         "科幻",
-        "1979",
         "元祖高达",
+        "1979",
         "GUNDAM"
       ],
       "identifiers": {
@@ -6520,8 +6522,8 @@
           "0079",
           "原创",
           "科幻",
-          "1979",
           "元祖高达",
+          "1979",
           "GUNDAM"
         ],
         "book_category": null
@@ -6927,8 +6929,8 @@
         "高桥良辅",
         "科幻",
         "神田武幸",
-        "真实系",
-        "政治"
+        "政治",
+        "真实系"
       ],
       "identifiers": {
         "bangumi_subject_id": 37183
@@ -6952,8 +6954,8 @@
           "高桥良辅",
           "科幻",
           "神田武幸",
-          "真实系",
-          "政治"
+          "政治",
+          "真实系"
         ],
         "book_category": null
       }
@@ -7476,7 +7478,7 @@
         "游戏",
         "STEAM",
         "2021",
-        "iOS"
+        "PS4"
       ],
       "identifiers": {
         "bangumi_subject_id": 489877
@@ -7501,7 +7503,7 @@
           "游戏",
           "STEAM",
           "2021",
-          "iOS"
+          "PS4"
         ],
         "book_category": null
       }
@@ -8863,8 +8865,8 @@
         "source": "bangumi"
       },
       "tags": [
-        "漫画",
         "福本伸行",
+        "漫画",
         "赌博",
         "智斗",
         "2009",
@@ -8888,8 +8890,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "漫画",
           "福本伸行",
+          "漫画",
           "赌博",
           "智斗",
           "2009",
@@ -8936,8 +8938,8 @@
         "2004",
         "講談社",
         "人性",
-        "斗智",
-        "週刊ヤングマガジン"
+        "週刊ヤングマガジン",
+        "斗智"
       ],
       "identifiers": {
         "bangumi_subject_id": 16316
@@ -8961,8 +8963,8 @@
           "2004",
           "講談社",
           "人性",
-          "斗智",
-          "週刊ヤングマガジン"
+          "週刊ヤングマガジン",
+          "斗智"
         ],
         "book_category": null
       }
@@ -10765,8 +10767,8 @@
         "桌游",
         "Rougelike",
         "多人",
-        "Roguelike",
         "独立游戏",
+        "Roguelike",
         "回合制",
         "2018"
       ],
@@ -10790,8 +10792,8 @@
           "桌游",
           "Rougelike",
           "多人",
-          "Roguelike",
           "独立游戏",
+          "Roguelike",
           "回合制",
           "2018"
         ],
@@ -14039,15 +14041,15 @@
       "progress": null,
       "tags": [
         "Rockstar",
-        "PS3",
         "R星",
+        "PS3",
         "荒野大镖客",
-        "Xbox360",
         "ACT",
+        "Xbox360",
         "2010",
         "西部沙箱",
         "开放世界",
-        "AAVG"
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 3504
@@ -14064,15 +14066,15 @@
         "platform": null,
         "subject_tags": [
           "Rockstar",
-          "PS3",
           "R星",
+          "PS3",
           "荒野大镖客",
-          "Xbox360",
           "ACT",
+          "Xbox360",
           "2010",
           "西部沙箱",
           "开放世界",
-          "AAVG"
+          "PC"
         ],
         "book_category": null
       }
@@ -16519,8 +16521,8 @@
         "NaughtyDog",
         "ACT",
         "板砖在手天下我有",
-        "满分",
         "神作",
+        "满分",
         "TPS"
       ],
       "identifiers": {
@@ -16544,8 +16546,8 @@
           "NaughtyDog",
           "ACT",
           "板砖在手天下我有",
-          "满分",
           "神作",
+          "满分",
           "TPS"
         ],
         "book_category": null
@@ -16632,8 +16634,8 @@
         "独立游戏",
         "解谜",
         "类银河战士恶魔城",
-        "像素风",
         "PC",
+        "像素风",
         "2024",
         "横版",
         "Metroidvania",
@@ -16657,8 +16659,8 @@
           "独立游戏",
           "解谜",
           "类银河战士恶魔城",
-          "像素风",
           "PC",
+          "像素风",
           "2024",
           "横版",
           "Metroidvania",
@@ -17031,8 +17033,8 @@
       },
       "progress": null,
       "tags": [
-        "独立游戏",
         "PC",
+        "独立游戏",
         "CRPG",
         "RPG",
         "康米主义",
@@ -17056,8 +17058,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "独立游戏",
           "PC",
+          "独立游戏",
           "CRPG",
           "RPG",
           "康米主义",
@@ -19689,8 +19691,8 @@
         "奥斯卡",
         "小说改",
         "俄罗斯",
-        "艺术动画",
-        "剧场版"
+        "剧场版",
+        "艺术动画"
       ],
       "identifiers": {
         "bangumi_subject_id": 1984
@@ -19714,8 +19716,8 @@
           "奥斯卡",
           "小说改",
           "俄罗斯",
-          "艺术动画",
-          "剧场版"
+          "剧场版",
+          "艺术动画"
         ],
         "book_category": null
       }
