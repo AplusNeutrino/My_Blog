@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-12T23:34:41Z",
-  "last_success_at": "2026-11-12T23:34:41Z",
+  "fetched_at": "2026-11-13T23:30:38Z",
+  "last_success_at": "2026-11-13T23:30:38Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -3816,8 +3816,8 @@
         "丸户史明",
         "HERMIT",
         "欢乐",
-        "女儿",
         "PC",
+        "女儿",
         "GAL",
         "汉化"
       ],
@@ -3841,8 +3841,8 @@
           "丸户史明",
           "HERMIT",
           "欢乐",
-          "女儿",
           "PC",
+          "女儿",
           "GAL",
           "汉化"
         ],
@@ -4595,7 +4595,7 @@
         "ACECOOL",
         "电影",
         "偶像",
-        "2020-2029"
+        "动画电影"
       ],
       "identifiers": {
         "bangumi_subject_id": 540411
@@ -4620,7 +4620,7 @@
           "ACECOOL",
           "电影",
           "偶像",
-          "2020-2029"
+          "动画电影"
         ],
         "book_category": null
       }
@@ -6120,8 +6120,8 @@
         "搞笑",
         "JUMP",
         "恶搞",
-        "TV",
         "銀魂~搞笑才是人生~",
+        "TV",
         "GINTAMA",
         "SUNRISE"
       ],
@@ -6145,8 +6145,8 @@
           "搞笑",
           "JUMP",
           "恶搞",
-          "TV",
           "銀魂~搞笑才是人生~",
+          "TV",
           "GINTAMA",
           "SUNRISE"
         ],
@@ -14044,12 +14044,12 @@
         "R星",
         "PS3",
         "荒野大镖客",
-        "Xbox360",
         "ACT",
+        "Xbox360",
         "2010",
+        "开放世界",
         "西部沙箱",
-        "PC",
-        "开放世界"
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 3504
@@ -14069,12 +14069,12 @@
           "R星",
           "PS3",
           "荒野大镖客",
-          "Xbox360",
           "ACT",
+          "Xbox360",
           "2010",
+          "开放世界",
           "西部沙箱",
-          "PC",
-          "开放世界"
+          "PC"
         ],
         "book_category": null
       }
@@ -16695,8 +16695,8 @@
         "皇牌空战零：贝尔肯战争",
         "bgm绝赞",
         "2006",
-        "不可超越",
-        "NAMCO"
+        "NAMCO",
+        "不可超越"
       ],
       "identifiers": {
         "bangumi_subject_id": 13426
@@ -16720,8 +16720,8 @@
           "皇牌空战零：贝尔肯战争",
           "bgm绝赞",
           "2006",
-          "不可超越",
-          "NAMCO"
+          "NAMCO",
+          "不可超越"
         ],
         "book_category": null
       }
