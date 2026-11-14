@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-13T23:30:38Z",
-  "last_success_at": "2026-11-13T23:30:38Z",
+  "fetched_at": "2026-11-14T22:19:27Z",
+  "last_success_at": "2026-11-14T22:19:27Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -2422,8 +2422,8 @@
       "rating": null,
       "progress": null,
       "tags": [
-        "Capcom",
         "大神",
+        "Capcom",
         "水墨",
         "神谷英树",
         "PS2",
@@ -2447,8 +2447,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "Capcom",
           "大神",
+          "Capcom",
           "水墨",
           "神谷英树",
           "PS2",
@@ -3072,9 +3072,9 @@
         "奇幻",
         "猎魔人",
         "巫师",
-        "Andrzej.Sapkowski",
         "欧美",
         "波兰",
+        "Andrzej.Sapkowski",
         "意犹未尽",
         "小说系列",
         "架空历史"
@@ -3097,9 +3097,9 @@
           "奇幻",
           "猎魔人",
           "巫师",
-          "Andrzej.Sapkowski",
           "欧美",
           "波兰",
+          "Andrzej.Sapkowski",
           "意犹未尽",
           "小说系列",
           "架空历史"
@@ -4595,7 +4595,7 @@
         "ACECOOL",
         "电影",
         "偶像",
-        "动画电影"
+        "2020-2029"
       ],
       "identifiers": {
         "bangumi_subject_id": 540411
@@ -4620,7 +4620,7 @@
           "ACECOOL",
           "电影",
           "偶像",
-          "动画电影"
+          "2020-2029"
         ],
         "book_category": null
       }
@@ -7470,14 +7470,14 @@
       "progress": null,
       "tags": [
         "RPG",
-        "最终幻想",
         "PC",
+        "最终幻想",
         "JRPG",
         "SquareEnix",
         "NS",
         "游戏",
-        "STEAM",
         "2021",
+        "STEAM",
         "PS4"
       ],
       "identifiers": {
@@ -7495,14 +7495,14 @@
         "platform": null,
         "subject_tags": [
           "RPG",
-          "最终幻想",
           "PC",
+          "最终幻想",
           "JRPG",
           "SquareEnix",
           "NS",
           "游戏",
-          "STEAM",
           "2021",
+          "STEAM",
           "PS4"
         ],
         "book_category": null
@@ -8035,8 +8035,8 @@
         "恐怖",
         "炭酸だいすき",
         "投资",
-        "赌狗",
         "2021",
+        "赌狗",
         "炒外汇",
         "惊悚",
         "日本"
@@ -8060,8 +8060,8 @@
           "恐怖",
           "炭酸だいすき",
           "投资",
-          "赌狗",
           "2021",
+          "赌狗",
           "炒外汇",
           "惊悚",
           "日本"
@@ -8612,8 +8612,8 @@
         "智斗",
         "竹書房",
         "1989",
-        "天·天和通りの快男児",
         "赤木茂",
+        "天·天和通りの快男児",
         "日本漫画"
       ],
       "identifiers": {
@@ -8637,8 +8637,8 @@
           "智斗",
           "竹書房",
           "1989",
-          "天·天和通りの快男児",
           "赤木茂",
+          "天·天和通りの快男児",
           "日本漫画"
         ],
         "book_category": null
@@ -10110,8 +10110,8 @@
         "TPS",
         "膜法锉刀",
         "Online",
-        "欧美系",
-        "迷之优化"
+        "迷之优化",
+        "欧美系"
       ],
       "identifiers": {
         "bangumi_subject_id": 122847
@@ -10135,8 +10135,8 @@
           "TPS",
           "膜法锉刀",
           "Online",
-          "欧美系",
-          "迷之优化"
+          "迷之优化",
+          "欧美系"
         ],
         "book_category": null
       }
@@ -13692,8 +13692,8 @@
         "FPS",
         "废土",
         "PC",
-        "地铁",
         "4A_GAMES",
+        "地铁",
         "2019",
         "末日",
         "潜行",
@@ -13717,8 +13717,8 @@
           "FPS",
           "废土",
           "PC",
-          "地铁",
           "4A_GAMES",
+          "地铁",
           "2019",
           "末日",
           "潜行",
@@ -17573,8 +17573,8 @@
         "SquareEnix",
         "网游",
         "最终幻想",
-        "RPG",
         "2010",
+        "RPG",
         "Online",
         "Square-Enix"
       ],
@@ -17598,8 +17598,8 @@
           "SquareEnix",
           "网游",
           "最终幻想",
-          "RPG",
           "2010",
+          "RPG",
           "Online",
           "Square-Enix"
         ],
@@ -18790,8 +18790,8 @@
       },
       "tags": [
         "BanGDream",
-        "音乐",
         "原创",
+        "音乐",
         "乐队",
         "2020年1月",
         "TV",
@@ -18815,8 +18815,8 @@
         "platform": null,
         "subject_tags": [
           "BanGDream",
-          "音乐",
           "原创",
+          "音乐",
           "乐队",
           "2020年1月",
           "TV",
@@ -19733,7 +19733,7 @@
       ],
       "year": 1997,
       "release_date": "1997-10-07",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/0c/b9/696_tdp05.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/0c/b9/696_1qvPt.jpg",
       "summary": "　　身の丈を超える長大な剣を自在に操り、「使徒」と呼ばれる人外の化け物を屠る「黒い剣士」ガッツを主人公とする大河ファンタジー。ガッツはある宿命に憑りつかれて狂戦士のごとく大剣を振るい、闇に蠢く化物と死闘を繰り広げる。その目的は無為に殺された",
       "status": "wishlist",
       "rating": null,
