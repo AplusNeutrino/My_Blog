@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-14T22:19:27Z",
-  "last_success_at": "2026-11-14T22:19:27Z",
+  "fetched_at": "2026-11-15T22:46:14Z",
+  "last_success_at": "2026-11-15T22:46:14Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -930,8 +930,8 @@
       "tags": [
         "历史",
         "漫画改",
-        "山田尚子",
         "2026年7月",
+        "山田尚子",
         "ScienceSARU",
         "TV",
         "2026",
@@ -955,8 +955,8 @@
         "subject_tags": [
           "历史",
           "漫画改",
-          "山田尚子",
           "2026年7月",
+          "山田尚子",
           "ScienceSARU",
           "TV",
           "2026",
@@ -2743,16 +2743,16 @@
         "source": "bangumi"
       },
       "tags": [
-        "猎魔人",
         "小说",
-        "奇幻",
+        "猎魔人",
         "巫师",
+        "奇幻",
         "Witcher",
         "波兰",
-        "冒险",
-        "群像剧",
-        "战争",
-        "2026"
+        "单卷",
+        "奇幻小说",
+        "硬奇幻",
+        "欧美"
       ],
       "identifiers": {
         "bangumi_subject_id": 287005
@@ -2768,16 +2768,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "猎魔人",
           "小说",
-          "奇幻",
+          "猎魔人",
           "巫师",
+          "奇幻",
           "Witcher",
           "波兰",
-          "冒险",
-          "群像剧",
-          "战争",
-          "2026"
+          "单卷",
+          "奇幻小说",
+          "硬奇幻",
+          "欧美"
         ],
         "book_category": null
       }
@@ -5109,7 +5109,7 @@
         "JUMP",
         "漫画改",
         "银他妈",
-        "热血"
+        "杉田智和"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -5134,7 +5134,7 @@
           "JUMP",
           "漫画改",
           "银他妈",
-          "热血"
+          "杉田智和"
         ],
         "book_category": null
       }
@@ -6120,8 +6120,8 @@
         "搞笑",
         "JUMP",
         "恶搞",
-        "銀魂~搞笑才是人生~",
         "TV",
+        "銀魂~搞笑才是人生~",
         "GINTAMA",
         "SUNRISE"
       ],
@@ -6145,8 +6145,8 @@
           "搞笑",
           "JUMP",
           "恶搞",
-          "銀魂~搞笑才是人生~",
           "TV",
+          "銀魂~搞笑才是人生~",
           "GINTAMA",
           "SUNRISE"
         ],
@@ -6429,8 +6429,8 @@
         "战争",
         "0080",
         "1989",
-        "萝卜",
         "原创",
+        "萝卜",
         "科幻",
         "美树本晴彦"
       ],
@@ -6454,8 +6454,8 @@
           "战争",
           "0080",
           "1989",
-          "萝卜",
           "原创",
+          "萝卜",
           "科幻",
           "美树本晴彦"
         ],
@@ -11231,14 +11231,14 @@
       "tags": [
         "PC",
         "2K.Games",
-        "mafia",
         "ACT",
+        "mafia",
         "TPS",
         "2KGames",
         "黑手党",
         "2020",
-        "没有多周目必要",
-        "STEAM"
+        "STEAM",
+        "没有多周目必要"
       ],
       "identifiers": {
         "bangumi_subject_id": 306953
@@ -11256,14 +11256,14 @@
         "subject_tags": [
           "PC",
           "2K.Games",
-          "mafia",
           "ACT",
+          "mafia",
           "TPS",
           "2KGames",
           "黑手党",
           "2020",
-          "没有多周目必要",
-          "STEAM"
+          "STEAM",
+          "没有多周目必要"
         ],
         "book_category": null
       }
@@ -16695,8 +16695,8 @@
         "皇牌空战零：贝尔肯战争",
         "bgm绝赞",
         "2006",
-        "NAMCO",
-        "不可超越"
+        "不可超越",
+        "NAMCO"
       ],
       "identifiers": {
         "bangumi_subject_id": 13426
@@ -16720,8 +16720,8 @@
           "皇牌空战零：贝尔肯战争",
           "bgm绝赞",
           "2006",
-          "NAMCO",
-          "不可超越"
+          "不可超越",
+          "NAMCO"
         ],
         "book_category": null
       }
@@ -17033,8 +17033,8 @@
       },
       "progress": null,
       "tags": [
-        "PC",
         "独立游戏",
+        "PC",
         "CRPG",
         "RPG",
         "康米主义",
@@ -17058,8 +17058,8 @@
         "private": false,
         "platform": null,
         "subject_tags": [
-          "PC",
           "独立游戏",
+          "PC",
           "CRPG",
           "RPG",
           "康米主义",
@@ -18790,8 +18790,8 @@
       },
       "tags": [
         "BanGDream",
-        "原创",
         "音乐",
+        "原创",
         "乐队",
         "2020年1月",
         "TV",
@@ -18815,8 +18815,8 @@
         "platform": null,
         "subject_tags": [
           "BanGDream",
-          "原创",
           "音乐",
+          "原创",
           "乐队",
           "2020年1月",
           "TV",
