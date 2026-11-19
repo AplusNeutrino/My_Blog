@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-11-18T00:56:09Z",
-  "last_success_at": "2026-11-18T00:56:09Z",
+  "fetched_at": "2026-11-19T00:19:11Z",
+  "last_success_at": "2026-11-19T00:19:11Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -35,7 +35,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 7.7,
-        "community_rating_count": 566,
+        "community_rating_count": 570,
         "comment_text": null,
         "api_url": "/api/movie/5Sd0Dw4oPFeRC5uF64tqQ4"
       }
@@ -69,7 +69,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.0,
-        "community_rating_count": 876,
+        "community_rating_count": 878,
         "comment_text": null,
         "api_url": "/api/movie/0p2zNbJGVlkmWckcdSLhRL"
       }
@@ -101,7 +101,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.2,
-        "community_rating_count": 810,
+        "community_rating_count": 811,
         "comment_text": null,
         "api_url": "/api/movie/0U2hVLI57JJzXwpZZfwTMP"
       }
@@ -719,7 +719,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.7,
-        "community_rating_count": 1251,
+        "community_rating_count": 1252,
         "comment_text": null,
         "api_url": "/api/movie/6cDZwOtvGwKV2ywEkPvuMW"
       }
@@ -751,7 +751,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 886,
+        "community_rating_count": 887,
         "comment_text": null,
         "api_url": "/api/movie/5CG2tv1NzVv1MiF5K2tuET"
       }
@@ -2013,7 +2013,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 1776,
+        "community_rating_count": 1777,
         "comment_text": null,
         "api_url": "/api/movie/1RX2ikFCBoIpTsQPph7B7I"
       }
@@ -2211,7 +2211,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.4,
-        "community_rating_count": 78,
+        "community_rating_count": 79,
         "comment_text": null,
         "api_url": "/api/tv/season/1uYnoluuaJbMecvq5H4YEp"
       }
@@ -2507,7 +2507,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.1,
-        "community_rating_count": 1883,
+        "community_rating_count": 1884,
         "comment_text": null,
         "api_url": "/api/movie/0gp4bua6YIKKZyjBqNqCxj"
       }
@@ -2575,7 +2575,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.6,
-        "community_rating_count": 184,
+        "community_rating_count": 185,
         "comment_text": null,
         "api_url": "/api/tv/season/1xQJwtwnXoTiNMosLoduMa"
       }
@@ -2675,7 +2675,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.3,
-        "community_rating_count": 645,
+        "community_rating_count": 646,
         "comment_text": null,
         "api_url": "/api/tv/season/6TVJED5q3GdBYJ6Gs5BaGR"
       }
@@ -2901,7 +2901,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.8,
-        "community_rating_count": 135,
+        "community_rating_count": 136,
         "comment_text": null,
         "api_url": "/api/book/0yFIuNZwsggNyZHHptWn6B"
       }
@@ -4690,10 +4690,12 @@
       "progress": null,
       "tags": [],
       "identifiers": {
-        "neodb_item_id": "5ZD3Nli9yTkWQw9uTdUrv2"
+        "neodb_item_id": "5ZD3Nli9yTkWQw9uTdUrv2",
+        "bangumi_subject_id": 60107
       },
       "links": {
-        "neodb": "https://neodb.social/movie/5ZD3Nli9yTkWQw9uTdUrv2"
+        "neodb": "https://neodb.social/movie/5ZD3Nli9yTkWQw9uTdUrv2",
+        "bangumi": "https://bgm.tv/subject/60107"
       },
       "telemetry": {},
       "updated_at": "2023-01-24T15:54:00Z",
