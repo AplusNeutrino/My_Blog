@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-21T23:10:54Z",
-  "last_success_at": "2026-11-21T23:10:54Z",
+  "fetched_at": "2026-11-22T23:34:46Z",
+  "last_success_at": "2026-11-22T23:34:46Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -1305,9 +1305,9 @@
         "2008年10月",
         "007",
         "特工",
-        "英国",
         "科幻",
-        "美国"
+        "英国",
+        "Marc.Forster"
       ],
       "identifiers": {
         "bangumi_subject_id": 446998
@@ -1330,9 +1330,9 @@
           "2008年10月",
           "007",
           "特工",
-          "英国",
           "科幻",
-          "美国"
+          "英国",
+          "Marc.Forster"
         ],
         "book_category": null
       }
@@ -3649,8 +3649,8 @@
         "轮回",
         "推理",
         "PC",
-        "骚话王历险记",
         "kemco",
+        "骚话王历险记",
         "ADV"
       ],
       "identifiers": {
@@ -3674,8 +3674,8 @@
           "轮回",
           "推理",
           "PC",
-          "骚话王历险记",
           "kemco",
+          "骚话王历险记",
           "ADV"
         ],
         "book_category": null
@@ -4977,8 +4977,8 @@
         "OVA",
         "漫画改",
         "BNPictures",
-        "WEB",
         "TV",
+        "WEB",
         "战斗",
         "热血"
       ],
@@ -5002,8 +5002,8 @@
           "OVA",
           "漫画改",
           "BNPictures",
-          "WEB",
           "TV",
+          "WEB",
           "战斗",
           "热血"
         ],
@@ -5681,8 +5681,8 @@
         "银魂",
         "搞笑",
         "2015年4月",
-        "漫画改",
         "TV",
+        "漫画改",
         "杉田智和",
         "JUMP",
         "SUNRISE",
@@ -5706,8 +5706,8 @@
           "银魂",
           "搞笑",
           "2015年4月",
-          "漫画改",
           "TV",
+          "漫画改",
           "杉田智和",
           "JUMP",
           "SUNRISE",
@@ -6615,8 +6615,8 @@
         "暴雨",
         "2010",
         "PC",
-        "剧情好",
-        "互动剧情"
+        "互动剧情",
+        "剧情好"
       ],
       "identifiers": {
         "bangumi_subject_id": 5427
@@ -6640,8 +6640,8 @@
           "暴雨",
           "2010",
           "PC",
-          "剧情好",
-          "互动剧情"
+          "互动剧情",
+          "剧情好"
         ],
         "book_category": null
       }
@@ -13292,11 +13292,11 @@
         "lain",
         "电波",
         "意识流",
-        "1998",
         "パイオニアLDC",
+        "1998",
         "游戏",
-        "ps1",
-        "Galgame"
+        "“GamePlayer”",
+        "云过"
       ],
       "identifiers": {
         "bangumi_subject_id": 145972
@@ -13317,11 +13317,11 @@
           "lain",
           "电波",
           "意识流",
-          "1998",
           "パイオニアLDC",
+          "1998",
           "游戏",
-          "ps1",
-          "Galgame"
+          "“GamePlayer”",
+          "云过"
         ],
         "book_category": null
       }
@@ -14617,7 +14617,7 @@
         "高难度",
         "ACT",
         "核心向",
-        "硬派ACT"
+        "神作"
       ],
       "identifiers": {
         "bangumi_subject_id": 2247
@@ -14642,7 +14642,7 @@
           "高难度",
           "ACT",
           "核心向",
-          "硬派ACT"
+          "神作"
         ],
         "book_category": null
       }
@@ -15370,7 +15370,7 @@
         "美国",
         "ADV",
         "指向点击",
-        "Viva_la_revolución"
+        "游戏"
       ],
       "identifiers": {
         "bangumi_subject_id": 5946
@@ -15395,7 +15395,7 @@
           "美国",
           "ADV",
           "指向点击",
-          "Viva_la_revolución"
+          "游戏"
         ],
         "book_category": null
       }
