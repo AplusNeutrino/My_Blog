@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "bangumi",
-  "fetched_at": "2026-11-22T23:34:46Z",
-  "last_success_at": "2026-11-22T23:34:46Z",
+  "fetched_at": "2026-11-24T03:56:49Z",
+  "last_success_at": "2026-11-24T03:56:49Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 372,
   "records": [
@@ -499,7 +499,7 @@
         "异世界",
         "Enterbrain",
         "设绘",
-        "妹控狂魔"
+        "系列"
       ],
       "identifiers": {
         "bangumi_subject_id": 42872
@@ -524,7 +524,7 @@
           "异世界",
           "Enterbrain",
           "设绘",
-          "妹控狂魔"
+          "系列"
         ],
         "book_category": null
       }
@@ -869,8 +869,8 @@
         "推理",
         "AVG",
         "独立游戏",
-        "PC",
         "悬疑",
+        "PC",
         "2026",
         "Galgame",
         "全年龄",
@@ -894,8 +894,8 @@
           "推理",
           "AVG",
           "独立游戏",
-          "PC",
           "悬疑",
+          "PC",
           "2026",
           "Galgame",
           "全年龄",
@@ -1367,9 +1367,9 @@
         "2015年10月",
         "特工",
         "谍战",
-        "英国",
         "爱情",
-        "S24"
+        "S24",
+        "英国"
       ],
       "identifiers": {
         "bangumi_subject_id": 447002
@@ -1392,9 +1392,9 @@
           "2015年10月",
           "特工",
           "谍战",
-          "英国",
           "爱情",
-          "S24"
+          "S24",
+          "英国"
         ],
         "book_category": null
       }
@@ -1920,7 +1920,7 @@
         "特工",
         "爱情",
         "英国",
-        "科幻"
+        "Action"
       ],
       "identifiers": {
         "bangumi_subject_id": 447003
@@ -1945,7 +1945,7 @@
           "特工",
           "爱情",
           "英国",
-          "科幻"
+          "Action"
         ],
         "book_category": null
       }
@@ -3649,8 +3649,8 @@
         "轮回",
         "推理",
         "PC",
-        "kemco",
         "骚话王历险记",
+        "kemco",
         "ADV"
       ],
       "identifiers": {
@@ -3674,8 +3674,8 @@
           "轮回",
           "推理",
           "PC",
-          "kemco",
           "骚话王历险记",
+          "kemco",
           "ADV"
         ],
         "book_category": null
@@ -4778,13 +4778,13 @@
         "短片",
         "2025",
         "银魂",
-        "WEB",
         "搞笑",
-        "游戏改",
+        "WEB",
         "雀魂",
+        "游戏改",
         "CM",
         "原创",
-        "BNPictures"
+        "2025年10月"
       ],
       "identifiers": {
         "bangumi_subject_id": 591455
@@ -4803,13 +4803,13 @@
           "短片",
           "2025",
           "银魂",
-          "WEB",
           "搞笑",
-          "游戏改",
+          "WEB",
           "雀魂",
+          "游戏改",
           "CM",
           "原创",
-          "BNPictures"
+          "2025年10月"
         ],
         "book_category": null
       }
@@ -4845,8 +4845,8 @@
         "日本",
         "漫改",
         "安藤尚也",
-        "空知英秋",
-        "搞笑"
+        "搞笑",
+        "空知英秋"
       ],
       "identifiers": {
         "bangumi_subject_id": 578766
@@ -4870,8 +4870,8 @@
           "日本",
           "漫改",
           "安藤尚也",
-          "空知英秋",
-          "搞笑"
+          "搞笑",
+          "空知英秋"
         ],
         "book_category": null
       }
@@ -5109,7 +5109,7 @@
         "JUMP",
         "漫画改",
         "银他妈",
-        "杉田智和"
+        "热血"
       ],
       "identifiers": {
         "bangumi_subject_id": 114391
@@ -5134,7 +5134,7 @@
           "JUMP",
           "漫画改",
           "银他妈",
-          "杉田智和"
+          "热血"
         ],
         "book_category": null
       }
@@ -6120,8 +6120,8 @@
         "搞笑",
         "JUMP",
         "恶搞",
-        "TV",
         "銀魂~搞笑才是人生~",
+        "TV",
         "GINTAMA",
         "SUNRISE"
       ],
@@ -6145,8 +6145,8 @@
           "搞笑",
           "JUMP",
           "恶搞",
-          "TV",
           "銀魂~搞笑才是人生~",
+          "TV",
           "GINTAMA",
           "SUNRISE"
         ],
@@ -7225,8 +7225,8 @@
       "tags": [
         "MADHouse",
         "漫画改",
-        "2024年10月",
         "历史",
+        "2024年10月",
         "TV",
         "漫改",
         "群像",
@@ -7250,8 +7250,8 @@
         "subject_tags": [
           "MADHouse",
           "漫画改",
-          "2024年10月",
           "历史",
+          "2024年10月",
           "TV",
           "漫改",
           "群像",
@@ -8034,9 +8034,9 @@
         "赌博",
         "恐怖",
         "炭酸だいすき",
-        "投资",
-        "2021",
         "赌狗",
+        "2021",
+        "投资",
         "炒外汇",
         "惊悚",
         "日本"
@@ -8059,9 +8059,9 @@
           "赌博",
           "恐怖",
           "炭酸だいすき",
-          "投资",
-          "2021",
           "赌狗",
+          "2021",
+          "投资",
           "炒外汇",
           "惊悚",
           "日本"
@@ -9456,8 +9456,8 @@
         "押山清高",
         "StudioDURIAN",
         "青春",
-        "日本",
         "治愈",
+        "日本",
         "漫改"
       ],
       "identifiers": {
@@ -9481,8 +9481,8 @@
           "押山清高",
           "StudioDURIAN",
           "青春",
-          "日本",
           "治愈",
+          "日本",
           "漫改"
         ],
         "book_category": null
@@ -10110,8 +10110,8 @@
         "TPS",
         "膜法锉刀",
         "Online",
-        "迷之优化",
-        "欧美系"
+        "欧美系",
+        "迷之优化"
       ],
       "identifiers": {
         "bangumi_subject_id": 122847
@@ -10135,8 +10135,8 @@
           "TPS",
           "膜法锉刀",
           "Online",
-          "迷之优化",
-          "欧美系"
+          "欧美系",
+          "迷之优化"
         ],
         "book_category": null
       }
@@ -10158,16 +10158,16 @@
       "rating": null,
       "progress": null,
       "tags": [
+        "游戏",
         "Windows",
         "PS3",
         "休闲",
-        "游戏",
-        "PSP",
         "Xbox360",
         "Wii",
-        "PC",
+        "NDS",
         "PS5",
-        "NDS"
+        "PSP",
+        "PC"
       ],
       "identifiers": {
         "bangumi_subject_id": 552586
@@ -10183,16 +10183,16 @@
         "private": false,
         "platform": null,
         "subject_tags": [
+          "游戏",
           "Windows",
           "PS3",
           "休闲",
-          "游戏",
-          "PSP",
           "Xbox360",
           "Wii",
-          "PC",
+          "NDS",
           "PS5",
-          "NDS"
+          "PSP",
+          "PC"
         ],
         "book_category": null
       }
@@ -12241,11 +12241,11 @@
       "tags": [
         "卡牌",
         "PC",
+        "昆特牌",
         "巫师",
         "RPG",
-        "昆特牌",
-        "CDProject",
         "STEAM",
+        "CDProject",
         "多结局",
         "2018",
         "TCG"
@@ -12266,11 +12266,11 @@
         "subject_tags": [
           "卡牌",
           "PC",
+          "昆特牌",
           "巫师",
           "RPG",
-          "昆特牌",
-          "CDProject",
           "STEAM",
+          "CDProject",
           "多结局",
           "2018",
           "TCG"
@@ -12492,7 +12492,7 @@
         "大战略",
         "英国",
         "东格玛",
-        "策略"
+        "CA"
       ],
       "identifiers": {
         "bangumi_subject_id": 327292
@@ -12517,7 +12517,7 @@
           "大战略",
           "英国",
           "东格玛",
-          "策略"
+          "CA"
         ],
         "book_category": null
       }
@@ -13122,8 +13122,8 @@
         "编程",
         "独立游戏",
         "PC",
-        "SIM",
         "解谜",
+        "SIM",
         "2021",
         "烧脑",
         "PUZ",
@@ -13147,8 +13147,8 @@
           "编程",
           "独立游戏",
           "PC",
-          "SIM",
           "解谜",
+          "SIM",
           "2021",
           "烧脑",
           "PUZ",
@@ -13237,8 +13237,8 @@
         "Wargame:RedDragon",
         "2014",
         "STEAM",
-        "战争",
         "法国",
+        "战争",
         "历史",
         "战争游戏"
       ],
@@ -13262,8 +13262,8 @@
           "Wargame:RedDragon",
           "2014",
           "STEAM",
-          "战争",
           "法国",
+          "战争",
           "历史",
           "战争游戏"
         ],
@@ -13407,8 +13407,8 @@
         "STEAM",
         "CRPG",
         "独立游戏",
-        "2018",
-        "王老菊"
+        "王老菊",
+        "2018"
       ],
       "identifiers": {
         "bangumi_subject_id": 277446
@@ -13432,8 +13432,8 @@
           "STEAM",
           "CRPG",
           "独立游戏",
-          "2018",
-          "王老菊"
+          "王老菊",
+          "2018"
         ],
         "book_category": null
       }
@@ -15367,10 +15367,10 @@
         "LucasArts",
         "黑色幽默",
         "冒险",
-        "美国",
         "ADV",
         "指向点击",
-        "游戏"
+        "美国",
+        "Viva_la_revolución"
       ],
       "identifiers": {
         "bangumi_subject_id": 5946
@@ -15392,10 +15392,10 @@
           "LucasArts",
           "黑色幽默",
           "冒险",
-          "美国",
           "ADV",
           "指向点击",
-          "游戏"
+          "美国",
+          "Viva_la_revolución"
         ],
         "book_category": null
       }
@@ -16634,8 +16634,8 @@
         "独立游戏",
         "解谜",
         "类银河战士恶魔城",
-        "PC",
         "像素风",
+        "PC",
         "2024",
         "横版",
         "Metroidvania",
@@ -16659,8 +16659,8 @@
           "独立游戏",
           "解谜",
           "类银河战士恶魔城",
-          "PC",
           "像素风",
+          "PC",
           "2024",
           "横版",
           "Metroidvania",
@@ -17454,7 +17454,7 @@
         "血源诅咒",
         "ACT",
         "2015",
-        "受苦"
+        "魂系列"
       ],
       "identifiers": {
         "bangumi_subject_id": 105699
@@ -17479,7 +17479,7 @@
           "血源诅咒",
           "ACT",
           "2015",
-          "受苦"
+          "魂系列"
         ],
         "book_category": null
       }
@@ -17633,8 +17633,8 @@
         "SQUARE",
         "GBA",
         "FC",
-        "PSP",
         "JRPG",
+        "PSP",
         "SquareEnix",
         "ff",
         "FinalFantasy"
@@ -17658,8 +17658,8 @@
           "SQUARE",
           "GBA",
           "FC",
-          "PSP",
           "JRPG",
+          "PSP",
           "SquareEnix",
           "ff",
           "FinalFantasy"
@@ -20482,7 +20482,7 @@
       ],
       "year": 2008,
       "release_date": "2008-06-27",
-      "cover_url": "https://lain.bgm.tv/pic/cover/l/4d/a0/1104_iIpHU.jpg",
+      "cover_url": "https://lain.bgm.tv/pic/cover/l/4d/a0/1104_15bXc.jpg",
       "summary": "“WALL· E”是Waste Allocation Load Lifters - Earth（地球废品分装员）的缩写，这种职业出现在2700年，因为地球的垃圾多到爆炸，整个星球几乎被垃圾掩埋了，罪魁祸首-人类-只得移居到太空船上，并且请一",
       "status": "completed",
       "rating": {

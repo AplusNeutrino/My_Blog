@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "neodb",
-  "fetched_at": "2026-11-22T23:34:46Z",
-  "last_success_at": "2026-11-22T23:34:46Z",
+  "fetched_at": "2026-11-24T03:56:49Z",
+  "last_success_at": "2026-11-24T03:56:49Z",
   "adapter_version": "0.1.0-alpha.6",
   "record_count": 155,
   "records": [
@@ -133,7 +133,7 @@
       "extra": {
         "raw_collection_status": "wishlist",
         "community_rating": 8.6,
-        "community_rating_count": 757,
+        "community_rating_count": 758,
         "comment_text": null,
         "api_url": "/api/movie/1sGao6iRM1kSMDU6KPEqJO"
       }
@@ -751,7 +751,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.0,
-        "community_rating_count": 888,
+        "community_rating_count": 889,
         "comment_text": null,
         "api_url": "/api/movie/5CG2tv1NzVv1MiF5K2tuET"
       }
@@ -2473,7 +2473,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 7.1,
-        "community_rating_count": 471,
+        "community_rating_count": 472,
         "comment_text": null,
         "api_url": "/api/movie/382W6PZc3fVQu4rkcCg83R"
       }
@@ -2675,7 +2675,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 9.3,
-        "community_rating_count": 647,
+        "community_rating_count": 648,
         "comment_text": null,
         "api_url": "/api/tv/season/6TVJED5q3GdBYJ6Gs5BaGR"
       }
@@ -3189,7 +3189,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 261,
+        "community_rating_count": 262,
         "comment_text": null,
         "api_url": "/api/book/0gyOgm4Sd5MkOZ4Gk9BnpN"
       }
@@ -4673,7 +4673,7 @@
       "extra": {
         "raw_collection_status": "complete",
         "community_rating": 8.5,
-        "community_rating_count": 1915,
+        "community_rating_count": 1916,
         "comment_text": null,
         "api_url": "/api/movie/56Z9VAwpYIGpj65EHGkoBA"
       }
